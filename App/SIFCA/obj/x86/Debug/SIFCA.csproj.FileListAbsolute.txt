@@ -6,3 +6,6 @@ C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.exe
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.pdb
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Principal_Form.resources
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\bin\Debug\SIFCA_BOL.dll
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\bin\Debug\SIFCA_BOL.pdb
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.csprojResolveAssemblyReference.cache

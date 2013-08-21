@@ -441,7 +441,7 @@ go
 /* Table: ESTRATO                                               */
 /*==============================================================*/
 create table ESTRATO (
-   CODEST               numeric              not null,
+   CODEST               numeric              identity,
    DESCRIPESTRATO       varchar(500)         null,
    constraint PK_ESTRATO primary key nonclustered (CODEST)
 )

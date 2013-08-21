@@ -77,24 +77,24 @@
   </EntityContainer>
   <EntityType Name="CALIDAD">
     <Key>
-      <PropertyRef Name="CALIDAD1" />
+      <PropertyRef Name="CODCALIDAD" />
     </Key>
-    <Property Name="CALIDAD1" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="DESCRIPCALIDAD" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Type="Decimal" Name="CODCALIDAD" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="DESCRIPCALIDAD" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="INVENTARIO" Relationship="SIFCA_Model.FK_INVENTAR_POSEE_CALIDAD" FromRole="CALIDAD" ToRole="INVENTARIO" />
   </EntityType>
   <EntityType Name="ESPECIE">
     <Key>
       <PropertyRef Name="CODESP" />
     </Key>
-    <Property Name="CODESP" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="GRUPOCOM" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
-    <Property Name="NOMCOMUN" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="NOMCIENTIFICO" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="FAMILIA" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="ZONAGEOGRAFICA" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="ZONADEVIDA" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="DIAMMINCORTE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="CODESP" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="GRUPOCOM" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="NOMCOMUN" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOMCIENTIFICO" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FAMILIA" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ZONAGEOGRAFICA" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ZONADEVIDA" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="DIAMMINCORTE" Precision="18" Scale="0" />
     <NavigationProperty Name="GRUPOCOMERCIAL" Relationship="SIFCA_Model.FK_ESPECIE_PERTENECE_GRUPOCOM" FromRole="ESPECIE" ToRole="GRUPOCOMERCIAL" />
     <NavigationProperty Name="INVENTARIO" Relationship="SIFCA_Model.FK_INVENTAR_CONTIENE_ESPECIE" FromRole="ESPECIE" ToRole="INVENTARIO" />
     <NavigationProperty Name="REGENERACION" Relationship="SIFCA_Model.FK_REGENERA_EVALUA_ESPECIE" FromRole="ESPECIE" ToRole="REGENERACION" />
@@ -104,25 +104,25 @@
     <Key>
       <PropertyRef Name="NROEST" />
     </Key>
-    <Property Name="NROEST" Type="Guid" Nullable="false" />
-    <Property Name="PERSONARESPONSABLE" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="NOMBRE" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Type="Guid" Name="NROEST" Nullable="false" />
+    <Property Type="String" Name="PERSONARESPONSABLE" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOMBRE" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="INVENTARIO" Relationship="SIFCA_Model.FK_INVENTAR_RECOGE_ESTACION" FromRole="ESTACION" ToRole="INVENTARIO" />
   </EntityType>
   <EntityType Name="ESTADOSANITARIO">
     <Key>
       <PropertyRef Name="ESTADO" />
     </Key>
-    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
-    <Property Name="DESCRIPESTADO" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="DESCRIPESTADO" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="INVENTARIO" Relationship="SIFCA_Model.FK_INVENTAR_ASOCIADO_ESTADOSA" FromRole="ESTADOSANITARIO" ToRole="INVENTARIO" />
   </EntityType>
   <EntityType Name="ESTRATO">
     <Key>
       <PropertyRef Name="CODEST" />
     </Key>
-    <Property Name="CODEST" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="DESCRIPESTRATO" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Type="Decimal" Name="CODEST" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="DESCRIPESTRATO" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="INVENTARIO" Relationship="SIFCA_Model.FK_INVENTAR_MANEJA_ESTRATO" FromRole="ESTRATO" ToRole="INVENTARIO" />
     <NavigationProperty Name="REGENERACION" Relationship="SIFCA_Model.FK_REGENERA_SUBDIVIDE_ESTRATO" FromRole="ESTRATO" ToRole="REGENERACION" />
   </EntityType>
@@ -130,8 +130,8 @@
     <Key>
       <PropertyRef Name="CODETAPA" />
     </Key>
-    <Property Name="CODETAPA" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="DESCRIPETAPA" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Type="Decimal" Name="CODETAPA" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="DESCRIPETAPA" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="INVENTARIO" Relationship="SIFCA_Model.FK_INVENTAR_SE_HACE_ETAPA" FromRole="ETAPA" ToRole="INVENTARIO" />
     <NavigationProperty Name="REGENERACION" Relationship="SIFCA_Model.FK_REGENERA_SE_EXAMIN_ETAPA" FromRole="ETAPA" ToRole="REGENERACION" />
   </EntityType>
@@ -139,32 +139,32 @@
     <Key>
       <PropertyRef Name="GRUPOCOM" />
     </Key>
-    <Property Name="GRUPOCOM" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
-    <Property Name="DESCRIPGRUPO" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Type="String" Name="GRUPOCOM" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="DESCRIPGRUPO" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.FK_ESPECIE_PERTENECE_GRUPOCOM" FromRole="GRUPOCOMERCIAL" ToRole="ESPECIE" />
   </EntityType>
   <EntityType Name="INVENTARIO">
     <Key>
       <PropertyRef Name="LINEAINVENT" />
     </Key>
-    <Property Name="LINEAINVENT" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CALIDAD" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="NROPROY" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
-    <Property Name="CODEST" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="CODESP" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="CODETAPA" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="NROEST" Type="Guid" Nullable="false" />
-    <Property Name="PARCELA" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="NROARB" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="CAP" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="DAP" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="ALTCOMER_M" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="ALTTOT_M" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="AREABASAL" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="VOLCOM" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="VOLTOT" Type="Decimal" Precision="18" Scale="0" />
-    <NavigationProperty Name="CALIDAD1" Relationship="SIFCA_Model.FK_INVENTAR_POSEE_CALIDAD" FromRole="INVENTARIO" ToRole="CALIDAD" />
+    <Property Type="Decimal" Name="LINEAINVENT" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Decimal" Name="CODCALIDAD" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="NROPROY" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Type="Decimal" Name="CODEST" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="CODESP" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="CODETAPA" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Guid" Name="NROEST" Nullable="false" />
+    <Property Type="Decimal" Name="PARCELA" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="NROARB" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="CAP" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="DAP" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="ALTCOMER_M" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="ALTTOT_M" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="AREABASAL" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="VOLCOM" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="VOLTOT" Precision="18" Scale="0" />
+    <NavigationProperty Name="CALIDAD" Relationship="SIFCA_Model.FK_INVENTAR_POSEE_CALIDAD" FromRole="INVENTARIO" ToRole="CALIDAD" />
     <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.FK_INVENTAR_CONTIENE_ESPECIE" FromRole="INVENTARIO" ToRole="ESPECIE" />
     <NavigationProperty Name="ESTACION" Relationship="SIFCA_Model.FK_INVENTAR_RECOGE_ESTACION" FromRole="INVENTARIO" ToRole="ESTACION" />
     <NavigationProperty Name="ESTADOSANITARIO" Relationship="SIFCA_Model.FK_INVENTAR_ASOCIADO_ESTADOSA" FromRole="INVENTARIO" ToRole="ESTADOSANITARIO" />
@@ -176,8 +176,8 @@
     <Key>
       <PropertyRef Name="NOMARCH" />
     </Key>
-    <Property Name="NOMARCH" Type="String" Nullable="false" MaxLength="60" Unicode="false" FixedLength="false" />
-    <Property Name="DESCRIPLISTESPECIES" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Type="String" Name="NOMARCH" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DESCRIPLISTESPECIES" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_TIENE_LISTADO" FromRole="LISTADODEESPECIES" ToRole="PROYECTO" />
     <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.LIGADO" FromRole="LISTADODEESPECIES" ToRole="ESPECIE" />
   </EntityType>
@@ -185,16 +185,16 @@
     <Key>
       <PropertyRef Name="NROPROY" />
     </Key>
-    <Property Name="NROPROY" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="NROEST" Type="Guid" Nullable="false" />
-    <Property Name="NOMBRETIPOINV" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="NOMARCH" Type="String" Nullable="false" MaxLength="60" Unicode="false" FixedLength="false" />
-    <Property Name="LUGAR" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="SUPTOT" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="INTMUE" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="SUPMUE" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="TAMANO" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="ESTADOPROY" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Type="Decimal" Name="NROPROY" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Guid" Name="NROEST" Nullable="false" />
+    <Property Type="String" Name="NOMBRETIPOINV" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOMARCH" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LUGAR" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="SUPTOT" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="INTMUE" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="SUPMUE" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="TAMANO" Precision="18" Scale="0" />
+    <Property Type="String" Name="ESTADOPROY" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="INVENTARIO" Relationship="SIFCA_Model.FK_INVENTAR_DESARROLL_PROYECTO" FromRole="PROYECTO" ToRole="INVENTARIO" />
     <NavigationProperty Name="LISTADODEESPECIES" Relationship="SIFCA_Model.FK_PROYECTO_TIENE_LISTADO" FromRole="PROYECTO" ToRole="LISTADODEESPECIES" />
     <NavigationProperty Name="TIPOINVENTARIO" Relationship="SIFCA_Model.FK_PROYECTO_ES_TIPOINVE" FromRole="PROYECTO" ToRole="TIPOINVENTARIO" />
@@ -204,15 +204,15 @@
     <Key>
       <PropertyRef Name="LINEAREGEN" />
     </Key>
-    <Property Name="LINEAREGEN" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="PARCELA" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="NROARB" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="LATIZAL" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="BRINZAL" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="CODEST" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="CODETAPA" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="NROPROY" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="CODESP" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="LINEAREGEN" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Decimal" Name="PARCELA" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="NROARB" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="LATIZAL" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="BRINZAL" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="CODEST" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="CODETAPA" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="NROPROY" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="CODESP" Nullable="false" Precision="18" Scale="0" />
     <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.FK_REGENERA_EVALUA_ESPECIE" FromRole="REGENERACION" ToRole="ESPECIE" />
     <NavigationProperty Name="ESTRATO" Relationship="SIFCA_Model.FK_REGENERA_SUBDIVIDE_ESTRATO" FromRole="REGENERACION" ToRole="ESTRATO" />
     <NavigationProperty Name="ETAPA" Relationship="SIFCA_Model.FK_REGENERA_SE_EXAMIN_ETAPA" FromRole="REGENERACION" ToRole="ETAPA" />
@@ -222,8 +222,8 @@
     <Key>
       <PropertyRef Name="NOMBRETIPOINV" />
     </Key>
-    <Property Name="NOMBRETIPOINV" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="DESCRIPTIPOINV" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Type="String" Name="NOMBRETIPOINV" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DESCRIPTIPOINV" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_ES_TIPOINVE" FromRole="TIPOINVENTARIO" ToRole="PROYECTO" />
   </EntityType>
   <EntityType Name="TSTUDENT">
@@ -232,29 +232,25 @@
       <PropertyRef Name="ALPHA" />
       <PropertyRef Name="VALOR" />
     </Key>
-    <Property Name="N" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="ALPHA" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="VALOR" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="N" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="ALPHA" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="VALOR" Nullable="false" Precision="18" Scale="0" />
   </EntityType>
   <Association Name="FK_INVENTAR_POSEE_CALIDAD">
-    <End Role="CALIDAD" Type="SIFCA_Model.CALIDAD" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="INVENTARIO" Type="SIFCA_Model.INVENTARIO" Multiplicity="*" />
+    <End Type="SIFCA_Model.CALIDAD" Role="CALIDAD" Multiplicity="1" />
+    <End Type="SIFCA_Model.INVENTARIO" Role="INVENTARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CALIDAD">
-        <PropertyRef Name="CALIDAD1" />
+        <PropertyRef Name="CODCALIDAD" />
       </Principal>
       <Dependent Role="INVENTARIO">
-        <PropertyRef Name="CALIDAD" />
+        <PropertyRef Name="CODCALIDAD" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ESPECIE_PERTENECE_GRUPOCOM">
-    <End Role="GRUPOCOMERCIAL" Type="SIFCA_Model.GRUPOCOMERCIAL" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="ESPECIE" Type="SIFCA_Model.ESPECIE" Multiplicity="*" />
+    <End Type="SIFCA_Model.GRUPOCOMERCIAL" Role="GRUPOCOMERCIAL" Multiplicity="1" />
+    <End Type="SIFCA_Model.ESPECIE" Role="ESPECIE" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="GRUPOCOMERCIAL">
         <PropertyRef Name="GRUPOCOM" />
@@ -265,10 +261,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_INVENTAR_CONTIENE_ESPECIE">
-    <End Role="ESPECIE" Type="SIFCA_Model.ESPECIE" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="INVENTARIO" Type="SIFCA_Model.INVENTARIO" Multiplicity="*" />
+    <End Type="SIFCA_Model.ESPECIE" Role="ESPECIE" Multiplicity="1" />
+    <End Type="SIFCA_Model.INVENTARIO" Role="INVENTARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ESPECIE">
         <PropertyRef Name="CODESP" />
@@ -279,10 +273,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_REGENERA_EVALUA_ESPECIE">
-    <End Role="ESPECIE" Type="SIFCA_Model.ESPECIE" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="REGENERACION" Type="SIFCA_Model.REGENERACION" Multiplicity="*" />
+    <End Type="SIFCA_Model.ESPECIE" Role="ESPECIE" Multiplicity="1" />
+    <End Type="SIFCA_Model.REGENERACION" Role="REGENERACION" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ESPECIE">
         <PropertyRef Name="CODESP" />
@@ -293,10 +285,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_INVENTAR_RECOGE_ESTACION">
-    <End Role="ESTACION" Type="SIFCA_Model.ESTACION" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="INVENTARIO" Type="SIFCA_Model.INVENTARIO" Multiplicity="*" />
+    <End Type="SIFCA_Model.ESTACION" Role="ESTACION" Multiplicity="1" />
+    <End Type="SIFCA_Model.INVENTARIO" Role="INVENTARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ESTACION">
         <PropertyRef Name="NROEST" />
@@ -307,10 +297,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_INVENTAR_ASOCIADO_ESTADOSA">
-    <End Role="ESTADOSANITARIO" Type="SIFCA_Model.ESTADOSANITARIO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="INVENTARIO" Type="SIFCA_Model.INVENTARIO" Multiplicity="*" />
+    <End Type="SIFCA_Model.ESTADOSANITARIO" Role="ESTADOSANITARIO" Multiplicity="1" />
+    <End Type="SIFCA_Model.INVENTARIO" Role="INVENTARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ESTADOSANITARIO">
         <PropertyRef Name="ESTADO" />
@@ -321,10 +309,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_INVENTAR_MANEJA_ESTRATO">
-    <End Role="ESTRATO" Type="SIFCA_Model.ESTRATO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="INVENTARIO" Type="SIFCA_Model.INVENTARIO" Multiplicity="*" />
+    <End Type="SIFCA_Model.ESTRATO" Role="ESTRATO" Multiplicity="1" />
+    <End Type="SIFCA_Model.INVENTARIO" Role="INVENTARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ESTRATO">
         <PropertyRef Name="CODEST" />
@@ -335,10 +321,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_REGENERA_SUBDIVIDE_ESTRATO">
-    <End Role="ESTRATO" Type="SIFCA_Model.ESTRATO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="REGENERACION" Type="SIFCA_Model.REGENERACION" Multiplicity="*" />
+    <End Type="SIFCA_Model.ESTRATO" Role="ESTRATO" Multiplicity="1" />
+    <End Type="SIFCA_Model.REGENERACION" Role="REGENERACION" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ESTRATO">
         <PropertyRef Name="CODEST" />
@@ -349,10 +333,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_INVENTAR_SE_HACE_ETAPA">
-    <End Role="ETAPA" Type="SIFCA_Model.ETAPA" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="INVENTARIO" Type="SIFCA_Model.INVENTARIO" Multiplicity="*" />
+    <End Type="SIFCA_Model.ETAPA" Role="ETAPA" Multiplicity="1" />
+    <End Type="SIFCA_Model.INVENTARIO" Role="INVENTARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ETAPA">
         <PropertyRef Name="CODETAPA" />
@@ -363,10 +345,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_REGENERA_SE_EXAMIN_ETAPA">
-    <End Role="ETAPA" Type="SIFCA_Model.ETAPA" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="REGENERACION" Type="SIFCA_Model.REGENERACION" Multiplicity="*" />
+    <End Type="SIFCA_Model.ETAPA" Role="ETAPA" Multiplicity="1" />
+    <End Type="SIFCA_Model.REGENERACION" Role="REGENERACION" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ETAPA">
         <PropertyRef Name="CODETAPA" />
@@ -377,10 +357,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_INVENTAR_DESARROLL_PROYECTO">
-    <End Role="PROYECTO" Type="SIFCA_Model.PROYECTO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="INVENTARIO" Type="SIFCA_Model.INVENTARIO" Multiplicity="*" />
+    <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="1" />
+    <End Type="SIFCA_Model.INVENTARIO" Role="INVENTARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PROYECTO">
         <PropertyRef Name="NROPROY" />
@@ -391,10 +369,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PROYECTO_TIENE_LISTADO">
-    <End Role="LISTADODEESPECIES" Type="SIFCA_Model.LISTADODEESPECIES" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="PROYECTO" Type="SIFCA_Model.PROYECTO" Multiplicity="*" />
+    <End Type="SIFCA_Model.LISTADODEESPECIES" Role="LISTADODEESPECIES" Multiplicity="1" />
+    <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="LISTADODEESPECIES">
         <PropertyRef Name="NOMARCH" />
@@ -405,10 +381,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PROYECTO_ES_TIPOINVE">
-    <End Role="TIPOINVENTARIO" Type="SIFCA_Model.TIPOINVENTARIO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="PROYECTO" Type="SIFCA_Model.PROYECTO" Multiplicity="*" />
+    <End Type="SIFCA_Model.TIPOINVENTARIO" Role="TIPOINVENTARIO" Multiplicity="1" />
+    <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TIPOINVENTARIO">
         <PropertyRef Name="NOMBRETIPOINV" />
@@ -419,10 +393,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_REGENERA_EXAMINA_PROYECTO">
-    <End Role="PROYECTO" Type="SIFCA_Model.PROYECTO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="REGENERACION" Type="SIFCA_Model.REGENERACION" Multiplicity="*" />
+    <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="1" />
+    <End Type="SIFCA_Model.REGENERACION" Role="REGENERACION" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PROYECTO">
         <PropertyRef Name="NROPROY" />
@@ -433,7 +405,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="LIGADO">
-    <End Role="ESPECIE" Type="SIFCA_Model.ESPECIE" Multiplicity="*" />
-    <End Role="LISTADODEESPECIES" Type="SIFCA_Model.LISTADODEESPECIES" Multiplicity="*" />
+    <End Type="SIFCA_Model.ESPECIE" Role="ESPECIE" Multiplicity="*" />
+    <End Type="SIFCA_Model.LISTADODEESPECIES" Role="LISTADODEESPECIES" Multiplicity="*" />
   </Association>
 </Schema>

@@ -5,3 +5,4 @@ C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.csproj.GenerateResource.Cache
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.exe
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.pdb
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Principal_Form.resources

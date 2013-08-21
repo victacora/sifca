@@ -15,7 +15,7 @@ namespace SIFCA_ENTITIES
     public partial class INVENTARIO
     {
         public decimal LINEAINVENT { get; set; }
-        public decimal CALIDAD { get; set; }
+        public decimal CODCALIDAD { get; set; }
         public decimal NROPROY { get; set; }
         public string ESTADO { get; set; }
         public decimal CODEST { get; set; }
@@ -32,7 +32,7 @@ namespace SIFCA_ENTITIES
         public Nullable<decimal> VOLCOM { get; set; }
         public Nullable<decimal> VOLTOT { get; set; }
     
-        public virtual CALIDAD CALIDAD1 { get; set; }
+        public virtual CALIDAD CALIDAD { get; set; }
         public virtual ESPECIE ESPECIE { get; set; }
         public virtual ESTACION ESTACION { get; set; }
         public virtual ESTADOSANITARIO ESTADOSANITARIO { get; set; }

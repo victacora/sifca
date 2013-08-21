@@ -19,7 +19,7 @@ namespace SIFCA_ENTITIES
             this.INVENTARIO = new HashSet<INVENTARIO>();
         }
     
-        public decimal CALIDAD1 { get; set; }
+        public decimal CODCALIDAD { get; set; }
         public string DESCRIPCALIDAD { get; set; }
     
         public virtual ICollection<INVENTARIO> INVENTARIO { get; set; }

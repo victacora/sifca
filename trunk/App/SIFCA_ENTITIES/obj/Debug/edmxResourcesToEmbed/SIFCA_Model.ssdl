@@ -82,9 +82,9 @@
   </EntityContainer>
   <EntityType Name="CALIDAD">
     <Key>
-      <PropertyRef Name="CALIDAD" />
+      <PropertyRef Name="CODCALIDAD" />
     </Key>
-    <Property Name="CALIDAD" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CODCALIDAD" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="DESCRIPCALIDAD" Type="varchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="ESPECIE">
@@ -119,7 +119,7 @@
     <Key>
       <PropertyRef Name="CODEST" />
     </Key>
-    <Property Name="CODEST" Type="numeric" Nullable="false" />
+    <Property Name="CODEST" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="DESCRIPESTRATO" Type="varchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="ETAPA">
@@ -141,7 +141,7 @@
       <PropertyRef Name="LINEAINVENT" />
     </Key>
     <Property Name="LINEAINVENT" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="CALIDAD" Type="numeric" Nullable="false" />
+    <Property Name="CODCALIDAD" Type="numeric" Nullable="false" />
     <Property Name="NROPROY" Type="numeric" Nullable="false" />
     <Property Name="ESTADO" Type="char" Nullable="false" MaxLength="2" />
     <Property Name="CODEST" Type="numeric" Nullable="false" />
@@ -296,10 +296,10 @@
     <End Role="INVENTARIO" Type="SIFCA_Model.Store.INVENTARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CALIDAD">
-        <PropertyRef Name="CALIDAD" />
+        <PropertyRef Name="CODCALIDAD" />
       </Principal>
       <Dependent Role="INVENTARIO">
-        <PropertyRef Name="CALIDAD" />
+        <PropertyRef Name="CODCALIDAD" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

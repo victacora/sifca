@@ -1,0 +1,7 @@
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_ENTITIES\bin\Debug\SIFCA_DAL.dll.config
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_ENTITIES\bin\Debug\SIFCA_DAL.dll
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_ENTITIES\bin\Debug\SIFCA_DAL.pdb
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_ENTITIES\bin\Debug\EntityFramework.dll
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_ENTITIES\bin\Debug\EntityFramework.xml
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_ENTITIES\obj\Debug\SIFCA_DAL.dll
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_ENTITIES\obj\Debug\SIFCA_DAL.pdb

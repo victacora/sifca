@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     20/08/2013 11:27:06 p.m.                     */
+/* Created on:     21/08/2013 04:29:51 p.m.                     */
 /*==============================================================*/
 
 
@@ -93,6 +93,13 @@ if exists (select 1
    where r.fkeyid = object_id('PROYECTO') and o.name = 'FK_PROYECTO_TIENE_LISTADO')
 alter table PROYECTO
    drop constraint FK_PROYECTO_TIENE_LISTADO
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('REGENERACION') and o.name = 'FK_REGENERA_CAPTURA_ESTACION')
+alter table REGENERACION
+   drop constraint FK_REGENERA_CAPTURA_ESTACION
 go
 
 if exists (select 1
@@ -302,6 +309,15 @@ go
 if exists (select 1
             from  sysindexes
            where  id    = object_id('REGENERACION')
+            and   name  = 'CAPTURA_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index REGENERACION.CAPTURA_FK
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('REGENERACION')
             and   name  = 'SE_EXAMINA_FK'
             and   indid > 0
             and   indid < 255)
@@ -386,9 +402,9 @@ go
 /* Table: CALIDAD                                               */
 /*==============================================================*/
 create table CALIDAD (
-   CALIDAD              numeric              identity,
+   CODCALIDAD           numeric              identity,
    DESCRIPCALIDAD       varchar(500)         null,
-   constraint PK_CALIDAD primary key nonclustered (CALIDAD)
+   constraint PK_CALIDAD primary key nonclustered (CODCALIDAD)
 )
 go
 
@@ -471,15 +487,14 @@ go
 /* Table: INVENTARIO                                            */
 /*==============================================================*/
 create table INVENTARIO (
-   LINEAINVENT          numeric              identity,
-   CALIDAD              numeric              not null,
+   CODCALIDAD           numeric              not null,
    NROPROY              numeric              not null,
    ESTADO               char(2)              not null,
    CODEST               numeric              not null,
    CODESP               numeric              not null,
    CODETAPA             numeric              not null,
    NROEST               uniqueidentifier     not null,
-   PARCELA              numeric              null,
+   PARCELA              numeric              not null,
    NROARB               numeric              null,
    CAP                  numeric              null,
    DAP                  numeric              null,
@@ -488,7 +503,7 @@ create table INVENTARIO (
    AREABASAL            decimal              null,
    VOLCOM               decimal              null,
    VOLTOT               decimal              null,
-   constraint PK_INVENTARIO primary key nonclustered (LINEAINVENT)
+   constraint PK_INVENTARIO primary key (NROPROY, NROEST, PARCELA)
 )
 go
 
@@ -512,7 +527,7 @@ go
 /* Index: POSEE_FK                                              */
 /*==============================================================*/
 create index POSEE_FK on INVENTARIO (
-CALIDAD ASC
+CODCALIDAD ASC
 )
 go
 
@@ -614,8 +629,8 @@ go
 /* Table: REGENERACION                                          */
 /*==============================================================*/
 create table REGENERACION (
-   LINEAREGEN           numeric              identity,
-   PARCELA              numeric              null,
+   NROEST               uniqueidentifier     not null,
+   PARCELA              numeric              not null,
    NROARB               numeric              null,
    LATIZAL              numeric              null,
    BRINZAL              numeric              null,
@@ -623,7 +638,7 @@ create table REGENERACION (
    CODETAPA             numeric              not null,
    NROPROY              numeric              not null,
    CODESP               numeric              not null,
-   constraint PK_REGENERACION primary key nonclustered (LINEAREGEN)
+   constraint PK_REGENERACION primary key (NROEST, PARCELA, NROPROY)
 )
 go
 
@@ -656,6 +671,14 @@ go
 /*==============================================================*/
 create index SE_EXAMINA_FK on REGENERACION (
 CODETAPA ASC
+)
+go
+
+/*==============================================================*/
+/* Index: CAPTURA_FK                                            */
+/*==============================================================*/
+create index CAPTURA_FK on REGENERACION (
+NROEST ASC
 )
 go
 
@@ -711,8 +734,8 @@ alter table INVENTARIO
 go
 
 alter table INVENTARIO
-   add constraint FK_INVENTAR_POSEE_CALIDAD foreign key (CALIDAD)
-      references CALIDAD (CALIDAD)
+   add constraint FK_INVENTAR_POSEE_CALIDAD foreign key (CODCALIDAD)
+      references CALIDAD (CODCALIDAD)
          on update cascade on delete cascade
 go
 
@@ -756,6 +779,11 @@ alter table PROYECTO
    add constraint FK_PROYECTO_TIENE_LISTADO foreign key (NOMARCH)
       references LISTADODEESPECIES (NOMARCH)
          on update cascade on delete cascade
+go
+
+alter table REGENERACION
+   add constraint FK_REGENERA_CAPTURA_ESTACION foreign key (NROEST)
+      references ESTACION (NROEST)
 go
 
 alter table REGENERACION

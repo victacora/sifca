@@ -1,0 +1,9 @@
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_BOL\bin\Debug\SIFCA_BLL.dll
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_BOL\bin\Debug\SIFCA_BLL.pdb
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_BOL\bin\Debug\SIFCA_DAL.dll
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_BOL\bin\Debug\EntityFramework.dll
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_BOL\bin\Debug\SIFCA_DAL.pdb
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_BOL\bin\Debug\EntityFramework.xml
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_BOL\obj\Debug\SIFCA_BLL.csprojResolveAssemblyReference.cache
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_BOL\obj\Debug\SIFCA_BLL.dll
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_BOL\obj\Debug\SIFCA_BLL.pdb

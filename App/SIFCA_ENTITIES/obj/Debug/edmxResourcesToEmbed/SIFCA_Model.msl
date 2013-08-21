@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SIFCA_ModelStoreContainer" CdmEntityContainer="SIFCA_CONNECTION">
+    <EntitySetMapping Name="CALIDAD">
+      <EntityTypeMapping TypeName="SIFCA_Model.CALIDAD">
+        <MappingFragment StoreEntitySet="CALIDAD">
+          <ScalarProperty Name="CALIDAD1" ColumnName="CALIDAD" />
+          <ScalarProperty Name="DESCRIPCALIDAD" ColumnName="DESCRIPCALIDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESPECIE">
+      <EntityTypeMapping TypeName="SIFCA_Model.ESPECIE">
+        <MappingFragment StoreEntitySet="ESPECIE">
+          <ScalarProperty Name="CODESP" ColumnName="CODESP" />
+          <ScalarProperty Name="GRUPOCOM" ColumnName="GRUPOCOM" />
+          <ScalarProperty Name="NOMCOMUN" ColumnName="NOMCOMUN" />
+          <ScalarProperty Name="NOMCIENTIFICO" ColumnName="NOMCIENTIFICO" />
+          <ScalarProperty Name="FAMILIA" ColumnName="FAMILIA" />
+          <ScalarProperty Name="ZONAGEOGRAFICA" ColumnName="ZONAGEOGRAFICA" />
+          <ScalarProperty Name="ZONADEVIDA" ColumnName="ZONADEVIDA" />
+          <ScalarProperty Name="DIAMMINCORTE" ColumnName="DIAMMINCORTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESTACION">
+      <EntityTypeMapping TypeName="SIFCA_Model.ESTACION">
+        <MappingFragment StoreEntitySet="ESTACION">
+          <ScalarProperty Name="NROEST" ColumnName="NROEST" />
+          <ScalarProperty Name="PERSONARESPONSABLE" ColumnName="PERSONARESPONSABLE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESTADOSANITARIO">
+      <EntityTypeMapping TypeName="SIFCA_Model.ESTADOSANITARIO">
+        <MappingFragment StoreEntitySet="ESTADOSANITARIO">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="DESCRIPESTADO" ColumnName="DESCRIPESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESTRATO">
+      <EntityTypeMapping TypeName="SIFCA_Model.ESTRATO">
+        <MappingFragment StoreEntitySet="ESTRATO">
+          <ScalarProperty Name="CODEST" ColumnName="CODEST" />
+          <ScalarProperty Name="DESCRIPESTRATO" ColumnName="DESCRIPESTRATO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ETAPA">
+      <EntityTypeMapping TypeName="SIFCA_Model.ETAPA">
+        <MappingFragment StoreEntitySet="ETAPA">
+          <ScalarProperty Name="CODETAPA" ColumnName="CODETAPA" />
+          <ScalarProperty Name="DESCRIPETAPA" ColumnName="DESCRIPETAPA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GRUPOCOMERCIAL">
+      <EntityTypeMapping TypeName="SIFCA_Model.GRUPOCOMERCIAL">
+        <MappingFragment StoreEntitySet="GRUPOCOMERCIAL">
+          <ScalarProperty Name="GRUPOCOM" ColumnName="GRUPOCOM" />
+          <ScalarProperty Name="DESCRIPGRUPO" ColumnName="DESCRIPGRUPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INVENTARIO">
+      <EntityTypeMapping TypeName="SIFCA_Model.INVENTARIO">
+        <MappingFragment StoreEntitySet="INVENTARIO">
+          <ScalarProperty Name="LINEAINVENT" ColumnName="LINEAINVENT" />
+          <ScalarProperty Name="CALIDAD" ColumnName="CALIDAD" />
+          <ScalarProperty Name="NROPROY" ColumnName="NROPROY" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="CODEST" ColumnName="CODEST" />
+          <ScalarProperty Name="CODESP" ColumnName="CODESP" />
+          <ScalarProperty Name="CODETAPA" ColumnName="CODETAPA" />
+          <ScalarProperty Name="NROEST" ColumnName="NROEST" />
+          <ScalarProperty Name="PARCELA" ColumnName="PARCELA" />
+          <ScalarProperty Name="NROARB" ColumnName="NROARB" />
+          <ScalarProperty Name="CAP" ColumnName="CAP" />
+          <ScalarProperty Name="DAP" ColumnName="DAP" />
+          <ScalarProperty Name="ALTCOMER_M" ColumnName="ALTCOMER_M" />
+          <ScalarProperty Name="ALTTOT_M" ColumnName="ALTTOT_M" />
+          <ScalarProperty Name="AREABASAL" ColumnName="AREABASAL" />
+          <ScalarProperty Name="VOLCOM" ColumnName="VOLCOM" />
+          <ScalarProperty Name="VOLTOT" ColumnName="VOLTOT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LISTADODEESPECIES">
+      <EntityTypeMapping TypeName="SIFCA_Model.LISTADODEESPECIES">
+        <MappingFragment StoreEntitySet="LISTADODEESPECIES">
+          <ScalarProperty Name="NOMARCH" ColumnName="NOMARCH" />
+          <ScalarProperty Name="DESCRIPLISTESPECIES" ColumnName="DESCRIPLISTESPECIES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROYECTO">
+      <EntityTypeMapping TypeName="SIFCA_Model.PROYECTO">
+        <MappingFragment StoreEntitySet="PROYECTO">
+          <ScalarProperty Name="NROPROY" ColumnName="NROPROY" />
+          <ScalarProperty Name="NROEST" ColumnName="NROEST" />
+          <ScalarProperty Name="NOMBRETIPOINV" ColumnName="NOMBRETIPOINV" />
+          <ScalarProperty Name="NOMARCH" ColumnName="NOMARCH" />
+          <ScalarProperty Name="LUGAR" ColumnName="LUGAR" />
+          <ScalarProperty Name="SUPTOT" ColumnName="SUPTOT" />
+          <ScalarProperty Name="INTMUE" ColumnName="INTMUE" />
+          <ScalarProperty Name="SUPMUE" ColumnName="SUPMUE" />
+          <ScalarProperty Name="TAMANO" ColumnName="TAMANO" />
+          <ScalarProperty Name="ESTADOPROY" ColumnName="ESTADOPROY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REGENERACION">
+      <EntityTypeMapping TypeName="SIFCA_Model.REGENERACION">
+        <MappingFragment StoreEntitySet="REGENERACION">
+          <ScalarProperty Name="LINEAREGEN" ColumnName="LINEAREGEN" />
+          <ScalarProperty Name="PARCELA" ColumnName="PARCELA" />
+          <ScalarProperty Name="NROARB" ColumnName="NROARB" />
+          <ScalarProperty Name="LATIZAL" ColumnName="LATIZAL" />
+          <ScalarProperty Name="BRINZAL" ColumnName="BRINZAL" />
+          <ScalarProperty Name="CODEST" ColumnName="CODEST" />
+          <ScalarProperty Name="CODETAPA" ColumnName="CODETAPA" />
+          <ScalarProperty Name="NROPROY" ColumnName="NROPROY" />
+          <ScalarProperty Name="CODESP" ColumnName="CODESP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPOINVENTARIO">
+      <EntityTypeMapping TypeName="SIFCA_Model.TIPOINVENTARIO">
+        <MappingFragment StoreEntitySet="TIPOINVENTARIO">
+          <ScalarProperty Name="NOMBRETIPOINV" ColumnName="NOMBRETIPOINV" />
+          <ScalarProperty Name="DESCRIPTIPOINV" ColumnName="DESCRIPTIPOINV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TSTUDENT">
+      <EntityTypeMapping TypeName="SIFCA_Model.TSTUDENT">
+        <MappingFragment StoreEntitySet="TSTUDENT">
+          <ScalarProperty Name="N" ColumnName="N" />
+          <ScalarProperty Name="ALPHA" ColumnName="ALPHA" />
+          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="LIGADO" TypeName="SIFCA_Model.LIGADO" StoreEntitySet="LIGADO">
+      <EndProperty Name="ESPECIE">
+        <ScalarProperty Name="CODESP" ColumnName="CODESP" />
+      </EndProperty>
+      <EndProperty Name="LISTADODEESPECIES">
+        <ScalarProperty Name="NOMARCH" ColumnName="NOMARCH" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

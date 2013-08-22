@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace SIFCA
+namespace SIFCA.Gestionar_Estaciones
 {
-    public partial class Estacion_Form : Form
+    public partial class Listar_Estaciones_Form : Form
     {
-        public Estacion_Form()
+        public Listar_Estaciones_Form()
         {
             InitializeComponent();
         }

@@ -54,11 +54,11 @@ namespace SIFCA_BLL
             }
         }
 
-        public void UpdateEstation(ESTACION station)
+        public void UpdateEstation(ESTACION project)
         {
             try
             {
-                this.sifcaRepository.Entry(station).State = EntityState.Modified;
+                this.sifcaRepository.Entry(project).State = EntityState.Modified;
                 this.sifcaRepository.SaveChanges();
             }
             catch (Exception ex)

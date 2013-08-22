@@ -44,35 +44,45 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.iNVENTARIOBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.buscarLbl = new System.Windows.Forms.ToolStripLabel();
+            this.parametroBusTxt = new System.Windows.Forms.ToolStripTextBox();
+            this.filtrarLbl = new System.Windows.Forms.ToolStripLabel();
             this.criterioBusquedaCbx = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.filtrarEspLbl = new System.Windows.Forms.ToolStripLabel();
             this.especiesCbx = new System.Windows.Forms.ToolStripComboBox();
             this.inventarioDataGridView = new System.Windows.Forms.DataGridView();
             this.especieBSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.etapaBSource = new System.Windows.Forms.BindingSource(this.components);
+            this.estratoBSource = new System.Windows.Forms.BindingSource(this.components);
+            this.calidadBSource = new System.Windows.Forms.BindingSource(this.components);
+            this.estadoSaniBSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estacion = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Etapa = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Estrato = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Arbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Especie = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Calidad = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.CAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AltComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AltTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VolComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VolTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.inventarioBNavigator)).BeginInit();
             this.inventarioBNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventarioBSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventarioDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.especieBSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estacionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etapaBSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estratoBSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calidadBSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estadoSaniBSource)).BeginInit();
             this.SuspendLayout();
             // 
             // inventarioBNavigator
@@ -94,11 +104,11 @@
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.iNVENTARIOBindingNavigatorSaveItem,
-            this.toolStripLabel1,
-            this.toolStripTextBox1,
-            this.toolStripLabel3,
+            this.buscarLbl,
+            this.parametroBusTxt,
+            this.filtrarLbl,
             this.criterioBusquedaCbx,
-            this.toolStripLabel2,
+            this.filtrarEspLbl,
             this.especiesCbx});
             this.inventarioBNavigator.Location = new System.Drawing.Point(0, 0);
             this.inventarioBNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
@@ -199,22 +209,22 @@
             this.iNVENTARIOBindingNavigatorSaveItem.Name = "iNVENTARIOBindingNavigatorSaveItem";
             this.iNVENTARIOBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             // 
-            // toolStripLabel1
+            // buscarLbl
             // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(45, 22);
-            this.toolStripLabel1.Text = "Buscar:";
+            this.buscarLbl.Name = "buscarLbl";
+            this.buscarLbl.Size = new System.Drawing.Size(45, 22);
+            this.buscarLbl.Text = "Buscar:";
             // 
-            // toolStripTextBox1
+            // parametroBusTxt
             // 
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(150, 25);
+            this.parametroBusTxt.Name = "parametroBusTxt";
+            this.parametroBusTxt.Size = new System.Drawing.Size(150, 25);
             // 
-            // toolStripLabel3
+            // filtrarLbl
             // 
-            this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(92, 22);
-            this.toolStripLabel3.Text = "Filtrar busqueda";
+            this.filtrarLbl.Name = "filtrarLbl";
+            this.filtrarLbl.Size = new System.Drawing.Size(92, 22);
+            this.filtrarLbl.Text = "Filtrar busqueda";
             // 
             // criterioBusquedaCbx
             // 
@@ -229,11 +239,11 @@
             this.criterioBusquedaCbx.Name = "criterioBusquedaCbx";
             this.criterioBusquedaCbx.Size = new System.Drawing.Size(121, 25);
             // 
-            // toolStripLabel2
+            // filtrarEspLbl
             // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(84, 22);
-            this.toolStripLabel2.Text = "Filtrar Especies";
+            this.filtrarEspLbl.Name = "filtrarEspLbl";
+            this.filtrarEspLbl.Size = new System.Drawing.Size(84, 22);
+            this.filtrarEspLbl.Text = "Filtrar Especies";
             // 
             // especiesCbx
             // 
@@ -250,22 +260,22 @@
             this.inventarioDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.inventarioDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.inventarioDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16});
+            this.Proyecto,
+            this.Estacion,
+            this.Etapa,
+            this.Estrato,
+            this.Parcela,
+            this.Arbol,
+            this.Especie,
+            this.Calidad,
+            this.Estado,
+            this.CAP,
+            this.DAP,
+            this.AltComercial,
+            this.AltTotal,
+            this.AB,
+            this.VolComercial,
+            this.VolTotal});
             this.inventarioDataGridView.DataSource = this.inventarioBSource;
             this.inventarioDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inventarioDataGridView.Location = new System.Drawing.Point(0, 25);
@@ -277,106 +287,151 @@
             // 
             this.especieBSource.DataSource = typeof(SIFCA_DAL.ESPECIE);
             // 
-            // dataGridViewTextBoxColumn2
+            // estacionBindingSource
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "NROPROY";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Proyecto";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.estacionBindingSource.DataSource = typeof(SIFCA_DAL.ESTACION);
             // 
-            // dataGridViewTextBoxColumn7
+            // etapaBSource
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "NROEST";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Estacion";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.etapaBSource.DataSource = typeof(SIFCA_DAL.ETAPA);
             // 
-            // dataGridViewTextBoxColumn6
+            // estratoBSource
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "CODETAPA";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Etapa";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.estratoBSource.DataSource = typeof(SIFCA_DAL.ESTRATO);
             // 
-            // dataGridViewTextBoxColumn4
+            // calidadBSource
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "CODEST";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Estrato";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.calidadBSource.DataSource = typeof(SIFCA_DAL.CALIDAD);
             // 
-            // dataGridViewTextBoxColumn8
+            // estadoSaniBSource
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "PARCELA";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Parcela";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.estadoSaniBSource.DataSource = typeof(SIFCA_DAL.ESTADOSANITARIO);
             // 
-            // dataGridViewTextBoxColumn9
+            // Proyecto
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "NROARB";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Arbol";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.Proyecto.DataPropertyName = "NROPROY";
+            this.Proyecto.HeaderText = "Proyecto";
+            this.Proyecto.Name = "Proyecto";
             // 
-            // dataGridViewTextBoxColumn5
+            // Estacion
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "CODESP";
-            this.dataGridViewTextBoxColumn5.DataSource = this.especieBSource;
-            this.dataGridViewTextBoxColumn5.DisplayMember = "NOMCOMUN";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Especie";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn5.ValueMember = "CODESP";
+            this.Estacion.DataPropertyName = "NROEST";
+            this.Estacion.DataSource = this.estacionBindingSource;
+            this.Estacion.DisplayMember = "NOMBRE";
+            this.Estacion.HeaderText = "Estacion";
+            this.Estacion.Name = "Estacion";
+            this.Estacion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Estacion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Estacion.ValueMember = "NROEST";
             // 
-            // dataGridViewTextBoxColumn1
+            // Etapa
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "CODCALIDAD";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Calidad";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.Etapa.DataPropertyName = "CODETAPA";
+            this.Etapa.DataSource = this.etapaBSource;
+            this.Etapa.DisplayMember = "CODETAPA";
+            this.Etapa.HeaderText = "Etapa";
+            this.Etapa.Name = "Etapa";
+            this.Etapa.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Etapa.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Etapa.ValueMember = "CODETAPA";
             // 
-            // dataGridViewTextBoxColumn3
+            // Estrato
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "ESTADO";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Estado";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.Estrato.DataPropertyName = "CODEST";
+            this.Estrato.DataSource = this.estratoBSource;
+            this.Estrato.DisplayMember = "CODEST";
+            this.Estrato.HeaderText = "Estrato";
+            this.Estrato.Name = "Estrato";
+            this.Estrato.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Estrato.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Estrato.ValueMember = "CODEST";
             // 
-            // dataGridViewTextBoxColumn10
+            // Parcela
             // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "CAP";
-            this.dataGridViewTextBoxColumn10.HeaderText = "CAP";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.Parcela.DataPropertyName = "PARCELA";
+            this.Parcela.HeaderText = "Parcela";
+            this.Parcela.Name = "Parcela";
             // 
-            // dataGridViewTextBoxColumn11
+            // Arbol
             // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "DAP";
-            this.dataGridViewTextBoxColumn11.HeaderText = "DAP";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.Arbol.DataPropertyName = "NROARB";
+            this.Arbol.HeaderText = "Arbol";
+            this.Arbol.Name = "Arbol";
             // 
-            // dataGridViewTextBoxColumn12
+            // Especie
             // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "ALTCOMER_M";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Alt. Comercial";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.Especie.DataPropertyName = "CODESP";
+            this.Especie.DataSource = this.especieBSource;
+            this.Especie.DisplayMember = "NOMCOMUN";
+            this.Especie.HeaderText = "Especie";
+            this.Especie.Name = "Especie";
+            this.Especie.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Especie.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Especie.ValueMember = "CODESP";
             // 
-            // dataGridViewTextBoxColumn13
+            // Calidad
             // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "ALTTOT_M";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Alt. Total";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.Calidad.DataPropertyName = "CODCALIDAD";
+            this.Calidad.DataSource = this.calidadBSource;
+            this.Calidad.DisplayMember = "CODCALIDAD";
+            this.Calidad.HeaderText = "Calidad";
+            this.Calidad.Name = "Calidad";
+            this.Calidad.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Calidad.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Calidad.ValueMember = "CODCALIDAD";
             // 
-            // dataGridViewTextBoxColumn14
+            // Estado
             // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "AREABASAL";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Area basal";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.Estado.DataPropertyName = "ESTADO";
+            this.Estado.DataSource = this.estadoSaniBSource;
+            this.Estado.DisplayMember = "ESTADO";
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Estado.ValueMember = "DESCRIPESTADO";
             // 
-            // dataGridViewTextBoxColumn15
+            // CAP
             // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "VOLCOM";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Vol. Comercial";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.CAP.DataPropertyName = "CAP";
+            this.CAP.HeaderText = "CAP";
+            this.CAP.Name = "CAP";
             // 
-            // dataGridViewTextBoxColumn16
+            // DAP
             // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "VOLTOT";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Vol. Total";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.DAP.DataPropertyName = "DAP";
+            this.DAP.HeaderText = "DAP";
+            this.DAP.Name = "DAP";
+            // 
+            // AltComercial
+            // 
+            this.AltComercial.DataPropertyName = "ALTCOMER_M";
+            this.AltComercial.HeaderText = "Alt. Comercial";
+            this.AltComercial.Name = "AltComercial";
+            // 
+            // AltTotal
+            // 
+            this.AltTotal.DataPropertyName = "ALTTOT_M";
+            this.AltTotal.HeaderText = "Alt. Total";
+            this.AltTotal.Name = "AltTotal";
+            // 
+            // AB
+            // 
+            this.AB.DataPropertyName = "AREABASAL";
+            this.AB.HeaderText = "Area basal";
+            this.AB.Name = "AB";
+            // 
+            // VolComercial
+            // 
+            this.VolComercial.DataPropertyName = "VOLCOM";
+            this.VolComercial.HeaderText = "Vol. Comercial";
+            this.VolComercial.Name = "VolComercial";
+            // 
+            // VolTotal
+            // 
+            this.VolTotal.DataPropertyName = "VOLTOT";
+            this.VolTotal.HeaderText = "Vol. Total";
+            this.VolTotal.Name = "VolTotal";
             // 
             // GestDatInv_Form
             // 
@@ -388,13 +443,17 @@
             this.Name = "GestDatInv_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Datos inventario";
-            this.Load += new System.EventHandler(this.GestDatInv_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.inventarioBNavigator)).EndInit();
             this.inventarioBNavigator.ResumeLayout(false);
             this.inventarioBNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventarioBSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventarioDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.especieBSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estacionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etapaBSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estratoBSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calidadBSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estadoSaniBSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -416,30 +475,35 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton iNVENTARIOBindingNavigatorSaveItem;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripLabel buscarLbl;
+        private System.Windows.Forms.ToolStripTextBox parametroBusTxt;
+        private System.Windows.Forms.ToolStripLabel filtrarEspLbl;
         private System.Windows.Forms.ToolStripComboBox especiesCbx;
         private System.Windows.Forms.DataGridView inventarioDataGridView;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
+        private System.Windows.Forms.ToolStripLabel filtrarLbl;
         private System.Windows.Forms.ToolStripComboBox criterioBusquedaCbx;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.BindingSource especieBSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.BindingSource estacionBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Proyecto;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Estacion;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Etapa;
+        private System.Windows.Forms.BindingSource etapaBSource;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Estrato;
+        private System.Windows.Forms.BindingSource estratoBSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Parcela;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Arbol;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Especie;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Calidad;
+        private System.Windows.Forms.BindingSource calidadBSource;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Estado;
+        private System.Windows.Forms.BindingSource estadoSaniBSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CAP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DAP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AltComercial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AltTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VolComercial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VolTotal;
 
     }
 }

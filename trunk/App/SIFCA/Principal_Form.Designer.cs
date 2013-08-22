@@ -57,6 +57,8 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.importarProyectoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportarProyectoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -120,7 +122,9 @@
             // 
             this.fileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
-            this.openToolStripMenuItem});
+            this.openToolStripMenuItem,
+            this.importarProyectoToolStripMenuItem,
+            this.exportarProyectoToolStripMenuItem});
             this.fileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.fileMenu.Name = "fileMenu";
             this.fileMenu.Size = new System.Drawing.Size(66, 20);
@@ -131,7 +135,7 @@
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
             this.newToolStripMenuItem.Text = "&Nuevo Proyecto";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.CreateNewProject);
             // 
@@ -139,10 +143,10 @@
             // 
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.O)));
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
             this.openToolStripMenuItem.Text = "&Cambiar Proyecto";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenFile);
             // 
             // inventarioToolStripMenuItem
             // 
@@ -280,6 +284,22 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
             this.toolStripStatusLabel.Text = "Estado";
             // 
+            // importarProyectoToolStripMenuItem
+            // 
+            this.importarProyectoToolStripMenuItem.Name = "importarProyectoToolStripMenuItem";
+            this.importarProyectoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.importarProyectoToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.importarProyectoToolStripMenuItem.Text = "&Importar Proyecto";
+            this.importarProyectoToolStripMenuItem.Click += new System.EventHandler(this.ImportProject);
+            // 
+            // exportarProyectoToolStripMenuItem
+            // 
+            this.exportarProyectoToolStripMenuItem.Name = "exportarProyectoToolStripMenuItem";
+            this.exportarProyectoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.exportarProyectoToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.exportarProyectoToolStripMenuItem.Text = "&Exportar Proyecto";
+            this.exportarProyectoToolStripMenuItem.Click += new System.EventHandler(this.ExportProject);
+            // 
             // Principal_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -294,6 +314,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SIFCA";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Principal_Form_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
@@ -333,6 +354,8 @@
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem introducirDatosDeInventarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem regeneracionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importarProyectoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportarProyectoToolStripMenuItem;
     }
 }
 

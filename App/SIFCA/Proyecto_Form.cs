@@ -13,16 +13,19 @@ namespace SIFCA
     public partial class Proyecto_Form : Form
     {
         private ProjectBL project;
+        private StationBL station;
         public Proyecto_Form()
         {
             InitializeComponent();
             project= new ProjectBL();
+            station = new StationBL();
         }
 
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             this.proyectoBindingSource.DataSource =project.GetProjects();
+            this.estacionBindingSource.DataSource = station.GetStations();
         }
 
         private void ProyectoBindingNavigatorAddNewItem_Click(object sender, EventArgs e)

@@ -135,5 +135,12 @@ namespace SIFCA
             PROYECTO activateProject = project.GetActivateProject();
             cache.Set("principalProject", activateProject, new CacheItemPolicy());
         }
+
+        private void listarEspeciesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Listado_Especies_Form childForm = new Listado_Especies_Form();
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
     }
 }

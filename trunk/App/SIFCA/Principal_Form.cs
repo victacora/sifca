@@ -11,8 +11,6 @@ namespace SIFCA
 {
     public partial class Principal_Form : Form
     {
-        private int childFormNumber = 0;
-
         public Principal_Form()
         {
             InitializeComponent();
@@ -20,7 +18,7 @@ namespace SIFCA
 
         private void CreateNewProject(object sender, EventArgs e)
         {
-            Proyecto_Form childForm = new Proyecto_Form();
+            Crear_Proyecto_Form childForm = new Crear_Proyecto_Form();
             childForm.MdiParent = this;
             childForm.Show();
         }
@@ -47,17 +45,6 @@ namespace SIFCA
             }
         }
 
-        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -90,6 +77,28 @@ namespace SIFCA
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void introducirDatosEstacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Crear_Estacion_Form childForm = new Crear_Estacion_Form();
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
+
+        private void listarEstacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void introducirDatosDeInventarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void regeneracionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

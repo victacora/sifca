@@ -10,15 +10,14 @@ using SIFCA_BLL;
 
 namespace SIFCA
 {
-    public partial class Proyecto_Form : Form
+    public partial class Crear_Proyecto_Form : Form
     {
         private ProjectBL project;
-        private StationBL station;
-        public Proyecto_Form()
+        
+        public Crear_Proyecto_Form()
         {
             InitializeComponent();
             project= new ProjectBL();
-            station = new StationBL();
         }
 
         private void AceptarBtn_Click(object sender, EventArgs e)
@@ -29,6 +28,13 @@ namespace SIFCA
         private void cancelarBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Crear_Proyecto_Form_Load(object sender, EventArgs e)
+        {
+            this.tipoInvenCbx.DataSource = publishContext.Authors.ToList();
+            cmoAuthors.DisplayMember = "FirstName";
+            cmoAuthors.Invalidate();
         }
     }
 }

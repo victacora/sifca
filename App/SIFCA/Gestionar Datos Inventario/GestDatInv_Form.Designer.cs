@@ -51,10 +51,10 @@
             this.filtrarEspLbl = new System.Windows.Forms.ToolStripLabel();
             this.especiesCbx = new System.Windows.Forms.ToolStripComboBox();
             this.inventarioDataGridView = new System.Windows.Forms.DataGridView();
-            this.especieBSource = new System.Windows.Forms.BindingSource(this.components);
-            this.estacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.estacionBSource = new System.Windows.Forms.BindingSource(this.components);
             this.etapaBSource = new System.Windows.Forms.BindingSource(this.components);
             this.estratoBSource = new System.Windows.Forms.BindingSource(this.components);
+            this.especieBSource = new System.Windows.Forms.BindingSource(this.components);
             this.calidadBSource = new System.Windows.Forms.BindingSource(this.components);
             this.estadoSaniBSource = new System.Windows.Forms.BindingSource(this.components);
             this.Proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,10 +77,10 @@
             this.inventarioBNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventarioBSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventarioDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.especieBSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.estacionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estacionBSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.etapaBSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.estratoBSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.especieBSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calidadBSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.estadoSaniBSource)).BeginInit();
             this.SuspendLayout();
@@ -117,7 +117,7 @@
             this.inventarioBNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.inventarioBNavigator.Name = "inventarioBNavigator";
             this.inventarioBNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.inventarioBNavigator.Size = new System.Drawing.Size(942, 25);
+            this.inventarioBNavigator.Size = new System.Drawing.Size(1134, 25);
             this.inventarioBNavigator.TabIndex = 0;
             this.inventarioBNavigator.Text = "bindingNavigator1";
             // 
@@ -280,16 +280,12 @@
             this.inventarioDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inventarioDataGridView.Location = new System.Drawing.Point(0, 25);
             this.inventarioDataGridView.Name = "inventarioDataGridView";
-            this.inventarioDataGridView.Size = new System.Drawing.Size(942, 406);
+            this.inventarioDataGridView.Size = new System.Drawing.Size(1134, 406);
             this.inventarioDataGridView.TabIndex = 1;
             // 
-            // especieBSource
+            // estacionBSource
             // 
-            this.especieBSource.DataSource = typeof(SIFCA_DAL.ESPECIE);
-            // 
-            // estacionBindingSource
-            // 
-            this.estacionBindingSource.DataSource = typeof(SIFCA_DAL.ESTACION);
+            this.estacionBSource.DataSource = typeof(SIFCA_DAL.ESTACION);
             // 
             // etapaBSource
             // 
@@ -298,6 +294,10 @@
             // estratoBSource
             // 
             this.estratoBSource.DataSource = typeof(SIFCA_DAL.ESTRATO);
+            // 
+            // especieBSource
+            // 
+            this.especieBSource.DataSource = typeof(SIFCA_DAL.ESPECIE);
             // 
             // calidadBSource
             // 
@@ -310,14 +310,16 @@
             // Proyecto
             // 
             this.Proyecto.DataPropertyName = "NROPROY";
+            this.Proyecto.FillWeight = 74.17937F;
             this.Proyecto.HeaderText = "Proyecto";
             this.Proyecto.Name = "Proyecto";
             // 
             // Estacion
             // 
             this.Estacion.DataPropertyName = "NROEST";
-            this.Estacion.DataSource = this.estacionBindingSource;
+            this.Estacion.DataSource = this.estacionBSource;
             this.Estacion.DisplayMember = "NOMBRE";
+            this.Estacion.FillWeight = 74.17937F;
             this.Estacion.HeaderText = "Estacion";
             this.Estacion.Name = "Estacion";
             this.Estacion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -329,6 +331,7 @@
             this.Etapa.DataPropertyName = "CODETAPA";
             this.Etapa.DataSource = this.etapaBSource;
             this.Etapa.DisplayMember = "CODETAPA";
+            this.Etapa.FillWeight = 74.17937F;
             this.Etapa.HeaderText = "Etapa";
             this.Etapa.Name = "Etapa";
             this.Etapa.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -340,6 +343,7 @@
             this.Estrato.DataPropertyName = "CODEST";
             this.Estrato.DataSource = this.estratoBSource;
             this.Estrato.DisplayMember = "CODEST";
+            this.Estrato.FillWeight = 74.17937F;
             this.Estrato.HeaderText = "Estrato";
             this.Estrato.Name = "Estrato";
             this.Estrato.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -349,12 +353,14 @@
             // Parcela
             // 
             this.Parcela.DataPropertyName = "PARCELA";
+            this.Parcela.FillWeight = 74.17937F;
             this.Parcela.HeaderText = "Parcela";
             this.Parcela.Name = "Parcela";
             // 
             // Arbol
             // 
             this.Arbol.DataPropertyName = "NROARB";
+            this.Arbol.FillWeight = 74.17937F;
             this.Arbol.HeaderText = "Arbol";
             this.Arbol.Name = "Arbol";
             // 
@@ -363,6 +369,7 @@
             this.Especie.DataPropertyName = "CODESP";
             this.Especie.DataSource = this.especieBSource;
             this.Especie.DisplayMember = "NOMCOMUN";
+            this.Especie.FillWeight = 74.17937F;
             this.Especie.HeaderText = "Especie";
             this.Especie.Name = "Especie";
             this.Especie.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -374,6 +381,7 @@
             this.Calidad.DataPropertyName = "CODCALIDAD";
             this.Calidad.DataSource = this.calidadBSource;
             this.Calidad.DisplayMember = "CODCALIDAD";
+            this.Calidad.FillWeight = 74.17937F;
             this.Calidad.HeaderText = "Calidad";
             this.Calidad.Name = "Calidad";
             this.Calidad.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -385,51 +393,59 @@
             this.Estado.DataPropertyName = "ESTADO";
             this.Estado.DataSource = this.estadoSaniBSource;
             this.Estado.DisplayMember = "ESTADO";
+            this.Estado.FillWeight = 74.17937F;
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
             this.Estado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Estado.ValueMember = "DESCRIPESTADO";
+            this.Estado.ValueMember = "ESTADO";
             // 
             // CAP
             // 
             this.CAP.DataPropertyName = "CAP";
+            this.CAP.FillWeight = 74.17937F;
             this.CAP.HeaderText = "CAP";
             this.CAP.Name = "CAP";
             // 
             // DAP
             // 
             this.DAP.DataPropertyName = "DAP";
+            this.DAP.FillWeight = 74.17937F;
             this.DAP.HeaderText = "DAP";
             this.DAP.Name = "DAP";
             // 
             // AltComercial
             // 
             this.AltComercial.DataPropertyName = "ALTCOMER_M";
+            this.AltComercial.FillWeight = 74.17937F;
             this.AltComercial.HeaderText = "Alt. Comercial";
             this.AltComercial.Name = "AltComercial";
             // 
             // AltTotal
             // 
             this.AltTotal.DataPropertyName = "ALTTOT_M";
+            this.AltTotal.FillWeight = 74.17937F;
             this.AltTotal.HeaderText = "Alt. Total";
             this.AltTotal.Name = "AltTotal";
             // 
             // AB
             // 
             this.AB.DataPropertyName = "AREABASAL";
+            this.AB.FillWeight = 74.17937F;
             this.AB.HeaderText = "Area basal";
             this.AB.Name = "AB";
             // 
             // VolComercial
             // 
             this.VolComercial.DataPropertyName = "VOLCOM";
+            this.VolComercial.FillWeight = 74.17937F;
             this.VolComercial.HeaderText = "Vol. Comercial";
             this.VolComercial.Name = "VolComercial";
             // 
             // VolTotal
             // 
             this.VolTotal.DataPropertyName = "VOLTOT";
+            this.VolTotal.FillWeight = 74.17937F;
             this.VolTotal.HeaderText = "Vol. Total";
             this.VolTotal.Name = "VolTotal";
             // 
@@ -437,7 +453,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 431);
+            this.ClientSize = new System.Drawing.Size(1134, 431);
             this.Controls.Add(this.inventarioDataGridView);
             this.Controls.Add(this.inventarioBNavigator);
             this.Name = "GestDatInv_Form";
@@ -448,10 +464,10 @@
             this.inventarioBNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventarioBSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventarioDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.especieBSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.estacionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estacionBSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.etapaBSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.estratoBSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.especieBSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.calidadBSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.estadoSaniBSource)).EndInit();
             this.ResumeLayout(false);
@@ -483,20 +499,20 @@
         private System.Windows.Forms.ToolStripLabel filtrarLbl;
         private System.Windows.Forms.ToolStripComboBox criterioBusquedaCbx;
         private System.Windows.Forms.BindingSource especieBSource;
-        private System.Windows.Forms.BindingSource estacionBindingSource;
+        private System.Windows.Forms.BindingSource estacionBSource;
+        private System.Windows.Forms.BindingSource etapaBSource;
+        private System.Windows.Forms.BindingSource estratoBSource;
+        private System.Windows.Forms.BindingSource calidadBSource;
+        private System.Windows.Forms.BindingSource estadoSaniBSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn Proyecto;
         private System.Windows.Forms.DataGridViewComboBoxColumn Estacion;
         private System.Windows.Forms.DataGridViewComboBoxColumn Etapa;
-        private System.Windows.Forms.BindingSource etapaBSource;
         private System.Windows.Forms.DataGridViewComboBoxColumn Estrato;
-        private System.Windows.Forms.BindingSource estratoBSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn Parcela;
         private System.Windows.Forms.DataGridViewTextBoxColumn Arbol;
         private System.Windows.Forms.DataGridViewComboBoxColumn Especie;
         private System.Windows.Forms.DataGridViewComboBoxColumn Calidad;
-        private System.Windows.Forms.BindingSource calidadBSource;
         private System.Windows.Forms.DataGridViewComboBoxColumn Estado;
-        private System.Windows.Forms.BindingSource estadoSaniBSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn CAP;
         private System.Windows.Forms.DataGridViewTextBoxColumn DAP;
         private System.Windows.Forms.DataGridViewTextBoxColumn AltComercial;

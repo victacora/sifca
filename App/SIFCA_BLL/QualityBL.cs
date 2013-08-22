@@ -17,9 +17,9 @@ namespace SIFCA_BLL
         }
 
 
-        public IEnumerable<ESPECIE> GetQualities()
+        public IEnumerable<CALIDAD> GetQualities()
         {
-            return this.sifcaRepository.ESPECIE.ToList();
+            return this.sifcaRepository.CALIDAD.ToList();
         }
 
         public CALIDAD GetQuality(int QualityId)

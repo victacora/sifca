@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using SIFCA_BLL;
+using SIFCA_DAL;
+using System.Runtime.Caching;
 
 namespace SIFCA
 {
@@ -27,7 +29,8 @@ namespace SIFCA
 
         private void AceptarBtn_Click(object sender, EventArgs e)
         {
-
+            ObjectCache cache = MemoryCache.Default;
+            PROYECTO activateProject= (PROYECTO)cache.Get("principalProject");
         }
 
         private void cancelarBtn_Click(object sender, EventArgs e)

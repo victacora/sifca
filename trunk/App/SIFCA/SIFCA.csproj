@@ -60,11 +60,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Proyectos_Form.cs">
+    <Compile Include="Proyecto_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Proyectos_Form.Designer.cs">
-      <DependentUpon>Proyectos_Form.cs</DependentUpon>
+    <Compile Include="Proyecto_Form.Designer.cs">
+      <DependentUpon>Proyecto_Form.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Principal_Form.resx">
       <DependentUpon>Principal_Form.cs</DependentUpon>
@@ -78,7 +78,24 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Proyecto_Form.resx">
+      <DependentUpon>Proyecto_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.Config" />
+    <None Include="Properties\DataSources\SIFCA_DAL.CALIDAD.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.ESPECIE.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.ESTACION.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.ESTADOSANITARIO.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.ESTRATO.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.ETAPA.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.GRUPOCOMERCIAL.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.INVENTARIO.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.LISTADODEESPECIES.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.PROYECTO.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.REGENERACION.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.SIFCA_CONTEXT.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.TIPOINVENTARIO.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.TSTUDENT.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -94,7 +111,12 @@
       <Project>{E735AE40-FD8E-409E-80DC-23F44C4B8E72}</Project>
       <Name>SIFCA_BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SIFCA_DAL\SIFCA_DAL.csproj">
+      <Project>{EE4872EC-67BA-4B8E-B7BA-8EB8DD171DE3}</Project>
+      <Name>SIFCA_DAL</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

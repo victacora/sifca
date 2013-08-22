@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="SIFCA_ModelStoreContainer" CdmEntityContainer="SIFCA_CONNECTION">
+  <EntityContainerMapping StorageEntityContainer="SIFCA_ModelStoreContainer" CdmEntityContainer="SIFCA_CONTEXT">
     <EntitySetMapping Name="CALIDAD">
       <EntityTypeMapping TypeName="SIFCA_Model.CALIDAD">
         <MappingFragment StoreEntitySet="CALIDAD">
@@ -83,7 +83,6 @@
           <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
           <ScalarProperty Name="NROPROY" ColumnName="NROPROY" />
           <ScalarProperty Name="CODCALIDAD" ColumnName="CODCALIDAD" />
-          <ScalarProperty Name="LINEAINVENT" ColumnName="LINEAINVENT" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -122,7 +121,7 @@
           <ScalarProperty Name="LATIZAL" ColumnName="LATIZAL" />
           <ScalarProperty Name="NROARB" ColumnName="NROARB" />
           <ScalarProperty Name="PARCELA" ColumnName="PARCELA" />
-          <ScalarProperty Name="LINEAREGEN" ColumnName="LINEAREGEN" />
+          <ScalarProperty Name="NROEST" ColumnName="NROEST" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

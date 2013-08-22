@@ -46,7 +46,7 @@ namespace SIFCA
             this.tipoInvenCbx.Invalidate();
             this.listaEspCbx.DataSource = speciesList.GetSpeciesLists();
             this.listaEspCbx.DisplayMember = "NOMARCH";
-            this.tipoInvenCbx.ValueMember = "NROEST";
+            this.listaEspCbx.ValueMember = "NOMARCH";
             this.listaEspCbx.Invalidate();
         }
     }

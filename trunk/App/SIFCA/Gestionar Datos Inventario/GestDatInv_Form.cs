@@ -43,5 +43,11 @@ namespace SIFCA
             this.criterioBusquedaCbx.SelectedIndex = 0;
             this.especiesCbx.SelectedIndex = 0;
         }
+
+        private void inventarioDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+
+        }
+
     }
 }

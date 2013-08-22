@@ -27,7 +27,7 @@ namespace SIFCA_BLL
             return this.sifcaRepository.ESTACION.Find(estationId);
         }
 
-        public void InsertProject(ESTACION station)
+        public void InsertStation(ESTACION station)
         {
             try
             {
@@ -54,11 +54,11 @@ namespace SIFCA_BLL
             }
         }
 
-        public void UpdateEstation(ESTACION project)
+        public void UpdateEstation(ESTACION station)
         {
             try
             {
-                this.sifcaRepository.Entry(project).State = EntityState.Modified;
+                this.sifcaRepository.Entry(station).State = EntityState.Modified;
                 this.sifcaRepository.SaveChanges();
             }
             catch (Exception ex)

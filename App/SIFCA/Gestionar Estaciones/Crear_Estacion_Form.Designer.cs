@@ -1,6 +1,6 @@
 ﻿namespace SIFCA
 {
-    partial class Estacion_Form
+    partial class Crear_Estacion_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -32,16 +32,43 @@
             System.Windows.Forms.Label responsableLbl;
             System.Windows.Forms.Label codigoLbl;
             this.datosEstacionGbx = new System.Windows.Forms.GroupBox();
+            this.codigoTxt = new System.Windows.Forms.TextBox();
+            this.cancelarBtn = new System.Windows.Forms.Button();
+            this.AceptarBtn = new System.Windows.Forms.Button();
             this.nombreTxt = new System.Windows.Forms.TextBox();
             this.responsableTxt = new System.Windows.Forms.TextBox();
-            this.AceptarBtn = new System.Windows.Forms.Button();
-            this.cancelarBtn = new System.Windows.Forms.Button();
-            this.codigoTxt = new System.Windows.Forms.TextBox();
             nombreLbl = new System.Windows.Forms.Label();
             responsableLbl = new System.Windows.Forms.Label();
             codigoLbl = new System.Windows.Forms.Label();
             this.datosEstacionGbx.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // nombreLbl
+            // 
+            nombreLbl.AutoSize = true;
+            nombreLbl.Location = new System.Drawing.Point(20, 46);
+            nombreLbl.Name = "nombreLbl";
+            nombreLbl.Size = new System.Drawing.Size(90, 13);
+            nombreLbl.TabIndex = 0;
+            nombreLbl.Text = "Nombre estacion:";
+            // 
+            // responsableLbl
+            // 
+            responsableLbl.AutoSize = true;
+            responsableLbl.Location = new System.Drawing.Point(20, 73);
+            responsableLbl.Name = "responsableLbl";
+            responsableLbl.Size = new System.Drawing.Size(72, 13);
+            responsableLbl.TabIndex = 4;
+            responsableLbl.Text = "Responsable:";
+            // 
+            // codigoLbl
+            // 
+            codigoLbl.AutoSize = true;
+            codigoLbl.Location = new System.Drawing.Point(20, 19);
+            codigoLbl.Name = "codigoLbl";
+            codigoLbl.Size = new System.Drawing.Size(74, 13);
+            codigoLbl.TabIndex = 8;
+            codigoLbl.Text = "Codigo Unico:";
             // 
             // datosEstacionGbx
             // 
@@ -61,47 +88,13 @@
             this.datosEstacionGbx.TabStop = false;
             this.datosEstacionGbx.Text = "Datos estacion";
             // 
-            // nombreLbl
+            // codigoTxt
             // 
-            nombreLbl.AutoSize = true;
-            nombreLbl.Location = new System.Drawing.Point(20, 46);
-            nombreLbl.Name = "nombreLbl";
-            nombreLbl.Size = new System.Drawing.Size(90, 13);
-            nombreLbl.TabIndex = 0;
-            nombreLbl.Text = "Nombre estacion:";
-            // 
-            // nombreTxt
-            // 
-            this.nombreTxt.Location = new System.Drawing.Point(122, 44);
-            this.nombreTxt.Name = "nombreTxt";
-            this.nombreTxt.Size = new System.Drawing.Size(202, 20);
-            this.nombreTxt.TabIndex = 1;
-            // 
-            // responsableLbl
-            // 
-            responsableLbl.AutoSize = true;
-            responsableLbl.Location = new System.Drawing.Point(20, 73);
-            responsableLbl.Name = "responsableLbl";
-            responsableLbl.Size = new System.Drawing.Size(72, 13);
-            responsableLbl.TabIndex = 4;
-            responsableLbl.Text = "Responsable:";
-            // 
-            // responsableTxt
-            // 
-            this.responsableTxt.Location = new System.Drawing.Point(122, 70);
-            this.responsableTxt.Name = "responsableTxt";
-            this.responsableTxt.Size = new System.Drawing.Size(202, 20);
-            this.responsableTxt.TabIndex = 5;
-            // 
-            // AceptarBtn
-            // 
-            this.AceptarBtn.Location = new System.Drawing.Point(168, 110);
-            this.AceptarBtn.Name = "AceptarBtn";
-            this.AceptarBtn.Size = new System.Drawing.Size(75, 23);
-            this.AceptarBtn.TabIndex = 6;
-            this.AceptarBtn.Text = "Guardar";
-            this.AceptarBtn.UseVisualStyleBackColor = true;
-            this.AceptarBtn.Click += new System.EventHandler(this.AceptarBtn_Click);
+            this.codigoTxt.Enabled = false;
+            this.codigoTxt.Location = new System.Drawing.Point(123, 16);
+            this.codigoTxt.Name = "codigoTxt";
+            this.codigoTxt.Size = new System.Drawing.Size(202, 20);
+            this.codigoTxt.TabIndex = 9;
             // 
             // cancelarBtn
             // 
@@ -113,30 +106,38 @@
             this.cancelarBtn.UseVisualStyleBackColor = true;
             this.cancelarBtn.Click += new System.EventHandler(this.cancelarBtn_Click);
             // 
-            // codigoLbl
+            // AceptarBtn
             // 
-            codigoLbl.AutoSize = true;
-            codigoLbl.Location = new System.Drawing.Point(20, 19);
-            codigoLbl.Name = "codigoLbl";
-            codigoLbl.Size = new System.Drawing.Size(74, 13);
-            codigoLbl.TabIndex = 8;
-            codigoLbl.Text = "Codigo Unico:";
+            this.AceptarBtn.Location = new System.Drawing.Point(168, 110);
+            this.AceptarBtn.Name = "AceptarBtn";
+            this.AceptarBtn.Size = new System.Drawing.Size(75, 23);
+            this.AceptarBtn.TabIndex = 6;
+            this.AceptarBtn.Text = "Guardar";
+            this.AceptarBtn.UseVisualStyleBackColor = true;
+            this.AceptarBtn.Click += new System.EventHandler(this.AceptarBtn_Click);
             // 
-            // codigoTxt
+            // nombreTxt
             // 
-            this.codigoTxt.Enabled = false;
-            this.codigoTxt.Location = new System.Drawing.Point(123, 16);
-            this.codigoTxt.Name = "codigoTxt";
-            this.codigoTxt.Size = new System.Drawing.Size(202, 20);
-            this.codigoTxt.TabIndex = 9;
+            this.nombreTxt.Location = new System.Drawing.Point(122, 44);
+            this.nombreTxt.Name = "nombreTxt";
+            this.nombreTxt.Size = new System.Drawing.Size(202, 20);
+            this.nombreTxt.TabIndex = 1;
             // 
-            // Estacion_Form
+            // responsableTxt
+            // 
+            this.responsableTxt.Location = new System.Drawing.Point(122, 70);
+            this.responsableTxt.Name = "responsableTxt";
+            this.responsableTxt.Size = new System.Drawing.Size(202, 20);
+            this.responsableTxt.TabIndex = 5;
+            // 
+            // Crear_Estacion_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(356, 160);
             this.Controls.Add(this.datosEstacionGbx);
-            this.Name = "Estacion_Form";
+            this.Name = "Crear_Estacion_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestionar estacion";
             this.datosEstacionGbx.ResumeLayout(false);
             this.datosEstacionGbx.PerformLayout();

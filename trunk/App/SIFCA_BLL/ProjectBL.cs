@@ -68,6 +68,31 @@ namespace SIFCA_BLL
 
         }
 
+        public void ExportProjectToXml()
+        {
+            try
+            {
+                this.sifcaRepository.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public void ImportProjectFromXml()
+        {
+            try
+            {
+                this.sifcaRepository.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void SaveChanges()
         {
             try

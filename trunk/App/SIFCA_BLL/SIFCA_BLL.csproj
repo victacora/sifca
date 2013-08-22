@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SpeciesBL.cs" />
     <Compile Include="InventoryTypeBL.cs" />
     <Compile Include="SpeciesListBL.cs" />
     <Compile Include="EstationBL.cs" />

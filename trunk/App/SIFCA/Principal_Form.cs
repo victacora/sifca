@@ -98,12 +98,16 @@ namespace SIFCA
 
         private void introducirDatosDeInventarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            GestDatInv_Form childForm = new GestDatInv_Form();
+            childForm.MdiParent = this;
+            childForm.Show();
         }
 
         private void regeneracionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            GestDatRegen_Form childForm = new GestDatRegen_Form();
+            childForm.MdiParent = this;
+            childForm.Show();
         }
         
         private void Principal_Form_Load(object sender, EventArgs e)
@@ -115,6 +119,14 @@ namespace SIFCA
                 PROYECTO activateProject = project.GetActivateProject();
                 cache.Add("principalProject", activateProject, new CacheItemPolicy());
             }
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //cambiar el proyecto activo y cargarlo en la cache
+            ObjectCache cache = MemoryCache.Default;
+            PROYECTO activateProject = project.GetActivateProject();
+            cache.Set("principalProject", activateProject, new CacheItemPolicy());
         }
     }
 }

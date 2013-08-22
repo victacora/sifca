@@ -126,7 +126,7 @@
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.newToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.newToolStripMenuItem.Text = "&Nuevo Proyecto";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.CreateNewProject);
             // 
             // openToolStripMenuItem
             // 
@@ -297,7 +297,7 @@
             this.newWindowToolStripMenuItem.Name = "newWindowToolStripMenuItem";
             this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.newWindowToolStripMenuItem.Text = "&Nueva ventana";
-            this.newWindowToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
+            this.newWindowToolStripMenuItem.Click += new System.EventHandler(this.CreateNewProject);
             // 
             // cascadeToolStripMenuItem
             // 
@@ -396,7 +396,7 @@
             this.newToolStripButton.Name = "newToolStripButton";
             this.newToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.newToolStripButton.Text = "Nuevo";
-            this.newToolStripButton.Click += new System.EventHandler(this.ShowNewForm);
+            this.newToolStripButton.Click += new System.EventHandler(this.CreateNewProject);
             // 
             // openToolStripButton
             // 

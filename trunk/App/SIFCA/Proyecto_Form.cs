@@ -12,16 +12,17 @@ namespace SIFCA
 {
     public partial class Proyecto_Form : Form
     {
+        private ProjectBL project;
         public Proyecto_Form()
         {
             InitializeComponent();
+            project= new ProjectBL();
         }
 
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            ProyectoBL proyecto = new ProyectoBL();
-            this.proyectoBindingSource.DataSource =proyecto.GetProjects();
+            this.proyectoBindingSource.DataSource =project.GetProjects();
         }
 
         private void ProyectoBindingNavigatorAddNewItem_Click(object sender, EventArgs e)
@@ -36,7 +37,7 @@ namespace SIFCA
 
         private void proyectoBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-
+             project.SaveChanges();
         }
     }
 }

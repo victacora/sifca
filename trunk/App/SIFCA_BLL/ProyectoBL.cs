@@ -7,11 +7,11 @@ using System.Data;
 
 namespace SIFCA_BLL
 {
-    public class ProyectoBL 
+    public class ProjectBL 
     {
         private SIFCA_CONTEXT sifcaRepository;
 
-        public ProyectoBL()
+        public ProjectBL()
         {
             this.sifcaRepository = new SIFCA_CONTEXT();
         }
@@ -68,6 +68,17 @@ namespace SIFCA_BLL
 
         }
 
+        public void SaveChanges()
+        {
+            try
+            {
+                this.sifcaRepository.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
     }
 }

@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Listado_Especies_Form));
             this.paginacionEspecie = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.especieBSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -42,31 +43,26 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.ListadoEspecies = new System.Windows.Forms.DataGridView();
-            this.cODESPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gRUPOCOMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOMCOMUNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOMCIENTIFICODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fAMILIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zONAGEOGRAFICADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zONADEVIDADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dIAMMINCORTEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gRUPOCOMERCIALDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iNVENTARIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rEGENERACIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lISTADODEESPECIESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.especieBSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iNVENTARIOBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.buscarLbl = new System.Windows.Forms.ToolStripLabel();
             this.parametroBusTxt = new System.Windows.Forms.ToolStripTextBox();
             this.filtrarLbl = new System.Windows.Forms.ToolStripLabel();
             this.criterioBusquedaCbx = new System.Windows.Forms.ToolStripComboBox();
-            this.filtrarEspLbl = new System.Windows.Forms.ToolStripLabel();
-            this.especiesCbx = new System.Windows.Forms.ToolStripComboBox();
-            this.iNVENTARIOBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.ListadoEspecies = new System.Windows.Forms.DataGridView();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grupoComercial = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.grupoComercialBSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nombreComun = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreCientifico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.familia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zonaGeografica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zonaVida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diamCorte = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.paginacionEspecie)).BeginInit();
             this.paginacionEspecie.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ListadoEspecies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.especieBSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListadoEspecies)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grupoComercialBSource)).BeginInit();
             this.SuspendLayout();
             // 
             // paginacionEspecie
@@ -91,9 +87,7 @@
             this.buscarLbl,
             this.parametroBusTxt,
             this.filtrarLbl,
-            this.criterioBusquedaCbx,
-            this.filtrarEspLbl,
-            this.especiesCbx});
+            this.criterioBusquedaCbx});
             this.paginacionEspecie.Location = new System.Drawing.Point(0, 0);
             this.paginacionEspecie.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.paginacionEspecie.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -101,7 +95,7 @@
             this.paginacionEspecie.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.paginacionEspecie.Name = "paginacionEspecie";
             this.paginacionEspecie.PositionItem = this.bindingNavigatorPositionItem;
-            this.paginacionEspecie.Size = new System.Drawing.Size(1004, 25);
+            this.paginacionEspecie.Size = new System.Drawing.Size(949, 25);
             this.paginacionEspecie.TabIndex = 0;
             this.paginacionEspecie.Text = "bindingNavigator1";
             // 
@@ -113,6 +107,10 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
+            // 
+            // especieBSource
+            // 
+            this.especieBSource.DataSource = typeof(SIFCA_DAL.ESPECIE);
             // 
             // bindingNavigatorCountItem
             // 
@@ -190,117 +188,13 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // ListadoEspecies
+            // iNVENTARIOBindingNavigatorSaveItem
             // 
-            this.ListadoEspecies.AutoGenerateColumns = false;
-            this.ListadoEspecies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.ListadoEspecies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ListadoEspecies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cODESPDataGridViewTextBoxColumn,
-            this.gRUPOCOMDataGridViewTextBoxColumn,
-            this.nOMCOMUNDataGridViewTextBoxColumn,
-            this.nOMCIENTIFICODataGridViewTextBoxColumn,
-            this.fAMILIADataGridViewTextBoxColumn,
-            this.zONAGEOGRAFICADataGridViewTextBoxColumn,
-            this.zONADEVIDADataGridViewTextBoxColumn,
-            this.dIAMMINCORTEDataGridViewTextBoxColumn,
-            this.gRUPOCOMERCIALDataGridViewTextBoxColumn,
-            this.iNVENTARIODataGridViewTextBoxColumn,
-            this.rEGENERACIONDataGridViewTextBoxColumn,
-            this.lISTADODEESPECIESDataGridViewTextBoxColumn});
-            this.ListadoEspecies.DataSource = this.especieBSource;
-            this.ListadoEspecies.Location = new System.Drawing.Point(0, 28);
-            this.ListadoEspecies.Name = "ListadoEspecies";
-            this.ListadoEspecies.Size = new System.Drawing.Size(1158, 150);
-            this.ListadoEspecies.TabIndex = 1;
-            // 
-            // cODESPDataGridViewTextBoxColumn
-            // 
-            this.cODESPDataGridViewTextBoxColumn.DataPropertyName = "CODESP";
-            this.cODESPDataGridViewTextBoxColumn.HeaderText = "CODESP";
-            this.cODESPDataGridViewTextBoxColumn.Name = "cODESPDataGridViewTextBoxColumn";
-            this.cODESPDataGridViewTextBoxColumn.Width = 76;
-            // 
-            // gRUPOCOMDataGridViewTextBoxColumn
-            // 
-            this.gRUPOCOMDataGridViewTextBoxColumn.DataPropertyName = "GRUPOCOM";
-            this.gRUPOCOMDataGridViewTextBoxColumn.HeaderText = "GRUPOCOM";
-            this.gRUPOCOMDataGridViewTextBoxColumn.Name = "gRUPOCOMDataGridViewTextBoxColumn";
-            this.gRUPOCOMDataGridViewTextBoxColumn.Width = 95;
-            // 
-            // nOMCOMUNDataGridViewTextBoxColumn
-            // 
-            this.nOMCOMUNDataGridViewTextBoxColumn.DataPropertyName = "NOMCOMUN";
-            this.nOMCOMUNDataGridViewTextBoxColumn.HeaderText = "NOMCOMUN";
-            this.nOMCOMUNDataGridViewTextBoxColumn.Name = "nOMCOMUNDataGridViewTextBoxColumn";
-            this.nOMCOMUNDataGridViewTextBoxColumn.Width = 97;
-            // 
-            // nOMCIENTIFICODataGridViewTextBoxColumn
-            // 
-            this.nOMCIENTIFICODataGridViewTextBoxColumn.DataPropertyName = "NOMCIENTIFICO";
-            this.nOMCIENTIFICODataGridViewTextBoxColumn.HeaderText = "NOMCIENTIFICO";
-            this.nOMCIENTIFICODataGridViewTextBoxColumn.Name = "nOMCIENTIFICODataGridViewTextBoxColumn";
-            this.nOMCIENTIFICODataGridViewTextBoxColumn.Width = 116;
-            // 
-            // fAMILIADataGridViewTextBoxColumn
-            // 
-            this.fAMILIADataGridViewTextBoxColumn.DataPropertyName = "FAMILIA";
-            this.fAMILIADataGridViewTextBoxColumn.HeaderText = "FAMILIA";
-            this.fAMILIADataGridViewTextBoxColumn.Name = "fAMILIADataGridViewTextBoxColumn";
-            this.fAMILIADataGridViewTextBoxColumn.Width = 73;
-            // 
-            // zONAGEOGRAFICADataGridViewTextBoxColumn
-            // 
-            this.zONAGEOGRAFICADataGridViewTextBoxColumn.DataPropertyName = "ZONAGEOGRAFICA";
-            this.zONAGEOGRAFICADataGridViewTextBoxColumn.HeaderText = "ZONAGEOGRAFICA";
-            this.zONAGEOGRAFICADataGridViewTextBoxColumn.Name = "zONAGEOGRAFICADataGridViewTextBoxColumn";
-            this.zONAGEOGRAFICADataGridViewTextBoxColumn.Width = 131;
-            // 
-            // zONADEVIDADataGridViewTextBoxColumn
-            // 
-            this.zONADEVIDADataGridViewTextBoxColumn.DataPropertyName = "ZONADEVIDA";
-            this.zONADEVIDADataGridViewTextBoxColumn.HeaderText = "ZONADEVIDA";
-            this.zONADEVIDADataGridViewTextBoxColumn.Name = "zONADEVIDADataGridViewTextBoxColumn";
-            this.zONADEVIDADataGridViewTextBoxColumn.Width = 102;
-            // 
-            // dIAMMINCORTEDataGridViewTextBoxColumn
-            // 
-            this.dIAMMINCORTEDataGridViewTextBoxColumn.DataPropertyName = "DIAMMINCORTE";
-            this.dIAMMINCORTEDataGridViewTextBoxColumn.HeaderText = "DIAMMINCORTE";
-            this.dIAMMINCORTEDataGridViewTextBoxColumn.Name = "dIAMMINCORTEDataGridViewTextBoxColumn";
-            this.dIAMMINCORTEDataGridViewTextBoxColumn.Width = 116;
-            // 
-            // gRUPOCOMERCIALDataGridViewTextBoxColumn
-            // 
-            this.gRUPOCOMERCIALDataGridViewTextBoxColumn.DataPropertyName = "GRUPOCOMERCIAL";
-            this.gRUPOCOMERCIALDataGridViewTextBoxColumn.HeaderText = "GRUPOCOMERCIAL";
-            this.gRUPOCOMERCIALDataGridViewTextBoxColumn.Name = "gRUPOCOMERCIALDataGridViewTextBoxColumn";
-            this.gRUPOCOMERCIALDataGridViewTextBoxColumn.Width = 133;
-            // 
-            // iNVENTARIODataGridViewTextBoxColumn
-            // 
-            this.iNVENTARIODataGridViewTextBoxColumn.DataPropertyName = "INVENTARIO";
-            this.iNVENTARIODataGridViewTextBoxColumn.HeaderText = "INVENTARIO";
-            this.iNVENTARIODataGridViewTextBoxColumn.Name = "iNVENTARIODataGridViewTextBoxColumn";
-            this.iNVENTARIODataGridViewTextBoxColumn.Width = 98;
-            // 
-            // rEGENERACIONDataGridViewTextBoxColumn
-            // 
-            this.rEGENERACIONDataGridViewTextBoxColumn.DataPropertyName = "REGENERACION";
-            this.rEGENERACIONDataGridViewTextBoxColumn.HeaderText = "REGENERACION";
-            this.rEGENERACIONDataGridViewTextBoxColumn.Name = "rEGENERACIONDataGridViewTextBoxColumn";
-            this.rEGENERACIONDataGridViewTextBoxColumn.Width = 118;
-            // 
-            // lISTADODEESPECIESDataGridViewTextBoxColumn
-            // 
-            this.lISTADODEESPECIESDataGridViewTextBoxColumn.DataPropertyName = "LISTADODEESPECIES";
-            this.lISTADODEESPECIESDataGridViewTextBoxColumn.HeaderText = "LISTADODEESPECIES";
-            this.lISTADODEESPECIESDataGridViewTextBoxColumn.Name = "lISTADODEESPECIESDataGridViewTextBoxColumn";
-            this.lISTADODEESPECIESDataGridViewTextBoxColumn.Width = 145;
-            // 
-            // especieBSource
-            // 
-            this.especieBSource.DataSource = typeof(SIFCA_DAL.ESPECIE);
+            this.iNVENTARIOBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.iNVENTARIOBindingNavigatorSaveItem.Enabled = false;
+            this.iNVENTARIOBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("iNVENTARIOBindingNavigatorSaveItem.Image")));
+            this.iNVENTARIOBindingNavigatorSaveItem.Name = "iNVENTARIOBindingNavigatorSaveItem";
+            this.iNVENTARIOBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             // 
             // buscarLbl
             // 
@@ -332,28 +226,84 @@
             this.criterioBusquedaCbx.Name = "criterioBusquedaCbx";
             this.criterioBusquedaCbx.Size = new System.Drawing.Size(121, 25);
             // 
-            // filtrarEspLbl
+            // ListadoEspecies
             // 
-            this.filtrarEspLbl.Name = "filtrarEspLbl";
-            this.filtrarEspLbl.Size = new System.Drawing.Size(84, 22);
-            this.filtrarEspLbl.Text = "Filtrar Especies";
+            this.ListadoEspecies.AutoGenerateColumns = false;
+            this.ListadoEspecies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ListadoEspecies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ListadoEspecies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Codigo,
+            this.grupoComercial,
+            this.nombreComun,
+            this.nombreCientifico,
+            this.familia,
+            this.zonaGeografica,
+            this.zonaVida,
+            this.diamCorte});
+            this.ListadoEspecies.DataSource = this.especieBSource;
+            this.ListadoEspecies.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ListadoEspecies.Location = new System.Drawing.Point(0, 25);
+            this.ListadoEspecies.Name = "ListadoEspecies";
+            this.ListadoEspecies.Size = new System.Drawing.Size(949, 398);
+            this.ListadoEspecies.TabIndex = 1;
             // 
-            // especiesCbx
+            // Codigo
             // 
-            this.especiesCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.especiesCbx.Items.AddRange(new object[] {
-            "Nombre comun",
-            "Nombre Cientifico"});
-            this.especiesCbx.Name = "especiesCbx";
-            this.especiesCbx.Size = new System.Drawing.Size(121, 25);
+            this.Codigo.DataPropertyName = "CODESP";
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
             // 
-            // iNVENTARIOBindingNavigatorSaveItem
+            // grupoComercial
             // 
-            this.iNVENTARIOBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.iNVENTARIOBindingNavigatorSaveItem.Enabled = false;
-            this.iNVENTARIOBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("iNVENTARIOBindingNavigatorSaveItem.Image")));
-            this.iNVENTARIOBindingNavigatorSaveItem.Name = "iNVENTARIOBindingNavigatorSaveItem";
-            this.iNVENTARIOBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.grupoComercial.DataPropertyName = "GRUPOCOM";
+            this.grupoComercial.DataSource = this.grupoComercialBSource;
+            this.grupoComercial.DisplayMember = "DESCRIPGRUPO";
+            this.grupoComercial.HeaderText = "Grupo comercial";
+            this.grupoComercial.Name = "grupoComercial";
+            this.grupoComercial.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.grupoComercial.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.grupoComercial.ValueMember = "GRUPOCOM";
+            // 
+            // grupoComercialBSource
+            // 
+            this.grupoComercialBSource.DataSource = typeof(SIFCA_DAL.GRUPOCOMERCIAL);
+            // 
+            // nombreComun
+            // 
+            this.nombreComun.DataPropertyName = "NOMCOMUN";
+            this.nombreComun.HeaderText = "Nombre comun";
+            this.nombreComun.Name = "nombreComun";
+            this.nombreComun.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // nombreCientifico
+            // 
+            this.nombreCientifico.DataPropertyName = "NOMCIENTIFICO";
+            this.nombreCientifico.HeaderText = "Nombre cientifico";
+            this.nombreCientifico.Name = "nombreCientifico";
+            // 
+            // familia
+            // 
+            this.familia.DataPropertyName = "FAMILIA";
+            this.familia.HeaderText = "Familia";
+            this.familia.Name = "familia";
+            // 
+            // zonaGeografica
+            // 
+            this.zonaGeografica.DataPropertyName = "ZONAGEOGRAFICA";
+            this.zonaGeografica.HeaderText = "Zona geografica";
+            this.zonaGeografica.Name = "zonaGeografica";
+            // 
+            // zonaVida
+            // 
+            this.zonaVida.DataPropertyName = "ZONADEVIDA";
+            this.zonaVida.HeaderText = "Zona vida";
+            this.zonaVida.Name = "zonaVida";
+            // 
+            // diamCorte
+            // 
+            this.diamCorte.DataPropertyName = "DIAMMINCORTE";
+            this.diamCorte.HeaderText = "Diametro min. corte";
+            this.diamCorte.Name = "diamCorte";
             // 
             // Listado_Especies_Form
             // 
@@ -361,17 +311,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ClientSize = new System.Drawing.Size(1004, 318);
+            this.ClientSize = new System.Drawing.Size(949, 423);
             this.Controls.Add(this.ListadoEspecies);
             this.Controls.Add(this.paginacionEspecie);
             this.Name = "Listado_Especies_Form";
-            this.Text = "Listado_Especies_Form";
-            this.Load += new System.EventHandler(this.Listado_Especies_Form_Load);
+            this.Text = "Gestionar especies";
             ((System.ComponentModel.ISupportInitialize)(this.paginacionEspecie)).EndInit();
             this.paginacionEspecie.ResumeLayout(false);
             this.paginacionEspecie.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ListadoEspecies)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.especieBSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListadoEspecies)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grupoComercialBSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -393,24 +343,19 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.DataGridView ListadoEspecies;
         private System.Windows.Forms.BindingSource especieBSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cODESPDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gRUPOCOMDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nOMCOMUNDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nOMCIENTIFICODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fAMILIADataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zONAGEOGRAFICADataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zONADEVIDADataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dIAMMINCORTEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gRUPOCOMERCIALDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iNVENTARIODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rEGENERACIONDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lISTADODEESPECIESDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripLabel buscarLbl;
         private System.Windows.Forms.ToolStripTextBox parametroBusTxt;
         private System.Windows.Forms.ToolStripLabel filtrarLbl;
         private System.Windows.Forms.ToolStripComboBox criterioBusquedaCbx;
-        private System.Windows.Forms.ToolStripLabel filtrarEspLbl;
-        private System.Windows.Forms.ToolStripComboBox especiesCbx;
         private System.Windows.Forms.ToolStripButton iNVENTARIOBindingNavigatorSaveItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewComboBoxColumn grupoComercial;
+        private System.Windows.Forms.BindingSource grupoComercialBSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreComun;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCientifico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn familia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zonaGeografica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zonaVida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn diamCorte;
     }
 }

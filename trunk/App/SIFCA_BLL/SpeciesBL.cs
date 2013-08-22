@@ -44,8 +44,8 @@ namespace SIFCA_BLL
         {
             try
             {
-                ESPECIE proyecto = this.sifcaRepository.ESPECIE.Find(SpecieId);
-                this.sifcaRepository.ESPECIE.Remove(proyecto);
+                ESPECIE specie = this.sifcaRepository.ESPECIE.Find(SpecieId);
+                this.sifcaRepository.ESPECIE.Remove(specie);
                 this.sifcaRepository.SaveChanges();
             }
             catch (Exception ex)

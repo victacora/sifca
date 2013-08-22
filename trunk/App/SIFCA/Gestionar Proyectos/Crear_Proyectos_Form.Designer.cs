@@ -171,7 +171,7 @@
             this.DatosProyectoGbx.Size = new System.Drawing.Size(436, 342);
             this.DatosProyectoGbx.TabIndex = 0;
             this.DatosProyectoGbx.TabStop = false;
-            this.DatosProyectoGbx.Text = "Definicion del proyecto";
+            this.DatosProyectoGbx.Text = "Definicion del stage";
             // 
             // cancelarBtn
             // 
@@ -329,7 +329,7 @@
             this.Controls.Add(this.DatosProyectoGbx);
             this.Name = "Crear_Proyecto_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Crear proyecto";
+            this.Text = "Crear stage";
             this.Load += new System.EventHandler(this.Crear_Proyecto_Form_Load);
             this.DatosProyectoGbx.ResumeLayout(false);
             this.DatosProyectoGbx.PerformLayout();

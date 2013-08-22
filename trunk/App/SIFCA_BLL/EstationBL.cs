@@ -44,8 +44,8 @@ namespace SIFCA_BLL
         {
             try
             {
-                ESTACION proyecto = this.sifcaRepository.ESTACION.Find(stationId);
-                this.sifcaRepository.ESTACION.Remove(proyecto);
+                ESTACION station = this.sifcaRepository.ESTACION.Find(stationId);
+                this.sifcaRepository.ESTACION.Remove(station);
                 this.sifcaRepository.SaveChanges();
             }
             catch (Exception ex)

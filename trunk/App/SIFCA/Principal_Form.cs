@@ -115,14 +115,14 @@ namespace SIFCA
         
         private void Principal_Form_Load(object sender, EventArgs e)
         {
-            //cargar proyecto activo
+            //cargar stage activo
             ObjectCache cache = MemoryCache.Default;
             if (!cache.Contains("principalProject"))
             {
                 PROYECTO activateProject = project.GetActivateProject();
                 ESTACION localStation = station.GetStations().First();
                 if (activateProject != null) cache.Add("principalProject", activateProject, new CacheItemPolicy());
-                else MessageBox.Show("No se ha creado ningun proyecto, que tenga por estado Activo.", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else MessageBox.Show("No se ha creado ningun stage, que tenga por estado Activo.", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 if (localStation != null) cache.Add("localStation", localStation, new CacheItemPolicy());
                 else MessageBox.Show("No se ha registrado la informacion para esta estacion", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -130,7 +130,7 @@ namespace SIFCA
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //cambiar el proyecto activo y cargarlo en la cache
+            //cambiar el stage activo y cargarlo en la cache
             ObjectCache cache = MemoryCache.Default;
             PROYECTO activateProject = project.GetActivateProject();
             cache.Set("principalProject", activateProject, new CacheItemPolicy());

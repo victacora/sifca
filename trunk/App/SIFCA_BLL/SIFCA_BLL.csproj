@@ -45,6 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GroupBL.cs" />
+    <Compile Include="QualityBL.cs" />
+    <Compile Include="StratumBL.cs" />
+    <Compile Include="StageBL.cs" />
+    <Compile Include="StateBL.cs" />
     <Compile Include="InventoryBL.cs" />
     <Compile Include="SpeciesBL.cs" />
     <Compile Include="InventoryTypeBL.cs" />

@@ -311,7 +311,7 @@
             // Proyecto
             // 
             this.Proyecto.DataPropertyName = "NROPROY";
-            this.Proyecto.FillWeight = 21.62206F;
+            this.Proyecto.FillWeight = 2.803044F;
             this.Proyecto.HeaderText = "Proyecto";
             this.Proyecto.Name = "Proyecto";
             // 
@@ -320,7 +320,7 @@
             this.Estacion.DataPropertyName = "NROEST";
             this.Estacion.DataSource = this.estacionBSource;
             this.Estacion.DisplayMember = "NOMBRE";
-            this.Estacion.FillWeight = 21.62206F;
+            this.Estacion.FillWeight = 4.457037F;
             this.Estacion.HeaderText = "Estacion";
             this.Estacion.Name = "Estacion";
             this.Estacion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -332,7 +332,7 @@
             this.Etapa.DataPropertyName = "CODETAPA";
             this.Etapa.DataSource = this.etapaBSource;
             this.Etapa.DisplayMember = "CODETAPA";
-            this.Etapa.FillWeight = 25.43519F;
+            this.Etapa.FillWeight = 3.875251F;
             this.Etapa.HeaderText = "Etapa";
             this.Etapa.Name = "Etapa";
             this.Etapa.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -344,7 +344,7 @@
             this.Estrato.DataPropertyName = "CODEST";
             this.Estrato.DataSource = this.estratoBSource;
             this.Estrato.DisplayMember = "DESCRIPESTRATO";
-            this.Estrato.FillWeight = 21.62206F;
+            this.Estrato.FillWeight = 4.116352F;
             this.Estrato.HeaderText = "Estrato";
             this.Estrato.Name = "Estrato";
             this.Estrato.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -354,14 +354,14 @@
             // Parcela
             // 
             this.Parcela.DataPropertyName = "PARCELA";
-            this.Parcela.FillWeight = 21.62206F;
+            this.Parcela.FillWeight = 2.803044F;
             this.Parcela.HeaderText = "Parcela";
             this.Parcela.Name = "Parcela";
             // 
             // Arbol
             // 
             this.Arbol.DataPropertyName = "NROARB";
-            this.Arbol.FillWeight = 21.62206F;
+            this.Arbol.FillWeight = 2.803044F;
             this.Arbol.HeaderText = "Arbol";
             this.Arbol.Name = "Arbol";
             // 
@@ -371,7 +371,7 @@
             this.Especie.DataSource = this.especieBSource;
             this.Especie.DisplayMember = "NOMCOMUN";
             this.Especie.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.Especie.FillWeight = 60.43396F;
+            this.Especie.FillWeight = 7.834549F;
             this.Especie.HeaderText = "Especie";
             this.Especie.Name = "Especie";
             this.Especie.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -383,7 +383,7 @@
             this.Calidad.DataPropertyName = "CODCALIDAD";
             this.Calidad.DataSource = this.calidadBSource;
             this.Calidad.DisplayMember = "DESCRIPCALIDAD";
-            this.Calidad.FillWeight = 21.62206F;
+            this.Calidad.FillWeight = 4.716156F;
             this.Calidad.HeaderText = "Calidad";
             this.Calidad.Name = "Calidad";
             this.Calidad.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -395,7 +395,7 @@
             this.Estado.DataPropertyName = "ESTADO";
             this.Estado.DataSource = this.estadoSaniBSource;
             this.Estado.DisplayMember = "DESCRIPESTADO";
-            this.Estado.FillWeight = 21.62206F;
+            this.Estado.FillWeight = 4.68283F;
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
             this.Estado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -405,49 +405,49 @@
             // CAP
             // 
             this.CAP.DataPropertyName = "CAP";
-            this.CAP.FillWeight = 21.62206F;
+            this.CAP.FillWeight = 2.803044F;
             this.CAP.HeaderText = "CAP";
             this.CAP.Name = "CAP";
             // 
             // DAP
             // 
             this.DAP.DataPropertyName = "DAP";
-            this.DAP.FillWeight = 21.62206F;
+            this.DAP.FillWeight = 2.803044F;
             this.DAP.HeaderText = "DAP";
             this.DAP.Name = "DAP";
             // 
             // AltComercial
             // 
             this.AltComercial.DataPropertyName = "ALTCOMER_M";
-            this.AltComercial.FillWeight = 21.62206F;
+            this.AltComercial.FillWeight = 2.803044F;
             this.AltComercial.HeaderText = "Alt. Comercial";
             this.AltComercial.Name = "AltComercial";
             // 
             // AltTotal
             // 
             this.AltTotal.DataPropertyName = "ALTTOT_M";
-            this.AltTotal.FillWeight = 21.62206F;
+            this.AltTotal.FillWeight = 2.803044F;
             this.AltTotal.HeaderText = "Alt. Total";
             this.AltTotal.Name = "AltTotal";
             // 
             // AB
             // 
             this.AB.DataPropertyName = "AREABASAL";
-            this.AB.FillWeight = 21.62206F;
+            this.AB.FillWeight = 2.803044F;
             this.AB.HeaderText = "Area basal";
             this.AB.Name = "AB";
             // 
             // VolComercial
             // 
             this.VolComercial.DataPropertyName = "VOLCOM";
-            this.VolComercial.FillWeight = 21.62206F;
+            this.VolComercial.FillWeight = 2.803044F;
             this.VolComercial.HeaderText = "Vol. Comercial";
             this.VolComercial.Name = "VolComercial";
             // 
             // VolTotal
             // 
             this.VolTotal.DataPropertyName = "VOLTOT";
-            this.VolTotal.FillWeight = 21.62206F;
+            this.VolTotal.FillWeight = 2.803044F;
             this.VolTotal.HeaderText = "Vol. Total";
             this.VolTotal.Name = "VolTotal";
             // 

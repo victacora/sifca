@@ -13,11 +13,16 @@ namespace SIFCA
     public partial class Crear_Proyecto_Form : Form
     {
         private ProjectBL project;
+        private InventoryTypeBL inventoryType;
+        private SpeciesListBL speciesList;
+
         
         public Crear_Proyecto_Form()
         {
             InitializeComponent();
             project= new ProjectBL();
+            inventoryType=new InventoryTypeBL();
+            speciesList = new SpeciesListBL();
         }
 
         private void AceptarBtn_Click(object sender, EventArgs e)
@@ -32,9 +37,12 @@ namespace SIFCA
 
         private void Crear_Proyecto_Form_Load(object sender, EventArgs e)
         {
-            this.tipoInvenCbx.DataSource = publishContext.Authors.ToList();
-            cmoAuthors.DisplayMember = "FirstName";
-            cmoAuthors.Invalidate();
+            this.tipoInvenCbx.DataSource = inventoryType.GetInventoryTypes();
+            this.tipoInvenCbx.DisplayMember = "NOMBRETIPOINV";
+            this.tipoInvenCbx.Invalidate();
+            this.listaEspCbx.DataSource = speciesList.GetSpeciesLists();
+            this.listaEspCbx.DisplayMember = "NOMARCH";
+            this.listaEspCbx.Invalidate();
         }
     }
 }

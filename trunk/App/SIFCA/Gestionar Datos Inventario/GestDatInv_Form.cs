@@ -42,11 +42,42 @@ namespace SIFCA
             this.etapaBSource.DataSource = stages.GetStages();
             this.criterioBusquedaCbx.SelectedIndex = 0;
             this.especiesCbx.SelectedIndex = 0;
+            this.inventarioDataGridView.DataSource = this.inventarioBSource;
         }
 
         private void inventarioDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
+            //TODO: solucionar el error System.ArgumentException: DataGridViewComboBoxCell value is not valid
+        }
+        
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            var newLine = new INVENTARIO();
+            newLine.NROPROY = 1;
+            newLine.ALTCOMER_M = 0;
+            newLine.ALTTOT_M = 0;
+            newLine.AREABASAL = 0;
+            newLine.CAP = 0;
+            newLine.DAP = 0;
+            newLine.VOLCOM = 0;
+            newLine.VOLTOT = 0;
+            newLine.PARCELA = 0;
+            //TODO:
+            //newLine.NROEST = recuperar el identificar de la estacion;
+            newLine.CODESP = 1;
+            newLine.CODEST = 1;
+            newLine.CODETAPA = 1;
+            newLine.CODCALIDAD = 1;
+            newLine.PARCELA = 0;
+            newLine.NROARB = 0;
+            newLine.ESTADO = "AI";
+            inventarioBSource.Add(newLine);
+            inventarioDataGridView.Refresh();
+        }
 
+        private void iNVENTARIOBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            inventory.SaveChanges();
         }
 
     }

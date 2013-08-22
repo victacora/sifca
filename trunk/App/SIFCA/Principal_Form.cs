@@ -47,11 +47,6 @@ namespace SIFCA
             }
         }
 
-        private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void CutToolStripMenuItem_Click(object sender, EventArgs e)
         {
         }
@@ -90,6 +85,11 @@ namespace SIFCA
             {
                 childForm.Close();
             }
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

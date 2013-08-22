@@ -14,17 +14,16 @@ namespace SIFCA
     public partial class Listado_Especies_Form : Form
     {
         private SpeciesBL species;
+        private GroupBL groups;
 
         public Listado_Especies_Form()
         {
             InitializeComponent();
             species = new SpeciesBL();
-            this.especieBSource.DataSource = species.GetSpecies();            
+            groups = new GroupBL();
+            this.especieBSource.DataSource = species.GetSpecies();
+            this.grupoComercialBSource.DataSource = groups.GetGroups();
         }
 
-        private void Listado_Especies_Form_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

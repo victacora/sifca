@@ -6,14 +6,19 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Runtime.Caching;
+using SIFCA_DAL;
+using SIFCA_BLL;
 
 namespace SIFCA
 {
     public partial class Principal_Form : Form
     {
+        private ProjectBL project;
         public Principal_Form()
         {
             InitializeComponent();
+            project = new ProjectBL();
         }
 
         private void CreateNewProject(object sender, EventArgs e)
@@ -100,10 +105,16 @@ namespace SIFCA
         {
 
         }
-
+        
         private void Principal_Form_Load(object sender, EventArgs e)
         {
             //cargar proyecto activo
+            ObjectCache cache = MemoryCache.Default;
+            if (!cache.Contains("principalProject"))
+            {
+                PROYECTO activateProject = project.GetActivateProject();
+                cache.Add("principalProject", activateProject, new CacheItemPolicy());
+            }
         }
     }
 }

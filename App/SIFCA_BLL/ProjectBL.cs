@@ -49,8 +49,8 @@ namespace SIFCA_BLL
         {
             try
             {
-                PROYECTO proyecto = this.sifcaRepository.PROYECTO.Find(projectId);
-                this.sifcaRepository.PROYECTO.Remove(proyecto);
+                PROYECTO project = this.sifcaRepository.PROYECTO.Find(projectId);
+                this.sifcaRepository.PROYECTO.Remove(project);
                 this.sifcaRepository.SaveChanges();
             }
             catch (Exception ex)

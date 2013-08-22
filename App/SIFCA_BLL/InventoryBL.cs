@@ -44,8 +44,8 @@ namespace SIFCA_BLL
         {
             try
             {
-                INVENTARIO proyecto = this.sifcaRepository.INVENTARIO.Find(inventoryId);
-                this.sifcaRepository.INVENTARIO.Remove(proyecto);
+                INVENTARIO inventory = this.sifcaRepository.INVENTARIO.Find(inventoryId);
+                this.sifcaRepository.INVENTARIO.Remove(inventory);
                 this.sifcaRepository.SaveChanges();
             }
             catch (Exception ex)

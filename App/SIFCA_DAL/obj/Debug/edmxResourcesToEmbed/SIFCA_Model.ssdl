@@ -63,6 +63,10 @@
       <End Role="LISTADODEESPECIES" EntitySet="LISTADODEESPECIES" />
       <End Role="PROYECTO" EntitySet="PROYECTO" />
     </AssociationSet>
+    <AssociationSet Name="FK_REGENERA_CAPTURA_ESTACION" Association="SIFCA_Model.Store.FK_REGENERA_CAPTURA_ESTACION">
+      <End Role="ESTACION" EntitySet="ESTACION" />
+      <End Role="REGENERACION" EntitySet="REGENERACION" />
+    </AssociationSet>
     <AssociationSet Name="FK_REGENERA_EVALUA_ESPECIE" Association="SIFCA_Model.Store.FK_REGENERA_EVALUA_ESPECIE">
       <End Role="ESPECIE" EntitySet="ESPECIE" />
       <End Role="REGENERACION" EntitySet="REGENERACION" />
@@ -138,9 +142,10 @@
   </EntityType>
   <EntityType Name="INVENTARIO">
     <Key>
-      <PropertyRef Name="LINEAINVENT" />
+      <PropertyRef Name="NROPROY" />
+      <PropertyRef Name="NROEST" />
+      <PropertyRef Name="PARCELA" />
     </Key>
-    <Property Name="LINEAINVENT" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="CODCALIDAD" Type="numeric" Nullable="false" />
     <Property Name="NROPROY" Type="numeric" Nullable="false" />
     <Property Name="ESTADO" Type="char" Nullable="false" MaxLength="2" />
@@ -148,7 +153,7 @@
     <Property Name="CODESP" Type="numeric" Nullable="false" />
     <Property Name="CODETAPA" Type="numeric" Nullable="false" />
     <Property Name="NROEST" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PARCELA" Type="numeric" />
+    <Property Name="PARCELA" Type="numeric" Nullable="false" />
     <Property Name="NROARB" Type="numeric" />
     <Property Name="CAP" Type="numeric" />
     <Property Name="DAP" Type="numeric" />
@@ -190,10 +195,12 @@
   </EntityType>
   <EntityType Name="REGENERACION">
     <Key>
-      <PropertyRef Name="LINEAREGEN" />
+      <PropertyRef Name="NROEST" />
+      <PropertyRef Name="PARCELA" />
+      <PropertyRef Name="NROPROY" />
     </Key>
-    <Property Name="LINEAREGEN" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="PARCELA" Type="numeric" />
+    <Property Name="NROEST" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PARCELA" Type="numeric" Nullable="false" />
     <Property Name="NROARB" Type="numeric" />
     <Property Name="LATIZAL" Type="numeric" />
     <Property Name="BRINZAL" Type="numeric" />
@@ -384,6 +391,18 @@
       </Principal>
       <Dependent Role="PROYECTO">
         <PropertyRef Name="NOMARCH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_REGENERA_CAPTURA_ESTACION">
+    <End Role="ESTACION" Type="SIFCA_Model.Store.ESTACION" Multiplicity="1" />
+    <End Role="REGENERACION" Type="SIFCA_Model.Store.REGENERACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTACION">
+        <PropertyRef Name="NROEST" />
+      </Principal>
+      <Dependent Role="REGENERACION">
+        <PropertyRef Name="NROEST" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

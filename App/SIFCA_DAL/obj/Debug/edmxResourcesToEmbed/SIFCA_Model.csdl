@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="SIFCA_Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-  <EntityContainer Name="SIFCA_CONNECTION" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="SIFCA_CONTEXT" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="CALIDAD" EntityType="SIFCA_Model.CALIDAD" />
     <EntitySet Name="ESPECIE" EntityType="SIFCA_Model.ESPECIE" />
     <EntitySet Name="ESTACION" EntityType="SIFCA_Model.ESTACION" />
@@ -33,6 +33,10 @@
     <AssociationSet Name="FK_INVENTAR_RECOGE_ESTACION" Association="SIFCA_Model.FK_INVENTAR_RECOGE_ESTACION">
       <End Role="ESTACION" EntitySet="ESTACION" />
       <End Role="INVENTARIO" EntitySet="INVENTARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_REGENERA_CAPTURA_ESTACION" Association="SIFCA_Model.FK_REGENERA_CAPTURA_ESTACION">
+      <End Role="ESTACION" EntitySet="ESTACION" />
+      <End Role="REGENERACION" EntitySet="REGENERACION" />
     </AssociationSet>
     <AssociationSet Name="FK_INVENTAR_ASOCIADO_ESTADOSA" Association="SIFCA_Model.FK_INVENTAR_ASOCIADO_ESTADOSA">
       <End Role="ESTADOSANITARIO" EntitySet="ESTADOSANITARIO" />
@@ -108,6 +112,7 @@
     <Property Type="String" Name="PERSONARESPONSABLE" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="NOMBRE" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="INVENTARIO" Relationship="SIFCA_Model.FK_INVENTAR_RECOGE_ESTACION" FromRole="ESTACION" ToRole="INVENTARIO" />
+    <NavigationProperty Name="REGENERACION" Relationship="SIFCA_Model.FK_REGENERA_CAPTURA_ESTACION" FromRole="ESTACION" ToRole="REGENERACION" />
   </EntityType>
   <EntityType Name="ESTADOSANITARIO">
     <Key>
@@ -145,9 +150,10 @@
   </EntityType>
   <EntityType Name="INVENTARIO">
     <Key>
-      <PropertyRef Name="LINEAINVENT" />
+      <PropertyRef Name="NROPROY" />
+      <PropertyRef Name="NROEST" />
+      <PropertyRef Name="PARCELA" />
     </Key>
-    <Property Type="Decimal" Name="LINEAINVENT" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="Decimal" Name="CODCALIDAD" Nullable="false" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="NROPROY" Nullable="false" Precision="18" Scale="0" />
     <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
@@ -155,7 +161,7 @@
     <Property Type="Decimal" Name="CODESP" Nullable="false" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="CODETAPA" Nullable="false" Precision="18" Scale="0" />
     <Property Type="Guid" Name="NROEST" Nullable="false" />
-    <Property Type="Decimal" Name="PARCELA" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="PARCELA" Nullable="false" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="NROARB" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="CAP" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="DAP" Precision="18" Scale="0" />
@@ -202,10 +208,12 @@
   </EntityType>
   <EntityType Name="REGENERACION">
     <Key>
-      <PropertyRef Name="LINEAREGEN" />
+      <PropertyRef Name="NROEST" />
+      <PropertyRef Name="PARCELA" />
+      <PropertyRef Name="NROPROY" />
     </Key>
-    <Property Type="Decimal" Name="LINEAREGEN" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Decimal" Name="PARCELA" Precision="18" Scale="0" />
+    <Property Type="Guid" Name="NROEST" Nullable="false" />
+    <Property Type="Decimal" Name="PARCELA" Nullable="false" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="NROARB" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="LATIZAL" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="BRINZAL" Precision="18" Scale="0" />
@@ -214,6 +222,7 @@
     <Property Type="Decimal" Name="NROPROY" Nullable="false" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="CODESP" Nullable="false" Precision="18" Scale="0" />
     <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.FK_REGENERA_EVALUA_ESPECIE" FromRole="REGENERACION" ToRole="ESPECIE" />
+    <NavigationProperty Name="ESTACION" Relationship="SIFCA_Model.FK_REGENERA_CAPTURA_ESTACION" FromRole="REGENERACION" ToRole="ESTACION" />
     <NavigationProperty Name="ESTRATO" Relationship="SIFCA_Model.FK_REGENERA_SUBDIVIDE_ESTRATO" FromRole="REGENERACION" ToRole="ESTRATO" />
     <NavigationProperty Name="ETAPA" Relationship="SIFCA_Model.FK_REGENERA_SE_EXAMIN_ETAPA" FromRole="REGENERACION" ToRole="ETAPA" />
     <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_REGENERA_EXAMINA_PROYECTO" FromRole="REGENERACION" ToRole="PROYECTO" />
@@ -292,6 +301,18 @@
         <PropertyRef Name="NROEST" />
       </Principal>
       <Dependent Role="INVENTARIO">
+        <PropertyRef Name="NROEST" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_REGENERA_CAPTURA_ESTACION">
+    <End Type="SIFCA_Model.ESTACION" Role="ESTACION" Multiplicity="1" />
+    <End Type="SIFCA_Model.REGENERACION" Role="REGENERACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTACION">
+        <PropertyRef Name="NROEST" />
+      </Principal>
+      <Dependent Role="REGENERACION">
         <PropertyRef Name="NROEST" />
       </Dependent>
     </ReferentialConstraint>

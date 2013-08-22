@@ -18,11 +18,10 @@ namespace SIFCA
             InitializeComponent();
         }
 
-        private void ShowNewForm(object sender, EventArgs e)
+        private void CreateNewProject(object sender, EventArgs e)
         {
-            Form childForm = new Form();
+            Proyecto_Form childForm = new Proyecto_Form();
             childForm.MdiParent = this;
-            childForm.Text = "Ventana " + childFormNumber++;
             childForm.Show();
         }
 

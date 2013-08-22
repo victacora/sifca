@@ -1,6 +1,6 @@
-﻿namespace SIFCA.Gestionar_Datos_Inventario
+﻿namespace SIFCA
 {
-    partial class Gestionar_Datos_Inventario_Form
+    partial class GestDatRegen_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -30,18 +30,17 @@
         {
             this.SuspendLayout();
             // 
-            // Gestionar_Datos_Inventario_Form
+            // GestDatRegen_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 333);
-            this.Name = "Gestionar_Datos_Inventario_Form";
-            this.Text = "Gestionar_Datos_Inventario_Form";
+            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Name = "GestDatRegen_Form";
+            this.Text = "Datos regeneracion";
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
     }
 }

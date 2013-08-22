@@ -42,9 +42,11 @@ namespace SIFCA
         {
             this.tipoInvenCbx.DataSource = inventoryType.GetInventoryTypes();
             this.tipoInvenCbx.DisplayMember = "NOMBRETIPOINV";
+            this.tipoInvenCbx.ValueMember = "NOMBRETIPOINV";
             this.tipoInvenCbx.Invalidate();
             this.listaEspCbx.DataSource = speciesList.GetSpeciesLists();
             this.listaEspCbx.DisplayMember = "NOMARCH";
+            this.tipoInvenCbx.ValueMember = "NROEST";
             this.listaEspCbx.Invalidate();
         }
     }

@@ -106,9 +106,11 @@
     </Compile>
     <EmbeddedResource Include="Gestionar Datos Inventario\GestDatInv_Form.resx">
       <DependentUpon>GestDatInv_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestionar Datos Regeneracion\GestDatRegen_Form.resx">
       <DependentUpon>GestDatRegen_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestionar Estaciones\Crear_Estacion_Form.resx">
       <DependentUpon>Crear_Estacion_Form.cs</DependentUpon>

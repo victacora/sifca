@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace SIFCA.Gestionar_Datos_Inventario
+namespace SIFCA
 {
-    public partial class Gestionar_Datos_Inventario_Form : Form
+    public partial class GestDatRegen_Form : Form
     {
-        public Gestionar_Datos_Inventario_Form()
+        public GestDatRegen_Form()
         {
             InitializeComponent();
         }

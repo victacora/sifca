@@ -51,21 +51,21 @@
             this.filtrarEspLbl = new System.Windows.Forms.ToolStripLabel();
             this.especiesCbx = new System.Windows.Forms.ToolStripComboBox();
             this.inventarioDataGridView = new System.Windows.Forms.DataGridView();
-            this.estacionBSource = new System.Windows.Forms.BindingSource(this.components);
-            this.etapaBSource = new System.Windows.Forms.BindingSource(this.components);
-            this.estratoBSource = new System.Windows.Forms.BindingSource(this.components);
-            this.especieBSource = new System.Windows.Forms.BindingSource(this.components);
-            this.calidadBSource = new System.Windows.Forms.BindingSource(this.components);
-            this.estadoSaniBSource = new System.Windows.Forms.BindingSource(this.components);
             this.Proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estacion = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.estacionBSource = new System.Windows.Forms.BindingSource(this.components);
             this.Etapa = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.etapaBSource = new System.Windows.Forms.BindingSource(this.components);
             this.Estrato = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.estratoBSource = new System.Windows.Forms.BindingSource(this.components);
             this.Parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Arbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Especie = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.especieBSource = new System.Windows.Forms.BindingSource(this.components);
             this.Calidad = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.calidadBSource = new System.Windows.Forms.BindingSource(this.components);
             this.Estado = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.estadoSaniBSource = new System.Windows.Forms.BindingSource(this.components);
             this.CAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AltComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,7 +87,7 @@
             // 
             // inventarioBNavigator
             // 
-            this.inventarioBNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.inventarioBNavigator.AddNewItem = null;
             this.inventarioBNavigator.BindingSource = this.inventarioBSource;
             this.inventarioBNavigator.CountItem = this.bindingNavigatorCountItem;
             this.inventarioBNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
@@ -119,7 +119,7 @@
             this.inventarioBNavigator.PositionItem = this.bindingNavigatorPositionItem;
             this.inventarioBNavigator.Size = new System.Drawing.Size(1134, 25);
             this.inventarioBNavigator.TabIndex = 0;
-            this.inventarioBNavigator.Text = "bindingNavigator1";
+            this.inventarioBNavigator.Text = "InventarioBinding";
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -128,6 +128,7 @@
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // inventarioBSource
             // 
@@ -204,10 +205,10 @@
             // iNVENTARIOBindingNavigatorSaveItem
             // 
             this.iNVENTARIOBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.iNVENTARIOBindingNavigatorSaveItem.Enabled = false;
             this.iNVENTARIOBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("iNVENTARIOBindingNavigatorSaveItem.Image")));
             this.iNVENTARIOBindingNavigatorSaveItem.Name = "iNVENTARIOBindingNavigatorSaveItem";
             this.iNVENTARIOBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.iNVENTARIOBindingNavigatorSaveItem.Click += new System.EventHandler(this.iNVENTARIOBindingNavigatorSaveItem_Click);
             // 
             // buscarLbl
             // 
@@ -284,34 +285,10 @@
             this.inventarioDataGridView.TabIndex = 1;
             this.inventarioDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.inventarioDataGridView_DataError);
             // 
-            // estacionBSource
-            // 
-            this.estacionBSource.DataSource = typeof(SIFCA_DAL.ESTACION);
-            // 
-            // etapaBSource
-            // 
-            this.etapaBSource.DataSource = typeof(SIFCA_DAL.ETAPA);
-            // 
-            // estratoBSource
-            // 
-            this.estratoBSource.DataSource = typeof(SIFCA_DAL.ESTRATO);
-            // 
-            // especieBSource
-            // 
-            this.especieBSource.DataSource = typeof(SIFCA_DAL.ESPECIE);
-            // 
-            // calidadBSource
-            // 
-            this.calidadBSource.DataSource = typeof(SIFCA_DAL.CALIDAD);
-            // 
-            // estadoSaniBSource
-            // 
-            this.estadoSaniBSource.DataSource = typeof(SIFCA_DAL.ESTADOSANITARIO);
-            // 
             // Proyecto
             // 
             this.Proyecto.DataPropertyName = "NROPROY";
-            this.Proyecto.FillWeight = 2.803044F;
+            this.Proyecto.FillWeight = 0.4205418F;
             this.Proyecto.HeaderText = "Proyecto";
             this.Proyecto.Name = "Proyecto";
             // 
@@ -320,48 +297,60 @@
             this.Estacion.DataPropertyName = "NROEST";
             this.Estacion.DataSource = this.estacionBSource;
             this.Estacion.DisplayMember = "NOMBRE";
-            this.Estacion.FillWeight = 4.457037F;
+            this.Estacion.FillWeight = 0.668691F;
             this.Estacion.HeaderText = "Estacion";
             this.Estacion.Name = "Estacion";
             this.Estacion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Estacion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Estacion.ValueMember = "NROEST";
             // 
+            // estacionBSource
+            // 
+            this.estacionBSource.DataSource = typeof(SIFCA_DAL.ESTACION);
+            // 
             // Etapa
             // 
             this.Etapa.DataPropertyName = "CODETAPA";
             this.Etapa.DataSource = this.etapaBSource;
             this.Etapa.DisplayMember = "CODETAPA";
-            this.Etapa.FillWeight = 3.875251F;
+            this.Etapa.FillWeight = 0.5814054F;
             this.Etapa.HeaderText = "Etapa";
             this.Etapa.Name = "Etapa";
             this.Etapa.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Etapa.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Etapa.ValueMember = "CODETAPA";
             // 
+            // etapaBSource
+            // 
+            this.etapaBSource.DataSource = typeof(SIFCA_DAL.ETAPA);
+            // 
             // Estrato
             // 
             this.Estrato.DataPropertyName = "CODEST";
             this.Estrato.DataSource = this.estratoBSource;
             this.Estrato.DisplayMember = "DESCRIPESTRATO";
-            this.Estrato.FillWeight = 4.116352F;
+            this.Estrato.FillWeight = 1.175909F;
             this.Estrato.HeaderText = "Estrato";
             this.Estrato.Name = "Estrato";
             this.Estrato.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Estrato.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Estrato.ValueMember = "CODEST";
             // 
+            // estratoBSource
+            // 
+            this.estratoBSource.DataSource = typeof(SIFCA_DAL.ESTRATO);
+            // 
             // Parcela
             // 
             this.Parcela.DataPropertyName = "PARCELA";
-            this.Parcela.FillWeight = 2.803044F;
+            this.Parcela.FillWeight = 0.4205418F;
             this.Parcela.HeaderText = "Parcela";
             this.Parcela.Name = "Parcela";
             // 
             // Arbol
             // 
             this.Arbol.DataPropertyName = "NROARB";
-            this.Arbol.FillWeight = 2.803044F;
+            this.Arbol.FillWeight = 0.4205418F;
             this.Arbol.HeaderText = "Arbol";
             this.Arbol.Name = "Arbol";
             // 
@@ -371,83 +360,95 @@
             this.Especie.DataSource = this.especieBSource;
             this.Especie.DisplayMember = "NOMCOMUN";
             this.Especie.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.Especie.FillWeight = 7.834549F;
+            this.Especie.FillWeight = 1.17542F;
             this.Especie.HeaderText = "Especie";
             this.Especie.Name = "Especie";
             this.Especie.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Especie.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Especie.ValueMember = "CODESP";
             // 
+            // especieBSource
+            // 
+            this.especieBSource.DataSource = typeof(SIFCA_DAL.ESPECIE);
+            // 
             // Calidad
             // 
             this.Calidad.DataPropertyName = "CODCALIDAD";
             this.Calidad.DataSource = this.calidadBSource;
             this.Calidad.DisplayMember = "DESCRIPCALIDAD";
-            this.Calidad.FillWeight = 4.716156F;
+            this.Calidad.FillWeight = 1.319587F;
             this.Calidad.HeaderText = "Calidad";
             this.Calidad.Name = "Calidad";
             this.Calidad.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Calidad.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Calidad.ValueMember = "CODCALIDAD";
             // 
+            // calidadBSource
+            // 
+            this.calidadBSource.DataSource = typeof(SIFCA_DAL.CALIDAD);
+            // 
             // Estado
             // 
             this.Estado.DataPropertyName = "ESTADO";
             this.Estado.DataSource = this.estadoSaniBSource;
             this.Estado.DisplayMember = "DESCRIPESTADO";
-            this.Estado.FillWeight = 4.68283F;
+            this.Estado.FillWeight = 1.31873F;
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
             this.Estado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Estado.ValueMember = "ESTADO";
             // 
+            // estadoSaniBSource
+            // 
+            this.estadoSaniBSource.DataSource = typeof(SIFCA_DAL.ESTADOSANITARIO);
+            // 
             // CAP
             // 
             this.CAP.DataPropertyName = "CAP";
-            this.CAP.FillWeight = 2.803044F;
+            this.CAP.FillWeight = 0.4205418F;
             this.CAP.HeaderText = "CAP";
             this.CAP.Name = "CAP";
             // 
             // DAP
             // 
             this.DAP.DataPropertyName = "DAP";
-            this.DAP.FillWeight = 2.803044F;
+            this.DAP.FillWeight = 0.4205418F;
             this.DAP.HeaderText = "DAP";
             this.DAP.Name = "DAP";
             // 
             // AltComercial
             // 
             this.AltComercial.DataPropertyName = "ALTCOMER_M";
-            this.AltComercial.FillWeight = 2.803044F;
+            this.AltComercial.FillWeight = 0.4205418F;
             this.AltComercial.HeaderText = "Alt. Comercial";
             this.AltComercial.Name = "AltComercial";
             // 
             // AltTotal
             // 
             this.AltTotal.DataPropertyName = "ALTTOT_M";
-            this.AltTotal.FillWeight = 2.803044F;
+            this.AltTotal.FillWeight = 0.4205418F;
             this.AltTotal.HeaderText = "Alt. Total";
             this.AltTotal.Name = "AltTotal";
             // 
             // AB
             // 
             this.AB.DataPropertyName = "AREABASAL";
-            this.AB.FillWeight = 2.803044F;
+            this.AB.FillWeight = 0.4205418F;
             this.AB.HeaderText = "Area basal";
             this.AB.Name = "AB";
             // 
             // VolComercial
             // 
             this.VolComercial.DataPropertyName = "VOLCOM";
-            this.VolComercial.FillWeight = 2.803044F;
+            this.VolComercial.FillWeight = 0.4205418F;
             this.VolComercial.HeaderText = "Vol. Comercial";
             this.VolComercial.Name = "VolComercial";
             // 
             // VolTotal
             // 
             this.VolTotal.DataPropertyName = "VOLTOT";
-            this.VolTotal.FillWeight = 2.803044F;
+            this.VolTotal.FillWeight = 0.4205418F;
             this.VolTotal.HeaderText = "Vol. Total";
             this.VolTotal.Name = "VolTotal";
             // 

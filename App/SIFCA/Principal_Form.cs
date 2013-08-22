@@ -112,7 +112,7 @@ namespace SIFCA
             childForm.MdiParent = this;
             childForm.Show();
         }
-        
+        //TODO:
         private void Principal_Form_Load(object sender, EventArgs e)
         {
             //cargar stage activo

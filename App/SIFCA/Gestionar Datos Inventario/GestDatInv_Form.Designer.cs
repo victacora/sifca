@@ -282,6 +282,7 @@
             this.inventarioDataGridView.Name = "inventarioDataGridView";
             this.inventarioDataGridView.Size = new System.Drawing.Size(1134, 406);
             this.inventarioDataGridView.TabIndex = 1;
+            this.inventarioDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.inventarioDataGridView_DataError);
             // 
             // estacionBSource
             // 
@@ -342,7 +343,7 @@
             // 
             this.Estrato.DataPropertyName = "CODEST";
             this.Estrato.DataSource = this.estratoBSource;
-            this.Estrato.DisplayMember = "CODEST";
+            this.Estrato.DisplayMember = "DESCRIPESTRATO";
             this.Estrato.FillWeight = 21.62206F;
             this.Estrato.HeaderText = "Estrato";
             this.Estrato.Name = "Estrato";
@@ -381,7 +382,7 @@
             // 
             this.Calidad.DataPropertyName = "CODCALIDAD";
             this.Calidad.DataSource = this.calidadBSource;
-            this.Calidad.DisplayMember = "CODCALIDAD";
+            this.Calidad.DisplayMember = "DESCRIPCALIDAD";
             this.Calidad.FillWeight = 21.62206F;
             this.Calidad.HeaderText = "Calidad";
             this.Calidad.Name = "Calidad";
@@ -393,7 +394,7 @@
             // 
             this.Estado.DataPropertyName = "ESTADO";
             this.Estado.DataSource = this.estadoSaniBSource;
-            this.Estado.DisplayMember = "ESTADO";
+            this.Estado.DisplayMember = "DESCRIPESTADO";
             this.Estado.FillWeight = 21.62206F;
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";

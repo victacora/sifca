@@ -13,5 +13,4 @@ C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\bin\Debug\SIFCA_DAL.
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\bin\Debug\EntityFramework.dll
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\bin\Debug\SIFCA_DAL.pdb
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\bin\Debug\EntityFramework.xml
-C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Proyectos_Form.resources
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Proyecto_Form.resources

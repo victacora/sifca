@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using SIFCA_BLL;
+using SIFCA_DAL;
 
 namespace SIFCA
 {
@@ -20,14 +21,11 @@ namespace SIFCA
             InitializeComponent();
             inventory = new InventoryBL();
             species = new SpeciesBL();
-        }
-
-        private void GestDatInv_Form_Load(object sender, EventArgs e)
-        {
+            this.inventarioBSource.DataSource = inventory.GetInventories();
+            this.especieBSource.DataSource = species.GetSpecies();
+            this.Especie.DataSource = especieBSource;
             this.criterioBusquedaCbx.SelectedIndex = 0;
             this.especiesCbx.SelectedIndex = 0;
-            this.inventarioBSource.DataSource=inventory.GetInventories();
-            this.especieBSource.DataSource = species.GetSpecies();
         }
     }
 }

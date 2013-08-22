@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Proyecto_Form));
             this.proyectoBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.ProyectoBindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.proyectoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.proyectoBindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -45,8 +44,10 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.proyectoBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.proyectoDataGridView = new System.Windows.Forms.DataGridView();
+            this.proyectoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.estacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,8 +62,9 @@
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoBindingNavigator)).BeginInit();
             this.proyectoBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estacionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // proyectoBindingNavigator
@@ -91,7 +93,7 @@
             this.proyectoBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.proyectoBindingNavigator.Name = "proyectoBindingNavigator";
             this.proyectoBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.proyectoBindingNavigator.Size = new System.Drawing.Size(498, 25);
+            this.proyectoBindingNavigator.Size = new System.Drawing.Size(784, 25);
             this.proyectoBindingNavigator.TabIndex = 0;
             this.proyectoBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -104,10 +106,6 @@
             this.ProyectoBindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.ProyectoBindingNavigatorAddNewItem.Text = "Agregar nuevo";
             this.ProyectoBindingNavigatorAddNewItem.Click += new System.EventHandler(this.ProyectoBindingNavigatorAddNewItem_Click);
-            // 
-            // proyectoBindingSource
-            // 
-            this.proyectoBindingSource.DataSource = typeof(SIFCA_DAL.PROYECTO);
             // 
             // bindingNavigatorCountItem
             // 
@@ -198,6 +196,7 @@
             // 
             // proyectoDataGridView
             // 
+            this.proyectoDataGridView.AllowUserToOrderColumns = true;
             this.proyectoDataGridView.AutoGenerateColumns = false;
             this.proyectoDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.proyectoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -220,8 +219,16 @@
             this.proyectoDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.proyectoDataGridView.Location = new System.Drawing.Point(0, 25);
             this.proyectoDataGridView.Name = "proyectoDataGridView";
-            this.proyectoDataGridView.Size = new System.Drawing.Size(498, 365);
+            this.proyectoDataGridView.Size = new System.Drawing.Size(784, 387);
             this.proyectoDataGridView.TabIndex = 1;
+            // 
+            // proyectoBindingSource
+            // 
+            this.proyectoBindingSource.DataSource = typeof(SIFCA_DAL.PROYECTO);
+            // 
+            // estacionBindingSource
+            // 
+            this.estacionBindingSource.DataSource = typeof(SIFCA_DAL.ESTACION);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -232,8 +239,12 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "NROEST";
+            this.dataGridViewTextBoxColumn2.DataSource = this.estacionBindingSource;
+            this.dataGridViewTextBoxColumn2.DisplayMember = "NOMBRE";
             this.dataGridViewTextBoxColumn2.HeaderText = "NROEST";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -311,16 +322,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 390);
+            this.ClientSize = new System.Drawing.Size(784, 412);
             this.Controls.Add(this.proyectoDataGridView);
             this.Controls.Add(this.proyectoBindingNavigator);
             this.Name = "Proyecto_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestionar proyectos";
             ((System.ComponentModel.ISupportInitialize)(this.proyectoBindingNavigator)).EndInit();
             this.proyectoBindingNavigator.ResumeLayout(false);
             this.proyectoBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estacionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,7 +357,8 @@
         private System.Windows.Forms.ToolStripButton proyectoBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView proyectoDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.BindingSource estacionBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;

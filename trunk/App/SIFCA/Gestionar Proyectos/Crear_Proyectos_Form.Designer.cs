@@ -51,10 +51,10 @@
             this.tamParcelaTxt = new System.Windows.Forms.TextBox();
             this.IntensidadGbx = new System.Windows.Forms.GroupBox();
             this.IntsMuestreTxt = new System.Windows.Forms.TextBox();
-            this.iNTMUETextBox = new System.Windows.Forms.TextBox();
+            this.intMuestreoTxt = new System.Windows.Forms.TextBox();
             this.AreaMuestreadaGbx = new System.Windows.Forms.GroupBox();
             this.AreaMuestradaTxt = new System.Windows.Forms.TextBox();
-            this.lugarLbl = new System.Windows.Forms.TextBox();
+            this.lugarTxt = new System.Windows.Forms.TextBox();
             lugalLbl = new System.Windows.Forms.Label();
             listadoEspLbl = new System.Windows.Forms.Label();
             tipoInvTxt = new System.Windows.Forms.Label();
@@ -163,7 +163,7 @@
             this.DatosProyectoGbx.Controls.Add(this.IntensidadGbx);
             this.DatosProyectoGbx.Controls.Add(this.AreaMuestreadaGbx);
             this.DatosProyectoGbx.Controls.Add(lugalLbl);
-            this.DatosProyectoGbx.Controls.Add(this.lugarLbl);
+            this.DatosProyectoGbx.Controls.Add(this.lugarTxt);
             this.DatosProyectoGbx.Controls.Add(listadoEspLbl);
             this.DatosProyectoGbx.Controls.Add(tipoInvTxt);
             this.DatosProyectoGbx.Location = new System.Drawing.Point(12, 12);
@@ -274,7 +274,7 @@
             // 
             this.IntensidadGbx.Controls.Add(porcentajeLbl);
             this.IntensidadGbx.Controls.Add(this.IntsMuestreTxt);
-            this.IntensidadGbx.Controls.Add(this.iNTMUETextBox);
+            this.IntensidadGbx.Controls.Add(this.intMuestreoTxt);
             this.IntensidadGbx.Location = new System.Drawing.Point(150, 111);
             this.IntensidadGbx.Name = "IntensidadGbx";
             this.IntensidadGbx.Size = new System.Drawing.Size(135, 53);
@@ -289,12 +289,12 @@
             this.IntsMuestreTxt.Size = new System.Drawing.Size(103, 20);
             this.IntsMuestreTxt.TabIndex = 6;
             // 
-            // iNTMUETextBox
+            // intMuestreoTxt
             // 
-            this.iNTMUETextBox.Location = new System.Drawing.Point(6, 59);
-            this.iNTMUETextBox.Name = "iNTMUETextBox";
-            this.iNTMUETextBox.Size = new System.Drawing.Size(119, 20);
-            this.iNTMUETextBox.TabIndex = 3;
+            this.intMuestreoTxt.Location = new System.Drawing.Point(6, 59);
+            this.intMuestreoTxt.Name = "intMuestreoTxt";
+            this.intMuestreoTxt.Size = new System.Drawing.Size(119, 20);
+            this.intMuestreoTxt.TabIndex = 3;
             // 
             // AreaMuestreadaGbx
             // 
@@ -314,12 +314,12 @@
             this.AreaMuestradaTxt.Size = new System.Drawing.Size(86, 20);
             this.AreaMuestradaTxt.TabIndex = 5;
             // 
-            // lugarLbl
+            // lugarTxt
             // 
-            this.lugarLbl.Location = new System.Drawing.Point(128, 23);
-            this.lugarLbl.Name = "lugarLbl";
-            this.lugarLbl.Size = new System.Drawing.Size(296, 20);
-            this.lugarLbl.TabIndex = 1;
+            this.lugarTxt.Location = new System.Drawing.Point(128, 23);
+            this.lugarTxt.Name = "lugarTxt";
+            this.lugarTxt.Size = new System.Drawing.Size(296, 20);
+            this.lugarTxt.TabIndex = 1;
             // 
             // Crear_Proyecto_Form
             // 
@@ -351,10 +351,10 @@
         private System.Windows.Forms.TextBox limiteInfTxt;
         private System.Windows.Forms.GroupBox otrosDatosGbx;
         private System.Windows.Forms.GroupBox IntensidadGbx;
-        private System.Windows.Forms.TextBox iNTMUETextBox;
+        private System.Windows.Forms.TextBox intMuestreoTxt;
         private System.Windows.Forms.GroupBox AreaMuestreadaGbx;
         private System.Windows.Forms.TextBox AreaMuestradaTxt;
-        private System.Windows.Forms.TextBox lugarLbl;
+        private System.Windows.Forms.TextBox lugarTxt;
         private System.Windows.Forms.ComboBox listaEspCbx;
         private System.Windows.Forms.ComboBox tipoInvenCbx;
         private System.Windows.Forms.TextBox limiteSupTxt;

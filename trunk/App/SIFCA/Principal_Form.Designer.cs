@@ -44,6 +44,8 @@
             this.introducirDatosDeInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regeneracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.especiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ingresarEspecieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarEspeciesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.newWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cascadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,8 +61,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.ingresarEspecieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listarEspeciesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarProyectosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -124,6 +125,7 @@
             // 
             this.fileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
+            this.listarProyectosToolStripMenuItem,
             this.cambiarProject,
             this.importarProyectoToolStripMenuItem,
             this.exportarProyectoToolStripMenuItem});
@@ -198,6 +200,19 @@
             this.especiesToolStripMenuItem.Name = "especiesToolStripMenuItem";
             this.especiesToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.especiesToolStripMenuItem.Text = "&Especies";
+            // 
+            // ingresarEspecieToolStripMenuItem
+            // 
+            this.ingresarEspecieToolStripMenuItem.Name = "ingresarEspecieToolStripMenuItem";
+            this.ingresarEspecieToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.ingresarEspecieToolStripMenuItem.Text = "Ingresar Especie";
+            // 
+            // listarEspeciesToolStripMenuItem
+            // 
+            this.listarEspeciesToolStripMenuItem.Name = "listarEspeciesToolStripMenuItem";
+            this.listarEspeciesToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.listarEspeciesToolStripMenuItem.Text = "Listar Especies";
+            this.listarEspeciesToolStripMenuItem.Click += new System.EventHandler(this.listarEspeciesToolStripMenuItem_Click);
             // 
             // windowsMenu
             // 
@@ -306,18 +321,11 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
             this.toolStripStatusLabel.Text = "Estado";
             // 
-            // ingresarEspecieToolStripMenuItem
+            // listarProyectosToolStripMenuItem
             // 
-            this.ingresarEspecieToolStripMenuItem.Name = "ingresarEspecieToolStripMenuItem";
-            this.ingresarEspecieToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.ingresarEspecieToolStripMenuItem.Text = "Ingresar Especie";
-            // 
-            // listarEspeciesToolStripMenuItem
-            // 
-            this.listarEspeciesToolStripMenuItem.Name = "listarEspeciesToolStripMenuItem";
-            this.listarEspeciesToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.listarEspeciesToolStripMenuItem.Text = "Listar Especies";
-            this.listarEspeciesToolStripMenuItem.Click += new System.EventHandler(this.listarEspeciesToolStripMenuItem_Click);
+            this.listarProyectosToolStripMenuItem.Name = "listarProyectosToolStripMenuItem";
+            this.listarProyectosToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.listarProyectosToolStripMenuItem.Text = "Listar Proyectos";
             // 
             // Principal_Form
             // 
@@ -377,6 +385,7 @@
         private System.Windows.Forms.ToolStripMenuItem exportarProyectoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ingresarEspecieToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarEspeciesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listarProyectosToolStripMenuItem;
     }
 }
 

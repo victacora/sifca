@@ -33,7 +33,6 @@
             this.inventarioBNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.inventarioBSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -43,6 +42,7 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.inventarioBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.buscarLbl = new System.Windows.Forms.ToolStripLabel();
             this.parametroBusTxt = new System.Windows.Forms.ToolStripTextBox();
@@ -90,7 +90,7 @@
             this.inventarioBNavigator.AddNewItem = null;
             this.inventarioBNavigator.BindingSource = this.inventarioBSource;
             this.inventarioBNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.inventarioBNavigator.DeleteItem = null;
+            this.inventarioBNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
             this.inventarioBNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -130,15 +130,6 @@
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
             this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
             this.bindingNavigatorCountItem.Text = "de {0}";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -203,6 +194,14 @@
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            // 
             // inventarioBindingNavigatorSaveItem
             // 
             this.inventarioBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -240,6 +239,7 @@
             "Estado"});
             this.criterioBusquedaCbx.Name = "criterioBusquedaCbx";
             this.criterioBusquedaCbx.Size = new System.Drawing.Size(121, 25);
+            this.criterioBusquedaCbx.SelectedIndexChanged += new System.EventHandler(this.criterioBusquedaCbx_SelectedIndexChanged);
             // 
             // filtrarEspLbl
             // 
@@ -255,6 +255,7 @@
             "Nombre Cientifico"});
             this.especiesCbx.Name = "especiesCbx";
             this.especiesCbx.Size = new System.Drawing.Size(121, 25);
+            this.especiesCbx.SelectedIndexChanged += new System.EventHandler(this.especiesCbx_SelectedIndexChanged);
             // 
             // inventarioDataGridView
             // 
@@ -285,6 +286,7 @@
             this.inventarioDataGridView.Size = new System.Drawing.Size(1134, 406);
             this.inventarioDataGridView.TabIndex = 1;
             this.inventarioDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.inventarioDataGridView_DataError);
+            this.inventarioDataGridView.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.inventarioDataGridView_RowsRemoved);
             // 
             // Proyecto
             // 

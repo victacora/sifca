@@ -81,12 +81,33 @@ namespace SIFCA
         private void inventarioBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             inventory.SaveChanges();
+            MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        private void inventarioDataGridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
-
+            if (inventarioDataGridView.Rows.Count != 0)
+            {
+                DataGridViewRow row = inventarioDataGridView.Rows[e.RowIndex];
+                string project = row.Cells["Proyecto"].Value.ToString();
+                string nroStation=row.Cells["Estacion"].Value.ToString();
+                string parcel=row.Cells["Parcela"].Value.ToString();
+                string tree=row.Cells["Arbol"].Value.ToString();
+                inventory.DeleteInventory(int.Parse(project), Guid.Parse(nroStation), int.Parse(parcel), int.Parse(tree));
+            }
         }
+
+        private void criterioBusquedaCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //TODO: buscar por el criterio elegido ademas de paginar
+        }
+
+        private void especiesCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //TODO: cambiar el texto de los combobox en especies de nombres comunes a cientificos
+        }
+
+
 
     }
 }

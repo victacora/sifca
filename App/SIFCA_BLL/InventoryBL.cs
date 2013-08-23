@@ -22,9 +22,9 @@ namespace SIFCA_BLL
             return this.sifcaRepository.INVENTARIO.ToList();
         }
 
-        public INVENTARIO GetInventory(int inventoryId)
+        public INVENTARIO GetInventory(int nrProject,Guid nroStation,int parcel, int nroTree)
         {
-            return this.sifcaRepository.INVENTARIO.Find(inventoryId);
+            return this.sifcaRepository.INVENTARIO.Find(nrProject,nroStation,parcel,nroTree);
         }
 
         public void InsertInventory(INVENTARIO inventory)
@@ -39,11 +39,11 @@ namespace SIFCA_BLL
             }
         }
 
-        public void DeleteInventory(int inventoryId)
+        public void DeleteInventory(int nrProject, Guid nroStation,int parcel,int nroTree )
         {
             try
             {
-                INVENTARIO inventory = this.sifcaRepository.INVENTARIO.Find(inventoryId);
+                INVENTARIO inventory = this.sifcaRepository.INVENTARIO.Find(nrProject,nroStation,parcel,nroTree);
                 this.sifcaRepository.INVENTARIO.Remove(inventory);
             }
             catch (Exception ex)

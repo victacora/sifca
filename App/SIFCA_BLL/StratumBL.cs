@@ -32,7 +32,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.ESTRATO.Add(stratum);
-                this.sifcaRepository.SaveChanges();
+                
             }
             catch (Exception ex)
             {
@@ -46,7 +46,7 @@ namespace SIFCA_BLL
             {
                 ESTRATO proyecto = this.sifcaRepository.ESTRATO.Find(stratumId);
                 this.sifcaRepository.ESTRATO.Remove(proyecto);
-                this.sifcaRepository.SaveChanges();
+                
             }
             catch (Exception ex)
             {
@@ -59,7 +59,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.Entry(stratum).State = EntityState.Modified;
-                this.sifcaRepository.SaveChanges();
+                
             }
             catch (Exception ex)
             {

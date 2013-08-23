@@ -32,7 +32,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.LISTADODEESPECIES.Add(SpeciesList);
-                this.sifcaRepository.SaveChanges();
+                
             }
             catch (Exception ex)
             {
@@ -46,7 +46,7 @@ namespace SIFCA_BLL
             {
                 LISTADODEESPECIES speciesList = this.sifcaRepository.LISTADODEESPECIES.Find(SpeciesListId);
                 this.sifcaRepository.LISTADODEESPECIES.Remove(speciesList);
-                this.sifcaRepository.SaveChanges();
+                
             }
             catch (Exception ex)
             {
@@ -59,7 +59,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.Entry(SpeciesList).State = EntityState.Modified;
-                this.sifcaRepository.SaveChanges();
+                
             }
             catch (Exception ex)
             {

@@ -90,7 +90,7 @@
             this.inventarioBNavigator.AddNewItem = null;
             this.inventarioBNavigator.BindingSource = this.inventarioBSource;
             this.inventarioBNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.inventarioBNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.inventarioBNavigator.DeleteItem = null;
             this.inventarioBNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -138,6 +138,7 @@
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 

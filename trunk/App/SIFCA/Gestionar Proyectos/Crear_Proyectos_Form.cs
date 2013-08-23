@@ -25,6 +25,14 @@ namespace SIFCA
             project= new ProjectBL();
             inventoryType=new InventoryTypeBL();
             speciesList = new SpeciesListBL();
+            this.tipoInvenCbx.DataSource = inventoryType.GetInventoryTypes();
+            this.tipoInvenCbx.DisplayMember = "NOMBRETIPOINV";
+            this.tipoInvenCbx.ValueMember = "NOMBRETIPOINV";
+            this.tipoInvenCbx.Invalidate();
+            this.listaEspCbx.DataSource = speciesList.GetSpeciesLists();
+            this.listaEspCbx.DisplayMember = "NOMARCH";
+            this.listaEspCbx.ValueMember = "NOMARCH";
+            this.listaEspCbx.Invalidate();
         }
 
         private void AceptarBtn_Click(object sender, EventArgs e)
@@ -38,16 +46,5 @@ namespace SIFCA
             this.Close();
         }
 
-        private void Crear_Proyecto_Form_Load(object sender, EventArgs e)
-        {
-            this.tipoInvenCbx.DataSource = inventoryType.GetInventoryTypes();
-            this.tipoInvenCbx.DisplayMember = "NOMBRETIPOINV";
-            this.tipoInvenCbx.ValueMember = "NOMBRETIPOINV";
-            this.tipoInvenCbx.Invalidate();
-            this.listaEspCbx.DataSource = speciesList.GetSpeciesLists();
-            this.listaEspCbx.DisplayMember = "NOMARCH";
-            this.listaEspCbx.ValueMember = "NOMARCH";
-            this.listaEspCbx.Invalidate();
-        }
     }
 }

@@ -45,19 +45,27 @@
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.rEGENERACIONBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.regeneracionDataGridView = new System.Windows.Forms.DataGridView();
+            this.estacionBSource = new System.Windows.Forms.BindingSource(this.components);
+            this.etapaBSource = new System.Windows.Forms.BindingSource(this.components);
+            this.estratoBSource = new System.Windows.Forms.BindingSource(this.components);
+            this.especieBSource = new System.Windows.Forms.BindingSource(this.components);
             this.Proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Etapa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estacion = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Etapa = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Estrato = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Arbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Especie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Especie = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Latizal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Brinzal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.regenracionBSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.regeneracionBNavigator)).BeginInit();
             this.regeneracionBNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.regeneracionDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estacionBSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etapaBSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estratoBSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.especieBSource)).BeginInit();
             this.SuspendLayout();
             // 
             // regenracionBSource
@@ -66,7 +74,7 @@
             // 
             // regeneracionBNavigator
             // 
-            this.regeneracionBNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.regeneracionBNavigator.AddNewItem = null;
             this.regeneracionBNavigator.BindingSource = this.regenracionBSource;
             this.regeneracionBNavigator.CountItem = this.bindingNavigatorCountItem;
             this.regeneracionBNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
@@ -182,7 +190,6 @@
             // rEGENERACIONBindingNavigatorSaveItem
             // 
             this.rEGENERACIONBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.rEGENERACIONBindingNavigatorSaveItem.Enabled = false;
             this.rEGENERACIONBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("rEGENERACIONBindingNavigatorSaveItem.Image")));
             this.rEGENERACIONBindingNavigatorSaveItem.Name = "rEGENERACIONBindingNavigatorSaveItem";
             this.rEGENERACIONBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
@@ -197,7 +204,7 @@
             this.Proyecto,
             this.Estacion,
             this.Etapa,
-            this.dataGridViewTextBoxColumn1,
+            this.Estrato,
             this.Parcela,
             this.Arbol,
             this.Especie,
@@ -210,29 +217,61 @@
             this.regeneracionDataGridView.Size = new System.Drawing.Size(916, 416);
             this.regeneracionDataGridView.TabIndex = 1;
             // 
+            // estacionBSource
+            // 
+            this.estacionBSource.DataSource = typeof(SIFCA_DAL.ESTACION);
+            // 
+            // etapaBSource
+            // 
+            this.etapaBSource.DataSource = typeof(SIFCA_DAL.ETAPA);
+            // 
+            // estratoBSource
+            // 
+            this.estratoBSource.DataSource = typeof(SIFCA_DAL.ESTRATO);
+            // 
+            // especieBSource
+            // 
+            this.especieBSource.DataSource = typeof(SIFCA_DAL.ESPECIE);
+            // 
             // Proyecto
             // 
             this.Proyecto.DataPropertyName = "NROPROY";
             this.Proyecto.HeaderText = "Proyecto";
             this.Proyecto.Name = "Proyecto";
+            this.Proyecto.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Estacion
             // 
             this.Estacion.DataPropertyName = "CODEST";
+            this.Estacion.DataSource = this.estacionBSource;
+            this.Estacion.DisplayMember = "NOMBRE";
             this.Estacion.HeaderText = "Estacion";
             this.Estacion.Name = "Estacion";
+            this.Estacion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Estacion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Estacion.ValueMember = "NROEST";
             // 
             // Etapa
             // 
             this.Etapa.DataPropertyName = "CODETAPA";
+            this.Etapa.DataSource = this.etapaBSource;
+            this.Etapa.DisplayMember = "DESCRIPETAPA";
             this.Etapa.HeaderText = "Etapa";
             this.Etapa.Name = "Etapa";
+            this.Etapa.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Etapa.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Etapa.ValueMember = "CODETAPA";
             // 
-            // dataGridViewTextBoxColumn1
+            // Estrato
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Estrato";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Estrato";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.Estrato.DataPropertyName = "Estrato";
+            this.Estrato.DataSource = this.estratoBSource;
+            this.Estrato.DisplayMember = "DESCRIPESTRATO";
+            this.Estrato.HeaderText = "Estrato";
+            this.Estrato.Name = "Estrato";
+            this.Estrato.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Estrato.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Estrato.ValueMember = "CODEST";
             // 
             // Parcela
             // 
@@ -249,8 +288,13 @@
             // Especie
             // 
             this.Especie.DataPropertyName = "CODESP";
+            this.Especie.DataSource = this.especieBSource;
+            this.Especie.DisplayMember = "NOMCOMUN";
             this.Especie.HeaderText = "Especie";
             this.Especie.Name = "Especie";
+            this.Especie.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Especie.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Especie.ValueMember = "CODESP";
             // 
             // Latizal
             // 
@@ -272,12 +316,17 @@
             this.Controls.Add(this.regeneracionDataGridView);
             this.Controls.Add(this.regeneracionBNavigator);
             this.Name = "GestDatRegen_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Datos regeneracion";
             ((System.ComponentModel.ISupportInitialize)(this.regenracionBSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.regeneracionBNavigator)).EndInit();
             this.regeneracionBNavigator.ResumeLayout(false);
             this.regeneracionBNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.regeneracionDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estacionBSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etapaBSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estratoBSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.especieBSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,13 +349,17 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton rEGENERACIONBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView regeneracionDataGridView;
+        private System.Windows.Forms.BindingSource estacionBSource;
+        private System.Windows.Forms.BindingSource etapaBSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn Proyecto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Etapa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Estacion;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Etapa;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Estrato;
+        private System.Windows.Forms.BindingSource estratoBSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn Parcela;
         private System.Windows.Forms.DataGridViewTextBoxColumn Arbol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Especie;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Especie;
+        private System.Windows.Forms.BindingSource especieBSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn Latizal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Brinzal;
     }

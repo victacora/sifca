@@ -32,7 +32,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.ETAPA.Add(stage);
-                this.sifcaRepository.SaveChanges();
+                
             }
             catch (Exception ex)
             {
@@ -46,7 +46,7 @@ namespace SIFCA_BLL
             {
                 ETAPA stage = this.sifcaRepository.ETAPA.Find(stageId);
                 this.sifcaRepository.ETAPA.Remove(stage);
-                this.sifcaRepository.SaveChanges();
+                
             }
             catch (Exception ex)
             {
@@ -59,7 +59,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.Entry(stage).State = EntityState.Modified;
-                this.sifcaRepository.SaveChanges();
+                
             }
             catch (Exception ex)
             {

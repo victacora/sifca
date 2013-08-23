@@ -32,7 +32,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.ESTADOSANITARIO.Add(state);
-                this.sifcaRepository.SaveChanges();
+                
             }
             catch (Exception ex)
             {
@@ -46,7 +46,7 @@ namespace SIFCA_BLL
             {
                 ESTADOSANITARIO state = this.sifcaRepository.ESTADOSANITARIO.Find(stateId);
                 this.sifcaRepository.ESTADOSANITARIO.Remove(state);
-                this.sifcaRepository.SaveChanges();
+                
             }
             catch (Exception ex)
             {
@@ -59,7 +59,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.Entry(state).State = EntityState.Modified;
-                this.sifcaRepository.SaveChanges();
+                
             }
             catch (Exception ex)
             {

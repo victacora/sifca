@@ -32,7 +32,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.CALIDAD.Add(quality);
-                this.sifcaRepository.SaveChanges();
+                
             }
             catch (Exception ex)
             {
@@ -46,7 +46,7 @@ namespace SIFCA_BLL
             {
                 CALIDAD quality = this.sifcaRepository.CALIDAD.Find(qualityId);
                 this.sifcaRepository.CALIDAD.Remove(quality);
-                this.sifcaRepository.SaveChanges();
+                
             }
             catch (Exception ex)
             {
@@ -59,7 +59,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.Entry(quality).State = EntityState.Modified;
-                this.sifcaRepository.SaveChanges();
+                
             }
             catch (Exception ex)
             {

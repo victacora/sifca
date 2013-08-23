@@ -73,12 +73,19 @@ namespace SIFCA
             newLine.NROARB = 0;
             newLine.ESTADO = "AI";
             inventarioBSource.Add(newLine);
+            inventory.InsertInventory(newLine);
+            inventarioBSource.EndEdit();
             inventarioDataGridView.Refresh();
         }
 
         private void inventarioBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             inventory.SaveChanges();
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

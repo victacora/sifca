@@ -32,7 +32,6 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.ESTACION.Add(station);
-                this.sifcaRepository.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -46,7 +45,6 @@ namespace SIFCA_BLL
             {
                 ESTACION station = this.sifcaRepository.ESTACION.Find(stationId);
                 this.sifcaRepository.ESTACION.Remove(station);
-                this.sifcaRepository.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -59,7 +57,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.Entry(station).State = EntityState.Modified;
-                this.sifcaRepository.SaveChanges();
+                
             }
             catch (Exception ex)
             {

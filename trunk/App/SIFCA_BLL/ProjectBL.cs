@@ -37,7 +37,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.PROYECTO.Add(project);
-                this.sifcaRepository.SaveChanges();
+                
             }
             catch (Exception ex)
             {
@@ -51,7 +51,7 @@ namespace SIFCA_BLL
             {
                 PROYECTO project = this.sifcaRepository.PROYECTO.Find(projectId);
                 this.sifcaRepository.PROYECTO.Remove(project);
-                this.sifcaRepository.SaveChanges();
+                
             }
             catch (Exception ex)
             {
@@ -64,7 +64,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.Entry(project).State = EntityState.Modified;
-                this.sifcaRepository.SaveChanges();
+                
             }
             catch (Exception ex)
             {

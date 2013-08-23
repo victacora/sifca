@@ -31,8 +31,7 @@ namespace SIFCA_BLL
         {
             try
             {
-                this.sifcaRepository.INVENTARIO.Add(inventory);
-                this.sifcaRepository.SaveChanges();
+                this.sifcaRepository.INVENTARIO.Add(inventory); 
             }
             catch (Exception ex)
             {
@@ -46,7 +45,6 @@ namespace SIFCA_BLL
             {
                 INVENTARIO inventory = this.sifcaRepository.INVENTARIO.Find(inventoryId);
                 this.sifcaRepository.INVENTARIO.Remove(inventory);
-                this.sifcaRepository.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -59,7 +57,6 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.Entry(inventory).State = EntityState.Modified;
-                this.sifcaRepository.SaveChanges();
             }
             catch (Exception ex)
             {

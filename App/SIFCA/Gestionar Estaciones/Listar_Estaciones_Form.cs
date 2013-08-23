@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace SIFCA.Gestionar_Estaciones
+namespace SIFCA
 {
     public partial class Listar_Estaciones_Form : Form
     {

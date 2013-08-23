@@ -31,16 +31,22 @@ namespace SIFCA
         {
             var newLine = new ESPECIE();
             newLine.GRUPOCOM = "PV";
+            newLine.FAMILIA = string.Empty;
+            newLine.NOMCIENTIFICO = string.Empty;
+            newLine.NOMCOMUN= string.Empty;
+            newLine.ZONADEVIDA = string.Empty;
+            newLine.ZONAGEOGRAFICA= string.Empty;
             newLine.DIAMMINCORTE = 0;
-            especieBSource.Add(newLine);
             species.InsertSpecie(newLine);
+            species.SaveChanges();
+            especieBSource.Add(newLine);
             especieBSource.EndEdit();
             ListadoEspecies.Refresh();
 
         }
 
 
-        private void iNVENTARIOBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void especieBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             species.SaveChanges();
         }
@@ -50,8 +56,8 @@ namespace SIFCA
             if (ListadoEspecies.Rows.Count != 0)
             {
                 DataGridViewRow row = ListadoEspecies.Rows[e.RowIndex];
-                string project = row.Cells["Codigo"].Value.ToString();
-                species.DeleteSpecies(int.Parse(project));
+                string specieCode = row.Cells["Codigo"].Value.ToString();
+                species.DeleteSpecies(int.Parse(specieCode));
             }
 
         }

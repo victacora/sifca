@@ -330,7 +330,6 @@
             this.Name = "Crear_Proyecto_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crear proyecto";
-            this.Load += new System.EventHandler(this.Crear_Proyecto_Form_Load);
             this.DatosProyectoGbx.ResumeLayout(false);
             this.DatosProyectoGbx.PerformLayout();
             this.datosDAPGbx.ResumeLayout(false);

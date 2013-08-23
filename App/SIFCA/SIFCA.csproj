@@ -118,6 +118,9 @@
     <EmbeddedResource Include="Gestionar Estaciones\Crear_Estacion_Form.resx">
       <DependentUpon>Crear_Estacion_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gestionar Estaciones\Listar_Estaciones_Form.resx">
+      <DependentUpon>Listar_Estaciones_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal_Form.resx">
       <DependentUpon>Principal_Form.cs</DependentUpon>
     </EmbeddedResource>

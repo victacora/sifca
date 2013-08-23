@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.Runtime.Caching;
 
 namespace SIFCA
 {
@@ -10,6 +11,8 @@ namespace SIFCA
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
+        public static ObjectCache cache = MemoryCache.Default;
+
         [STAThread]
         static void Main()
         {

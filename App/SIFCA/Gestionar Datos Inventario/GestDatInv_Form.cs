@@ -53,7 +53,10 @@ namespace SIFCA
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
             var newLine = new INVENTARIO();
-            newLine.NROPROY = 1;
+            PROYECTO project = (PROYECTO)Program.cache.Get("principalProject");
+            ESTACION station = (ESTACION)Program.cache.Get("localStation");
+            newLine.NROPROY = project.NROPROY;
+            newLine.NROEST = station.NROEST;
             newLine.ALTCOMER_M = 0;
             newLine.ALTTOT_M = 0;
             newLine.AREABASAL = 0;
@@ -62,8 +65,6 @@ namespace SIFCA
             newLine.VOLCOM = 0;
             newLine.VOLTOT = 0;
             newLine.PARCELA = 0;
-            //TODO:
-            //newLine.NROEST = recuperar el identificar de la estacion;
             newLine.CODESP = 1;
             newLine.CODEST = 1;
             newLine.CODETAPA = 1;
@@ -75,7 +76,7 @@ namespace SIFCA
             inventarioDataGridView.Refresh();
         }
 
-        private void iNVENTARIOBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void inventarioBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             inventory.SaveChanges();
         }

@@ -1,4 +1,4 @@
-﻿namespace SIFCA.Gestionar_Estaciones
+﻿namespace SIFCA
 {
     partial class Listar_Estaciones_Form
     {

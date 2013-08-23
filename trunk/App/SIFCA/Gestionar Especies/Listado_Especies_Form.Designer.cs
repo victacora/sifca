@@ -48,6 +48,8 @@
             this.parametroBusTxt = new System.Windows.Forms.ToolStripTextBox();
             this.filtrarLbl = new System.Windows.Forms.ToolStripLabel();
             this.criterioBusquedaCbx = new System.Windows.Forms.ToolStripComboBox();
+            this.listadoEspLbl = new System.Windows.Forms.ToolStripLabel();
+            this.listadoEspCbx = new System.Windows.Forms.ToolStripComboBox();
             this.ListadoEspecies = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grupoComercial = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -87,7 +89,9 @@
             this.buscarLbl,
             this.parametroBusTxt,
             this.filtrarLbl,
-            this.criterioBusquedaCbx});
+            this.criterioBusquedaCbx,
+            this.listadoEspLbl,
+            this.listadoEspCbx});
             this.paginacionEspecie.Location = new System.Drawing.Point(0, 0);
             this.paginacionEspecie.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.paginacionEspecie.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -192,11 +196,10 @@
             // iNVENTARIOBindingNavigatorSaveItem
             // 
             this.iNVENTARIOBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.iNVENTARIOBindingNavigatorSaveItem.Enabled = false;
             this.iNVENTARIOBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("iNVENTARIOBindingNavigatorSaveItem.Image")));
             this.iNVENTARIOBindingNavigatorSaveItem.Name = "iNVENTARIOBindingNavigatorSaveItem";
             this.iNVENTARIOBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.iNVENTARIOBindingNavigatorSaveItem.Click += new System.EventHandler(this.iNVENTARIOBindingNavigatorSaveItem_Click);
+            this.iNVENTARIOBindingNavigatorSaveItem.Click += new System.EventHandler(this.especieBindingNavigatorSaveItem_Click);
             // 
             // buscarLbl
             // 
@@ -229,6 +232,17 @@
             "Diametro Min. Corte"});
             this.criterioBusquedaCbx.Name = "criterioBusquedaCbx";
             this.criterioBusquedaCbx.Size = new System.Drawing.Size(121, 25);
+            // 
+            // listadoEspLbl
+            // 
+            this.listadoEspLbl.Name = "listadoEspLbl";
+            this.listadoEspLbl.Size = new System.Drawing.Size(97, 22);
+            this.listadoEspLbl.Text = "Listado Asociado";
+            // 
+            // listadoEspCbx
+            // 
+            this.listadoEspCbx.Name = "listadoEspCbx";
+            this.listadoEspCbx.Size = new System.Drawing.Size(121, 25);
             // 
             // ListadoEspecies
             // 
@@ -363,5 +377,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn zonaGeografica;
         private System.Windows.Forms.DataGridViewTextBoxColumn zonaVida;
         private System.Windows.Forms.DataGridViewTextBoxColumn diamCorte;
+        private System.Windows.Forms.ToolStripLabel listadoEspLbl;
+        private System.Windows.Forms.ToolStripComboBox listadoEspCbx;
     }
 }

@@ -96,7 +96,9 @@ namespace SIFCA
 
         private void listarEstacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Listar_Estaciones_Form childForm = new Listar_Estaciones_Form();
+            childForm.MdiParent = this;
+            childForm.Show();
         }
 
         private void introducirDatosDeInventarioToolStripMenuItem_Click(object sender, EventArgs e)

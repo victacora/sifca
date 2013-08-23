@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestDatInv_Form));
             this.inventarioBNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.inventarioBSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
@@ -43,7 +42,8 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.iNVENTARIOBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.inventarioBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.buscarLbl = new System.Windows.Forms.ToolStripLabel();
             this.parametroBusTxt = new System.Windows.Forms.ToolStripTextBox();
             this.filtrarLbl = new System.Windows.Forms.ToolStripLabel();
@@ -103,7 +103,7 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.iNVENTARIOBindingNavigatorSaveItem,
+            this.inventarioBindingNavigatorSaveItem,
             this.buscarLbl,
             this.parametroBusTxt,
             this.filtrarLbl,
@@ -120,15 +120,6 @@
             this.inventarioBNavigator.Size = new System.Drawing.Size(1134, 25);
             this.inventarioBNavigator.TabIndex = 0;
             this.inventarioBNavigator.Text = "InventarioBinding";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // inventarioBSource
             // 
@@ -202,13 +193,22 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // iNVENTARIOBindingNavigatorSaveItem
+            // bindingNavigatorAddNewItem
             // 
-            this.iNVENTARIOBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.iNVENTARIOBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("iNVENTARIOBindingNavigatorSaveItem.Image")));
-            this.iNVENTARIOBindingNavigatorSaveItem.Name = "iNVENTARIOBindingNavigatorSaveItem";
-            this.iNVENTARIOBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.iNVENTARIOBindingNavigatorSaveItem.Click += new System.EventHandler(this.iNVENTARIOBindingNavigatorSaveItem_Click);
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
+            // 
+            // inventarioBindingNavigatorSaveItem
+            // 
+            this.inventarioBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.inventarioBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("inventarioBindingNavigatorSaveItem.Image")));
+            this.inventarioBindingNavigatorSaveItem.Name = "inventarioBindingNavigatorSaveItem";
+            this.inventarioBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.inventarioBindingNavigatorSaveItem.Click += new System.EventHandler(this.inventarioBindingNavigatorSaveItem_Click);
             // 
             // buscarLbl
             // 
@@ -493,7 +493,7 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton iNVENTARIOBindingNavigatorSaveItem;
+        private System.Windows.Forms.ToolStripButton inventarioBindingNavigatorSaveItem;
         private System.Windows.Forms.ToolStripLabel buscarLbl;
         private System.Windows.Forms.ToolStripTextBox parametroBusTxt;
         private System.Windows.Forms.ToolStripLabel filtrarEspLbl;

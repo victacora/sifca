@@ -1105,10 +1105,10 @@
         <EntityTypeShape EntityType="SIFCA_Model.PROYECTO" Width="2.25" PointX="4.625" PointY="20" Height="4.480205078124996" />
         <EntityTypeShape EntityType="SIFCA_Model.REGENERACION" Width="2.25" PointX="6" PointY="4.375" Height="3.7109993489583379" />
         <EntityTypeShape EntityType="SIFCA_Model.TIPOINVENTARIO" Width="2.25" PointX="1.5" PointY="22.25" Height="1.595683593749996" />
-        <EntityTypeShape EntityType="SIFCA_Model.TSTUDENT" Width="2.25" PointX="2.75" PointY="0.75" Height="1.5956835937500102" />
+        <EntityTypeShape EntityType="SIFCA_Model.TSTUDENT" Width="2.25" PointX="4" PointY="0.625" Height="1.5956835937500102" />
         <AssociationConnector Association="SIFCA_Model.FK_INVENTAR_POSEE_CALIDAD" >
-          <ConnectorPoint PointX="3" PointY="2.9228417968750051" />
-          <ConnectorPoint PointX="4.1250005000000005" PointY="2.9228417968750051" />
+          <ConnectorPoint PointX="3" PointY="2.8749994999999995" />
+          <ConnectorPoint PointX="4.1250005000000005" PointY="2.8749994999999995" />
           <ConnectorPoint PointX="4.1250005000000005" PointY="3.5" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_ESPECIE_PERTENECE_GRUPOCOM" >

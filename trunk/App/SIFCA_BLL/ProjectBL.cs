@@ -29,7 +29,7 @@ namespace SIFCA_BLL
 
         public PROYECTO GetActivateProject()
         {
-            return this.sifcaRepository.PROYECTO.SingleOrDefault(p=>p.ESTADOPROY=="A");
+            return null;//this.sifcaRepository.PROYECTO.SingleOrDefault(p=>p.ESTADOPROY=="A");
         }
 
         public void InsertProject(PROYECTO project)

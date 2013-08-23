@@ -19,8 +19,8 @@ namespace SIFCA
         public Listado_Especies_Form()
         {
             InitializeComponent();
-            species = new SpeciesBL();
-            groups = new GroupBL();
+            species = new SpeciesBL(ContextProvider.ContextData);
+            groups = new GroupBL(ContextProvider.ContextData);
             this.especieBSource.DataSource = species.GetSpecies();
             this.grupoComercialBSource.DataSource = groups.GetGroups();
             this.ListadoEspecies.DataSource = especieBSource;

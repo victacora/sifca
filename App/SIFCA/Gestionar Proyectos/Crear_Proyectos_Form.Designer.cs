@@ -50,7 +50,6 @@
             this.areaFustalesTxt = new System.Windows.Forms.TextBox();
             this.tamParcelaTxt = new System.Windows.Forms.TextBox();
             this.IntensidadGbx = new System.Windows.Forms.GroupBox();
-            this.IntsMuestreTxt = new System.Windows.Forms.TextBox();
             this.intMuestreoTxt = new System.Windows.Forms.TextBox();
             this.AreaMuestreadaGbx = new System.Windows.Forms.GroupBox();
             this.AreaMuestradaTxt = new System.Windows.Forms.TextBox();
@@ -257,7 +256,7 @@
             this.factorFormaTxt.Name = "factorFormaTxt";
             this.factorFormaTxt.Size = new System.Drawing.Size(264, 20);
             this.factorFormaTxt.TabIndex = 9;
-            this.factorFormaTxt.Text = "0";
+            this.factorFormaTxt.Text = "0.000";
             // 
             // areaFustalesTxt
             // 
@@ -265,7 +264,7 @@
             this.areaFustalesTxt.Name = "areaFustalesTxt";
             this.areaFustalesTxt.Size = new System.Drawing.Size(264, 20);
             this.areaFustalesTxt.TabIndex = 7;
-            this.areaFustalesTxt.Text = "1";
+            this.areaFustalesTxt.Text = "1.000";
             // 
             // tamParcelaTxt
             // 
@@ -278,7 +277,6 @@
             // IntensidadGbx
             // 
             this.IntensidadGbx.Controls.Add(porcentajeLbl);
-            this.IntensidadGbx.Controls.Add(this.IntsMuestreTxt);
             this.IntensidadGbx.Controls.Add(this.intMuestreoTxt);
             this.IntensidadGbx.Location = new System.Drawing.Point(150, 111);
             this.IntensidadGbx.Name = "IntensidadGbx";
@@ -287,20 +285,13 @@
             this.IntensidadGbx.TabStop = false;
             this.IntensidadGbx.Text = "Intensidad del muestreo";
             // 
-            // IntsMuestreTxt
-            // 
-            this.IntsMuestreTxt.Location = new System.Drawing.Point(6, 19);
-            this.IntsMuestreTxt.Name = "IntsMuestreTxt";
-            this.IntsMuestreTxt.Size = new System.Drawing.Size(103, 20);
-            this.IntsMuestreTxt.TabIndex = 6;
-            this.IntsMuestreTxt.Text = "10";
-            // 
             // intMuestreoTxt
             // 
-            this.intMuestreoTxt.Location = new System.Drawing.Point(6, 59);
+            this.intMuestreoTxt.Location = new System.Drawing.Point(6, 19);
             this.intMuestreoTxt.Name = "intMuestreoTxt";
-            this.intMuestreoTxt.Size = new System.Drawing.Size(119, 20);
-            this.intMuestreoTxt.TabIndex = 3;
+            this.intMuestreoTxt.Size = new System.Drawing.Size(103, 20);
+            this.intMuestreoTxt.TabIndex = 6;
+            this.intMuestreoTxt.Text = "10.000";
             // 
             // AreaMuestreadaGbx
             // 
@@ -319,7 +310,7 @@
             this.AreaMuestradaTxt.Name = "AreaMuestradaTxt";
             this.AreaMuestradaTxt.Size = new System.Drawing.Size(86, 20);
             this.AreaMuestradaTxt.TabIndex = 5;
-            this.AreaMuestradaTxt.Text = "10000";
+            this.AreaMuestradaTxt.Text = "10000.000";
             // 
             // lugarTxt
             // 
@@ -358,14 +349,13 @@
         private System.Windows.Forms.TextBox limiteInfTxt;
         private System.Windows.Forms.GroupBox otrosDatosGbx;
         private System.Windows.Forms.GroupBox IntensidadGbx;
-        private System.Windows.Forms.TextBox intMuestreoTxt;
         private System.Windows.Forms.GroupBox AreaMuestreadaGbx;
         private System.Windows.Forms.TextBox AreaMuestradaTxt;
         private System.Windows.Forms.TextBox lugarTxt;
         private System.Windows.Forms.ComboBox listaEspCbx;
         private System.Windows.Forms.ComboBox tipoInvenCbx;
         private System.Windows.Forms.TextBox limiteSupTxt;
-        private System.Windows.Forms.TextBox IntsMuestreTxt;
+        private System.Windows.Forms.TextBox intMuestreoTxt;
         private System.Windows.Forms.Button cancelarBtn;
         private System.Windows.Forms.Button AceptarBtn;
         private System.Windows.Forms.TextBox factorFormaTxt;

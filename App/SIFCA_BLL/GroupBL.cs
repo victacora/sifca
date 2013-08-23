@@ -9,11 +9,11 @@ namespace SIFCA_BLL
 {
     public class GroupBL 
     {
-        private SIFCA_CONTEXT sifcaRepository;
+       private SIFCA_CONTEXT sifcaRepository;
 
-        public GroupBL()
+        public GroupBL(SIFCA_CONTEXT contextProvider )
         {
-            this.sifcaRepository = new SIFCA_CONTEXT();
+            this.sifcaRepository = contextProvider;
         }
 
 

@@ -11,9 +11,9 @@ namespace SIFCA_BLL
     {
         private SIFCA_CONTEXT sifcaRepository;
 
-        public StateBL()
+        public StateBL(SIFCA_CONTEXT contextProvider)
         {
-            this.sifcaRepository = new SIFCA_CONTEXT();
+            this.sifcaRepository = contextProvider;
         }
 
 

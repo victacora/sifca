@@ -227,6 +227,7 @@
             this.limiteSupTxt.Name = "limiteSupTxt";
             this.limiteSupTxt.Size = new System.Drawing.Size(34, 20);
             this.limiteSupTxt.TabIndex = 5;
+            this.limiteSupTxt.Text = "100";
             // 
             // limiteInfTxt
             // 
@@ -234,6 +235,7 @@
             this.limiteInfTxt.Name = "limiteInfTxt";
             this.limiteInfTxt.Size = new System.Drawing.Size(34, 20);
             this.limiteInfTxt.TabIndex = 4;
+            this.limiteInfTxt.Text = "10";
             // 
             // otrosDatosGbx
             // 
@@ -255,6 +257,7 @@
             this.factorFormaTxt.Name = "factorFormaTxt";
             this.factorFormaTxt.Size = new System.Drawing.Size(264, 20);
             this.factorFormaTxt.TabIndex = 9;
+            this.factorFormaTxt.Text = "0";
             // 
             // areaFustalesTxt
             // 
@@ -262,6 +265,7 @@
             this.areaFustalesTxt.Name = "areaFustalesTxt";
             this.areaFustalesTxt.Size = new System.Drawing.Size(264, 20);
             this.areaFustalesTxt.TabIndex = 7;
+            this.areaFustalesTxt.Text = "1";
             // 
             // tamParcelaTxt
             // 
@@ -269,6 +273,7 @@
             this.tamParcelaTxt.Name = "tamParcelaTxt";
             this.tamParcelaTxt.Size = new System.Drawing.Size(264, 20);
             this.tamParcelaTxt.TabIndex = 5;
+            this.tamParcelaTxt.Text = "1";
             // 
             // IntensidadGbx
             // 
@@ -288,6 +293,7 @@
             this.IntsMuestreTxt.Name = "IntsMuestreTxt";
             this.IntsMuestreTxt.Size = new System.Drawing.Size(103, 20);
             this.IntsMuestreTxt.TabIndex = 6;
+            this.IntsMuestreTxt.Text = "10";
             // 
             // intMuestreoTxt
             // 
@@ -313,6 +319,7 @@
             this.AreaMuestradaTxt.Name = "AreaMuestradaTxt";
             this.AreaMuestradaTxt.Size = new System.Drawing.Size(86, 20);
             this.AreaMuestradaTxt.TabIndex = 5;
+            this.AreaMuestradaTxt.Text = "10000";
             // 
             // lugarTxt
             // 

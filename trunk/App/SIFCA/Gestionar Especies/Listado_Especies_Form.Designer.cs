@@ -315,6 +315,7 @@
             this.Controls.Add(this.ListadoEspecies);
             this.Controls.Add(this.paginacionEspecie);
             this.Name = "Listado_Especies_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestionar especies";
             ((System.ComponentModel.ISupportInitialize)(this.paginacionEspecie)).EndInit();
             this.paginacionEspecie.ResumeLayout(false);

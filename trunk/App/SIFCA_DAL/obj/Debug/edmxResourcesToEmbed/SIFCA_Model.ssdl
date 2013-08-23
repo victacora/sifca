@@ -97,9 +97,9 @@
     </Key>
     <Property Name="CODESP" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="GRUPOCOM" Type="char" Nullable="false" MaxLength="2" />
-    <Property Name="NOMCOMUN" Type="varchar" MaxLength="100" />
-    <Property Name="NOMCIENTIFICO" Type="varchar" MaxLength="100" />
-    <Property Name="FAMILIA" Type="varchar" MaxLength="100" />
+    <Property Name="NOMCOMUN" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="NOMCIENTIFICO" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="FAMILIA" Type="varchar" Nullable="false" MaxLength="100" />
     <Property Name="ZONAGEOGRAFICA" Type="varchar" MaxLength="100" />
     <Property Name="ZONADEVIDA" Type="varchar" MaxLength="100" />
     <Property Name="DIAMMINCORTE" Type="numeric" />
@@ -145,6 +145,7 @@
       <PropertyRef Name="NROPROY" />
       <PropertyRef Name="NROEST" />
       <PropertyRef Name="PARCELA" />
+      <PropertyRef Name="NROARB" />
     </Key>
     <Property Name="CODCALIDAD" Type="numeric" Nullable="false" />
     <Property Name="NROPROY" Type="numeric" Nullable="false" />
@@ -154,14 +155,14 @@
     <Property Name="CODETAPA" Type="numeric" Nullable="false" />
     <Property Name="NROEST" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PARCELA" Type="numeric" Nullable="false" />
-    <Property Name="NROARB" Type="numeric" />
-    <Property Name="CAP" Type="numeric" />
-    <Property Name="DAP" Type="numeric" />
-    <Property Name="ALTCOMER_M" Type="numeric" />
-    <Property Name="ALTTOT_M" Type="numeric" />
-    <Property Name="AREABASAL" Type="decimal" />
-    <Property Name="VOLCOM" Type="decimal" />
-    <Property Name="VOLTOT" Type="decimal" />
+    <Property Name="NROARB" Type="numeric" Nullable="false" />
+    <Property Name="CAP" Type="numeric" Nullable="false" />
+    <Property Name="DAP" Type="numeric" Nullable="false" />
+    <Property Name="ALTCOMER_M" Type="numeric" Nullable="false" />
+    <Property Name="ALTTOT_M" Type="numeric" Nullable="false" />
+    <Property Name="AREABASAL" Type="decimal" Nullable="false" Scale="3" />
+    <Property Name="VOLCOM" Type="decimal" Nullable="false" Scale="3" />
+    <Property Name="VOLTOT" Type="decimal" Nullable="false" Scale="3" />
   </EntityType>
   <EntityType Name="LIGADO">
     <Key>
@@ -186,22 +187,27 @@
     <Property Name="NROEST" Type="uniqueidentifier" Nullable="false" />
     <Property Name="NOMBRETIPOINV" Type="varchar" Nullable="false" MaxLength="100" />
     <Property Name="NOMARCH" Type="varchar" Nullable="false" MaxLength="60" />
-    <Property Name="LUGAR" Type="varchar" MaxLength="100" />
-    <Property Name="SUPTOT" Type="decimal" />
-    <Property Name="INTMUE" Type="decimal" />
-    <Property Name="SUPMUE" Type="decimal" />
-    <Property Name="TAMANO" Type="decimal" />
+    <Property Name="LUGAR" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="SUPTOT" Type="decimal" Nullable="false" Scale="3" />
+    <Property Name="INTMUE" Type="decimal" Nullable="false" Scale="3" />
+    <Property Name="SUPMUE" Type="decimal" Nullable="false" Scale="3" />
+    <Property Name="TAMANO" Type="decimal" Nullable="false" Scale="3" />
+    <Property Name="LIMTSUPDAP" Type="decimal" Nullable="false" Scale="3" />
+    <Property Name="LIMTINFDAP" Type="decimal" Nullable="false" Scale="3" />
+    <Property Name="FACTORDEFORMA" Type="decimal" Nullable="false" Scale="3" />
+    <Property Name="AREAFUSTALESPORPARCELA" Type="decimal" Nullable="false" Scale="3" />
     <Property Name="ESTADOPROY" Type="char" Nullable="false" MaxLength="1" />
   </EntityType>
   <EntityType Name="REGENERACION">
     <Key>
       <PropertyRef Name="NROEST" />
       <PropertyRef Name="PARCELA" />
+      <PropertyRef Name="NROARB" />
       <PropertyRef Name="NROPROY" />
     </Key>
     <Property Name="NROEST" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PARCELA" Type="numeric" Nullable="false" />
-    <Property Name="NROARB" Type="numeric" />
+    <Property Name="NROARB" Type="numeric" Nullable="false" />
     <Property Name="LATIZAL" Type="numeric" />
     <Property Name="BRINZAL" Type="numeric" />
     <Property Name="CODEST" Type="numeric" Nullable="false" />

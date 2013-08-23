@@ -25,10 +25,14 @@ namespace SIFCA_DAL
         public string NOMBRETIPOINV { get; set; }
         public string NOMARCH { get; set; }
         public string LUGAR { get; set; }
-        public Nullable<decimal> SUPTOT { get; set; }
-        public Nullable<decimal> INTMUE { get; set; }
-        public Nullable<decimal> SUPMUE { get; set; }
-        public Nullable<decimal> TAMANO { get; set; }
+        public decimal SUPTOT { get; set; }
+        public decimal INTMUE { get; set; }
+        public decimal SUPMUE { get; set; }
+        public decimal TAMANO { get; set; }
+        public decimal LIMTSUPDAP { get; set; }
+        public decimal LIMTINFDAP { get; set; }
+        public decimal FACTORDEFORMA { get; set; }
+        public decimal AREAFUSTALESPORPARCELA { get; set; }
         public string ESTADOPROY { get; set; }
     
         public virtual ICollection<INVENTARIO> INVENTARIO { get; set; }

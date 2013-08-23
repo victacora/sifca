@@ -93,9 +93,9 @@
     </Key>
     <Property Type="Decimal" Name="CODESP" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="String" Name="GRUPOCOM" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
-    <Property Type="String" Name="NOMCOMUN" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="NOMCIENTIFICO" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="FAMILIA" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOMCOMUN" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOMCIENTIFICO" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FAMILIA" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="ZONAGEOGRAFICA" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="ZONADEVIDA" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Type="Decimal" Name="DIAMMINCORTE" Precision="18" Scale="0" />
@@ -153,6 +153,7 @@
       <PropertyRef Name="NROPROY" />
       <PropertyRef Name="NROEST" />
       <PropertyRef Name="PARCELA" />
+      <PropertyRef Name="NROARB" />
     </Key>
     <Property Type="Decimal" Name="CODCALIDAD" Nullable="false" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="NROPROY" Nullable="false" Precision="18" Scale="0" />
@@ -162,14 +163,14 @@
     <Property Type="Decimal" Name="CODETAPA" Nullable="false" Precision="18" Scale="0" />
     <Property Type="Guid" Name="NROEST" Nullable="false" />
     <Property Type="Decimal" Name="PARCELA" Nullable="false" Precision="18" Scale="0" />
-    <Property Type="Decimal" Name="NROARB" Precision="18" Scale="0" />
-    <Property Type="Decimal" Name="CAP" Precision="18" Scale="0" />
-    <Property Type="Decimal" Name="DAP" Precision="18" Scale="0" />
-    <Property Type="Decimal" Name="ALTCOMER_M" Precision="18" Scale="0" />
-    <Property Type="Decimal" Name="ALTTOT_M" Precision="18" Scale="0" />
-    <Property Type="Decimal" Name="AREABASAL" Precision="18" Scale="0" />
-    <Property Type="Decimal" Name="VOLCOM" Precision="18" Scale="0" />
-    <Property Type="Decimal" Name="VOLTOT" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="NROARB" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="CAP" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="DAP" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="ALTCOMER_M" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="ALTTOT_M" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="AREABASAL" Nullable="false" Precision="18" Scale="3" />
+    <Property Type="Decimal" Name="VOLCOM" Nullable="false" Precision="18" Scale="3" />
+    <Property Type="Decimal" Name="VOLTOT" Nullable="false" Precision="18" Scale="3" />
     <NavigationProperty Name="CALIDAD" Relationship="SIFCA_Model.FK_INVENTAR_POSEE_CALIDAD" FromRole="INVENTARIO" ToRole="CALIDAD" />
     <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.FK_INVENTAR_CONTIENE_ESPECIE" FromRole="INVENTARIO" ToRole="ESPECIE" />
     <NavigationProperty Name="ESTACION" Relationship="SIFCA_Model.FK_INVENTAR_RECOGE_ESTACION" FromRole="INVENTARIO" ToRole="ESTACION" />
@@ -195,11 +196,15 @@
     <Property Type="Guid" Name="NROEST" Nullable="false" />
     <Property Type="String" Name="NOMBRETIPOINV" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="NOMARCH" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="LUGAR" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Type="Decimal" Name="SUPTOT" Precision="18" Scale="0" />
-    <Property Type="Decimal" Name="INTMUE" Precision="18" Scale="0" />
-    <Property Type="Decimal" Name="SUPMUE" Precision="18" Scale="0" />
-    <Property Type="Decimal" Name="TAMANO" Precision="18" Scale="0" />
+    <Property Type="String" Name="LUGAR" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="SUPTOT" Nullable="false" Precision="18" Scale="3" />
+    <Property Type="Decimal" Name="INTMUE" Nullable="false" Precision="18" Scale="3" />
+    <Property Type="Decimal" Name="SUPMUE" Nullable="false" Precision="18" Scale="3" />
+    <Property Type="Decimal" Name="TAMANO" Nullable="false" Precision="18" Scale="3" />
+    <Property Type="Decimal" Name="LIMTSUPDAP" Nullable="false" Precision="18" Scale="3" />
+    <Property Type="Decimal" Name="LIMTINFDAP" Nullable="false" Precision="18" Scale="3" />
+    <Property Type="Decimal" Name="FACTORDEFORMA" Nullable="false" Precision="18" Scale="3" />
+    <Property Type="Decimal" Name="AREAFUSTALESPORPARCELA" Nullable="false" Precision="18" Scale="3" />
     <Property Type="String" Name="ESTADOPROY" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="INVENTARIO" Relationship="SIFCA_Model.FK_INVENTAR_DESARROLL_PROYECTO" FromRole="PROYECTO" ToRole="INVENTARIO" />
     <NavigationProperty Name="LISTADODEESPECIES" Relationship="SIFCA_Model.FK_PROYECTO_TIENE_LISTADO" FromRole="PROYECTO" ToRole="LISTADODEESPECIES" />
@@ -210,11 +215,12 @@
     <Key>
       <PropertyRef Name="NROEST" />
       <PropertyRef Name="PARCELA" />
+      <PropertyRef Name="NROARB" />
       <PropertyRef Name="NROPROY" />
     </Key>
     <Property Type="Guid" Name="NROEST" Nullable="false" />
     <Property Type="Decimal" Name="PARCELA" Nullable="false" Precision="18" Scale="0" />
-    <Property Type="Decimal" Name="NROARB" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="NROARB" Nullable="false" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="LATIZAL" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="BRINZAL" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="CODEST" Nullable="false" Precision="18" Scale="0" />

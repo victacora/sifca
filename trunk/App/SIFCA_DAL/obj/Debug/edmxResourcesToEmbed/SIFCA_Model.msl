@@ -98,6 +98,10 @@
       <EntityTypeMapping TypeName="SIFCA_Model.PROYECTO">
         <MappingFragment StoreEntitySet="PROYECTO">
           <ScalarProperty Name="ESTADOPROY" ColumnName="ESTADOPROY" />
+          <ScalarProperty Name="AREAFUSTALESPORPARCELA" ColumnName="AREAFUSTALESPORPARCELA" />
+          <ScalarProperty Name="FACTORDEFORMA" ColumnName="FACTORDEFORMA" />
+          <ScalarProperty Name="LIMTINFDAP" ColumnName="LIMTINFDAP" />
+          <ScalarProperty Name="LIMTSUPDAP" ColumnName="LIMTSUPDAP" />
           <ScalarProperty Name="TAMANO" ColumnName="TAMANO" />
           <ScalarProperty Name="SUPMUE" ColumnName="SUPMUE" />
           <ScalarProperty Name="INTMUE" ColumnName="INTMUE" />

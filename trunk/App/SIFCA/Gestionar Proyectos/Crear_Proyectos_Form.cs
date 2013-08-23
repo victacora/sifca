@@ -22,9 +22,9 @@ namespace SIFCA
         public Crear_Proyecto_Form()
         {
             InitializeComponent();
-            project= new ProjectBL();
-            inventoryType=new InventoryTypeBL();
-            speciesList = new SpeciesListBL();
+            project = new ProjectBL(ContextProvider.ContextData);
+            inventoryType = new InventoryTypeBL(ContextProvider.ContextData);
+            speciesList = new SpeciesListBL(ContextProvider.ContextData);
             this.tipoInvenCbx.DataSource = inventoryType.GetInventoryTypes();
             this.tipoInvenCbx.DisplayMember = "NOMBRETIPOINV";
             this.tipoInvenCbx.ValueMember = "NOMBRETIPOINV";
@@ -57,11 +57,12 @@ namespace SIFCA
             newProject.TAMANO = int.Parse(tamParcelaTxt.Text);
             newProject.LIMTINFDAP = int.Parse(limiteInfTxt.Text);
             newProject.LIMTSUPDAP = int.Parse(limiteSupTxt.Text);
-            newProject.INTMUE =decimal.Parse(intMuestreoTxt.Text);
+            newProject.INTMUE = decimal.Parse(intMuestreoTxt.Text);
             newProject.SUPMUE =decimal.Parse(AreaMuestradaTxt.Text);
-            newProject.TAMANO = decimal.Parse(tamParcelaTxt.Text);
             newProject.AREAFUSTALESPORPARCELA = decimal.Parse(areaFustalesTxt.Text);
             newProject.FACTORDEFORMA = decimal.Parse(factorFormaTxt.Text);
+            newProject.NOMARCH = listaEspCbx.SelectedValue.ToString();
+            newProject.NOMBRETIPOINV = tipoInvenCbx.SelectedValue.ToString();
             project.InsertProject(newProject);
             project.SaveChanges();
             Program.cache.Set("principalProject", newProject, new CacheItemPolicy());

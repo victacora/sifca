@@ -20,8 +20,8 @@ namespace SIFCA
         public Principal_Form()
         {
             InitializeComponent();
-            project = new ProjectBL();
-            station = new StationBL();
+            project = new ProjectBL(ContextProvider.ContextData);
+            station = new StationBL(ContextProvider.ContextData);
         }
 
         private void CreateNewProject(object sender, EventArgs e)
@@ -124,7 +124,7 @@ namespace SIFCA
                 PROYECTO activateProject = project.GetActivateProject();
                 ESTACION localStation = station.GetStations().First();
                 if (activateProject != null) Program.cache.Add("principalProject", activateProject, new CacheItemPolicy());
-                else MessageBox.Show("No se ha creado ningun stage, que tenga por estado Activo.", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else MessageBox.Show("No se ha creado ningun proyecto, que tenga por estado Activo.", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 if (localStation != null) Program.cache.Add("localStation", localStation, new CacheItemPolicy());
                 else MessageBox.Show("No se ha registrado la informacion para esta estacion", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -140,6 +140,13 @@ namespace SIFCA
         private void listarEspeciesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Listado_Especies_Form childForm = new Listado_Especies_Form();
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
+
+        private void listarProyectosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Listar_Proyectos_Form childForm = new Listar_Proyectos_Form();
             childForm.MdiParent = this;
             childForm.Show();
         }

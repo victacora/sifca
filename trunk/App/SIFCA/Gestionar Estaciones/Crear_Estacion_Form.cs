@@ -32,7 +32,7 @@ namespace SIFCA
                 this.responsableTxt.Text = stationData.PERSONARESPONSABLE;
                 this.AceptarBtn.Text = "Actualizar";
             }
-            station = new StationBL();
+            station = new StationBL(ContextProvider.ContextData);
         }
 
         private void AceptarBtn_Click(object sender, EventArgs e)

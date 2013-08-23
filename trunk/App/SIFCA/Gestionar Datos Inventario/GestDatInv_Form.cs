@@ -25,13 +25,13 @@ namespace SIFCA
         {
             InitializeComponent();
 
-            inventory = new InventoryBL();
-            species = new SpeciesBL();
-            stations = new StationBL();
-            states = new StateBL();
-            stages = new StageBL();
-            stratum = new StratumBL();
-            qualities = new QualityBL();
+            inventory = new InventoryBL(ContextProvider.ContextData);
+            species = new SpeciesBL(ContextProvider.ContextData);
+            stations = new StationBL(ContextProvider.ContextData);
+            states = new StateBL(ContextProvider.ContextData);
+            stages = new StageBL(ContextProvider.ContextData);
+            stratum = new StratumBL(ContextProvider.ContextData);
+            qualities = new QualityBL(ContextProvider.ContextData);
 
             this.inventarioBSource.DataSource = inventory.GetInventories();
             this.especieBSource.DataSource = species.GetSpecies();

@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Caching" />
@@ -120,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gestionar Estaciones\Listar_Estaciones_Form.resx">
       <DependentUpon>Listar_Estaciones_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestionar Proyectos\Listar_Proyectos_Form.resx">
+      <DependentUpon>Listar_Proyectos_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal_Form.resx">
       <DependentUpon>Principal_Form.cs</DependentUpon>

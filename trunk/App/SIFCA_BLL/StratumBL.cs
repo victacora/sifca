@@ -11,9 +11,9 @@ namespace SIFCA_BLL
     {
         private SIFCA_CONTEXT sifcaRepository;
 
-        public StratumBL()
+        public StratumBL(SIFCA_CONTEXT contextProvider)
         {
-            this.sifcaRepository = new SIFCA_CONTEXT();
+            this.sifcaRepository = contextProvider;
         }
 
 

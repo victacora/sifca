@@ -22,14 +22,14 @@ namespace SIFCA_DAL
         public decimal CODETAPA { get; set; }
         public System.Guid NROEST { get; set; }
         public decimal PARCELA { get; set; }
-        public Nullable<decimal> NROARB { get; set; }
-        public Nullable<decimal> CAP { get; set; }
-        public Nullable<decimal> DAP { get; set; }
-        public Nullable<decimal> ALTCOMER_M { get; set; }
-        public Nullable<decimal> ALTTOT_M { get; set; }
-        public Nullable<decimal> AREABASAL { get; set; }
-        public Nullable<decimal> VOLCOM { get; set; }
-        public Nullable<decimal> VOLTOT { get; set; }
+        public decimal NROARB { get; set; }
+        public decimal CAP { get; set; }
+        public decimal DAP { get; set; }
+        public decimal ALTCOMER_M { get; set; }
+        public decimal ALTTOT_M { get; set; }
+        public decimal AREABASAL { get; set; }
+        public decimal VOLCOM { get; set; }
+        public decimal VOLTOT { get; set; }
     
         public virtual CALIDAD CALIDAD { get; set; }
         public virtual ESPECIE ESPECIE { get; set; }

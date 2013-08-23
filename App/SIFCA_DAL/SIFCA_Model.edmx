@@ -102,9 +102,9 @@
           </Key>
           <Property Name="CODESP" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="GRUPOCOM" Type="char" Nullable="false" MaxLength="2" />
-          <Property Name="NOMCOMUN" Type="varchar" MaxLength="100" />
-          <Property Name="NOMCIENTIFICO" Type="varchar" MaxLength="100" />
-          <Property Name="FAMILIA" Type="varchar" MaxLength="100" />
+          <Property Name="NOMCOMUN" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="NOMCIENTIFICO" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="FAMILIA" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="ZONAGEOGRAFICA" Type="varchar" MaxLength="100" />
           <Property Name="ZONADEVIDA" Type="varchar" MaxLength="100" />
           <Property Name="DIAMMINCORTE" Type="numeric" />
@@ -150,6 +150,7 @@
             <PropertyRef Name="NROPROY" />
             <PropertyRef Name="NROEST" />
             <PropertyRef Name="PARCELA" />
+            <PropertyRef Name="NROARB" />
           </Key>
           <Property Name="CODCALIDAD" Type="numeric" Nullable="false" />
           <Property Name="NROPROY" Type="numeric" Nullable="false" />
@@ -159,14 +160,14 @@
           <Property Name="CODETAPA" Type="numeric" Nullable="false" />
           <Property Name="NROEST" Type="uniqueidentifier" Nullable="false" />
           <Property Name="PARCELA" Type="numeric" Nullable="false" />
-          <Property Name="NROARB" Type="numeric" />
-          <Property Name="CAP" Type="numeric" />
-          <Property Name="DAP" Type="numeric" />
-          <Property Name="ALTCOMER_M" Type="numeric" />
-          <Property Name="ALTTOT_M" Type="numeric" />
-          <Property Name="AREABASAL" Type="decimal" />
-          <Property Name="VOLCOM" Type="decimal" />
-          <Property Name="VOLTOT" Type="decimal" />
+          <Property Name="NROARB" Type="numeric" Nullable="false" />
+          <Property Name="CAP" Type="numeric" Nullable="false" />
+          <Property Name="DAP" Type="numeric" Nullable="false" />
+          <Property Name="ALTCOMER_M" Type="numeric" Nullable="false" />
+          <Property Name="ALTTOT_M" Type="numeric" Nullable="false" />
+          <Property Name="AREABASAL" Type="decimal" Nullable="false" Scale="3" />
+          <Property Name="VOLCOM" Type="decimal" Nullable="false" Scale="3" />
+          <Property Name="VOLTOT" Type="decimal" Nullable="false" Scale="3" />
         </EntityType>
         <EntityType Name="LIGADO">
           <Key>
@@ -191,22 +192,27 @@
           <Property Name="NROEST" Type="uniqueidentifier" Nullable="false" />
           <Property Name="NOMBRETIPOINV" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="NOMARCH" Type="varchar" Nullable="false" MaxLength="60" />
-          <Property Name="LUGAR" Type="varchar" MaxLength="100" />
-          <Property Name="SUPTOT" Type="decimal" />
-          <Property Name="INTMUE" Type="decimal" />
-          <Property Name="SUPMUE" Type="decimal" />
-          <Property Name="TAMANO" Type="decimal" />
+          <Property Name="LUGAR" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="SUPTOT" Type="decimal" Nullable="false" Scale="3" />
+          <Property Name="INTMUE" Type="decimal" Nullable="false" Scale="3" />
+          <Property Name="SUPMUE" Type="decimal" Nullable="false" Scale="3" />
+          <Property Name="TAMANO" Type="decimal" Nullable="false" Scale="3" />
+          <Property Name="LIMTSUPDAP" Type="decimal" Nullable="false" Scale="3" />
+          <Property Name="LIMTINFDAP" Type="decimal" Nullable="false" Scale="3" />
+          <Property Name="FACTORDEFORMA" Type="decimal" Nullable="false" Scale="3" />
+          <Property Name="AREAFUSTALESPORPARCELA" Type="decimal" Nullable="false" Scale="3" />
           <Property Name="ESTADOPROY" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
         <EntityType Name="REGENERACION">
           <Key>
             <PropertyRef Name="NROEST" />
             <PropertyRef Name="PARCELA" />
+            <PropertyRef Name="NROARB" />
             <PropertyRef Name="NROPROY" />
           </Key>
           <Property Name="NROEST" Type="uniqueidentifier" Nullable="false" />
           <Property Name="PARCELA" Type="numeric" Nullable="false" />
-          <Property Name="NROARB" Type="numeric" />
+          <Property Name="NROARB" Type="numeric" Nullable="false" />
           <Property Name="LATIZAL" Type="numeric" />
           <Property Name="BRINZAL" Type="numeric" />
           <Property Name="CODEST" Type="numeric" Nullable="false" />
@@ -564,9 +570,9 @@
           </Key>
           <Property Type="Decimal" Name="CODESP" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="GRUPOCOM" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="NOMCOMUN" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NOMCIENTIFICO" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="FAMILIA" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NOMCOMUN" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NOMCIENTIFICO" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FAMILIA" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="ZONAGEOGRAFICA" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="ZONADEVIDA" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="Decimal" Name="DIAMMINCORTE" Precision="18" Scale="0" />
@@ -624,6 +630,7 @@
             <PropertyRef Name="NROPROY" />
             <PropertyRef Name="NROEST" />
             <PropertyRef Name="PARCELA" />
+            <PropertyRef Name="NROARB" />
           </Key>
           <Property Type="Decimal" Name="CODCALIDAD" Nullable="false" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="NROPROY" Nullable="false" Precision="18" Scale="0" />
@@ -633,14 +640,14 @@
           <Property Type="Decimal" Name="CODETAPA" Nullable="false" Precision="18" Scale="0" />
           <Property Type="Guid" Name="NROEST" Nullable="false" />
           <Property Type="Decimal" Name="PARCELA" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="NROARB" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="CAP" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="DAP" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="ALTCOMER_M" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="ALTTOT_M" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="AREABASAL" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="VOLCOM" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="VOLTOT" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="NROARB" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="CAP" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="DAP" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="ALTCOMER_M" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="ALTTOT_M" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="AREABASAL" Nullable="false" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="VOLCOM" Nullable="false" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="VOLTOT" Nullable="false" Precision="18" Scale="3" />
           <NavigationProperty Name="CALIDAD" Relationship="SIFCA_Model.FK_INVENTAR_POSEE_CALIDAD" FromRole="INVENTARIO" ToRole="CALIDAD" />
           <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.FK_INVENTAR_CONTIENE_ESPECIE" FromRole="INVENTARIO" ToRole="ESPECIE" />
           <NavigationProperty Name="ESTACION" Relationship="SIFCA_Model.FK_INVENTAR_RECOGE_ESTACION" FromRole="INVENTARIO" ToRole="ESTACION" />
@@ -666,11 +673,15 @@
           <Property Type="Guid" Name="NROEST" Nullable="false" />
           <Property Type="String" Name="NOMBRETIPOINV" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="NOMARCH" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="LUGAR" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="SUPTOT" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="INTMUE" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="SUPMUE" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="TAMANO" Precision="18" Scale="0" />
+          <Property Type="String" Name="LUGAR" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="SUPTOT" Nullable="false" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="INTMUE" Nullable="false" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="SUPMUE" Nullable="false" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="TAMANO" Nullable="false" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="LIMTSUPDAP" Nullable="false" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="LIMTINFDAP" Nullable="false" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="FACTORDEFORMA" Nullable="false" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="AREAFUSTALESPORPARCELA" Nullable="false" Precision="18" Scale="3" />
           <Property Type="String" Name="ESTADOPROY" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="INVENTARIO" Relationship="SIFCA_Model.FK_INVENTAR_DESARROLL_PROYECTO" FromRole="PROYECTO" ToRole="INVENTARIO" />
           <NavigationProperty Name="LISTADODEESPECIES" Relationship="SIFCA_Model.FK_PROYECTO_TIENE_LISTADO" FromRole="PROYECTO" ToRole="LISTADODEESPECIES" />
@@ -681,11 +692,12 @@
           <Key>
             <PropertyRef Name="NROEST" />
             <PropertyRef Name="PARCELA" />
+            <PropertyRef Name="NROARB" />
             <PropertyRef Name="NROPROY" />
           </Key>
           <Property Type="Guid" Name="NROEST" Nullable="false" />
           <Property Type="Decimal" Name="PARCELA" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="NROARB" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="NROARB" Nullable="false" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="LATIZAL" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="BRINZAL" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="CODEST" Nullable="false" Precision="18" Scale="0" />
@@ -1003,6 +1015,10 @@
             <EntityTypeMapping TypeName="SIFCA_Model.PROYECTO">
               <MappingFragment StoreEntitySet="PROYECTO">
                 <ScalarProperty Name="ESTADOPROY" ColumnName="ESTADOPROY" />
+                <ScalarProperty Name="AREAFUSTALESPORPARCELA" ColumnName="AREAFUSTALESPORPARCELA" />
+                <ScalarProperty Name="FACTORDEFORMA" ColumnName="FACTORDEFORMA" />
+                <ScalarProperty Name="LIMTINFDAP" ColumnName="LIMTINFDAP" />
+                <ScalarProperty Name="LIMTSUPDAP" ColumnName="LIMTSUPDAP" />
                 <ScalarProperty Name="TAMANO" ColumnName="TAMANO" />
                 <ScalarProperty Name="SUPMUE" ColumnName="SUPMUE" />
                 <ScalarProperty Name="INTMUE" ColumnName="INTMUE" />
@@ -1077,116 +1093,126 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="SIFCA_Model">
-        <EntityTypeShape EntityType="SIFCA_Model.CALIDAD" Width="1.5" PointX="0.75" PointY="2.25" Height="1.5956835937500031" />
-        <EntityTypeShape EntityType="SIFCA_Model.ESPECIE" Width="1.5" PointX="3.75" PointY="10.375" Height="3.3263964843750031" />
-        <EntityTypeShape EntityType="SIFCA_Model.ESTACION" Width="1.5" PointX="0.75" PointY="5.25" Height="1.9802864583333388" />
-        <EntityTypeShape EntityType="SIFCA_Model.ESTADOSANITARIO" Width="1.5" PointX="0.75" PointY="8.625" Height="1.5956835937500031" />
-        <EntityTypeShape EntityType="SIFCA_Model.ESTRATO" Width="1.5" PointX="3.75" PointY="14.375" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="SIFCA_Model.ETAPA" Width="1.5" PointX="3.75" PointY="17" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="SIFCA_Model.GRUPOCOMERCIAL" Width="1.5" PointX="1.5" PointY="11.25" Height="1.5956835937500031" />
-        <EntityTypeShape EntityType="SIFCA_Model.INVENTARIO" Width="1.5" PointX="3" PointY="3.5" Height="5.4417122395833291" />
-        <EntityTypeShape EntityType="SIFCA_Model.LISTADODEESPECIES" Width="1.5" PointX="1.5" PointY="19.5" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="SIFCA_Model.PROYECTO" Width="1.5" PointX="3.75" PointY="19.75" Height="3.7109993489583246" />
-        <EntityTypeShape EntityType="SIFCA_Model.REGENERACION" Width="1.5" PointX="6" PointY="4.375" Height="3.7109993489583379" />
-        <EntityTypeShape EntityType="SIFCA_Model.TIPOINVENTARIO" Width="1.5" PointX="1.5" PointY="22" Height="1.595683593749996" />
-        <EntityTypeShape EntityType="SIFCA_Model.TSTUDENT" Width="1.5" PointX="2.75" PointY="0.75" Height="1.5956835937500102" />
+        <EntityTypeShape EntityType="SIFCA_Model.CALIDAD" Width="2.25" PointX="0.75" PointY="2.25" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="SIFCA_Model.ESPECIE" Width="2.25" PointX="3.75" PointY="10.375" Height="3.3263964843750031" />
+        <EntityTypeShape EntityType="SIFCA_Model.ESTACION" Width="2.25" PointX="0.75" PointY="5.25" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="SIFCA_Model.ESTADOSANITARIO" Width="2.25" PointX="0.75" PointY="8.625" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="SIFCA_Model.ESTRATO" Width="2.25" PointX="3.75" PointY="14.375" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="SIFCA_Model.ETAPA" Width="2.25" PointX="3.75" PointY="17" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="SIFCA_Model.GRUPOCOMERCIAL" Width="2.25" PointX="1.5" PointY="11.25" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="SIFCA_Model.INVENTARIO" Width="2.25" PointX="3" PointY="3.5" Height="5.4417122395833291" />
+        <EntityTypeShape EntityType="SIFCA_Model.LISTADODEESPECIES" Width="2.25" PointX="1.5" PointY="19.625" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="SIFCA_Model.PROYECTO" Width="2.25" PointX="4.625" PointY="20" Height="4.480205078124996" />
+        <EntityTypeShape EntityType="SIFCA_Model.REGENERACION" Width="2.25" PointX="6" PointY="4.375" Height="3.7109993489583379" />
+        <EntityTypeShape EntityType="SIFCA_Model.TIPOINVENTARIO" Width="2.25" PointX="1.5" PointY="22.25" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="SIFCA_Model.TSTUDENT" Width="2.25" PointX="2.75" PointY="0.75" Height="1.5956835937500102" />
         <AssociationConnector Association="SIFCA_Model.FK_INVENTAR_POSEE_CALIDAD" >
-          <ConnectorPoint PointX="2.25" PointY="3.6728417968750016" />
-          <ConnectorPoint PointX="2.6666666666666665" PointY="3.6728417968750011" />
-          <ConnectorPoint PointX="2.8333333333333335" PointY="3.6728417968750016" />
-          <ConnectorPoint PointX="3" PointY="3.6728417968750016" />
+          <ConnectorPoint PointX="3" PointY="2.9228417968750051" />
+          <ConnectorPoint PointX="4.1250005000000005" PointY="2.9228417968750051" />
+          <ConnectorPoint PointX="4.1250005000000005" PointY="3.5" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_ESPECIE_PERTENECE_GRUPOCOM" >
-          <ConnectorPoint PointX="3" PointY="12.047841796875002" />
-          <ConnectorPoint PointX="3.1041629166666667" PointY="12.047841796875" />
-          <ConnectorPoint PointX="3.4583308333333331" PointY="12.047841796875002" />
-          <ConnectorPoint PointX="3.75" PointY="12.047841796875002" />
+          <ConnectorPoint PointX="2.4538429038461533" PointY="12.845683593750003" />
+          <ConnectorPoint PointX="2.4538429038461533" PointY="13.242288039062508" />
+          <ConnectorPoint PointX="3.75" PointY="13.242288039062508" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_INVENTAR_CONTIENE_ESPECIE" >
-          <ConnectorPoint PointX="4.125" PointY="10.375" />
-          <ConnectorPoint PointX="4.125" PointY="8.9417122395833282" />
+          <ConnectorPoint PointX="4.5" PointY="10.375" />
+          <ConnectorPoint PointX="4.5" PointY="8.9417122395833282" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_REGENERA_EVALUA_ESPECIE" >
-          <ConnectorPoint PointX="5.25" PointY="12.038198242187502" />
-          <ConnectorPoint PointX="6.0572879166666675" PointY="12.038198242187502" />
-          <ConnectorPoint PointX="6.2239545833333336" PointY="12.038198242187502" />
-          <ConnectorPoint PointX="6.2604141666666671" PointY="12.038198242187502" />
-          <ConnectorPoint PointX="6.4270808333333331" PointY="12.038198242187502" />
-          <ConnectorPoint PointX="6.75" PointY="12.038198242187502" />
-          <ConnectorPoint PointX="6.75" PointY="8.0859993489583388" />
+          <ConnectorPoint PointX="6" PointY="12.038198242187502" />
+          <ConnectorPoint PointX="6.104166666666667" PointY="12.038198242187502" />
+          <ConnectorPoint PointX="6.333333333333333" PointY="12.038198242187502" />
+          <ConnectorPoint PointX="6.3815113541666673" PointY="12.038198242187502" />
+          <ConnectorPoint PointX="6.5481780208333333" PointY="12.038198242187502" />
+          <ConnectorPoint PointX="6.6796893750000006" PointY="12.038198242187502" />
+          <ConnectorPoint PointX="6.6796893750000006" PointY="8.0859993489583388" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_INVENTAR_RECOGE_ESTACION" >
-          <ConnectorPoint PointX="2.25" PointY="6.2401432291666694" />
-          <ConnectorPoint PointX="3" PointY="6.2401432291666694" />
+          <ConnectorPoint PointX="1.84375" PointY="7.2302864583333388" />
+          <ConnectorPoint PointX="1.84375" PointY="7.89639372916667" />
+          <ConnectorPoint PointX="3" PointY="7.89639372916667" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_REGENERA_CAPTURA_ESTACION" >
-          <ConnectorPoint PointX="2.25" PointY="5.7138196145833344" />
-          <ConnectorPoint PointX="2.75" PointY="5.7138196145833344" />
-          <ConnectorPoint PointX="2.75" PointY="3.25" />
-          <ConnectorPoint PointX="6.75" PointY="3.25" />
-          <ConnectorPoint PointX="6.75" PointY="4.375" />
+          <ConnectorPoint PointX="1.8749995" PointY="5.25" />
+          <ConnectorPoint PointX="1.8749995" PointY="3.8475" />
+          <ConnectorPoint PointX="7.125" PointY="3.8475" />
+          <ConnectorPoint PointX="7.125" PointY="4.375" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_INVENTAR_ASOCIADO_ESTADOSA" >
-          <ConnectorPoint PointX="2.25" PointY="8.7833561197916641" />
-          <ConnectorPoint PointX="3" PointY="8.7833561197916641" />
+          <ConnectorPoint PointX="3" PointY="9.4228417968750016" />
+          <ConnectorPoint PointX="3.8437481250000003" PointY="9.4228417968750016" />
+          <ConnectorPoint PointX="3.8437481250000003" PointY="8.9417122395833282" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_INVENTAR_MANEJA_ESTRATO" >
-          <ConnectorPoint PointX="3.75" PointY="15.268992513020834" />
-          <ConnectorPoint PointX="3.6458333333333335" PointY="15.268992513020834" />
-          <ConnectorPoint PointX="3.4791666666666665" PointY="15.268992513020834" />
-          <ConnectorPoint PointX="3.3749975" PointY="15.268992513020834" />
-          <ConnectorPoint PointX="3.3749975" PointY="8.9417122395833282" />
+          <ConnectorPoint PointX="6" PointY="14.375" />
+          <ConnectorPoint PointX="6.1285744349011209" PointY="14.246425565098878" />
+          <ConnectorPoint PointX="6.2464255650988791" PointY="14.128574434901122" />
+          <ConnectorPoint PointX="6.25" PointY="14.125" />
+          <ConnectorPoint PointX="6.25" PointY="9.8167122395833282" />
+          <ConnectorPoint PointX="6.1821163846153837" PointY="9.8167122395833282" />
+          <ConnectorPoint PointX="5.25" PointY="8.8845958549679445" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_REGENERA_SUBDIVIDE_ESTRATO" >
-          <ConnectorPoint PointX="5.25" PointY="15.268992513020834" />
-          <ConnectorPoint PointX="6.0572879166666675" PointY="15.268992513020834" />
-          <ConnectorPoint PointX="6.2239545833333336" PointY="15.268992513020834" />
-          <ConnectorPoint PointX="6.3437475" PointY="15.268992513020834" />
-          <ConnectorPoint PointX="6.3437475" PointY="8.0859993489583388" />
+          <ConnectorPoint PointX="6" PointY="15.300245013020835" />
+          <ConnectorPoint PointX="6.104166666666667" PointY="15.300245013020835" />
+          <ConnectorPoint PointX="6.270833333333333" PointY="15.300245013020835" />
+          <ConnectorPoint PointX="6.3815113541666673" PointY="15.300245013020835" />
+          <ConnectorPoint PointX="6.5481780208333333" PointY="15.300245013020835" />
+          <ConnectorPoint PointX="7.1744822916666671" PointY="15.300245013020835" />
+          <ConnectorPoint PointX="7.3411489583333331" PointY="15.300245013020835" />
+          <ConnectorPoint PointX="7.479166666666667" PointY="15.300245013020835" />
+          <ConnectorPoint PointX="7.645833333333333" PointY="15.300245013020835" />
+          <ConnectorPoint PointX="7.835941875" PointY="15.300245013020835" />
+          <ConnectorPoint PointX="7.835941875" PointY="8.0859993489583388" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_INVENTAR_SE_HACE_ETAPA" >
-          <ConnectorPoint PointX="3.75" PointY="17.893992513020834" />
-          <ConnectorPoint PointX="3.6458333333333335" PointY="17.893992513020834" />
-          <ConnectorPoint PointX="3.4791666666666665" PointY="17.893992513020834" />
-          <ConnectorPoint PointX="3.4270783333333337" PointY="17.893992513020834" />
-          <ConnectorPoint PointX="3.2604116666666667" PointY="17.893992513020834" />
-          <ConnectorPoint PointX="3.18749625" PointY="17.893992513020834" />
-          <ConnectorPoint PointX="3.18749625" PointY="8.9417122395833282" />
+          <ConnectorPoint PointX="6" PointY="17.06189078936298" />
+          <ConnectorPoint PointX="6.1875" PointY="16.87439078936298" />
+          <ConnectorPoint PointX="6.1875" PointY="9.5667122395833282" />
+          <ConnectorPoint PointX="5.8767317692307692" PointY="9.5667122395833282" />
+          <ConnectorPoint PointX="5.25" PointY="8.9399804703525589" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_REGENERA_SE_EXAMIN_ETAPA" >
-          <ConnectorPoint PointX="5.25" PointY="17.893992513020834" />
-          <ConnectorPoint PointX="6.0572879166666675" PointY="17.893992513020834" />
-          <ConnectorPoint PointX="6.2239545833333336" PointY="17.893992513020834" />
-          <ConnectorPoint PointX="7.1562525" PointY="17.893992513020834" />
-          <ConnectorPoint PointX="7.1562525" PointY="8.0859993489583388" />
+          <ConnectorPoint PointX="6" PointY="17.956190407702323" />
+          <ConnectorPoint PointX="6.3815113541666673" PointY="17.956190407702323" />
+          <ConnectorPoint PointX="6.5481780208333333" PointY="17.956190407702323" />
+          <ConnectorPoint PointX="7.257815625" PointY="17.956190407702323" />
+          <ConnectorPoint PointX="7.257815625" PointY="8.0859993489583388" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_INVENTAR_DESARROLL_PROYECTO" >
-          <ConnectorPoint PointX="3.75" PointY="21.605499674479162" />
-          <ConnectorPoint PointX="3.343745" PointY="21.605499674479162" />
-          <ConnectorPoint PointX="3.343745" PointY="8.9417122395833282" />
+          <ConnectorPoint PointX="6.875" PointY="20.06230669230769" />
+          <ConnectorPoint PointX="7.5625" PointY="19.37480669230769" />
+          <ConnectorPoint PointX="7.5625" PointY="9.3167122395833282" />
+          <ConnectorPoint PointX="7.3411489583333331" PointY="9.3167122395833282" />
+          <ConnectorPoint PointX="7.1744822916666671" PointY="9.3167122395833282" />
+          <ConnectorPoint PointX="6.7630227083333336" PointY="9.3167122395833282" />
+          <ConnectorPoint PointX="6.5963560416666676" PointY="9.3167122395833282" />
+          <ConnectorPoint PointX="6.5481780208333333" PointY="9.3167122395833282" />
+          <ConnectorPoint PointX="6.3815113541666673" PointY="9.3167122395833282" />
+          <ConnectorPoint PointX="5.7654497179487167" PointY="9.3167122395833282" />
+          <ConnectorPoint PointX="5.5987830512820507" PointY="9.3167122395833282" />
+          <ConnectorPoint PointX="5.5696153846153846" PointY="9.3167122395833282" />
+          <ConnectorPoint PointX="5.1946153846153855" PointY="8.9417122395833282" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_PROYECTO_TIENE_LISTADO" >
-          <ConnectorPoint PointX="3" PointY="20.518992513020834" />
-          <ConnectorPoint PointX="3.2604116666666667" PointY="20.518992513020834" />
-          <ConnectorPoint PointX="3.4270783333333337" PointY="20.518992513020834" />
-          <ConnectorPoint PointX="3.75" PointY="20.518992513020834" />
+          <ConnectorPoint PointX="3.75" PointY="20.706492513020834" />
+          <ConnectorPoint PointX="4.625" PointY="20.706492513020834" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_PROYECTO_ES_TIPOINVE" >
-          <ConnectorPoint PointX="3" PointY="22.730499674479162" />
-          <ConnectorPoint PointX="3.75" PointY="22.730499674479162" />
+          <ConnectorPoint PointX="3.75" PointY="23.047841796874998" />
+          <ConnectorPoint PointX="4.625" PointY="23.047841796874998" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_REGENERA_EXAMINA_PROYECTO" >
-          <ConnectorPoint PointX="5.25" PointY="21.605499674479162" />
-          <ConnectorPoint PointX="6.1406212500000006" PointY="21.605499674479162" />
-          <ConnectorPoint PointX="6.1406212500000006" PointY="8.0859993489583388" />
+          <ConnectorPoint PointX="6.4648446875" PointY="20" />
+          <ConnectorPoint PointX="6.4648446875" PointY="8.0859993489583388" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.LIGADO" >
-          <ConnectorPoint PointX="3.8134605384615381" PointY="13.701396484375003" />
-          <ConnectorPoint PointX="3.5625" PointY="13.952357022836541" />
-          <ConnectorPoint PointX="3.5625" PointY="19.978244256510415" />
-          <ConnectorPoint PointX="3.4270783333333337" PointY="19.978244256510415" />
-          <ConnectorPoint PointX="3.2604116666666667" PointY="19.978244256510415" />
-          <ConnectorPoint PointX="3" PointY="19.978244256510415" />
+          <ConnectorPoint PointX="4.875" PointY="13.701396484375003" />
+          <ConnectorPoint PointX="4.875" PointY="14.076396484375003" />
+          <ConnectorPoint PointX="2.03124775" PointY="14.076396484375003" />
+          <ConnectorPoint PointX="2.03124775" PointY="19.625" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

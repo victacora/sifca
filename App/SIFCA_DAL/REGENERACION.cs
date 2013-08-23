@@ -16,7 +16,7 @@ namespace SIFCA_DAL
     {
         public System.Guid NROEST { get; set; }
         public decimal PARCELA { get; set; }
-        public Nullable<decimal> NROARB { get; set; }
+        public decimal NROARB { get; set; }
         public Nullable<decimal> LATIZAL { get; set; }
         public Nullable<decimal> BRINZAL { get; set; }
         public decimal CODEST { get; set; }

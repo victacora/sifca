@@ -17,7 +17,7 @@ namespace SIFCA.Gestionar_Especies
         public Ingresar_Especie_Form()
         {
             InitializeComponent();
-            species = new SpeciesBL();
+            species = new SpeciesBL(ContextProvider.ContextData);
         }
 
         private void btn_Crear_Click(object sender, EventArgs e)

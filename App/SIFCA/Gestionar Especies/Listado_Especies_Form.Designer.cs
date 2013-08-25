@@ -33,7 +33,6 @@
             this.paginacionEspecie = new System.Windows.Forms.BindingNavigator(this.components);
             this.especieBSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -42,8 +41,6 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.iNVENTARIOBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.buscarLbl = new System.Windows.Forms.ToolStripLabel();
             this.parametroBusTxt = new System.Windows.Forms.ToolStripTextBox();
             this.filtrarLbl = new System.Windows.Forms.ToolStripLabel();
@@ -72,7 +69,7 @@
             this.paginacionEspecie.AddNewItem = null;
             this.paginacionEspecie.BindingSource = this.especieBSource;
             this.paginacionEspecie.CountItem = this.bindingNavigatorCountItem;
-            this.paginacionEspecie.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.paginacionEspecie.DeleteItem = null;
             this.paginacionEspecie.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -83,9 +80,6 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.iNVENTARIOBindingNavigatorSaveItem,
             this.buscarLbl,
             this.parametroBusTxt,
             this.filtrarLbl,
@@ -113,15 +107,6 @@
             this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
             this.bindingNavigatorCountItem.Text = "de {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Eliminar";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -183,24 +168,6 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
-            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
-            // 
-            // iNVENTARIOBindingNavigatorSaveItem
-            // 
-            this.iNVENTARIOBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.iNVENTARIOBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("iNVENTARIOBindingNavigatorSaveItem.Image")));
-            this.iNVENTARIOBindingNavigatorSaveItem.Name = "iNVENTARIOBindingNavigatorSaveItem";
-            this.iNVENTARIOBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.iNVENTARIOBindingNavigatorSaveItem.Click += new System.EventHandler(this.especieBindingNavigatorSaveItem_Click);
-            // 
             // buscarLbl
             // 
             this.buscarLbl.Name = "buscarLbl";
@@ -246,6 +213,8 @@
             // 
             // ListadoEspecies
             // 
+            this.ListadoEspecies.AllowUserToAddRows = false;
+            this.ListadoEspecies.AllowUserToDeleteRows = false;
             this.ListadoEspecies.AutoGenerateColumns = false;
             this.ListadoEspecies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ListadoEspecies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -262,6 +231,7 @@
             this.ListadoEspecies.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ListadoEspecies.Location = new System.Drawing.Point(0, 25);
             this.ListadoEspecies.Name = "ListadoEspecies";
+            this.ListadoEspecies.ReadOnly = true;
             this.ListadoEspecies.Size = new System.Drawing.Size(949, 398);
             this.ListadoEspecies.TabIndex = 1;
             this.ListadoEspecies.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.ListadoEspecies_RowsRemoved);
@@ -271,6 +241,7 @@
             this.Codigo.DataPropertyName = "CODESP";
             this.Codigo.HeaderText = "Codigo";
             this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
             // 
             // grupoComercial
             // 
@@ -279,6 +250,7 @@
             this.grupoComercial.DisplayMember = "DESCRIPGRUPO";
             this.grupoComercial.HeaderText = "Grupo comercial";
             this.grupoComercial.Name = "grupoComercial";
+            this.grupoComercial.ReadOnly = true;
             this.grupoComercial.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.grupoComercial.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.grupoComercial.ValueMember = "GRUPOCOM";
@@ -292,6 +264,7 @@
             this.nombreComun.DataPropertyName = "NOMCOMUN";
             this.nombreComun.HeaderText = "Nombre comun";
             this.nombreComun.Name = "nombreComun";
+            this.nombreComun.ReadOnly = true;
             this.nombreComun.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // nombreCientifico
@@ -299,30 +272,35 @@
             this.nombreCientifico.DataPropertyName = "NOMCIENTIFICO";
             this.nombreCientifico.HeaderText = "Nombre cientifico";
             this.nombreCientifico.Name = "nombreCientifico";
+            this.nombreCientifico.ReadOnly = true;
             // 
             // familia
             // 
             this.familia.DataPropertyName = "FAMILIA";
             this.familia.HeaderText = "Familia";
             this.familia.Name = "familia";
+            this.familia.ReadOnly = true;
             // 
             // zonaGeografica
             // 
             this.zonaGeografica.DataPropertyName = "ZONAGEOGRAFICA";
             this.zonaGeografica.HeaderText = "Zona geografica";
             this.zonaGeografica.Name = "zonaGeografica";
+            this.zonaGeografica.ReadOnly = true;
             // 
             // zonaVida
             // 
             this.zonaVida.DataPropertyName = "ZONADEVIDA";
             this.zonaVida.HeaderText = "Zona vida";
             this.zonaVida.Name = "zonaVida";
+            this.zonaVida.ReadOnly = true;
             // 
             // diamCorte
             // 
             this.diamCorte.DataPropertyName = "DIAMMINCORTE";
             this.diamCorte.HeaderText = "Diametro min. corte";
             this.diamCorte.Name = "diamCorte";
+            this.diamCorte.ReadOnly = true;
             // 
             // Listado_Especies_Form
             // 
@@ -350,9 +328,7 @@
         #endregion
 
         private System.Windows.Forms.BindingNavigator paginacionEspecie;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
@@ -367,7 +343,6 @@
         private System.Windows.Forms.ToolStripTextBox parametroBusTxt;
         private System.Windows.Forms.ToolStripLabel filtrarLbl;
         private System.Windows.Forms.ToolStripComboBox criterioBusquedaCbx;
-        private System.Windows.Forms.ToolStripButton iNVENTARIOBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewComboBoxColumn grupoComercial;
         private System.Windows.Forms.BindingSource grupoComercialBSource;

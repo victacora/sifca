@@ -201,6 +201,7 @@
             this.ingresarEspecieToolStripMenuItem.Name = "ingresarEspecieToolStripMenuItem";
             this.ingresarEspecieToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.ingresarEspecieToolStripMenuItem.Text = "Ingresar Especie";
+            this.ingresarEspecieToolStripMenuItem.Click += new System.EventHandler(this.ingresarEspecieToolStripMenuItem_Click);
             // 
             // listarEspeciesToolStripMenuItem
             // 

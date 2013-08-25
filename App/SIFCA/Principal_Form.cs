@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Runtime.Caching;
 using SIFCA_DAL;
 using SIFCA_BLL;
+using SIFCA.Gestionar_Especies;
 
 namespace SIFCA
 {
@@ -147,6 +148,13 @@ namespace SIFCA
         private void listarProyectosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Listar_Proyectos_Form childForm = new Listar_Proyectos_Form();
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
+
+        private void ingresarEspecieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Ingresar_Especie_Form childForm = new Ingresar_Especie_Form();
             childForm.MdiParent = this;
             childForm.Show();
         }

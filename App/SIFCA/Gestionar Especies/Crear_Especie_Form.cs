@@ -28,6 +28,10 @@ namespace SIFCA.Gestionar_Especies
            
             ESPECIE newSpecies = new ESPECIE();
 
+            newSpecies.INVENTARIO = null;
+            newSpecies.REGENERACION = null;
+            newSpecies.LISTADODEESPECIES = null;
+            newSpecies.DIAMMINCORTE = System.Convert.ToDecimal(this.txt_DMC.Text);
             newSpecies.CODESP =  System.Convert.ToDecimal(this.txt_Codigo.Text);
             newSpecies.GRUPOCOM = this.cbox_GrupoComercial.SelectedValue.ToString();
             newSpecies.NOMCOMUN = this.txt_NombreComun.Text;

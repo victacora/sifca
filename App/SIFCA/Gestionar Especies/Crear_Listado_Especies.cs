@@ -25,7 +25,15 @@ namespace SIFCA.Gestionar_Especies
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            this.listadoEspecies.Items.Add(this.listaEspecies.SelectedItem);
+            int c = this.listaEspecies.Items.Count - 1;
+            for (int i = c; i >= 0; i--)
+            {
+                if (this.listaEspecies.GetSelected(i))
+                {
+                    this.listadoEspecies.Items.Add(this.listaEspecies.Items[i]);
+                    //this.listaEspecies.Items.RemoveAt(i);
+                }
+            }                
         }
 
         private void btnQuitar_Click(object sender, EventArgs e)

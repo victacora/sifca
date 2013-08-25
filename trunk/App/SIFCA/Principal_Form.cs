@@ -158,5 +158,12 @@ namespace SIFCA
             childForm.MdiParent = this;
             childForm.Show();
         }
+
+        private void crearListadoEspeciesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Crear_Listado_Especies childForm = new Crear_Listado_Especies();
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
     }
 }

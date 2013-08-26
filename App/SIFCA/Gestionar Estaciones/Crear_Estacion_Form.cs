@@ -20,7 +20,7 @@ namespace SIFCA
         {
             InitializeComponent();
             code = Guid.NewGuid();
-            ESTACION stationData = (ESTACION)Program.cache.Get("localStation");
+            ESTACION stationData = (ESTACION)Program.Cache.Get("localStation");
             if (stationData == null)
             {
                 this.codigoTxt.Text = code.ToString();
@@ -32,13 +32,13 @@ namespace SIFCA
                 this.responsableTxt.Text = stationData.PERSONARESPONSABLE;
                 this.AceptarBtn.Text = "Actualizar";
             }
-            station = new StationBL(ContextProvider.ContextData);
+            station = new StationBL(Program.ContextData);
         }
 
         private void AceptarBtn_Click(object sender, EventArgs e)
         {
             ESTACION newStation = new ESTACION();
-            ESTACION stationData = (ESTACION)Program.cache.Get("localStation");
+            ESTACION stationData = (ESTACION)Program.Cache.Get("localStation");
             newStation.NROEST = code;
             newStation.NOMBRE = this.nombreTxt.Text;
             newStation.PERSONARESPONSABLE = this.responsableTxt.Text;
@@ -52,7 +52,7 @@ namespace SIFCA
                 station.UpdateEstation(newStation);
             }
             station.SaveChanges();
-            Program.cache.Set("localStation", newStation, new CacheItemPolicy());
+            Program.Cache.Set("localStation", newStation, new CacheItemPolicy());
             MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }

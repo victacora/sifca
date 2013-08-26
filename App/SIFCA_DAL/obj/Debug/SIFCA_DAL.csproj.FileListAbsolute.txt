@@ -12,3 +12,4 @@ C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_DAL\bin\Debug\Entity
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_DAL\bin\Debug\EntityFramework.xml
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_DAL\obj\Debug\SIFCA_DAL.dll
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_DAL\obj\Debug\SIFCA_DAL.pdb
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_DAL\obj\Debug\SIFCA_DAL.csprojResolveAssemblyReference.cache

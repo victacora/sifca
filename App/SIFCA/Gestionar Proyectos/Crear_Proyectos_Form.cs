@@ -22,9 +22,9 @@ namespace SIFCA
         public Crear_Proyecto_Form()
         {
             InitializeComponent();
-            project = new ProjectBL(ContextProvider.ContextData);
-            inventoryType = new InventoryTypeBL(ContextProvider.ContextData);
-            speciesList = new SpeciesListBL(ContextProvider.ContextData);
+            project = new ProjectBL(Program.ContextData);
+            inventoryType = new InventoryTypeBL(Program.ContextData);
+            speciesList = new SpeciesListBL(Program.ContextData);
             this.tipoInvenCbx.DataSource = inventoryType.GetInventoryTypes();
             this.tipoInvenCbx.DisplayMember = "NOMBRETIPOINV";
             this.tipoInvenCbx.ValueMember = "NOMBRETIPOINV";
@@ -39,8 +39,8 @@ namespace SIFCA
         {
             PROYECTO newProject = new PROYECTO();
             //Deshabilitar el proyecto activo cambiado su estado
-            PROYECTO activateProject = (PROYECTO)Program.cache.Get("principalProject");
-            ESTACION stationData = (ESTACION)Program.cache.Get("localStation");            
+            PROYECTO activateProject = (PROYECTO)Program.Cache.Get("principalProject");
+            ESTACION stationData = (ESTACION)Program.Cache.Get("localStation");            
             if (activateProject != null)
             {
                 activateProject.ESTADOPROY = "I";
@@ -65,7 +65,7 @@ namespace SIFCA
             newProject.NOMBRETIPOINV = tipoInvenCbx.SelectedValue.ToString();
             project.InsertProject(newProject);
             project.SaveChanges();
-            Program.cache.Set("principalProject", newProject, new CacheItemPolicy());
+            Program.Cache.Set("principalProject", newProject, new CacheItemPolicy());
             MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }

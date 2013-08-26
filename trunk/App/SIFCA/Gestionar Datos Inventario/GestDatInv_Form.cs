@@ -25,13 +25,13 @@ namespace SIFCA
         {
             InitializeComponent();
 
-            inventory = new InventoryBL(ContextProvider.ContextData);
-            species = new SpeciesBL(ContextProvider.ContextData);
-            stations = new StationBL(ContextProvider.ContextData);
-            states = new StateBL(ContextProvider.ContextData);
-            stages = new StageBL(ContextProvider.ContextData);
-            stratum = new StratumBL(ContextProvider.ContextData);
-            qualities = new QualityBL(ContextProvider.ContextData);
+            inventory = new InventoryBL(Program.ContextData);
+            species = new SpeciesBL(Program.ContextData);
+            stations = new StationBL(Program.ContextData);
+            states = new StateBL(Program.ContextData);
+            stages = new StageBL(Program.ContextData);
+            stratum = new StratumBL(Program.ContextData);
+            qualities = new QualityBL(Program.ContextData);
 
             this.inventarioBSource.DataSource = inventory.GetInventories();
             this.especieBSource.DataSource = species.GetSpecies();
@@ -53,8 +53,8 @@ namespace SIFCA
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
             var newLine = new INVENTARIO();
-            PROYECTO project = (PROYECTO)Program.cache.Get("principalProject");
-            ESTACION station = (ESTACION)Program.cache.Get("localStation");
+            PROYECTO project = (PROYECTO)Program.Cache.Get("principalProject");
+            ESTACION station = (ESTACION)Program.Cache.Get("localStation");
             newLine.NROPROY = project.NROPROY;
             newLine.NROEST = station.NROEST;
             newLine.ALTCOMER_M = 0;

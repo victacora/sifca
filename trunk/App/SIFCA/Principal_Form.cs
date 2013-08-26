@@ -21,8 +21,8 @@ namespace SIFCA
         public Principal_Form()
         {
             InitializeComponent();
-            project = new ProjectBL(ContextProvider.ContextData);
-            station = new StationBL(ContextProvider.ContextData);
+            project = new ProjectBL(Program.ContextData);
+            station = new StationBL(Program.ContextData);
         }
 
         private void CreateNewProject(object sender, EventArgs e)
@@ -120,22 +120,22 @@ namespace SIFCA
         {
             //cargar stage activo
 
-            if (!Program.cache.Contains("principalProject"))
+            if (!Program.Cache.Contains("principalProject"))
             {
                 PROYECTO activateProject = project.GetActivateProject();
                 ESTACION localStation = station.GetStations().First();
-                if (activateProject != null) Program.cache.Add("principalProject", activateProject, new CacheItemPolicy());
+                if (activateProject != null) Program.Cache.Add("principalProject", activateProject, new CacheItemPolicy());
                 else MessageBox.Show("No se ha creado ningun proyecto, que tenga por estado Activo.", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                if (localStation != null) Program.cache.Add("localStation", localStation, new CacheItemPolicy());
+                if (localStation != null) Program.Cache.Add("localStation", localStation, new CacheItemPolicy());
                 else MessageBox.Show("No se ha registrado la informacion para esta estacion", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //cambiar el stage activo y cargarlo en la cache
+            //cambiar el stage activo y cargarlo en la Cache
             PROYECTO activateProject = project.GetActivateProject();
-            Program.cache.Set("principalProject", activateProject, new CacheItemPolicy());
+            Program.Cache.Set("principalProject", activateProject, new CacheItemPolicy());
         }
 
         private void listarEspeciesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -161,7 +161,7 @@ namespace SIFCA
 
         private void crearListadoEspeciesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Crear_Listado_Especies childForm = new Crear_Listado_Especies();
+            Listado_Especies_Form childForm = new Listado_Especies_Form();
             childForm.MdiParent = this;
             childForm.Show();
         }

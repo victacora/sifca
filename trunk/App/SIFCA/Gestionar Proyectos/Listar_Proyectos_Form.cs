@@ -21,10 +21,10 @@ namespace SIFCA
         public Listar_Proyectos_Form()
         {
             InitializeComponent();
-            project = new ProjectBL(ContextProvider.ContextData);
-            inventoryType = new InventoryTypeBL(ContextProvider.ContextData);
-            speciesList = new SpeciesListBL(ContextProvider.ContextData);
-            station = new StationBL(ContextProvider.ContextData);
+            project = new ProjectBL(Program.ContextData);
+            inventoryType = new InventoryTypeBL(Program.ContextData);
+            speciesList = new SpeciesListBL(Program.ContextData);
+            station = new StationBL(Program.ContextData);
             this.proyectoBSource.DataSource = project.GetProjects();
             this.tipoInventarioBSource.DataSource = inventoryType.GetInventoryTypes();
             this.listadoEspeciesBSource.DataSource = speciesList.GetSpeciesLists();

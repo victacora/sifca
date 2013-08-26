@@ -18,8 +18,8 @@ namespace SIFCA.Gestionar_Especies
         public Ingresar_Especie_Form()
         {
             InitializeComponent();
-            GC = new GroupBL(ContextProvider.ContextData);
-            species = new SpeciesBL(ContextProvider.ContextData);
+            GC = new GroupBL(Program.ContextData);
+            species = new SpeciesBL(Program.ContextData);
             this.grupoComercialBSource.DataSource = GC.GetGroups();
         }
          

@@ -5,9 +5,10 @@
 <Workspace>
 	<Local Expanded="Yes">
 		<Model Expanded="Yes" ID="{B544C652-C791-4435-BA22-5C970D464E88}" Loaded="No" Name="Prototipo 1.1" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="Prototipo 1.1.cdm"/>
-		<Model Expanded="Yes" ID="{B544C652-C791-4435-BA22-5C970D464E88}" Name="Prototipo 1.2" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="Prototipo 1.2.cdm"/>
-		<Model Expanded="Yes" ID="{2DA621B0-32F2-410B-861C-0F7598A843C3}" Name="Prototipo 1.2" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="Prototipo 1.2.pdm"/>
-		<Model Expanded="Yes" ID="{B544C652-C791-4435-BA22-5C970D464E88}" Name="Prototipo 1.3" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="Prototipo 1.3.cdm"/>
+		<Model Expanded="Yes" ID="{B544C652-C791-4435-BA22-5C970D464E88}" Loaded="No" Name="Prototipo 1.2" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="Prototipo 1.2.cdm"/>
+		<Model Expanded="Yes" ID="{0ED4FC9F-541E-4D93-89D4-1E408323F137}" Name="Prototipo 1.3" Selected="Yes" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="Prototipo 1.3.pdm"/>
+		<Model Expanded="Yes" ID="{2DA621B0-32F2-410B-861C-0F7598A843C3}" Loaded="No" Name="Prototipo 1.2" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="Prototipo 1.2.pdm"/>
+		<Model ID="{B544C652-C791-4435-BA22-5C970D464E88}" Name="Prototipo 1.3" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="Prototipo 1.3.cdm"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>

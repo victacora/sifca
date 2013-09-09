@@ -7,31 +7,31 @@ using System.Data;
 
 namespace SIFCA_BLL
 {
-    public class InventoryTypeBL 
+    public class FromTypeBL 
     {
         private SIFCA_CONTEXT sifcaRepository;
 
-        public InventoryTypeBL(SIFCA_CONTEXT contextProvider)
+        public FromTypeBL(SIFCA_CONTEXT contextProvider)
         {
             this.sifcaRepository = contextProvider;
         }
 
 
-        public IEnumerable<TIPOINVENTARIO> GetInventoryTypes()
+        public IEnumerable<TIPOFORMULARIO> GetFormTypes()
         {
-            return this.sifcaRepository.TIPOINVENTARIO.ToList();
+            return this.sifcaRepository.TIPOFORMULARIO.ToList();
         }
 
-        public TIPOINVENTARIO GetInventoryType(int inventoryTypeId)
+        public TIPOFORMULARIO GetFormType(int FormTypeId)
         {
-            return this.sifcaRepository.TIPOINVENTARIO.Find(inventoryTypeId);
+            return this.sifcaRepository.TIPOFORMULARIO.Find(FormTypeId);
         }
 
-        public void InsertInventoryType(TIPOINVENTARIO inventoryType)
+        public void InsertFormType(TIPOFORMULARIO FormType)
         {
             try
             {
-                this.sifcaRepository.TIPOINVENTARIO.Add(inventoryType);
+                this.sifcaRepository.TIPOFORMULARIO.Add(FormType);
                 
             }
             catch (Exception ex)
@@ -40,12 +40,12 @@ namespace SIFCA_BLL
             }
         }
 
-        public void DeleteInventoryType(int inventoryTypeId)
+        public void DeleteFormType(int FormTypeId)
         {
             try
             {
-                TIPOINVENTARIO inventoryType = this.sifcaRepository.TIPOINVENTARIO.Find(inventoryTypeId);
-                this.sifcaRepository.TIPOINVENTARIO.Remove(inventoryType);
+                TIPOFORMULARIO FormType = this.sifcaRepository.TIPOFORMULARIO.Find(FormTypeId);
+                this.sifcaRepository.TIPOFORMULARIO.Remove(FormType);
                 
             }
             catch (Exception ex)
@@ -54,11 +54,11 @@ namespace SIFCA_BLL
             }
         }
 
-        public void UpdateInventoryType(TIPOINVENTARIO inventoryType)
+        public void UpdateFormType(TIPOFORMULARIO FormType)
         {
             try
             {
-                this.sifcaRepository.Entry(inventoryType).State = EntityState.Modified;
+                this.sifcaRepository.Entry(FormType).State = EntityState.Modified;
                 
             }
             catch (Exception ex)

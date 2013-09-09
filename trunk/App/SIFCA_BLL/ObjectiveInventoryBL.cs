@@ -7,31 +7,32 @@ using System.Data;
 
 namespace SIFCA_BLL
 {
-    public class UserBL 
+    public class ObjectiveInventoryBL 
     {
         private SIFCA_CONTEXT sifcaRepository;
 
-        public UserBL(SIFCA_CONTEXT contextProvider )
+        public ObjectiveInventoryBL(SIFCA_CONTEXT contextProvider)
         {
             this.sifcaRepository = contextProvider;
         }
 
 
-        public IEnumerable<USUARIO> GetUsers()
+        public IEnumerable<OBJETIVOINVENTARIO> GetObjectiveInventories()
         {
-            return this.sifcaRepository.USUARIO.ToList();
+            return this.sifcaRepository.OBJETIVOINVENTARIO.ToList();
         }
 
-        public USUARIO GetUser(int userId)
+        public OBJETIVOINVENTARIO GetObjectiveInventory(int ObjectiveInventoryId)
         {
-            return this.sifcaRepository.USUARIO.Find(userId);
+            return this.sifcaRepository.OBJETIVOINVENTARIO.Find(ObjectiveInventoryId);
         }
 
-        public void InsertUser(USUARIO user)
+        public void InsertObjectiveInventory(OBJETIVOINVENTARIO ObjectiveInventory)
         {
             try
             {
-                this.sifcaRepository.USUARIO.Add(user);
+                this.sifcaRepository.OBJETIVOINVENTARIO.Add(ObjectiveInventory);
+                
             }
             catch (Exception ex)
             {
@@ -39,12 +40,13 @@ namespace SIFCA_BLL
             }
         }
 
-        public void DeleteEUser(int userId)
+        public void DeleteObjectiveInventory(int ObjectiveInventoryId)
         {
             try
             {
-                USUARIO User = this.sifcaRepository.USUARIO.Find(userId);
-                this.sifcaRepository.USUARIO.Remove(User);
+                OBJETIVOINVENTARIO ObjectiveInventory = this.sifcaRepository.OBJETIVOINVENTARIO.Find(ObjectiveInventoryId);
+                this.sifcaRepository.OBJETIVOINVENTARIO.Remove(ObjectiveInventory);
+                
             }
             catch (Exception ex)
             {
@@ -52,11 +54,11 @@ namespace SIFCA_BLL
             }
         }
 
-        public void UpdateEUser(USUARIO user)
+        public void UpdateObjectiveInventory(OBJETIVOINVENTARIO ObjectiveInventory)
         {
             try
             {
-                this.sifcaRepository.Entry(user).State = EntityState.Modified;
+                this.sifcaRepository.Entry(ObjectiveInventory).State = EntityState.Modified;
                 
             }
             catch (Exception ex)

@@ -45,16 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormTypeBL.cs" />
+    <Compile Include="ObjectiveInventoryBL.cs" />
     <Compile Include="GroupBL.cs" />
     <Compile Include="QualityBL.cs" />
     <Compile Include="StratumBL.cs" />
-    <Compile Include="StageBL.cs" />
     <Compile Include="StateBL.cs" />
-    <Compile Include="InventoryBL.cs" />
+    <Compile Include="FormBL.cs" />
     <Compile Include="SpeciesBL.cs" />
-    <Compile Include="InventoryTypeBL.cs" />
+    <Compile Include="ProjectTypeBL.cs" />
     <Compile Include="SpeciesListBL.cs" />
-    <Compile Include="EstationBL.cs" />
+    <Compile Include="UserBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProjectBL.cs" />
   </ItemGroup>

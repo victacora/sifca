@@ -17,17 +17,17 @@ namespace SIFCA_BLL
         }
 
 
-        public IEnumerable<FORMULARIO> GetInventories()
+        public IEnumerable<FORMULARIO> GetForms()
         {
             return this.sifcaRepository.FORMULARIO.ToList();
         }
 
-        public FORMULARIO Getform(Guid nrProject)
+        public FORMULARIO GetForm(Guid nrProject)
         {
             return this.sifcaRepository.FORMULARIO.Find(nrProject);
         }
 
-        public void Insertform(FORMULARIO form)
+        public void InsertForm(FORMULARIO form)
         {
             try
             {
@@ -39,7 +39,7 @@ namespace SIFCA_BLL
             }
         }
 
-        public void Deleteform(Guid nrProject)
+        public void DeleteForm(Guid nrProject)
         {
             try
             {
@@ -52,7 +52,7 @@ namespace SIFCA_BLL
             }
         }
 
-        public void Updateform(FORMULARIO form)
+        public void UpdateForm(FORMULARIO form)
         {
             try
             {

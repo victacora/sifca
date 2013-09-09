@@ -16,13 +16,13 @@ namespace SIFCA
     public partial class Principal_Form : Form
     {
         private ProjectBL project;
-        private UserBL station;
+        private UserBL user;
 
         public Principal_Form()
         {
             InitializeComponent();
             project = new ProjectBL(Program.ContextData);
-            station = new UserBL(Program.ContextData);
+            user = new UserBL(Program.ContextData);
         }
 
         private void CreateNewProject(object sender, EventArgs e)
@@ -123,7 +123,7 @@ namespace SIFCA
             if (!Program.Cache.Contains("principalProject"))
             {
                 PROYECTO activateProject = project.GetActivateProject();
-                ESTACION localStation = station.GetStations().First();
+                ESTACION localStation = user.GetStations().First();
                 if (activateProject != null) Program.Cache.Add("principalProject", activateProject, new CacheItemPolicy());
                 else MessageBox.Show("No se ha creado ningun proyecto, que tenga por estado Activo.", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 if (localStation != null) Program.Cache.Add("localStation", localStation, new CacheItemPolicy());

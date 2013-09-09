@@ -29,18 +29,17 @@ namespace SIFCA
             species = new SpeciesBL(Program.ContextData);
             stations = new UserBL(Program.ContextData);
             states = new StateBL(Program.ContextData);
-            stages = new StageBL(Program.ContextData);
             stratum = new StratumBL(Program.ContextData);
             qualities = new QualityBL(Program.ContextData);
 
-            this.inventarioBSource.DataSource = inventory.GetInventories();
+            /*this.inventarioBSource.DataSource = inventory.GetInventories();
             this.especieBSource.DataSource = species.GetSpecies();
             this.estacionBSource.DataSource = stations.GetStations();
             this.calidadBSource.DataSource = qualities.GetQualities();
             this.estratoBSource.DataSource = stratum.GetStratums();
             this.estadoSaniBSource.DataSource = states.GetStates();
             this.etapaBSource.DataSource = stages.GetStages();
-            this.criterioBusquedaCbx.SelectedIndex = 0;
+            this.criterioBusquedaCbx.SelectedIndex = 0;*/
             this.especiesCbx.SelectedIndex = 0;
             this.inventarioDataGridView.DataSource = this.inventarioBSource;
         }

@@ -7,31 +7,32 @@ using System.Data;
 
 namespace SIFCA_BLL
 {
-    public class UserBL 
+    public class ProjectTypeBL 
     {
         private SIFCA_CONTEXT sifcaRepository;
 
-        public UserBL(SIFCA_CONTEXT contextProvider )
+        public ProjectTypeBL(SIFCA_CONTEXT contextProvider)
         {
             this.sifcaRepository = contextProvider;
         }
 
 
-        public IEnumerable<USUARIO> GetUsers()
+        public IEnumerable<TIPOPROYECTO> GetProjectTypes()
         {
-            return this.sifcaRepository.USUARIO.ToList();
+            return this.sifcaRepository.TIPOPROYECTO.ToList();
         }
 
-        public USUARIO GetUser(int userId)
+        public TIPOPROYECTO GetProjectType(int ProjectTypeId)
         {
-            return this.sifcaRepository.USUARIO.Find(userId);
+            return this.sifcaRepository.TIPOPROYECTO.Find(ProjectTypeId);
         }
 
-        public void InsertUser(USUARIO user)
+        public void InsertProjectType(TIPOPROYECTO ProjectType)
         {
             try
             {
-                this.sifcaRepository.USUARIO.Add(user);
+                this.sifcaRepository.TIPOPROYECTO.Add(ProjectType);
+                
             }
             catch (Exception ex)
             {
@@ -39,12 +40,13 @@ namespace SIFCA_BLL
             }
         }
 
-        public void DeleteEUser(int userId)
+        public void DeleteProjectType(int ProjectTypeId)
         {
             try
             {
-                USUARIO User = this.sifcaRepository.USUARIO.Find(userId);
-                this.sifcaRepository.USUARIO.Remove(User);
+                TIPOPROYECTO ProjectType = this.sifcaRepository.TIPOPROYECTO.Find(ProjectTypeId);
+                this.sifcaRepository.TIPOPROYECTO.Remove(ProjectType);
+                
             }
             catch (Exception ex)
             {
@@ -52,11 +54,11 @@ namespace SIFCA_BLL
             }
         }
 
-        public void UpdateEUser(USUARIO user)
+        public void UpdateProjectType(TIPOPROYECTO ProjectType)
         {
             try
             {
-                this.sifcaRepository.Entry(user).State = EntityState.Modified;
+                this.sifcaRepository.Entry(ProjectType).State = EntityState.Modified;
                 
             }
             catch (Exception ex)

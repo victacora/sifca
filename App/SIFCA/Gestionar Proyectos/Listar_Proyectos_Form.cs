@@ -14,7 +14,7 @@ namespace SIFCA
     {
 
         private ProjectBL project;
-        private InventoryTypeBL inventoryType;
+        private FromTypeBL inventoryType;
         private SpeciesListBL speciesList;
         private UserBL station;
 
@@ -22,7 +22,7 @@ namespace SIFCA
         {
             InitializeComponent();
             project = new ProjectBL(Program.ContextData);
-            inventoryType = new InventoryTypeBL(Program.ContextData);
+            inventoryType = new FromTypeBL(Program.ContextData);
             speciesList = new SpeciesListBL(Program.ContextData);
             station = new UserBL(Program.ContextData);
             this.proyectoBSource.DataSource = project.GetProjects();

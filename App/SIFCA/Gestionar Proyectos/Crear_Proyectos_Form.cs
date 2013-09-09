@@ -15,7 +15,7 @@ namespace SIFCA
     public partial class Crear_Proyecto_Form : Form
     {
         private ProjectBL project;
-        private InventoryTypeBL inventoryType;
+        private FromTypeBL inventoryType;
         private SpeciesListBL speciesList;
 
         
@@ -23,7 +23,7 @@ namespace SIFCA
         {
             InitializeComponent();
             project = new ProjectBL(Program.ContextData);
-            inventoryType = new InventoryTypeBL(Program.ContextData);
+            inventoryType = new FromTypeBL(Program.ContextData);
             speciesList = new SpeciesListBL(Program.ContextData);
             this.tipoInvenCbx.DataSource = inventoryType.GetInventoryTypes();
             this.tipoInvenCbx.DisplayMember = "NOMBRETIPOINV";

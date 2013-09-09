@@ -7,31 +7,31 @@ using System.Data;
 
 namespace SIFCA_BLL
 {
-    public class TypeSampleDesignBl 
+    public class NontimberLineBL 
     {
         private SIFCA_CONTEXT sifcaRepository;
 
-        public TypeSampleDesignBl(SIFCA_CONTEXT contextProvider)
+        public NontimberLineBL(SIFCA_CONTEXT contextProvider)
         {
             this.sifcaRepository = contextProvider;
         }
 
 
-        public IEnumerable<TIPODISENOMUESTRAL> GetTypeSampleDesignList()
+        public IEnumerable<LINEANOMADERABLES> GetNontimberLineList()
         {
-            return this.sifcaRepository.TIPODISENOMUESTRAL.ToList();
+            return this.sifcaRepository.LINEANOMADERABLES.ToList();
         }
 
-        public TIPODISENOMUESTRAL GetTypeSampleDesign(int TypeSampleDesignId)
+        public LINEANOMADERABLES GetNontimberLine(int NontimberLineId)
         {
-            return this.sifcaRepository.TIPODISENOMUESTRAL.Find(TypeSampleDesignId);
+            return this.sifcaRepository.LINEANOMADERABLES.Find(NontimberLineId);
         }
 
-        public void InsertTypeSampleDesign(TIPODISENOMUESTRAL TypeSampleDesign)
+        public void InsertNontimberLine(LINEANOMADERABLES NontimberLine)
         {
             try
             {
-                this.sifcaRepository.TIPODISENOMUESTRAL.Add(TypeSampleDesign);
+                this.sifcaRepository.LINEANOMADERABLES.Add(NontimberLine);
                 
             }
             catch (Exception ex)
@@ -40,12 +40,12 @@ namespace SIFCA_BLL
             }
         }
 
-        public void DeleteTypeSampleDesign(int TypeSampleDesignId)
+        public void DeleteNontimberLine(int NontimberLineId)
         {
             try
             {
-                TIPODISENOMUESTRAL TypeSampleDesign = this.sifcaRepository.TIPODISENOMUESTRAL.Find(TypeSampleDesignId);
-                this.sifcaRepository.TIPODISENOMUESTRAL.Remove(TypeSampleDesign);
+                LINEANOMADERABLES NontimberLine = this.sifcaRepository.LINEANOMADERABLES.Find(NontimberLineId);
+                this.sifcaRepository.LINEANOMADERABLES.Remove(NontimberLine);
                 
             }
             catch (Exception ex)
@@ -54,11 +54,11 @@ namespace SIFCA_BLL
             }
         }
 
-        public void UpdateTypeSampleDesign(TIPODISENOMUESTRAL TypeSampleDesign)
+        public void UpdateNontimberLine(LINEANOMADERABLES NontimberLine)
         {
             try
             {
-                this.sifcaRepository.Entry(TypeSampleDesign).State = EntityState.Modified;
+                this.sifcaRepository.Entry(NontimberLine).State = EntityState.Modified;
                 
             }
             catch (Exception ex)

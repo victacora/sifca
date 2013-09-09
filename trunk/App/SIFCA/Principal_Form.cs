@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.Runtime.Caching;
 using SIFCA_DAL;
 using SIFCA_BLL;
-using SIFCA.Gestionar_Especies;
+
 
 namespace SIFCA
 {
@@ -27,9 +27,9 @@ namespace SIFCA
 
         private void CreateNewProject(object sender, EventArgs e)
         {
-            Crear_Proyecto_Form childForm = new Crear_Proyecto_Form();
-            childForm.MdiParent = this;
-            childForm.Show();
+        //    Crear_Proyecto_Form childForm = new Crear_Proyecto_Form();
+        //    childForm.MdiParent = this;
+        //    childForm.Show();
         }
 
         private void ImportProject(object sender, EventArgs e)
@@ -90,30 +90,30 @@ namespace SIFCA
 
         private void introducirDatosEstacionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Crear_Estacion_Form childForm = new Crear_Estacion_Form();
-            childForm.MdiParent = this;
-            childForm.Show();
+            //Crear_Estacion_Form childForm = new Crear_Estacion_Form();
+            //childForm.MdiParent = this;
+            //childForm.Show();
         }
 
         private void listarEstacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Listar_Estaciones_Form childForm = new Listar_Estaciones_Form();
-            childForm.MdiParent = this;
-            childForm.Show();
+            //Listar_Estaciones_Form childForm = new Listar_Estaciones_Form();
+            //childForm.MdiParent = this;
+            //childForm.Show();
         }
 
         private void introducirDatosDeInventarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GestDatInv_Form childForm = new GestDatInv_Form();
-            childForm.MdiParent = this;
-            childForm.Show();
+            //GestDatInv_Form childForm = new GestDatInv_Form();
+            //childForm.MdiParent = this;
+            //childForm.Show();
         }
 
         private void regeneracionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GestDatRegen_Form childForm = new GestDatRegen_Form();
-            childForm.MdiParent = this;
-            childForm.Show();
+            //GestDatRegen_Form childForm = new GestDatRegen_Form();
+            //childForm.MdiParent = this;
+            //childForm.Show();
         }
         //TODO:
         private void Principal_Form_Load(object sender, EventArgs e)
@@ -122,48 +122,48 @@ namespace SIFCA
 
             if (!Program.Cache.Contains("principalProject"))
             {
-                PROYECTO activateProject = project.GetActivateProject();
-                ESTACION localStation = user.GetStations().First();
-                if (activateProject != null) Program.Cache.Add("principalProject", activateProject, new CacheItemPolicy());
-                else MessageBox.Show("No se ha creado ningun proyecto, que tenga por estado Activo.", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                if (localStation != null) Program.Cache.Add("localStation", localStation, new CacheItemPolicy());
-                else MessageBox.Show("No se ha registrado la informacion para esta estacion", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //PROYECTO activateProject = project.GetActivateProject();
+                //ESTACION localStation = user.GetStations().First();
+                //if (activateProject != null) Program.Cache.Add("principalProject", activateProject, new CacheItemPolicy());
+                //else MessageBox.Show("No se ha creado ningun proyecto, que tenga por estado Activo.", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //if (localStation != null) Program.Cache.Add("localStation", localStation, new CacheItemPolicy());
+                //else MessageBox.Show("No se ha registrado la informacion para esta estacion", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //cambiar el stage activo y cargarlo en la Cache
-            PROYECTO activateProject = project.GetActivateProject();
-            Program.Cache.Set("principalProject", activateProject, new CacheItemPolicy());
+            ////cambiar el stage activo y cargarlo en la Cache
+            //PROYECTO activateProject = project.GetActivateProject();
+            //Program.Cache.Set("principalProject", activateProject, new CacheItemPolicy());
         }
 
         private void listarEspeciesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Listado_Especies_Form childForm = new Listado_Especies_Form();
-            childForm.MdiParent = this;
-            childForm.Show();
+            //Listado_Especies_Form childForm = new Listado_Especies_Form();
+            //childForm.MdiParent = this;
+            //childForm.Show();
         }
 
         private void listarProyectosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Listar_Proyectos_Form childForm = new Listar_Proyectos_Form();
-            childForm.MdiParent = this;
-            childForm.Show();
+            //Listar_Proyectos_Form childForm = new Listar_Proyectos_Form();
+            //childForm.MdiParent = this;
+            //childForm.Show();
         }
 
         private void ingresarEspecieToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Ingresar_Especie_Form childForm = new Ingresar_Especie_Form();
-            childForm.MdiParent = this;
-            childForm.Show();
+            //Ingresar_Especie_Form childForm = new Ingresar_Especie_Form();
+            //childForm.MdiParent = this;
+            //childForm.Show();
         }
 
         private void crearListadoEspeciesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Listado_Especies_Form childForm = new Listado_Especies_Form();
-            childForm.MdiParent = this;
-            childForm.Show();
+            //Listado_Especies_Form childForm = new Listado_Especies_Form();
+            //childForm.MdiParent = this;
+            //childForm.Show();
         }
     }
 }

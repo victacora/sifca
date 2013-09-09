@@ -13,10 +13,3 @@ C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\bin\Debug\SIFCA_DAL.
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\bin\Debug\EntityFramework.dll
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\bin\Debug\SIFCA_DAL.pdb
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\bin\Debug\EntityFramework.xml
-C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Crear_Estacion_Form.resources
-C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Crear_Proyecto_Form.resources
-C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.GestDatInv_Form.resources
-C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.GestDatRegen_Form.resources
-C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Listado_Especies_Form.resources
-C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Listar_Estaciones_Form.resources
-C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Listar_Proyectos_Form.resources

@@ -43,7 +43,7 @@ namespace SIFCA_BLL
         {
             try
             {
-                FORMULARIO form = this.sifcaRepository.FORMULARIO.Find(nrProject=);
+                FORMULARIO form = this.sifcaRepository.FORMULARIO.Find(nrProject);
                 this.sifcaRepository.FORMULARIO.Remove(form);
             }
             catch (Exception ex)

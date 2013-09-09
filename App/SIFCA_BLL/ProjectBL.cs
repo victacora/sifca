@@ -26,10 +26,6 @@ namespace SIFCA_BLL
             return this.sifcaRepository.PROYECTO.Find(projectId);
         }
 
-        public PROYECTO GetActivateProject()
-        {
-            return this.sifcaRepository.PROYECTO.SingleOrDefault(p=>p.ESTADOPROY=="A");
-        }
 
         public void InsertProject(PROYECTO project)
         {

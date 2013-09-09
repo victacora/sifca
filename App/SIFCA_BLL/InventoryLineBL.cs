@@ -7,31 +7,31 @@ using System.Data;
 
 namespace SIFCA_BLL
 {
-    public class InventoryLineBL 
+    public class RegenerationLineBL 
     {
         private SIFCA_CONTEXT sifcaRepository;
 
-        public InventoryLineBL(SIFCA_CONTEXT contextProvider)
+        public RegenerationLineBL(SIFCA_CONTEXT contextProvider)
         {
             this.sifcaRepository = contextProvider;
         }
 
 
-        public IEnumerable<LINEAINVENTARIO> GetInventoryLines()
+        public IEnumerable<LINEAREGENERACION> GetRegenerationLines()
         {
-            return this.sifcaRepository.LINEAINVENTARIO.ToList();
+            return this.sifcaRepository.LINEAREGENERACION.ToList();
         }
 
-        public LINEAINVENTARIO GetInventoryLine(int InventoryLineId)
+        public LINEAREGENERACION GetRegenerationLine(int RegenerationLineId)
         {
-            return this.sifcaRepository.LINEAINVENTARIO.Find(InventoryLineId);
+            return this.sifcaRepository.LINEAREGENERACION.Find(RegenerationLineId);
         }
 
-        public void InsertInventoryLine(LINEAINVENTARIO InventoryLine)
+        public void InsertRegenerationLine(LINEAREGENERACION RegenerationLine)
         {
             try
             {
-                this.sifcaRepository.LINEAINVENTARIO.Add(InventoryLine);
+                this.sifcaRepository.LINEAREGENERACION.Add(RegenerationLine);
                 
             }
             catch (Exception ex)
@@ -40,12 +40,12 @@ namespace SIFCA_BLL
             }
         }
 
-        public void DeleteInventoryLine(int InventoryLineId)
+        public void DeleteRegenerationLine(int RegenerationLineId)
         {
             try
             {
-                LINEAINVENTARIO InventoryLine = this.sifcaRepository.LINEAINVENTARIO.Find(InventoryLineId);
-                this.sifcaRepository.LINEAINVENTARIO.Remove(InventoryLine);
+                LINEAREGENERACION RegenerationLine = this.sifcaRepository.LINEAREGENERACION.Find(RegenerationLineId);
+                this.sifcaRepository.LINEAREGENERACION.Remove(RegenerationLine);
                 
             }
             catch (Exception ex)
@@ -54,11 +54,11 @@ namespace SIFCA_BLL
             }
         }
 
-        public void UpdateInventoryLine(LINEAINVENTARIO InventoryLine)
+        public void UpdateRegenerationLine(LINEAREGENERACION RegenerationLine)
         {
             try
             {
-                this.sifcaRepository.Entry(InventoryLine).State = EntityState.Modified;
+                this.sifcaRepository.Entry(RegenerationLine).State = EntityState.Modified;
                 
             }
             catch (Exception ex)

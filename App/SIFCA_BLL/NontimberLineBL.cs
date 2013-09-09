@@ -7,31 +7,31 @@ using System.Data;
 
 namespace SIFCA_BLL
 {
-    public class NontimberLineBL 
+    public class NonTimberLineBL 
     {
         private SIFCA_CONTEXT sifcaRepository;
 
-        public NontimberLineBL(SIFCA_CONTEXT contextProvider)
+        public NonTimberLineBL(SIFCA_CONTEXT contextProvider)
         {
             this.sifcaRepository = contextProvider;
         }
 
 
-        public IEnumerable<LINEANOMADERABLES> GetNontimberLineList()
+        public IEnumerable<LINEANOMADERABLES> GetNonTimberLineList()
         {
             return this.sifcaRepository.LINEANOMADERABLES.ToList();
         }
 
-        public LINEANOMADERABLES GetNontimberLine(int NontimberLineId)
+        public LINEANOMADERABLES GetNonTimberLine(int NonTimberLineId)
         {
-            return this.sifcaRepository.LINEANOMADERABLES.Find(NontimberLineId);
+            return this.sifcaRepository.LINEANOMADERABLES.Find(NonTimberLineId);
         }
 
-        public void InsertNontimberLine(LINEANOMADERABLES NontimberLine)
+        public void InsertNonTimberLine(LINEANOMADERABLES NonTimberLine)
         {
             try
             {
-                this.sifcaRepository.LINEANOMADERABLES.Add(NontimberLine);
+                this.sifcaRepository.LINEANOMADERABLES.Add(NonTimberLine);
                 
             }
             catch (Exception ex)
@@ -40,12 +40,12 @@ namespace SIFCA_BLL
             }
         }
 
-        public void DeleteNontimberLine(int NontimberLineId)
+        public void DeleteNonTimberLine(int NonTimberLineId)
         {
             try
             {
-                LINEANOMADERABLES NontimberLine = this.sifcaRepository.LINEANOMADERABLES.Find(NontimberLineId);
-                this.sifcaRepository.LINEANOMADERABLES.Remove(NontimberLine);
+                LINEANOMADERABLES NonTimberLine = this.sifcaRepository.LINEANOMADERABLES.Find(NonTimberLineId);
+                this.sifcaRepository.LINEANOMADERABLES.Remove(NonTimberLine);
                 
             }
             catch (Exception ex)
@@ -54,11 +54,11 @@ namespace SIFCA_BLL
             }
         }
 
-        public void UpdateNontimberLine(LINEANOMADERABLES NontimberLine)
+        public void UpdateNonTimberLine(LINEANOMADERABLES NonTimberLine)
         {
             try
             {
-                this.sifcaRepository.Entry(NontimberLine).State = EntityState.Modified;
+                this.sifcaRepository.Entry(NonTimberLine).State = EntityState.Modified;
                 
             }
             catch (Exception ex)

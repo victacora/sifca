@@ -45,6 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NonTimberLineBL.cs" />
+    <Compile Include="RegenerationLineBL.cs" />
+    <Compile Include="InventoryLineBL.cs" />
     <Compile Include="FormTypeBL.cs" />
     <Compile Include="ObjectiveInventoryBL.cs" />
     <Compile Include="GroupBL.cs" />
@@ -55,6 +58,8 @@
     <Compile Include="SpeciesBL.cs" />
     <Compile Include="ProjectTypeBL.cs" />
     <Compile Include="SpeciesListBL.cs" />
+    <Compile Include="TypeSampleDesignBl.cs" />
+    <Compile Include="TypeUseBL.cs" />
     <Compile Include="UserBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProjectBL.cs" />

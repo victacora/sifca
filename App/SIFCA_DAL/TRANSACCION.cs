@@ -12,20 +12,18 @@ using System.Collections.Generic;
 
 namespace SIFCA_DAL
 {
-    public partial class ESTACION
+    public partial class TRANSACCION
     {
-        public ESTACION()
-        {
-            this.INVENTARIO = new HashSet<INVENTARIO>();
-            this.REGENERACION = new HashSet<REGENERACION>();
-        }
+        public System.Guid NROTRANS { get; set; }
+        public System.Guid NROUSUARIO { get; set; }
+        public System.DateTime FECHA { get; set; }
+        public string TABLA { get; set; }
+        public decimal IDREGISTRO { get; set; }
+        public string OPERACION { get; set; }
+        public string VALORESVIEJOS { get; set; }
+        public string VALORESNUEVOS { get; set; }
     
-        public System.Guid NROEST { get; set; }
-        public string PERSONARESPONSABLE { get; set; }
-        public string NOMBRE { get; set; }
-    
-        public virtual ICollection<INVENTARIO> INVENTARIO { get; set; }
-        public virtual ICollection<REGENERACION> REGENERACION { get; set; }
+        public virtual USUARIO USUARIO { get; set; }
     }
     
 }

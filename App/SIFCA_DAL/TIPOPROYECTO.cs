@@ -12,15 +12,16 @@ using System.Collections.Generic;
 
 namespace SIFCA_DAL
 {
-    public partial class TIPOINVENTARIO
+    public partial class TIPOPROYECTO
     {
-        public TIPOINVENTARIO()
+        public TIPOPROYECTO()
         {
             this.PROYECTO = new HashSet<PROYECTO>();
         }
     
-        public string NOMBRETIPOINV { get; set; }
-        public string DESCRIPTIPOINV { get; set; }
+        public decimal TIPOPROYECTO_ID { get; set; }
+        public string DESCRIPCION { get; set; }
+        public string NOMBRETIPOPROYECTO { get; set; }
     
         public virtual ICollection<PROYECTO> PROYECTO { get; set; }
     }

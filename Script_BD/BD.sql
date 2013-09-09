@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     09/09/2013 10:37:52 a.m.                     */
+/* Created on:     09/09/2013 12:59:01 p.m.                     */
 /*==============================================================*/
 
 
@@ -160,23 +160,23 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('SE_USA') and o.name = 'FK_SE_USA_SE_USA_LINEANOM')
-alter table SE_USA
-   drop constraint FK_SE_USA_SE_USA_LINEANOM
-go
-
-if exists (select 1
-   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('SE_USA') and o.name = 'FK_SE_USA_SE_USA2_TIPODEUS')
-alter table SE_USA
-   drop constraint FK_SE_USA_SE_USA2_TIPODEUS
-go
-
-if exists (select 1
-   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
    where r.fkeyid = object_id('TRANSACCION') and o.name = 'FK_TRANSACC_REGISTRA_USUARIO')
 alter table TRANSACCION
    drop constraint FK_TRANSACC_REGISTRA_USUARIO
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('USO') and o.name = 'FK_USO_USOLINEAN_LINEANOM')
+alter table USO
+   drop constraint FK_USO_USOLINEAN_LINEANOM
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('USO') and o.name = 'FK_USO_USOTIPOUS_TIPODEUS')
+alter table USO
+   drop constraint FK_USO_USOTIPOUS_TIPODEUS
 go
 
 if exists (select 1
@@ -432,13 +432,6 @@ go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('SE_USA')
-            and   type = 'U')
-   drop table SE_USA
-go
-
-if exists (select 1
-            from  sysobjects
            where  id = object_id('TIPODEUSO')
             and   type = 'U')
    drop table TIPODEUSO
@@ -486,6 +479,13 @@ if exists (select 1
            where  id = object_id('TSTUDENT')
             and   type = 'U')
    drop table TSTUDENT
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('USO')
+            and   type = 'U')
+   drop table USO
 go
 
 if exists (select 1
@@ -653,7 +653,7 @@ create table LINEAINVENTARIO (
    CODCALIDAD           numeric              not null,
    ESTADO               char(2)              not null,
    CODESP               uniqueidentifier     not null,
-   NROFORMULARIO        uniqueidentifier     null,
+   NROFORMULARIO        uniqueidentifier     not null,
    NROARB               numeric              null,
    CAP                  numeric              null,
    DAP                  numeric              null,
@@ -703,7 +703,7 @@ go
 /*==============================================================*/
 create table LINEANOMADERABLES (
    LINEANMAD            uniqueidentifier     not null,
-   NROFORMULARIO        uniqueidentifier     null,
+   NROFORMULARIO        uniqueidentifier     not null,
    OBSERVACIONES        varchar(500)         null,
    constraint PK_LINEANOMADERABLES primary key nonclustered (LINEANMAD)
 )
@@ -726,7 +726,7 @@ create table LINEAREGENERACION (
    BRINZAL              numeric              null,
    LINEAREGEN           uniqueidentifier     not null,
    CODESP               uniqueidentifier     not null,
-   NROFORMULARIO        uniqueidentifier     null,
+   NROFORMULARIO        uniqueidentifier     not null,
    constraint PK_LINEAREGENERACION primary key nonclustered (LINEAREGEN)
 )
 go
@@ -846,16 +846,6 @@ create table PROYECTOSPORETAPA (
 go
 
 /*==============================================================*/
-/* Table: SE_USA                                                */
-/*==============================================================*/
-create table SE_USA (
-   LINEANMAD            uniqueidentifier     not null,
-   NOMBRETIPOUSO        varchar(100)         not null,
-   constraint PK_SE_USA primary key (LINEANMAD, NOMBRETIPOUSO)
-)
-go
-
-/*==============================================================*/
 /* Table: TIPODEUSO                                             */
 /*==============================================================*/
 create table TIPODEUSO (
@@ -890,10 +880,10 @@ go
 /* Table: TIPOPROYECTO                                          */
 /*==============================================================*/
 create table TIPOPROYECTO (
-   TIPOPOYECTO_ID       numeric              not null,
+   TIPOPROYECTO_ID      numeric              not null,
    DESCRIPCION          varchar(500)         not null,
    NOMBRETIPOPROYECTO   varchar(100)         null,
-   constraint PK_TIPOPROYECTO primary key nonclustered (TIPOPOYECTO_ID)
+   constraint PK_TIPOPROYECTO primary key nonclustered (TIPOPROYECTO_ID)
 )
 go
 
@@ -929,6 +919,16 @@ create table TSTUDENT (
    ALPHA                decimal(18,3)        not null,
    VALOR                decimal(18,3)        not null,
    constraint PK_TSTUDENT primary key nonclustered (N, ALPHA, VALOR)
+)
+go
+
+/*==============================================================*/
+/* Table: USO                                                   */
+/*==============================================================*/
+create table USO (
+   LINEANMAD            uniqueidentifier     not null,
+   NOMBRETIPOUSO        varchar(100)         not null,
+   constraint PK_USO primary key (LINEANMAD, NOMBRETIPOUSO)
 )
 go
 
@@ -1045,7 +1045,6 @@ go
 alter table PROYECTO
    add constraint FK_PROYECTO_CREA_USUARIO foreign key (NROUSUARIO)
       references USUARIO (NROUSUARIO)
-         on update cascade on delete cascade
 go
 
 alter table PROYECTO
@@ -1056,7 +1055,7 @@ go
 
 alter table PROYECTO
    add constraint FK_PROYECTO_ES_DE_TIP_TIPOPROY foreign key (TIPOPOYECTO_ID)
-      references TIPOPROYECTO (TIPOPOYECTO_ID)
+      references TIPOPROYECTO (TIPOPROYECTO_ID)
          on update cascade on delete cascade
 go
 
@@ -1069,30 +1068,28 @@ go
 alter table PROYECTOSPORETAPA
    add constraint FK_PROYECTO_CONTENEDOR foreign key (PRO_NROPROY)
       references PROYECTO (NROPROY)
-         on update cascade on delete cascade
 go
 
 alter table PROYECTOSPORETAPA
    add constraint FK_PROYECTO_CONTENIDOS foreign key (NROPROY)
       references PROYECTO (NROPROY)
-         on update cascade on delete cascade
-go
-
-alter table SE_USA
-   add constraint FK_SE_USA_SE_USA_LINEANOM foreign key (LINEANMAD)
-      references LINEANOMADERABLES (LINEANMAD)
-         on update cascade on delete cascade
-go
-
-alter table SE_USA
-   add constraint FK_SE_USA_SE_USA2_TIPODEUS foreign key (NOMBRETIPOUSO)
-      references TIPODEUSO (NOMBRETIPOUSO)
-         on update cascade on delete cascade
 go
 
 alter table TRANSACCION
    add constraint FK_TRANSACC_REGISTRA_USUARIO foreign key (NROUSUARIO)
       references USUARIO (NROUSUARIO)
+         on update cascade on delete cascade
+go
+
+alter table USO
+   add constraint FK_USO_USOLINEAN_LINEANOM foreign key (LINEANMAD)
+      references LINEANOMADERABLES (LINEANMAD)
+         on update cascade on delete cascade
+go
+
+alter table USO
+   add constraint FK_USO_USOTIPOUS_TIPODEUS foreign key (NOMBRETIPOUSO)
+      references TIPODEUSO (NOMBRETIPOUSO)
          on update cascade on delete cascade
 go
 

@@ -16,13 +16,13 @@ namespace SIFCA_DAL
     {
         public ESTADOSANITARIO()
         {
-            this.INVENTARIO = new HashSet<INVENTARIO>();
+            this.LINEAINVENTARIO = new HashSet<LINEAINVENTARIO>();
         }
     
         public string ESTADO { get; set; }
         public string DESCRIPESTADO { get; set; }
     
-        public virtual ICollection<INVENTARIO> INVENTARIO { get; set; }
+        public virtual ICollection<LINEAINVENTARIO> LINEAINVENTARIO { get; set; }
     }
     
 }

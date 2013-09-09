@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     29/08/2013 09:44:03 a.m.                     */
+/* Created on:     09/09/2013 10:37:52 a.m.                     */
 /*==============================================================*/
 
 
@@ -13,51 +13,86 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('INVENTARIO') and o.name = 'FK_INVENTAR_ASOCIADO_ESTADOSA')
-alter table INVENTARIO
-   drop constraint FK_INVENTAR_ASOCIADO_ESTADOSA
+   where r.fkeyid = object_id('FORMULARIO') and o.name = 'FK_FORMULAR_DESARROLL_PROYECTO')
+alter table FORMULARIO
+   drop constraint FK_FORMULAR_DESARROLL_PROYECTO
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('INVENTARIO') and o.name = 'FK_INVENTAR_CONTIENE_ESPECIE')
-alter table INVENTARIO
-   drop constraint FK_INVENTAR_CONTIENE_ESPECIE
+   where r.fkeyid = object_id('FORMULARIO') and o.name = 'FK_FORMULAR_ES_DE_TIPOFORM')
+alter table FORMULARIO
+   drop constraint FK_FORMULAR_ES_DE_TIPOFORM
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('INVENTARIO') and o.name = 'FK_INVENTAR_DESARROLL_PROYECTO')
-alter table INVENTARIO
-   drop constraint FK_INVENTAR_DESARROLL_PROYECTO
+   where r.fkeyid = object_id('FORMULARIO') and o.name = 'FK_FORMULAR_ES_REPONS_USUARIO')
+alter table FORMULARIO
+   drop constraint FK_FORMULAR_ES_REPONS_USUARIO
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('INVENTARIO') and o.name = 'FK_INVENTAR_MANEJA_ESTRATO')
-alter table INVENTARIO
-   drop constraint FK_INVENTAR_MANEJA_ESTRATO
+   where r.fkeyid = object_id('FORMULARIO') and o.name = 'FK_FORMULAR_MANEJA_ESTRATO')
+alter table FORMULARIO
+   drop constraint FK_FORMULAR_MANEJA_ESTRATO
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('INVENTARIO') and o.name = 'FK_INVENTAR_POSEE_CALIDAD')
-alter table INVENTARIO
-   drop constraint FK_INVENTAR_POSEE_CALIDAD
+   where r.fkeyid = object_id('LINEAINVENTARIO') and o.name = 'FK_LINEAINV_ASOCIADO_ESTADOSA')
+alter table LINEAINVENTARIO
+   drop constraint FK_LINEAINV_ASOCIADO_ESTADOSA
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('INVENTARIO') and o.name = 'FK_INVENTAR_RECOGE_ESTACION')
-alter table INVENTARIO
-   drop constraint FK_INVENTAR_RECOGE_ESTACION
+   where r.fkeyid = object_id('LINEAINVENTARIO') and o.name = 'FK_LINEAINV_CONTIENE_ESPECIE')
+alter table LINEAINVENTARIO
+   drop constraint FK_LINEAINV_CONTIENE_ESPECIE
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('LISTADODEESPECIES') and o.name = 'FK_LISTADOD_LISTADODE_ESPECIE')
+   where r.fkeyid = object_id('LINEAINVENTARIO') and o.name = 'FK_LINEAINV_LLENA_FORMULAR')
+alter table LINEAINVENTARIO
+   drop constraint FK_LINEAINV_LLENA_FORMULAR
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('LINEAINVENTARIO') and o.name = 'FK_LINEAINV_POSEE_CALIDAD')
+alter table LINEAINVENTARIO
+   drop constraint FK_LINEAINV_POSEE_CALIDAD
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('LINEANOMADERABLES') and o.name = 'FK_LINEANOM_RECOLECTA_FORMULAR')
+alter table LINEANOMADERABLES
+   drop constraint FK_LINEANOM_RECOLECTA_FORMULAR
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('LINEAREGENERACION') and o.name = 'FK_LINEAREG_COMPLETA_FORMULAR')
+alter table LINEAREGENERACION
+   drop constraint FK_LINEAREG_COMPLETA_FORMULAR
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('LINEAREGENERACION') and o.name = 'FK_LINEAREG_EVALUACIO_ESPECIE')
+alter table LINEAREGENERACION
+   drop constraint FK_LINEAREG_EVALUACIO_ESPECIE
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('LISTADODEESPECIES') and o.name = 'FK_LISTADOD_LISTESPEC_ESPECIE')
 alter table LISTADODEESPECIES
-   drop constraint FK_LISTADOD_LISTADODE_ESPECIE
+   drop constraint FK_LISTADOD_LISTESPEC_ESPECIE
 go
 
 if exists (select 1
@@ -69,9 +104,9 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('LISTADODEESTRATOS') and o.name = 'FK_LISTADOD_LISTADODE_ESTRATO')
+   where r.fkeyid = object_id('LISTADODEESTRATOS') and o.name = 'FK_LISTADOD_LISTESTRA_ESTRATO')
 alter table LISTADODEESTRATOS
-   drop constraint FK_LISTADOD_LISTADODE_ESTRATO
+   drop constraint FK_LISTADOD_LISTESTRA_ESTRATO
 go
 
 if exists (select 1
@@ -83,9 +118,9 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('PROYECTO') and o.name = 'FK_PROYECTO_CREA_ESTACION')
+   where r.fkeyid = object_id('PROYECTO') and o.name = 'FK_PROYECTO_CREA_USUARIO')
 alter table PROYECTO
-   drop constraint FK_PROYECTO_CREA_ESTACION
+   drop constraint FK_PROYECTO_CREA_USUARIO
 go
 
 if exists (select 1
@@ -97,6 +132,13 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('PROYECTO') and o.name = 'FK_PROYECTO_ES_DE_TIP_TIPOPROY')
+alter table PROYECTO
+   drop constraint FK_PROYECTO_ES_DE_TIP_TIPOPROY
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
    where r.fkeyid = object_id('PROYECTO') and o.name = 'FK_PROYECTO_REALIZA_TIPODISE')
 alter table PROYECTO
    drop constraint FK_PROYECTO_REALIZA_TIPODISE
@@ -104,58 +146,37 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('PROYECTO') and o.name = 'FK_PROYECTO_SE_HACE_ETAPA')
-alter table PROYECTO
-   drop constraint FK_PROYECTO_SE_HACE_ETAPA
-go
-
-if exists (select 1
-   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('PROYECTOSPORETAPA') and o.name = 'FK_PROYECTO_PROYECTOR_PROYECTO')
+   where r.fkeyid = object_id('PROYECTOSPORETAPA') and o.name = 'FK_PROYECTO_CONTENEDOR')
 alter table PROYECTOSPORETAPA
-   drop constraint FK_PROYECTO_PROYECTOR_PROYECTO
+   drop constraint FK_PROYECTO_CONTENEDOR
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('PROYECTOSPORETAPA') and o.name = 'FK_PROYECTO_PROYECTOS_PROYECTO')
+   where r.fkeyid = object_id('PROYECTOSPORETAPA') and o.name = 'FK_PROYECTO_CONTENIDOS')
 alter table PROYECTOSPORETAPA
-   drop constraint FK_PROYECTO_PROYECTOS_PROYECTO
+   drop constraint FK_PROYECTO_CONTENIDOS
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('REGENERACION') and o.name = 'FK_REGENERA_CAPTURA_ESTACION')
-alter table REGENERACION
-   drop constraint FK_REGENERA_CAPTURA_ESTACION
+   where r.fkeyid = object_id('SE_USA') and o.name = 'FK_SE_USA_SE_USA_LINEANOM')
+alter table SE_USA
+   drop constraint FK_SE_USA_SE_USA_LINEANOM
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('REGENERACION') and o.name = 'FK_REGENERA_EVALUACIO_ESPECIE')
-alter table REGENERACION
-   drop constraint FK_REGENERA_EVALUACIO_ESPECIE
+   where r.fkeyid = object_id('SE_USA') and o.name = 'FK_SE_USA_SE_USA2_TIPODEUS')
+alter table SE_USA
+   drop constraint FK_SE_USA_SE_USA2_TIPODEUS
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('REGENERACION') and o.name = 'FK_REGENERA_EXAMINA_PROYECTO')
-alter table REGENERACION
-   drop constraint FK_REGENERA_EXAMINA_PROYECTO
-go
-
-if exists (select 1
-   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('REGENERACION') and o.name = 'FK_REGENERA_SUBDIVIDE_ESTRATO')
-alter table REGENERACION
-   drop constraint FK_REGENERA_SUBDIVIDE_ESTRATO
-go
-
-if exists (select 1
-   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('TRANSACCION') and o.name = 'FK_TRANSACC_REGISTRA_ESTACION')
+   where r.fkeyid = object_id('TRANSACCION') and o.name = 'FK_TRANSACC_REGISTRA_USUARIO')
 alter table TRANSACCION
-   drop constraint FK_TRANSACC_REGISTRA_ESTACION
+   drop constraint FK_TRANSACC_REGISTRA_USUARIO
 go
 
 if exists (select 1
@@ -183,13 +204,6 @@ go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('ESTACION')
-            and   type = 'U')
-   drop table ESTACION
-go
-
-if exists (select 1
-            from  sysobjects
            where  id = object_id('ESTADOSANITARIO')
             and   type = 'U')
    drop table ESTADOSANITARIO
@@ -203,10 +217,55 @@ if exists (select 1
 go
 
 if exists (select 1
+            from  sysindexes
+           where  id    = object_id('FORMULARIO')
+            and   name  = 'ES_DE_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index FORMULARIO.ES_DE_FK
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('FORMULARIO')
+            and   name  = 'DESARROLLA_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index FORMULARIO.DESARROLLA_FK
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('FORMULARIO')
+            and   name  = 'ES_REPONSABLE_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index FORMULARIO.ES_REPONSABLE_FK
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('FORMULARIO')
+            and   name  = 'MANEJA_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index FORMULARIO.MANEJA_FK
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('FORMULARIO')
+            and   name  = 'FORMULARIO_PK'
+            and   indid > 0
+            and   indid < 255)
+   drop index FORMULARIO.FORMULARIO_PK
+go
+
+if exists (select 1
             from  sysobjects
-           where  id = object_id('ETAPA')
+           where  id = object_id('FORMULARIO')
             and   type = 'U')
-   drop table ETAPA
+   drop table FORMULARIO
 go
 
 if exists (select 1
@@ -218,63 +277,86 @@ go
 
 if exists (select 1
             from  sysindexes
-           where  id    = object_id('INVENTARIO')
-            and   name  = 'RECOGE_FK'
+           where  id    = object_id('LINEAINVENTARIO')
+            and   name  = 'LLENA_FK'
             and   indid > 0
             and   indid < 255)
-   drop index INVENTARIO.RECOGE_FK
+   drop index LINEAINVENTARIO.LLENA_FK
 go
 
 if exists (select 1
             from  sysindexes
-           where  id    = object_id('INVENTARIO')
-            and   name  = 'MANEJA_FK'
-            and   indid > 0
-            and   indid < 255)
-   drop index INVENTARIO.MANEJA_FK
-go
-
-if exists (select 1
-            from  sysindexes
-           where  id    = object_id('INVENTARIO')
+           where  id    = object_id('LINEAINVENTARIO')
             and   name  = 'ASOCIADO_FK'
             and   indid > 0
             and   indid < 255)
-   drop index INVENTARIO.ASOCIADO_FK
+   drop index LINEAINVENTARIO.ASOCIADO_FK
 go
 
 if exists (select 1
             from  sysindexes
-           where  id    = object_id('INVENTARIO')
+           where  id    = object_id('LINEAINVENTARIO')
             and   name  = 'POSEE_FK'
             and   indid > 0
             and   indid < 255)
-   drop index INVENTARIO.POSEE_FK
+   drop index LINEAINVENTARIO.POSEE_FK
 go
 
 if exists (select 1
             from  sysindexes
-           where  id    = object_id('INVENTARIO')
+           where  id    = object_id('LINEAINVENTARIO')
             and   name  = 'CONTIENE_FK'
             and   indid > 0
             and   indid < 255)
-   drop index INVENTARIO.CONTIENE_FK
-go
-
-if exists (select 1
-            from  sysindexes
-           where  id    = object_id('INVENTARIO')
-            and   name  = 'DESARROLLA_FK'
-            and   indid > 0
-            and   indid < 255)
-   drop index INVENTARIO.DESARROLLA_FK
+   drop index LINEAINVENTARIO.CONTIENE_FK
 go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('INVENTARIO')
+           where  id = object_id('LINEAINVENTARIO')
             and   type = 'U')
-   drop table INVENTARIO
+   drop table LINEAINVENTARIO
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('LINEANOMADERABLES')
+            and   name  = 'RECOLECTA_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index LINEANOMADERABLES.RECOLECTA_FK
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('LINEANOMADERABLES')
+            and   type = 'U')
+   drop table LINEANOMADERABLES
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('LINEAREGENERACION')
+            and   name  = 'COMPLETA_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index LINEAREGENERACION.COMPLETA_FK
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('LINEAREGENERACION')
+            and   name  = 'EVALUACION_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index LINEAREGENERACION.EVALUACION_FK
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('LINEAREGENERACION')
+            and   type = 'U')
+   drop table LINEAREGENERACION
 go
 
 if exists (select 1
@@ -301,10 +383,10 @@ go
 if exists (select 1
             from  sysindexes
            where  id    = object_id('PROYECTO')
-            and   name  = 'SE_HACE_FK'
+            and   name  = 'ES_DE_TIPO_FK'
             and   indid > 0
             and   indid < 255)
-   drop index PROYECTO.SE_HACE_FK
+   drop index PROYECTO.ES_DE_TIPO_FK
 go
 
 if exists (select 1
@@ -349,46 +431,17 @@ if exists (select 1
 go
 
 if exists (select 1
-            from  sysindexes
-           where  id    = object_id('REGENERACION')
-            and   name  = 'EXAMINA_FK'
-            and   indid > 0
-            and   indid < 255)
-   drop index REGENERACION.EXAMINA_FK
-go
-
-if exists (select 1
-            from  sysindexes
-           where  id    = object_id('REGENERACION')
-            and   name  = 'CAPTURA_FK'
-            and   indid > 0
-            and   indid < 255)
-   drop index REGENERACION.CAPTURA_FK
-go
-
-if exists (select 1
-            from  sysindexes
-           where  id    = object_id('REGENERACION')
-            and   name  = 'SUBDIVIDE_FK'
-            and   indid > 0
-            and   indid < 255)
-   drop index REGENERACION.SUBDIVIDE_FK
-go
-
-if exists (select 1
-            from  sysindexes
-           where  id    = object_id('REGENERACION')
-            and   name  = 'EVALUACION_FK'
-            and   indid > 0
-            and   indid < 255)
-   drop index REGENERACION.EVALUACION_FK
+            from  sysobjects
+           where  id = object_id('SE_USA')
+            and   type = 'U')
+   drop table SE_USA
 go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('REGENERACION')
+           where  id = object_id('TIPODEUSO')
             and   type = 'U')
-   drop table REGENERACION
+   drop table TIPODEUSO
 go
 
 if exists (select 1
@@ -396,6 +449,20 @@ if exists (select 1
            where  id = object_id('TIPODISENOMUESTRAL')
             and   type = 'U')
    drop table TIPODISENOMUESTRAL
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('TIPOFORMULARIO')
+            and   type = 'U')
+   drop table TIPOFORMULARIO
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('TIPOPROYECTO')
+            and   type = 'U')
+   drop table TIPOPROYECTO
 go
 
 if exists (select 1
@@ -421,12 +488,11 @@ if exists (select 1
    drop table TSTUDENT
 go
 
-if exists(select 1 from systypes where name='TIPOESTACION')
-   execute sp_unbindrule TIPOESTACION
-go
-
-if exists(select 1 from systypes where name='TIPOESTACION')
-   drop type TIPOESTACION
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('USUARIO')
+            and   type = 'U')
+   drop table USUARIO
 go
 
 if exists(select 1 from systypes where name='TIPOOPERACION')
@@ -437,30 +503,12 @@ if exists(select 1 from systypes where name='TIPOOPERACION')
    drop type TIPOOPERACION
 go
 
-if exists (select 1 from sysobjects where id=object_id('R_TIPOESTACION') and type='R')
-   drop rule  R_TIPOESTACION
-go
-
 if exists (select 1 from sysobjects where id=object_id('R_TIPOOPERACION') and type='R')
    drop rule  R_TIPOOPERACION
 go
 
-create rule R_TIPOESTACION as
-      @column in ('L','R')
-go
-
 create rule R_TIPOOPERACION as
       @column in ('I','A','E')
-go
-
-/*==============================================================*/
-/* Domain: TIPOESTACION                                         */
-/*==============================================================*/
-create type TIPOESTACION
-   from char(1) not null
-go
-
-execute sp_bindrule R_TIPOESTACION, TIPOESTACION
 go
 
 /*==============================================================*/
@@ -477,7 +525,7 @@ go
 /* Table: CALIDAD                                               */
 /*==============================================================*/
 create table CALIDAD (
-   CODCALIDAD           numeric              not null,
+   CODCALIDAD           numeric              identity,
    DESCRIPCALIDAD       varchar(500)         null,
    constraint PK_CALIDAD primary key nonclustered (CODCALIDAD)
 )
@@ -487,7 +535,7 @@ go
 /* Table: ESPECIE                                               */
 /*==============================================================*/
 create table ESPECIE (
-   CODESP               numeric              not null,
+   CODESP               uniqueidentifier     not null,
    GRUPOCOM             char(2)              not null,
    NOMCOMUN             varchar(200)         null,
    NOMCIENTIFICO        varchar(200)         null,
@@ -508,18 +556,6 @@ GRUPOCOM ASC
 go
 
 /*==============================================================*/
-/* Table: ESTACION                                              */
-/*==============================================================*/
-create table ESTACION (
-   NROEST               uniqueidentifier     not null,
-   PERSONARESPONSABLE   varchar(100)         not null,
-   NOMBRE               varchar(100)         not null,
-   TIPOESTACION         TIPOESTACION         not null,
-   constraint PK_ESTACION primary key nonclustered (NROEST)
-)
-go
-
-/*==============================================================*/
 /* Table: ESTADOSANITARIO                                       */
 /*==============================================================*/
 create table ESTADOSANITARIO (
@@ -533,19 +569,69 @@ go
 /* Table: ESTRATO                                               */
 /*==============================================================*/
 create table ESTRATO (
-   CODEST               numeric              not null,
+   CODEST               numeric              identity,
    DESCRIPESTRATO       varchar(500)         null,
    constraint PK_ESTRATO primary key nonclustered (CODEST)
 )
 go
 
 /*==============================================================*/
-/* Table: ETAPA                                                 */
+/* Table: FORMULARIO                                            */
 /*==============================================================*/
-create table ETAPA (
-   CODETAPA             numeric              not null,
-   DESCRIPETAPA         varchar(500)         null,
-   constraint PK_ETAPA primary key nonclustered (CODETAPA)
+create table FORMULARIO (
+   NROFORMULARIO        uniqueidentifier     not null,
+   TIPFORM_ID           numeric              not null,
+   CODEST               numeric              not null,
+   NROUSUARIO           uniqueidentifier     not null,
+   NROPROY              uniqueidentifier     not null,
+   FECHACREACION        datetime             not null,
+   HORAINICIO           datetime             not null,
+   HORAFINAL            datetime             not null,
+   PARCELA              numeric              not null,
+   LINEA                numeric              not null,
+   COORDENADAX          numeric              null,
+   COORDENADAY          numeric              null,
+   constraint PK_FORMULARIO primary key (NROFORMULARIO)
+)
+go
+
+/*==============================================================*/
+/* Index: FORMULARIO_PK                                         */
+/*==============================================================*/
+create unique index FORMULARIO_PK on FORMULARIO (
+NROFORMULARIO ASC
+)
+go
+
+/*==============================================================*/
+/* Index: MANEJA_FK                                             */
+/*==============================================================*/
+create index MANEJA_FK on FORMULARIO (
+CODEST ASC
+)
+go
+
+/*==============================================================*/
+/* Index: ES_REPONSABLE_FK                                      */
+/*==============================================================*/
+create index ES_REPONSABLE_FK on FORMULARIO (
+NROUSUARIO ASC
+)
+go
+
+/*==============================================================*/
+/* Index: DESARROLLA_FK                                         */
+/*==============================================================*/
+create index DESARROLLA_FK on FORMULARIO (
+NROPROY ASC
+)
+go
+
+/*==============================================================*/
+/* Index: ES_DE_FK                                              */
+/*==============================================================*/
+create index ES_DE_FK on FORMULARIO (
+TIPFORM_ID ASC
 )
 go
 
@@ -560,18 +646,15 @@ create table GRUPOCOMERCIAL (
 go
 
 /*==============================================================*/
-/* Table: INVENTARIO                                            */
+/* Table: LINEAINVENTARIO                                       */
 /*==============================================================*/
-create table INVENTARIO (
-   NROPROY              numeric              not null,
-   PARCELA              numeric              not null,
-   NROARB               numeric              not null,
-   LINEA                numeric              not null,
+create table LINEAINVENTARIO (
+   LINEAINV             uniqueidentifier     not null,
    CODCALIDAD           numeric              not null,
    ESTADO               char(2)              not null,
-   CODEST               numeric              not null,
-   CODESP               numeric              not null,
-   NROEST               uniqueidentifier     not null,
+   CODESP               uniqueidentifier     not null,
+   NROFORMULARIO        uniqueidentifier     null,
+   NROARB               numeric              null,
    CAP                  numeric              null,
    DAP                  numeric              null,
    ALTCOMER_M           numeric              null,
@@ -579,22 +662,14 @@ create table INVENTARIO (
    AREABASAL            decimal(18,3)        null,
    VOLCOM               decimal(18,3)        null,
    VOLTOT               decimal(18,3)        null,
-   constraint PK_INVENTARIO primary key (PARCELA, NROPROY, NROARB, LINEA)
-)
-go
-
-/*==============================================================*/
-/* Index: DESARROLLA_FK                                         */
-/*==============================================================*/
-create index DESARROLLA_FK on INVENTARIO (
-NROPROY ASC
+   constraint PK_LINEAINVENTARIO primary key nonclustered (LINEAINV)
 )
 go
 
 /*==============================================================*/
 /* Index: CONTIENE_FK                                           */
 /*==============================================================*/
-create index CONTIENE_FK on INVENTARIO (
+create index CONTIENE_FK on LINEAINVENTARIO (
 CODESP ASC
 )
 go
@@ -602,7 +677,7 @@ go
 /*==============================================================*/
 /* Index: POSEE_FK                                              */
 /*==============================================================*/
-create index POSEE_FK on INVENTARIO (
+create index POSEE_FK on LINEAINVENTARIO (
 CODCALIDAD ASC
 )
 go
@@ -610,24 +685,65 @@ go
 /*==============================================================*/
 /* Index: ASOCIADO_FK                                           */
 /*==============================================================*/
-create index ASOCIADO_FK on INVENTARIO (
+create index ASOCIADO_FK on LINEAINVENTARIO (
 ESTADO ASC
 )
 go
 
 /*==============================================================*/
-/* Index: MANEJA_FK                                             */
+/* Index: LLENA_FK                                              */
 /*==============================================================*/
-create index MANEJA_FK on INVENTARIO (
-CODEST ASC
+create index LLENA_FK on LINEAINVENTARIO (
+NROFORMULARIO ASC
 )
 go
 
 /*==============================================================*/
-/* Index: RECOGE_FK                                             */
+/* Table: LINEANOMADERABLES                                     */
 /*==============================================================*/
-create index RECOGE_FK on INVENTARIO (
-NROEST ASC
+create table LINEANOMADERABLES (
+   LINEANMAD            uniqueidentifier     not null,
+   NROFORMULARIO        uniqueidentifier     null,
+   OBSERVACIONES        varchar(500)         null,
+   constraint PK_LINEANOMADERABLES primary key nonclustered (LINEANMAD)
+)
+go
+
+/*==============================================================*/
+/* Index: RECOLECTA_FK                                          */
+/*==============================================================*/
+create index RECOLECTA_FK on LINEANOMADERABLES (
+NROFORMULARIO ASC
+)
+go
+
+/*==============================================================*/
+/* Table: LINEAREGENERACION                                     */
+/*==============================================================*/
+create table LINEAREGENERACION (
+   NROARB               numeric              null,
+   LATIZAL              numeric              null,
+   BRINZAL              numeric              null,
+   LINEAREGEN           uniqueidentifier     not null,
+   CODESP               uniqueidentifier     not null,
+   NROFORMULARIO        uniqueidentifier     null,
+   constraint PK_LINEAREGENERACION primary key nonclustered (LINEAREGEN)
+)
+go
+
+/*==============================================================*/
+/* Index: EVALUACION_FK                                         */
+/*==============================================================*/
+create index EVALUACION_FK on LINEAREGENERACION (
+CODESP ASC
+)
+go
+
+/*==============================================================*/
+/* Index: COMPLETA_FK                                           */
+/*==============================================================*/
+create index COMPLETA_FK on LINEAREGENERACION (
+NROFORMULARIO ASC
 )
 go
 
@@ -635,8 +751,8 @@ go
 /* Table: LISTADODEESPECIES                                     */
 /*==============================================================*/
 create table LISTADODEESPECIES (
-   CODESP               numeric              not null,
-   NROPROY              numeric              not null,
+   CODESP               uniqueidentifier     not null,
+   NROPROY              uniqueidentifier     not null,
    constraint PK_LISTADODEESPECIES primary key (CODESP, NROPROY)
 )
 go
@@ -645,7 +761,7 @@ go
 /* Table: LISTADODEESTRATOS                                     */
 /*==============================================================*/
 create table LISTADODEESTRATOS (
-   NROPROY              numeric              not null,
+   NROPROY              uniqueidentifier     not null,
    CODEST               numeric              not null,
    PESO                 decimal(18,3)        null,
    constraint PK_LISTADODEESTRATOS primary key (NROPROY, CODEST)
@@ -666,12 +782,13 @@ go
 /* Table: PROYECTO                                              */
 /*==============================================================*/
 create table PROYECTO (
-   NROPROY              numeric              not null,
-   NROEST               uniqueidentifier     not null,
+   NROPROY              uniqueidentifier     not null,
+   NROUSUARIO           uniqueidentifier     not null,
+   TIPOPOYECTO_ID       numeric              not null,
    NOMBRETIPOINV        varchar(100)         not null,
-   CODETAPA             numeric              not null,
    NOMTIPODISEMUEST     varchar(100)         not null,
    LUGAR                varchar(100)         not null,
+   DESCRIPCION          varchar(500)         null,
    SUPTOT               decimal(18,3)        not null,
    INTMUE               decimal(18,3)        not null,
    SUPMUE               decimal(18,3)        not null,
@@ -698,7 +815,7 @@ go
 /* Index: CREA_FK                                               */
 /*==============================================================*/
 create index CREA_FK on PROYECTO (
-NROEST ASC
+NROUSUARIO ASC
 )
 go
 
@@ -711,10 +828,10 @@ NOMTIPODISEMUEST ASC
 go
 
 /*==============================================================*/
-/* Index: SE_HACE_FK                                            */
+/* Index: ES_DE_TIPO_FK                                         */
 /*==============================================================*/
-create index SE_HACE_FK on PROYECTO (
-CODETAPA ASC
+create index ES_DE_TIPO_FK on PROYECTO (
+TIPOPOYECTO_ID ASC
 )
 go
 
@@ -722,58 +839,29 @@ go
 /* Table: PROYECTOSPORETAPA                                     */
 /*==============================================================*/
 create table PROYECTOSPORETAPA (
-   NROPROY              numeric              not null,
-   PRO_NROPROY          numeric              not null,
+   NROPROY              uniqueidentifier     not null,
+   PRO_NROPROY          uniqueidentifier     not null,
    constraint PK_PROYECTOSPORETAPA primary key (NROPROY, PRO_NROPROY)
 )
 go
 
 /*==============================================================*/
-/* Table: REGENERACION                                          */
+/* Table: SE_USA                                                */
 /*==============================================================*/
-create table REGENERACION (
-   NROPROY              numeric              not null,
-   PARCELA              numeric              not null,
-   NROARB               numeric              not null,
-   LINEA                numeric              not null,
-   NROEST               uniqueidentifier     not null,
-   CODEST               numeric              not null,
-   CODESP               numeric              not null,
-   LATIZAL              numeric              null,
-   BRINZAL              numeric              null,
-   constraint PK_REGENERACION primary key (NROPROY, PARCELA, NROARB, LINEA)
+create table SE_USA (
+   LINEANMAD            uniqueidentifier     not null,
+   NOMBRETIPOUSO        varchar(100)         not null,
+   constraint PK_SE_USA primary key (LINEANMAD, NOMBRETIPOUSO)
 )
 go
 
 /*==============================================================*/
-/* Index: EVALUACION_FK                                         */
+/* Table: TIPODEUSO                                             */
 /*==============================================================*/
-create index EVALUACION_FK on REGENERACION (
-CODESP ASC
-)
-go
-
-/*==============================================================*/
-/* Index: SUBDIVIDE_FK                                          */
-/*==============================================================*/
-create index SUBDIVIDE_FK on REGENERACION (
-CODEST ASC
-)
-go
-
-/*==============================================================*/
-/* Index: CAPTURA_FK                                            */
-/*==============================================================*/
-create index CAPTURA_FK on REGENERACION (
-NROEST ASC
-)
-go
-
-/*==============================================================*/
-/* Index: EXAMINA_FK                                            */
-/*==============================================================*/
-create index EXAMINA_FK on REGENERACION (
-NROPROY ASC
+create table TIPODEUSO (
+   NOMBRETIPOUSO        varchar(100)         not null,
+   DESCRIPCION          varchar(500)         null,
+   constraint PK_TIPODEUSO primary key nonclustered (NOMBRETIPOUSO)
 )
 go
 
@@ -788,11 +876,33 @@ create table TIPODISENOMUESTRAL (
 go
 
 /*==============================================================*/
+/* Table: TIPOFORMULARIO                                        */
+/*==============================================================*/
+create table TIPOFORMULARIO (
+   NOMBRETIPOFORM       varchar(100)         not null,
+   DESCRIPCION          varchar(500)         null,
+   TIPFORM_ID           numeric              identity,
+   constraint PK_TIPOFORMULARIO primary key nonclustered (TIPFORM_ID)
+)
+go
+
+/*==============================================================*/
+/* Table: TIPOPROYECTO                                          */
+/*==============================================================*/
+create table TIPOPROYECTO (
+   TIPOPOYECTO_ID       numeric              not null,
+   DESCRIPCION          varchar(500)         not null,
+   NOMBRETIPOPROYECTO   varchar(100)         null,
+   constraint PK_TIPOPROYECTO primary key nonclustered (TIPOPOYECTO_ID)
+)
+go
+
+/*==============================================================*/
 /* Table: TRANSACCION                                           */
 /*==============================================================*/
 create table TRANSACCION (
-   NROTRANS             numeric              not null,
-   NROEST               uniqueidentifier     not null,
+   NROTRANS             uniqueidentifier     not null,
+   NROUSUARIO           uniqueidentifier     not null,
    FECHA                datetime             not null,
    TABLA                varchar(100)         not null,
    IDREGISTRO           numeric              not null,
@@ -807,7 +917,7 @@ go
 /* Index: REGISTRA_FK                                           */
 /*==============================================================*/
 create index REGISTRA_FK on TRANSACCION (
-NROEST ASC
+NROUSUARIO ASC
 )
 go
 
@@ -822,50 +932,94 @@ create table TSTUDENT (
 )
 go
 
+/*==============================================================*/
+/* Table: USUARIO                                               */
+/*==============================================================*/
+create table USUARIO (
+   NROUSUARIO           uniqueidentifier     not null,
+   NOMBRES              varchar(100)         not null,
+   APELLIDOS            varchar(100)         not null,
+   USUARIO              varchar(100)         not null,
+   CONTRASENA           varchar(1000)        not null,
+   CEDULA               numeric              not null,
+   constraint PK_USUARIO primary key nonclustered (NROUSUARIO)
+)
+go
+
 alter table ESPECIE
    add constraint FK_ESPECIE_PERTENECE_GRUPOCOM foreign key (GRUPOCOM)
       references GRUPOCOMERCIAL (GRUPOCOM)
          on update cascade on delete cascade
 go
 
-alter table INVENTARIO
-   add constraint FK_INVENTAR_ASOCIADO_ESTADOSA foreign key (ESTADO)
-      references ESTADOSANITARIO (ESTADO)
-         on update cascade on delete cascade
-go
-
-alter table INVENTARIO
-   add constraint FK_INVENTAR_CONTIENE_ESPECIE foreign key (CODESP)
-      references ESPECIE (CODESP)
-         on update cascade on delete cascade
-go
-
-alter table INVENTARIO
-   add constraint FK_INVENTAR_DESARROLL_PROYECTO foreign key (NROPROY)
+alter table FORMULARIO
+   add constraint FK_FORMULAR_DESARROLL_PROYECTO foreign key (NROPROY)
       references PROYECTO (NROPROY)
          on update cascade on delete cascade
 go
 
-alter table INVENTARIO
-   add constraint FK_INVENTAR_MANEJA_ESTRATO foreign key (CODEST)
+alter table FORMULARIO
+   add constraint FK_FORMULAR_ES_DE_TIPOFORM foreign key (TIPFORM_ID)
+      references TIPOFORMULARIO (TIPFORM_ID)
+         on update cascade on delete cascade
+go
+
+alter table FORMULARIO
+   add constraint FK_FORMULAR_ES_REPONS_USUARIO foreign key (NROUSUARIO)
+      references USUARIO (NROUSUARIO)
+         on update cascade on delete cascade
+go
+
+alter table FORMULARIO
+   add constraint FK_FORMULAR_MANEJA_ESTRATO foreign key (CODEST)
       references ESTRATO (CODEST)
          on update cascade on delete cascade
 go
 
-alter table INVENTARIO
-   add constraint FK_INVENTAR_POSEE_CALIDAD foreign key (CODCALIDAD)
+alter table LINEAINVENTARIO
+   add constraint FK_LINEAINV_ASOCIADO_ESTADOSA foreign key (ESTADO)
+      references ESTADOSANITARIO (ESTADO)
+         on update cascade on delete cascade
+go
+
+alter table LINEAINVENTARIO
+   add constraint FK_LINEAINV_CONTIENE_ESPECIE foreign key (CODESP)
+      references ESPECIE (CODESP)
+         on update cascade on delete cascade
+go
+
+alter table LINEAINVENTARIO
+   add constraint FK_LINEAINV_LLENA_FORMULAR foreign key (NROFORMULARIO)
+      references FORMULARIO (NROFORMULARIO)
+         on update cascade on delete cascade
+go
+
+alter table LINEAINVENTARIO
+   add constraint FK_LINEAINV_POSEE_CALIDAD foreign key (CODCALIDAD)
       references CALIDAD (CODCALIDAD)
          on update cascade on delete cascade
 go
 
-alter table INVENTARIO
-   add constraint FK_INVENTAR_RECOGE_ESTACION foreign key (NROEST)
-      references ESTACION (NROEST)
+alter table LINEANOMADERABLES
+   add constraint FK_LINEANOM_RECOLECTA_FORMULAR foreign key (NROFORMULARIO)
+      references FORMULARIO (NROFORMULARIO)
+         on update cascade on delete cascade
+go
+
+alter table LINEAREGENERACION
+   add constraint FK_LINEAREG_COMPLETA_FORMULAR foreign key (NROFORMULARIO)
+      references FORMULARIO (NROFORMULARIO)
+         on update cascade on delete cascade
+go
+
+alter table LINEAREGENERACION
+   add constraint FK_LINEAREG_EVALUACIO_ESPECIE foreign key (CODESP)
+      references ESPECIE (CODESP)
          on update cascade on delete cascade
 go
 
 alter table LISTADODEESPECIES
-   add constraint FK_LISTADOD_LISTADODE_ESPECIE foreign key (CODESP)
+   add constraint FK_LISTADOD_LISTESPEC_ESPECIE foreign key (CODESP)
       references ESPECIE (CODESP)
          on update cascade on delete cascade
 go
@@ -877,7 +1031,7 @@ alter table LISTADODEESPECIES
 go
 
 alter table LISTADODEESTRATOS
-   add constraint FK_LISTADOD_LISTADODE_ESTRATO foreign key (CODEST)
+   add constraint FK_LISTADOD_LISTESTRA_ESTRATO foreign key (CODEST)
       references ESTRATO (CODEST)
          on update cascade on delete cascade
 go
@@ -889,8 +1043,9 @@ alter table LISTADODEESTRATOS
 go
 
 alter table PROYECTO
-   add constraint FK_PROYECTO_CREA_ESTACION foreign key (NROEST)
-      references ESTACION (NROEST)
+   add constraint FK_PROYECTO_CREA_USUARIO foreign key (NROUSUARIO)
+      references USUARIO (NROUSUARIO)
+         on update cascade on delete cascade
 go
 
 alter table PROYECTO
@@ -900,55 +1055,44 @@ alter table PROYECTO
 go
 
 alter table PROYECTO
+   add constraint FK_PROYECTO_ES_DE_TIP_TIPOPROY foreign key (TIPOPOYECTO_ID)
+      references TIPOPROYECTO (TIPOPOYECTO_ID)
+         on update cascade on delete cascade
+go
+
+alter table PROYECTO
    add constraint FK_PROYECTO_REALIZA_TIPODISE foreign key (NOMTIPODISEMUEST)
       references TIPODISENOMUESTRAL (NOMTIPODISEMUEST)
          on update cascade on delete cascade
 go
 
-alter table PROYECTO
-   add constraint FK_PROYECTO_SE_HACE_ETAPA foreign key (CODETAPA)
-      references ETAPA (CODETAPA)
-         on update cascade on delete cascade
-go
-
 alter table PROYECTOSPORETAPA
-   add constraint FK_PROYECTO_PROYECTOR_PROYECTO foreign key (NROPROY)
+   add constraint FK_PROYECTO_CONTENEDOR foreign key (PRO_NROPROY)
       references PROYECTO (NROPROY)
          on update cascade on delete cascade
 go
 
 alter table PROYECTOSPORETAPA
-   add constraint FK_PROYECTO_PROYECTOS_PROYECTO foreign key (PRO_NROPROY)
-      references PROYECTO (NROPROY)
-go
-
-alter table REGENERACION
-   add constraint FK_REGENERA_CAPTURA_ESTACION foreign key (NROEST)
-      references ESTACION (NROEST)
-         on update cascade on delete cascade
-go
-
-alter table REGENERACION
-   add constraint FK_REGENERA_EVALUACIO_ESPECIE foreign key (CODESP)
-      references ESPECIE (CODESP)
-         on update cascade on delete cascade
-go
-
-alter table REGENERACION
-   add constraint FK_REGENERA_EXAMINA_PROYECTO foreign key (NROPROY)
+   add constraint FK_PROYECTO_CONTENIDOS foreign key (NROPROY)
       references PROYECTO (NROPROY)
          on update cascade on delete cascade
 go
 
-alter table REGENERACION
-   add constraint FK_REGENERA_SUBDIVIDE_ESTRATO foreign key (CODEST)
-      references ESTRATO (CODEST)
+alter table SE_USA
+   add constraint FK_SE_USA_SE_USA_LINEANOM foreign key (LINEANMAD)
+      references LINEANOMADERABLES (LINEANMAD)
+         on update cascade on delete cascade
+go
+
+alter table SE_USA
+   add constraint FK_SE_USA_SE_USA2_TIPODEUS foreign key (NOMBRETIPOUSO)
+      references TIPODEUSO (NOMBRETIPOUSO)
          on update cascade on delete cascade
 go
 
 alter table TRANSACCION
-   add constraint FK_TRANSACC_REGISTRA_ESTACION foreign key (NROEST)
-      references ESTACION (NROEST)
+   add constraint FK_TRANSACC_REGISTRA_USUARIO foreign key (NROUSUARIO)
+      references USUARIO (NROUSUARIO)
          on update cascade on delete cascade
 go
 

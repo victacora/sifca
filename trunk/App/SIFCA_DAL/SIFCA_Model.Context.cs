@@ -27,16 +27,22 @@ namespace SIFCA_DAL
     
         public DbSet<CALIDAD> CALIDAD { get; set; }
         public DbSet<ESPECIE> ESPECIE { get; set; }
-        public DbSet<ESTACION> ESTACION { get; set; }
         public DbSet<ESTADOSANITARIO> ESTADOSANITARIO { get; set; }
         public DbSet<ESTRATO> ESTRATO { get; set; }
-        public DbSet<ETAPA> ETAPA { get; set; }
+        public DbSet<FORMULARIO> FORMULARIO { get; set; }
         public DbSet<GRUPOCOMERCIAL> GRUPOCOMERCIAL { get; set; }
-        public DbSet<INVENTARIO> INVENTARIO { get; set; }
-        public DbSet<LISTADODEESPECIES> LISTADODEESPECIES { get; set; }
+        public DbSet<LINEAINVENTARIO> LINEAINVENTARIO { get; set; }
+        public DbSet<LINEANOMADERABLES> LINEANOMADERABLES { get; set; }
+        public DbSet<LINEAREGENERACION> LINEAREGENERACION { get; set; }
+        public DbSet<LISTADODEESTRATOS> LISTADODEESTRATOS { get; set; }
+        public DbSet<OBJETIVOINVENTARIO> OBJETIVOINVENTARIO { get; set; }
         public DbSet<PROYECTO> PROYECTO { get; set; }
-        public DbSet<REGENERACION> REGENERACION { get; set; }
-        public DbSet<TIPOINVENTARIO> TIPOINVENTARIO { get; set; }
+        public DbSet<TIPODEUSO> TIPODEUSO { get; set; }
+        public DbSet<TIPODISENOMUESTRAL> TIPODISENOMUESTRAL { get; set; }
+        public DbSet<TIPOFORMULARIO> TIPOFORMULARIO { get; set; }
+        public DbSet<TIPOPROYECTO> TIPOPROYECTO { get; set; }
+        public DbSet<TRANSACCION> TRANSACCION { get; set; }
         public DbSet<TSTUDENT> TSTUDENT { get; set; }
+        public DbSet<USUARIO> USUARIO { get; set; }
     }
 }

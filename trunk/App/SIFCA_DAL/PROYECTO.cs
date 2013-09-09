@@ -16,29 +16,40 @@ namespace SIFCA_DAL
     {
         public PROYECTO()
         {
-            this.INVENTARIO = new HashSet<INVENTARIO>();
-            this.REGENERACION = new HashSet<REGENERACION>();
+            this.FORMULARIO = new HashSet<FORMULARIO>();
+            this.LISTADODEESTRATOS = new HashSet<LISTADODEESTRATOS>();
+            this.ESPECIE = new HashSet<ESPECIE>();
+            this.PROYECTO1 = new HashSet<PROYECTO>();
+            this.PROYECTO2 = new HashSet<PROYECTO>();
         }
     
-        public decimal NROPROY { get; set; }
-        public System.Guid NROEST { get; set; }
+        public System.Guid NROPROY { get; set; }
+        public System.Guid NROUSUARIO { get; set; }
+        public decimal TIPOPOYECTO_ID { get; set; }
         public string NOMBRETIPOINV { get; set; }
-        public string NOMARCH { get; set; }
+        public string NOMTIPODISEMUEST { get; set; }
         public string LUGAR { get; set; }
+        public string DESCRIPCION { get; set; }
         public decimal SUPTOT { get; set; }
         public decimal INTMUE { get; set; }
         public decimal SUPMUE { get; set; }
         public decimal TAMANO { get; set; }
-        public decimal LIMTSUPDAP { get; set; }
-        public decimal LIMTINFDAP { get; set; }
-        public decimal FACTORDEFORMA { get; set; }
+        public decimal LIMITINFDAP { get; set; }
+        public decimal LIMITSUPDAP { get; set; }
         public decimal AREAFUSTALESPORPARCELA { get; set; }
-        public string ESTADOPROY { get; set; }
+        public decimal FACTORDEFORMA { get; set; }
+        public System.DateTime FECHA { get; set; }
+        public Nullable<decimal> NUMEROETAPAS { get; set; }
     
-        public virtual ICollection<INVENTARIO> INVENTARIO { get; set; }
-        public virtual LISTADODEESPECIES LISTADODEESPECIES { get; set; }
-        public virtual TIPOINVENTARIO TIPOINVENTARIO { get; set; }
-        public virtual ICollection<REGENERACION> REGENERACION { get; set; }
+        public virtual ICollection<FORMULARIO> FORMULARIO { get; set; }
+        public virtual ICollection<LISTADODEESTRATOS> LISTADODEESTRATOS { get; set; }
+        public virtual OBJETIVOINVENTARIO OBJETIVOINVENTARIO { get; set; }
+        public virtual USUARIO USUARIO { get; set; }
+        public virtual TIPOPROYECTO TIPOPROYECTO { get; set; }
+        public virtual TIPODISENOMUESTRAL TIPODISENOMUESTRAL { get; set; }
+        public virtual ICollection<ESPECIE> ESPECIE { get; set; }
+        public virtual ICollection<PROYECTO> PROYECTO1 { get; set; }
+        public virtual ICollection<PROYECTO> PROYECTO2 { get; set; }
     }
     
 }

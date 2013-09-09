@@ -12,22 +12,13 @@ using System.Collections.Generic;
 
 namespace SIFCA_DAL
 {
-    public partial class REGENERACION
+    public partial class LISTADODEESTRATOS
     {
-        public System.Guid NROEST { get; set; }
-        public decimal PARCELA { get; set; }
-        public decimal NROARB { get; set; }
-        public Nullable<decimal> LATIZAL { get; set; }
-        public Nullable<decimal> BRINZAL { get; set; }
+        public System.Guid NROPROY { get; set; }
         public decimal CODEST { get; set; }
-        public decimal CODETAPA { get; set; }
-        public decimal NROPROY { get; set; }
-        public decimal CODESP { get; set; }
+        public Nullable<decimal> PESO { get; set; }
     
-        public virtual ESPECIE ESPECIE { get; set; }
-        public virtual ESTACION ESTACION { get; set; }
         public virtual ESTRATO ESTRATO { get; set; }
-        public virtual ETAPA ETAPA { get; set; }
         public virtual PROYECTO PROYECTO { get; set; }
     }
     

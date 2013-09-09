@@ -53,32 +53,35 @@
     <Compile Include="ESPECIE.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="ESTACION.cs">
-      <DependentUpon>SIFCA_Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="ESTADOSANITARIO.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="ESTRATO.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="ETAPA.cs">
+    <Compile Include="FORMULARIO.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="GRUPOCOMERCIAL.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="INVENTARIO.cs">
+    <Compile Include="LINEAINVENTARIO.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="LISTADODEESPECIES.cs">
+    <Compile Include="LINEANOMADERABLES.cs">
+      <DependentUpon>SIFCA_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LINEAREGENERACION.cs">
+      <DependentUpon>SIFCA_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LISTADODEESTRATOS.cs">
+      <DependentUpon>SIFCA_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OBJETIVOINVENTARIO.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PROYECTO.cs">
-      <DependentUpon>SIFCA_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="REGENERACION.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="SIFCA_Model.Context.cs">
@@ -96,10 +99,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SIFCA_Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="TIPOINVENTARIO.cs">
+    <Compile Include="TIPODEUSO.cs">
+      <DependentUpon>SIFCA_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TIPODISENOMUESTRAL.cs">
+      <DependentUpon>SIFCA_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TIPOFORMULARIO.cs">
+      <DependentUpon>SIFCA_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TIPOPROYECTO.cs">
+      <DependentUpon>SIFCA_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRANSACCION.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="TSTUDENT.cs">
+      <DependentUpon>SIFCA_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USUARIO.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -123,6 +141,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SIFCA_Model.edmx.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

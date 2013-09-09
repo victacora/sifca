@@ -12,19 +12,17 @@ using System.Collections.Generic;
 
 namespace SIFCA_DAL
 {
-    public partial class ETAPA
+    public partial class LINEAREGENERACION
     {
-        public ETAPA()
-        {
-            this.INVENTARIO = new HashSet<INVENTARIO>();
-            this.REGENERACION = new HashSet<REGENERACION>();
-        }
+        public Nullable<decimal> NROARB { get; set; }
+        public Nullable<decimal> LATIZAL { get; set; }
+        public Nullable<decimal> BRINZAL { get; set; }
+        public System.Guid LINEAREGEN { get; set; }
+        public System.Guid CODESP { get; set; }
+        public System.Guid NROFORMULARIO { get; set; }
     
-        public decimal CODETAPA { get; set; }
-        public string DESCRIPETAPA { get; set; }
-    
-        public virtual ICollection<INVENTARIO> INVENTARIO { get; set; }
-        public virtual ICollection<REGENERACION> REGENERACION { get; set; }
+        public virtual ESPECIE ESPECIE { get; set; }
+        public virtual FORMULARIO FORMULARIO { get; set; }
     }
     
 }

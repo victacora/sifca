@@ -16,12 +16,12 @@ namespace SIFCA_DAL
     {
         public ESPECIE()
         {
-            this.INVENTARIO = new HashSet<INVENTARIO>();
-            this.REGENERACION = new HashSet<REGENERACION>();
-            this.LISTADODEESPECIES = new HashSet<LISTADODEESPECIES>();
+            this.LINEAINVENTARIO = new HashSet<LINEAINVENTARIO>();
+            this.LINEAREGENERACION = new HashSet<LINEAREGENERACION>();
+            this.PROYECTO = new HashSet<PROYECTO>();
         }
     
-        public decimal CODESP { get; set; }
+        public System.Guid CODESP { get; set; }
         public string GRUPOCOM { get; set; }
         public string NOMCOMUN { get; set; }
         public string NOMCIENTIFICO { get; set; }
@@ -31,9 +31,9 @@ namespace SIFCA_DAL
         public Nullable<decimal> DIAMMINCORTE { get; set; }
     
         public virtual GRUPOCOMERCIAL GRUPOCOMERCIAL { get; set; }
-        public virtual ICollection<INVENTARIO> INVENTARIO { get; set; }
-        public virtual ICollection<REGENERACION> REGENERACION { get; set; }
-        public virtual ICollection<LISTADODEESPECIES> LISTADODEESPECIES { get; set; }
+        public virtual ICollection<LINEAINVENTARIO> LINEAINVENTARIO { get; set; }
+        public virtual ICollection<LINEAREGENERACION> LINEAREGENERACION { get; set; }
+        public virtual ICollection<PROYECTO> PROYECTO { get; set; }
     }
     
 }

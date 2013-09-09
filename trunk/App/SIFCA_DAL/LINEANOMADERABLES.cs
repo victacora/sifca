@@ -12,17 +12,19 @@ using System.Collections.Generic;
 
 namespace SIFCA_DAL
 {
-    public partial class CALIDAD
+    public partial class LINEANOMADERABLES
     {
-        public CALIDAD()
+        public LINEANOMADERABLES()
         {
-            this.LINEAINVENTARIO = new HashSet<LINEAINVENTARIO>();
+            this.TIPODEUSO = new HashSet<TIPODEUSO>();
         }
     
-        public decimal CODCALIDAD { get; set; }
-        public string DESCRIPCALIDAD { get; set; }
+        public System.Guid LINEANMAD { get; set; }
+        public System.Guid NROFORMULARIO { get; set; }
+        public string OBSERVACIONES { get; set; }
     
-        public virtual ICollection<LINEAINVENTARIO> LINEAINVENTARIO { get; set; }
+        public virtual FORMULARIO FORMULARIO { get; set; }
+        public virtual ICollection<TIPODEUSO> TIPODEUSO { get; set; }
     }
     
 }

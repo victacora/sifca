@@ -12,19 +12,18 @@ using System.Collections.Generic;
 
 namespace SIFCA_DAL
 {
-    public partial class LISTADODEESPECIES
+    public partial class TIPOFORMULARIO
     {
-        public LISTADODEESPECIES()
+        public TIPOFORMULARIO()
         {
-            this.PROYECTO = new HashSet<PROYECTO>();
-            this.ESPECIE = new HashSet<ESPECIE>();
+            this.FORMULARIO = new HashSet<FORMULARIO>();
         }
     
-        public string NOMARCH { get; set; }
-        public string DESCRIPLISTESPECIES { get; set; }
+        public string NOMBRETIPOFORM { get; set; }
+        public string DESCRIPCION { get; set; }
+        public decimal TIPFORM_ID { get; set; }
     
-        public virtual ICollection<PROYECTO> PROYECTO { get; set; }
-        public virtual ICollection<ESPECIE> ESPECIE { get; set; }
+        public virtual ICollection<FORMULARIO> FORMULARIO { get; set; }
     }
     
 }

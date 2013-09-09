@@ -12,19 +12,25 @@ using System.Collections.Generic;
 
 namespace SIFCA_DAL
 {
-    public partial class ESTRATO
+    public partial class USUARIO
     {
-        public ESTRATO()
+        public USUARIO()
         {
             this.FORMULARIO = new HashSet<FORMULARIO>();
-            this.LISTADODEESTRATOS = new HashSet<LISTADODEESTRATOS>();
+            this.PROYECTO = new HashSet<PROYECTO>();
+            this.TRANSACCION = new HashSet<TRANSACCION>();
         }
     
-        public decimal CODEST { get; set; }
-        public string DESCRIPESTRATO { get; set; }
+        public System.Guid NROUSUARIO { get; set; }
+        public string NOMBRES { get; set; }
+        public string APELLIDOS { get; set; }
+        public string NOMBREUSUARIO { get; set; }
+        public string CONTRASENA { get; set; }
+        public decimal CEDULA { get; set; }
     
         public virtual ICollection<FORMULARIO> FORMULARIO { get; set; }
-        public virtual ICollection<LISTADODEESTRATOS> LISTADODEESTRATOS { get; set; }
+        public virtual ICollection<PROYECTO> PROYECTO { get; set; }
+        public virtual ICollection<TRANSACCION> TRANSACCION { get; set; }
     }
     
 }

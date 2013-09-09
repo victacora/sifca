@@ -1517,8 +1517,8 @@
         <EntityTypeShape EntityType="SIFCA_Model.LINEAINVENTARIO" Width="2.25" PointX="25.75" PointY="24.375" Height="4.287903645833353" />
         <EntityTypeShape EntityType="SIFCA_Model.LINEANOMADERABLES" Width="1.5" PointX="23.25" PointY="20" Height="1.980286458333353" />
         <EntityTypeShape EntityType="SIFCA_Model.LINEAREGENERACION" Width="2.5" PointX="21.5" PointY="7.75" Height="2.557190755208353" />
-        <EntityTypeShape EntityType="SIFCA_Model.LISTADODEESTRATOS" Width="1.5" PointX="34.75" PointY="12.125" Height="1.980286458333353" />
-        <EntityTypeShape EntityType="SIFCA_Model.OBJETIVOINVENTARIO" Width="1.5" PointX="34.5" PointY="14.375" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="SIFCA_Model.LISTADODEESTRATOS" Width="2" PointX="34.75" PointY="12.125" Height="1.980286458333353" />
+        <EntityTypeShape EntityType="SIFCA_Model.OBJETIVOINVENTARIO" Width="2.25" PointX="34.5" PointY="14.375" Height="1.5956835937499818" />
         <EntityTypeShape EntityType="SIFCA_Model.PROYECTO" Width="3" PointX="29.125" PointY="10.125" Height="6.018616536458353" />
         <EntityTypeShape EntityType="SIFCA_Model.TIPODEUSO" Width="1.5" PointX="23.375" PointY="23.25" Height="1.5956835937499818" />
         <EntityTypeShape EntityType="SIFCA_Model.TIPODISENOMUESTRAL" Width="2.375" PointX="31" PointY="7.375" Height="1.5956835937499818" />
@@ -1558,8 +1558,8 @@
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LISTADOD_LISTESTRA_ESTRATO" >
           <ConnectorPoint PointX="21.25" PointY="3.8939925130208337" />
-          <ConnectorPoint PointX="35.5" PointY="3.8939925130208337" />
-          <ConnectorPoint PointX="35.5" PointY="12.125" />
+          <ConnectorPoint PointX="35.75" PointY="3.8939925130208337" />
+          <ConnectorPoint PointX="35.75" PointY="12.125" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_FORMULAR_DESARROLL_PROYECTO" >
           <ConnectorPoint PointX="29.125" PointY="15.071808268229177" />

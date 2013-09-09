@@ -13,8 +13,8 @@ namespace SIFCA
 {
     public partial class GestDatInv_Form : Form
     {
-        private InventoryBL inventory;
-        private StationBL stations;
+        private FormBL inventory;
+        private UserBL stations;
         private SpeciesBL species;
         private StateBL states;
         private StageBL stages;
@@ -25,9 +25,9 @@ namespace SIFCA
         {
             InitializeComponent();
 
-            inventory = new InventoryBL(Program.ContextData);
+            inventory = new FormBL(Program.ContextData);
             species = new SpeciesBL(Program.ContextData);
-            stations = new StationBL(Program.ContextData);
+            stations = new UserBL(Program.ContextData);
             states = new StateBL(Program.ContextData);
             stages = new StageBL(Program.ContextData);
             stratum = new StratumBL(Program.ContextData);

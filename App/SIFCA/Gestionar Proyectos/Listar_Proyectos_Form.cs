@@ -16,7 +16,7 @@ namespace SIFCA
         private ProjectBL project;
         private InventoryTypeBL inventoryType;
         private SpeciesListBL speciesList;
-        private StationBL station;
+        private UserBL station;
 
         public Listar_Proyectos_Form()
         {
@@ -24,7 +24,7 @@ namespace SIFCA
             project = new ProjectBL(Program.ContextData);
             inventoryType = new InventoryTypeBL(Program.ContextData);
             speciesList = new SpeciesListBL(Program.ContextData);
-            station = new StationBL(Program.ContextData);
+            station = new UserBL(Program.ContextData);
             this.proyectoBSource.DataSource = project.GetProjects();
             this.tipoInventarioBSource.DataSource = inventoryType.GetInventoryTypes();
             this.listadoEspeciesBSource.DataSource = speciesList.GetSpeciesLists();

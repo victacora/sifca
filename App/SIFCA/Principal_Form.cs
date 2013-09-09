@@ -16,13 +16,13 @@ namespace SIFCA
     public partial class Principal_Form : Form
     {
         private ProjectBL project;
-        private StationBL station;
+        private UserBL station;
 
         public Principal_Form()
         {
             InitializeComponent();
             project = new ProjectBL(Program.ContextData);
-            station = new StationBL(Program.ContextData);
+            station = new UserBL(Program.ContextData);
         }
 
         private void CreateNewProject(object sender, EventArgs e)

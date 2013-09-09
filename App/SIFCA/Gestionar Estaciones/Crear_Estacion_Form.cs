@@ -14,7 +14,7 @@ namespace SIFCA
 {
     public partial class Crear_Estacion_Form : Form
     {
-        private StationBL station;
+        private UserBL station;
         private Guid code;
         public Crear_Estacion_Form()
         {
@@ -32,7 +32,7 @@ namespace SIFCA
                 this.responsableTxt.Text = stationData.PERSONARESPONSABLE;
                 this.AceptarBtn.Text = "Actualizar";
             }
-            station = new StationBL(Program.ContextData);
+            station = new UserBL(Program.ContextData);
         }
 
         private void AceptarBtn_Click(object sender, EventArgs e)

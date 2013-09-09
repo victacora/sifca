@@ -7,32 +7,31 @@ using System.Data;
 
 namespace SIFCA_BLL
 {
-    public class StageBL 
+    public class UserBL 
     {
         private SIFCA_CONTEXT sifcaRepository;
 
-        public StageBL(SIFCA_CONTEXT contextProvider)
+        public UserBL(SIFCA_CONTEXT contextProvider )
         {
             this.sifcaRepository = contextProvider;
         }
 
 
-        public IEnumerable<ETAPA> GetStages()
+        public IEnumerable<USUARIO> GetStations()
         {
-            return this.sifcaRepository.ETAPA.ToList();
+            return this.sifcaRepository.USUARIO.ToList();
         }
 
-        public ETAPA GetStage(int stageId)
+        public USUARIO GetStation(int userId)
         {
-            return this.sifcaRepository.ETAPA.Find(stageId);
+            return this.sifcaRepository.USUARIO.Find(userId);
         }
 
-        public void InsertStage(ETAPA stage)
+        public void InsertStation(USUARIO user)
         {
             try
             {
-                this.sifcaRepository.ETAPA.Add(stage);
-                
+                this.sifcaRepository.USUARIO.Add(user);
             }
             catch (Exception ex)
             {
@@ -40,13 +39,12 @@ namespace SIFCA_BLL
             }
         }
 
-        public void DeleteStage(int stageId)
+        public void DeleteEstation(int userId)
         {
             try
             {
-                ETAPA stage = this.sifcaRepository.ETAPA.Find(stageId);
-                this.sifcaRepository.ETAPA.Remove(stage);
-                
+                USUARIO station = this.sifcaRepository.USUARIO.Find(userId);
+                this.sifcaRepository.USUARIO.Remove(station);
             }
             catch (Exception ex)
             {
@@ -54,11 +52,11 @@ namespace SIFCA_BLL
             }
         }
 
-        public void UpdateStage(ETAPA stage)
+        public void UpdateEstation(USUARIO user)
         {
             try
             {
-                this.sifcaRepository.Entry(stage).State = EntityState.Modified;
+                this.sifcaRepository.Entry(user).State = EntityState.Modified;
                 
             }
             catch (Exception ex)

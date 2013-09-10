@@ -52,6 +52,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Gestion de Usuarios\Autenticar_Usuario_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Usuarios\Autenticar_Usuario_Form.designer.cs">
+      <DependentUpon>Autenticar_Usuario_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Usuarios\Crear_Usuario_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Usuarios\Crear_Usuario_Form.designer.cs">
+      <DependentUpon>Crear_Usuario_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Usuarios\Listar_Usuarios_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Usuarios\Listar_Usuarios_Form.Designer.cs">
+      <DependentUpon>Listar_Usuarios_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +78,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Gestion de Usuarios\Autenticar_Usuario_Form.resx">
+      <DependentUpon>Autenticar_Usuario_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Usuarios\Crear_Usuario_Form.resx">
+      <DependentUpon>Crear_Usuario_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Usuarios\Listar_Usuarios_Form.resx">
+      <DependentUpon>Listar_Usuarios_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal_Form.resx">
       <DependentUpon>Principal_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -76,18 +103,24 @@
     <None Include="App.Config" />
     <None Include="Properties\DataSources\SIFCA_DAL.CALIDAD.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.ESPECIE.datasource" />
-    <None Include="Properties\DataSources\SIFCA_DAL.ESTACION.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.ESTADOSANITARIO.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.ESTRATO.datasource" />
-    <None Include="Properties\DataSources\SIFCA_DAL.ETAPA.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.FORMULARIO.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.GRUPOCOMERCIAL.datasource" />
-    <None Include="Properties\DataSources\SIFCA_DAL.INVENTARIO.datasource" />
-    <None Include="Properties\DataSources\SIFCA_DAL.LISTADODEESPECIES.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.LINEAINVENTARIO.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.LINEANOMADERABLES.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.LINEAREGENERACION.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.LISTADODEESTRATOS.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.OBJETIVOINVENTARIO.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.PROYECTO.datasource" />
-    <None Include="Properties\DataSources\SIFCA_DAL.REGENERACION.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.SIFCA_CONTEXT.datasource" />
-    <None Include="Properties\DataSources\SIFCA_DAL.TIPOINVENTARIO.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.TIPODEUSO.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.TIPODISENOMUESTRAL.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.TIPOFORMULARIO.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.TIPOPROYECTO.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.TRANSACCION.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.TSTUDENT.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.USUARIO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

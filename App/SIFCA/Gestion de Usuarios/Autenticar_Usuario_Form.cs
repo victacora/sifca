@@ -19,23 +19,27 @@ namespace SIFCA
         public Autenticar_Usuario_Form()
         {
             InitializeComponent();
+            this.ControlBox = false;
             user = new UserBL(Program.ContextData);
         }
 
         private void IngresarBtn_Click(object sender, EventArgs e)
         {
-            USUARIO newUser = new USUARIO();
-            newUser.CONTRASENA = contrasenaTxt.Text;
-            newUser.NOMBREUSUARIO = usuarioTxt.Text;
-            var result=user.LoginUser(newUser);
+            USUARIO userData = new USUARIO();
+            userData.CONTRASENA = contrasenaTxt.Text;
+            userData.NOMBREUSUARIO = usuarioTxt.Text;
+            USUARIO result=user.LoginUser(userData);
             if (result == null)
             {
-                user.SaveChanges();
                 MessageBox.Show("Los datos ingresados son incorrectos.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                //ingresar el usuario a la cache para mantener activa sesion
+                //ingresar el usuario a la cache para mantener activa sesion                
+                Program.Cache.Add("user",result, new CacheItemPolicy());
+                Principal_Form parent = (Principal_Form)ParentForm;
+                parent.EstatusLabel.Text = "Usuario Autenticado: "+result.NOMBREUSUARIO;
+                //modificar barra estado
                 this.Close();
             }
         }
@@ -44,6 +48,8 @@ namespace SIFCA
         {
             this.Close();
         }
+
+
 
     }
 }

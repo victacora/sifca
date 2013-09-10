@@ -52,6 +52,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Gestion de Especies\Crear_Especie_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Especies\Crear_Especie_Form.designer.cs">
+      <DependentUpon>Crear_Especie_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Especies\Crear_Listado_Especies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Especies\Crear_Listado_Especies.designer.cs">
+      <DependentUpon>Crear_Listado_Especies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Especies\Listado_Especies_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Especies\Listado_Especies_Form.designer.cs">
+      <DependentUpon>Listado_Especies_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Especies\Ver_Especie_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Especies\Ver_Especie_Form.Designer.cs">
+      <DependentUpon>Ver_Especie_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Proyectos\Crear_Proyectos_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Proyectos\Crear_Proyectos_Form.designer.cs">
+      <DependentUpon>Crear_Proyectos_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gestion de Usuarios\Autenticar_Usuario_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +108,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Gestion de Especies\Crear_Especie_Form.resx">
+      <DependentUpon>Crear_Especie_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Especies\Crear_Listado_Especies.resx">
+      <DependentUpon>Crear_Listado_Especies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Especies\Listado_Especies_Form.resx">
+      <DependentUpon>Listado_Especies_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Especies\Ver_Especie_Form.resx">
+      <DependentUpon>Ver_Especie_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Proyectos\Crear_Proyectos_Form.resx">
+      <DependentUpon>Crear_Proyectos_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Usuarios\Autenticar_Usuario_Form.resx">
       <DependentUpon>Autenticar_Usuario_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,7 +188,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Gestion de Formularios\" />
-    <Folder Include="Gestion de Proyectos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\fondo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

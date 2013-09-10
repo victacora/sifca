@@ -33,6 +33,7 @@
             this.sistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.introducirDatosUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.ListarUsuarios = new System.Windows.Forms.ToolStripMenuItem();
+            this.IniciarSesion = new System.Windows.Forms.ToolStripMenuItem();
             this.CerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,6 +47,9 @@
             this.regeneracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.especiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresarEspecieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crearEspecieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarEspecieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verEspeciesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarEspeciesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.newWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,7 +74,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.IniciarSesion = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -120,6 +124,13 @@
             this.ListarUsuarios.Size = new System.Drawing.Size(210, 22);
             this.ListarUsuarios.Text = "&Listar Usuarios";
             this.ListarUsuarios.Click += new System.EventHandler(this.ListarUsuariosToolStripMenuItem_Click);
+            // 
+            // IniciarSesion
+            // 
+            this.IniciarSesion.Name = "IniciarSesion";
+            this.IniciarSesion.Size = new System.Drawing.Size(210, 22);
+            this.IniciarSesion.Text = "&Iniciar Sesion";
+            this.IniciarSesion.Click += new System.EventHandler(this.IniciarSesion_Click);
             // 
             // CerrarSesion
             // 
@@ -218,16 +229,41 @@
             // 
             // ingresarEspecieToolStripMenuItem
             // 
+            this.ingresarEspecieToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.crearEspecieToolStripMenuItem,
+            this.modificarEspecieToolStripMenuItem,
+            this.verEspeciesToolStripMenuItem,
+            this.toolStripMenuItem1});
             this.ingresarEspecieToolStripMenuItem.Name = "ingresarEspecieToolStripMenuItem";
-            this.ingresarEspecieToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.ingresarEspecieToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.ingresarEspecieToolStripMenuItem.Text = "Gestionar Especie";
             this.ingresarEspecieToolStripMenuItem.Click += new System.EventHandler(this.ingresarEspecieToolStripMenuItem_Click);
+            // 
+            // crearEspecieToolStripMenuItem
+            // 
+            this.crearEspecieToolStripMenuItem.Name = "crearEspecieToolStripMenuItem";
+            this.crearEspecieToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.crearEspecieToolStripMenuItem.Text = "Crear Especie";
+            this.crearEspecieToolStripMenuItem.Click += new System.EventHandler(this.crearEspecieToolStripMenuItem_Click);
+            // 
+            // modificarEspecieToolStripMenuItem
+            // 
+            this.modificarEspecieToolStripMenuItem.Name = "modificarEspecieToolStripMenuItem";
+            this.modificarEspecieToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.modificarEspecieToolStripMenuItem.Text = "Modificar Especie";
+            // 
+            // verEspeciesToolStripMenuItem
+            // 
+            this.verEspeciesToolStripMenuItem.Name = "verEspeciesToolStripMenuItem";
+            this.verEspeciesToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.verEspeciesToolStripMenuItem.Text = "Ver Especies";
+            this.verEspeciesToolStripMenuItem.Click += new System.EventHandler(this.verEspeciesToolStripMenuItem_Click);
             // 
             // listarEspeciesToolStripMenuItem
             // 
             this.listarEspeciesToolStripMenuItem.Name = "listarEspeciesToolStripMenuItem";
-            this.listarEspeciesToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.listarEspeciesToolStripMenuItem.Text = "Listar Especies";
+            this.listarEspeciesToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.listarEspeciesToolStripMenuItem.Text = "Crear Listado Especies";
             this.listarEspeciesToolStripMenuItem.Click += new System.EventHandler(this.listarEspeciesToolStripMenuItem_Click);
             // 
             // windowsMenu
@@ -393,12 +429,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
             this.toolStripStatusLabel.Text = "Estado";
             // 
-            // IniciarSesion
+            // toolStripMenuItem1
             // 
-            this.IniciarSesion.Name = "IniciarSesion";
-            this.IniciarSesion.Size = new System.Drawing.Size(210, 22);
-            this.IniciarSesion.Text = "&Iniciar Sesion";
-            this.IniciarSesion.Click += new System.EventHandler(this.IniciarSesion_Click);
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
+            this.toolStripMenuItem1.Text = "Listar Especies";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // Principal_Form
             // 
@@ -468,6 +504,10 @@
         private System.Windows.Forms.ToolStripMenuItem calidadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem IniciarSesion;
+        private System.Windows.Forms.ToolStripMenuItem crearEspecieToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modificarEspecieToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verEspeciesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 

@@ -1,4 +1,4 @@
-﻿namespace SIFCA
+﻿namespace SIFCA.Gestion_de_Especies
 {
     partial class Listado_Especies_Form
     {
@@ -48,9 +48,8 @@
             this.listadoEspLbl = new System.Windows.Forms.ToolStripLabel();
             this.listadoEspCbx = new System.Windows.Forms.ToolStripComboBox();
             this.ListadoEspecies = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grupoComercial = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.grupoComercialBSource = new System.Windows.Forms.BindingSource(this.components);
+            this.grupoComercial = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.nombreComun = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreCientifico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.familia = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -219,7 +218,6 @@
             this.ListadoEspecies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ListadoEspecies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ListadoEspecies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Codigo,
             this.grupoComercial,
             this.nombreComun,
             this.nombreCientifico,
@@ -236,12 +234,9 @@
             this.ListadoEspecies.TabIndex = 1;
             this.ListadoEspecies.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.ListadoEspecies_RowsRemoved);
             // 
-            // Codigo
+            // grupoComercialBSource
             // 
-            this.Codigo.DataPropertyName = "CODESP";
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
+            this.grupoComercialBSource.DataSource = typeof(SIFCA_DAL.GRUPOCOMERCIAL);
             // 
             // grupoComercial
             // 
@@ -254,10 +249,6 @@
             this.grupoComercial.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.grupoComercial.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.grupoComercial.ValueMember = "GRUPOCOM";
-            // 
-            // grupoComercialBSource
-            // 
-            this.grupoComercialBSource.DataSource = typeof(SIFCA_DAL.GRUPOCOMERCIAL);
             // 
             // nombreComun
             // 
@@ -343,16 +334,15 @@
         private System.Windows.Forms.ToolStripTextBox parametroBusTxt;
         private System.Windows.Forms.ToolStripLabel filtrarLbl;
         private System.Windows.Forms.ToolStripComboBox criterioBusquedaCbx;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewComboBoxColumn grupoComercial;
         private System.Windows.Forms.BindingSource grupoComercialBSource;
+        private System.Windows.Forms.ToolStripLabel listadoEspLbl;
+        private System.Windows.Forms.ToolStripComboBox listadoEspCbx;
+        private System.Windows.Forms.DataGridViewComboBoxColumn grupoComercial;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreComun;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreCientifico;
         private System.Windows.Forms.DataGridViewTextBoxColumn familia;
         private System.Windows.Forms.DataGridViewTextBoxColumn zonaGeografica;
         private System.Windows.Forms.DataGridViewTextBoxColumn zonaVida;
         private System.Windows.Forms.DataGridViewTextBoxColumn diamCorte;
-        private System.Windows.Forms.ToolStripLabel listadoEspLbl;
-        private System.Windows.Forms.ToolStripComboBox listadoEspCbx;
     }
 }

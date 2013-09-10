@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using SIFCA_DAL;
 using SIFCA_BLL;
 
-namespace SIFCA.Gestionar_Especies
+namespace SIFCA.Gestion_de_Especies
 {
     public partial class Ingresar_Especie_Form : Form
     {

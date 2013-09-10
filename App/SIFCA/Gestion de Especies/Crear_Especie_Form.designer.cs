@@ -1,4 +1,4 @@
-﻿namespace SIFCA.Gestionar_Especies
+﻿namespace SIFCA.Gestion_de_Especies
 {
     partial class Ingresar_Especie_Form
     {

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Runtime.Caching;
 using SIFCA_DAL;
 using SIFCA_BLL;
+using SIFCA.Gestion_de_Especies;
 
 
 namespace SIFCA
@@ -140,9 +141,9 @@ namespace SIFCA
 
         private void listarEspeciesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Listado_Especies_Form childForm = new Listado_Especies_Form();
-            //childForm.MdiParent = this;
-            //childForm.Show();
+            Crear_Listado_Especies childForm = new Crear_Listado_Especies();
+            childForm.MdiParent = this;
+            childForm.Show();
         }
 
         private void listarProyectosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -161,9 +162,7 @@ namespace SIFCA
 
         private void crearListadoEspeciesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Listado_Especies_Form childForm = new Listado_Especies_Form();
-            //childForm.MdiParent = this;
-            //childForm.Show();
+            
         }
 
         private void ListarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -178,6 +177,28 @@ namespace SIFCA
             Autenticar_Usuario_Form childForm = new Autenticar_Usuario_Form();
             childForm.MdiParent = this;
             childForm.Show();
+        }
+
+        private void crearEspecieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Ingresar_Especie_Form childForm = new Ingresar_Especie_Form();
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
+
+        private void verEspeciesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Ver_Especie_Form childForm = new Ver_Especie_Form();
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Listado_Especies_Form childForm = new Listado_Especies_Form();
+            childForm.MdiParent = this;
+            childForm.Show();
+
         }
     }
 }

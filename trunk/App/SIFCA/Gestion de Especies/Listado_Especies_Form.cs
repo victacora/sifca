@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using SIFCA_BLL;
 using SIFCA_DAL;
 
-namespace SIFCA
+namespace SIFCA.Gestion_de_Especies
 {
     public partial class Listado_Especies_Form : Form
     {

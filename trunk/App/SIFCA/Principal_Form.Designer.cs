@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.sistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.introducirDatosUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ListarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CerrarSesionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.introducirDatosUsuario = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListarUsuarios = new System.Windows.Forms.ToolStripMenuItem();
+            this.CerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,6 +70,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.IniciarSesion = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -94,37 +95,38 @@
             // sistemaToolStripMenuItem
             // 
             this.sistemaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.introducirDatosUsuarioToolStripMenuItem,
-            this.ListarUsuariosToolStripMenuItem,
-            this.CerrarSesionMenuItem,
+            this.introducirDatosUsuario,
+            this.ListarUsuarios,
+            this.IniciarSesion,
+            this.CerrarSesion,
             this.toolStripSeparator1,
             this.salirToolStripMenuItem});
             this.sistemaToolStripMenuItem.Name = "sistemaToolStripMenuItem";
             this.sistemaToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.sistemaToolStripMenuItem.Text = "&Sistema";
             // 
-            // introducirDatosUsuarioToolStripMenuItem
+            // introducirDatosUsuario
             // 
-            this.introducirDatosUsuarioToolStripMenuItem.Name = "introducirDatosUsuarioToolStripMenuItem";
-            this.introducirDatosUsuarioToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.introducirDatosUsuarioToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.introducirDatosUsuarioToolStripMenuItem.Text = "&Registrar Usuarios";
-            this.introducirDatosUsuarioToolStripMenuItem.Click += new System.EventHandler(this.introducirDatosEstacionToolStripMenuItem_Click);
+            this.introducirDatosUsuario.Name = "introducirDatosUsuario";
+            this.introducirDatosUsuario.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.introducirDatosUsuario.Size = new System.Drawing.Size(210, 22);
+            this.introducirDatosUsuario.Text = "&Registrar Usuarios";
+            this.introducirDatosUsuario.Click += new System.EventHandler(this.introducirDatosEstacionToolStripMenuItem_Click);
             // 
-            // ListarUsuariosToolStripMenuItem
+            // ListarUsuarios
             // 
-            this.ListarUsuariosToolStripMenuItem.Name = "ListarUsuariosToolStripMenuItem";
-            this.ListarUsuariosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.ListarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.ListarUsuariosToolStripMenuItem.Text = "&Listar Usuarios";
-            this.ListarUsuariosToolStripMenuItem.Click += new System.EventHandler(this.ListarUsuariosToolStripMenuItem_Click);
+            this.ListarUsuarios.Name = "ListarUsuarios";
+            this.ListarUsuarios.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+            this.ListarUsuarios.Size = new System.Drawing.Size(210, 22);
+            this.ListarUsuarios.Text = "&Listar Usuarios";
+            this.ListarUsuarios.Click += new System.EventHandler(this.ListarUsuariosToolStripMenuItem_Click);
             // 
-            // CerrarSesionMenuItem
+            // CerrarSesion
             // 
-            this.CerrarSesionMenuItem.Name = "CerrarSesionMenuItem";
-            this.CerrarSesionMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.CerrarSesionMenuItem.Text = "&Cerrar Sesion";
-            this.CerrarSesionMenuItem.Click += new System.EventHandler(this.listarEstacionesToolStripMenuItem_Click);
+            this.CerrarSesion.Name = "CerrarSesion";
+            this.CerrarSesion.Size = new System.Drawing.Size(210, 22);
+            this.CerrarSesion.Text = "&Cerrar Sesion";
+            this.CerrarSesion.Click += new System.EventHandler(this.listarEstacionesToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -391,6 +393,13 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
             this.toolStripStatusLabel.Text = "Estado";
             // 
+            // IniciarSesion
+            // 
+            this.IniciarSesion.Name = "IniciarSesion";
+            this.IniciarSesion.Size = new System.Drawing.Size(210, 22);
+            this.IniciarSesion.Text = "&Iniciar Sesion";
+            this.IniciarSesion.Click += new System.EventHandler(this.IniciarSesion_Click);
+            // 
             // Principal_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -438,8 +447,8 @@
         private System.Windows.Forms.ToolStripMenuItem inventarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem especiesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sistemaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem introducirDatosUsuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem CerrarSesionMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem introducirDatosUsuario;
+        private System.Windows.Forms.ToolStripMenuItem CerrarSesion;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem introducirDatosDeInventarioToolStripMenuItem;
@@ -449,7 +458,7 @@
         private System.Windows.Forms.ToolStripMenuItem ingresarEspecieToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarEspeciesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarProyectosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ListarUsuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ListarUsuarios;
         private System.Windows.Forms.ToolStripMenuItem configuracionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estratosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comercialesToolStripMenuItem;
@@ -458,6 +467,7 @@
         private System.Windows.Forms.ToolStripMenuItem tipoDeUsoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem calidadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estadosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem IniciarSesion;
     }
 }
 

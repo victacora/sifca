@@ -16,16 +16,20 @@ namespace SIFCA
 {
     public partial class Principal_Form : Form
     {
-        private ProjectBL project;
-        private UserBL user;
+        public  ToolStripStatusLabel EstatusLabel
+        { 
+          get { return EstadoLbl;}
+          set { EstadoLbl = value;}
+        }
 
         public Principal_Form()
         {
             InitializeComponent();
-            project = new ProjectBL(Program.ContextData);
-            user = new UserBL(Program.ContextData);
+            Autenticar_Usuario_Form childForm = new Autenticar_Usuario_Form();
+            childForm.MdiParent = this;
+            childForm.Show();
         }
-
+        
         private void CreateNewProject(object sender, EventArgs e)
         {
         //    Crear_Proyecto_Form childForm = new Crear_Proyecto_Form();

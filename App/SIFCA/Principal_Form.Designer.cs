@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.sistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.introducirDatosUsuario = new System.Windows.Forms.ToolStripMenuItem();
+            this.ActualizarDatosUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.ListarUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.IniciarSesion = new System.Windows.Forms.ToolStripMenuItem();
             this.CerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,6 +75,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.EstadoLbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -99,7 +100,8 @@
             // sistemaToolStripMenuItem
             // 
             this.sistemaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.introducirDatosUsuario,
+            this.toolStripMenuItem2,
+            this.ActualizarDatosUsuario,
             this.ListarUsuarios,
             this.IniciarSesion,
             this.CerrarSesion,
@@ -109,12 +111,12 @@
             this.sistemaToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.sistemaToolStripMenuItem.Text = "&Sistema";
             // 
-            // introducirDatosUsuario
+            // ActualizarDatosUsuario
             // 
-            this.introducirDatosUsuario.Name = "introducirDatosUsuario";
-            this.introducirDatosUsuario.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.introducirDatosUsuario.Size = new System.Drawing.Size(210, 22);
-            this.introducirDatosUsuario.Text = "&Registrar Usuarios";
+            this.ActualizarDatosUsuario.Name = "ActualizarDatosUsuario";
+            this.ActualizarDatosUsuario.Size = new System.Drawing.Size(210, 22);
+            this.ActualizarDatosUsuario.Text = "&Actualizar datos";
+            this.ActualizarDatosUsuario.Click += new System.EventHandler(this.ActualizarDatosUsuario_Click);
             // 
             // ListarUsuarios
             // 
@@ -122,18 +124,21 @@
             this.ListarUsuarios.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
             this.ListarUsuarios.Size = new System.Drawing.Size(210, 22);
             this.ListarUsuarios.Text = "&Listar Usuarios";
+            this.ListarUsuarios.Click += new System.EventHandler(this.ListarUsuarios_Click);
             // 
             // IniciarSesion
             // 
             this.IniciarSesion.Name = "IniciarSesion";
             this.IniciarSesion.Size = new System.Drawing.Size(210, 22);
             this.IniciarSesion.Text = "&Iniciar Sesion";
+            this.IniciarSesion.Click += new System.EventHandler(this.IniciarSesion_Click);
             // 
             // CerrarSesion
             // 
             this.CerrarSesion.Name = "CerrarSesion";
             this.CerrarSesion.Size = new System.Drawing.Size(210, 22);
             this.CerrarSesion.Text = "&Cerrar Sesion";
+            this.CerrarSesion.Click += new System.EventHandler(this.CerrarSesion_Click);
             // 
             // toolStripSeparator1
             // 
@@ -411,8 +416,15 @@
             // EstadoLbl
             // 
             this.EstadoLbl.Name = "EstadoLbl";
-            this.EstadoLbl.Size = new System.Drawing.Size(42, 17);
-            this.EstadoLbl.Text = "Estado";
+            this.EstadoLbl.Size = new System.Drawing.Size(155, 17);
+            this.EstadoLbl.Text = "Ningun usuario autenticado";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(210, 22);
+            this.toolStripMenuItem2.Text = "&Registrar Usuarios";
             // 
             // Principal_Form
             // 
@@ -460,7 +472,7 @@
         private System.Windows.Forms.ToolStripMenuItem inventarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem especiesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sistemaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem introducirDatosUsuario;
+        private System.Windows.Forms.ToolStripMenuItem ActualizarDatosUsuario;
         private System.Windows.Forms.ToolStripMenuItem CerrarSesion;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
@@ -485,6 +497,7 @@
         private System.Windows.Forms.ToolStripMenuItem modificarEspecieToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verEspeciesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
     }
 }
 

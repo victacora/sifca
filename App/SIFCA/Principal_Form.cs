@@ -93,12 +93,6 @@ namespace SIFCA
             this.Close();
         }
 
-        private void introducirDatosEstacionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Crear_Usuario_Form childForm = new Crear_Usuario_Form();
-            childForm.MdiParent = this;
-            childForm.Show();
-        }
 
         private void listarEstacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -120,22 +114,7 @@ namespace SIFCA
             //childForm.MdiParent = this;
             //childForm.Show();
         }
-        //TODO:
-        private void Principal_Form_Load(object sender, EventArgs e)
-        {
-            //cargar stage activo
-
-            if (!Program.Cache.Contains("principalProject"))
-            {
-                //PROYECTO activateProject = project.GetActivateProject();
-                //ESTACION localStation = user.GetStations().First();
-                //if (activateProject != null) Program.Cache.Add("principalProject", activateProject, new CacheItemPolicy());
-                //else MessageBox.Show("No se ha creado ningun proyecto, que tenga por estado Activo.", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //if (localStation != null) Program.Cache.Add("localStation", localStation, new CacheItemPolicy());
-                //else MessageBox.Show("No se ha registrado la informacion para esta estacion", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
+        
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ////cambiar el stage activo y cargarlo en la Cache
@@ -169,18 +148,16 @@ namespace SIFCA
             
         }
 
-        private void ListarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Listar_Usuarios_Form childForm = new Listar_Usuarios_Form();
-            childForm.MdiParent = this;
-            childForm.Show();
-        }
-
         private void IniciarSesion_Click(object sender, EventArgs e)
         {
-            Autenticar_Usuario_Form childForm = new Autenticar_Usuario_Form();
-            childForm.MdiParent = this;
-            childForm.Show();
+            USUARIO user = (USUARIO)Program.Cache.Get("user");
+            if (user == null)
+            {
+                Autenticar_Usuario_Form childForm = new Autenticar_Usuario_Form();
+                childForm.MdiParent = this;
+                childForm.Show();
+            }
+            else MessageBox.Show("Ya existe un usuario Autenticado dentro del sistema, por favor cierre sesion si desea ingresar con su usuario y contraseña.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
         }
 
         private void crearEspecieToolStripMenuItem_Click(object sender, EventArgs e)
@@ -204,5 +181,53 @@ namespace SIFCA
             childForm.Show();
 
         }
+
+        private void IntroducirDatosUsuario_Click(object sender, EventArgs e)
+        {
+             USUARIO user = (USUARIO)Program.Cache.Get("user");
+            if (user != null)
+            {
+                Crear_Usuario_Form childForm = new Crear_Usuario_Form();
+                childForm.MdiParent = this;
+                childForm.Show();
+            }
+            else MessageBox.Show("Usted No se ha Autenticado dentro del sistema.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+        }
+
+        private void ListarUsuarios_Click(object sender, EventArgs e)
+        {
+            USUARIO user = (USUARIO)Program.Cache.Get("user");
+            if (user != null)
+            {
+                Listar_Usuarios_Form childForm = new Listar_Usuarios_Form();
+                childForm.MdiParent = this;
+                childForm.Show();
+            }
+            else  MessageBox.Show("Usted No se ha Autenticado dentro del sistema.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+        }
+
+        private void CerrarSesion_Click(object sender, EventArgs e)
+        {
+            USUARIO user = (USUARIO)Program.Cache.Get("user");
+            if (user != null)
+            {
+                Program.Cache.Remove("user");
+                EstadoLbl.Text = "Ningun usuario autenticado";
+            }
+            else MessageBox.Show("Ningun usuario ha iniciado sesión.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+        }
+
+        private void ActualizarDatosUsuario_Click(object sender, EventArgs e)
+        {
+            USUARIO user = (USUARIO)Program.Cache.Get("user");
+            if (user != null)
+            {
+                Actualizar_Usuario_Form childForm = new Actualizar_Usuario_Form();
+                childForm.MdiParent = this;
+                childForm.Show();
+            }
+            else MessageBox.Show("Ningun usuario ha iniciado sesión. Inicie sesión en el sistema para poder realizar esta operación.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+        }
+
     }
 }

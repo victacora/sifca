@@ -27,6 +27,11 @@ namespace SIFCA_BLL
             return this.sifcaRepository.USUARIO.Find(userId);
         }
 
+        public USUARIO LoginUser(USUARIO user)
+        {
+            return this.sifcaRepository.USUARIO.SingleOrDefault(u=>u.NOMBREUSUARIO==user.NOMBREUSUARIO&&u.CONTRASENA==user.CONTRASENA);
+        }
+
         public void InsertUser(USUARIO user)
         {
             try

@@ -27,10 +27,17 @@ namespace SIFCA
             USUARIO newUser = new USUARIO();
             newUser.CONTRASENA = contrasenaTxt.Text;
             newUser.NOMBREUSUARIO = usuarioTxt.Text;
-            user.InsertUser(newUser);
-            user.SaveChanges();
-            MessageBox.Show("Los datos ingresados son incorrectos.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            this.Close();
+            var result=user.LoginUser(newUser);
+            if (result == null)
+            {
+                user.SaveChanges();
+                MessageBox.Show("Los datos ingresados son incorrectos.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                //ingresar el usuario a la cache para mantener activa sesion
+                this.Close();
+            }
         }
 
         private void cancelarBtn_Click(object sender, EventArgs e)

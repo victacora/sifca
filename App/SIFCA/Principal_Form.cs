@@ -172,5 +172,12 @@ namespace SIFCA
             childForm.MdiParent = this;
             childForm.Show();
         }
+
+        private void IniciarSesion_Click(object sender, EventArgs e)
+        {
+            Autenticar_Usuario_Form childForm = new Autenticar_Usuario_Form();
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
     }
 }

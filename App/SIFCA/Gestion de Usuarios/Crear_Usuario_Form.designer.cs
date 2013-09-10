@@ -1,6 +1,6 @@
 ﻿namespace SIFCA
 {
-    partial class Crear_User_Form
+    partial class Crear_Usuario_Form
     {
         /// <summary>
         /// Required designer variable.

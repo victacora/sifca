@@ -39,7 +39,6 @@
             System.Windows.Forms.Label facFormaLbl;
             this.DatosProyectoGbx = new System.Windows.Forms.GroupBox();
             this.cancelarBtn = new System.Windows.Forms.Button();
-            this.listaEspCbx = new System.Windows.Forms.ComboBox();
             this.AceptarBtn = new System.Windows.Forms.Button();
             this.tipoInvenCbx = new System.Windows.Forms.ComboBox();
             this.datosDAPGbx = new System.Windows.Forms.GroupBox();
@@ -84,9 +83,9 @@
             listadoEspLbl.AutoSize = true;
             listadoEspLbl.Location = new System.Drawing.Point(11, 82);
             listadoEspLbl.Name = "listadoEspLbl";
-            listadoEspLbl.Size = new System.Drawing.Size(104, 13);
+            listadoEspLbl.Size = new System.Drawing.Size(128, 13);
             listadoEspLbl.TabIndex = 6;
-            listadoEspLbl.Text = "Listado de especies:";
+            listadoEspLbl.Text = "Tipo de Diseño Muestral: ";
             // 
             // tipoInvTxt
             // 
@@ -154,7 +153,6 @@
             // DatosProyectoGbx
             // 
             this.DatosProyectoGbx.Controls.Add(this.cancelarBtn);
-            this.DatosProyectoGbx.Controls.Add(this.listaEspCbx);
             this.DatosProyectoGbx.Controls.Add(this.AceptarBtn);
             this.DatosProyectoGbx.Controls.Add(this.tipoInvenCbx);
             this.DatosProyectoGbx.Controls.Add(this.datosDAPGbx);
@@ -182,14 +180,6 @@
             this.cancelarBtn.UseVisualStyleBackColor = true;
             this.cancelarBtn.Click += new System.EventHandler(this.cancelarBtn_Click);
             // 
-            // listaEspCbx
-            // 
-            this.listaEspCbx.FormattingEnabled = true;
-            this.listaEspCbx.Location = new System.Drawing.Point(128, 80);
-            this.listaEspCbx.Name = "listaEspCbx";
-            this.listaEspCbx.Size = new System.Drawing.Size(296, 21);
-            this.listaEspCbx.TabIndex = 3;
-            // 
             // AceptarBtn
             // 
             this.AceptarBtn.Location = new System.Drawing.Point(268, 303);
@@ -203,9 +193,9 @@
             // tipoInvenCbx
             // 
             this.tipoInvenCbx.FormattingEnabled = true;
-            this.tipoInvenCbx.Location = new System.Drawing.Point(128, 52);
+            this.tipoInvenCbx.Location = new System.Drawing.Point(132, 52);
             this.tipoInvenCbx.Name = "tipoInvenCbx";
-            this.tipoInvenCbx.Size = new System.Drawing.Size(296, 21);
+            this.tipoInvenCbx.Size = new System.Drawing.Size(292, 21);
             this.tipoInvenCbx.TabIndex = 2;
             // 
             // datosDAPGbx
@@ -314,16 +304,16 @@
             // 
             // lugarTxt
             // 
-            this.lugarTxt.Location = new System.Drawing.Point(128, 23);
+            this.lugarTxt.Location = new System.Drawing.Point(132, 23);
             this.lugarTxt.Name = "lugarTxt";
-            this.lugarTxt.Size = new System.Drawing.Size(296, 20);
+            this.lugarTxt.Size = new System.Drawing.Size(292, 20);
             this.lugarTxt.TabIndex = 1;
             // 
             // Crear_Proyecto_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 366);
+            this.ClientSize = new System.Drawing.Size(455, 400);
             this.Controls.Add(this.DatosProyectoGbx);
             this.Name = "Crear_Proyecto_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -352,7 +342,6 @@
         private System.Windows.Forms.GroupBox AreaMuestreadaGbx;
         private System.Windows.Forms.TextBox AreaMuestradaTxt;
         private System.Windows.Forms.TextBox lugarTxt;
-        private System.Windows.Forms.ComboBox listaEspCbx;
         private System.Windows.Forms.ComboBox tipoInvenCbx;
         private System.Windows.Forms.TextBox limiteSupTxt;
         private System.Windows.Forms.TextBox intMuestreoTxt;

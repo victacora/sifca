@@ -40,7 +40,6 @@ namespace SIFCA_DAL
         public DbSet<TIPODEUSO> TIPODEUSO { get; set; }
         public DbSet<TIPODISENOMUESTRAL> TIPODISENOMUESTRAL { get; set; }
         public DbSet<TIPOFORMULARIO> TIPOFORMULARIO { get; set; }
-        public DbSet<TIPOPROYECTO> TIPOPROYECTO { get; set; }
         public DbSet<TRANSACCION> TRANSACCION { get; set; }
         public DbSet<TSTUDENT> TSTUDENT { get; set; }
         public DbSet<USUARIO> USUARIO { get; set; }

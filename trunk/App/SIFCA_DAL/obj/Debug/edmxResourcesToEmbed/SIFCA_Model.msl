@@ -76,9 +76,9 @@
           <ScalarProperty Name="DAP" ColumnName="DAP" />
           <ScalarProperty Name="CAP" ColumnName="CAP" />
           <ScalarProperty Name="NROARB" ColumnName="NROARB" />
-          <ScalarProperty Name="NROFORMULARIO" ColumnName="NROFORMULARIO" />
           <ScalarProperty Name="CODESP" ColumnName="CODESP" />
           <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="NROFORMULARIO" ColumnName="NROFORMULARIO" />
           <ScalarProperty Name="CODCALIDAD" ColumnName="CODCALIDAD" />
           <ScalarProperty Name="LINEAINV" ColumnName="LINEAINV" />
         </MappingFragment>
@@ -96,8 +96,8 @@
     <EntitySetMapping Name="LINEAREGENERACION">
       <EntityTypeMapping TypeName="SIFCA_Model.LINEAREGENERACION">
         <MappingFragment StoreEntitySet="LINEAREGENERACION">
-          <ScalarProperty Name="NROFORMULARIO" ColumnName="NROFORMULARIO" />
           <ScalarProperty Name="CODESP" ColumnName="CODESP" />
+          <ScalarProperty Name="NROFORMULARIO" ColumnName="NROFORMULARIO" />
           <ScalarProperty Name="LINEAREGEN" ColumnName="LINEAREGEN" />
           <ScalarProperty Name="BRINZAL" ColumnName="BRINZAL" />
           <ScalarProperty Name="LATIZAL" ColumnName="LATIZAL" />
@@ -125,6 +125,7 @@
     <EntitySetMapping Name="PROYECTO">
       <EntityTypeMapping TypeName="SIFCA_Model.PROYECTO">
         <MappingFragment StoreEntitySet="PROYECTO">
+          <ScalarProperty Name="TIPOPROYECTO" ColumnName="TIPOPROYECTO" />
           <ScalarProperty Name="NUMEROETAPAS" ColumnName="NUMEROETAPAS" />
           <ScalarProperty Name="FECHA" ColumnName="FECHA" />
           <ScalarProperty Name="FACTORDEFORMA" ColumnName="FACTORDEFORMA" />
@@ -139,7 +140,6 @@
           <ScalarProperty Name="LUGAR" ColumnName="LUGAR" />
           <ScalarProperty Name="NOMTIPODISEMUEST" ColumnName="NOMTIPODISEMUEST" />
           <ScalarProperty Name="NOMBRETIPOINV" ColumnName="NOMBRETIPOINV" />
-          <ScalarProperty Name="TIPOPOYECTO_ID" ColumnName="TIPOPOYECTO_ID" />
           <ScalarProperty Name="NROUSUARIO" ColumnName="NROUSUARIO" />
           <ScalarProperty Name="NROPROY" ColumnName="NROPROY" />
         </MappingFragment>
@@ -167,15 +167,6 @@
           <ScalarProperty Name="TIPFORM_ID" ColumnName="TIPFORM_ID" />
           <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
           <ScalarProperty Name="NOMBRETIPOFORM" ColumnName="NOMBRETIPOFORM" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TIPOPROYECTO">
-      <EntityTypeMapping TypeName="SIFCA_Model.TIPOPROYECTO">
-        <MappingFragment StoreEntitySet="TIPOPROYECTO">
-          <ScalarProperty Name="NOMBRETIPOPROYECTO" ColumnName="NOMBRETIPOPROYECTO" />
-          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-          <ScalarProperty Name="TIPOPROYECTO_ID" ColumnName="TIPOPROYECTO_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -216,26 +207,26 @@
     </EntitySetMapping>
     <AssociationSetMapping Name="LISTADODEESPECIES" TypeName="SIFCA_Model.LISTADODEESPECIES" StoreEntitySet="LISTADODEESPECIES">
       <EndProperty Name="PROYECTO">
-        <ScalarProperty Name="NROPROY" ColumnName="PROYECTO_NROPROY" />
+        <ScalarProperty Name="NROPROY" ColumnName="NROPROY" />
       </EndProperty>
       <EndProperty Name="ESPECIE">
-        <ScalarProperty Name="CODESP" ColumnName="ESPECIE_CODESP" />
+        <ScalarProperty Name="CODESP" ColumnName="CODESP" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="PROYECTOSPORETAPA" TypeName="SIFCA_Model.PROYECTOSPORETAPA" StoreEntitySet="PROYECTOSPORETAPA">
       <EndProperty Name="PROYECTO1">
-        <ScalarProperty Name="NROPROY" ColumnName="PROYECTOCONTENDOR_NROPROY" />
+        <ScalarProperty Name="NROPROY" ColumnName="NROPROYCONTENIDO" />
       </EndProperty>
       <EndProperty Name="PROYECTO">
-        <ScalarProperty Name="NROPROY" ColumnName="PROYECTOCONTENIDO_NROPROY" />
+        <ScalarProperty Name="NROPROY" ColumnName="NROPROYCONTENEDOR" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="USO" TypeName="SIFCA_Model.USO" StoreEntitySet="USO">
-      <EndProperty Name="TIPODEUSO">
-        <ScalarProperty Name="NOMBRETIPOUSO" ColumnName="TIPODEUSO_NOMBRETIPOUSO" />
-      </EndProperty>
       <EndProperty Name="LINEANOMADERABLES">
-        <ScalarProperty Name="LINEANMAD" ColumnName="LINEANOMADERABLES_LINEANMAD" />
+        <ScalarProperty Name="LINEANMAD" ColumnName="LINEANMAD" />
+      </EndProperty>
+      <EndProperty Name="TIPODEUSO">
+        <ScalarProperty Name="NOMBRETIPOUSO" ColumnName="NOMBRETIPOUSO" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

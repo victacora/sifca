@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     09/09/2013 12:59:01 p.m.                     */
+/* Created on:     10/09/2013 03:30:30 p.m.                     */
 /*==============================================================*/
 
 
@@ -90,30 +90,30 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('LISTADODEESPECIES') and o.name = 'FK_LISTADOD_LISTESPEC_ESPECIE')
+   where r.fkeyid = object_id('LISTADODEESPECIES') and o.name = 'FK_LISTADOD_LISTADODE_ESPECIE')
 alter table LISTADODEESPECIES
-   drop constraint FK_LISTADOD_LISTESPEC_ESPECIE
+   drop constraint FK_LISTADOD_LISTADODE_ESPECIE
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('LISTADODEESPECIES') and o.name = 'FK_LISTADOD_LISTESPEC_PROYECTO')
+   where r.fkeyid = object_id('LISTADODEESPECIES') and o.name = 'FK_LISTADOESPECIES_PROYECTO')
 alter table LISTADODEESPECIES
-   drop constraint FK_LISTADOD_LISTESPEC_PROYECTO
+   drop constraint FK_LISTADOESPECIES_PROYECTO
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('LISTADODEESTRATOS') and o.name = 'FK_LISTADOD_LISTESTRA_ESTRATO')
+   where r.fkeyid = object_id('LISTADODEESTRATOS') and o.name = 'FK_LISTAESTRATOS_PROYECTO')
 alter table LISTADODEESTRATOS
-   drop constraint FK_LISTADOD_LISTESTRA_ESTRATO
+   drop constraint FK_LISTAESTRATOS_PROYECTO
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('LISTADODEESTRATOS') and o.name = 'FK_LISTADOD_LISTESTRA_PROYECTO')
+   where r.fkeyid = object_id('LISTADODEESTRATOS') and o.name = 'FK_LISTADOD_LISTAESTR_ESTRATO')
 alter table LISTADODEESTRATOS
-   drop constraint FK_LISTADOD_LISTESTRA_PROYECTO
+   drop constraint FK_LISTADOD_LISTAESTR_ESTRATO
 go
 
 if exists (select 1
@@ -128,13 +128,6 @@ if exists (select 1
    where r.fkeyid = object_id('PROYECTO') and o.name = 'FK_PROYECTO_ES_OBJETIVO')
 alter table PROYECTO
    drop constraint FK_PROYECTO_ES_OBJETIVO
-go
-
-if exists (select 1
-   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('PROYECTO') and o.name = 'FK_PROYECTO_ES_DE_TIP_TIPOPROY')
-alter table PROYECTO
-   drop constraint FK_PROYECTO_ES_DE_TIP_TIPOPROY
 go
 
 if exists (select 1
@@ -167,16 +160,16 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('USO') and o.name = 'FK_USO_USOLINEAN_LINEANOM')
+   where r.fkeyid = object_id('USO') and o.name = 'FK_USO_TIPOUSO_TIPODEUS')
 alter table USO
-   drop constraint FK_USO_USOLINEAN_LINEANOM
+   drop constraint FK_USO_TIPOUSO_TIPODEUS
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('USO') and o.name = 'FK_USO_USOTIPOUS_TIPODEUS')
+   where r.fkeyid = object_id('USO') and o.name = 'FK_USO_USADOPOR_LINEANOM')
 alter table USO
-   drop constraint FK_USO_USOTIPOUS_TIPODEUS
+   drop constraint FK_USO_USADOPOR_LINEANOM
 go
 
 if exists (select 1
@@ -250,15 +243,6 @@ if exists (select 1
             and   indid > 0
             and   indid < 255)
    drop index FORMULARIO.MANEJA_FK
-go
-
-if exists (select 1
-            from  sysindexes
-           where  id    = object_id('FORMULARIO')
-            and   name  = 'FORMULARIO_PK'
-            and   indid > 0
-            and   indid < 255)
-   drop index FORMULARIO.FORMULARIO_PK
 go
 
 if exists (select 1
@@ -383,15 +367,6 @@ go
 if exists (select 1
             from  sysindexes
            where  id    = object_id('PROYECTO')
-            and   name  = 'ES_DE_TIPO_FK'
-            and   indid > 0
-            and   indid < 255)
-   drop index PROYECTO.ES_DE_TIPO_FK
-go
-
-if exists (select 1
-            from  sysindexes
-           where  id    = object_id('PROYECTO')
             and   name  = 'REALIZA_FK'
             and   indid > 0
             and   indid < 255)
@@ -452,13 +427,6 @@ if exists (select 1
 go
 
 if exists (select 1
-            from  sysobjects
-           where  id = object_id('TIPOPROYECTO')
-            and   type = 'U')
-   drop table TIPOPROYECTO
-go
-
-if exists (select 1
             from  sysindexes
            where  id    = object_id('TRANSACCION')
             and   name  = 'REGISTRA_FK'
@@ -503,12 +471,28 @@ if exists(select 1 from systypes where name='TIPOOPERACION')
    drop type TIPOOPERACION
 go
 
+if exists(select 1 from systypes where name='TIPOPROYECTO')
+   execute sp_unbindrule TIPOPROYECTO
+go
+
+if exists(select 1 from systypes where name='TIPOPROYECTO')
+   drop type TIPOPROYECTO
+go
+
 if exists (select 1 from sysobjects where id=object_id('R_TIPOOPERACION') and type='R')
    drop rule  R_TIPOOPERACION
 go
 
+if exists (select 1 from sysobjects where id=object_id('R_TIPOPROYECTO') and type='R')
+   drop rule  R_TIPOPROYECTO
+go
+
 create rule R_TIPOOPERACION as
       @column in ('I','A','E')
+go
+
+create rule R_TIPOPROYECTO as
+      @column in ('CR','CO')
 go
 
 /*==============================================================*/
@@ -519,6 +503,16 @@ create type TIPOOPERACION
 go
 
 execute sp_bindrule R_TIPOOPERACION, TIPOOPERACION
+go
+
+/*==============================================================*/
+/* Domain: TIPOPROYECTO                                         */
+/*==============================================================*/
+create type TIPOPROYECTO
+   from varchar(2) not null
+go
+
+execute sp_bindrule R_TIPOPROYECTO, TIPOPROYECTO
 go
 
 /*==============================================================*/
@@ -591,15 +585,7 @@ create table FORMULARIO (
    LINEA                numeric              not null,
    COORDENADAX          numeric              null,
    COORDENADAY          numeric              null,
-   constraint PK_FORMULARIO primary key (NROFORMULARIO)
-)
-go
-
-/*==============================================================*/
-/* Index: FORMULARIO_PK                                         */
-/*==============================================================*/
-create unique index FORMULARIO_PK on FORMULARIO (
-NROFORMULARIO ASC
+   constraint PK_FORMULARIO primary key nonclustered (NROFORMULARIO)
 )
 go
 
@@ -651,9 +637,9 @@ go
 create table LINEAINVENTARIO (
    LINEAINV             uniqueidentifier     not null,
    CODCALIDAD           numeric              not null,
+   NROFORMULARIO        uniqueidentifier     not null,
    ESTADO               char(2)              not null,
    CODESP               uniqueidentifier     not null,
-   NROFORMULARIO        uniqueidentifier     not null,
    NROARB               numeric              null,
    CAP                  numeric              null,
    DAP                  numeric              null,
@@ -725,8 +711,8 @@ create table LINEAREGENERACION (
    LATIZAL              numeric              null,
    BRINZAL              numeric              null,
    LINEAREGEN           uniqueidentifier     not null,
-   CODESP               uniqueidentifier     not null,
    NROFORMULARIO        uniqueidentifier     not null,
+   CODESP               uniqueidentifier     not null,
    constraint PK_LINEAREGENERACION primary key nonclustered (LINEAREGEN)
 )
 go
@@ -784,7 +770,6 @@ go
 create table PROYECTO (
    NROPROY              uniqueidentifier     not null,
    NROUSUARIO           uniqueidentifier     not null,
-   TIPOPOYECTO_ID       numeric              not null,
    NOMBRETIPOINV        varchar(100)         not null,
    NOMTIPODISEMUEST     varchar(100)         not null,
    LUGAR                varchar(100)         not null,
@@ -799,6 +784,7 @@ create table PROYECTO (
    FACTORDEFORMA        decimal(18,3)        not null,
    FECHA                datetime             not null,
    NUMEROETAPAS         numeric              null,
+   TIPOPROYECTO         TIPOPROYECTO         not null,
    constraint PK_PROYECTO primary key nonclustered (NROPROY)
 )
 go
@@ -828,20 +814,12 @@ NOMTIPODISEMUEST ASC
 go
 
 /*==============================================================*/
-/* Index: ES_DE_TIPO_FK                                         */
-/*==============================================================*/
-create index ES_DE_TIPO_FK on PROYECTO (
-TIPOPOYECTO_ID ASC
-)
-go
-
-/*==============================================================*/
 /* Table: PROYECTOSPORETAPA                                     */
 /*==============================================================*/
 create table PROYECTOSPORETAPA (
-   NROPROY              uniqueidentifier     not null,
-   PRO_NROPROY          uniqueidentifier     not null,
-   constraint PK_PROYECTOSPORETAPA primary key (NROPROY, PRO_NROPROY)
+   NROPROYCONTENEDOR    uniqueidentifier     not null,
+   NROPROYCONTENIDO     uniqueidentifier     not null,
+   constraint PK_PROYECTOSPORETAPA primary key (NROPROYCONTENEDOR, NROPROYCONTENIDO)
 )
 go
 
@@ -877,21 +855,10 @@ create table TIPOFORMULARIO (
 go
 
 /*==============================================================*/
-/* Table: TIPOPROYECTO                                          */
-/*==============================================================*/
-create table TIPOPROYECTO (
-   TIPOPROYECTO_ID      numeric              not null,
-   DESCRIPCION          varchar(500)         not null,
-   NOMBRETIPOPROYECTO   varchar(100)         null,
-   constraint PK_TIPOPROYECTO primary key nonclustered (TIPOPROYECTO_ID)
-)
-go
-
-/*==============================================================*/
 /* Table: TRANSACCION                                           */
 /*==============================================================*/
 create table TRANSACCION (
-   NROTRANS             uniqueidentifier     not null,
+   NROTRANS             numeric              identity,
    NROUSUARIO           uniqueidentifier     not null,
    FECHA                datetime             not null,
    TABLA                varchar(100)         not null,
@@ -939,7 +906,7 @@ create table USUARIO (
    NROUSUARIO           uniqueidentifier     not null,
    NOMBRES              varchar(100)         not null,
    APELLIDOS            varchar(100)         not null,
-   USUARIO              varchar(100)         not null,
+   NOMBREUSUARIO        varchar(100)         not null,
    CONTRASENA           varchar(1000)        not null,
    CEDULA               numeric              not null,
    constraint PK_USUARIO primary key nonclustered (NROUSUARIO)
@@ -1019,26 +986,26 @@ alter table LINEAREGENERACION
 go
 
 alter table LISTADODEESPECIES
-   add constraint FK_LISTADOD_LISTESPEC_ESPECIE foreign key (CODESP)
+   add constraint FK_LISTADOD_LISTADODE_ESPECIE foreign key (CODESP)
       references ESPECIE (CODESP)
          on update cascade on delete cascade
 go
 
 alter table LISTADODEESPECIES
-   add constraint FK_LISTADOD_LISTESPEC_PROYECTO foreign key (NROPROY)
+   add constraint FK_LISTADOESPECIES_PROYECTO foreign key (NROPROY)
       references PROYECTO (NROPROY)
          on update cascade on delete cascade
 go
 
 alter table LISTADODEESTRATOS
-   add constraint FK_LISTADOD_LISTESTRA_ESTRATO foreign key (CODEST)
+   add constraint FK_LISTAESTRATOS_PROYECTO foreign key (NROPROY)
+      references PROYECTO (NROPROY)
+         on update cascade on delete cascade
+go
+
+alter table LISTADODEESTRATOS
+   add constraint FK_LISTADOD_LISTAESTR_ESTRATO foreign key (CODEST)
       references ESTRATO (CODEST)
-         on update cascade on delete cascade
-go
-
-alter table LISTADODEESTRATOS
-   add constraint FK_LISTADOD_LISTESTRA_PROYECTO foreign key (NROPROY)
-      references PROYECTO (NROPROY)
          on update cascade on delete cascade
 go
 
@@ -1054,24 +1021,18 @@ alter table PROYECTO
 go
 
 alter table PROYECTO
-   add constraint FK_PROYECTO_ES_DE_TIP_TIPOPROY foreign key (TIPOPOYECTO_ID)
-      references TIPOPROYECTO (TIPOPROYECTO_ID)
-         on update cascade on delete cascade
-go
-
-alter table PROYECTO
    add constraint FK_PROYECTO_REALIZA_TIPODISE foreign key (NOMTIPODISEMUEST)
       references TIPODISENOMUESTRAL (NOMTIPODISEMUEST)
          on update cascade on delete cascade
 go
 
 alter table PROYECTOSPORETAPA
-   add constraint FK_PROYECTO_CONTENEDOR foreign key (PRO_NROPROY)
+   add constraint FK_PROYECTO_CONTENEDOR foreign key (NROPROYCONTENEDOR)
       references PROYECTO (NROPROY)
 go
 
 alter table PROYECTOSPORETAPA
-   add constraint FK_PROYECTO_CONTENIDOS foreign key (NROPROY)
+   add constraint FK_PROYECTO_CONTENIDOS foreign key (NROPROYCONTENIDO)
       references PROYECTO (NROPROY)
 go
 
@@ -1082,14 +1043,14 @@ alter table TRANSACCION
 go
 
 alter table USO
-   add constraint FK_USO_USOLINEAN_LINEANOM foreign key (LINEANMAD)
-      references LINEANOMADERABLES (LINEANMAD)
+   add constraint FK_USO_TIPOUSO_TIPODEUS foreign key (NOMBRETIPOUSO)
+      references TIPODEUSO (NOMBRETIPOUSO)
          on update cascade on delete cascade
 go
 
 alter table USO
-   add constraint FK_USO_USOTIPOUS_TIPODEUS foreign key (NOMBRETIPOUSO)
-      references TIPODEUSO (NOMBRETIPOUSO)
+   add constraint FK_USO_USADOPOR_LINEANOM foreign key (LINEANMAD)
+      references LINEANOMADERABLES (LINEANMAD)
          on update cascade on delete cascade
 go
 

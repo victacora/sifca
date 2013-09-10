@@ -27,9 +27,9 @@ namespace SIFCA
             this.tipoInvenCbx.ValueMember = "NOMBRETIPOINV";
             this.tipoInvenCbx.Invalidate();
             //this.listaEspCbx.DataSource = speciesList.GetSpeciesLists();
-            this.listaEspCbx.DisplayMember = "NOMARCH";
-            this.listaEspCbx.ValueMember = "NOMARCH";
-            this.listaEspCbx.Invalidate();
+            //this.listaEspCbx.DisplayMember = "NOMARCH";
+            //this.listaEspCbx.ValueMember = "NOMARCH";
+            //this.listaEspCbx.Invalidate();
         }
 
         private void AceptarBtn_Click(object sender, EventArgs e)

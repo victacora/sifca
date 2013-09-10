@@ -22,7 +22,7 @@ namespace SIFCA_BLL
             return this.sifcaRepository.USUARIO.ToList();
         }
 
-        public USUARIO GetUser(int userId)
+        public USUARIO GetUser(Guid userId)
         {
             return this.sifcaRepository.USUARIO.Find(userId);
         }
@@ -44,7 +44,7 @@ namespace SIFCA_BLL
             }
         }
 
-        public void DeleteEUser(int userId)
+        public void DeleteUser(int userId)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace SIFCA_BLL
             }
         }
 
-        public void UpdateEUser(USUARIO user)
+        public void UpdateUser(USUARIO user)
         {
             try
             {

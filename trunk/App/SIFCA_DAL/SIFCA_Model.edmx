@@ -23,7 +23,6 @@
           <EntitySet Name="TIPODEUSO" EntityType="SIFCA_Model.Store.TIPODEUSO" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TIPODISENOMUESTRAL" EntityType="SIFCA_Model.Store.TIPODISENOMUESTRAL" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TIPOFORMULARIO" EntityType="SIFCA_Model.Store.TIPOFORMULARIO" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TIPOPROYECTO" EntityType="SIFCA_Model.Store.TIPOPROYECTO" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TRANSACCION" EntityType="SIFCA_Model.Store.TRANSACCION" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TSTUDENT" EntityType="SIFCA_Model.Store.TSTUDENT" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="USO" EntityType="SIFCA_Model.Store.USO" store:Type="Tables" Schema="dbo" />
@@ -76,28 +75,32 @@
             <End Role="ESPECIE" EntitySet="ESPECIE" />
             <End Role="LINEAREGENERACION" EntitySet="LINEAREGENERACION" />
           </AssociationSet>
-          <AssociationSet Name="FK_LISTADOD_LISTESTRA_ESTRATO" Association="SIFCA_Model.Store.FK_LISTADOD_LISTESTRA_ESTRATO">
-            <End Role="ESTRATO" EntitySet="ESTRATO" />
-            <End Role="LISTADODEESTRATOS" EntitySet="LISTADODEESTRATOS" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LISTADOD_LISTESTRA_PROYECTO" Association="SIFCA_Model.Store.FK_LISTADOD_LISTESTRA_PROYECTO">
-            <End Role="PROYECTO" EntitySet="PROYECTO" />
-            <End Role="LISTADODEESTRATOS" EntitySet="LISTADODEESTRATOS" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LISTADODEESPECIES_ESPECIE" Association="SIFCA_Model.Store.FK_LISTADODEESPECIES_ESPECIE">
+          <AssociationSet Name="FK_LISTADOD_LISTADODE_ESPECIE" Association="SIFCA_Model.Store.FK_LISTADOD_LISTADODE_ESPECIE">
             <End Role="ESPECIE" EntitySet="ESPECIE" />
             <End Role="LISTADODEESPECIES" EntitySet="LISTADODEESPECIES" />
           </AssociationSet>
-          <AssociationSet Name="FK_LISTADODEESPECIES_PROYECTO" Association="SIFCA_Model.Store.FK_LISTADODEESPECIES_PROYECTO">
+          <AssociationSet Name="FK_LISTADOD_LISTAESTR_ESTRATO" Association="SIFCA_Model.Store.FK_LISTADOD_LISTAESTR_ESTRATO">
+            <End Role="ESTRATO" EntitySet="ESTRATO" />
+            <End Role="LISTADODEESTRATOS" EntitySet="LISTADODEESTRATOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LISTADOESPECIES_PROYECTO" Association="SIFCA_Model.Store.FK_LISTADOESPECIES_PROYECTO">
             <End Role="PROYECTO" EntitySet="PROYECTO" />
             <End Role="LISTADODEESPECIES" EntitySet="LISTADODEESPECIES" />
           </AssociationSet>
+          <AssociationSet Name="FK_LISTAESTRATOS_PROYECTO" Association="SIFCA_Model.Store.FK_LISTAESTRATOS_PROYECTO">
+            <End Role="PROYECTO" EntitySet="PROYECTO" />
+            <End Role="LISTADODEESTRATOS" EntitySet="LISTADODEESTRATOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PROYECTO_CONTENEDOR" Association="SIFCA_Model.Store.FK_PROYECTO_CONTENEDOR">
+            <End Role="PROYECTO" EntitySet="PROYECTO" />
+            <End Role="PROYECTOSPORETAPA" EntitySet="PROYECTOSPORETAPA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PROYECTO_CONTENIDOS" Association="SIFCA_Model.Store.FK_PROYECTO_CONTENIDOS">
+            <End Role="PROYECTO" EntitySet="PROYECTO" />
+            <End Role="PROYECTOSPORETAPA" EntitySet="PROYECTOSPORETAPA" />
+          </AssociationSet>
           <AssociationSet Name="FK_PROYECTO_CREA_USUARIO" Association="SIFCA_Model.Store.FK_PROYECTO_CREA_USUARIO">
             <End Role="USUARIO" EntitySet="USUARIO" />
-            <End Role="PROYECTO" EntitySet="PROYECTO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PROYECTO_ES_DE_TIP_TIPOPROY" Association="SIFCA_Model.Store.FK_PROYECTO_ES_DE_TIP_TIPOPROY">
-            <End Role="TIPOPROYECTO" EntitySet="TIPOPROYECTO" />
             <End Role="PROYECTO" EntitySet="PROYECTO" />
           </AssociationSet>
           <AssociationSet Name="FK_PROYECTO_ES_OBJETIVO" Association="SIFCA_Model.Store.FK_PROYECTO_ES_OBJETIVO">
@@ -108,24 +111,16 @@
             <End Role="TIPODISENOMUESTRAL" EntitySet="TIPODISENOMUESTRAL" />
             <End Role="PROYECTO" EntitySet="PROYECTO" />
           </AssociationSet>
-          <AssociationSet Name="FK_PROYECTOSPORETAPA_PROYECTOCONTENEDOR" Association="SIFCA_Model.Store.FK_PROYECTOSPORETAPA_PROYECTOCONTENEDOR">
-            <End Role="PROYECTO" EntitySet="PROYECTO" />
-            <End Role="PROYECTOSPORETAPA" EntitySet="PROYECTOSPORETAPA" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PROYECTOSPORETAPA_PROYECTOCONTENIDO" Association="SIFCA_Model.Store.FK_PROYECTOSPORETAPA_PROYECTOCONTENIDO">
-            <End Role="PROYECTO" EntitySet="PROYECTO" />
-            <End Role="PROYECTOSPORETAPA" EntitySet="PROYECTOSPORETAPA" />
-          </AssociationSet>
           <AssociationSet Name="FK_TRANSACC_REGISTRA_USUARIO" Association="SIFCA_Model.Store.FK_TRANSACC_REGISTRA_USUARIO">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="TRANSACCION" EntitySet="TRANSACCION" />
           </AssociationSet>
-          <AssociationSet Name="FK_USO_LINEANOMADERABLES" Association="SIFCA_Model.Store.FK_USO_LINEANOMADERABLES">
-            <End Role="LINEANOMADERABLES" EntitySet="LINEANOMADERABLES" />
+          <AssociationSet Name="FK_USO_TIPOUSO_TIPODEUS" Association="SIFCA_Model.Store.FK_USO_TIPOUSO_TIPODEUS">
+            <End Role="TIPODEUSO" EntitySet="TIPODEUSO" />
             <End Role="USO" EntitySet="USO" />
           </AssociationSet>
-          <AssociationSet Name="FK_USO_TIPODEUSO" Association="SIFCA_Model.Store.FK_USO_TIPODEUSO">
-            <End Role="TIPODEUSO" EntitySet="TIPODEUSO" />
+          <AssociationSet Name="FK_USO_USADOPOR_LINEANOM" Association="SIFCA_Model.Store.FK_USO_USADOPOR_LINEANOM">
+            <End Role="LINEANOMADERABLES" EntitySet="LINEANOMADERABLES" />
             <End Role="USO" EntitySet="USO" />
           </AssociationSet>
         </EntityContainer>
@@ -133,7 +128,7 @@
           <Key>
             <PropertyRef Name="CODCALIDAD" />
           </Key>
-          <Property Name="CODCALIDAD" Type="decimal" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CODCALIDAD" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="DESCRIPCALIDAD" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="ESPECIE">
@@ -147,7 +142,7 @@
           <Property Name="FAMILIA" Type="varchar" MaxLength="200" />
           <Property Name="ZONAGEOGRAFICA" Type="varchar" MaxLength="200" />
           <Property Name="ZONADEVIDA" Type="varchar" MaxLength="200" />
-          <Property Name="DIAMMINCORTE" Type="decimal" />
+          <Property Name="DIAMMINCORTE" Type="numeric" />
         </EntityType>
         <EntityType Name="ESTADOSANITARIO">
           <Key>
@@ -160,7 +155,7 @@
           <Key>
             <PropertyRef Name="CODEST" />
           </Key>
-          <Property Name="CODEST" Type="decimal" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CODEST" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="DESCRIPESTRATO" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="FORMULARIO">
@@ -168,17 +163,17 @@
             <PropertyRef Name="NROFORMULARIO" />
           </Key>
           <Property Name="NROFORMULARIO" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="TIPFORM_ID" Type="decimal" Nullable="false" />
-          <Property Name="CODEST" Type="decimal" Nullable="false" />
+          <Property Name="TIPFORM_ID" Type="numeric" Nullable="false" />
+          <Property Name="CODEST" Type="numeric" Nullable="false" />
           <Property Name="NROUSUARIO" Type="uniqueidentifier" Nullable="false" />
           <Property Name="NROPROY" Type="uniqueidentifier" Nullable="false" />
           <Property Name="FECHACREACION" Type="datetime" Nullable="false" />
           <Property Name="HORAINICIO" Type="datetime" Nullable="false" />
           <Property Name="HORAFINAL" Type="datetime" Nullable="false" />
-          <Property Name="PARCELA" Type="decimal" Nullable="false" />
-          <Property Name="LINEA" Type="decimal" Nullable="false" />
-          <Property Name="COORDENADAX" Type="decimal" />
-          <Property Name="COORDENADAY" Type="decimal" />
+          <Property Name="PARCELA" Type="numeric" Nullable="false" />
+          <Property Name="LINEA" Type="numeric" Nullable="false" />
+          <Property Name="COORDENADAX" Type="numeric" />
+          <Property Name="COORDENADAY" Type="numeric" />
         </EntityType>
         <EntityType Name="GRUPOCOMERCIAL">
           <Key>
@@ -192,15 +187,15 @@
             <PropertyRef Name="LINEAINV" />
           </Key>
           <Property Name="LINEAINV" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="CODCALIDAD" Type="decimal" Nullable="false" />
+          <Property Name="CODCALIDAD" Type="numeric" Nullable="false" />
+          <Property Name="NROFORMULARIO" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ESTADO" Type="char" Nullable="false" MaxLength="2" />
           <Property Name="CODESP" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="NROFORMULARIO" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="NROARB" Type="decimal" />
-          <Property Name="CAP" Type="decimal" />
-          <Property Name="DAP" Type="decimal" />
-          <Property Name="ALTCOMER_M" Type="decimal" />
-          <Property Name="ALTTOT_M" Type="decimal" />
+          <Property Name="NROARB" Type="numeric" />
+          <Property Name="CAP" Type="numeric" />
+          <Property Name="DAP" Type="numeric" />
+          <Property Name="ALTCOMER_M" Type="numeric" />
+          <Property Name="ALTTOT_M" Type="numeric" />
           <Property Name="AREABASAL" Type="decimal" Scale="3" />
           <Property Name="VOLCOM" Type="decimal" Scale="3" />
           <Property Name="VOLTOT" Type="decimal" Scale="3" />
@@ -217,20 +212,20 @@
           <Key>
             <PropertyRef Name="LINEAREGEN" />
           </Key>
-          <Property Name="NROARB" Type="decimal" />
-          <Property Name="LATIZAL" Type="decimal" />
-          <Property Name="BRINZAL" Type="decimal" />
+          <Property Name="NROARB" Type="numeric" />
+          <Property Name="LATIZAL" Type="numeric" />
+          <Property Name="BRINZAL" Type="numeric" />
           <Property Name="LINEAREGEN" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="CODESP" Type="uniqueidentifier" Nullable="false" />
           <Property Name="NROFORMULARIO" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CODESP" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="LISTADODEESPECIES">
           <Key>
-            <PropertyRef Name="ESPECIE_CODESP" />
-            <PropertyRef Name="PROYECTO_NROPROY" />
+            <PropertyRef Name="CODESP" />
+            <PropertyRef Name="NROPROY" />
           </Key>
-          <Property Name="ESPECIE_CODESP" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PROYECTO_NROPROY" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CODESP" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NROPROY" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="LISTADODEESTRATOS">
           <Key>
@@ -238,7 +233,7 @@
             <PropertyRef Name="CODEST" />
           </Key>
           <Property Name="NROPROY" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="CODEST" Type="decimal" Nullable="false" />
+          <Property Name="CODEST" Type="numeric" Nullable="false" />
           <Property Name="PESO" Type="decimal" Scale="3" />
         </EntityType>
         <EntityType Name="OBJETIVOINVENTARIO">
@@ -254,7 +249,6 @@
           </Key>
           <Property Name="NROPROY" Type="uniqueidentifier" Nullable="false" />
           <Property Name="NROUSUARIO" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="TIPOPOYECTO_ID" Type="decimal" Nullable="false" />
           <Property Name="NOMBRETIPOINV" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="NOMTIPODISEMUEST" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="LUGAR" Type="varchar" Nullable="false" MaxLength="100" />
@@ -268,15 +262,16 @@
           <Property Name="AREAFUSTALESPORPARCELA" Type="decimal" Nullable="false" Scale="3" />
           <Property Name="FACTORDEFORMA" Type="decimal" Nullable="false" Scale="3" />
           <Property Name="FECHA" Type="datetime" Nullable="false" />
-          <Property Name="NUMEROETAPAS" Type="decimal" />
+          <Property Name="NUMEROETAPAS" Type="numeric" />
+          <Property Name="TIPOPROYECTO" Type="varchar" Nullable="false" MaxLength="2" />
         </EntityType>
         <EntityType Name="PROYECTOSPORETAPA">
           <Key>
-            <PropertyRef Name="PROYECTOCONTENIDO_NROPROY" />
-            <PropertyRef Name="PROYECTOCONTENDOR_NROPROY" />
+            <PropertyRef Name="NROPROYCONTENEDOR" />
+            <PropertyRef Name="NROPROYCONTENIDO" />
           </Key>
-          <Property Name="PROYECTOCONTENIDO_NROPROY" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PROYECTOCONTENDOR_NROPROY" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NROPROYCONTENEDOR" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NROPROYCONTENIDO" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="TIPODEUSO">
           <Key>
@@ -298,25 +293,17 @@
           </Key>
           <Property Name="NOMBRETIPOFORM" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="DESCRIPCION" Type="varchar" MaxLength="500" />
-          <Property Name="TIPFORM_ID" Type="decimal" Nullable="false" StoreGeneratedPattern="Identity" />
-        </EntityType>
-        <EntityType Name="TIPOPROYECTO">
-          <Key>
-            <PropertyRef Name="TIPOPROYECTO_ID" />
-          </Key>
-          <Property Name="TIPOPROYECTO_ID" Type="decimal" Nullable="false" />
-          <Property Name="DESCRIPCION" Type="varchar" Nullable="false" MaxLength="500" />
-          <Property Name="NOMBRETIPOPROYECTO" Type="varchar" MaxLength="100" />
+          <Property Name="TIPFORM_ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="TRANSACCION">
           <Key>
             <PropertyRef Name="NROTRANS" />
           </Key>
-          <Property Name="NROTRANS" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NROTRANS" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NROUSUARIO" Type="uniqueidentifier" Nullable="false" />
           <Property Name="FECHA" Type="datetime" Nullable="false" />
           <Property Name="TABLA" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="IDREGISTRO" Type="decimal" Nullable="false" />
+          <Property Name="IDREGISTRO" Type="numeric" Nullable="false" />
           <Property Name="OPERACION" Type="char" Nullable="false" MaxLength="1" />
           <Property Name="VALORESVIEJOS" Type="varchar" MaxLength="1024" />
           <Property Name="VALORESNUEVOS" Type="varchar" MaxLength="1024" />
@@ -327,17 +314,17 @@
             <PropertyRef Name="ALPHA" />
             <PropertyRef Name="VALOR" />
           </Key>
-          <Property Name="N" Type="decimal" Nullable="false" />
+          <Property Name="N" Type="numeric" Nullable="false" />
           <Property Name="ALPHA" Type="decimal" Nullable="false" Scale="3" />
           <Property Name="VALOR" Type="decimal" Nullable="false" Scale="3" />
         </EntityType>
         <EntityType Name="USO">
           <Key>
-            <PropertyRef Name="LINEANOMADERABLES_LINEANMAD" />
-            <PropertyRef Name="TIPODEUSO_NOMBRETIPOUSO" />
+            <PropertyRef Name="LINEANMAD" />
+            <PropertyRef Name="NOMBRETIPOUSO" />
           </Key>
-          <Property Name="LINEANOMADERABLES_LINEANMAD" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="TIPODEUSO_NOMBRETIPOUSO" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="LINEANMAD" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NOMBRETIPOUSO" Type="varchar" Nullable="false" MaxLength="100" />
         </EntityType>
         <EntityType Name="USUARIO">
           <Key>
@@ -348,10 +335,12 @@
           <Property Name="APELLIDOS" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="NOMBREUSUARIO" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="CONTRASENA" Type="varchar" Nullable="false" MaxLength="1000" />
-          <Property Name="CEDULA" Type="decimal" Nullable="false" />
+          <Property Name="CEDULA" Type="numeric" Nullable="false" />
         </EntityType>
         <Association Name="FK_ESPECIE_PERTENECE_GRUPOCOM">
-          <End Role="GRUPOCOMERCIAL" Type="SIFCA_Model.Store.GRUPOCOMERCIAL" Multiplicity="1" />
+          <End Role="GRUPOCOMERCIAL" Type="SIFCA_Model.Store.GRUPOCOMERCIAL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ESPECIE" Type="SIFCA_Model.Store.ESPECIE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GRUPOCOMERCIAL">
@@ -363,7 +352,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_FORMULAR_DESARROLL_PROYECTO">
-          <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="1" />
+          <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="FORMULARIO" Type="SIFCA_Model.Store.FORMULARIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PROYECTO">
@@ -375,7 +366,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_FORMULAR_ES_DE_TIPOFORM">
-          <End Role="TIPOFORMULARIO" Type="SIFCA_Model.Store.TIPOFORMULARIO" Multiplicity="1" />
+          <End Role="TIPOFORMULARIO" Type="SIFCA_Model.Store.TIPOFORMULARIO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="FORMULARIO" Type="SIFCA_Model.Store.FORMULARIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TIPOFORMULARIO">
@@ -387,7 +380,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_FORMULAR_ES_REPONS_USUARIO">
-          <End Role="USUARIO" Type="SIFCA_Model.Store.USUARIO" Multiplicity="1" />
+          <End Role="USUARIO" Type="SIFCA_Model.Store.USUARIO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="FORMULARIO" Type="SIFCA_Model.Store.FORMULARIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USUARIO">
@@ -399,7 +394,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_FORMULAR_MANEJA_ESTRATO">
-          <End Role="ESTRATO" Type="SIFCA_Model.Store.ESTRATO" Multiplicity="1" />
+          <End Role="ESTRATO" Type="SIFCA_Model.Store.ESTRATO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="FORMULARIO" Type="SIFCA_Model.Store.FORMULARIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ESTRATO">
@@ -411,7 +408,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LINEAINV_ASOCIADO_ESTADOSA">
-          <End Role="ESTADOSANITARIO" Type="SIFCA_Model.Store.ESTADOSANITARIO" Multiplicity="1" />
+          <End Role="ESTADOSANITARIO" Type="SIFCA_Model.Store.ESTADOSANITARIO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LINEAINVENTARIO" Type="SIFCA_Model.Store.LINEAINVENTARIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ESTADOSANITARIO">
@@ -423,7 +422,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LINEAINV_CONTIENE_ESPECIE">
-          <End Role="ESPECIE" Type="SIFCA_Model.Store.ESPECIE" Multiplicity="1" />
+          <End Role="ESPECIE" Type="SIFCA_Model.Store.ESPECIE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LINEAINVENTARIO" Type="SIFCA_Model.Store.LINEAINVENTARIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ESPECIE">
@@ -435,7 +436,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LINEAINV_LLENA_FORMULAR">
-          <End Role="FORMULARIO" Type="SIFCA_Model.Store.FORMULARIO" Multiplicity="1" />
+          <End Role="FORMULARIO" Type="SIFCA_Model.Store.FORMULARIO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LINEAINVENTARIO" Type="SIFCA_Model.Store.LINEAINVENTARIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FORMULARIO">
@@ -447,7 +450,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LINEAINV_POSEE_CALIDAD">
-          <End Role="CALIDAD" Type="SIFCA_Model.Store.CALIDAD" Multiplicity="1" />
+          <End Role="CALIDAD" Type="SIFCA_Model.Store.CALIDAD" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LINEAINVENTARIO" Type="SIFCA_Model.Store.LINEAINVENTARIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CALIDAD">
@@ -459,7 +464,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LINEANOM_RECOLECTA_FORMULAR">
-          <End Role="FORMULARIO" Type="SIFCA_Model.Store.FORMULARIO" Multiplicity="1" />
+          <End Role="FORMULARIO" Type="SIFCA_Model.Store.FORMULARIO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LINEANOMADERABLES" Type="SIFCA_Model.Store.LINEANOMADERABLES" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FORMULARIO">
@@ -471,7 +478,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LINEAREG_COMPLETA_FORMULAR">
-          <End Role="FORMULARIO" Type="SIFCA_Model.Store.FORMULARIO" Multiplicity="1" />
+          <End Role="FORMULARIO" Type="SIFCA_Model.Store.FORMULARIO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LINEAREGENERACION" Type="SIFCA_Model.Store.LINEAREGENERACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FORMULARIO">
@@ -483,7 +492,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LINEAREG_EVALUACIO_ESPECIE">
-          <End Role="ESPECIE" Type="SIFCA_Model.Store.ESPECIE" Multiplicity="1" />
+          <End Role="ESPECIE" Type="SIFCA_Model.Store.ESPECIE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LINEAREGENERACION" Type="SIFCA_Model.Store.LINEAREGENERACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ESPECIE">
@@ -494,8 +505,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LISTADOD_LISTESTRA_ESTRATO">
-          <End Role="ESTRATO" Type="SIFCA_Model.Store.ESTRATO" Multiplicity="1" />
+        <Association Name="FK_LISTADOD_LISTADODE_ESPECIE">
+          <End Role="ESPECIE" Type="SIFCA_Model.Store.ESPECIE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LISTADODEESPECIES" Type="SIFCA_Model.Store.LISTADODEESPECIES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESPECIE">
+              <PropertyRef Name="CODESP" />
+            </Principal>
+            <Dependent Role="LISTADODEESPECIES">
+              <PropertyRef Name="CODESP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LISTADOD_LISTAESTR_ESTRATO">
+          <End Role="ESTRATO" Type="SIFCA_Model.Store.ESTRATO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LISTADODEESTRATOS" Type="SIFCA_Model.Store.LISTADODEESTRATOS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ESTRATO">
@@ -506,8 +533,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LISTADOD_LISTESTRA_PROYECTO">
-          <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="1" />
+        <Association Name="FK_LISTADOESPECIES_PROYECTO">
+          <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LISTADODEESPECIES" Type="SIFCA_Model.Store.LISTADODEESPECIES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROYECTO">
+              <PropertyRef Name="NROPROY" />
+            </Principal>
+            <Dependent Role="LISTADODEESPECIES">
+              <PropertyRef Name="NROPROY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LISTAESTRATOS_PROYECTO">
+          <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LISTADODEESTRATOS" Type="SIFCA_Model.Store.LISTADODEESTRATOS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PROYECTO">
@@ -518,27 +561,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LISTADODEESPECIES_ESPECIE">
-          <End Role="ESPECIE" Type="SIFCA_Model.Store.ESPECIE" Multiplicity="1" />
-          <End Role="LISTADODEESPECIES" Type="SIFCA_Model.Store.LISTADODEESPECIES" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ESPECIE">
-              <PropertyRef Name="CODESP" />
-            </Principal>
-            <Dependent Role="LISTADODEESPECIES">
-              <PropertyRef Name="ESPECIE_CODESP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LISTADODEESPECIES_PROYECTO">
+        <Association Name="FK_PROYECTO_CONTENEDOR">
           <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="1" />
-          <End Role="LISTADODEESPECIES" Type="SIFCA_Model.Store.LISTADODEESPECIES" Multiplicity="*" />
+          <End Role="PROYECTOSPORETAPA" Type="SIFCA_Model.Store.PROYECTOSPORETAPA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PROYECTO">
               <PropertyRef Name="NROPROY" />
             </Principal>
-            <Dependent Role="LISTADODEESPECIES">
-              <PropertyRef Name="PROYECTO_NROPROY" />
+            <Dependent Role="PROYECTOSPORETAPA">
+              <PropertyRef Name="NROPROYCONTENEDOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PROYECTO_CONTENIDOS">
+          <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="1" />
+          <End Role="PROYECTOSPORETAPA" Type="SIFCA_Model.Store.PROYECTOSPORETAPA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROYECTO">
+              <PropertyRef Name="NROPROY" />
+            </Principal>
+            <Dependent Role="PROYECTOSPORETAPA">
+              <PropertyRef Name="NROPROYCONTENIDO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -554,20 +597,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PROYECTO_ES_DE_TIP_TIPOPROY">
-          <End Role="TIPOPROYECTO" Type="SIFCA_Model.Store.TIPOPROYECTO" Multiplicity="1" />
-          <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TIPOPROYECTO">
-              <PropertyRef Name="TIPOPROYECTO_ID" />
-            </Principal>
-            <Dependent Role="PROYECTO">
-              <PropertyRef Name="TIPOPOYECTO_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PROYECTO_ES_OBJETIVO">
-          <End Role="OBJETIVOINVENTARIO" Type="SIFCA_Model.Store.OBJETIVOINVENTARIO" Multiplicity="1" />
+          <End Role="OBJETIVOINVENTARIO" Type="SIFCA_Model.Store.OBJETIVOINVENTARIO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="OBJETIVOINVENTARIO">
@@ -579,7 +612,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PROYECTO_REALIZA_TIPODISE">
-          <End Role="TIPODISENOMUESTRAL" Type="SIFCA_Model.Store.TIPODISENOMUESTRAL" Multiplicity="1" />
+          <End Role="TIPODISENOMUESTRAL" Type="SIFCA_Model.Store.TIPODISENOMUESTRAL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TIPODISENOMUESTRAL">
@@ -590,32 +625,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PROYECTOSPORETAPA_PROYECTOCONTENEDOR">
-          <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="1" />
-          <End Role="PROYECTOSPORETAPA" Type="SIFCA_Model.Store.PROYECTOSPORETAPA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PROYECTO">
-              <PropertyRef Name="NROPROY" />
-            </Principal>
-            <Dependent Role="PROYECTOSPORETAPA">
-              <PropertyRef Name="PROYECTOCONTENIDO_NROPROY" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PROYECTOSPORETAPA_PROYECTOCONTENIDO">
-          <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="1" />
-          <End Role="PROYECTOSPORETAPA" Type="SIFCA_Model.Store.PROYECTOSPORETAPA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PROYECTO">
-              <PropertyRef Name="NROPROY" />
-            </Principal>
-            <Dependent Role="PROYECTOSPORETAPA">
-              <PropertyRef Name="PROYECTOCONTENDOR_NROPROY" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TRANSACC_REGISTRA_USUARIO">
-          <End Role="USUARIO" Type="SIFCA_Model.Store.USUARIO" Multiplicity="1" />
+          <End Role="USUARIO" Type="SIFCA_Model.Store.USUARIO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="TRANSACCION" Type="SIFCA_Model.Store.TRANSACCION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USUARIO">
@@ -626,27 +639,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_USO_LINEANOMADERABLES">
-          <End Role="LINEANOMADERABLES" Type="SIFCA_Model.Store.LINEANOMADERABLES" Multiplicity="1" />
-          <End Role="USO" Type="SIFCA_Model.Store.USO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LINEANOMADERABLES">
-              <PropertyRef Name="LINEANMAD" />
-            </Principal>
-            <Dependent Role="USO">
-              <PropertyRef Name="LINEANOMADERABLES_LINEANMAD" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_USO_TIPODEUSO">
-          <End Role="TIPODEUSO" Type="SIFCA_Model.Store.TIPODEUSO" Multiplicity="1" />
+        <Association Name="FK_USO_TIPOUSO_TIPODEUS">
+          <End Role="TIPODEUSO" Type="SIFCA_Model.Store.TIPODEUSO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="USO" Type="SIFCA_Model.Store.USO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TIPODEUSO">
               <PropertyRef Name="NOMBRETIPOUSO" />
             </Principal>
             <Dependent Role="USO">
-              <PropertyRef Name="TIPODEUSO_NOMBRETIPOUSO" />
+              <PropertyRef Name="NOMBRETIPOUSO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USO_USADOPOR_LINEANOM">
+          <End Role="LINEANOMADERABLES" Type="SIFCA_Model.Store.LINEANOMADERABLES" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="USO" Type="SIFCA_Model.Store.USO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LINEANOMADERABLES">
+              <PropertyRef Name="LINEANMAD" />
+            </Principal>
+            <Dependent Role="USO">
+              <PropertyRef Name="LINEANMAD" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -670,7 +687,6 @@
           <EntitySet Name="TIPODEUSO" EntityType="SIFCA_Model.TIPODEUSO" />
           <EntitySet Name="TIPODISENOMUESTRAL" EntityType="SIFCA_Model.TIPODISENOMUESTRAL" />
           <EntitySet Name="TIPOFORMULARIO" EntityType="SIFCA_Model.TIPOFORMULARIO" />
-          <EntitySet Name="TIPOPROYECTO" EntityType="SIFCA_Model.TIPOPROYECTO" />
           <EntitySet Name="TRANSACCION" EntityType="SIFCA_Model.TRANSACCION" />
           <EntitySet Name="TSTUDENT" EntityType="SIFCA_Model.TSTUDENT" />
           <EntitySet Name="USUARIO" EntityType="SIFCA_Model.USUARIO" />
@@ -698,7 +714,7 @@
             <End Role="ESTRATO" EntitySet="ESTRATO" />
             <End Role="FORMULARIO" EntitySet="FORMULARIO" />
           </AssociationSet>
-          <AssociationSet Name="FK_LISTADOD_LISTESTRA_ESTRATO" Association="SIFCA_Model.FK_LISTADOD_LISTESTRA_ESTRATO">
+          <AssociationSet Name="FK_LISTADOD_LISTAESTR_ESTRATO" Association="SIFCA_Model.FK_LISTADOD_LISTAESTR_ESTRATO">
             <End Role="ESTRATO" EntitySet="ESTRATO" />
             <End Role="LISTADODEESTRATOS" EntitySet="LISTADODEESTRATOS" />
           </AssociationSet>
@@ -726,7 +742,7 @@
             <End Role="FORMULARIO" EntitySet="FORMULARIO" />
             <End Role="LINEAREGENERACION" EntitySet="LINEAREGENERACION" />
           </AssociationSet>
-          <AssociationSet Name="FK_LISTADOD_LISTESTRA_PROYECTO" Association="SIFCA_Model.FK_LISTADOD_LISTESTRA_PROYECTO">
+          <AssociationSet Name="FK_LISTAESTRATOS_PROYECTO" Association="SIFCA_Model.FK_LISTAESTRATOS_PROYECTO">
             <End Role="PROYECTO" EntitySet="PROYECTO" />
             <End Role="LISTADODEESTRATOS" EntitySet="LISTADODEESTRATOS" />
           </AssociationSet>
@@ -736,10 +752,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_PROYECTO_CREA_USUARIO" Association="SIFCA_Model.FK_PROYECTO_CREA_USUARIO">
             <End Role="USUARIO" EntitySet="USUARIO" />
-            <End Role="PROYECTO" EntitySet="PROYECTO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PROYECTO_ES_DE_TIP_TIPOPROY" Association="SIFCA_Model.FK_PROYECTO_ES_DE_TIP_TIPOPROY">
-            <End Role="TIPOPROYECTO" EntitySet="TIPOPROYECTO" />
             <End Role="PROYECTO" EntitySet="PROYECTO" />
           </AssociationSet>
           <AssociationSet Name="FK_PROYECTO_REALIZA_TIPODISE" Association="SIFCA_Model.FK_PROYECTO_REALIZA_TIPODISE">
@@ -759,8 +771,8 @@
             <End Role="PROYECTO1" EntitySet="PROYECTO" />
           </AssociationSet>
           <AssociationSet Name="USO" Association="SIFCA_Model.USO">
-            <End Role="LINEANOMADERABLES" EntitySet="LINEANOMADERABLES" />
             <End Role="TIPODEUSO" EntitySet="TIPODEUSO" />
+            <End Role="LINEANOMADERABLES" EntitySet="LINEANOMADERABLES" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="CALIDAD">
@@ -803,7 +815,7 @@
           <Property Type="Decimal" Name="CODEST" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="DESCRIPESTRATO" MaxLength="500" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_FORMULAR_MANEJA_ESTRATO" FromRole="ESTRATO" ToRole="FORMULARIO" />
-          <NavigationProperty Name="LISTADODEESTRATOS" Relationship="SIFCA_Model.FK_LISTADOD_LISTESTRA_ESTRATO" FromRole="ESTRATO" ToRole="LISTADODEESTRATOS" />
+          <NavigationProperty Name="LISTADODEESTRATOS" Relationship="SIFCA_Model.FK_LISTADOD_LISTAESTR_ESTRATO" FromRole="ESTRATO" ToRole="LISTADODEESTRATOS" />
         </EntityType>
         <EntityType Name="FORMULARIO">
           <Key>
@@ -843,9 +855,9 @@
           </Key>
           <Property Type="Guid" Name="LINEAINV" Nullable="false" />
           <Property Type="Decimal" Name="CODCALIDAD" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Guid" Name="NROFORMULARIO" Nullable="false" />
           <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
           <Property Type="Guid" Name="CODESP" Nullable="false" />
-          <Property Type="Guid" Name="NROFORMULARIO" Nullable="false" />
           <Property Type="Decimal" Name="NROARB" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="CAP" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="DAP" Precision="18" Scale="0" />
@@ -877,8 +889,8 @@
           <Property Type="Decimal" Name="LATIZAL" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="BRINZAL" Precision="18" Scale="0" />
           <Property Type="Guid" Name="LINEAREGEN" Nullable="false" />
-          <Property Type="Guid" Name="CODESP" Nullable="false" />
           <Property Type="Guid" Name="NROFORMULARIO" Nullable="false" />
+          <Property Type="Guid" Name="CODESP" Nullable="false" />
           <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.FK_LINEAREG_EVALUACIO_ESPECIE" FromRole="LINEAREGENERACION" ToRole="ESPECIE" />
           <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_LINEAREG_COMPLETA_FORMULAR" FromRole="LINEAREGENERACION" ToRole="FORMULARIO" />
         </EntityType>
@@ -890,8 +902,8 @@
           <Property Type="Guid" Name="NROPROY" Nullable="false" />
           <Property Type="Decimal" Name="CODEST" Nullable="false" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="PESO" Precision="18" Scale="3" />
-          <NavigationProperty Name="ESTRATO" Relationship="SIFCA_Model.FK_LISTADOD_LISTESTRA_ESTRATO" FromRole="LISTADODEESTRATOS" ToRole="ESTRATO" />
-          <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_LISTADOD_LISTESTRA_PROYECTO" FromRole="LISTADODEESTRATOS" ToRole="PROYECTO" />
+          <NavigationProperty Name="ESTRATO" Relationship="SIFCA_Model.FK_LISTADOD_LISTAESTR_ESTRATO" FromRole="LISTADODEESTRATOS" ToRole="ESTRATO" />
+          <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_LISTAESTRATOS_PROYECTO" FromRole="LISTADODEESTRATOS" ToRole="PROYECTO" />
         </EntityType>
         <EntityType Name="OBJETIVOINVENTARIO">
           <Key>
@@ -907,7 +919,6 @@
           </Key>
           <Property Type="Guid" Name="NROPROY" Nullable="false" />
           <Property Type="Guid" Name="NROUSUARIO" Nullable="false" />
-          <Property Type="Decimal" Name="TIPOPOYECTO_ID" Nullable="false" Precision="18" Scale="0" />
           <Property Type="String" Name="NOMBRETIPOINV" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="NOMTIPODISEMUEST" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="LUGAR" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -922,11 +933,11 @@
           <Property Type="Decimal" Name="FACTORDEFORMA" Nullable="false" Precision="18" Scale="3" />
           <Property Type="DateTime" Name="FECHA" Nullable="false" />
           <Property Type="Decimal" Name="NUMEROETAPAS" Precision="18" Scale="0" />
+          <Property Type="String" Name="TIPOPROYECTO" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_FORMULAR_DESARROLL_PROYECTO" FromRole="PROYECTO" ToRole="FORMULARIO" />
-          <NavigationProperty Name="LISTADODEESTRATOS" Relationship="SIFCA_Model.FK_LISTADOD_LISTESTRA_PROYECTO" FromRole="PROYECTO" ToRole="LISTADODEESTRATOS" />
+          <NavigationProperty Name="LISTADODEESTRATOS" Relationship="SIFCA_Model.FK_LISTAESTRATOS_PROYECTO" FromRole="PROYECTO" ToRole="LISTADODEESTRATOS" />
           <NavigationProperty Name="OBJETIVOINVENTARIO" Relationship="SIFCA_Model.FK_PROYECTO_ES_OBJETIVO" FromRole="PROYECTO" ToRole="OBJETIVOINVENTARIO" />
           <NavigationProperty Name="USUARIO" Relationship="SIFCA_Model.FK_PROYECTO_CREA_USUARIO" FromRole="PROYECTO" ToRole="USUARIO" />
-          <NavigationProperty Name="TIPOPROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_ES_DE_TIP_TIPOPROY" FromRole="PROYECTO" ToRole="TIPOPROYECTO" />
           <NavigationProperty Name="TIPODISENOMUESTRAL" Relationship="SIFCA_Model.FK_PROYECTO_REALIZA_TIPODISE" FromRole="PROYECTO" ToRole="TIPODISENOMUESTRAL" />
           <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.LISTADODEESPECIES" FromRole="PROYECTO" ToRole="ESPECIE" />
           <NavigationProperty Name="PROYECTO1" Relationship="SIFCA_Model.PROYECTOSPORETAPA" FromRole="PROYECTO" ToRole="PROYECTO1" />
@@ -957,20 +968,11 @@
           <Property Type="Decimal" Name="TIPFORM_ID" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_FORMULAR_ES_DE_TIPOFORM" FromRole="TIPOFORMULARIO" ToRole="FORMULARIO" />
         </EntityType>
-        <EntityType Name="TIPOPROYECTO">
-          <Key>
-            <PropertyRef Name="TIPOPROYECTO_ID" />
-          </Key>
-          <Property Type="Decimal" Name="TIPOPROYECTO_ID" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="DESCRIPCION" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NOMBRETIPOPROYECTO" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_ES_DE_TIP_TIPOPROY" FromRole="TIPOPROYECTO" ToRole="PROYECTO" />
-        </EntityType>
         <EntityType Name="TRANSACCION">
           <Key>
             <PropertyRef Name="NROTRANS" />
           </Key>
-          <Property Type="Guid" Name="NROTRANS" Nullable="false" />
+          <Property Type="Decimal" Name="NROTRANS" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Guid" Name="NROUSUARIO" Nullable="false" />
           <Property Type="DateTime" Name="FECHA" Nullable="false" />
           <Property Type="String" Name="TABLA" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -1076,7 +1078,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LISTADOD_LISTESTRA_ESTRATO">
+        <Association Name="FK_LISTADOD_LISTAESTR_ESTRATO">
           <End Type="SIFCA_Model.ESTRATO" Role="ESTRATO" Multiplicity="1" />
           <End Type="SIFCA_Model.LISTADODEESTRATOS" Role="LISTADODEESTRATOS" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1160,7 +1162,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LISTADOD_LISTESTRA_PROYECTO">
+        <Association Name="FK_LISTAESTRATOS_PROYECTO">
           <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="1" />
           <End Type="SIFCA_Model.LISTADODEESTRATOS" Role="LISTADODEESTRATOS" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1193,18 +1195,6 @@
             </Principal>
             <Dependent Role="PROYECTO">
               <PropertyRef Name="NROUSUARIO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PROYECTO_ES_DE_TIP_TIPOPROY">
-          <End Type="SIFCA_Model.TIPOPROYECTO" Role="TIPOPROYECTO" Multiplicity="1" />
-          <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TIPOPROYECTO">
-              <PropertyRef Name="TIPOPROYECTO_ID" />
-            </Principal>
-            <Dependent Role="PROYECTO">
-              <PropertyRef Name="TIPOPOYECTO_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1241,8 +1231,8 @@
           <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO1" Multiplicity="*" />
         </Association>
         <Association Name="USO">
-          <End Type="SIFCA_Model.LINEANOMADERABLES" Role="LINEANOMADERABLES" Multiplicity="*" />
           <End Type="SIFCA_Model.TIPODEUSO" Role="TIPODEUSO" Multiplicity="*" />
+          <End Type="SIFCA_Model.LINEANOMADERABLES" Role="LINEANOMADERABLES" Multiplicity="*" />
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -1325,9 +1315,9 @@
                 <ScalarProperty Name="DAP" ColumnName="DAP" />
                 <ScalarProperty Name="CAP" ColumnName="CAP" />
                 <ScalarProperty Name="NROARB" ColumnName="NROARB" />
-                <ScalarProperty Name="NROFORMULARIO" ColumnName="NROFORMULARIO" />
                 <ScalarProperty Name="CODESP" ColumnName="CODESP" />
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="NROFORMULARIO" ColumnName="NROFORMULARIO" />
                 <ScalarProperty Name="CODCALIDAD" ColumnName="CODCALIDAD" />
                 <ScalarProperty Name="LINEAINV" ColumnName="LINEAINV" />
               </MappingFragment>
@@ -1345,8 +1335,8 @@
           <EntitySetMapping Name="LINEAREGENERACION">
             <EntityTypeMapping TypeName="SIFCA_Model.LINEAREGENERACION">
               <MappingFragment StoreEntitySet="LINEAREGENERACION">
-                <ScalarProperty Name="NROFORMULARIO" ColumnName="NROFORMULARIO" />
                 <ScalarProperty Name="CODESP" ColumnName="CODESP" />
+                <ScalarProperty Name="NROFORMULARIO" ColumnName="NROFORMULARIO" />
                 <ScalarProperty Name="LINEAREGEN" ColumnName="LINEAREGEN" />
                 <ScalarProperty Name="BRINZAL" ColumnName="BRINZAL" />
                 <ScalarProperty Name="LATIZAL" ColumnName="LATIZAL" />
@@ -1374,6 +1364,7 @@
           <EntitySetMapping Name="PROYECTO">
             <EntityTypeMapping TypeName="SIFCA_Model.PROYECTO">
               <MappingFragment StoreEntitySet="PROYECTO">
+                <ScalarProperty Name="TIPOPROYECTO" ColumnName="TIPOPROYECTO" />
                 <ScalarProperty Name="NUMEROETAPAS" ColumnName="NUMEROETAPAS" />
                 <ScalarProperty Name="FECHA" ColumnName="FECHA" />
                 <ScalarProperty Name="FACTORDEFORMA" ColumnName="FACTORDEFORMA" />
@@ -1388,7 +1379,6 @@
                 <ScalarProperty Name="LUGAR" ColumnName="LUGAR" />
                 <ScalarProperty Name="NOMTIPODISEMUEST" ColumnName="NOMTIPODISEMUEST" />
                 <ScalarProperty Name="NOMBRETIPOINV" ColumnName="NOMBRETIPOINV" />
-                <ScalarProperty Name="TIPOPOYECTO_ID" ColumnName="TIPOPOYECTO_ID" />
                 <ScalarProperty Name="NROUSUARIO" ColumnName="NROUSUARIO" />
                 <ScalarProperty Name="NROPROY" ColumnName="NROPROY" />
               </MappingFragment>
@@ -1416,15 +1406,6 @@
                 <ScalarProperty Name="TIPFORM_ID" ColumnName="TIPFORM_ID" />
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
                 <ScalarProperty Name="NOMBRETIPOFORM" ColumnName="NOMBRETIPOFORM" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TIPOPROYECTO">
-            <EntityTypeMapping TypeName="SIFCA_Model.TIPOPROYECTO">
-              <MappingFragment StoreEntitySet="TIPOPROYECTO">
-                <ScalarProperty Name="NOMBRETIPOPROYECTO" ColumnName="NOMBRETIPOPROYECTO" />
-                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-                <ScalarProperty Name="TIPOPROYECTO_ID" ColumnName="TIPOPROYECTO_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1465,26 +1446,26 @@
           </EntitySetMapping>
           <AssociationSetMapping Name="LISTADODEESPECIES" TypeName="SIFCA_Model.LISTADODEESPECIES" StoreEntitySet="LISTADODEESPECIES">
             <EndProperty Name="PROYECTO">
-              <ScalarProperty Name="NROPROY" ColumnName="PROYECTO_NROPROY" />
+              <ScalarProperty Name="NROPROY" ColumnName="NROPROY" />
             </EndProperty>
             <EndProperty Name="ESPECIE">
-              <ScalarProperty Name="CODESP" ColumnName="ESPECIE_CODESP" />
+              <ScalarProperty Name="CODESP" ColumnName="CODESP" />
             </EndProperty>
           </AssociationSetMapping>
           <AssociationSetMapping Name="PROYECTOSPORETAPA" TypeName="SIFCA_Model.PROYECTOSPORETAPA" StoreEntitySet="PROYECTOSPORETAPA">
             <EndProperty Name="PROYECTO1">
-              <ScalarProperty Name="NROPROY" ColumnName="PROYECTOCONTENDOR_NROPROY" />
+              <ScalarProperty Name="NROPROY" ColumnName="NROPROYCONTENIDO" />
             </EndProperty>
             <EndProperty Name="PROYECTO">
-              <ScalarProperty Name="NROPROY" ColumnName="PROYECTOCONTENIDO_NROPROY" />
+              <ScalarProperty Name="NROPROY" ColumnName="NROPROYCONTENEDOR" />
             </EndProperty>
           </AssociationSetMapping>
           <AssociationSetMapping Name="USO" TypeName="SIFCA_Model.USO" StoreEntitySet="USO">
-            <EndProperty Name="TIPODEUSO">
-              <ScalarProperty Name="NOMBRETIPOUSO" ColumnName="TIPODEUSO_NOMBRETIPOUSO" />
-            </EndProperty>
             <EndProperty Name="LINEANOMADERABLES">
-              <ScalarProperty Name="LINEANMAD" ColumnName="LINEANOMADERABLES_LINEANMAD" />
+              <ScalarProperty Name="LINEANMAD" ColumnName="LINEANMAD" />
+            </EndProperty>
+            <EndProperty Name="TIPODEUSO">
+              <ScalarProperty Name="NOMBRETIPOUSO" ColumnName="NOMBRETIPOUSO" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>
@@ -1508,141 +1489,183 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="SIFCA_Model" ZoomLevel="67">
-        <EntityTypeShape EntityType="SIFCA_Model.CALIDAD" Width="1.875" PointX="39.375" PointY="19.25" Height="1.5956835937499818" />
-        <EntityTypeShape EntityType="SIFCA_Model.ESPECIE" Width="2.5" PointX="24.75" PointY="5.625" Height="3.3263964843749818" />
-        <EntityTypeShape EntityType="SIFCA_Model.ESTADOSANITARIO" Width="1.5" PointX="41.75" PointY="15.625" Height="1.5956835937499818" />
-        <EntityTypeShape EntityType="SIFCA_Model.ESTRATO" Width="1.5" PointX="19.75" PointY="3" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="SIFCA_Model.FORMULARIO" Width="2.25" PointX="22.25" PointY="14" Height="4.6725065104166106" />
-        <EntityTypeShape EntityType="SIFCA_Model.GRUPOCOMERCIAL" Width="1.5" PointX="28.375" PointY="6.75" Height="1.5956835937499818" />
-        <EntityTypeShape EntityType="SIFCA_Model.LINEAINVENTARIO" Width="2.25" PointX="25.75" PointY="24.375" Height="4.287903645833353" />
-        <EntityTypeShape EntityType="SIFCA_Model.LINEANOMADERABLES" Width="1.5" PointX="23.25" PointY="20" Height="1.980286458333353" />
-        <EntityTypeShape EntityType="SIFCA_Model.LINEAREGENERACION" Width="2.5" PointX="21.5" PointY="7.75" Height="2.557190755208353" />
-        <EntityTypeShape EntityType="SIFCA_Model.LISTADODEESTRATOS" Width="2" PointX="34.75" PointY="12.125" Height="1.980286458333353" />
-        <EntityTypeShape EntityType="SIFCA_Model.OBJETIVOINVENTARIO" Width="2.25" PointX="34.5" PointY="14.375" Height="1.5956835937499818" />
-        <EntityTypeShape EntityType="SIFCA_Model.PROYECTO" Width="3" PointX="29.125" PointY="10.125" Height="6.018616536458353" />
-        <EntityTypeShape EntityType="SIFCA_Model.TIPODEUSO" Width="1.5" PointX="23.375" PointY="23.25" Height="1.5956835937499818" />
-        <EntityTypeShape EntityType="SIFCA_Model.TIPODISENOMUESTRAL" Width="2.375" PointX="31" PointY="7.375" Height="1.5956835937499818" />
-        <EntityTypeShape EntityType="SIFCA_Model.TIPOFORMULARIO" Width="1.5" PointX="20.75" PointY="18.75" Height="1.7879850260416106" />
-        <EntityTypeShape EntityType="SIFCA_Model.TIPOPROYECTO" Width="1.5" PointX="31.125" PointY="17.75" Height="1.7879850260416106" />
-        <EntityTypeShape EntityType="SIFCA_Model.TRANSACCION" Width="3.25" PointX="14.625" PointY="19.25" Height="2.7494921874999818" />
-        <EntityTypeShape EntityType="SIFCA_Model.TSTUDENT" Width="3.875" PointX="38.875" PointY="2.75" Height="1.5956835937499818" />
-        <EntityTypeShape EntityType="SIFCA_Model.USUARIO" Width="2.75" PointX="16.25" PointY="13.625" Height="2.7494921874999818" />
+        <EntityTypeShape EntityType="SIFCA_Model.CALIDAD" Width="1.5" PointX="6" PointY="16.125" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="SIFCA_Model.ESPECIE" Width="1.5" PointX="3.75" PointY="1" Height="3.326396484374996" />
+        <EntityTypeShape EntityType="SIFCA_Model.ESTADOSANITARIO" Width="1.5" PointX="6" PointY="18.375" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="SIFCA_Model.ESTRATO" Width="1.5" PointX="0.75" PointY="5.5" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="SIFCA_Model.FORMULARIO" Width="1.5" PointX="3" PointY="9.75" Height="4.6725065104166674" />
+        <EntityTypeShape EntityType="SIFCA_Model.GRUPOCOMERCIAL" Width="1.5" PointX="1.5" PointY="1.875" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="SIFCA_Model.LINEAINVENTARIO" Width="1.5" PointX="8.25" PointY="9.875" Height="4.2879036458333246" />
+        <EntityTypeShape EntityType="SIFCA_Model.LINEANOMADERABLES" Width="1.5" PointX="8.25" PointY="7" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="SIFCA_Model.LINEAREGENERACION" Width="1.5" PointX="5.25" PointY="5.75" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="SIFCA_Model.LISTADODEESTRATOS" Width="1.5" PointX="11.25" PointY="11" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="SIFCA_Model.OBJETIVOINVENTARIO" Width="1.5" PointX="3.75" PointY="16.125" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="SIFCA_Model.PROYECTO" Width="1.5" PointX="6" PointY="9.125" Height="5.8263151041666674" />
+        <EntityTypeShape EntityType="SIFCA_Model.TIPODEUSO" Width="1.5" PointX="6" PointY="3.25" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="SIFCA_Model.TIPODISENOMUESTRAL" Width="1.5" PointX="3.75" PointY="18.5" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="SIFCA_Model.TIPOFORMULARIO" Width="1.5" PointX="0.75" PointY="8" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="SIFCA_Model.TRANSACCION" Width="1.5" PointX="3" PointY="22.625" Height="2.749492187499996" />
+        <EntityTypeShape EntityType="SIFCA_Model.TSTUDENT" Width="1.5" PointX="5.75" PointY="0.75" Height="1.5956835937500102" />
+        <EntityTypeShape EntityType="SIFCA_Model.USUARIO" Width="1.5" PointX="0.75" PointY="10.625" Height="2.7494921875000102" />
         <AssociationConnector Association="SIFCA_Model.FK_LINEAINV_POSEE_CALIDAD" >
-          <ConnectorPoint PointX="40.3125" PointY="20.845683593749982" />
-          <ConnectorPoint PointX="40.3125" PointY="26.518951822916677" />
-          <ConnectorPoint PointX="28" PointY="26.518951822916677" />
+          <ConnectorPoint PointX="7.5" PointY="16.922841796875" />
+          <ConnectorPoint PointX="8.5104141666666653" PointY="16.922841796875" />
+          <ConnectorPoint PointX="8.6770808333333331" PointY="16.922841796875" />
+          <ConnectorPoint PointX="9" PointY="16.922841796875" />
+          <ConnectorPoint PointX="9" PointY="14.162903645833325" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_ESPECIE_PERTENECE_GRUPOCOM" >
-          <ConnectorPoint PointX="28.375" PointY="7.5478417968749909" />
-          <ConnectorPoint PointX="27.25" PointY="7.5478417968749909" />
+          <ConnectorPoint PointX="3" PointY="2.672841796874998" />
+          <ConnectorPoint PointX="3.75" PointY="2.672841796874998" />
         </AssociationConnector>
-        <AssociationConnector Association="SIFCA_Model.FK_LINEAINV_CONTIENE_ESPECIE" ManuallyRouted="false" >
-          <ConnectorPoint PointX="26.5" PointY="8.9513964843749818" />
-          <ConnectorPoint PointX="26.5" PointY="24.375" />
+        <AssociationConnector Association="SIFCA_Model.FK_LINEAINV_CONTIENE_ESPECIE" >
+          <ConnectorPoint PointX="5.25" PointY="2.7978417968750051" />
+          <ConnectorPoint PointX="8" PointY="2.7978417968750051" />
+          <ConnectorPoint PointX="8" PointY="9.5" />
+          <ConnectorPoint PointX="9" PointY="9.5" />
+          <ConnectorPoint PointX="9" PointY="9.875" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LINEAREG_EVALUACIO_ESPECIE" >
-          <ConnectorPoint PointX="24.75" PointY="8.3506982421874909" />
-          <ConnectorPoint PointX="24" PointY="8.3506982421874909" />
+          <ConnectorPoint PointX="4.46875" PointY="4.326396484374996" />
+          <ConnectorPoint PointX="4.46875" PointY="7.0285953776041694" />
+          <ConnectorPoint PointX="4.651041666666667" PointY="7.0285953776041685" />
+          <ConnectorPoint PointX="4.817708333333333" PointY="7.0285953776041694" />
+          <ConnectorPoint PointX="5.25" PointY="7.0285953776041694" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LINEAINV_ASOCIADO_ESTADOSA" >
-          <ConnectorPoint PointX="42.5" PointY="17.220683593749982" />
-          <ConnectorPoint PointX="42.5" PointY="25.415723411458288" />
-          <ConnectorPoint PointX="40.395833333333336" PointY="25.415723411458288" />
-          <ConnectorPoint PointX="40.229166666666664" PointY="25.415723411458288" />
-          <ConnectorPoint PointX="28" PointY="25.415723411458288" />
+          <ConnectorPoint PointX="7.5" PointY="19.172841796874998" />
+          <ConnectorPoint PointX="8.5937475" PointY="19.172841796874998" />
+          <ConnectorPoint PointX="8.5937475" PointY="14.162903645833325" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_FORMULAR_MANEJA_ESTRATO" >
-          <ConnectorPoint PointX="20.5" PointY="4.7879850260416674" />
-          <ConnectorPoint PointX="20.5" PointY="16.336253255208305" />
-          <ConnectorPoint PointX="22.25" PointY="16.336253255208305" />
+          <ConnectorPoint PointX="2.25" PointY="6.2642976888020847" />
+          <ConnectorPoint PointX="3.734375" PointY="6.2642976888020847" />
+          <ConnectorPoint PointX="3.734375" PointY="9.75" />
         </AssociationConnector>
-        <AssociationConnector Association="SIFCA_Model.FK_LISTADOD_LISTESTRA_ESTRATO" >
-          <ConnectorPoint PointX="21.25" PointY="3.8939925130208337" />
-          <ConnectorPoint PointX="35.75" PointY="3.8939925130208337" />
-          <ConnectorPoint PointX="35.75" PointY="12.125" />
+        <AssociationConnector Association="SIFCA_Model.FK_LISTADOD_LISTAESTR_ESTRATO" >
+          <ConnectorPoint PointX="2.25" PointY="5.59375" />
+          <ConnectorPoint PointX="4.385416666666667" PointY="5.5937499999999991" />
+          <ConnectorPoint PointX="4.552083333333333" PointY="5.59375" />
+          <ConnectorPoint PointX="4.651041666666667" PointY="5.5937499999999991" />
+          <ConnectorPoint PointX="4.817708333333333" PointY="5.59375" />
+          <ConnectorPoint PointX="7.072916666666667" PointY="5.5937499999999991" />
+          <ConnectorPoint PointX="7.239583333333333" PointY="5.59375" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="5.5937499999999991" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="5.59375" />
+          <ConnectorPoint PointX="12" PointY="5.59375" />
+          <ConnectorPoint PointX="12" PointY="11" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_FORMULAR_DESARROLL_PROYECTO" >
-          <ConnectorPoint PointX="29.125" PointY="15.071808268229177" />
-          <ConnectorPoint PointX="26.583333333333332" PointY="15.071808268229177" />
-          <ConnectorPoint PointX="26.416666666666668" PointY="15.071808268229177" />
-          <ConnectorPoint PointX="25.114583333333332" PointY="15.071808268229177" />
-          <ConnectorPoint PointX="24.947916666666668" PointY="15.071808268229177" />
-          <ConnectorPoint PointX="24.5" PointY="15.071808268229177" />
+          <ConnectorPoint PointX="6" PointY="12.086253255208334" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="12.086253255208334" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="12.086253255208334" />
+          <ConnectorPoint PointX="4.989583333333333" PointY="12.086253255208334" />
+          <ConnectorPoint PointX="4.822916666666667" PointY="12.086253255208334" />
+          <ConnectorPoint PointX="4.5" PointY="12.086253255208334" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_FORMULAR_ES_DE_TIPOFORM" >
-          <ConnectorPoint PointX="21.468747999999998" PointY="18.75" />
-          <ConnectorPoint PointX="21.468747999999998" PointY="17.53563188281251" />
-          <ConnectorPoint PointX="22.25" PointY="17.53563188281251" />
+          <ConnectorPoint PointX="2.25" PointY="8.8437475000000063" />
+          <ConnectorPoint PointX="3.0533819166666665" PointY="8.8437475000000063" />
+          <ConnectorPoint PointX="3.2200485833333334" PointY="8.8437475000000063" />
+          <ConnectorPoint PointX="3.6510416666666665" PointY="8.8437475000000063" />
+          <ConnectorPoint PointX="3.8177083333333335" PointY="8.8437475000000063" />
+          <ConnectorPoint PointX="3.8580741666666665" PointY="8.8437475000000063" />
+          <ConnectorPoint PointX="4.0247408333333334" PointY="8.8437475000000063" />
+          <ConnectorPoint PointX="4.14844" PointY="8.8437475000000063" />
+          <ConnectorPoint PointX="4.14844" PointY="9.75" />
         </AssociationConnector>
-        <AssociationConnector Association="SIFCA_Model.FK_FORMULAR_ES_REPONS_USUARIO" ManuallyRouted="false" >
-          <ConnectorPoint PointX="19" PointY="15.105626627604153" />
-          <ConnectorPoint PointX="20.416666666666668" PointY="15.105626627604153" />
-          <ConnectorPoint PointX="20.583333333333332" PointY="15.105626627604153" />
-          <ConnectorPoint PointX="22.25" PointY="15.105626627604153" />
+        <AssociationConnector Association="SIFCA_Model.FK_FORMULAR_ES_REPONS_USUARIO" >
+          <ConnectorPoint PointX="2.25" PointY="11.999746093750005" />
+          <ConnectorPoint PointX="3" PointY="11.999746093750005" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LINEAINV_LLENA_FORMULAR" >
-          <ConnectorPoint PointX="22.75" PointY="18.672506510416611" />
-          <ConnectorPoint PointX="22.75" PointY="26.785543619791667" />
-          <ConnectorPoint PointX="25.75" PointY="26.785543619791667" />
+          <ConnectorPoint PointX="3.3359355" PointY="9.75" />
+          <ConnectorPoint PointX="3.3359355" PointY="9" />
+          <ConnectorPoint PointX="3.6510416666666665" PointY="9" />
+          <ConnectorPoint PointX="3.8177083333333335" PointY="9" />
+          <ConnectorPoint PointX="3.8580741666666665" PointY="9" />
+          <ConnectorPoint PointX="4.0247408333333334" PointY="9" />
+          <ConnectorPoint PointX="4.0651066666666669" PointY="9" />
+          <ConnectorPoint PointX="4.2317733333333329" PointY="9" />
+          <ConnectorPoint PointX="4.651041666666667" PointY="9" />
+          <ConnectorPoint PointX="4.817708333333333" PointY="9" />
+          <ConnectorPoint PointX="7.875" PointY="9" />
+          <ConnectorPoint PointX="7.875" PointY="12.018951822916662" />
+          <ConnectorPoint PointX="8.25" PointY="12.018951822916662" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LINEANOM_RECOLECTA_FORMULAR" >
-          <ConnectorPoint PointX="23.875" PointY="18.672506510416611" />
-          <ConnectorPoint PointX="23.875" PointY="20" />
+          <ConnectorPoint PointX="3.9414075" PointY="9.75" />
+          <ConnectorPoint PointX="3.9414075" PointY="8.6067191276041726" />
+          <ConnectorPoint PointX="4.651041666666667" PointY="8.6067191276041726" />
+          <ConnectorPoint PointX="4.817708333333333" PointY="8.6067191276041726" />
+          <ConnectorPoint PointX="7.072916666666667" PointY="8.6067191276041726" />
+          <ConnectorPoint PointX="7.239583333333333" PointY="8.6067191276041726" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="8.6067191276041726" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="8.6067191276041726" />
+          <ConnectorPoint PointX="8.25" PointY="8.6067191276041726" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LINEAREG_COMPLETA_FORMULAR" >
-          <ConnectorPoint PointX="23.125" PointY="14" />
-          <ConnectorPoint PointX="23.125" PointY="10.307190755208353" />
+          <ConnectorPoint PointX="3.13671525" PointY="9.75" />
+          <ConnectorPoint PointX="3.13671525" PointY="7.6991455664062478" />
+          <ConnectorPoint PointX="3.6510416666666665" PointY="7.6991455664062469" />
+          <ConnectorPoint PointX="3.8177083333333335" PointY="7.6991455664062478" />
+          <ConnectorPoint PointX="4.651041666666667" PointY="7.6991455664062469" />
+          <ConnectorPoint PointX="4.817708333333333" PointY="7.6991455664062478" />
+          <ConnectorPoint PointX="5.25" PointY="7.6991455664062478" />
         </AssociationConnector>
-        <AssociationConnector Association="SIFCA_Model.FK_LISTADOD_LISTESTRA_PROYECTO" >
-          <ConnectorPoint PointX="32.125" PointY="13.115143229166677" />
-          <ConnectorPoint PointX="34.75" PointY="13.115143229166677" />
+        <AssociationConnector Association="SIFCA_Model.FK_LISTAESTRATOS_PROYECTO" >
+          <ConnectorPoint PointX="7.5" PointY="14.588359374999996" />
+          <ConnectorPoint PointX="8.5104141666666653" PointY="14.588359374999996" />
+          <ConnectorPoint PointX="8.6770808333333331" PointY="14.588359374999996" />
+          <ConnectorPoint PointX="8.9166666666666661" PointY="14.588359374999996" />
+          <ConnectorPoint PointX="9.0833333333333339" PointY="14.588359374999996" />
+          <ConnectorPoint PointX="12" PointY="14.588359374999996" />
+          <ConnectorPoint PointX="12" PointY="12.980286458333339" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_PROYECTO_ES_OBJETIVO" >
-          <ConnectorPoint PointX="34.5" PointY="15.172841796874991" />
-          <ConnectorPoint PointX="32.125" PointY="15.172841796874991" />
+          <ConnectorPoint PointX="4.90625" PointY="16.125" />
+          <ConnectorPoint PointX="4.90625" PointY="9.40625" />
+          <ConnectorPoint PointX="6" PointY="9.40625" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_PROYECTO_CREA_USUARIO" >
-          <ConnectorPoint PointX="19" PointY="13.78125" />
-          <ConnectorPoint PointX="20.416666666666668" PointY="13.78125" />
-          <ConnectorPoint PointX="20.583333333333332" PointY="13.78125" />
-          <ConnectorPoint PointX="22.791666666666668" PointY="13.78125" />
-          <ConnectorPoint PointX="22.958333333333332" PointY="13.78125" />
-          <ConnectorPoint PointX="23.041666666666668" PointY="13.78125" />
-          <ConnectorPoint PointX="23.208333333333332" PointY="13.78125" />
-          <ConnectorPoint PointX="24.947916666666668" PointY="13.78125" />
-          <ConnectorPoint PointX="25.114583333333332" PointY="13.78125" />
-          <ConnectorPoint PointX="26.416666666666668" PointY="13.78125" />
-          <ConnectorPoint PointX="26.583333333333332" PointY="13.78125" />
-          <ConnectorPoint PointX="29.125" PointY="13.78125" />
-        </AssociationConnector>
-        <AssociationConnector Association="SIFCA_Model.FK_PROYECTO_ES_DE_TIP_TIPOPROY" >
-          <ConnectorPoint PointX="31.625" PointY="17.75" />
-          <ConnectorPoint PointX="31.625" PointY="16.143616536458353" />
+          <ConnectorPoint PointX="1.5" PointY="13.37449218750001" />
+          <ConnectorPoint PointX="1.5" PointY="14.718160807291667" />
+          <ConnectorPoint PointX="1.8229191666666667" PointY="14.718160807291667" />
+          <ConnectorPoint PointX="1.9895858333333332" PointY="14.718160807291667" />
+          <ConnectorPoint PointX="4.822916666666667" PointY="14.718160807291667" />
+          <ConnectorPoint PointX="4.989583333333333" PointY="14.718160807291667" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="14.718160807291667" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="14.718160807291667" />
+          <ConnectorPoint PointX="6" PointY="14.718160807291667" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_PROYECTO_REALIZA_TIPODISE" >
-          <ConnectorPoint PointX="31.5625" PointY="8.9706835937499818" />
-          <ConnectorPoint PointX="31.5625" PointY="10.125" />
+          <ConnectorPoint PointX="5.25" PointY="18.501152846153843" />
+          <ConnectorPoint PointX="5.625" PointY="18.126152846153843" />
+          <ConnectorPoint PointX="5.625" PointY="10.746251627604167" />
+          <ConnectorPoint PointX="6" PointY="10.746251627604167" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_TRANSACC_REGISTRA_USUARIO" >
-          <ConnectorPoint PointX="17.0625" PointY="16.374492187499982" />
-          <ConnectorPoint PointX="17.0625" PointY="19.25" />
+          <ConnectorPoint PointX="1.9062525" PointY="13.37449218750001" />
+          <ConnectorPoint PointX="1.9062525" PointY="23.999746093749998" />
+          <ConnectorPoint PointX="3" PointY="23.999746093749998" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.LISTADODEESPECIES" >
-          <ConnectorPoint PointX="25.5937475" PointY="8.9513964843749818" />
-          <ConnectorPoint PointX="25.5937475" PointY="11.921872500000063" />
-          <ConnectorPoint PointX="26.416666666666668" PointY="11.921872500000063" />
-          <ConnectorPoint PointX="26.583333333333332" PointY="11.921872500000063" />
-          <ConnectorPoint PointX="29.125" PointY="11.921872500000063" />
+          <ConnectorPoint PointX="4.734375" PointY="4.326396484374996" />
+          <ConnectorPoint PointX="4.734375" PointY="9.2343725000000063" />
+          <ConnectorPoint PointX="6" PointY="9.2343725000000063" />
         </AssociationConnector>
-        <AssociationConnector Association="SIFCA_Model.PROYECTOSPORETAPA" ManuallyRouted="true" >
-          <ConnectorPoint PointX="30.188846153846153" PointY="16.143616536458353" />
-          <ConnectorPoint PointX="30.188846153846153" PointY="16.744468719901811" />
-          <ConnectorPoint PointX="31.081923076923076" PointY="16.744468719901811" />
-          <ConnectorPoint PointX="31.081923076923076" PointY="16.143616536458353" />
+        <AssociationConnector Association="SIFCA_Model.PROYECTOSPORETAPA" >
+          <ConnectorPoint PointX="6.5319230769230767" PointY="14.951315104166667" />
+          <ConnectorPoint PointX="6.5319230769230767" PointY="15.201315104166667" />
+          <ConnectorPoint PointX="6.9784615384615378" PointY="15.201315104166667" />
+          <ConnectorPoint PointX="6.9784615384615378" PointY="14.951315104166667" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.USO" >
-          <ConnectorPoint PointX="24.0625" PointY="21.980286458333353" />
-          <ConnectorPoint PointX="24.0625" PointY="23.25" />
+          <ConnectorPoint PointX="7.15625" PointY="4.845683593749996" />
+          <ConnectorPoint PointX="7.15625" PointY="8.82475529296875" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="8.82475529296875" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="8.82475529296875" />
+          <ConnectorPoint PointX="8.25" PointY="8.82475529296875" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

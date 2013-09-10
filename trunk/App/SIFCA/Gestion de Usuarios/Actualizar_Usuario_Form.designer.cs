@@ -1,6 +1,6 @@
 ﻿namespace SIFCA
 {
-    partial class Crear_Usuario_Form
+    partial class Actualizar_Usuario_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,9 @@
             System.Windows.Forms.Label nOMBRESLabel;
             System.Windows.Forms.Label aPELLIDOSLabel;
             System.Windows.Forms.Label cONTRASENALabel;
+            System.Windows.Forms.Label label1;
             this.datosEstacionGbx = new System.Windows.Forms.GroupBox();
+            this.verificarContrasenaTxt = new System.Windows.Forms.TextBox();
             this.contrasenaTxt = new System.Windows.Forms.TextBox();
             this.apellidosTxt = new System.Windows.Forms.TextBox();
             this.nombresTxt = new System.Windows.Forms.TextBox();
@@ -46,6 +48,7 @@
             nOMBRESLabel = new System.Windows.Forms.Label();
             aPELLIDOSLabel = new System.Windows.Forms.Label();
             cONTRASENALabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             this.datosEstacionGbx.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,9 +97,20 @@
             cONTRASENALabel.TabIndex = 21;
             cONTRASENALabel.Text = "Contraseña:";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(10, 152);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(104, 13);
+            label1.TabIndex = 24;
+            label1.Text = "Verificar contraseña:";
+            // 
             // datosEstacionGbx
             // 
             this.datosEstacionGbx.BackColor = System.Drawing.SystemColors.Control;
+            this.datosEstacionGbx.Controls.Add(label1);
+            this.datosEstacionGbx.Controls.Add(this.verificarContrasenaTxt);
             this.datosEstacionGbx.Controls.Add(cONTRASENALabel);
             this.datosEstacionGbx.Controls.Add(this.contrasenaTxt);
             this.datosEstacionGbx.Controls.Add(aPELLIDOSLabel);
@@ -111,10 +125,18 @@
             this.datosEstacionGbx.Controls.Add(this.AceptarBtn);
             this.datosEstacionGbx.Location = new System.Drawing.Point(12, 12);
             this.datosEstacionGbx.Name = "datosEstacionGbx";
-            this.datosEstacionGbx.Size = new System.Drawing.Size(338, 196);
+            this.datosEstacionGbx.Size = new System.Drawing.Size(338, 224);
             this.datosEstacionGbx.TabIndex = 0;
             this.datosEstacionGbx.TabStop = false;
             this.datosEstacionGbx.Text = "Datos usuario";
+            // 
+            // verificarContrasenaTxt
+            // 
+            this.verificarContrasenaTxt.Location = new System.Drawing.Point(122, 148);
+            this.verificarContrasenaTxt.Name = "verificarContrasenaTxt";
+            this.verificarContrasenaTxt.Size = new System.Drawing.Size(206, 20);
+            this.verificarContrasenaTxt.TabIndex = 6;
+            this.verificarContrasenaTxt.UseSystemPasswordChar = true;
             // 
             // contrasenaTxt
             // 
@@ -154,7 +176,7 @@
             // 
             // cancelarBtn
             // 
-            this.cancelarBtn.Location = new System.Drawing.Point(253, 158);
+            this.cancelarBtn.Location = new System.Drawing.Point(253, 195);
             this.cancelarBtn.Name = "cancelarBtn";
             this.cancelarBtn.Size = new System.Drawing.Size(75, 23);
             this.cancelarBtn.TabIndex = 7;
@@ -164,23 +186,23 @@
             // 
             // AceptarBtn
             // 
-            this.AceptarBtn.Location = new System.Drawing.Point(172, 158);
+            this.AceptarBtn.Location = new System.Drawing.Point(172, 195);
             this.AceptarBtn.Name = "AceptarBtn";
             this.AceptarBtn.Size = new System.Drawing.Size(75, 23);
             this.AceptarBtn.TabIndex = 6;
-            this.AceptarBtn.Text = "Guardar";
+            this.AceptarBtn.Text = "Actualizar";
             this.AceptarBtn.UseVisualStyleBackColor = true;
-            this.AceptarBtn.Click += new System.EventHandler(this.AceptarBtn_Click);
+            this.AceptarBtn.Click += new System.EventHandler(this.ActualizarBtn_Click);
             // 
-            // Crear_Usuario_Form
+            // Actualizar_Usuario_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 224);
+            this.ClientSize = new System.Drawing.Size(359, 264);
             this.Controls.Add(this.datosEstacionGbx);
-            this.Name = "Crear_Usuario_Form";
+            this.Name = "Actualizar_Usuario_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Registrar usuarios";
+            this.Text = "Actualizar usuario";
             this.datosEstacionGbx.ResumeLayout(false);
             this.datosEstacionGbx.PerformLayout();
             this.ResumeLayout(false);
@@ -197,6 +219,7 @@
         private System.Windows.Forms.TextBox cedulaTxt;
         private System.Windows.Forms.TextBox usuarioTxt;
         private System.Windows.Forms.TextBox contrasenaTxt;
+        private System.Windows.Forms.TextBox verificarContrasenaTxt;
 
 
     }

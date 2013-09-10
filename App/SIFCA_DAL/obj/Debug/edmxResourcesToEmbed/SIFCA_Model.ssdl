@@ -18,7 +18,6 @@
     <EntitySet Name="TIPODEUSO" EntityType="SIFCA_Model.Store.TIPODEUSO" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TIPODISENOMUESTRAL" EntityType="SIFCA_Model.Store.TIPODISENOMUESTRAL" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TIPOFORMULARIO" EntityType="SIFCA_Model.Store.TIPOFORMULARIO" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TIPOPROYECTO" EntityType="SIFCA_Model.Store.TIPOPROYECTO" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TRANSACCION" EntityType="SIFCA_Model.Store.TRANSACCION" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TSTUDENT" EntityType="SIFCA_Model.Store.TSTUDENT" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="USO" EntityType="SIFCA_Model.Store.USO" store:Type="Tables" Schema="dbo" />
@@ -71,28 +70,32 @@
       <End Role="ESPECIE" EntitySet="ESPECIE" />
       <End Role="LINEAREGENERACION" EntitySet="LINEAREGENERACION" />
     </AssociationSet>
-    <AssociationSet Name="FK_LISTADOD_LISTESTRA_ESTRATO" Association="SIFCA_Model.Store.FK_LISTADOD_LISTESTRA_ESTRATO">
-      <End Role="ESTRATO" EntitySet="ESTRATO" />
-      <End Role="LISTADODEESTRATOS" EntitySet="LISTADODEESTRATOS" />
-    </AssociationSet>
-    <AssociationSet Name="FK_LISTADOD_LISTESTRA_PROYECTO" Association="SIFCA_Model.Store.FK_LISTADOD_LISTESTRA_PROYECTO">
-      <End Role="PROYECTO" EntitySet="PROYECTO" />
-      <End Role="LISTADODEESTRATOS" EntitySet="LISTADODEESTRATOS" />
-    </AssociationSet>
-    <AssociationSet Name="FK_LISTADODEESPECIES_ESPECIE" Association="SIFCA_Model.Store.FK_LISTADODEESPECIES_ESPECIE">
+    <AssociationSet Name="FK_LISTADOD_LISTADODE_ESPECIE" Association="SIFCA_Model.Store.FK_LISTADOD_LISTADODE_ESPECIE">
       <End Role="ESPECIE" EntitySet="ESPECIE" />
       <End Role="LISTADODEESPECIES" EntitySet="LISTADODEESPECIES" />
     </AssociationSet>
-    <AssociationSet Name="FK_LISTADODEESPECIES_PROYECTO" Association="SIFCA_Model.Store.FK_LISTADODEESPECIES_PROYECTO">
+    <AssociationSet Name="FK_LISTADOD_LISTAESTR_ESTRATO" Association="SIFCA_Model.Store.FK_LISTADOD_LISTAESTR_ESTRATO">
+      <End Role="ESTRATO" EntitySet="ESTRATO" />
+      <End Role="LISTADODEESTRATOS" EntitySet="LISTADODEESTRATOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LISTADOESPECIES_PROYECTO" Association="SIFCA_Model.Store.FK_LISTADOESPECIES_PROYECTO">
       <End Role="PROYECTO" EntitySet="PROYECTO" />
       <End Role="LISTADODEESPECIES" EntitySet="LISTADODEESPECIES" />
     </AssociationSet>
+    <AssociationSet Name="FK_LISTAESTRATOS_PROYECTO" Association="SIFCA_Model.Store.FK_LISTAESTRATOS_PROYECTO">
+      <End Role="PROYECTO" EntitySet="PROYECTO" />
+      <End Role="LISTADODEESTRATOS" EntitySet="LISTADODEESTRATOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROYECTO_CONTENEDOR" Association="SIFCA_Model.Store.FK_PROYECTO_CONTENEDOR">
+      <End Role="PROYECTO" EntitySet="PROYECTO" />
+      <End Role="PROYECTOSPORETAPA" EntitySet="PROYECTOSPORETAPA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROYECTO_CONTENIDOS" Association="SIFCA_Model.Store.FK_PROYECTO_CONTENIDOS">
+      <End Role="PROYECTO" EntitySet="PROYECTO" />
+      <End Role="PROYECTOSPORETAPA" EntitySet="PROYECTOSPORETAPA" />
+    </AssociationSet>
     <AssociationSet Name="FK_PROYECTO_CREA_USUARIO" Association="SIFCA_Model.Store.FK_PROYECTO_CREA_USUARIO">
       <End Role="USUARIO" EntitySet="USUARIO" />
-      <End Role="PROYECTO" EntitySet="PROYECTO" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PROYECTO_ES_DE_TIP_TIPOPROY" Association="SIFCA_Model.Store.FK_PROYECTO_ES_DE_TIP_TIPOPROY">
-      <End Role="TIPOPROYECTO" EntitySet="TIPOPROYECTO" />
       <End Role="PROYECTO" EntitySet="PROYECTO" />
     </AssociationSet>
     <AssociationSet Name="FK_PROYECTO_ES_OBJETIVO" Association="SIFCA_Model.Store.FK_PROYECTO_ES_OBJETIVO">
@@ -103,24 +106,16 @@
       <End Role="TIPODISENOMUESTRAL" EntitySet="TIPODISENOMUESTRAL" />
       <End Role="PROYECTO" EntitySet="PROYECTO" />
     </AssociationSet>
-    <AssociationSet Name="FK_PROYECTOSPORETAPA_PROYECTOCONTENEDOR" Association="SIFCA_Model.Store.FK_PROYECTOSPORETAPA_PROYECTOCONTENEDOR">
-      <End Role="PROYECTO" EntitySet="PROYECTO" />
-      <End Role="PROYECTOSPORETAPA" EntitySet="PROYECTOSPORETAPA" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PROYECTOSPORETAPA_PROYECTOCONTENIDO" Association="SIFCA_Model.Store.FK_PROYECTOSPORETAPA_PROYECTOCONTENIDO">
-      <End Role="PROYECTO" EntitySet="PROYECTO" />
-      <End Role="PROYECTOSPORETAPA" EntitySet="PROYECTOSPORETAPA" />
-    </AssociationSet>
     <AssociationSet Name="FK_TRANSACC_REGISTRA_USUARIO" Association="SIFCA_Model.Store.FK_TRANSACC_REGISTRA_USUARIO">
       <End Role="USUARIO" EntitySet="USUARIO" />
       <End Role="TRANSACCION" EntitySet="TRANSACCION" />
     </AssociationSet>
-    <AssociationSet Name="FK_USO_LINEANOMADERABLES" Association="SIFCA_Model.Store.FK_USO_LINEANOMADERABLES">
-      <End Role="LINEANOMADERABLES" EntitySet="LINEANOMADERABLES" />
+    <AssociationSet Name="FK_USO_TIPOUSO_TIPODEUS" Association="SIFCA_Model.Store.FK_USO_TIPOUSO_TIPODEUS">
+      <End Role="TIPODEUSO" EntitySet="TIPODEUSO" />
       <End Role="USO" EntitySet="USO" />
     </AssociationSet>
-    <AssociationSet Name="FK_USO_TIPODEUSO" Association="SIFCA_Model.Store.FK_USO_TIPODEUSO">
-      <End Role="TIPODEUSO" EntitySet="TIPODEUSO" />
+    <AssociationSet Name="FK_USO_USADOPOR_LINEANOM" Association="SIFCA_Model.Store.FK_USO_USADOPOR_LINEANOM">
+      <End Role="LINEANOMADERABLES" EntitySet="LINEANOMADERABLES" />
       <End Role="USO" EntitySet="USO" />
     </AssociationSet>
   </EntityContainer>
@@ -128,7 +123,7 @@
     <Key>
       <PropertyRef Name="CODCALIDAD" />
     </Key>
-    <Property Name="CODCALIDAD" Type="decimal" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CODCALIDAD" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="DESCRIPCALIDAD" Type="varchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="ESPECIE">
@@ -142,7 +137,7 @@
     <Property Name="FAMILIA" Type="varchar" MaxLength="200" />
     <Property Name="ZONAGEOGRAFICA" Type="varchar" MaxLength="200" />
     <Property Name="ZONADEVIDA" Type="varchar" MaxLength="200" />
-    <Property Name="DIAMMINCORTE" Type="decimal" />
+    <Property Name="DIAMMINCORTE" Type="numeric" />
   </EntityType>
   <EntityType Name="ESTADOSANITARIO">
     <Key>
@@ -155,7 +150,7 @@
     <Key>
       <PropertyRef Name="CODEST" />
     </Key>
-    <Property Name="CODEST" Type="decimal" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CODEST" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="DESCRIPESTRATO" Type="varchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="FORMULARIO">
@@ -163,17 +158,17 @@
       <PropertyRef Name="NROFORMULARIO" />
     </Key>
     <Property Name="NROFORMULARIO" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="TIPFORM_ID" Type="decimal" Nullable="false" />
-    <Property Name="CODEST" Type="decimal" Nullable="false" />
+    <Property Name="TIPFORM_ID" Type="numeric" Nullable="false" />
+    <Property Name="CODEST" Type="numeric" Nullable="false" />
     <Property Name="NROUSUARIO" Type="uniqueidentifier" Nullable="false" />
     <Property Name="NROPROY" Type="uniqueidentifier" Nullable="false" />
     <Property Name="FECHACREACION" Type="datetime" Nullable="false" />
     <Property Name="HORAINICIO" Type="datetime" Nullable="false" />
     <Property Name="HORAFINAL" Type="datetime" Nullable="false" />
-    <Property Name="PARCELA" Type="decimal" Nullable="false" />
-    <Property Name="LINEA" Type="decimal" Nullable="false" />
-    <Property Name="COORDENADAX" Type="decimal" />
-    <Property Name="COORDENADAY" Type="decimal" />
+    <Property Name="PARCELA" Type="numeric" Nullable="false" />
+    <Property Name="LINEA" Type="numeric" Nullable="false" />
+    <Property Name="COORDENADAX" Type="numeric" />
+    <Property Name="COORDENADAY" Type="numeric" />
   </EntityType>
   <EntityType Name="GRUPOCOMERCIAL">
     <Key>
@@ -187,15 +182,15 @@
       <PropertyRef Name="LINEAINV" />
     </Key>
     <Property Name="LINEAINV" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="CODCALIDAD" Type="decimal" Nullable="false" />
+    <Property Name="CODCALIDAD" Type="numeric" Nullable="false" />
+    <Property Name="NROFORMULARIO" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ESTADO" Type="char" Nullable="false" MaxLength="2" />
     <Property Name="CODESP" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="NROFORMULARIO" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="NROARB" Type="decimal" />
-    <Property Name="CAP" Type="decimal" />
-    <Property Name="DAP" Type="decimal" />
-    <Property Name="ALTCOMER_M" Type="decimal" />
-    <Property Name="ALTTOT_M" Type="decimal" />
+    <Property Name="NROARB" Type="numeric" />
+    <Property Name="CAP" Type="numeric" />
+    <Property Name="DAP" Type="numeric" />
+    <Property Name="ALTCOMER_M" Type="numeric" />
+    <Property Name="ALTTOT_M" Type="numeric" />
     <Property Name="AREABASAL" Type="decimal" Scale="3" />
     <Property Name="VOLCOM" Type="decimal" Scale="3" />
     <Property Name="VOLTOT" Type="decimal" Scale="3" />
@@ -212,20 +207,20 @@
     <Key>
       <PropertyRef Name="LINEAREGEN" />
     </Key>
-    <Property Name="NROARB" Type="decimal" />
-    <Property Name="LATIZAL" Type="decimal" />
-    <Property Name="BRINZAL" Type="decimal" />
+    <Property Name="NROARB" Type="numeric" />
+    <Property Name="LATIZAL" Type="numeric" />
+    <Property Name="BRINZAL" Type="numeric" />
     <Property Name="LINEAREGEN" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="CODESP" Type="uniqueidentifier" Nullable="false" />
     <Property Name="NROFORMULARIO" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CODESP" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="LISTADODEESPECIES">
     <Key>
-      <PropertyRef Name="ESPECIE_CODESP" />
-      <PropertyRef Name="PROYECTO_NROPROY" />
+      <PropertyRef Name="CODESP" />
+      <PropertyRef Name="NROPROY" />
     </Key>
-    <Property Name="ESPECIE_CODESP" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PROYECTO_NROPROY" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CODESP" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="NROPROY" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="LISTADODEESTRATOS">
     <Key>
@@ -233,7 +228,7 @@
       <PropertyRef Name="CODEST" />
     </Key>
     <Property Name="NROPROY" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="CODEST" Type="decimal" Nullable="false" />
+    <Property Name="CODEST" Type="numeric" Nullable="false" />
     <Property Name="PESO" Type="decimal" Scale="3" />
   </EntityType>
   <EntityType Name="OBJETIVOINVENTARIO">
@@ -249,7 +244,6 @@
     </Key>
     <Property Name="NROPROY" Type="uniqueidentifier" Nullable="false" />
     <Property Name="NROUSUARIO" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="TIPOPOYECTO_ID" Type="decimal" Nullable="false" />
     <Property Name="NOMBRETIPOINV" Type="varchar" Nullable="false" MaxLength="100" />
     <Property Name="NOMTIPODISEMUEST" Type="varchar" Nullable="false" MaxLength="100" />
     <Property Name="LUGAR" Type="varchar" Nullable="false" MaxLength="100" />
@@ -263,15 +257,16 @@
     <Property Name="AREAFUSTALESPORPARCELA" Type="decimal" Nullable="false" Scale="3" />
     <Property Name="FACTORDEFORMA" Type="decimal" Nullable="false" Scale="3" />
     <Property Name="FECHA" Type="datetime" Nullable="false" />
-    <Property Name="NUMEROETAPAS" Type="decimal" />
+    <Property Name="NUMEROETAPAS" Type="numeric" />
+    <Property Name="TIPOPROYECTO" Type="varchar" Nullable="false" MaxLength="2" />
   </EntityType>
   <EntityType Name="PROYECTOSPORETAPA">
     <Key>
-      <PropertyRef Name="PROYECTOCONTENIDO_NROPROY" />
-      <PropertyRef Name="PROYECTOCONTENDOR_NROPROY" />
+      <PropertyRef Name="NROPROYCONTENEDOR" />
+      <PropertyRef Name="NROPROYCONTENIDO" />
     </Key>
-    <Property Name="PROYECTOCONTENIDO_NROPROY" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PROYECTOCONTENDOR_NROPROY" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="NROPROYCONTENEDOR" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="NROPROYCONTENIDO" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="TIPODEUSO">
     <Key>
@@ -293,25 +288,17 @@
     </Key>
     <Property Name="NOMBRETIPOFORM" Type="varchar" Nullable="false" MaxLength="100" />
     <Property Name="DESCRIPCION" Type="varchar" MaxLength="500" />
-    <Property Name="TIPFORM_ID" Type="decimal" Nullable="false" StoreGeneratedPattern="Identity" />
-  </EntityType>
-  <EntityType Name="TIPOPROYECTO">
-    <Key>
-      <PropertyRef Name="TIPOPROYECTO_ID" />
-    </Key>
-    <Property Name="TIPOPROYECTO_ID" Type="decimal" Nullable="false" />
-    <Property Name="DESCRIPCION" Type="varchar" Nullable="false" MaxLength="500" />
-    <Property Name="NOMBRETIPOPROYECTO" Type="varchar" MaxLength="100" />
+    <Property Name="TIPFORM_ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
   </EntityType>
   <EntityType Name="TRANSACCION">
     <Key>
       <PropertyRef Name="NROTRANS" />
     </Key>
-    <Property Name="NROTRANS" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="NROTRANS" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="NROUSUARIO" Type="uniqueidentifier" Nullable="false" />
     <Property Name="FECHA" Type="datetime" Nullable="false" />
     <Property Name="TABLA" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="IDREGISTRO" Type="decimal" Nullable="false" />
+    <Property Name="IDREGISTRO" Type="numeric" Nullable="false" />
     <Property Name="OPERACION" Type="char" Nullable="false" MaxLength="1" />
     <Property Name="VALORESVIEJOS" Type="varchar" MaxLength="1024" />
     <Property Name="VALORESNUEVOS" Type="varchar" MaxLength="1024" />
@@ -322,17 +309,17 @@
       <PropertyRef Name="ALPHA" />
       <PropertyRef Name="VALOR" />
     </Key>
-    <Property Name="N" Type="decimal" Nullable="false" />
+    <Property Name="N" Type="numeric" Nullable="false" />
     <Property Name="ALPHA" Type="decimal" Nullable="false" Scale="3" />
     <Property Name="VALOR" Type="decimal" Nullable="false" Scale="3" />
   </EntityType>
   <EntityType Name="USO">
     <Key>
-      <PropertyRef Name="LINEANOMADERABLES_LINEANMAD" />
-      <PropertyRef Name="TIPODEUSO_NOMBRETIPOUSO" />
+      <PropertyRef Name="LINEANMAD" />
+      <PropertyRef Name="NOMBRETIPOUSO" />
     </Key>
-    <Property Name="LINEANOMADERABLES_LINEANMAD" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="TIPODEUSO_NOMBRETIPOUSO" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="LINEANMAD" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="NOMBRETIPOUSO" Type="varchar" Nullable="false" MaxLength="100" />
   </EntityType>
   <EntityType Name="USUARIO">
     <Key>
@@ -343,10 +330,12 @@
     <Property Name="APELLIDOS" Type="varchar" Nullable="false" MaxLength="100" />
     <Property Name="NOMBREUSUARIO" Type="varchar" Nullable="false" MaxLength="100" />
     <Property Name="CONTRASENA" Type="varchar" Nullable="false" MaxLength="1000" />
-    <Property Name="CEDULA" Type="decimal" Nullable="false" />
+    <Property Name="CEDULA" Type="numeric" Nullable="false" />
   </EntityType>
   <Association Name="FK_ESPECIE_PERTENECE_GRUPOCOM">
-    <End Role="GRUPOCOMERCIAL" Type="SIFCA_Model.Store.GRUPOCOMERCIAL" Multiplicity="1" />
+    <End Role="GRUPOCOMERCIAL" Type="SIFCA_Model.Store.GRUPOCOMERCIAL" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="ESPECIE" Type="SIFCA_Model.Store.ESPECIE" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="GRUPOCOMERCIAL">
@@ -358,7 +347,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_FORMULAR_DESARROLL_PROYECTO">
-    <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="1" />
+    <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="FORMULARIO" Type="SIFCA_Model.Store.FORMULARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PROYECTO">
@@ -370,7 +361,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_FORMULAR_ES_DE_TIPOFORM">
-    <End Role="TIPOFORMULARIO" Type="SIFCA_Model.Store.TIPOFORMULARIO" Multiplicity="1" />
+    <End Role="TIPOFORMULARIO" Type="SIFCA_Model.Store.TIPOFORMULARIO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="FORMULARIO" Type="SIFCA_Model.Store.FORMULARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TIPOFORMULARIO">
@@ -382,7 +375,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_FORMULAR_ES_REPONS_USUARIO">
-    <End Role="USUARIO" Type="SIFCA_Model.Store.USUARIO" Multiplicity="1" />
+    <End Role="USUARIO" Type="SIFCA_Model.Store.USUARIO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="FORMULARIO" Type="SIFCA_Model.Store.FORMULARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="USUARIO">
@@ -394,7 +389,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_FORMULAR_MANEJA_ESTRATO">
-    <End Role="ESTRATO" Type="SIFCA_Model.Store.ESTRATO" Multiplicity="1" />
+    <End Role="ESTRATO" Type="SIFCA_Model.Store.ESTRATO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="FORMULARIO" Type="SIFCA_Model.Store.FORMULARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ESTRATO">
@@ -406,7 +403,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_LINEAINV_ASOCIADO_ESTADOSA">
-    <End Role="ESTADOSANITARIO" Type="SIFCA_Model.Store.ESTADOSANITARIO" Multiplicity="1" />
+    <End Role="ESTADOSANITARIO" Type="SIFCA_Model.Store.ESTADOSANITARIO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="LINEAINVENTARIO" Type="SIFCA_Model.Store.LINEAINVENTARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ESTADOSANITARIO">
@@ -418,7 +417,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_LINEAINV_CONTIENE_ESPECIE">
-    <End Role="ESPECIE" Type="SIFCA_Model.Store.ESPECIE" Multiplicity="1" />
+    <End Role="ESPECIE" Type="SIFCA_Model.Store.ESPECIE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="LINEAINVENTARIO" Type="SIFCA_Model.Store.LINEAINVENTARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ESPECIE">
@@ -430,7 +431,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_LINEAINV_LLENA_FORMULAR">
-    <End Role="FORMULARIO" Type="SIFCA_Model.Store.FORMULARIO" Multiplicity="1" />
+    <End Role="FORMULARIO" Type="SIFCA_Model.Store.FORMULARIO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="LINEAINVENTARIO" Type="SIFCA_Model.Store.LINEAINVENTARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="FORMULARIO">
@@ -442,7 +445,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_LINEAINV_POSEE_CALIDAD">
-    <End Role="CALIDAD" Type="SIFCA_Model.Store.CALIDAD" Multiplicity="1" />
+    <End Role="CALIDAD" Type="SIFCA_Model.Store.CALIDAD" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="LINEAINVENTARIO" Type="SIFCA_Model.Store.LINEAINVENTARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CALIDAD">
@@ -454,7 +459,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_LINEANOM_RECOLECTA_FORMULAR">
-    <End Role="FORMULARIO" Type="SIFCA_Model.Store.FORMULARIO" Multiplicity="1" />
+    <End Role="FORMULARIO" Type="SIFCA_Model.Store.FORMULARIO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="LINEANOMADERABLES" Type="SIFCA_Model.Store.LINEANOMADERABLES" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="FORMULARIO">
@@ -466,7 +473,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_LINEAREG_COMPLETA_FORMULAR">
-    <End Role="FORMULARIO" Type="SIFCA_Model.Store.FORMULARIO" Multiplicity="1" />
+    <End Role="FORMULARIO" Type="SIFCA_Model.Store.FORMULARIO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="LINEAREGENERACION" Type="SIFCA_Model.Store.LINEAREGENERACION" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="FORMULARIO">
@@ -478,7 +487,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_LINEAREG_EVALUACIO_ESPECIE">
-    <End Role="ESPECIE" Type="SIFCA_Model.Store.ESPECIE" Multiplicity="1" />
+    <End Role="ESPECIE" Type="SIFCA_Model.Store.ESPECIE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="LINEAREGENERACION" Type="SIFCA_Model.Store.LINEAREGENERACION" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ESPECIE">
@@ -489,8 +500,24 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_LISTADOD_LISTESTRA_ESTRATO">
-    <End Role="ESTRATO" Type="SIFCA_Model.Store.ESTRATO" Multiplicity="1" />
+  <Association Name="FK_LISTADOD_LISTADODE_ESPECIE">
+    <End Role="ESPECIE" Type="SIFCA_Model.Store.ESPECIE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LISTADODEESPECIES" Type="SIFCA_Model.Store.LISTADODEESPECIES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESPECIE">
+        <PropertyRef Name="CODESP" />
+      </Principal>
+      <Dependent Role="LISTADODEESPECIES">
+        <PropertyRef Name="CODESP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LISTADOD_LISTAESTR_ESTRATO">
+    <End Role="ESTRATO" Type="SIFCA_Model.Store.ESTRATO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="LISTADODEESTRATOS" Type="SIFCA_Model.Store.LISTADODEESTRATOS" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ESTRATO">
@@ -501,8 +528,24 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_LISTADOD_LISTESTRA_PROYECTO">
-    <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="1" />
+  <Association Name="FK_LISTADOESPECIES_PROYECTO">
+    <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LISTADODEESPECIES" Type="SIFCA_Model.Store.LISTADODEESPECIES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROYECTO">
+        <PropertyRef Name="NROPROY" />
+      </Principal>
+      <Dependent Role="LISTADODEESPECIES">
+        <PropertyRef Name="NROPROY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LISTAESTRATOS_PROYECTO">
+    <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="LISTADODEESTRATOS" Type="SIFCA_Model.Store.LISTADODEESTRATOS" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PROYECTO">
@@ -513,27 +556,27 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_LISTADODEESPECIES_ESPECIE">
-    <End Role="ESPECIE" Type="SIFCA_Model.Store.ESPECIE" Multiplicity="1" />
-    <End Role="LISTADODEESPECIES" Type="SIFCA_Model.Store.LISTADODEESPECIES" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ESPECIE">
-        <PropertyRef Name="CODESP" />
-      </Principal>
-      <Dependent Role="LISTADODEESPECIES">
-        <PropertyRef Name="ESPECIE_CODESP" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_LISTADODEESPECIES_PROYECTO">
+  <Association Name="FK_PROYECTO_CONTENEDOR">
     <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="1" />
-    <End Role="LISTADODEESPECIES" Type="SIFCA_Model.Store.LISTADODEESPECIES" Multiplicity="*" />
+    <End Role="PROYECTOSPORETAPA" Type="SIFCA_Model.Store.PROYECTOSPORETAPA" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PROYECTO">
         <PropertyRef Name="NROPROY" />
       </Principal>
-      <Dependent Role="LISTADODEESPECIES">
-        <PropertyRef Name="PROYECTO_NROPROY" />
+      <Dependent Role="PROYECTOSPORETAPA">
+        <PropertyRef Name="NROPROYCONTENEDOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROYECTO_CONTENIDOS">
+    <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="1" />
+    <End Role="PROYECTOSPORETAPA" Type="SIFCA_Model.Store.PROYECTOSPORETAPA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROYECTO">
+        <PropertyRef Name="NROPROY" />
+      </Principal>
+      <Dependent Role="PROYECTOSPORETAPA">
+        <PropertyRef Name="NROPROYCONTENIDO" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -549,20 +592,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_PROYECTO_ES_DE_TIP_TIPOPROY">
-    <End Role="TIPOPROYECTO" Type="SIFCA_Model.Store.TIPOPROYECTO" Multiplicity="1" />
-    <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TIPOPROYECTO">
-        <PropertyRef Name="TIPOPROYECTO_ID" />
-      </Principal>
-      <Dependent Role="PROYECTO">
-        <PropertyRef Name="TIPOPOYECTO_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_PROYECTO_ES_OBJETIVO">
-    <End Role="OBJETIVOINVENTARIO" Type="SIFCA_Model.Store.OBJETIVOINVENTARIO" Multiplicity="1" />
+    <End Role="OBJETIVOINVENTARIO" Type="SIFCA_Model.Store.OBJETIVOINVENTARIO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="OBJETIVOINVENTARIO">
@@ -574,7 +607,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PROYECTO_REALIZA_TIPODISE">
-    <End Role="TIPODISENOMUESTRAL" Type="SIFCA_Model.Store.TIPODISENOMUESTRAL" Multiplicity="1" />
+    <End Role="TIPODISENOMUESTRAL" Type="SIFCA_Model.Store.TIPODISENOMUESTRAL" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TIPODISENOMUESTRAL">
@@ -585,32 +620,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_PROYECTOSPORETAPA_PROYECTOCONTENEDOR">
-    <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="1" />
-    <End Role="PROYECTOSPORETAPA" Type="SIFCA_Model.Store.PROYECTOSPORETAPA" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PROYECTO">
-        <PropertyRef Name="NROPROY" />
-      </Principal>
-      <Dependent Role="PROYECTOSPORETAPA">
-        <PropertyRef Name="PROYECTOCONTENIDO_NROPROY" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PROYECTOSPORETAPA_PROYECTOCONTENIDO">
-    <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="1" />
-    <End Role="PROYECTOSPORETAPA" Type="SIFCA_Model.Store.PROYECTOSPORETAPA" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PROYECTO">
-        <PropertyRef Name="NROPROY" />
-      </Principal>
-      <Dependent Role="PROYECTOSPORETAPA">
-        <PropertyRef Name="PROYECTOCONTENDOR_NROPROY" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_TRANSACC_REGISTRA_USUARIO">
-    <End Role="USUARIO" Type="SIFCA_Model.Store.USUARIO" Multiplicity="1" />
+    <End Role="USUARIO" Type="SIFCA_Model.Store.USUARIO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="TRANSACCION" Type="SIFCA_Model.Store.TRANSACCION" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="USUARIO">
@@ -621,27 +634,31 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_USO_LINEANOMADERABLES">
-    <End Role="LINEANOMADERABLES" Type="SIFCA_Model.Store.LINEANOMADERABLES" Multiplicity="1" />
-    <End Role="USO" Type="SIFCA_Model.Store.USO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="LINEANOMADERABLES">
-        <PropertyRef Name="LINEANMAD" />
-      </Principal>
-      <Dependent Role="USO">
-        <PropertyRef Name="LINEANOMADERABLES_LINEANMAD" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_USO_TIPODEUSO">
-    <End Role="TIPODEUSO" Type="SIFCA_Model.Store.TIPODEUSO" Multiplicity="1" />
+  <Association Name="FK_USO_TIPOUSO_TIPODEUS">
+    <End Role="TIPODEUSO" Type="SIFCA_Model.Store.TIPODEUSO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="USO" Type="SIFCA_Model.Store.USO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TIPODEUSO">
         <PropertyRef Name="NOMBRETIPOUSO" />
       </Principal>
       <Dependent Role="USO">
-        <PropertyRef Name="TIPODEUSO_NOMBRETIPOUSO" />
+        <PropertyRef Name="NOMBRETIPOUSO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USO_USADOPOR_LINEANOM">
+    <End Role="LINEANOMADERABLES" Type="SIFCA_Model.Store.LINEANOMADERABLES" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="USO" Type="SIFCA_Model.Store.USO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LINEANOMADERABLES">
+        <PropertyRef Name="LINEANMAD" />
+      </Principal>
+      <Dependent Role="USO">
+        <PropertyRef Name="LINEANMAD" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

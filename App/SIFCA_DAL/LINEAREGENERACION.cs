@@ -18,8 +18,8 @@ namespace SIFCA_DAL
         public Nullable<decimal> LATIZAL { get; set; }
         public Nullable<decimal> BRINZAL { get; set; }
         public System.Guid LINEAREGEN { get; set; }
-        public System.Guid CODESP { get; set; }
         public System.Guid NROFORMULARIO { get; set; }
+        public System.Guid CODESP { get; set; }
     
         public virtual ESPECIE ESPECIE { get; set; }
         public virtual FORMULARIO FORMULARIO { get; set; }

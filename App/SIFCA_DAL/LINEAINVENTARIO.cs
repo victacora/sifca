@@ -16,9 +16,9 @@ namespace SIFCA_DAL
     {
         public System.Guid LINEAINV { get; set; }
         public decimal CODCALIDAD { get; set; }
+        public System.Guid NROFORMULARIO { get; set; }
         public string ESTADO { get; set; }
         public System.Guid CODESP { get; set; }
-        public System.Guid NROFORMULARIO { get; set; }
         public Nullable<decimal> NROARB { get; set; }
         public Nullable<decimal> CAP { get; set; }
         public Nullable<decimal> DAP { get; set; }

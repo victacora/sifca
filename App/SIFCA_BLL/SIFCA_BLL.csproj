@@ -56,7 +56,6 @@
     <Compile Include="StateBL.cs" />
     <Compile Include="FormBL.cs" />
     <Compile Include="SpeciesBL.cs" />
-    <Compile Include="ProjectTypeBL.cs" />
     <Compile Include="TypeSampleDesignBl.cs" />
     <Compile Include="TypeUseBL.cs" />
     <Compile Include="UserBL.cs" />

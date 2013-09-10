@@ -108,9 +108,6 @@
     <Compile Include="TIPOFORMULARIO.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="TIPOPROYECTO.cs">
-      <DependentUpon>SIFCA_Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="TRANSACCION.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>

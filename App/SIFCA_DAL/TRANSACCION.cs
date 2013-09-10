@@ -14,7 +14,7 @@ namespace SIFCA_DAL
 {
     public partial class TRANSACCION
     {
-        public System.Guid NROTRANS { get; set; }
+        public decimal NROTRANS { get; set; }
         public System.Guid NROUSUARIO { get; set; }
         public System.DateTime FECHA { get; set; }
         public string TABLA { get; set; }

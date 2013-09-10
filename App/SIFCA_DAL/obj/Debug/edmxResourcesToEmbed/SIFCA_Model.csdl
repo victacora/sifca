@@ -16,7 +16,6 @@
     <EntitySet Name="TIPODEUSO" EntityType="SIFCA_Model.TIPODEUSO" />
     <EntitySet Name="TIPODISENOMUESTRAL" EntityType="SIFCA_Model.TIPODISENOMUESTRAL" />
     <EntitySet Name="TIPOFORMULARIO" EntityType="SIFCA_Model.TIPOFORMULARIO" />
-    <EntitySet Name="TIPOPROYECTO" EntityType="SIFCA_Model.TIPOPROYECTO" />
     <EntitySet Name="TRANSACCION" EntityType="SIFCA_Model.TRANSACCION" />
     <EntitySet Name="TSTUDENT" EntityType="SIFCA_Model.TSTUDENT" />
     <EntitySet Name="USUARIO" EntityType="SIFCA_Model.USUARIO" />
@@ -44,7 +43,7 @@
       <End Role="ESTRATO" EntitySet="ESTRATO" />
       <End Role="FORMULARIO" EntitySet="FORMULARIO" />
     </AssociationSet>
-    <AssociationSet Name="FK_LISTADOD_LISTESTRA_ESTRATO" Association="SIFCA_Model.FK_LISTADOD_LISTESTRA_ESTRATO">
+    <AssociationSet Name="FK_LISTADOD_LISTAESTR_ESTRATO" Association="SIFCA_Model.FK_LISTADOD_LISTAESTR_ESTRATO">
       <End Role="ESTRATO" EntitySet="ESTRATO" />
       <End Role="LISTADODEESTRATOS" EntitySet="LISTADODEESTRATOS" />
     </AssociationSet>
@@ -72,7 +71,7 @@
       <End Role="FORMULARIO" EntitySet="FORMULARIO" />
       <End Role="LINEAREGENERACION" EntitySet="LINEAREGENERACION" />
     </AssociationSet>
-    <AssociationSet Name="FK_LISTADOD_LISTESTRA_PROYECTO" Association="SIFCA_Model.FK_LISTADOD_LISTESTRA_PROYECTO">
+    <AssociationSet Name="FK_LISTAESTRATOS_PROYECTO" Association="SIFCA_Model.FK_LISTAESTRATOS_PROYECTO">
       <End Role="PROYECTO" EntitySet="PROYECTO" />
       <End Role="LISTADODEESTRATOS" EntitySet="LISTADODEESTRATOS" />
     </AssociationSet>
@@ -82,10 +81,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_PROYECTO_CREA_USUARIO" Association="SIFCA_Model.FK_PROYECTO_CREA_USUARIO">
       <End Role="USUARIO" EntitySet="USUARIO" />
-      <End Role="PROYECTO" EntitySet="PROYECTO" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PROYECTO_ES_DE_TIP_TIPOPROY" Association="SIFCA_Model.FK_PROYECTO_ES_DE_TIP_TIPOPROY">
-      <End Role="TIPOPROYECTO" EntitySet="TIPOPROYECTO" />
       <End Role="PROYECTO" EntitySet="PROYECTO" />
     </AssociationSet>
     <AssociationSet Name="FK_PROYECTO_REALIZA_TIPODISE" Association="SIFCA_Model.FK_PROYECTO_REALIZA_TIPODISE">
@@ -105,8 +100,8 @@
       <End Role="PROYECTO1" EntitySet="PROYECTO" />
     </AssociationSet>
     <AssociationSet Name="USO" Association="SIFCA_Model.USO">
-      <End Role="LINEANOMADERABLES" EntitySet="LINEANOMADERABLES" />
       <End Role="TIPODEUSO" EntitySet="TIPODEUSO" />
+      <End Role="LINEANOMADERABLES" EntitySet="LINEANOMADERABLES" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="CALIDAD">
@@ -149,7 +144,7 @@
     <Property Type="Decimal" Name="CODEST" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="String" Name="DESCRIPESTRATO" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_FORMULAR_MANEJA_ESTRATO" FromRole="ESTRATO" ToRole="FORMULARIO" />
-    <NavigationProperty Name="LISTADODEESTRATOS" Relationship="SIFCA_Model.FK_LISTADOD_LISTESTRA_ESTRATO" FromRole="ESTRATO" ToRole="LISTADODEESTRATOS" />
+    <NavigationProperty Name="LISTADODEESTRATOS" Relationship="SIFCA_Model.FK_LISTADOD_LISTAESTR_ESTRATO" FromRole="ESTRATO" ToRole="LISTADODEESTRATOS" />
   </EntityType>
   <EntityType Name="FORMULARIO">
     <Key>
@@ -189,9 +184,9 @@
     </Key>
     <Property Type="Guid" Name="LINEAINV" Nullable="false" />
     <Property Type="Decimal" Name="CODCALIDAD" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Guid" Name="NROFORMULARIO" Nullable="false" />
     <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
     <Property Type="Guid" Name="CODESP" Nullable="false" />
-    <Property Type="Guid" Name="NROFORMULARIO" Nullable="false" />
     <Property Type="Decimal" Name="NROARB" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="CAP" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="DAP" Precision="18" Scale="0" />
@@ -223,8 +218,8 @@
     <Property Type="Decimal" Name="LATIZAL" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="BRINZAL" Precision="18" Scale="0" />
     <Property Type="Guid" Name="LINEAREGEN" Nullable="false" />
-    <Property Type="Guid" Name="CODESP" Nullable="false" />
     <Property Type="Guid" Name="NROFORMULARIO" Nullable="false" />
+    <Property Type="Guid" Name="CODESP" Nullable="false" />
     <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.FK_LINEAREG_EVALUACIO_ESPECIE" FromRole="LINEAREGENERACION" ToRole="ESPECIE" />
     <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_LINEAREG_COMPLETA_FORMULAR" FromRole="LINEAREGENERACION" ToRole="FORMULARIO" />
   </EntityType>
@@ -236,8 +231,8 @@
     <Property Type="Guid" Name="NROPROY" Nullable="false" />
     <Property Type="Decimal" Name="CODEST" Nullable="false" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="PESO" Precision="18" Scale="3" />
-    <NavigationProperty Name="ESTRATO" Relationship="SIFCA_Model.FK_LISTADOD_LISTESTRA_ESTRATO" FromRole="LISTADODEESTRATOS" ToRole="ESTRATO" />
-    <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_LISTADOD_LISTESTRA_PROYECTO" FromRole="LISTADODEESTRATOS" ToRole="PROYECTO" />
+    <NavigationProperty Name="ESTRATO" Relationship="SIFCA_Model.FK_LISTADOD_LISTAESTR_ESTRATO" FromRole="LISTADODEESTRATOS" ToRole="ESTRATO" />
+    <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_LISTAESTRATOS_PROYECTO" FromRole="LISTADODEESTRATOS" ToRole="PROYECTO" />
   </EntityType>
   <EntityType Name="OBJETIVOINVENTARIO">
     <Key>
@@ -253,7 +248,6 @@
     </Key>
     <Property Type="Guid" Name="NROPROY" Nullable="false" />
     <Property Type="Guid" Name="NROUSUARIO" Nullable="false" />
-    <Property Type="Decimal" Name="TIPOPOYECTO_ID" Nullable="false" Precision="18" Scale="0" />
     <Property Type="String" Name="NOMBRETIPOINV" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="NOMTIPODISEMUEST" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="LUGAR" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -268,11 +262,11 @@
     <Property Type="Decimal" Name="FACTORDEFORMA" Nullable="false" Precision="18" Scale="3" />
     <Property Type="DateTime" Name="FECHA" Nullable="false" />
     <Property Type="Decimal" Name="NUMEROETAPAS" Precision="18" Scale="0" />
+    <Property Type="String" Name="TIPOPROYECTO" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_FORMULAR_DESARROLL_PROYECTO" FromRole="PROYECTO" ToRole="FORMULARIO" />
-    <NavigationProperty Name="LISTADODEESTRATOS" Relationship="SIFCA_Model.FK_LISTADOD_LISTESTRA_PROYECTO" FromRole="PROYECTO" ToRole="LISTADODEESTRATOS" />
+    <NavigationProperty Name="LISTADODEESTRATOS" Relationship="SIFCA_Model.FK_LISTAESTRATOS_PROYECTO" FromRole="PROYECTO" ToRole="LISTADODEESTRATOS" />
     <NavigationProperty Name="OBJETIVOINVENTARIO" Relationship="SIFCA_Model.FK_PROYECTO_ES_OBJETIVO" FromRole="PROYECTO" ToRole="OBJETIVOINVENTARIO" />
     <NavigationProperty Name="USUARIO" Relationship="SIFCA_Model.FK_PROYECTO_CREA_USUARIO" FromRole="PROYECTO" ToRole="USUARIO" />
-    <NavigationProperty Name="TIPOPROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_ES_DE_TIP_TIPOPROY" FromRole="PROYECTO" ToRole="TIPOPROYECTO" />
     <NavigationProperty Name="TIPODISENOMUESTRAL" Relationship="SIFCA_Model.FK_PROYECTO_REALIZA_TIPODISE" FromRole="PROYECTO" ToRole="TIPODISENOMUESTRAL" />
     <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.LISTADODEESPECIES" FromRole="PROYECTO" ToRole="ESPECIE" />
     <NavigationProperty Name="PROYECTO1" Relationship="SIFCA_Model.PROYECTOSPORETAPA" FromRole="PROYECTO" ToRole="PROYECTO1" />
@@ -303,20 +297,11 @@
     <Property Type="Decimal" Name="TIPFORM_ID" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
     <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_FORMULAR_ES_DE_TIPOFORM" FromRole="TIPOFORMULARIO" ToRole="FORMULARIO" />
   </EntityType>
-  <EntityType Name="TIPOPROYECTO">
-    <Key>
-      <PropertyRef Name="TIPOPROYECTO_ID" />
-    </Key>
-    <Property Type="Decimal" Name="TIPOPROYECTO_ID" Nullable="false" Precision="18" Scale="0" />
-    <Property Type="String" Name="DESCRIPCION" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="NOMBRETIPOPROYECTO" MaxLength="100" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_ES_DE_TIP_TIPOPROY" FromRole="TIPOPROYECTO" ToRole="PROYECTO" />
-  </EntityType>
   <EntityType Name="TRANSACCION">
     <Key>
       <PropertyRef Name="NROTRANS" />
     </Key>
-    <Property Type="Guid" Name="NROTRANS" Nullable="false" />
+    <Property Type="Decimal" Name="NROTRANS" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="Guid" Name="NROUSUARIO" Nullable="false" />
     <Property Type="DateTime" Name="FECHA" Nullable="false" />
     <Property Type="String" Name="TABLA" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -422,7 +407,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_LISTADOD_LISTESTRA_ESTRATO">
+  <Association Name="FK_LISTADOD_LISTAESTR_ESTRATO">
     <End Type="SIFCA_Model.ESTRATO" Role="ESTRATO" Multiplicity="1" />
     <End Type="SIFCA_Model.LISTADODEESTRATOS" Role="LISTADODEESTRATOS" Multiplicity="*" />
     <ReferentialConstraint>
@@ -506,7 +491,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_LISTADOD_LISTESTRA_PROYECTO">
+  <Association Name="FK_LISTAESTRATOS_PROYECTO">
     <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="1" />
     <End Type="SIFCA_Model.LISTADODEESTRATOS" Role="LISTADODEESTRATOS" Multiplicity="*" />
     <ReferentialConstraint>
@@ -539,18 +524,6 @@
       </Principal>
       <Dependent Role="PROYECTO">
         <PropertyRef Name="NROUSUARIO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PROYECTO_ES_DE_TIP_TIPOPROY">
-    <End Type="SIFCA_Model.TIPOPROYECTO" Role="TIPOPROYECTO" Multiplicity="1" />
-    <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TIPOPROYECTO">
-        <PropertyRef Name="TIPOPROYECTO_ID" />
-      </Principal>
-      <Dependent Role="PROYECTO">
-        <PropertyRef Name="TIPOPOYECTO_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -587,7 +560,7 @@
     <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO1" Multiplicity="*" />
   </Association>
   <Association Name="USO">
-    <End Type="SIFCA_Model.LINEANOMADERABLES" Role="LINEANOMADERABLES" Multiplicity="*" />
     <End Type="SIFCA_Model.TIPODEUSO" Role="TIPODEUSO" Multiplicity="*" />
+    <End Type="SIFCA_Model.LINEANOMADERABLES" Role="LINEANOMADERABLES" Multiplicity="*" />
   </Association>
 </Schema>

@@ -25,7 +25,6 @@ namespace SIFCA_DAL
     
         public System.Guid NROPROY { get; set; }
         public System.Guid NROUSUARIO { get; set; }
-        public decimal TIPOPOYECTO_ID { get; set; }
         public string NOMBRETIPOINV { get; set; }
         public string NOMTIPODISEMUEST { get; set; }
         public string LUGAR { get; set; }
@@ -40,12 +39,12 @@ namespace SIFCA_DAL
         public decimal FACTORDEFORMA { get; set; }
         public System.DateTime FECHA { get; set; }
         public Nullable<decimal> NUMEROETAPAS { get; set; }
+        public string TIPOPROYECTO { get; set; }
     
         public virtual ICollection<FORMULARIO> FORMULARIO { get; set; }
         public virtual ICollection<LISTADODEESTRATOS> LISTADODEESTRATOS { get; set; }
         public virtual OBJETIVOINVENTARIO OBJETIVOINVENTARIO { get; set; }
         public virtual USUARIO USUARIO { get; set; }
-        public virtual TIPOPROYECTO TIPOPROYECTO { get; set; }
         public virtual TIPODISENOMUESTRAL TIPODISENOMUESTRAL { get; set; }
         public virtual ICollection<ESPECIE> ESPECIE { get; set; }
         public virtual ICollection<PROYECTO> PROYECTO1 { get; set; }

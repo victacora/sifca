@@ -90,9 +90,9 @@ namespace SIFCA
 
         private void introducirDatosEstacionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Crear_Estacion_Form childForm = new Crear_Estacion_Form();
-            //childForm.MdiParent = this;
-            //childForm.Show();
+            Crear_Usuario_Form childForm = new Crear_Usuario_Form();
+            childForm.MdiParent = this;
+            childForm.Show();
         }
 
         private void listarEstacionesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -164,6 +164,13 @@ namespace SIFCA
             //Listado_Especies_Form childForm = new Listado_Especies_Form();
             //childForm.MdiParent = this;
             //childForm.Show();
+        }
+
+        private void ListarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Listar_Usuarios_Form childForm = new Listar_Usuarios_Form();
+            childForm.MdiParent = this;
+            childForm.Show();
         }
     }
 }

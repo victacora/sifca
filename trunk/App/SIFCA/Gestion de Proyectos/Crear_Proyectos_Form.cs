@@ -19,6 +19,9 @@ namespace SIFCA
         private ObjectiveInventoryBL objetiveInventory;
         private StratumBL stratum;
         private SpeciesBL species;
+        List<ESPECIE> listEspecies;
+        List<LISTADODEESTRATOS> litsStratum;
+        List<PROYECTO> listProjects;
 
         public Crear_Proyecto_Form()
         {
@@ -163,6 +166,58 @@ namespace SIFCA
             {
                 row.Cells[0].Value = false;
             }
+        }
+
+        private void especiesDGW_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (especiesDGW.Columns[e.ColumnIndex].Name == "Seleccion")
+            {
+                DataGridViewRow row = especiesDGW.Rows[e.RowIndex];
+                DataGridViewCheckBoxCell cellSelecion = row.Cells[0] as DataGridViewCheckBoxCell;
+                if (cellSelecion.Value != null)
+                {
+                    if (cellSelecion.Value != "")
+                    {
+                        if (Convert.ToBoolean(cellSelecion.Value))
+                        {
+                            ESPECIE esp = new ESPECIE();
+                            esp.NOMCOMUN = (string)row.Cells["NOMCOMUN"].Value;
+                            esp.NOMCIENTIFICO = (string)row.Cells["NOMCIENTIFICO"].Value;
+                            esp.FAMILIA = (string)row.Cells["FAMILIA"].Value;
+                            listEspecies.Add(esp);
+                        }
+                        else
+                        {
+                            ESPECIE esp = new ESPECIE();
+                            esp.NOMCOMUN = (string)row.Cells["NOMCOMUN"].Value;
+                            esp.NOMCIENTIFICO = (string)row.Cells["NOMCIENTIFICO"].Value;
+                            esp.FAMILIA = (string)row.Cells["FAMILIA"].Value;
+                            listEspecies.Remove(esp);
+                        }
+                    }
+                }
+
+            }
+        }
+
+        private void estratoDGW_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void proyectoDGW_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tipoDisenoCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TipoProyectoCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

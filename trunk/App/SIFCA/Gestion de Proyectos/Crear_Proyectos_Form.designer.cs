@@ -65,6 +65,10 @@
             this.seleccEspecieBtn = new System.Windows.Forms.Button();
             this.RemoverEspciesBtn = new System.Windows.Forms.Button();
             this.especiesDGW = new System.Windows.Forms.DataGridView();
+            this.Especie = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.especieBS = new System.Windows.Forms.BindingSource(this.components);
             this.estratosTabP = new System.Windows.Forms.TabPage();
             this.SeleccEstratosBtn = new System.Windows.Forms.Button();
@@ -89,10 +93,6 @@
             this.GuardarBtn = new System.Windows.Forms.Button();
             this.siguienteBtn = new System.Windows.Forms.Button();
             this.atrasBtn = new System.Windows.Forms.Button();
-            this.Especie = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             descripcionLbl = new System.Windows.Forms.Label();
             DAPLbl = new System.Windows.Forms.Label();
             facFormaLbl = new System.Windows.Forms.Label();
@@ -287,6 +287,7 @@
             this.TipoProyectoCbx.Name = "TipoProyectoCbx";
             this.TipoProyectoCbx.Size = new System.Drawing.Size(294, 21);
             this.TipoProyectoCbx.TabIndex = 28;
+            this.TipoProyectoCbx.SelectedIndexChanged += new System.EventHandler(this.TipoProyectoCbx_SelectedIndexChanged);
             // 
             // DescripcionTxt
             // 
@@ -307,6 +308,7 @@
             this.tipoDisenoCbx.Size = new System.Drawing.Size(296, 21);
             this.tipoDisenoCbx.TabIndex = 23;
             this.tipoDisenoCbx.ValueMember = "NOMTIPODISEMUEST";
+            this.tipoDisenoCbx.SelectedIndexChanged += new System.EventHandler(this.tipoDisenoCbx_SelectedIndexChanged);
             // 
             // tipoDisenoBS
             // 
@@ -490,6 +492,33 @@
             this.especiesDGW.Name = "especiesDGW";
             this.especiesDGW.Size = new System.Drawing.Size(446, 415);
             this.especiesDGW.TabIndex = 0;
+            this.especiesDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.especiesDGW_CellValueChanged);
+            // 
+            // Especie
+            // 
+            this.Especie.HeaderText = "Seleccion";
+            this.Especie.Name = "Especie";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "NOMCOMUN";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Nombre Comun";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "NOMCIENTIFICO";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Nombre Cientifico";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "FAMILIA";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Familia";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // especieBS
             // 
@@ -546,11 +575,13 @@
             this.estratoDGW.ReadOnly = true;
             this.estratoDGW.Size = new System.Drawing.Size(446, 415);
             this.estratoDGW.TabIndex = 0;
+            this.estratoDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.estratoDGW_CellValueChanged);
             // 
             // Estrato
             // 
             this.Estrato.HeaderText = "Estratos";
             this.Estrato.Name = "Estrato";
+            this.Estrato.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -563,6 +594,7 @@
             // 
             this.Peso.HeaderText = "Peso";
             this.Peso.Name = "Peso";
+            this.Peso.ReadOnly = true;
             // 
             // estratoBS
             // 
@@ -622,35 +654,41 @@
             this.proyectoDGW.ReadOnly = true;
             this.proyectoDGW.Size = new System.Drawing.Size(446, 415);
             this.proyectoDGW.TabIndex = 0;
+            this.proyectoDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.proyectoDGW_CellValueChanged);
             // 
             // Proyectos
             // 
             this.Proyectos.HeaderText = "Seleccion";
             this.Proyectos.Name = "Proyectos";
+            this.Proyectos.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.DataPropertyName = "LUGAR";
             this.dataGridViewTextBoxColumn9.HeaderText = "Lugar";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn10
             // 
             this.dataGridViewTextBoxColumn10.DataPropertyName = "DESCRIPCION";
             this.dataGridViewTextBoxColumn10.HeaderText = "Descripcion";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn19
             // 
             this.dataGridViewTextBoxColumn19.DataPropertyName = "FECHA";
             this.dataGridViewTextBoxColumn19.HeaderText = "Fecha";
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn24
             // 
             this.dataGridViewTextBoxColumn24.DataPropertyName = "OBJETIVOINVENTARIO";
             this.dataGridViewTextBoxColumn24.HeaderText = "Objetivo";
             this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.ReadOnly = true;
             // 
             // NOMTIPODISEMUEST
             // 
@@ -702,32 +740,6 @@
             this.atrasBtn.Text = "Atras";
             this.atrasBtn.UseVisualStyleBackColor = true;
             this.atrasBtn.Click += new System.EventHandler(this.Atras_Click);
-            // 
-            // Especie
-            // 
-            this.Especie.HeaderText = "Seleccion";
-            this.Especie.Name = "Especie";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "NOMCOMUN";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Nombre Comun";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "NOMCIENTIFICO";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Nombre Cientifico";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "FAMILIA";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Familia";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // Crear_Proyecto_Form
             // 

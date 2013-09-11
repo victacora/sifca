@@ -32,9 +32,9 @@ namespace SIFCA
         
         private void CreateNewProject(object sender, EventArgs e)
         {
-        //    Crear_Proyecto_Form childForm = new Crear_Proyecto_Form();
-        //    childForm.MdiParent = this;
-        //    childForm.Show();
+            Crear_Proyecto_Form childForm = new Crear_Proyecto_Form();
+            childForm.MdiParent = this;
+            childForm.Show();
         }
 
         private void ImportProject(object sender, EventArgs e)
@@ -124,9 +124,9 @@ namespace SIFCA
 
         private void listarEspeciesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Crear_Listado_Especies childForm = new Crear_Listado_Especies();
-            childForm.MdiParent = this;
-            childForm.Show();
+        //    Crear_Listado_Especies childForm = new Crear_Listado_Especies();
+        //    childForm.MdiParent = this;
+        //    childForm.Show();
         }
 
         private void listarProyectosToolStripMenuItem_Click(object sender, EventArgs e)

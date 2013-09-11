@@ -58,11 +58,11 @@
     <Compile Include="Gestion de Especies\Crear_Especie_Form.designer.cs">
       <DependentUpon>Crear_Especie_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestion de Especies\Crear_Listado_Especies.cs">
+    <Compile Include="Gestion de Especies\Crear_Listado_Especies_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestion de Especies\Crear_Listado_Especies.designer.cs">
-      <DependentUpon>Crear_Listado_Especies.cs</DependentUpon>
+    <Compile Include="Gestion de Especies\Crear_Listado_Especies_Form.designer.cs">
+      <DependentUpon>Crear_Listado_Especies_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestion de Especies\Listado_Especies_Form.cs">
       <SubType>Form</SubType>
@@ -117,8 +117,8 @@
     <EmbeddedResource Include="Gestion de Especies\Crear_Especie_Form.resx">
       <DependentUpon>Crear_Especie_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Especies\Crear_Listado_Especies.resx">
-      <DependentUpon>Crear_Listado_Especies.cs</DependentUpon>
+    <EmbeddedResource Include="Gestion de Especies\Crear_Listado_Especies_Form.resx">
+      <DependentUpon>Crear_Listado_Especies_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Especies\Listado_Especies_Form.resx">
       <DependentUpon>Listado_Especies_Form.cs</DependentUpon>
@@ -171,7 +171,6 @@
     <None Include="Properties\DataSources\SIFCA_DAL.TIPODEUSO.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.TIPODISENOMUESTRAL.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.TIPOFORMULARIO.datasource" />
-    <None Include="Properties\DataSources\SIFCA_DAL.TIPOPROYECTO.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.TRANSACCION.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.TSTUDENT.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.USUARIO.datasource" />
@@ -200,6 +199,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\fondo.jpg" />
+    <None Include="Resources\fondoTab.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

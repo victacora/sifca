@@ -7,11 +7,11 @@ using System.Data;
 
 namespace SIFCA_BLL
 {
-    public class FromTypeBL 
+    public class FormTypeBL 
     {
         private SIFCA_CONTEXT sifcaRepository;
 
-        public FromTypeBL(SIFCA_CONTEXT contextProvider)
+        public FormTypeBL(SIFCA_CONTEXT contextProvider)
         {
             this.sifcaRepository = contextProvider;
         }

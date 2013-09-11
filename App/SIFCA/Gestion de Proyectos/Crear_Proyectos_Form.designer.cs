@@ -39,6 +39,7 @@
             System.Windows.Forms.Label lugarLbl;
             System.Windows.Forms.Label TipoDisenoLbl;
             System.Windows.Forms.Label objetivoInvTxt;
+            System.Windows.Forms.Label numeroEtapasLbl;
             this.label1 = new System.Windows.Forms.Label();
             this.crearProyectoTab = new System.Windows.Forms.TabControl();
             this.proyectoTabP = new System.Windows.Forms.TabPage();
@@ -65,34 +66,35 @@
             this.seleccEspecieBtn = new System.Windows.Forms.Button();
             this.RemoverEspciesBtn = new System.Windows.Forms.Button();
             this.especiesDGW = new System.Windows.Forms.DataGridView();
+            this.Especie = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.NOMCOMUN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOMCIENTIFICO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FAMILIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.especieBS = new System.Windows.Forms.BindingSource(this.components);
             this.estratosTabP = new System.Windows.Forms.TabPage();
             this.SeleccEstratosBtn = new System.Windows.Forms.Button();
             this.removerEstratosBtn = new System.Windows.Forms.Button();
             this.estratoDGW = new System.Windows.Forms.DataGridView();
+            this.Estratos = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DESCRIPESTRATO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estratoBS = new System.Windows.Forms.BindingSource(this.components);
             this.proyectosContTabP = new System.Windows.Forms.TabPage();
             this.seleccionarProyectosBtn = new System.Windows.Forms.Button();
             this.removerProyectosBtn = new System.Windows.Forms.Button();
             this.proyectoDGW = new System.Windows.Forms.DataGridView();
-            this.proyectoBS = new System.Windows.Forms.BindingSource(this.components);
-            this.cancelarBtn = new System.Windows.Forms.Button();
-            this.GuardarBtn = new System.Windows.Forms.Button();
-            this.siguienteBtn = new System.Windows.Forms.Button();
-            this.atrasBtn = new System.Windows.Forms.Button();
-            this.Estratos = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.DESCRIPESTRATO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Especie = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.NOMCOMUN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOMCIENTIFICO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FAMILIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Proyectos = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.LUGAR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OBJETIVOINVENTARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOMTIPODISEMUEST = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PesoProyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proyectoBS = new System.Windows.Forms.BindingSource(this.components);
+            this.cancelarBtn = new System.Windows.Forms.Button();
+            this.GuardarBtn = new System.Windows.Forms.Button();
+            this.siguienteBtn = new System.Windows.Forms.Button();
+            this.atrasBtn = new System.Windows.Forms.Button();
+            this.numeroEtapasTxt = new System.Windows.Forms.TextBox();
             descripcionLbl = new System.Windows.Forms.Label();
             DAPLbl = new System.Windows.Forms.Label();
             facFormaLbl = new System.Windows.Forms.Label();
@@ -103,6 +105,7 @@
             lugarLbl = new System.Windows.Forms.Label();
             TipoDisenoLbl = new System.Windows.Forms.Label();
             objetivoInvTxt = new System.Windows.Forms.Label();
+            numeroEtapasLbl = new System.Windows.Forms.Label();
             this.crearProyectoTab.SuspendLayout();
             this.proyectoTabP.SuspendLayout();
             this.DatosProyectoGbx.SuspendLayout();
@@ -240,7 +243,6 @@
             this.crearProyectoTab.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.crearProyectoTab.TabIndex = 0;
             this.crearProyectoTab.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.crearProyectoTab_DrawItem);
-            
             // 
             // proyectoTabP
             // 
@@ -360,6 +362,8 @@
             // 
             // otrosDatosGbx
             // 
+            this.otrosDatosGbx.Controls.Add(numeroEtapasLbl);
+            this.otrosDatosGbx.Controls.Add(this.numeroEtapasTxt);
             this.otrosDatosGbx.Controls.Add(facFormaLbl);
             this.otrosDatosGbx.Controls.Add(this.factorFormaTxt);
             this.otrosDatosGbx.Controls.Add(areaFustalesLbl);
@@ -494,6 +498,32 @@
             this.especiesDGW.TabIndex = 0;
             this.especiesDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.especiesDGW_CellValueChanged);
             // 
+            // Especie
+            // 
+            this.Especie.HeaderText = "Seleccion";
+            this.Especie.Name = "Especie";
+            // 
+            // NOMCOMUN
+            // 
+            this.NOMCOMUN.DataPropertyName = "NOMCOMUN";
+            this.NOMCOMUN.HeaderText = "Nombre Comun";
+            this.NOMCOMUN.Name = "NOMCOMUN";
+            this.NOMCOMUN.ReadOnly = true;
+            // 
+            // NOMCIENTIFICO
+            // 
+            this.NOMCIENTIFICO.DataPropertyName = "NOMCIENTIFICO";
+            this.NOMCIENTIFICO.HeaderText = "Nombre Cientifico";
+            this.NOMCIENTIFICO.Name = "NOMCIENTIFICO";
+            this.NOMCIENTIFICO.ReadOnly = true;
+            // 
+            // FAMILIA
+            // 
+            this.FAMILIA.DataPropertyName = "FAMILIA";
+            this.FAMILIA.HeaderText = "Familia";
+            this.FAMILIA.Name = "FAMILIA";
+            this.FAMILIA.ReadOnly = true;
+            // 
             // especieBS
             // 
             this.especieBS.DataSource = typeof(SIFCA_DAL.ESPECIE);
@@ -552,6 +582,23 @@
             this.estratoDGW.Size = new System.Drawing.Size(446, 415);
             this.estratoDGW.TabIndex = 0;
             this.estratoDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.estratoDGW_CellValueChanged);
+            // 
+            // Estratos
+            // 
+            this.Estratos.HeaderText = "Estratos";
+            this.Estratos.Name = "Estratos";
+            // 
+            // DESCRIPESTRATO
+            // 
+            this.DESCRIPESTRATO.DataPropertyName = "DESCRIPESTRATO";
+            this.DESCRIPESTRATO.HeaderText = "Descripcion";
+            this.DESCRIPESTRATO.Name = "DESCRIPESTRATO";
+            this.DESCRIPESTRATO.ReadOnly = true;
+            // 
+            // Peso
+            // 
+            this.Peso.HeaderText = "Peso";
+            this.Peso.Name = "Peso";
             // 
             // estratoBS
             // 
@@ -615,6 +662,44 @@
             this.proyectoDGW.TabIndex = 0;
             this.proyectoDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.proyectoDGW_CellValueChanged);
             // 
+            // Proyectos
+            // 
+            this.Proyectos.HeaderText = "Seleccion";
+            this.Proyectos.Name = "Proyectos";
+            // 
+            // LUGAR
+            // 
+            this.LUGAR.DataPropertyName = "LUGAR";
+            this.LUGAR.HeaderText = "Lugar";
+            this.LUGAR.Name = "LUGAR";
+            this.LUGAR.ReadOnly = true;
+            // 
+            // FECHA
+            // 
+            this.FECHA.DataPropertyName = "FECHA";
+            this.FECHA.HeaderText = "Fecha";
+            this.FECHA.Name = "FECHA";
+            this.FECHA.ReadOnly = true;
+            // 
+            // OBJETIVOINVENTARIO
+            // 
+            this.OBJETIVOINVENTARIO.DataPropertyName = "NOMBRETIPOINV";
+            this.OBJETIVOINVENTARIO.HeaderText = "Objetivo";
+            this.OBJETIVOINVENTARIO.Name = "OBJETIVOINVENTARIO";
+            this.OBJETIVOINVENTARIO.ReadOnly = true;
+            // 
+            // NOMTIPODISEMUEST
+            // 
+            this.NOMTIPODISEMUEST.DataPropertyName = "NOMTIPODISEMUEST";
+            this.NOMTIPODISEMUEST.HeaderText = "Tipo Diseño";
+            this.NOMTIPODISEMUEST.Name = "NOMTIPODISEMUEST";
+            this.NOMTIPODISEMUEST.ReadOnly = true;
+            // 
+            // PesoProyecto
+            // 
+            this.PesoProyecto.HeaderText = "Peso";
+            this.PesoProyecto.Name = "PesoProyecto";
+            // 
             // proyectoBS
             // 
             this.proyectoBS.DataSource = typeof(SIFCA_DAL.PROYECTO);
@@ -660,86 +745,22 @@
             this.atrasBtn.UseVisualStyleBackColor = true;
             this.atrasBtn.Click += new System.EventHandler(this.Atras_Click);
             // 
-            // Estratos
+            // numeroEtapasLbl
             // 
-            this.Estratos.HeaderText = "Estratos";
-            this.Estratos.Name = "Estratos";
+            numeroEtapasLbl.AutoSize = true;
+            numeroEtapasLbl.Location = new System.Drawing.Point(3, 107);
+            numeroEtapasLbl.Name = "numeroEtapasLbl";
+            numeroEtapasLbl.Size = new System.Drawing.Size(98, 13);
+            numeroEtapasLbl.TabIndex = 12;
+            numeroEtapasLbl.Text = "Numero de Etapas:";
             // 
-            // DESCRIPESTRATO
+            // numeroEtapasTxt
             // 
-            this.DESCRIPESTRATO.DataPropertyName = "DESCRIPESTRATO";
-            this.DESCRIPESTRATO.HeaderText = "Descripcion";
-            this.DESCRIPESTRATO.Name = "DESCRIPESTRATO";
-            this.DESCRIPESTRATO.ReadOnly = true;
-            // 
-            // Peso
-            // 
-            this.Peso.HeaderText = "Peso";
-            this.Peso.Name = "Peso";
-            // 
-            // Especie
-            // 
-            this.Especie.HeaderText = "Seleccion";
-            this.Especie.Name = "Especie";
-            // 
-            // NOMCOMUN
-            // 
-            this.NOMCOMUN.DataPropertyName = "NOMCOMUN";
-            this.NOMCOMUN.HeaderText = "Nombre Comun";
-            this.NOMCOMUN.Name = "NOMCOMUN";
-            this.NOMCOMUN.ReadOnly = true;
-            // 
-            // NOMCIENTIFICO
-            // 
-            this.NOMCIENTIFICO.DataPropertyName = "NOMCIENTIFICO";
-            this.NOMCIENTIFICO.HeaderText = "Nombre Cientifico";
-            this.NOMCIENTIFICO.Name = "NOMCIENTIFICO";
-            this.NOMCIENTIFICO.ReadOnly = true;
-            // 
-            // FAMILIA
-            // 
-            this.FAMILIA.DataPropertyName = "FAMILIA";
-            this.FAMILIA.HeaderText = "Familia";
-            this.FAMILIA.Name = "FAMILIA";
-            this.FAMILIA.ReadOnly = true;
-            // 
-            // Proyectos
-            // 
-            this.Proyectos.HeaderText = "Seleccion";
-            this.Proyectos.Name = "Proyectos";
-            // 
-            // LUGAR
-            // 
-            this.LUGAR.DataPropertyName = "LUGAR";
-            this.LUGAR.HeaderText = "Lugar";
-            this.LUGAR.Name = "LUGAR";
-            this.LUGAR.ReadOnly = true;
-            // 
-            // FECHA
-            // 
-            this.FECHA.DataPropertyName = "FECHA";
-            this.FECHA.HeaderText = "Fecha";
-            this.FECHA.Name = "FECHA";
-            this.FECHA.ReadOnly = true;
-            // 
-            // OBJETIVOINVENTARIO
-            // 
-            this.OBJETIVOINVENTARIO.DataPropertyName = "NOMBRETIPOINV";
-            this.OBJETIVOINVENTARIO.HeaderText = "Objetivo";
-            this.OBJETIVOINVENTARIO.Name = "OBJETIVOINVENTARIO";
-            this.OBJETIVOINVENTARIO.ReadOnly = true;
-            // 
-            // NOMTIPODISEMUEST
-            // 
-            this.NOMTIPODISEMUEST.DataPropertyName = "NOMTIPODISEMUEST";
-            this.NOMTIPODISEMUEST.HeaderText = "Tipo Diseño";
-            this.NOMTIPODISEMUEST.Name = "NOMTIPODISEMUEST";
-            this.NOMTIPODISEMUEST.ReadOnly = true;
-            // 
-            // PesoProyecto
-            // 
-            this.PesoProyecto.HeaderText = "Peso";
-            this.PesoProyecto.Name = "PesoProyecto";
+            this.numeroEtapasTxt.Location = new System.Drawing.Point(139, 104);
+            this.numeroEtapasTxt.Name = "numeroEtapasTxt";
+            this.numeroEtapasTxt.Size = new System.Drawing.Size(290, 20);
+            this.numeroEtapasTxt.TabIndex = 11;
+            this.numeroEtapasTxt.Text = "0";
             // 
             // Crear_Proyecto_Form
             // 
@@ -842,6 +863,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn OBJETIVOINVENTARIO;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMTIPODISEMUEST;
         private System.Windows.Forms.DataGridViewTextBoxColumn PesoProyecto;
+        private System.Windows.Forms.TextBox numeroEtapasTxt;
 
 
     }

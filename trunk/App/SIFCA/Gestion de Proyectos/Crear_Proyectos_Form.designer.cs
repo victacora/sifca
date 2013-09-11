@@ -80,12 +80,6 @@
             this.GuardarBtn = new System.Windows.Forms.Button();
             this.siguienteBtn = new System.Windows.Forms.Button();
             this.atrasBtn = new System.Windows.Forms.Button();
-            this.Proyectos = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.LUGAR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OBJETIVOINVENTARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOMTIPODISEMUEST = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PesoProyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estratos = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DESCRIPESTRATO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,6 +87,12 @@
             this.NOMCOMUN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOMCIENTIFICO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FAMILIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Proyectos = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.LUGAR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OBJETIVOINVENTARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOMTIPODISEMUEST = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PesoProyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             descripcionLbl = new System.Windows.Forms.Label();
             DAPLbl = new System.Windows.Forms.Label();
             facFormaLbl = new System.Windows.Forms.Label();
@@ -240,6 +240,7 @@
             this.crearProyectoTab.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.crearProyectoTab.TabIndex = 0;
             this.crearProyectoTab.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.crearProyectoTab_DrawItem);
+            
             // 
             // proyectoTabP
             // 
@@ -650,6 +651,7 @@
             // 
             // atrasBtn
             // 
+            this.atrasBtn.Enabled = false;
             this.atrasBtn.Location = new System.Drawing.Point(250, 472);
             this.atrasBtn.Name = "atrasBtn";
             this.atrasBtn.Size = new System.Drawing.Size(75, 23);
@@ -657,44 +659,6 @@
             this.atrasBtn.Text = "Atras";
             this.atrasBtn.UseVisualStyleBackColor = true;
             this.atrasBtn.Click += new System.EventHandler(this.Atras_Click);
-            // 
-            // Proyectos
-            // 
-            this.Proyectos.HeaderText = "Seleccion";
-            this.Proyectos.Name = "Proyectos";
-            // 
-            // LUGAR
-            // 
-            this.LUGAR.DataPropertyName = "LUGAR";
-            this.LUGAR.HeaderText = "Lugar";
-            this.LUGAR.Name = "LUGAR";
-            this.LUGAR.ReadOnly = true;
-            // 
-            // FECHA
-            // 
-            this.FECHA.DataPropertyName = "FECHA";
-            this.FECHA.HeaderText = "Fecha";
-            this.FECHA.Name = "FECHA";
-            this.FECHA.ReadOnly = true;
-            // 
-            // OBJETIVOINVENTARIO
-            // 
-            this.OBJETIVOINVENTARIO.DataPropertyName = "OBJETIVOINVENTARIO";
-            this.OBJETIVOINVENTARIO.HeaderText = "Objetivo";
-            this.OBJETIVOINVENTARIO.Name = "OBJETIVOINVENTARIO";
-            this.OBJETIVOINVENTARIO.ReadOnly = true;
-            // 
-            // NOMTIPODISEMUEST
-            // 
-            this.NOMTIPODISEMUEST.DataPropertyName = "NOMTIPODISEMUEST";
-            this.NOMTIPODISEMUEST.HeaderText = "Tipo Diseño";
-            this.NOMTIPODISEMUEST.Name = "NOMTIPODISEMUEST";
-            this.NOMTIPODISEMUEST.ReadOnly = true;
-            // 
-            // PesoProyecto
-            // 
-            this.PesoProyecto.HeaderText = "Peso";
-            this.PesoProyecto.Name = "PesoProyecto";
             // 
             // Estratos
             // 
@@ -738,6 +702,44 @@
             this.FAMILIA.HeaderText = "Familia";
             this.FAMILIA.Name = "FAMILIA";
             this.FAMILIA.ReadOnly = true;
+            // 
+            // Proyectos
+            // 
+            this.Proyectos.HeaderText = "Seleccion";
+            this.Proyectos.Name = "Proyectos";
+            // 
+            // LUGAR
+            // 
+            this.LUGAR.DataPropertyName = "LUGAR";
+            this.LUGAR.HeaderText = "Lugar";
+            this.LUGAR.Name = "LUGAR";
+            this.LUGAR.ReadOnly = true;
+            // 
+            // FECHA
+            // 
+            this.FECHA.DataPropertyName = "FECHA";
+            this.FECHA.HeaderText = "Fecha";
+            this.FECHA.Name = "FECHA";
+            this.FECHA.ReadOnly = true;
+            // 
+            // OBJETIVOINVENTARIO
+            // 
+            this.OBJETIVOINVENTARIO.DataPropertyName = "NOMBRETIPOINV";
+            this.OBJETIVOINVENTARIO.HeaderText = "Objetivo";
+            this.OBJETIVOINVENTARIO.Name = "OBJETIVOINVENTARIO";
+            this.OBJETIVOINVENTARIO.ReadOnly = true;
+            // 
+            // NOMTIPODISEMUEST
+            // 
+            this.NOMTIPODISEMUEST.DataPropertyName = "NOMTIPODISEMUEST";
+            this.NOMTIPODISEMUEST.HeaderText = "Tipo Diseño";
+            this.NOMTIPODISEMUEST.Name = "NOMTIPODISEMUEST";
+            this.NOMTIPODISEMUEST.ReadOnly = true;
+            // 
+            // PesoProyecto
+            // 
+            this.PesoProyecto.HeaderText = "Peso";
+            this.PesoProyecto.Name = "PesoProyecto";
             // 
             // Crear_Proyecto_Form
             // 

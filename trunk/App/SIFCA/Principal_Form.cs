@@ -32,9 +32,14 @@ namespace SIFCA
         
         private void CreateNewProject(object sender, EventArgs e)
         {
-            Crear_Proyecto_Form childForm = new Crear_Proyecto_Form();
-            childForm.MdiParent = this;
-            childForm.Show();
+            USUARIO user = (USUARIO)Program.Cache.Get("user");
+            if (user != null)
+            {
+                Crear_Proyecto_Form childForm = new Crear_Proyecto_Form();
+                childForm.MdiParent = this;
+                childForm.Show();
+            }
+            else MessageBox.Show("Usted No se ha Autenticado dentro del sistema.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
         }
 
         private void ImportProject(object sender, EventArgs e)
@@ -184,7 +189,7 @@ namespace SIFCA
 
         private void IntroducirDatosUsuario_Click(object sender, EventArgs e)
         {
-             USUARIO user = (USUARIO)Program.Cache.Get("user");
+            USUARIO user = (USUARIO)Program.Cache.Get("user");
             if (user != null)
             {
                 Crear_Usuario_Form childForm = new Crear_Usuario_Form();

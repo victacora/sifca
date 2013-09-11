@@ -50,44 +50,8 @@ namespace SIFCA
             especiesDGW.DataSource=especieBS;
             proyectoBS.DataSource = project.GetProjects();
             proyectoDGW.DataSource = proyectoBS;
-            index = 0;
+            index = 1;
         }
-
-        private void AceptarBtn3_Click(object sender, EventArgs e)
-        {
-            PROYECTO newProject = new PROYECTO();
-            //Deshabilitar el proyecto activo cambiado su estado
-            PROYECTO activateProject = (PROYECTO)Program.Cache.Get("principalProject");
-           // ESTACION stationData = (ESTACION)Program.Cache.Get("localStation");            
-            if (activateProject != null)
-            {
-             //   activateProject.ESTADOPROY = "I";
-                project.UpdateProject(activateProject);
-                project.SaveChanges();
-            }
-            //newProject.LUGAR = lugarTxt.Text;
-            //newProject.NOMARCH = lugarTxt.Text;
-            //newProject.ESTADOPROY = "A";
-            //if (stationData != null)
-            //{
-            //    newProject.NROEST = stationData.NROEST;
-            //}
-            //newProject.TAMANO = int.Parse(tamParcelaTxt.Text);
-            //newProject.LIMTINFDAP = int.Parse(limiteInfTxt.Text);
-            //newProject.LIMTSUPDAP = int.Parse(limiteSupTxt.Text);
-            //newProject.INTMUE = decimal.Parse(intMuestreoTxt.Text);
-            //newProject.SUPMUE =decimal.Parse(AreaMuestradaTxt.Text);
-            //newProject.AREAFUSTALESPORPARCELA = decimal.Parse(areaFustalesTxt.Text);
-            //newProject.FACTORDEFORMA = decimal.Parse(factorFormaTxt.Text);
-            //newProject.NOMARCH = listaEspCbx.SelectedValue.ToString();
-            //newProject.NOMBRETIPOINV = tipoObjetivoCbx.SelectedValue.ToString();
-            //project.InsertProject(newProject);
-            //project.SaveChanges();
-            Program.Cache.Set("principalProject", newProject, new CacheItemPolicy());
-            MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
-        }
-
 
         private void crearProyectoTab_DrawItem(object sender, DrawItemEventArgs e)
         {
@@ -108,21 +72,61 @@ namespace SIFCA
 
         private void Siguiente_Click(object sender, EventArgs e)
         {
-            index++;
-            if (index == 4) index = 0;
-            crearProyectoTab.SelectedIndex = index; 
+            if (!atrasBtn.Enabled)atrasBtn.Enabled = true;
+            if (index == 3)
+            {
+                siguienteBtn.Enabled = false;
+                crearProyectoTab.SelectedIndex = index;
+                index--;
+            }
+            else
+            {
+                crearProyectoTab.SelectedIndex = index;
+                index++;
+            }
         }
 
         private void Atras_Click(object sender, EventArgs e)
         {
-            index--;
-            if (index < 0) index = 3;
-            crearProyectoTab.SelectedIndex = index;
+            if (!siguienteBtn.Enabled) siguienteBtn.Enabled = true;
+            if (index == 0)
+            {
+                atrasBtn.Enabled = false;
+                crearProyectoTab.SelectedIndex = index;
+                index++;
+            }
+            else
+            {
+                crearProyectoTab.SelectedIndex = index;
+                index--;
+            }
+            
         }
 
         private void GuardarBtn_Click(object sender, EventArgs e)
         {
 
+            PROYECTO newProject = new PROYECTO();
+            newProject.USUARIO = (USUARIO)Program.Cache.Get("user");
+            newProject.LUGAR = lugarTxt.Text;
+            newProject.DESCRIPCION = DescripcionTxt.Text;
+            OBJETIVOINVENTARIO objetivo = (OBJETIVOINVENTARIO)tipoObjetivoCbx.SelectedItem;
+            TIPODISENOMUESTRAL tipoDiseno = (TIPODISENOMUESTRAL)tipoDisenoCbx.SelectedItem;
+            newProject.OBJETIVOINVENTARIO = objetivo;
+            newProject.TIPODISENOMUESTRAL = tipoDiseno;
+            string tipoProyecto = TipoProyectoCbx.SelectedItem.ToString();
+            newProject.TIPOPROYECTO = "";
+            newProject.TAMANO = int.Parse(tamParcelaTxt.Text);
+            newProject.LIMITINFDAP = int.Parse(limiteInfTxt.Text);
+            newProject.LIMITSUPDAP = int.Parse(limiteSupTxt.Text);
+            newProject.INTMUE = decimal.Parse(intMuestreoTxt.Text);
+            newProject.SUPMUE = decimal.Parse(AreaMuestradaTxt.Text);
+            newProject.AREAFUSTALESPORPARCELA = decimal.Parse(areaFustalesTxt.Text);
+            newProject.FACTORDEFORMA = decimal.Parse(factorFormaTxt.Text);
+            project.InsertProject(newProject);
+            project.SaveChanges();
+            MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
 
         private void CancelarBtn_Click(object sender, EventArgs e)
@@ -245,11 +249,22 @@ namespace SIFCA
                     if (Convert.ToBoolean(cellSelecion.Value))
                     {
                         PROYECTO projectData = new PROYECTO();
-
+                        projectData.LUGAR = (string)row.Cells["LUGAR"].Value;
+                        projectData.FECHA = (DateTime)row.Cells["FECHA"].Value;
+                        projectData.NOMBRETIPOINV = (string)row.Cells["NOMBRETIPOINV"].Value;
+                        projectData.NOMTIPODISEMUEST = (string)row.Cells["NOMTIPODISEMUEST"].Value;
+                        decimal peso = row.Cells["PesoProyecto"].Value != null ? (decimal)row.Cells["PesoProyecto"].Value : 0;
+                        listProjects.Add(projectData);
                     }
                     else
                     {
-                        
+                        PROYECTO projectData = new PROYECTO();
+                        projectData.LUGAR = (string)row.Cells["LUGAR"].Value;
+                        projectData.FECHA = (DateTime)row.Cells["FECHA"].Value;
+                        projectData.NOMBRETIPOINV = (string)row.Cells["NOMBRETIPOINV"].Value;
+                        projectData.NOMTIPODISEMUEST = (string)row.Cells["NOMTIPODISEMUEST"].Value;
+                        decimal peso = row.Cells["PesoProyecto"].Value != null ? (decimal)row.Cells["PesoProyecto"].Value : 0;
+                        listProjects.Remove(projectData);
                     }
                 }
 
@@ -291,5 +306,6 @@ namespace SIFCA
                 }
             }
         }
+
     }
 }

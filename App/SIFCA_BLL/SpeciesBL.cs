@@ -22,7 +22,7 @@ namespace SIFCA_BLL
             return this.sifcaRepository.ESPECIE.ToList();
         }
 
-        public ESPECIE GetSpecie(int SpecieId)
+        public ESPECIE GetSpecie(Guid SpecieId)
         {
             return this.sifcaRepository.ESPECIE.Find(SpecieId);
         }

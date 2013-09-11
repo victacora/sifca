@@ -1489,30 +1489,27 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="SIFCA_Model" ZoomLevel="67">
-        <EntityTypeShape EntityType="SIFCA_Model.CALIDAD" Width="1.5" PointX="6" PointY="16.125" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="SIFCA_Model.CALIDAD" Width="1.5" PointX="12.625" PointY="10.875" Height="1.5956835937500031" />
         <EntityTypeShape EntityType="SIFCA_Model.ESPECIE" Width="1.5" PointX="3.75" PointY="1" Height="3.326396484374996" />
-        <EntityTypeShape EntityType="SIFCA_Model.ESTADOSANITARIO" Width="1.5" PointX="6" PointY="18.375" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="SIFCA_Model.ESTADOSANITARIO" Width="1.5" PointX="12.375" PointY="13.5" Height="1.595683593749996" />
         <EntityTypeShape EntityType="SIFCA_Model.ESTRATO" Width="1.5" PointX="0.75" PointY="5.5" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="SIFCA_Model.FORMULARIO" Width="1.5" PointX="3" PointY="9.75" Height="4.6725065104166674" />
         <EntityTypeShape EntityType="SIFCA_Model.GRUPOCOMERCIAL" Width="1.5" PointX="1.5" PointY="1.875" Height="1.595683593749996" />
-        <EntityTypeShape EntityType="SIFCA_Model.LINEAINVENTARIO" Width="1.5" PointX="8.25" PointY="9.875" Height="4.2879036458333246" />
+        <EntityTypeShape EntityType="SIFCA_Model.LINEAINVENTARIO" Width="1.5" PointX="9.875" PointY="9.25" Height="4.2879036458333246" />
         <EntityTypeShape EntityType="SIFCA_Model.LINEANOMADERABLES" Width="1.5" PointX="8.25" PointY="7" Height="1.9802864583333388" />
         <EntityTypeShape EntityType="SIFCA_Model.LINEAREGENERACION" Width="1.5" PointX="5.25" PointY="5.75" Height="2.5571907552083388" />
-        <EntityTypeShape EntityType="SIFCA_Model.LISTADODEESTRATOS" Width="1.5" PointX="11.25" PointY="11" Height="1.9802864583333388" />
-        <EntityTypeShape EntityType="SIFCA_Model.OBJETIVOINVENTARIO" Width="1.5" PointX="3.75" PointY="16.125" Height="1.595683593749996" />
-        <EntityTypeShape EntityType="SIFCA_Model.PROYECTO" Width="1.5" PointX="6" PointY="9.125" Height="5.8263151041666674" />
+        <EntityTypeShape EntityType="SIFCA_Model.LISTADODEESTRATOS" Width="1.5" PointX="14.625" PointY="14.875" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="SIFCA_Model.OBJETIVOINVENTARIO" Width="1.5" PointX="2.875" PointY="16" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="SIFCA_Model.PROYECTO" Width="2.125" PointX="6.375" PointY="10.125" Height="5.8263151041666674" />
         <EntityTypeShape EntityType="SIFCA_Model.TIPODEUSO" Width="1.5" PointX="6" PointY="3.25" Height="1.595683593749996" />
-        <EntityTypeShape EntityType="SIFCA_Model.TIPODISENOMUESTRAL" Width="1.5" PointX="3.75" PointY="18.5" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="SIFCA_Model.TIPODISENOMUESTRAL" Width="1.5" PointX="7.75" PointY="17" Height="1.595683593749996" />
         <EntityTypeShape EntityType="SIFCA_Model.TIPOFORMULARIO" Width="1.5" PointX="0.75" PointY="8" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="SIFCA_Model.TRANSACCION" Width="1.5" PointX="3" PointY="22.625" Height="2.749492187499996" />
         <EntityTypeShape EntityType="SIFCA_Model.TSTUDENT" Width="1.5" PointX="5.75" PointY="0.75" Height="1.5956835937500102" />
         <EntityTypeShape EntityType="SIFCA_Model.USUARIO" Width="1.5" PointX="0.75" PointY="10.625" Height="2.7494921875000102" />
         <AssociationConnector Association="SIFCA_Model.FK_LINEAINV_POSEE_CALIDAD" >
-          <ConnectorPoint PointX="7.5" PointY="16.922841796875" />
-          <ConnectorPoint PointX="8.5104141666666653" PointY="16.922841796875" />
-          <ConnectorPoint PointX="8.6770808333333331" PointY="16.922841796875" />
-          <ConnectorPoint PointX="9" PointY="16.922841796875" />
-          <ConnectorPoint PointX="9" PointY="14.162903645833325" />
+          <ConnectorPoint PointX="12.625" PointY="11.672841796875002" />
+          <ConnectorPoint PointX="11.375" PointY="11.672841796875002" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_ESPECIE_PERTENECE_GRUPOCOM" >
           <ConnectorPoint PointX="3" PointY="2.672841796874998" />
@@ -1520,129 +1517,99 @@
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LINEAINV_CONTIENE_ESPECIE" >
           <ConnectorPoint PointX="5.25" PointY="2.7978417968750051" />
-          <ConnectorPoint PointX="8" PointY="2.7978417968750051" />
-          <ConnectorPoint PointX="8" PointY="9.5" />
-          <ConnectorPoint PointX="9" PointY="9.5" />
-          <ConnectorPoint PointX="9" PointY="9.875" />
+          <ConnectorPoint PointX="10.625" PointY="2.7978417968750051" />
+          <ConnectorPoint PointX="10.625" PointY="9.25" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LINEAREG_EVALUACIO_ESPECIE" >
           <ConnectorPoint PointX="4.46875" PointY="4.326396484374996" />
           <ConnectorPoint PointX="4.46875" PointY="7.0285953776041694" />
-          <ConnectorPoint PointX="4.651041666666667" PointY="7.0285953776041685" />
-          <ConnectorPoint PointX="4.817708333333333" PointY="7.0285953776041694" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="7.0285953776041685" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="7.0285953776041694" />
           <ConnectorPoint PointX="5.25" PointY="7.0285953776041694" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LINEAINV_ASOCIADO_ESTADOSA" >
-          <ConnectorPoint PointX="7.5" PointY="19.172841796874998" />
-          <ConnectorPoint PointX="8.5937475" PointY="19.172841796874998" />
-          <ConnectorPoint PointX="8.5937475" PointY="14.162903645833325" />
+          <ConnectorPoint PointX="12.375" PointY="14.316794119791659" />
+          <ConnectorPoint PointX="10.625" PointY="14.316794119791659" />
+          <ConnectorPoint PointX="10.625" PointY="13.537903645833325" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_FORMULAR_MANEJA_ESTRATO" >
           <ConnectorPoint PointX="2.25" PointY="6.2642976888020847" />
-          <ConnectorPoint PointX="3.734375" PointY="6.2642976888020847" />
-          <ConnectorPoint PointX="3.734375" PointY="9.75" />
+          <ConnectorPoint PointX="3.1406220000000005" PointY="6.2642976888020847" />
+          <ConnectorPoint PointX="3.1406220000000005" PointY="9.75" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LISTADOD_LISTAESTR_ESTRATO" >
           <ConnectorPoint PointX="2.25" PointY="5.59375" />
           <ConnectorPoint PointX="4.385416666666667" PointY="5.5937499999999991" />
           <ConnectorPoint PointX="4.552083333333333" PointY="5.59375" />
-          <ConnectorPoint PointX="4.651041666666667" PointY="5.5937499999999991" />
-          <ConnectorPoint PointX="4.817708333333333" PointY="5.59375" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="5.5937499999999991" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="5.59375" />
           <ConnectorPoint PointX="7.072916666666667" PointY="5.5937499999999991" />
           <ConnectorPoint PointX="7.239583333333333" PointY="5.59375" />
-          <ConnectorPoint PointX="7.916666666666667" PointY="5.5937499999999991" />
-          <ConnectorPoint PointX="8.0833333333333339" PointY="5.59375" />
-          <ConnectorPoint PointX="12" PointY="5.59375" />
-          <ConnectorPoint PointX="12" PointY="11" />
+          <ConnectorPoint PointX="10.541666666666666" PointY="5.5937499999999991" />
+          <ConnectorPoint PointX="10.708333333333334" PointY="5.59375" />
+          <ConnectorPoint PointX="15.375" PointY="5.59375" />
+          <ConnectorPoint PointX="15.375" PointY="14.875" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_FORMULAR_DESARROLL_PROYECTO" >
-          <ConnectorPoint PointX="6" PointY="12.086253255208334" />
-          <ConnectorPoint PointX="5.708333333333333" PointY="12.086253255208334" />
-          <ConnectorPoint PointX="5.541666666666667" PointY="12.086253255208334" />
-          <ConnectorPoint PointX="4.989583333333333" PointY="12.086253255208334" />
-          <ConnectorPoint PointX="4.822916666666667" PointY="12.086253255208334" />
-          <ConnectorPoint PointX="4.5" PointY="12.086253255208334" />
+          <ConnectorPoint PointX="6.375" PointY="12.273753255208334" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="12.273753255208334" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="12.273753255208334" />
+          <ConnectorPoint PointX="4.5" PointY="12.273753255208334" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_FORMULAR_ES_DE_TIPOFORM" >
           <ConnectorPoint PointX="2.25" PointY="8.8437475000000063" />
-          <ConnectorPoint PointX="3.0533819166666665" PointY="8.8437475000000063" />
-          <ConnectorPoint PointX="3.2200485833333334" PointY="8.8437475000000063" />
-          <ConnectorPoint PointX="3.6510416666666665" PointY="8.8437475000000063" />
-          <ConnectorPoint PointX="3.8177083333333335" PointY="8.8437475000000063" />
-          <ConnectorPoint PointX="3.8580741666666665" PointY="8.8437475000000063" />
-          <ConnectorPoint PointX="4.0247408333333334" PointY="8.8437475000000063" />
-          <ConnectorPoint PointX="4.14844" PointY="8.8437475000000063" />
-          <ConnectorPoint PointX="4.14844" PointY="9.75" />
+          <ConnectorPoint PointX="3.057288666666667" PointY="8.8437475000000063" />
+          <ConnectorPoint PointX="3.223955333333334" PointY="8.8437475000000063" />
+          <ConnectorPoint PointX="3.343748" PointY="8.8437475000000063" />
+          <ConnectorPoint PointX="3.343748" PointY="9.75" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_FORMULAR_ES_REPONS_USUARIO" >
           <ConnectorPoint PointX="2.25" PointY="11.999746093750005" />
           <ConnectorPoint PointX="3" PointY="11.999746093750005" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LINEAINV_LLENA_FORMULAR" >
-          <ConnectorPoint PointX="3.3359355" PointY="9.75" />
-          <ConnectorPoint PointX="3.3359355" PointY="9" />
-          <ConnectorPoint PointX="3.6510416666666665" PointY="9" />
-          <ConnectorPoint PointX="3.8177083333333335" PointY="9" />
-          <ConnectorPoint PointX="3.8580741666666665" PointY="9" />
-          <ConnectorPoint PointX="4.0247408333333334" PointY="9" />
-          <ConnectorPoint PointX="4.0651066666666669" PointY="9" />
-          <ConnectorPoint PointX="4.2317733333333329" PointY="9" />
-          <ConnectorPoint PointX="4.651041666666667" PointY="9" />
-          <ConnectorPoint PointX="4.817708333333333" PointY="9" />
-          <ConnectorPoint PointX="7.875" PointY="9" />
-          <ConnectorPoint PointX="7.875" PointY="12.018951822916662" />
-          <ConnectorPoint PointX="8.25" PointY="12.018951822916662" />
+          <ConnectorPoint PointX="4.5" PointY="9.90625" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="9.90625" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="9.90625" />
+          <ConnectorPoint PointX="9.875" PointY="9.90625" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LINEANOM_RECOLECTA_FORMULAR" >
-          <ConnectorPoint PointX="3.9414075" PointY="9.75" />
-          <ConnectorPoint PointX="3.9414075" PointY="8.6067191276041726" />
-          <ConnectorPoint PointX="4.651041666666667" PointY="8.6067191276041726" />
-          <ConnectorPoint PointX="4.817708333333333" PointY="8.6067191276041726" />
+          <ConnectorPoint PointX="4.156252" PointY="9.75" />
+          <ConnectorPoint PointX="4.156252" PointY="8.6067191276041726" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="8.6067191276041726" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="8.6067191276041726" />
           <ConnectorPoint PointX="7.072916666666667" PointY="8.6067191276041726" />
           <ConnectorPoint PointX="7.239583333333333" PointY="8.6067191276041726" />
-          <ConnectorPoint PointX="7.916666666666667" PointY="8.6067191276041726" />
-          <ConnectorPoint PointX="8.0833333333333339" PointY="8.6067191276041726" />
           <ConnectorPoint PointX="8.25" PointY="8.6067191276041726" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LINEAREG_COMPLETA_FORMULAR" >
-          <ConnectorPoint PointX="3.13671525" PointY="9.75" />
-          <ConnectorPoint PointX="3.13671525" PointY="7.6991455664062478" />
-          <ConnectorPoint PointX="3.6510416666666665" PointY="7.6991455664062469" />
-          <ConnectorPoint PointX="3.8177083333333335" PointY="7.6991455664062478" />
-          <ConnectorPoint PointX="4.651041666666667" PointY="7.6991455664062469" />
-          <ConnectorPoint PointX="4.817708333333333" PointY="7.6991455664062478" />
+          <ConnectorPoint PointX="3.75" PointY="9.75" />
+          <ConnectorPoint PointX="3.75" PointY="7.6991455664062478" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="7.6991455664062469" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="7.6991455664062478" />
           <ConnectorPoint PointX="5.25" PointY="7.6991455664062478" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LISTAESTRATOS_PROYECTO" >
-          <ConnectorPoint PointX="7.5" PointY="14.588359374999996" />
-          <ConnectorPoint PointX="8.5104141666666653" PointY="14.588359374999996" />
-          <ConnectorPoint PointX="8.6770808333333331" PointY="14.588359374999996" />
-          <ConnectorPoint PointX="8.9166666666666661" PointY="14.588359374999996" />
-          <ConnectorPoint PointX="9.0833333333333339" PointY="14.588359374999996" />
-          <ConnectorPoint PointX="12" PointY="14.588359374999996" />
-          <ConnectorPoint PointX="12" PointY="12.980286458333339" />
+          <ConnectorPoint PointX="8.5" PointY="15.554749348958332" />
+          <ConnectorPoint PointX="14.625" PointY="15.554749348958332" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_PROYECTO_ES_OBJETIVO" >
-          <ConnectorPoint PointX="4.90625" PointY="16.125" />
-          <ConnectorPoint PointX="4.90625" PointY="9.40625" />
-          <ConnectorPoint PointX="6" PointY="9.40625" />
+          <ConnectorPoint PointX="4.375" PointY="16.797841796874998" />
+          <ConnectorPoint PointX="6.8749975" PointY="16.797841796874998" />
+          <ConnectorPoint PointX="6.8749975" PointY="15.951315104166667" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_PROYECTO_CREA_USUARIO" >
-          <ConnectorPoint PointX="1.5" PointY="13.37449218750001" />
-          <ConnectorPoint PointX="1.5" PointY="14.718160807291667" />
-          <ConnectorPoint PointX="1.8229191666666667" PointY="14.718160807291667" />
-          <ConnectorPoint PointX="1.9895858333333332" PointY="14.718160807291667" />
-          <ConnectorPoint PointX="4.822916666666667" PointY="14.718160807291667" />
-          <ConnectorPoint PointX="4.989583333333333" PointY="14.718160807291667" />
-          <ConnectorPoint PointX="5.541666666666667" PointY="14.718160807291667" />
-          <ConnectorPoint PointX="5.708333333333333" PointY="14.718160807291667" />
-          <ConnectorPoint PointX="6" PointY="14.718160807291667" />
+          <ConnectorPoint PointX="1.29687375" PointY="13.37449218750001" />
+          <ConnectorPoint PointX="1.29687375" PointY="14.820331158854174" />
+          <ConnectorPoint PointX="1.8229191666666667" PointY="14.820331158854174" />
+          <ConnectorPoint PointX="1.9895858333333332" PointY="14.820331158854174" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="14.820331158854174" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="14.820331158854174" />
+          <ConnectorPoint PointX="6.375" PointY="14.820331158854174" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_PROYECTO_REALIZA_TIPODISE" >
-          <ConnectorPoint PointX="5.25" PointY="18.501152846153843" />
-          <ConnectorPoint PointX="5.625" PointY="18.126152846153843" />
-          <ConnectorPoint PointX="5.625" PointY="10.746251627604167" />
-          <ConnectorPoint PointX="6" PointY="10.746251627604167" />
+          <ConnectorPoint PointX="8.125" PointY="17" />
+          <ConnectorPoint PointX="8.125" PointY="15.951315104166667" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_TRANSACC_REGISTRA_USUARIO" >
           <ConnectorPoint PointX="1.9062525" PointY="13.37449218750001" />
@@ -1650,22 +1617,20 @@
           <ConnectorPoint PointX="3" PointY="23.999746093749998" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.LISTADODEESPECIES" >
-          <ConnectorPoint PointX="4.734375" PointY="4.326396484374996" />
-          <ConnectorPoint PointX="4.734375" PointY="9.2343725000000063" />
-          <ConnectorPoint PointX="6" PointY="9.2343725000000063" />
+          <ConnectorPoint PointX="4.875" PointY="4.326396484374996" />
+          <ConnectorPoint PointX="4.875" PointY="15.417075631510414" />
+          <ConnectorPoint PointX="6.375" PointY="15.417075631510414" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.PROYECTOSPORETAPA" >
-          <ConnectorPoint PointX="6.5319230769230767" PointY="14.951315104166667" />
-          <ConnectorPoint PointX="6.5319230769230767" PointY="15.201315104166667" />
-          <ConnectorPoint PointX="6.9784615384615378" PointY="15.201315104166667" />
-          <ConnectorPoint PointX="6.9784615384615378" PointY="14.951315104166667" />
+          <ConnectorPoint PointX="7.1285576923076928" PointY="10.125" />
+          <ConnectorPoint PointX="7.1285576923076928" PointY="9.875" />
+          <ConnectorPoint PointX="7.7611538461538467" PointY="9.875" />
+          <ConnectorPoint PointX="7.7611538461538467" PointY="10.125" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.USO" >
           <ConnectorPoint PointX="7.15625" PointY="4.845683593749996" />
-          <ConnectorPoint PointX="7.15625" PointY="8.82475529296875" />
-          <ConnectorPoint PointX="7.916666666666667" PointY="8.82475529296875" />
-          <ConnectorPoint PointX="8.0833333333333339" PointY="8.82475529296875" />
-          <ConnectorPoint PointX="8.25" PointY="8.82475529296875" />
+          <ConnectorPoint PointX="7.15625" PointY="8.8247552929687565" />
+          <ConnectorPoint PointX="8.25" PointY="8.8247552929687565" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

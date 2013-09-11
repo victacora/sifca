@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.sistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.ActualizarDatosUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.ListarUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.IniciarSesion = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,10 +39,10 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listarProyectosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.importarProyectoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportarProyectoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevoProyectoTsm = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarProyectosTsm = new System.Windows.Forms.ToolStripMenuItem();
+            this.importarProyectoTsm = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportarProyectoTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.introducirDatosDeInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regeneracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,7 +76,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.EstadoLbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -110,6 +110,13 @@
             this.sistemaToolStripMenuItem.Name = "sistemaToolStripMenuItem";
             this.sistemaToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.sistemaToolStripMenuItem.Text = "&Sistema";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(210, 22);
+            this.toolStripMenuItem2.Text = "&Registrar Usuarios";
             // 
             // ActualizarDatosUsuario
             // 
@@ -154,42 +161,43 @@
             // fileMenu
             // 
             this.fileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
-            this.listarProyectosToolStripMenuItem,
-            this.importarProyectoToolStripMenuItem,
-            this.exportarProyectoToolStripMenuItem});
+            this.nuevoProyectoTsm,
+            this.listarProyectosTsm,
+            this.importarProyectoTsm,
+            this.exportarProyectoTsm});
             this.fileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.fileMenu.Name = "fileMenu";
             this.fileMenu.Size = new System.Drawing.Size(66, 20);
             this.fileMenu.Text = "&Proyecto";
             // 
-            // newToolStripMenuItem
+            // nuevoProyectoTsm
             // 
-            this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
-            this.newToolStripMenuItem.Text = "&Nuevo Proyecto";
+            this.nuevoProyectoTsm.ImageTransparentColor = System.Drawing.Color.Black;
+            this.nuevoProyectoTsm.Name = "nuevoProyectoTsm";
+            this.nuevoProyectoTsm.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.nuevoProyectoTsm.Size = new System.Drawing.Size(207, 22);
+            this.nuevoProyectoTsm.Text = "&Nuevo Proyecto";
+            this.nuevoProyectoTsm.Click += new System.EventHandler(this.CreateNewProject);
             // 
-            // listarProyectosToolStripMenuItem
+            // listarProyectosTsm
             // 
-            this.listarProyectosToolStripMenuItem.Name = "listarProyectosToolStripMenuItem";
-            this.listarProyectosToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
-            this.listarProyectosToolStripMenuItem.Text = "Listar Proyectos";
+            this.listarProyectosTsm.Name = "listarProyectosTsm";
+            this.listarProyectosTsm.Size = new System.Drawing.Size(207, 22);
+            this.listarProyectosTsm.Text = "Listar Proyectos";
             // 
-            // importarProyectoToolStripMenuItem
+            // importarProyectoTsm
             // 
-            this.importarProyectoToolStripMenuItem.Name = "importarProyectoToolStripMenuItem";
-            this.importarProyectoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.importarProyectoToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
-            this.importarProyectoToolStripMenuItem.Text = "&Importar Proyecto";
+            this.importarProyectoTsm.Name = "importarProyectoTsm";
+            this.importarProyectoTsm.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.importarProyectoTsm.Size = new System.Drawing.Size(207, 22);
+            this.importarProyectoTsm.Text = "&Importar Proyecto";
             // 
-            // exportarProyectoToolStripMenuItem
+            // exportarProyectoTsm
             // 
-            this.exportarProyectoToolStripMenuItem.Name = "exportarProyectoToolStripMenuItem";
-            this.exportarProyectoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.exportarProyectoToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
-            this.exportarProyectoToolStripMenuItem.Text = "&Exportar Proyecto";
+            this.exportarProyectoTsm.Name = "exportarProyectoTsm";
+            this.exportarProyectoTsm.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.exportarProyectoTsm.Size = new System.Drawing.Size(207, 22);
+            this.exportarProyectoTsm.Text = "&Exportar Proyecto";
             // 
             // inventarioToolStripMenuItem
             // 
@@ -419,13 +427,6 @@
             this.EstadoLbl.Size = new System.Drawing.Size(155, 17);
             this.EstadoLbl.Text = "Ningun usuario autenticado";
             // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(210, 22);
-            this.toolStripMenuItem2.Text = "&Registrar Usuarios";
-            // 
             // Principal_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -459,7 +460,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tileHorizontalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fileMenu;
-        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nuevoProyectoTsm;
         private System.Windows.Forms.ToolStripMenuItem windowsMenu;
         private System.Windows.Forms.ToolStripMenuItem newWindowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cascadeToolStripMenuItem;
@@ -478,11 +479,11 @@
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem introducirDatosDeInventarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem regeneracionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem importarProyectoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportarProyectoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importarProyectoTsm;
+        private System.Windows.Forms.ToolStripMenuItem exportarProyectoTsm;
         private System.Windows.Forms.ToolStripMenuItem ingresarEspecieToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarEspeciesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listarProyectosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listarProyectosTsm;
         private System.Windows.Forms.ToolStripMenuItem ListarUsuarios;
         private System.Windows.Forms.ToolStripMenuItem configuracionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estratosToolStripMenuItem;

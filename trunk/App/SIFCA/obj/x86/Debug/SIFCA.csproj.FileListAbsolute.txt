@@ -15,10 +15,10 @@ C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\bin\Debug\SIFCA_DAL.
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\bin\Debug\EntityFramework.xml
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Listar_Usuarios_Form.resources
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_de_Especies.Ingresar_Especie_Form.resources
-C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_de_Especies.Crear_Listado_Especies.resources
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_de_Especies.Listado_Especies_Form.resources
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_de_Especies.Ver_Especie_Form.resources
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Crear_Proyecto_Form.resources
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Autenticar_Usuario_Form.resources
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Crear_Usuario_Form.resources
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Actualizar_Usuario_Form.resources
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_de_Especies.Crear_Listado_Especies_Form.resources

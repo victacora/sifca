@@ -15,24 +15,33 @@ namespace SIFCA
     public partial class Crear_Proyecto_Form : Form
     {
         private ProjectBL project;
-        private FromTypeBL inventoryType;
-                
+        private TypeSampleDesignBl typeExample;
+        private ObjectiveInventoryBL objetiveInventory;
+        private StratumBL stratum;
+        private SpeciesBL species;
+
         public Crear_Proyecto_Form()
         {
             InitializeComponent();
+            this.ControlBox = false;
             project = new ProjectBL(Program.ContextData);
-            inventoryType = new FromTypeBL(Program.ContextData);
-            
-            this.tipoInvenCbx.DisplayMember = "NOMBRETIPOINV";
-            this.tipoInvenCbx.ValueMember = "NOMBRETIPOINV";
-            this.tipoInvenCbx.Invalidate();
-            //this.listaEspCbx.DataSource = speciesList.GetSpeciesLists();
-            //this.listaEspCbx.DisplayMember = "NOMARCH";
-            //this.listaEspCbx.ValueMember = "NOMARCH";
-            //this.listaEspCbx.Invalidate();
+            typeExample = new TypeSampleDesignBl (Program.ContextData);
+            objetiveInventory = new ObjectiveInventoryBL(Program.ContextData);
+            stratum = new StratumBL(Program.ContextData);
+            species = new SpeciesBL(Program.ContextData);
+            objetivoInventarioBS.DataSource= objetiveInventory.GetObjectiveInventories();
+            tipoObjetivoCbx.DataSource = objetivoInventarioBS;
+            tipoDisenoBS.DataSource = typeExample.GetTypeSampleDesignList();
+            tipoDisenoCbx.DataSource = tipoDisenoBS;
+            estratoBS.DataSource = stratum.GetStratums();
+            estratoDGW.DataSource = estratoBS;
+            especieBS.DataSource = species.GetSpecies();
+            especiesDGW.DataSource=especieBS;
+
+           
         }
 
-        private void AceptarBtn_Click(object sender, EventArgs e)
+        private void AceptarBtn3_Click(object sender, EventArgs e)
         {
             PROYECTO newProject = new PROYECTO();
             //Deshabilitar el proyecto activo cambiado su estado
@@ -59,7 +68,7 @@ namespace SIFCA
             //newProject.AREAFUSTALESPORPARCELA = decimal.Parse(areaFustalesTxt.Text);
             //newProject.FACTORDEFORMA = decimal.Parse(factorFormaTxt.Text);
             //newProject.NOMARCH = listaEspCbx.SelectedValue.ToString();
-            //newProject.NOMBRETIPOINV = tipoInvenCbx.SelectedValue.ToString();
+            //newProject.NOMBRETIPOINV = tipoObjetivoCbx.SelectedValue.ToString();
             //project.InsertProject(newProject);
             //project.SaveChanges();
             Program.Cache.Set("principalProject", newProject, new CacheItemPolicy());
@@ -67,10 +76,45 @@ namespace SIFCA
             this.Close();
         }
 
-        private void cancelarBtn_Click(object sender, EventArgs e)
+
+        private void crearProyectoTab_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            Graphics g;
+            String sText;
+            float iX;
+            float iY;
+            SizeF sizeText;
+            TabControl ctlTab;
+            ctlTab = (TabControl) sender; 
+            g = e.Graphics;
+            sText = ctlTab.TabPages[e.Index].Text;
+            sizeText = g.MeasureString(sText, ctlTab.Font);
+            iX = e.Bounds.Left + 6;
+            iY = e.Bounds.Top + (e.Bounds.Height - sizeText.Height) / 2;
+            g.DrawString(sText, ctlTab.Font, Brushes.Black, iX, iY);
+        }
+
+        private void Siguiente_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Atras_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GuardarBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CancelarBtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+       
+        
     }
 }

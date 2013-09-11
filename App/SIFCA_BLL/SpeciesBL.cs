@@ -27,6 +27,11 @@ namespace SIFCA_BLL
             return this.sifcaRepository.ESPECIE.Find(SpecieId);
         }
 
+        public ESPECIE GetSpecieByComNameAndScienName(string commonName,string scientificName)
+        {
+            return this.sifcaRepository.ESPECIE.SingleOrDefault(p=>p.NOMCOMUN ==commonName&&p.NOMCIENTIFICO==scientificName);
+        }
+
         public void InsertSpecie(ESPECIE Specie)
         {
             try

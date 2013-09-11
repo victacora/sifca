@@ -492,7 +492,7 @@ create rule R_TIPOOPERACION as
 go
 
 create rule R_TIPOPROYECTO as
-      @column in ('CR','CO')
+      @column in ('CR','CO','IN')
 go
 
 /*==============================================================*/

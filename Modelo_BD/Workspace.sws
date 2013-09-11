@@ -11,7 +11,7 @@
 		<Model ID="{B544C652-C791-4435-BA22-5C970D464E88}" Loaded="No" Name="Prototipo 1.4" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="Prototipo 1.4.cdm"/>
 		<Model Expanded="Yes" ID="{B544C652-C791-4435-BA22-5C970D464E88}" Name="Prototipo 1.5" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="Prototipo 1.5.cdm"/>
 		<Model Expanded="Yes" ID="{B1BA8049-7898-4928-BDFA-DE363D43A77A}" Name="Prototipo 1.6" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="Prototipo 1.6.pdm"/>
-		<Model ID="{79B58AFB-FD25-496B-8395-B388A9C05816}" Name="Prototipo 1.5" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="/users/victacora/desktop/anteproyecto/prototipo/modelo_bd/prototipo 1.5.pdm"/>
+		<Model ID="{79B58AFB-FD25-496B-8395-B388A9C05816}" Loaded="No" Name="Prototipo 1.5" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="/users/victacora/desktop/anteproyecto/prototipo/modelo_bd/prototipo 1.5.pdm"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>

@@ -52,6 +52,16 @@ namespace SIFCA.Gestion_de_Especies
             esp.ZONAGEOGRAFICA = txt_ZonaGeo.Text;
             esp.ZONADEVIDA = txt_ZonaVida.Text;
             esp.DIAMMINCORTE = Decimal.Parse(txt_DimCorte.Text);
+            MessageBox.Show("Se realizo la modificación de manera correcta", "Operacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            cbx_GroupCom.SelectedValue = "";
+            txt_NomCom.Text = "";
+            txt_NomCient.Text = "";
+            txt_Familia.Text = "";
+            txt_ZonaGeo.Text = "";
+            txt_ZonaVida.Text = "";
+            txt_DimCorte.Text = "";
+            SpecieBSource.DataSource = specie.GetSpecies();
+
         }
 
         private void Btn_Cancelar_Click(object sender, EventArgs e)

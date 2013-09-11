@@ -21,14 +21,16 @@ namespace SIFCA
         private ObjectiveInventoryBL objetiveInventory;
         private StratumBL stratum;
         private SpeciesBL species;
-        List<ESPECIE> listEspecies;
-        List<LISTADODEESTRATOS> litsStratum;
-        List<PROYECTO> listProjects;
+        private List<ESPECIE> listEspecies;
+        private List<LISTADODEESTRATOS> litsStratum;
+        private List<PROYECTO> listProjects;
+        private PROYECTO newProject;
 
         public Crear_Proyecto_Form()
         {
             InitializeComponent();
             this.ControlBox = false;
+            newProject = new PROYECTO();
             listEspecies = new List<ESPECIE>();
             litsStratum = new List<LISTADODEESTRATOS>();
             listProjects = new List<PROYECTO>();
@@ -103,30 +105,36 @@ namespace SIFCA
             
         }
 
+        //TODO:arreglar la navegacion, y sehabilitar los click en los tab para que unicamente funcione la navegacion
         private void GuardarBtn_Click(object sender, EventArgs e)
         {
-
-            PROYECTO newProject = new PROYECTO();
-            newProject.USUARIO = (USUARIO)Program.Cache.Get("user");
-            newProject.LUGAR = lugarTxt.Text;
-            newProject.DESCRIPCION = DescripcionTxt.Text;
-            OBJETIVOINVENTARIO objetivo = (OBJETIVOINVENTARIO)tipoObjetivoCbx.SelectedItem;
-            TIPODISENOMUESTRAL tipoDiseno = (TIPODISENOMUESTRAL)tipoDisenoCbx.SelectedItem;
-            newProject.OBJETIVOINVENTARIO = objetivo;
-            newProject.TIPODISENOMUESTRAL = tipoDiseno;
-            string tipoProyecto = TipoProyectoCbx.SelectedItem.ToString();
-            newProject.TIPOPROYECTO = "";
-            newProject.TAMANO = int.Parse(tamParcelaTxt.Text);
-            newProject.LIMITINFDAP = int.Parse(limiteInfTxt.Text);
-            newProject.LIMITSUPDAP = int.Parse(limiteSupTxt.Text);
-            newProject.INTMUE = decimal.Parse(intMuestreoTxt.Text);
-            newProject.SUPMUE = decimal.Parse(AreaMuestradaTxt.Text);
-            newProject.AREAFUSTALESPORPARCELA = decimal.Parse(areaFustalesTxt.Text);
-            newProject.FACTORDEFORMA = decimal.Parse(factorFormaTxt.Text);
-            project.InsertProject(newProject);
-            project.SaveChanges();
-            MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
+            if(newProject.ESPECIE.Count>0)
+            {
+                newProject.NROPROY = Guid.NewGuid();
+                newProject.USUARIO = (USUARIO)Program.Cache.Get("user");
+                newProject.LUGAR = lugarTxt.Text;
+                newProject.DESCRIPCION = DescripcionTxt.Text;
+                OBJETIVOINVENTARIO objetivo = (OBJETIVOINVENTARIO)tipoObjetivoCbx.SelectedItem;
+                TIPODISENOMUESTRAL tipoDiseno = (TIPODISENOMUESTRAL)tipoDisenoCbx.SelectedItem;
+                newProject.OBJETIVOINVENTARIO = objetivo;
+                newProject.TIPODISENOMUESTRAL = tipoDiseno;
+                string tipoProyecto = TipoProyectoCbx.SelectedItem.ToString();
+                newProject.TIPOPROYECTO = tipoProyecto=="Independiente"?"IN":"CR";
+                newProject.TAMANO = int.Parse(tamParcelaTxt.Text);
+                newProject.LIMITINFDAP = int.Parse(limiteInfTxt.Text);
+                newProject.LIMITSUPDAP = int.Parse(limiteSupTxt.Text);
+                newProject.INTMUE = decimal.Parse(intMuestreoTxt.Text);
+                newProject.SUPMUE = decimal.Parse(AreaMuestradaTxt.Text);
+                newProject.AREAFUSTALESPORPARCELA = decimal.Parse(areaFustalesTxt.Text);
+                newProject.FACTORDEFORMA = decimal.Parse(factorFormaTxt.Text);
+                newProject.FECHA = DateTime.Today;
+                newProject.NUMEROETAPAS = int.Parse(numeroEtapasTxt.Text);
+                project.InsertProject(newProject);
+                project.SaveChanges();
+                MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else MessageBox.Show("No se ha seleccionado ninguna especie para el proyecto.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void CancelarBtn_Click(object sender, EventArgs e)
@@ -139,6 +147,10 @@ namespace SIFCA
             foreach (DataGridViewRow row in especiesDGW.Rows)
             {
                 row.Cells[0].Value = true;
+                string commonName = (string)row.Cells["NOMCOMUN"].Value;
+                string scientificName = (string)row.Cells["NOMCIENTIFICO"].Value;
+                ESPECIE data = species.GetSpecieByComNameAndScienName(commonName, scientificName);
+                if (data != null) newProject.ESPECIE.Add(data);
             }
         }
 
@@ -147,6 +159,10 @@ namespace SIFCA
             foreach (DataGridViewRow row in especiesDGW.Rows)
             {
                 row.Cells[0].Value = false;
+                string commonName = (string)row.Cells["NOMCOMUN"].Value;
+                string scientificName = (string)row.Cells["NOMCIENTIFICO"].Value;
+                ESPECIE data = species.GetSpecieByComNameAndScienName(commonName, scientificName);
+                if (data != null) newProject.ESPECIE.Remove(data);
             }
         }
 
@@ -192,19 +208,17 @@ namespace SIFCA
                 {
                         if (Convert.ToBoolean(cellSelecion.Value))
                         {
-                            ESPECIE specieData = new ESPECIE();
-                            specieData.NOMCOMUN = (string)row.Cells["NOMCOMUN"].Value;
-                            specieData.NOMCIENTIFICO = (string)row.Cells["NOMCIENTIFICO"].Value;
-                            specieData.FAMILIA = (string)row.Cells["FAMILIA"].Value;
-                            listEspecies.Add(specieData);
+                            string commonName = (string)row.Cells["NOMCOMUN"].Value;
+                            string scientificName = (string)row.Cells["NOMCIENTIFICO"].Value;
+                            ESPECIE data = species.GetSpecieByComNameAndScienName(commonName, scientificName);
+                            if(data!=null)newProject.ESPECIE.Add(data);
                         }
                         else
                         {
-                            ESPECIE specieData = new ESPECIE();
-                            specieData.NOMCOMUN = (string)row.Cells["NOMCOMUN"].Value;
-                            specieData.NOMCIENTIFICO = (string)row.Cells["NOMCIENTIFICO"].Value;
-                            specieData.FAMILIA = (string)row.Cells["FAMILIA"].Value;
-                            listEspecies.Remove(specieData);
+                            string commonName = (string)row.Cells["NOMCOMUN"].Value;
+                            string scientificName = (string)row.Cells["NOMCIENTIFICO"].Value;
+                            ESPECIE data = species.GetSpecieByComNameAndScienName(commonName, scientificName);
+                            if (data != null) newProject.ESPECIE.Remove(data);
                         }
                 }
 

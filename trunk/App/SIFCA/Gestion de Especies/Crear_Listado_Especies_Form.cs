@@ -91,7 +91,6 @@ namespace SIFCA.Gestion_de_Especies
                             esp.ZONAGEOGRAFICA = (String)row.Cells["ZONAGEOGRAFICA"].Value;
                             esp.ZONADEVIDA = (String)row.Cells["ZONADEVIDA"].Value;
                             esp.DIAMMINCORTE = (Decimal)row.Cells["DIAMMINCORTE"].Value;
-
                             listEspecies.Add(esp);
                             
 

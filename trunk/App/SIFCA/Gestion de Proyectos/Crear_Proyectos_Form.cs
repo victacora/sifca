@@ -12,8 +12,10 @@ using System.Runtime.Caching;
 
 namespace SIFCA
 {
+   
     public partial class Crear_Proyecto_Form : Form
     {
+        private int index;
         private ProjectBL project;
         private TypeSampleDesignBl typeExample;
         private ObjectiveInventoryBL objetiveInventory;
@@ -27,6 +29,9 @@ namespace SIFCA
         {
             InitializeComponent();
             this.ControlBox = false;
+            listEspecies = new List<ESPECIE>();
+            litsStratum = new List<LISTADODEESTRATOS>();
+            listProjects = new List<PROYECTO>();
             project = new ProjectBL(Program.ContextData);
             typeExample = new TypeSampleDesignBl (Program.ContextData);
             objetiveInventory = new ObjectiveInventoryBL(Program.ContextData);
@@ -44,7 +49,8 @@ namespace SIFCA
             especieBS.DataSource = species.GetSpecies();
             especiesDGW.DataSource=especieBS;
             proyectoBS.DataSource = project.GetProjects();
-            proyectoDGW.DataSource = proyectoBS;           
+            proyectoDGW.DataSource = proyectoBS;
+            index = 0;
         }
 
         private void AceptarBtn3_Click(object sender, EventArgs e)
@@ -102,12 +108,16 @@ namespace SIFCA
 
         private void Siguiente_Click(object sender, EventArgs e)
         {
-
+            index++;
+            if (index == 4) index = 0;
+            crearProyectoTab.SelectedIndex = index; 
         }
 
         private void Atras_Click(object sender, EventArgs e)
         {
-
+            index--;
+            if (index < 0) index = 3;
+            crearProyectoTab.SelectedIndex = index;
         }
 
         private void GuardarBtn_Click(object sender, EventArgs e)
@@ -170,31 +180,28 @@ namespace SIFCA
 
         private void especiesDGW_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (especiesDGW.Columns[e.ColumnIndex].Name == "Seleccion")
+            if (especiesDGW.Columns[e.ColumnIndex].Name == "Especie")
             {
                 DataGridViewRow row = especiesDGW.Rows[e.RowIndex];
                 DataGridViewCheckBoxCell cellSelecion = row.Cells[0] as DataGridViewCheckBoxCell;
                 if (cellSelecion.Value != null)
                 {
-                    if (cellSelecion.Value != "")
-                    {
                         if (Convert.ToBoolean(cellSelecion.Value))
                         {
-                            ESPECIE esp = new ESPECIE();
-                            esp.NOMCOMUN = (string)row.Cells["NOMCOMUN"].Value;
-                            esp.NOMCIENTIFICO = (string)row.Cells["NOMCIENTIFICO"].Value;
-                            esp.FAMILIA = (string)row.Cells["FAMILIA"].Value;
-                            listEspecies.Add(esp);
+                            ESPECIE specieData = new ESPECIE();
+                            specieData.NOMCOMUN = (string)row.Cells["NOMCOMUN"].Value;
+                            specieData.NOMCIENTIFICO = (string)row.Cells["NOMCIENTIFICO"].Value;
+                            specieData.FAMILIA = (string)row.Cells["FAMILIA"].Value;
+                            listEspecies.Add(specieData);
                         }
                         else
                         {
-                            ESPECIE esp = new ESPECIE();
-                            esp.NOMCOMUN = (string)row.Cells["NOMCOMUN"].Value;
-                            esp.NOMCIENTIFICO = (string)row.Cells["NOMCIENTIFICO"].Value;
-                            esp.FAMILIA = (string)row.Cells["FAMILIA"].Value;
-                            listEspecies.Remove(esp);
+                            ESPECIE specieData = new ESPECIE();
+                            specieData.NOMCOMUN = (string)row.Cells["NOMCOMUN"].Value;
+                            specieData.NOMCIENTIFICO = (string)row.Cells["NOMCIENTIFICO"].Value;
+                            specieData.FAMILIA = (string)row.Cells["FAMILIA"].Value;
+                            listEspecies.Remove(specieData);
                         }
-                    }
                 }
 
             }
@@ -202,22 +209,87 @@ namespace SIFCA
 
         private void estratoDGW_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            if (estratoDGW.Columns[e.ColumnIndex].Name == "Estratos")
+            {
+                DataGridViewRow row = estratoDGW.Rows[e.RowIndex];
+                DataGridViewCheckBoxCell cellSelecion = row.Cells[0] as DataGridViewCheckBoxCell;
+                if (cellSelecion.Value != null)
+                {
+                    if (Convert.ToBoolean(cellSelecion.Value))
+                    {
+                        LISTADODEESTRATOS stratumData = new LISTADODEESTRATOS();
+                        string descripcion = (string)row.Cells["DESCRIPESTRATO"].Value;
+                        stratumData.PESO = row.Cells["Peso"].Value!=null?(decimal)row.Cells["Peso"].Value:0;
+                        litsStratum.Add(stratumData);
+                    }
+                    else
+                    {
+                        LISTADODEESTRATOS stratumData = new LISTADODEESTRATOS();
+                        string description = (string)row.Cells["DESCRIPESTRATO"].Value;
+                        stratumData.PESO = row.Cells["Peso"].Value != null ? (decimal)row.Cells["Peso"].Value : 0;
+                        litsStratum.Remove(stratumData);
+                    }
+                }
 
+            }
         }
 
         private void proyectoDGW_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            if (proyectoDGW.Columns[e.ColumnIndex].Name == "Proyectos")
+            {
+                DataGridViewRow row = proyectoDGW.Rows[e.RowIndex];
+                DataGridViewCheckBoxCell cellSelecion = row.Cells[0] as DataGridViewCheckBoxCell;
+                if (cellSelecion.Value != null)
+                {
+                    if (Convert.ToBoolean(cellSelecion.Value))
+                    {
+                        PROYECTO projectData = new PROYECTO();
 
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+
+            }
         }
 
         private void tipoDisenoCbx_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ComboBox cmb = (ComboBox)sender;
+            Object selectedItem = cmb.SelectedItem;
+            if (selectedItem != null)
+            {
+                TIPODISENOMUESTRAL tipoDiseno = (TIPODISENOMUESTRAL)selectedItem;
 
+                if (tipoDiseno.DESCRIPTIPODISEMUEST == "Diseño estratificado")
+                {
+                    foreach (Control ctl in crearProyectoTab.TabPages["estratosTabP"].Controls) ctl.Enabled = true;
+                }
+                else
+                {
+                    foreach (Control ctl in crearProyectoTab.TabPages["estratosTabP"].Controls) ctl.Enabled = false;
+                }
+            }
         }
 
         private void TipoProyectoCbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            ComboBox cmb = (ComboBox)sender;
+            Object selectedItem = cmb.SelectedItem;
+            if (selectedItem != null)
+            {
+                if (selectedItem.ToString() == "Contenedor")
+                {
+                    foreach (Control ctl in crearProyectoTab.TabPages["proyectosContTabP"].Controls) ctl.Enabled = true;
+                }
+                else
+                {
+                    foreach (Control ctl in crearProyectoTab.TabPages["proyectosContTabP"].Controls) ctl.Enabled = false;
+                }
+            }
         }
     }
 }

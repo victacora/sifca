@@ -117,7 +117,52 @@ namespace SIFCA
             this.Close();
         }
 
-       
-        
+        private void seleccEspecieBtn_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in especiesDGW.Rows)
+            {
+                row.Cells[0].Value = true;
+            }
+        }
+
+        private void RemoverEspciesBtn_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in especiesDGW.Rows)
+            {
+                row.Cells[0].Value = false;
+            }
+        }
+
+        private void SeleccEstratosBtn_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in estratoDGW.Rows)
+            {
+                row.Cells[0].Value = true;
+            }
+        }
+
+        private void removerEstratosBtn_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in estratoDGW.Rows)
+            {
+                row.Cells[0].Value = false;
+            }
+        }
+
+        private void seleccionarProyectosBtn_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in proyectoDGW.Rows)
+            {
+                row.Cells[0].Value = true;
+            }
+        }
+
+        private void removerProyectosBtn_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in proyectoDGW.Rows)
+            {
+                row.Cells[0].Value = false;
+            }
+        }
     }
 }

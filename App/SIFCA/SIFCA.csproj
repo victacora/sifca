@@ -76,6 +76,48 @@
     <Compile Include="Gestion de Especies\Ver_Especie_Form.Designer.cs">
       <DependentUpon>Ver_Especie_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gestion de Estratos\Crear_Estrato_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Estratos\Crear_Estrato_Form.designer.cs">
+      <DependentUpon>Crear_Estrato_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Estratos\Crear_Listado_Estratos_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Estratos\Crear_Listado_Estratos_Form.designer.cs">
+      <DependentUpon>Crear_Listado_Estratos_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Estratos\Listado_Estratos_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Estratos\Listado_Estratos_Form.designer.cs">
+      <DependentUpon>Listado_Estratos_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Estratos\Ver_Estrato_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Estratos\Ver_Estrato_Form.Designer.cs">
+      <DependentUpon>Ver_Estrato_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Grupos Comerciales\Crear_GruposCom_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Grupos Comerciales\Crear_GruposCom_Form.designer.cs">
+      <DependentUpon>Crear_GruposCom_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Grupos Comerciales\Listado_GruposCom_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Grupos Comerciales\Listado_GruposCom_Form.designer.cs">
+      <DependentUpon>Listado_GruposCom_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Grupos Comerciales\Ver_GruposCom_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Grupos Comerciales\Ver_GruposCom_Form.Designer.cs">
+      <DependentUpon>Ver_GruposCom_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gestion de Proyectos\Crear_Proyectos_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +167,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Especies\Ver_Especie_Form.resx">
       <DependentUpon>Ver_Especie_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Estratos\Crear_Estrato_Form.resx">
+      <DependentUpon>Crear_Estrato_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Estratos\Crear_Listado_Estratos_Form.resx">
+      <DependentUpon>Crear_Listado_Estratos_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Estratos\Listado_Estratos_Form.resx">
+      <DependentUpon>Listado_Estratos_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Estratos\Ver_Estrato_Form.resx">
+      <DependentUpon>Ver_Estrato_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Grupos Comerciales\Crear_GruposCom_Form.resx">
+      <DependentUpon>Crear_GruposCom_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Grupos Comerciales\Listado_GruposCom_Form.resx">
+      <DependentUpon>Listado_GruposCom_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Grupos Comerciales\Ver_GruposCom_Form.resx">
+      <DependentUpon>Ver_GruposCom_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Proyectos\Crear_Proyectos_Form.resx">
       <DependentUpon>Crear_Proyectos_Form.cs</DependentUpon>

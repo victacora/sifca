@@ -39,7 +39,7 @@
             System.Windows.Forms.Label lugarLbl;
             System.Windows.Forms.Label TipoDisenoLbl;
             System.Windows.Forms.Label objetivoInvTxt;
-            System.Windows.Forms.Label label1;
+            this.label1 = new System.Windows.Forms.Label();
             this.crearProyectoTab = new System.Windows.Forms.TabControl();
             this.proyectoTabP = new System.Windows.Forms.TabPage();
             this.DatosProyectoGbx = new System.Windows.Forms.GroupBox();
@@ -65,10 +65,6 @@
             this.seleccEspecieBtn = new System.Windows.Forms.Button();
             this.RemoverEspciesBtn = new System.Windows.Forms.Button();
             this.especiesDGW = new System.Windows.Forms.DataGridView();
-            this.Especie = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.especieBS = new System.Windows.Forms.BindingSource(this.components);
             this.estratosTabP = new System.Windows.Forms.TabPage();
             this.SeleccEstratosBtn = new System.Windows.Forms.Button();
@@ -79,8 +75,8 @@
             this.Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estratoBS = new System.Windows.Forms.BindingSource(this.components);
             this.proyectosContTabP = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.seleccionarProyectosBtn = new System.Windows.Forms.Button();
+            this.removerProyectosBtn = new System.Windows.Forms.Button();
             this.proyectoDGW = new System.Windows.Forms.DataGridView();
             this.Proyectos = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,6 +89,10 @@
             this.GuardarBtn = new System.Windows.Forms.Button();
             this.siguienteBtn = new System.Windows.Forms.Button();
             this.atrasBtn = new System.Windows.Forms.Button();
+            this.Especie = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             descripcionLbl = new System.Windows.Forms.Label();
             DAPLbl = new System.Windows.Forms.Label();
             facFormaLbl = new System.Windows.Forms.Label();
@@ -103,7 +103,6 @@
             lugarLbl = new System.Windows.Forms.Label();
             TipoDisenoLbl = new System.Windows.Forms.Label();
             objetivoInvTxt = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
             this.crearProyectoTab.SuspendLayout();
             this.proyectoTabP.SuspendLayout();
             this.DatosProyectoGbx.SuspendLayout();
@@ -199,7 +198,7 @@
             // TipoDisenoLbl
             // 
             TipoDisenoLbl.AutoSize = true;
-            TipoDisenoLbl.Location = new System.Drawing.Point(11, 149);
+            TipoDisenoLbl.Location = new System.Drawing.Point(9, 149);
             TipoDisenoLbl.Name = "TipoDisenoLbl";
             TipoDisenoLbl.Size = new System.Drawing.Size(128, 13);
             TipoDisenoLbl.TabIndex = 6;
@@ -216,12 +215,12 @@
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(13, 182);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(94, 13);
-            label1.TabIndex = 27;
-            label1.Text = "Tipo de Proyecto: ";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 182);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 13);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Tipo de Proyecto: ";
             // 
             // crearProyectoTab
             // 
@@ -256,7 +255,7 @@
             // DatosProyectoGbx
             // 
             this.DatosProyectoGbx.Controls.Add(this.TipoProyectoCbx);
-            this.DatosProyectoGbx.Controls.Add(label1);
+            this.DatosProyectoGbx.Controls.Add(this.label1);
             this.DatosProyectoGbx.Controls.Add(this.DescripcionTxt);
             this.DatosProyectoGbx.Controls.Add(descripcionLbl);
             this.DatosProyectoGbx.Controls.Add(this.tipoDisenoCbx);
@@ -461,6 +460,7 @@
             this.seleccEspecieBtn.TabIndex = 16;
             this.seleccEspecieBtn.Text = "Seleccionar Todos";
             this.seleccEspecieBtn.UseVisualStyleBackColor = true;
+            this.seleccEspecieBtn.Click += new System.EventHandler(this.seleccEspecieBtn_Click);
             // 
             // RemoverEspciesBtn
             // 
@@ -470,9 +470,13 @@
             this.RemoverEspciesBtn.TabIndex = 14;
             this.RemoverEspciesBtn.Text = "Remover Todos";
             this.RemoverEspciesBtn.UseVisualStyleBackColor = true;
+            this.RemoverEspciesBtn.Click += new System.EventHandler(this.RemoverEspciesBtn_Click);
             // 
             // especiesDGW
             // 
+            this.especiesDGW.AllowUserToAddRows = false;
+            this.especiesDGW.AllowUserToDeleteRows = false;
+            this.especiesDGW.AllowUserToOrderColumns = true;
             this.especiesDGW.AutoGenerateColumns = false;
             this.especiesDGW.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.especiesDGW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -486,29 +490,6 @@
             this.especiesDGW.Name = "especiesDGW";
             this.especiesDGW.Size = new System.Drawing.Size(446, 415);
             this.especiesDGW.TabIndex = 0;
-            // 
-            // Especie
-            // 
-            this.Especie.HeaderText = "Seleccion";
-            this.Especie.Name = "Especie";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "NOMCOMUN";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Nombre Comun";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "NOMCIENTIFICO";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Nombre Cientifico";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "FAMILIA";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Familia";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // especieBS
             // 
@@ -535,6 +516,7 @@
             this.SeleccEstratosBtn.TabIndex = 18;
             this.SeleccEstratosBtn.Text = "Seleccionar Todos";
             this.SeleccEstratosBtn.UseVisualStyleBackColor = true;
+            this.SeleccEstratosBtn.Click += new System.EventHandler(this.SeleccEstratosBtn_Click);
             // 
             // removerEstratosBtn
             // 
@@ -544,9 +526,13 @@
             this.removerEstratosBtn.TabIndex = 17;
             this.removerEstratosBtn.Text = "Remover Todos";
             this.removerEstratosBtn.UseVisualStyleBackColor = true;
+            this.removerEstratosBtn.Click += new System.EventHandler(this.removerEstratosBtn_Click);
             // 
             // estratoDGW
             // 
+            this.estratoDGW.AllowUserToAddRows = false;
+            this.estratoDGW.AllowUserToDeleteRows = false;
+            this.estratoDGW.AllowUserToOrderColumns = true;
             this.estratoDGW.AutoGenerateColumns = false;
             this.estratoDGW.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.estratoDGW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -557,6 +543,7 @@
             this.estratoDGW.DataSource = this.estratoBS;
             this.estratoDGW.Location = new System.Drawing.Point(6, 38);
             this.estratoDGW.Name = "estratoDGW";
+            this.estratoDGW.ReadOnly = true;
             this.estratoDGW.Size = new System.Drawing.Size(446, 415);
             this.estratoDGW.TabIndex = 0;
             // 
@@ -584,8 +571,8 @@
             // proyectosContTabP
             // 
             this.proyectosContTabP.AutoScroll = true;
-            this.proyectosContTabP.Controls.Add(this.button1);
-            this.proyectosContTabP.Controls.Add(this.button2);
+            this.proyectosContTabP.Controls.Add(this.seleccionarProyectosBtn);
+            this.proyectosContTabP.Controls.Add(this.removerProyectosBtn);
             this.proyectosContTabP.Controls.Add(this.proyectoDGW);
             this.proyectosContTabP.Location = new System.Drawing.Point(124, 4);
             this.proyectosContTabP.Name = "proyectosContTabP";
@@ -594,26 +581,31 @@
             this.proyectosContTabP.Text = "Proyectos contenidos";
             this.proyectosContTabP.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // seleccionarProyectosBtn
             // 
-            this.button1.Location = new System.Drawing.Point(225, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 23);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Seleccionar Todos";
-            this.button1.UseVisualStyleBackColor = true;
+            this.seleccionarProyectosBtn.Location = new System.Drawing.Point(225, 9);
+            this.seleccionarProyectosBtn.Name = "seleccionarProyectosBtn";
+            this.seleccionarProyectosBtn.Size = new System.Drawing.Size(112, 23);
+            this.seleccionarProyectosBtn.TabIndex = 20;
+            this.seleccionarProyectosBtn.Text = "Seleccionar Todos";
+            this.seleccionarProyectosBtn.UseVisualStyleBackColor = true;
+            this.seleccionarProyectosBtn.Click += new System.EventHandler(this.seleccionarProyectosBtn_Click);
             // 
-            // button2
+            // removerProyectosBtn
             // 
-            this.button2.Location = new System.Drawing.Point(343, 9);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 23);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Remover Todos";
-            this.button2.UseVisualStyleBackColor = true;
+            this.removerProyectosBtn.Location = new System.Drawing.Point(343, 9);
+            this.removerProyectosBtn.Name = "removerProyectosBtn";
+            this.removerProyectosBtn.Size = new System.Drawing.Size(104, 23);
+            this.removerProyectosBtn.TabIndex = 19;
+            this.removerProyectosBtn.Text = "Remover Todos";
+            this.removerProyectosBtn.UseVisualStyleBackColor = true;
+            this.removerProyectosBtn.Click += new System.EventHandler(this.removerProyectosBtn_Click);
             // 
             // proyectoDGW
             // 
+            this.proyectoDGW.AllowUserToAddRows = false;
+            this.proyectoDGW.AllowUserToDeleteRows = false;
+            this.proyectoDGW.AllowUserToOrderColumns = true;
             this.proyectoDGW.AutoGenerateColumns = false;
             this.proyectoDGW.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.proyectoDGW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -627,6 +619,7 @@
             this.proyectoDGW.DataSource = this.proyectoBS;
             this.proyectoDGW.Location = new System.Drawing.Point(3, 38);
             this.proyectoDGW.Name = "proyectoDGW";
+            this.proyectoDGW.ReadOnly = true;
             this.proyectoDGW.Size = new System.Drawing.Size(446, 415);
             this.proyectoDGW.TabIndex = 0;
             // 
@@ -710,6 +703,32 @@
             this.atrasBtn.UseVisualStyleBackColor = true;
             this.atrasBtn.Click += new System.EventHandler(this.Atras_Click);
             // 
+            // Especie
+            // 
+            this.Especie.HeaderText = "Seleccion";
+            this.Especie.Name = "Especie";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "NOMCOMUN";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Nombre Comun";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "NOMCIENTIFICO";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Nombre Cientifico";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "FAMILIA";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Familia";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
             // Crear_Proyecto_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -791,17 +810,13 @@
         private System.Windows.Forms.Button RemoverEspciesBtn;
         private System.Windows.Forms.Button SeleccEstratosBtn;
         private System.Windows.Forms.Button removerEstratosBtn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Especie;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Estrato;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Peso;
         private System.Windows.Forms.ComboBox TipoProyectoCbx;
         private System.Windows.Forms.TabPage proyectosContTabP;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button seleccionarProyectosBtn;
+        private System.Windows.Forms.Button removerProyectosBtn;
         private System.Windows.Forms.DataGridView proyectoDGW;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Proyectos;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
@@ -810,6 +825,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMTIPODISEMUEST;
         private System.Windows.Forms.BindingSource proyectoBS;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Especie;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
 
 
     }

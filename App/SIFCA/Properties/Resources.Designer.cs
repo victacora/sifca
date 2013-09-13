@@ -73,6 +73,16 @@ namespace SIFCA.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FondoRecoleccion {
+            get {
+                object obj = ResourceManager.GetObject("FondoRecoleccion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fondoTab {
             get {
                 object obj = ResourceManager.GetObject("fondoTab", resourceCulture);

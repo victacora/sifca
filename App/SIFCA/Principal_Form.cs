@@ -234,5 +234,30 @@ namespace SIFCA
             else MessageBox.Show("Ningun usuario ha iniciado sesión. Inicie sesión en el sistema para poder realizar esta operación.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
         }
 
+        private void listarProyectosTsm_Click(object sender, EventArgs e)
+        {
+            //USUARIO user = (USUARIO)Program.Cache.Get("user");
+            //if (user != null)
+            //{
+                Listar_Proyecto_Form childForm = new Listar_Proyecto_Form();
+                childForm.MdiParent = this;
+                childForm.Show();
+           // }
+           // else MessageBox.Show("Ningun usuario ha iniciado sesión.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+        }
+
+        private void introducirDatosDeInventarioToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            USUARIO user = (USUARIO)Program.Cache.Get("user");
+            if (user != null)
+            {
+                Listar_Proyecto_Form childForm = new Listar_Proyecto_Form();
+                childForm.MdiParent = this;
+                childForm.Show();
+            }
+            else MessageBox.Show("Usted No se ha Autenticado dentro del sistema.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+
+        }
+        
     }
 }

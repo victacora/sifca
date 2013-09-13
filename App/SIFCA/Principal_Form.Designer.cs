@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.sistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.RegistrarUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.ActualizarDatosUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.ListarUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.IniciarSesion = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,7 +100,7 @@
             // sistemaToolStripMenuItem
             // 
             this.sistemaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
+            this.RegistrarUsuario,
             this.ActualizarDatosUsuario,
             this.ListarUsuarios,
             this.IniciarSesion,
@@ -111,12 +111,13 @@
             this.sistemaToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.sistemaToolStripMenuItem.Text = "&Sistema";
             // 
-            // toolStripMenuItem2
+            // RegistrarUsuario
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(210, 22);
-            this.toolStripMenuItem2.Text = "&Registrar Usuarios";
+            this.RegistrarUsuario.Name = "RegistrarUsuario";
+            this.RegistrarUsuario.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.RegistrarUsuario.Size = new System.Drawing.Size(210, 22);
+            this.RegistrarUsuario.Text = "&Registrar Usuarios";
+            this.RegistrarUsuario.Click += new System.EventHandler(this.ActualizarDatosUsuario_Click);
             // 
             // ActualizarDatosUsuario
             // 
@@ -184,6 +185,7 @@
             this.listarProyectosTsm.Name = "listarProyectosTsm";
             this.listarProyectosTsm.Size = new System.Drawing.Size(207, 22);
             this.listarProyectosTsm.Text = "Listar Proyectos";
+            this.listarProyectosTsm.Click += new System.EventHandler(this.listarProyectosTsm_Click);
             // 
             // importarProyectoTsm
             // 
@@ -213,6 +215,7 @@
             this.introducirDatosDeInventarioToolStripMenuItem.Name = "introducirDatosDeInventarioToolStripMenuItem";
             this.introducirDatosDeInventarioToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
             this.introducirDatosDeInventarioToolStripMenuItem.Text = "Introducir Datos de Inventario";
+            this.introducirDatosDeInventarioToolStripMenuItem.Click += new System.EventHandler(this.introducirDatosDeInventarioToolStripMenuItem_Click_1);
             // 
             // regeneracionToolStripMenuItem
             // 
@@ -498,7 +501,7 @@
         private System.Windows.Forms.ToolStripMenuItem modificarEspecieToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verEspeciesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem RegistrarUsuario;
     }
 }
 

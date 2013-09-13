@@ -50,7 +50,6 @@
             this.ListadoEspecies = new System.Windows.Forms.DataGridView();
             this.gRUPOCOMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dESCRIPGRUPODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eSPECIEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.paginacionGruposCom)).BeginInit();
             this.paginacionGruposCom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grupoComBSource)).BeginInit();
@@ -213,8 +212,7 @@
             this.ListadoEspecies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ListadoEspecies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.gRUPOCOMDataGridViewTextBoxColumn,
-            this.dESCRIPGRUPODataGridViewTextBoxColumn,
-            this.eSPECIEDataGridViewTextBoxColumn});
+            this.dESCRIPGRUPODataGridViewTextBoxColumn});
             this.ListadoEspecies.DataSource = this.grupoComBSource;
             this.ListadoEspecies.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ListadoEspecies.Location = new System.Drawing.Point(0, 27);
@@ -238,14 +236,7 @@
             this.dESCRIPGRUPODataGridViewTextBoxColumn.Name = "dESCRIPGRUPODataGridViewTextBoxColumn";
             this.dESCRIPGRUPODataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // eSPECIEDataGridViewTextBoxColumn
-            // 
-            this.eSPECIEDataGridViewTextBoxColumn.DataPropertyName = "ESPECIE";
-            this.eSPECIEDataGridViewTextBoxColumn.HeaderText = "ESPECIE";
-            this.eSPECIEDataGridViewTextBoxColumn.Name = "eSPECIEDataGridViewTextBoxColumn";
-            this.eSPECIEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Listado_Estratos_Form
+            // Listado_GruposCom_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -254,9 +245,9 @@
             this.ClientSize = new System.Drawing.Size(375, 218);
             this.Controls.Add(this.ListadoEspecies);
             this.Controls.Add(this.paginacionGruposCom);
-            this.Name = "Listado_Estratos_Form";
+            this.Name = "Listado_GruposCom_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Lista de Estratos";
+            this.Text = "Lista Grupos Comerciales";
             ((System.ComponentModel.ISupportInitialize)(this.paginacionGruposCom)).EndInit();
             this.paginacionGruposCom.ResumeLayout(false);
             this.paginacionGruposCom.PerformLayout();
@@ -289,6 +280,5 @@
         private System.Windows.Forms.ToolStripComboBox listadoEspCbx;
         private System.Windows.Forms.DataGridViewTextBoxColumn gRUPOCOMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dESCRIPGRUPODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn eSPECIEDataGridViewTextBoxColumn;
     }
 }

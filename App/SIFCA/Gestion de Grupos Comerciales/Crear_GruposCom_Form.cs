@@ -22,12 +22,9 @@ namespace SIFCA.Gestion_de_GruposCom
          
         private void btn_Crear_Click(object sender, EventArgs e)
         {
-           
             GRUPOCOMERCIAL newGroup = new GRUPOCOMERCIAL();
-
-            newGroup.DESCRIPGRUPO = this.txt_Descripcion.Text;            
-            
-            //newStratum.CODEST = Guid.NewGuid();
+            newGroup.DESCRIPGRUPO = this.txt_Abrev.Text;
+            newGroup.GRUPOCOM = this.txt_Abrev.Text;
 
             group.InsertGroup(newGroup);
             group.SaveChanges();

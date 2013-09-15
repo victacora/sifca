@@ -42,5 +42,20 @@ namespace SIFCA
             this.Close();
         }
 
+        private void verificarContrasenaTxt_TextChanged(object sender, EventArgs e)
+        {
+            if (contrasenaTxt.Text != verificarContrasenaTxt.Text)
+            {
+                errorLbl.Text = "Las contraseñas no coinciden";
+                errorLbl.ForeColor = Color.Red;
+            }
+            else
+            {
+                errorLbl.Text = "Las contraseñas coinciden";
+                errorLbl.ForeColor = Color.Green;
+            }
+        }
+
+
     }
 }

@@ -29,342 +29,246 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ver_Especie_Form));
             this.SpecieBSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.SpecieNv = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.nuevoToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.abrirToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.guardarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.imprimirToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.cortarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.copiarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.pegarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.ayudaToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.gRUPOCOMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOMCOMUNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOMCIENTIFICODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fAMILIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zONAGEOGRAFICADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zONADEVIDADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dIAMMINCORTEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Btn_Cancelar = new System.Windows.Forms.Button();
+            this.groupBox = new System.Windows.Forms.GroupBox();
+            this.txt_GrupoCom = new System.Windows.Forms.TextBox();
+            this.txt_DimCorte = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txt_ZonaVida = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt_ZonaGeo = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txt_Familia = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_NomCient = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_NomCom = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cBx_NomCient = new System.Windows.Forms.ComboBox();
+            this.lbl_NomCient = new System.Windows.Forms.Label();
+            this.cbx_NomComun = new System.Windows.Forms.ComboBox();
+            this.lblNombreComun = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.SpecieBSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SpecieNv)).BeginInit();
-            this.SpecieNv.SuspendLayout();
+            this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // SpecieBSource
             // 
             this.SpecieBSource.DataSource = typeof(SIFCA_DAL.ESPECIE);
             // 
-            // dataGridView1
+            // Btn_Cancelar
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.gRUPOCOMDataGridViewTextBoxColumn,
-            this.nOMCOMUNDataGridViewTextBoxColumn,
-            this.nOMCIENTIFICODataGridViewTextBoxColumn,
-            this.fAMILIADataGridViewTextBoxColumn,
-            this.zONAGEOGRAFICADataGridViewTextBoxColumn,
-            this.zONADEVIDADataGridViewTextBoxColumn,
-            this.dIAMMINCORTEDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.SpecieBSource;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 28);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(653, 233);
-            this.dataGridView1.TabIndex = 0;
+            this.Btn_Cancelar.Location = new System.Drawing.Point(253, 343);
+            this.Btn_Cancelar.Name = "Btn_Cancelar";
+            this.Btn_Cancelar.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Cancelar.TabIndex = 13;
+            this.Btn_Cancelar.Text = "Volver";
+            this.Btn_Cancelar.UseVisualStyleBackColor = true;
+            this.Btn_Cancelar.Click += new System.EventHandler(this.Btn_Cancelar_Click);
             // 
-            // SpecieNv
+            // groupBox
             // 
-            this.SpecieNv.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.SpecieNv.BindingSource = this.SpecieBSource;
-            this.SpecieNv.CountItem = this.bindingNavigatorCountItem;
-            this.SpecieNv.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.SpecieNv.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.nuevoToolStripButton,
-            this.abrirToolStripButton,
-            this.guardarToolStripButton,
-            this.imprimirToolStripButton,
-            this.toolStripSeparator,
-            this.cortarToolStripButton,
-            this.copiarToolStripButton,
-            this.pegarToolStripButton,
-            this.toolStripSeparator1,
-            this.ayudaToolStripButton});
-            this.SpecieNv.Location = new System.Drawing.Point(0, 0);
-            this.SpecieNv.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.SpecieNv.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.SpecieNv.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.SpecieNv.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.SpecieNv.Name = "SpecieNv";
-            this.SpecieNv.PositionItem = this.bindingNavigatorPositionItem;
-            this.SpecieNv.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.SpecieNv.Size = new System.Drawing.Size(653, 25);
-            this.SpecieNv.TabIndex = 1;
-            this.SpecieNv.Text = "bindingNavigator1";
+            this.groupBox.Controls.Add(this.txt_GrupoCom);
+            this.groupBox.Controls.Add(this.txt_DimCorte);
+            this.groupBox.Controls.Add(this.label7);
+            this.groupBox.Controls.Add(this.txt_ZonaVida);
+            this.groupBox.Controls.Add(this.label5);
+            this.groupBox.Controls.Add(this.txt_ZonaGeo);
+            this.groupBox.Controls.Add(this.label4);
+            this.groupBox.Controls.Add(this.txt_Familia);
+            this.groupBox.Controls.Add(this.label3);
+            this.groupBox.Controls.Add(this.label2);
+            this.groupBox.Controls.Add(this.txt_NomCient);
+            this.groupBox.Controls.Add(this.label6);
+            this.groupBox.Controls.Add(this.txt_NomCom);
+            this.groupBox.Controls.Add(this.label1);
+            this.groupBox.Location = new System.Drawing.Point(97, 78);
+            this.groupBox.Name = "groupBox";
+            this.groupBox.Size = new System.Drawing.Size(381, 259);
+            this.groupBox.TabIndex = 11;
+            this.groupBox.TabStop = false;
+            this.groupBox.Text = "Ver Especie";
             // 
-            // bindingNavigatorAddNewItem
+            // txt_GrupoCom
             // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
+            this.txt_GrupoCom.Location = new System.Drawing.Point(157, 93);
+            this.txt_GrupoCom.Name = "txt_GrupoCom";
+            this.txt_GrupoCom.ReadOnly = true;
+            this.txt_GrupoCom.Size = new System.Drawing.Size(152, 20);
+            this.txt_GrupoCom.TabIndex = 18;
             // 
-            // bindingNavigatorCountItem
+            // txt_DimCorte
             // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
-            this.bindingNavigatorCountItem.Text = "de {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
+            this.txt_DimCorte.Location = new System.Drawing.Point(157, 212);
+            this.txt_DimCorte.Name = "txt_DimCorte";
+            this.txt_DimCorte.ReadOnly = true;
+            this.txt_DimCorte.Size = new System.Drawing.Size(61, 20);
+            this.txt_DimCorte.TabIndex = 17;
             // 
-            // bindingNavigatorDeleteItem
+            // label7
             // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Eliminar";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(37, 212);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Diametro Corte";
             // 
-            // bindingNavigatorMoveFirstItem
+            // txt_ZonaVida
             // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Mover primero";
+            this.txt_ZonaVida.Location = new System.Drawing.Point(156, 182);
+            this.txt_ZonaVida.Name = "txt_ZonaVida";
+            this.txt_ZonaVida.ReadOnly = true;
+            this.txt_ZonaVida.Size = new System.Drawing.Size(153, 20);
+            this.txt_ZonaVida.TabIndex = 15;
             // 
-            // bindingNavigatorMovePreviousItem
+            // label5
             // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Mover anterior";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(35, 182);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Zona De Vida";
             // 
-            // bindingNavigatorSeparator
+            // txt_ZonaGeo
             // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            this.txt_ZonaGeo.Location = new System.Drawing.Point(156, 152);
+            this.txt_ZonaGeo.Name = "txt_ZonaGeo";
+            this.txt_ZonaGeo.ReadOnly = true;
+            this.txt_ZonaGeo.Size = new System.Drawing.Size(153, 20);
+            this.txt_ZonaGeo.TabIndex = 13;
             // 
-            // bindingNavigatorPositionItem
+            // label4
             // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Posición";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Posición actual";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(36, 152);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Zona Geografica";
             // 
-            // bindingNavigatorSeparator1
+            // txt_Familia
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.txt_Familia.Location = new System.Drawing.Point(156, 122);
+            this.txt_Familia.Name = "txt_Familia";
+            this.txt_Familia.ReadOnly = true;
+            this.txt_Familia.Size = new System.Drawing.Size(153, 20);
+            this.txt_Familia.TabIndex = 11;
             // 
-            // bindingNavigatorMoveNextItem
+            // label3
             // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Mover siguiente";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(35, 122);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Familia";
             // 
-            // bindingNavigatorMoveLastItem
+            // label2
             // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Mover último";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(35, 93);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(85, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Grupo Comercial";
             // 
-            // bindingNavigatorSeparator2
+            // txt_NomCient
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.txt_NomCient.Location = new System.Drawing.Point(156, 63);
+            this.txt_NomCient.Name = "txt_NomCient";
+            this.txt_NomCient.ReadOnly = true;
+            this.txt_NomCient.ShortcutsEnabled = false;
+            this.txt_NomCient.Size = new System.Drawing.Size(153, 20);
+            this.txt_NomCient.TabIndex = 7;
             // 
-            // nuevoToolStripButton
+            // label6
             // 
-            this.nuevoToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.nuevoToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("nuevoToolStripButton.Image")));
-            this.nuevoToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.nuevoToolStripButton.Name = "nuevoToolStripButton";
-            this.nuevoToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.nuevoToolStripButton.Text = "&Nuevo";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(36, 63);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Nombre Cientifico";
             // 
-            // abrirToolStripButton
+            // txt_NomCom
             // 
-            this.abrirToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.abrirToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("abrirToolStripButton.Image")));
-            this.abrirToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.abrirToolStripButton.Name = "abrirToolStripButton";
-            this.abrirToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.abrirToolStripButton.Text = "&Abrir";
+            this.txt_NomCom.Location = new System.Drawing.Point(156, 34);
+            this.txt_NomCom.Name = "txt_NomCom";
+            this.txt_NomCom.ReadOnly = true;
+            this.txt_NomCom.Size = new System.Drawing.Size(153, 20);
+            this.txt_NomCom.TabIndex = 5;
             // 
-            // guardarToolStripButton
+            // label1
             // 
-            this.guardarToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.guardarToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("guardarToolStripButton.Image")));
-            this.guardarToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.guardarToolStripButton.Name = "guardarToolStripButton";
-            this.guardarToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.guardarToolStripButton.Text = "&Guardar";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(35, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nombre Comun";
             // 
-            // imprimirToolStripButton
+            // cBx_NomCient
             // 
-            this.imprimirToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.imprimirToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("imprimirToolStripButton.Image")));
-            this.imprimirToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.imprimirToolStripButton.Name = "imprimirToolStripButton";
-            this.imprimirToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.imprimirToolStripButton.Text = "&Imprimir";
+            this.cBx_NomCient.DataSource = this.SpecieBSource;
+            this.cBx_NomCient.DisplayMember = "NOMCIENTIFICO";
+            this.cBx_NomCient.FormattingEnabled = true;
+            this.cBx_NomCient.Location = new System.Drawing.Point(380, 30);
+            this.cBx_NomCient.Name = "cBx_NomCient";
+            this.cBx_NomCient.Size = new System.Drawing.Size(121, 21);
+            this.cBx_NomCient.TabIndex = 10;
+            this.cBx_NomCient.ValueMember = "CODESP";
             // 
-            // toolStripSeparator
+            // lbl_NomCient
             // 
-            this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(6, 25);
+            this.lbl_NomCient.AutoSize = true;
+            this.lbl_NomCient.Location = new System.Drawing.Point(284, 33);
+            this.lbl_NomCient.Name = "lbl_NomCient";
+            this.lbl_NomCient.Size = new System.Drawing.Size(90, 13);
+            this.lbl_NomCient.TabIndex = 9;
+            this.lbl_NomCient.Text = "Nombre Cientifico";
             // 
-            // cortarToolStripButton
+            // cbx_NomComun
             // 
-            this.cortarToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.cortarToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("cortarToolStripButton.Image")));
-            this.cortarToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.cortarToolStripButton.Name = "cortarToolStripButton";
-            this.cortarToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.cortarToolStripButton.Text = "Cort&ar";
+            this.cbx_NomComun.DataSource = this.SpecieBSource;
+            this.cbx_NomComun.DisplayMember = "NOMCOMUN";
+            this.cbx_NomComun.FormattingEnabled = true;
+            this.cbx_NomComun.Location = new System.Drawing.Point(146, 30);
+            this.cbx_NomComun.Name = "cbx_NomComun";
+            this.cbx_NomComun.Size = new System.Drawing.Size(121, 21);
+            this.cbx_NomComun.TabIndex = 8;
+            this.cbx_NomComun.ValueMember = "CODESP";
+            this.cbx_NomComun.SelectedIndexChanged += new System.EventHandler(this.SeleccionPorNombreComun);
             // 
-            // copiarToolStripButton
+            // lblNombreComun
             // 
-            this.copiarToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.copiarToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("copiarToolStripButton.Image")));
-            this.copiarToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.copiarToolStripButton.Name = "copiarToolStripButton";
-            this.copiarToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.copiarToolStripButton.Text = "&Copiar";
-            // 
-            // pegarToolStripButton
-            // 
-            this.pegarToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.pegarToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("pegarToolStripButton.Image")));
-            this.pegarToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.pegarToolStripButton.Name = "pegarToolStripButton";
-            this.pegarToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.pegarToolStripButton.Text = "&Pegar";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // ayudaToolStripButton
-            // 
-            this.ayudaToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ayudaToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("ayudaToolStripButton.Image")));
-            this.ayudaToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ayudaToolStripButton.Name = "ayudaToolStripButton";
-            this.ayudaToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.ayudaToolStripButton.Text = "Ay&uda";
-            // 
-            // gRUPOCOMDataGridViewTextBoxColumn
-            // 
-            this.gRUPOCOMDataGridViewTextBoxColumn.DataPropertyName = "GRUPOCOM";
-            this.gRUPOCOMDataGridViewTextBoxColumn.HeaderText = "Grupo Comercial";
-            this.gRUPOCOMDataGridViewTextBoxColumn.Name = "gRUPOCOMDataGridViewTextBoxColumn";
-            this.gRUPOCOMDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.gRUPOCOMDataGridViewTextBoxColumn.Width = 101;
-            // 
-            // nOMCOMUNDataGridViewTextBoxColumn
-            // 
-            this.nOMCOMUNDataGridViewTextBoxColumn.DataPropertyName = "NOMCOMUN";
-            this.nOMCOMUNDataGridViewTextBoxColumn.HeaderText = "Nombre Comun";
-            this.nOMCOMUNDataGridViewTextBoxColumn.Name = "nOMCOMUNDataGridViewTextBoxColumn";
-            this.nOMCOMUNDataGridViewTextBoxColumn.Width = 96;
-            // 
-            // nOMCIENTIFICODataGridViewTextBoxColumn
-            // 
-            this.nOMCIENTIFICODataGridViewTextBoxColumn.DataPropertyName = "NOMCIENTIFICO";
-            this.nOMCIENTIFICODataGridViewTextBoxColumn.HeaderText = "Nombre Cientifico";
-            this.nOMCIENTIFICODataGridViewTextBoxColumn.Name = "nOMCIENTIFICODataGridViewTextBoxColumn";
-            this.nOMCIENTIFICODataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.nOMCIENTIFICODataGridViewTextBoxColumn.Width = 105;
-            // 
-            // fAMILIADataGridViewTextBoxColumn
-            // 
-            this.fAMILIADataGridViewTextBoxColumn.DataPropertyName = "FAMILIA";
-            this.fAMILIADataGridViewTextBoxColumn.HeaderText = "Familia";
-            this.fAMILIADataGridViewTextBoxColumn.Name = "fAMILIADataGridViewTextBoxColumn";
-            this.fAMILIADataGridViewTextBoxColumn.Width = 64;
-            // 
-            // zONAGEOGRAFICADataGridViewTextBoxColumn
-            // 
-            this.zONAGEOGRAFICADataGridViewTextBoxColumn.DataPropertyName = "ZONAGEOGRAFICA";
-            this.zONAGEOGRAFICADataGridViewTextBoxColumn.HeaderText = "Zona Geografica";
-            this.zONAGEOGRAFICADataGridViewTextBoxColumn.Name = "zONAGEOGRAFICADataGridViewTextBoxColumn";
-            this.zONAGEOGRAFICADataGridViewTextBoxColumn.Width = 103;
-            // 
-            // zONADEVIDADataGridViewTextBoxColumn
-            // 
-            this.zONADEVIDADataGridViewTextBoxColumn.DataPropertyName = "ZONADEVIDA";
-            this.zONADEVIDADataGridViewTextBoxColumn.HeaderText = "Zona de Vida";
-            this.zONADEVIDADataGridViewTextBoxColumn.Name = "zONADEVIDADataGridViewTextBoxColumn";
-            this.zONADEVIDADataGridViewTextBoxColumn.Width = 69;
-            // 
-            // dIAMMINCORTEDataGridViewTextBoxColumn
-            // 
-            this.dIAMMINCORTEDataGridViewTextBoxColumn.DataPropertyName = "DIAMMINCORTE";
-            this.dIAMMINCORTEDataGridViewTextBoxColumn.HeaderText = "Dia Corte";
-            this.dIAMMINCORTEDataGridViewTextBoxColumn.Name = "dIAMMINCORTEDataGridViewTextBoxColumn";
-            this.dIAMMINCORTEDataGridViewTextBoxColumn.Width = 70;
+            this.lblNombreComun.AutoSize = true;
+            this.lblNombreComun.Location = new System.Drawing.Point(60, 33);
+            this.lblNombreComun.Name = "lblNombreComun";
+            this.lblNombreComun.Size = new System.Drawing.Size(80, 13);
+            this.lblNombreComun.TabIndex = 7;
+            this.lblNombreComun.Text = "Nombre Comun";
             // 
             // Ver_Especie_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 261);
-            this.Controls.Add(this.SpecieNv);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(579, 383);
+            this.Controls.Add(this.Btn_Cancelar);
+            this.Controls.Add(this.groupBox);
+            this.Controls.Add(this.cBx_NomCient);
+            this.Controls.Add(this.lbl_NomCient);
+            this.Controls.Add(this.cbx_NomComun);
+            this.Controls.Add(this.lblNombreComun);
             this.Name = "Ver_Especie_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ver_Especie";
             ((System.ComponentModel.ISupportInitialize)(this.SpecieBSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SpecieNv)).EndInit();
-            this.SpecieNv.ResumeLayout(false);
-            this.SpecieNv.PerformLayout();
+            this.groupBox.ResumeLayout(false);
+            this.groupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,35 +277,25 @@
         #endregion
 
         private System.Windows.Forms.BindingSource SpecieBSource;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingNavigator SpecieNv;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton nuevoToolStripButton;
-        private System.Windows.Forms.ToolStripButton abrirToolStripButton;
-        private System.Windows.Forms.ToolStripButton guardarToolStripButton;
-        private System.Windows.Forms.ToolStripButton imprimirToolStripButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
-        private System.Windows.Forms.ToolStripButton cortarToolStripButton;
-        private System.Windows.Forms.ToolStripButton copiarToolStripButton;
-        private System.Windows.Forms.ToolStripButton pegarToolStripButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton ayudaToolStripButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gRUPOCOMDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nOMCOMUNDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nOMCIENTIFICODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fAMILIADataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zONAGEOGRAFICADataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zONADEVIDADataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dIAMMINCORTEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button Btn_Cancelar;
+        private System.Windows.Forms.GroupBox groupBox;
+        private System.Windows.Forms.TextBox txt_GrupoCom;
+        private System.Windows.Forms.TextBox txt_DimCorte;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txt_ZonaVida;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txt_ZonaGeo;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txt_Familia;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txt_NomCient;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txt_NomCom;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cBx_NomCient;
+        private System.Windows.Forms.Label lbl_NomCient;
+        private System.Windows.Forms.ComboBox cbx_NomComun;
+        private System.Windows.Forms.Label lblNombreComun;
     }
 }

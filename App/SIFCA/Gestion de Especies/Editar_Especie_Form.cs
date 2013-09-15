@@ -68,9 +68,6 @@ namespace SIFCA.Gestion_de_Especies
         {
             this.Close();
         }
-
-        
-        
         
     }
 }

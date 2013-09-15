@@ -16,7 +16,6 @@ namespace SIFCA_BLL
             this.sifcaRepository = contextProvider;
         }
 
-
         public IEnumerable<USUARIO> GetUsers()
         {
             return this.sifcaRepository.USUARIO.ToList();
@@ -27,6 +26,14 @@ namespace SIFCA_BLL
             return this.sifcaRepository.USUARIO.Find(userId);
         }
 
+        public List<USUARIO> SearchUsers(string search, string criteria) 
+        {
+            if(criteria=="Nombres")return this.sifcaRepository.USUARIO.ToList().Where(u => u.NOMBRES.Contains(search)).ToList();
+            if (criteria == "Apellidos") return this.sifcaRepository.USUARIO.ToList().Where(u => u.APELLIDOS.Contains(search)).ToList();
+            if (criteria == "Cedula") return this.sifcaRepository.USUARIO.ToList().Where(u => u.CEDULA==int.Parse(search)).ToList();
+            if (criteria == "Usuario") return this.sifcaRepository.USUARIO.ToList().Where(u => u.NOMBREUSUARIO.Contains(search)).ToList();
+            return new List<USUARIO>();
+        }
         public USUARIO LoginUser(USUARIO user)
         {
             return this.sifcaRepository.USUARIO.SingleOrDefault(u=>u.NOMBREUSUARIO==user.NOMBREUSUARIO&&u.CONTRASENA==user.CONTRASENA);

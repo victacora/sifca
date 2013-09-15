@@ -31,31 +31,30 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Listar_Usuarios_Form));
             this.usuarioDGV = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuarioBS = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.usuarioBN = new System.Windows.Forms.BindingNavigator(this.components);
-            this.buscarLbl = new System.Windows.Forms.ToolStripLabel();
-            this.busquedaTxt = new System.Windows.Forms.ToolStripTextBox();
-            this.filtrarLbl = new System.Windows.Forms.ToolStripLabel();
-            this.criterioCbx = new System.Windows.Forms.ToolStripComboBox();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuarioBS = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.buscarBtn = new System.Windows.Forms.ToolStripButton();
+            this.buscarLbl = new System.Windows.Forms.ToolStripLabel();
+            this.busquedaTxt = new System.Windows.Forms.ToolStripTextBox();
+            this.filtrarLbl = new System.Windows.Forms.ToolStripLabel();
+            this.criterioCbx = new System.Windows.Forms.ToolStripComboBox();
             this.recargarBtn = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBN)).BeginInit();
             this.usuarioBN.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.usuarioBS)).BeginInit();
             this.SuspendLayout();
             // 
             // usuarioDGV
@@ -74,6 +73,34 @@
             this.usuarioDGV.Name = "usuarioDGV";
             this.usuarioDGV.Size = new System.Drawing.Size(644, 421);
             this.usuarioDGV.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "CEDULA";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Cedula";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "NOMBRES";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nombres";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "APELLIDOS";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Apellidos";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "NOMBREUSUARIO";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Usuario";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // usuarioBS
+            // 
+            this.usuarioBS.DataSource = typeof(SIFCA_DAL.USUARIO);
             // 
             // bindingNavigatorSeparator
             // 
@@ -126,7 +153,6 @@
             this.busquedaTxt,
             this.filtrarLbl,
             this.criterioCbx,
-            this.buscarBtn,
             this.recargarBtn});
             this.usuarioBN.Location = new System.Drawing.Point(0, 0);
             this.usuarioBN.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
@@ -138,62 +164,6 @@
             this.usuarioBN.Size = new System.Drawing.Size(644, 25);
             this.usuarioBN.TabIndex = 0;
             this.usuarioBN.Text = "bindingNavigator1";
-            // 
-            // buscarLbl
-            // 
-            this.buscarLbl.Name = "buscarLbl";
-            this.buscarLbl.Size = new System.Drawing.Size(45, 22);
-            this.buscarLbl.Text = "Buscar:";
-            // 
-            // busquedaTxt
-            // 
-            this.busquedaTxt.Name = "busquedaTxt";
-            this.busquedaTxt.Size = new System.Drawing.Size(100, 25);
-            // 
-            // filtrarLbl
-            // 
-            this.filtrarLbl.Name = "filtrarLbl";
-            this.filtrarLbl.Size = new System.Drawing.Size(61, 22);
-            this.filtrarLbl.Text = "Filtrar por:";
-            // 
-            // criterioCbx
-            // 
-            this.criterioCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.criterioCbx.Items.AddRange(new object[] {
-            "Nombres",
-            "Apellidos",
-            "Usuario",
-            "Cedula"});
-            this.criterioCbx.Name = "criterioCbx";
-            this.criterioCbx.Size = new System.Drawing.Size(121, 25);
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "CEDULA";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Cedula";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "NOMBRES";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nombres";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "APELLIDOS";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Apellidos";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "NOMBREUSUARIO";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Usuario";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // usuarioBS
-            // 
-            this.usuarioBS.DataSource = typeof(SIFCA_DAL.USUARIO);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -231,15 +201,34 @@
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Mover último";
             // 
-            // buscarBtn
+            // buscarLbl
             // 
-            this.buscarBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.buscarBtn.Image = global::SIFCA.Properties.Resources.buscar;
-            this.buscarBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.buscarBtn.Name = "buscarBtn";
-            this.buscarBtn.Size = new System.Drawing.Size(23, 22);
-            this.buscarBtn.Text = "Buscar";
-            this.buscarBtn.Click += new System.EventHandler(this.buscarBtn_Click);
+            this.buscarLbl.Name = "buscarLbl";
+            this.buscarLbl.Size = new System.Drawing.Size(45, 22);
+            this.buscarLbl.Text = "Buscar:";
+            // 
+            // busquedaTxt
+            // 
+            this.busquedaTxt.Name = "busquedaTxt";
+            this.busquedaTxt.Size = new System.Drawing.Size(100, 25);
+            this.busquedaTxt.TextChanged += new System.EventHandler(this.busquedaTxt_TextChanged);
+            // 
+            // filtrarLbl
+            // 
+            this.filtrarLbl.Name = "filtrarLbl";
+            this.filtrarLbl.Size = new System.Drawing.Size(61, 22);
+            this.filtrarLbl.Text = "Filtrar por:";
+            // 
+            // criterioCbx
+            // 
+            this.criterioCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.criterioCbx.Items.AddRange(new object[] {
+            "Nombres",
+            "Apellidos",
+            "Usuario",
+            "Cedula"});
+            this.criterioCbx.Name = "criterioCbx";
+            this.criterioCbx.Size = new System.Drawing.Size(121, 25);
             // 
             // recargarBtn
             // 
@@ -262,10 +251,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listar usuarios";
             ((System.ComponentModel.ISupportInitialize)(this.usuarioDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBN)).EndInit();
             this.usuarioBN.ResumeLayout(false);
             this.usuarioBN.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.usuarioBS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,7 +282,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.ToolStripButton buscarBtn;
         private System.Windows.Forms.ToolStripButton recargarBtn;
     }
 }

@@ -154,10 +154,22 @@
     <Compile Include="Gestion de Usuarios\Listar_Usuarios_Form.Designer.cs">
       <DependentUpon>Listar_Usuarios_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Principal_Form.cs">
+    <Compile Include="Gestion General\Acerca_De_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal_Form.Designer.cs">
+    <Compile Include="Gestion General\Acerca_De_Form.Designer.cs">
+      <DependentUpon>Acerca_De_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestionar Formularios y Datos de Campo\Crear_Formulario_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestionar Formularios y Datos de Campo\Crear_Formulario_Form.Designer.cs">
+      <DependentUpon>Crear_Formulario_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion General\Principal_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion General\Principal_Form.Designer.cs">
       <DependentUpon>Principal_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -213,7 +225,13 @@
     <EmbeddedResource Include="Gestion de Usuarios\Listar_Usuarios_Form.resx">
       <DependentUpon>Listar_Usuarios_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principal_Form.resx">
+    <EmbeddedResource Include="Gestion General\Acerca_De_Form.resx">
+      <DependentUpon>Acerca_De_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestionar Formularios y Datos de Campo\Crear_Formulario_Form.resx">
+      <DependentUpon>Crear_Formulario_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion General\Principal_Form.resx">
       <DependentUpon>Principal_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -266,11 +284,15 @@
       <Name>SIFCA_DAL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Gestionar Formularios y Datos de Campo\" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Resources\reload1.jpg" />
+    <None Include="Resources\reload.jpg" />
+    <None Include="Resources\agregar_usuarios.jpg" />
+    <None Include="Resources\actualizar_usuarios.jpg" />
+    <None Include="Resources\buscar.jpg" />
     <Content Include="Resources\fondo.jpg" />
+    <None Include="Resources\FondoRecoleccion.jpg" />
     <None Include="Resources\fondoTab.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

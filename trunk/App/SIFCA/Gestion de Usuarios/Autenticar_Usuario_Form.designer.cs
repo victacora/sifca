@@ -31,13 +31,13 @@
             System.Windows.Forms.Label usuarioLbl;
             System.Windows.Forms.Label cONTRASENALabel;
             this.datosAutenticacionGbx = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.contrasenaTxt = new System.Windows.Forms.TextBox();
             this.usuarioTxt = new System.Windows.Forms.TextBox();
             this.cancelarBtn = new System.Windows.Forms.Button();
             this.AceptarBtn = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             usuarioLbl = new System.Windows.Forms.Label();
             cONTRASENALabel = new System.Windows.Forms.Label();
             this.datosAutenticacionGbx.SuspendLayout();
@@ -82,6 +82,24 @@
             this.datosAutenticacionGbx.Size = new System.Drawing.Size(366, 283);
             this.datosAutenticacionGbx.TabIndex = 0;
             this.datosAutenticacionGbx.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(29, 235);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(306, 13);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Sistema de información para Inventarios Forestales en el Cauca";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(152, 253);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 13);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "SIFCA, 2013";
             // 
             // label1
             // 
@@ -131,24 +149,6 @@
             this.AceptarBtn.UseVisualStyleBackColor = true;
             this.AceptarBtn.Click += new System.EventHandler(this.IngresarBtn_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(152, 253);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 13);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "SIFCA, 2013";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 235);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(306, 13);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "Sistema de información para Inventarios Forestales en el Cauca";
-            // 
             // Autenticar_Usuario_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -158,11 +158,13 @@
             this.ClientSize = new System.Drawing.Size(414, 336);
             this.Controls.Add(this.datosAutenticacionGbx);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Autenticar_Usuario_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bienvenidos";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Autenticar_Usuario_Form_KeyDown);
             this.datosAutenticacionGbx.ResumeLayout(false);
             this.datosAutenticacionGbx.PerformLayout();
             this.ResumeLayout(false);

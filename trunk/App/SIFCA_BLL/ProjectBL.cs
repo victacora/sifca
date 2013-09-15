@@ -21,11 +21,17 @@ namespace SIFCA_BLL
             return this.sifcaRepository.PROYECTO.ToList();
         }
 
-        public PROYECTO GetProject(int projectId)
+        public PROYECTO GetProject(Guid projectId)
         {
             return this.sifcaRepository.PROYECTO.Find(projectId);
         }
 
+        public List<ESPECIE> GetProjectSpeciesList(Guid projectId)
+        {
+            PROYECTO prj=this.sifcaRepository.PROYECTO.SingleOrDefault(p=>p.NROPROY==projectId);
+            if (prj != null) return prj.ESPECIE.ToList();
+            return null;
+        }
 
         public void InsertProject(PROYECTO project)
         {

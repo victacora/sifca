@@ -47,7 +47,7 @@
             this.groupBox1.Size = new System.Drawing.Size(270, 99);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Crear stratumData";
+            this.groupBox1.Text = "Crear estrato";
             // 
             // btn_Cancelar
             // 

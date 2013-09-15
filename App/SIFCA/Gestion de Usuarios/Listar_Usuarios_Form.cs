@@ -23,21 +23,44 @@ namespace SIFCA
             criterioCbx.SelectedIndex = 0;
         }
 
-        private void buscarBtn_Click(object sender, EventArgs e)
-        {
-            if (busquedaTxt.Text != "") 
-            {
-                usuarioBS.DataSource = user.SearchUsers(busquedaTxt.Text,criterioCbx.SelectedItem.ToString());
-                usuarioDGV.DataSource = usuarioBS;
-                usuarioDGV.Refresh();
-            }
-        }
 
         private void recargarBtn_Click(object sender, EventArgs e)
         {
             usuarioBS.DataSource = user.GetUsers();
             usuarioDGV.DataSource = usuarioBS;
             usuarioDGV.Refresh();
+        }
+
+        private void busquedaTxt_TextChanged(object sender, EventArgs e)
+        {
+            if (busquedaTxt.Text != "")
+            {
+                string criteria = criterioCbx.SelectedItem.ToString();
+                if (criteria != "Cedula")
+                {
+                    usuarioBS.DataSource = user.SearchUsers(busquedaTxt.Text, criteria);
+                    usuarioDGV.DataSource = usuarioBS;
+                    usuarioDGV.Refresh();
+                }
+                else
+                {
+                    int output = 0;
+                    bool result = int.TryParse(busquedaTxt.Text, out output);
+                    if (result)
+                    {
+                        usuarioBS.DataSource = user.SearchUsers(busquedaTxt.Text, criteria);
+                        usuarioDGV.DataSource = usuarioBS;
+                        usuarioDGV.Refresh();
+                    }
+                    else MessageBox.Show("Entra invalida para el parametro cedula.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else 
+            {
+                usuarioBS.DataSource = user.GetUsers();
+                usuarioDGV.DataSource = usuarioBS;
+                usuarioDGV.Refresh();
+            }
         }
 
         

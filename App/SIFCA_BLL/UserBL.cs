@@ -26,12 +26,29 @@ namespace SIFCA_BLL
             return this.sifcaRepository.USUARIO.Find(userId);
         }
 
-        public List<USUARIO> SearchUsers(string search, string criteria) 
+        public IEnumerable<USUARIO> SearchUsers(string search, string criteria) 
         {
-            if(criteria=="Nombres")return this.sifcaRepository.USUARIO.ToList().Where(u => u.NOMBRES.Contains(search)).ToList();
-            if (criteria == "Apellidos") return this.sifcaRepository.USUARIO.ToList().Where(u => u.APELLIDOS.Contains(search)).ToList();
-            if (criteria == "Cedula") return this.sifcaRepository.USUARIO.ToList().Where(u => u.CEDULA==int.Parse(search)).ToList();
-            if (criteria == "Usuario") return this.sifcaRepository.USUARIO.ToList().Where(u => u.NOMBREUSUARIO.Contains(search)).ToList();
+            if (criteria == "Nombres")
+            {
+                var query= from u in this.sifcaRepository.USUARIO where(u.NOMBRES.Contains(search)) select u;
+                return query.ToList();
+            }
+            if (criteria == "Apellidos")
+            {
+                var query = from u in this.sifcaRepository.USUARIO where (u.APELLIDOS.Contains(search)) select u;
+                return query.ToList();
+            }
+            if (criteria == "Cedula")
+            {
+                int cedula = int.Parse(search);
+                var query = from u in this.sifcaRepository.USUARIO where (u.CEDULA==cedula) select u;
+                return query.ToList();
+            }
+            if (criteria == "Usuario")
+            {
+                var query = from u in this.sifcaRepository.USUARIO where (u.NOMBREUSUARIO.Contains(search)) select u;
+                return query.ToList();
+            }
             return new List<USUARIO>();
         }
         public USUARIO LoginUser(USUARIO user)

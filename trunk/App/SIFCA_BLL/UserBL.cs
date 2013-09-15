@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using SIFCA_DAL;
 using System.Data;
+using System.Data.Objects.SqlClient;
 
 namespace SIFCA_BLL
 {
@@ -40,9 +41,9 @@ namespace SIFCA_BLL
             }
             if (criteria == "Cedula")
             {
-                int cedula = int.Parse(search);
-                var query = from u in this.sifcaRepository.USUARIO where (u.CEDULA==cedula) select u;
-                return query.ToList();
+                var query = from u in this.sifcaRepository.USUARIO where ( SqlFunctions.StringConvert(u.CEDULA).Contains(search)) select u;
+                List<USUARIO> prueba = query.ToList();
+                return prueba;
             }
             if (criteria == "Usuario")
             {

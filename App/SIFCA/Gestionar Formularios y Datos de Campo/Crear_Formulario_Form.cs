@@ -20,8 +20,12 @@ namespace SIFCA
         private StateBL state;
         private FormTypeBL formType;
         private FormBL form;
-        private FORMULARIO newForm;
         private InventoryLineBL lineInv;
+        private RegenerationLineBL lineRegen;
+        private NonTimberLineBL lineNonTimber;
+        private TypeUseBL typeUses;
+        private FORMULARIO newForm;
+
 
         public Crear_Formulario_Form()
         {
@@ -35,6 +39,9 @@ namespace SIFCA
             formType = new FormTypeBL(Program.ContextData);
             form = new FormBL(Program.ContextData);
             lineInv = new InventoryLineBL(Program.ContextData);
+            lineRegen = new  RegenerationLineBL(Program.ContextData);
+            lineNonTimber = new NonTimberLineBL(Program.ContextData);
+            typeUses = new TypeUseBL(Program.ContextData);
             especieBS.DataSource = species.GetSpecies();
             proyectoBS.DataSource = project.GetProjects();
             estratoBS.DataSource = stratums.GetStratums();
@@ -42,6 +49,12 @@ namespace SIFCA
             estadoSanitarioBS.DataSource = state.GetStates();
             tipoFormularioBS.DataSource = formType.GetFormTypes();
             formularioBS.DataSource = form.GetForms();
+            tipoUsoBS.DataSource=typeUses.GetTypeUse();
+            TipoDeUsosLbc.DataSource = tipoUsoBS;
+            TipoDeUsosLbc.DisplayMember ="DESCRIPCION";
+            TipoDeUsosLbc.ValueMember = "NOMBRETIPOUSO";
+            lineaNoMaderableBS.DataSource = lineNonTimber.GetNonTimberLineList();
+            regenracionBS.DataSource = lineRegen.GetRegenerationLines();
             USUARIO user = (USUARIO)Program.Cache.Get("user");
             responsableTxt.Text = user.NOMBRES + " " + user.APELLIDOS;
         }
@@ -63,10 +76,13 @@ namespace SIFCA
             form.InsertForm(newForm);
             form.SaveChanges();
             MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            datosInventarioGrx.Enabled = true;
+            datosTabControl.Enabled = true;
+            guardarformularioBtn.Enabled = false;
+            
+            guardarTodoBtn.Enabled = true;
             guardarformularioBtn.Text="Actualizar Formulario";
             finalDpk.Enabled = true;
-            inicioDpk.Enabled = true;
+            inicioDpk.Enabled = false;
         }
 
         private void listarDatosBtn_Click(object sender, EventArgs e)
@@ -92,13 +108,55 @@ namespace SIFCA
             newLine.AREABASAL = int.Parse(areaBasalTxt.Text);
             lineInv.InsertInventoryLine(newLine);
             lineInv.SaveChanges();
+            lineaInvBS.DataSource=lineInv.GetInventoryLines();
+            lineaInvBN.Refresh();
             MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void especieBS_PositionChanged(object sender, EventArgs e)
+        private void guardarRegenBtn_Click(object sender, EventArgs e)
         {
-            var p = "";
+            LINEAINVENTARIO newLine = new LINEAINVENTARIO();
+            newLine.LINEAINV = Guid.NewGuid();
+            newLine.FORMULARIO = form.GetForm(newForm.NROFORMULARIO);
+            newLine.ESPECIE = (ESPECIE)especieCbx.SelectedItem;
+            newLine.CALIDAD = (CALIDAD)calidadCbx.SelectedItem;
+            newLine.ESTADOSANITARIO = (ESTADOSANITARIO)estadoCbx.SelectedItem;
+            newLine.NROARB = int.Parse(nroArbolTxt.Text);
+            newLine.VOLCOM = int.Parse(volComercialTxt.Text);
+            newLine.VOLTOT = int.Parse(volTotalTxt.Text);
+            newLine.ALTCOMER_M = int.Parse(alturaComercialTxt.Text);
+            newLine.ALTTOT_M = int.Parse(alturaTotalTxt.Text);
+            newLine.CAP = int.Parse(cAPTxt.Text);
+            newLine.DAP = int.Parse(dAPTxt.Text);
+            newLine.AREABASAL = int.Parse(areaBasalTxt.Text);
+            lineInv.InsertInventoryLine(newLine);
+            lineInv.SaveChanges();
+            lineaInvBS.DataSource = lineInv.GetInventoryLines().Where(p=>p.NROFORMULARIO==newForm.NROFORMULARIO);
+            lineaInvBN.Refresh();
+            MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void guardarLineNoMadBtn_Click(object sender, EventArgs e)
+        {
+            LINEAINVENTARIO newLine = new LINEAINVENTARIO();
+            newLine.LINEAINV = Guid.NewGuid();
+            newLine.FORMULARIO = form.GetForm(newForm.NROFORMULARIO);
+            newLine.ESPECIE = (ESPECIE)especieCbx.SelectedItem;
+            newLine.CALIDAD = (CALIDAD)calidadCbx.SelectedItem;
+            newLine.ESTADOSANITARIO = (ESTADOSANITARIO)estadoCbx.SelectedItem;
+            newLine.NROARB = int.Parse(nroArbolTxt.Text);
+            newLine.VOLCOM = int.Parse(volComercialTxt.Text);
+            newLine.VOLTOT = int.Parse(volTotalTxt.Text);
+            newLine.ALTCOMER_M = int.Parse(alturaComercialTxt.Text);
+            newLine.ALTTOT_M = int.Parse(alturaTotalTxt.Text);
+            newLine.CAP = int.Parse(cAPTxt.Text);
+            newLine.DAP = int.Parse(dAPTxt.Text);
+            newLine.AREABASAL = int.Parse(areaBasalTxt.Text);
+            lineInv.InsertInventoryLine(newLine);
+            lineInv.SaveChanges();
+            lineaInvBS.DataSource = lineInv.GetInventoryLines();
+            lineaInvBN.Refresh();
+            MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

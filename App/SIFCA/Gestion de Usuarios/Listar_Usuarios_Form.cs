@@ -24,13 +24,6 @@ namespace SIFCA
         }
 
 
-        private void recargarBtn_Click(object sender, EventArgs e)
-        {
-            usuarioBS.DataSource = user.GetUsers();
-            usuarioDGV.DataSource = usuarioBS;
-            usuarioDGV.Refresh();
-        }
-
         private void busquedaTxt_TextChanged(object sender, EventArgs e)
         {
             if (busquedaTxt.Text != "")

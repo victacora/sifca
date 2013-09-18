@@ -21,6 +21,7 @@ namespace SIFCA.Gestion_de_Especies
             GC = new GroupBL(Program.ContextData);
             species = new SpeciesBL(Program.ContextData);
             this.grupoComercialBSource.DataSource = GC.GetGroups();
+            this.ControlBox = false;
         }
          
         private void btn_Crear_Click(object sender, EventArgs e)
@@ -50,7 +51,6 @@ namespace SIFCA.Gestion_de_Especies
         {
             this.Close();
         }
-
         
     }
 }

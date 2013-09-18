@@ -33,26 +33,32 @@
             System.Windows.Forms.Label lineaLbl;
             System.Windows.Forms.Label ProyectoLbl;
             System.Windows.Forms.Label parcelaLbl;
-            System.Windows.Forms.Label calidadLbl;
-            System.Windows.Forms.Label dAPLbl;
-            System.Windows.Forms.Label estadoLbl;
             System.Windows.Forms.Label responsableLbl;
             System.Windows.Forms.Label coordenadasXLbl;
             System.Windows.Forms.Label coordenaYLbl;
             System.Windows.Forms.Label hORAFINALLabel;
             System.Windows.Forms.Label horaInicioLbl;
+            System.Windows.Forms.Label tipoFormularioLbl;
+            System.Windows.Forms.Label volumenComercialLbl;
+            System.Windows.Forms.Label volumenTotalLbl;
+            System.Windows.Forms.Label cAPLbl;
+            System.Windows.Forms.Label nrArbolLbl;
+            System.Windows.Forms.Label especieLbl;
             System.Windows.Forms.Label alturaComercialLbl;
             System.Windows.Forms.Label alturaTotalLbl;
             System.Windows.Forms.Label areaBasalLbl;
-            System.Windows.Forms.Label especieLbl;
-            System.Windows.Forms.Label nrArbolLbl;
-            System.Windows.Forms.Label cAPLbl;
-            System.Windows.Forms.Label volumenComercialLbl;
-            System.Windows.Forms.Label volumenTotalLbl;
-            System.Windows.Forms.Label tipoFormularioLbl;
+            System.Windows.Forms.Label calidadLbl;
+            System.Windows.Forms.Label dAPLbl;
+            System.Windows.Forms.Label estadoLbl;
+            System.Windows.Forms.Label brinzalLbl;
+            System.Windows.Forms.Label especieRegeLbl;
+            System.Windows.Forms.Label latizalLbl;
+            System.Windows.Forms.Label nroRegenArbolLbl;
+            System.Windows.Forms.Label observacionesLbl;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Crear_Formulario_Form));
             this.formularioBS = new System.Windows.Forms.BindingSource(this.components);
             this.datosFormularioGrx = new System.Windows.Forms.GroupBox();
+            this.guardarTodoBtn = new System.Windows.Forms.Button();
             this.estratoCbx = new System.Windows.Forms.ComboBox();
             this.estratoBS = new System.Windows.Forms.BindingSource(this.components);
             this.tipoFormularioCbx = new System.Windows.Forms.ComboBox();
@@ -67,24 +73,26 @@
             this.responsableTxt = new System.Windows.Forms.TextBox();
             this.lineaInventarioTxt = new System.Windows.Forms.TextBox();
             this.parcelaTxt = new System.Windows.Forms.TextBox();
+            this.lineaInvBS = new System.Windows.Forms.BindingSource(this.components);
+            this.especieBS = new System.Windows.Forms.BindingSource(this.components);
+            this.estadoSanitarioBS = new System.Windows.Forms.BindingSource(this.components);
+            this.calidadBS = new System.Windows.Forms.BindingSource(this.components);
+            this.datosTabControl = new System.Windows.Forms.TabControl();
+            this.InventarioTP = new System.Windows.Forms.TabPage();
             this.datosInventarioGrx = new System.Windows.Forms.GroupBox();
             this.listarDatosBtn = new System.Windows.Forms.Button();
             this.volComercialTxt = new System.Windows.Forms.TextBox();
-            this.lineaInvBS = new System.Windows.Forms.BindingSource(this.components);
             this.volTotalTxt = new System.Windows.Forms.TextBox();
             this.cAPTxt = new System.Windows.Forms.TextBox();
             this.nroArbolTxt = new System.Windows.Forms.TextBox();
             this.especieCbx = new System.Windows.Forms.ComboBox();
-            this.especieBS = new System.Windows.Forms.BindingSource(this.components);
             this.estadoCbx = new System.Windows.Forms.ComboBox();
-            this.estadoSanitarioBS = new System.Windows.Forms.BindingSource(this.components);
             this.calidadCbx = new System.Windows.Forms.ComboBox();
-            this.calidadBS = new System.Windows.Forms.BindingSource(this.components);
             this.guardarLineaBtn = new System.Windows.Forms.Button();
             this.alturaComercialTxt = new System.Windows.Forms.TextBox();
             this.alturaTotalTxt = new System.Windows.Forms.TextBox();
             this.areaBasalTxt = new System.Windows.Forms.TextBox();
-            this.LineaInvBN = new System.Windows.Forms.BindingNavigator(this.components);
+            this.lineaInvBN = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
@@ -97,39 +105,101 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.dAPTxt = new System.Windows.Forms.TextBox();
+            this.RegeneracionTP = new System.Windows.Forms.TabPage();
+            this.datosRegenGrx = new System.Windows.Forms.GroupBox();
+            this.especieRegenCbx = new System.Windows.Forms.ComboBox();
+            this.brinzalTxt = new System.Windows.Forms.TextBox();
+            this.regenracionBS = new System.Windows.Forms.BindingSource(this.components);
+            this.latizalTxt = new System.Windows.Forms.TextBox();
+            this.nroArbolRegenTxt = new System.Windows.Forms.TextBox();
+            this.listarRegenbtn = new System.Windows.Forms.Button();
+            this.guardarRegenBtn = new System.Windows.Forms.Button();
+            this.regenacionBN = new System.Windows.Forms.BindingNavigator(this.components);
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.NoMaderablesTP = new System.Windows.Forms.TabPage();
+            this.datosNoMaderablesGrx = new System.Windows.Forms.GroupBox();
+            this.tipoUsosLbl = new System.Windows.Forms.Label();
+            this.observacionesTxt = new System.Windows.Forms.TextBox();
+            this.lineaNoMaderableBS = new System.Windows.Forms.BindingSource(this.components);
+            this.TipoDeUsosLbc = new System.Windows.Forms.CheckedListBox();
+            this.listarNoMaderableBtn = new System.Windows.Forms.Button();
+            this.guardarLineNoMadBtn = new System.Windows.Forms.Button();
+            this.noMaderablesBN = new System.Windows.Forms.BindingNavigator(this.components);
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.tipoUsoBS = new System.Windows.Forms.BindingSource(this.components);
+            this.RegistrarEspecieBtn = new System.Windows.Forms.Button();
+            this.registrarEspecieRegenBtn = new System.Windows.Forms.Button();
             estratoLbl = new System.Windows.Forms.Label();
             lineaLbl = new System.Windows.Forms.Label();
             ProyectoLbl = new System.Windows.Forms.Label();
             parcelaLbl = new System.Windows.Forms.Label();
-            calidadLbl = new System.Windows.Forms.Label();
-            dAPLbl = new System.Windows.Forms.Label();
-            estadoLbl = new System.Windows.Forms.Label();
             responsableLbl = new System.Windows.Forms.Label();
             coordenadasXLbl = new System.Windows.Forms.Label();
             coordenaYLbl = new System.Windows.Forms.Label();
             hORAFINALLabel = new System.Windows.Forms.Label();
             horaInicioLbl = new System.Windows.Forms.Label();
+            tipoFormularioLbl = new System.Windows.Forms.Label();
+            volumenComercialLbl = new System.Windows.Forms.Label();
+            volumenTotalLbl = new System.Windows.Forms.Label();
+            cAPLbl = new System.Windows.Forms.Label();
+            nrArbolLbl = new System.Windows.Forms.Label();
+            especieLbl = new System.Windows.Forms.Label();
             alturaComercialLbl = new System.Windows.Forms.Label();
             alturaTotalLbl = new System.Windows.Forms.Label();
             areaBasalLbl = new System.Windows.Forms.Label();
-            especieLbl = new System.Windows.Forms.Label();
-            nrArbolLbl = new System.Windows.Forms.Label();
-            cAPLbl = new System.Windows.Forms.Label();
-            volumenComercialLbl = new System.Windows.Forms.Label();
-            volumenTotalLbl = new System.Windows.Forms.Label();
-            tipoFormularioLbl = new System.Windows.Forms.Label();
+            calidadLbl = new System.Windows.Forms.Label();
+            dAPLbl = new System.Windows.Forms.Label();
+            estadoLbl = new System.Windows.Forms.Label();
+            brinzalLbl = new System.Windows.Forms.Label();
+            especieRegeLbl = new System.Windows.Forms.Label();
+            latizalLbl = new System.Windows.Forms.Label();
+            nroRegenArbolLbl = new System.Windows.Forms.Label();
+            observacionesLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.formularioBS)).BeginInit();
             this.datosFormularioGrx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.estratoBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoFormularioBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoBS)).BeginInit();
-            this.datosInventarioGrx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lineaInvBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.especieBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.estadoSanitarioBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calidadBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LineaInvBN)).BeginInit();
-            this.LineaInvBN.SuspendLayout();
+            this.datosTabControl.SuspendLayout();
+            this.InventarioTP.SuspendLayout();
+            this.datosInventarioGrx.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lineaInvBN)).BeginInit();
+            this.lineaInvBN.SuspendLayout();
+            this.RegeneracionTP.SuspendLayout();
+            this.datosRegenGrx.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.regenracionBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.regenacionBN)).BeginInit();
+            this.regenacionBN.SuspendLayout();
+            this.NoMaderablesTP.SuspendLayout();
+            this.datosNoMaderablesGrx.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lineaNoMaderableBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.noMaderablesBN)).BeginInit();
+            this.noMaderablesBN.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoUsoBS)).BeginInit();
             this.SuspendLayout();
             // 
             // estratoLbl
@@ -167,33 +237,6 @@
             parcelaLbl.Size = new System.Drawing.Size(100, 13);
             parcelaLbl.TabIndex = 45;
             parcelaLbl.Text = "Numero de parcela:";
-            // 
-            // calidadLbl
-            // 
-            calidadLbl.AutoSize = true;
-            calidadLbl.Location = new System.Drawing.Point(16, 108);
-            calidadLbl.Name = "calidadLbl";
-            calidadLbl.Size = new System.Drawing.Size(45, 13);
-            calidadLbl.TabIndex = 8;
-            calidadLbl.Text = "Calidad:";
-            // 
-            // dAPLbl
-            // 
-            dAPLbl.AutoSize = true;
-            dAPLbl.Location = new System.Drawing.Point(16, 161);
-            dAPLbl.Name = "dAPLbl";
-            dAPLbl.Size = new System.Drawing.Size(75, 13);
-            dAPLbl.TabIndex = 12;
-            dAPLbl.Text = "Diametro A.P.:";
-            // 
-            // estadoLbl
-            // 
-            estadoLbl.AutoSize = true;
-            estadoLbl.Location = new System.Drawing.Point(16, 135);
-            estadoLbl.Name = "estadoLbl";
-            estadoLbl.Size = new System.Drawing.Size(43, 13);
-            estadoLbl.TabIndex = 14;
-            estadoLbl.Text = "Estado:";
             // 
             // responsableLbl
             // 
@@ -240,6 +283,60 @@
             horaInicioLbl.TabIndex = 59;
             horaInicioLbl.Text = "Inicio :";
             // 
+            // tipoFormularioLbl
+            // 
+            tipoFormularioLbl.AutoSize = true;
+            tipoFormularioLbl.Location = new System.Drawing.Point(13, 81);
+            tipoFormularioLbl.Name = "tipoFormularioLbl";
+            tipoFormularioLbl.Size = new System.Drawing.Size(94, 13);
+            tipoFormularioLbl.TabIndex = 64;
+            tipoFormularioLbl.Text = "Tipo de formulario:";
+            // 
+            // volumenComercialLbl
+            // 
+            volumenComercialLbl.AutoSize = true;
+            volumenComercialLbl.Location = new System.Drawing.Point(17, 294);
+            volumenComercialLbl.Name = "volumenComercialLbl";
+            volumenComercialLbl.Size = new System.Drawing.Size(100, 13);
+            volumenComercialLbl.TabIndex = 73;
+            volumenComercialLbl.Text = "Volumen Comercial:";
+            // 
+            // volumenTotalLbl
+            // 
+            volumenTotalLbl.AutoSize = true;
+            volumenTotalLbl.Location = new System.Drawing.Point(17, 320);
+            volumenTotalLbl.Name = "volumenTotalLbl";
+            volumenTotalLbl.Size = new System.Drawing.Size(78, 13);
+            volumenTotalLbl.TabIndex = 75;
+            volumenTotalLbl.Text = "Volumen Total:";
+            // 
+            // cAPLbl
+            // 
+            cAPLbl.AutoSize = true;
+            cAPLbl.Location = new System.Drawing.Point(16, 188);
+            cAPLbl.Name = "cAPLbl";
+            cAPLbl.Size = new System.Drawing.Size(101, 13);
+            cAPLbl.TabIndex = 71;
+            cAPLbl.Text = "Cicunferencia. A.P.:";
+            // 
+            // nrArbolLbl
+            // 
+            nrArbolLbl.AutoSize = true;
+            nrArbolLbl.Location = new System.Drawing.Point(17, 51);
+            nrArbolLbl.Name = "nrArbolLbl";
+            nrArbolLbl.Size = new System.Drawing.Size(74, 13);
+            nrArbolLbl.TabIndex = 69;
+            nrArbolLbl.Text = "Numero Arbol:";
+            // 
+            // especieLbl
+            // 
+            especieLbl.AutoSize = true;
+            especieLbl.Location = new System.Drawing.Point(17, 81);
+            especieLbl.Name = "especieLbl";
+            especieLbl.Size = new System.Drawing.Size(48, 13);
+            especieLbl.TabIndex = 67;
+            especieLbl.Text = "Especie:";
+            // 
             // alturaComercialLbl
             // 
             alturaComercialLbl.AutoSize = true;
@@ -267,59 +364,77 @@
             areaBasalLbl.TabIndex = 30;
             areaBasalLbl.Text = "Area basal:";
             // 
-            // especieLbl
+            // calidadLbl
             // 
-            especieLbl.AutoSize = true;
-            especieLbl.Location = new System.Drawing.Point(17, 81);
-            especieLbl.Name = "especieLbl";
-            especieLbl.Size = new System.Drawing.Size(48, 13);
-            especieLbl.TabIndex = 67;
-            especieLbl.Text = "Especie:";
+            calidadLbl.AutoSize = true;
+            calidadLbl.Location = new System.Drawing.Point(16, 108);
+            calidadLbl.Name = "calidadLbl";
+            calidadLbl.Size = new System.Drawing.Size(45, 13);
+            calidadLbl.TabIndex = 8;
+            calidadLbl.Text = "Calidad:";
             // 
-            // nrArbolLbl
+            // dAPLbl
             // 
-            nrArbolLbl.AutoSize = true;
-            nrArbolLbl.Location = new System.Drawing.Point(17, 51);
-            nrArbolLbl.Name = "nrArbolLbl";
-            nrArbolLbl.Size = new System.Drawing.Size(74, 13);
-            nrArbolLbl.TabIndex = 69;
-            nrArbolLbl.Text = "Numero Arbol:";
+            dAPLbl.AutoSize = true;
+            dAPLbl.Location = new System.Drawing.Point(16, 161);
+            dAPLbl.Name = "dAPLbl";
+            dAPLbl.Size = new System.Drawing.Size(75, 13);
+            dAPLbl.TabIndex = 12;
+            dAPLbl.Text = "Diametro A.P.:";
             // 
-            // cAPLbl
+            // estadoLbl
             // 
-            cAPLbl.AutoSize = true;
-            cAPLbl.Location = new System.Drawing.Point(16, 188);
-            cAPLbl.Name = "cAPLbl";
-            cAPLbl.Size = new System.Drawing.Size(101, 13);
-            cAPLbl.TabIndex = 71;
-            cAPLbl.Text = "Cicunferencia. A.P.:";
+            estadoLbl.AutoSize = true;
+            estadoLbl.Location = new System.Drawing.Point(16, 135);
+            estadoLbl.Name = "estadoLbl";
+            estadoLbl.Size = new System.Drawing.Size(43, 13);
+            estadoLbl.TabIndex = 14;
+            estadoLbl.Text = "Estado:";
             // 
-            // volumenComercialLbl
+            // brinzalLbl
             // 
-            volumenComercialLbl.AutoSize = true;
-            volumenComercialLbl.Location = new System.Drawing.Point(17, 294);
-            volumenComercialLbl.Name = "volumenComercialLbl";
-            volumenComercialLbl.Size = new System.Drawing.Size(100, 13);
-            volumenComercialLbl.TabIndex = 73;
-            volumenComercialLbl.Text = "Volumen Comercial:";
+            brinzalLbl.AutoSize = true;
+            brinzalLbl.Location = new System.Drawing.Point(17, 107);
+            brinzalLbl.Name = "brinzalLbl";
+            brinzalLbl.Size = new System.Drawing.Size(41, 13);
+            brinzalLbl.TabIndex = 77;
+            brinzalLbl.Text = "Brinzal:";
             // 
-            // volumenTotalLbl
+            // especieRegeLbl
             // 
-            volumenTotalLbl.AutoSize = true;
-            volumenTotalLbl.Location = new System.Drawing.Point(17, 320);
-            volumenTotalLbl.Name = "volumenTotalLbl";
-            volumenTotalLbl.Size = new System.Drawing.Size(78, 13);
-            volumenTotalLbl.TabIndex = 75;
-            volumenTotalLbl.Text = "Volumen Total:";
+            especieRegeLbl.AutoSize = true;
+            especieRegeLbl.Location = new System.Drawing.Point(18, 80);
+            especieRegeLbl.Name = "especieRegeLbl";
+            especieRegeLbl.Size = new System.Drawing.Size(48, 13);
+            especieRegeLbl.TabIndex = 79;
+            especieRegeLbl.Text = "Especie:";
             // 
-            // tipoFormularioLbl
+            // latizalLbl
             // 
-            tipoFormularioLbl.AutoSize = true;
-            tipoFormularioLbl.Location = new System.Drawing.Point(13, 81);
-            tipoFormularioLbl.Name = "tipoFormularioLbl";
-            tipoFormularioLbl.Size = new System.Drawing.Size(94, 13);
-            tipoFormularioLbl.TabIndex = 64;
-            tipoFormularioLbl.Text = "Tipo de formulario:";
+            latizalLbl.AutoSize = true;
+            latizalLbl.Location = new System.Drawing.Point(17, 133);
+            latizalLbl.Name = "latizalLbl";
+            latizalLbl.Size = new System.Drawing.Size(40, 13);
+            latizalLbl.TabIndex = 81;
+            latizalLbl.Text = "Latizal:";
+            // 
+            // nroRegenArbolLbl
+            // 
+            nroRegenArbolLbl.AutoSize = true;
+            nroRegenArbolLbl.Location = new System.Drawing.Point(17, 51);
+            nroRegenArbolLbl.Name = "nroRegenArbolLbl";
+            nroRegenArbolLbl.Size = new System.Drawing.Size(57, 13);
+            nroRegenArbolLbl.TabIndex = 85;
+            nroRegenArbolLbl.Text = "Nro. Arbol:";
+            // 
+            // observacionesLbl
+            // 
+            observacionesLbl.AutoSize = true;
+            observacionesLbl.Location = new System.Drawing.Point(14, 58);
+            observacionesLbl.Name = "observacionesLbl";
+            observacionesLbl.Size = new System.Drawing.Size(81, 13);
+            observacionesLbl.TabIndex = 78;
+            observacionesLbl.Text = "Observaciones:";
             // 
             // formularioBS
             // 
@@ -328,6 +443,7 @@
             // datosFormularioGrx
             // 
             this.datosFormularioGrx.BackColor = System.Drawing.SystemColors.Window;
+            this.datosFormularioGrx.Controls.Add(this.guardarTodoBtn);
             this.datosFormularioGrx.Controls.Add(this.estratoCbx);
             this.datosFormularioGrx.Controls.Add(this.tipoFormularioCbx);
             this.datosFormularioGrx.Controls.Add(tipoFormularioLbl);
@@ -349,12 +465,22 @@
             this.datosFormularioGrx.Controls.Add(ProyectoLbl);
             this.datosFormularioGrx.Controls.Add(parcelaLbl);
             this.datosFormularioGrx.Controls.Add(this.parcelaTxt);
-            this.datosFormularioGrx.Location = new System.Drawing.Point(9, 12);
+            this.datosFormularioGrx.Location = new System.Drawing.Point(12, 12);
             this.datosFormularioGrx.Name = "datosFormularioGrx";
             this.datosFormularioGrx.Size = new System.Drawing.Size(342, 436);
             this.datosFormularioGrx.TabIndex = 0;
             this.datosFormularioGrx.TabStop = false;
             this.datosFormularioGrx.Text = "Datos del Formulario";
+            // 
+            // guardarTodoBtn
+            // 
+            this.guardarTodoBtn.Enabled = false;
+            this.guardarTodoBtn.Location = new System.Drawing.Point(214, 405);
+            this.guardarTodoBtn.Name = "guardarTodoBtn";
+            this.guardarTodoBtn.Size = new System.Drawing.Size(109, 23);
+            this.guardarTodoBtn.TabIndex = 67;
+            this.guardarTodoBtn.Text = "Guardar Todo";
+            this.guardarTodoBtn.UseVisualStyleBackColor = true;
             // 
             // estratoCbx
             // 
@@ -388,7 +514,7 @@
             // 
             // guardarformularioBtn
             // 
-            this.guardarformularioBtn.Location = new System.Drawing.Point(214, 396);
+            this.guardarformularioBtn.Location = new System.Drawing.Point(99, 405);
             this.guardarformularioBtn.Name = "guardarformularioBtn";
             this.guardarformularioBtn.Size = new System.Drawing.Size(109, 23);
             this.guardarformularioBtn.TabIndex = 62;
@@ -413,7 +539,6 @@
             // 
             // inicioDpk
             // 
-            this.inicioDpk.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.formularioBS, "HORAINICIO", true));
             this.inicioDpk.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.inicioDpk.Location = new System.Drawing.Point(123, 233);
             this.inicioDpk.Name = "inicioDpk";
@@ -422,7 +547,6 @@
             // 
             // coordXTxt
             // 
-            this.coordXTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.formularioBS, "COORDENADAX", true));
             this.coordXTxt.Location = new System.Drawing.Point(123, 181);
             this.coordXTxt.Name = "coordXTxt";
             this.coordXTxt.Size = new System.Drawing.Size(200, 20);
@@ -430,7 +554,6 @@
             // 
             // coordYTxt
             // 
-            this.coordYTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.formularioBS, "COORDENADAY", true));
             this.coordYTxt.Location = new System.Drawing.Point(123, 207);
             this.coordYTxt.Name = "coordYTxt";
             this.coordYTxt.Size = new System.Drawing.Size(200, 20);
@@ -438,7 +561,6 @@
             // 
             // finalDpk
             // 
-            this.finalDpk.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.formularioBS, "HORAFINAL", true));
             this.finalDpk.Enabled = false;
             this.finalDpk.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.finalDpk.Location = new System.Drawing.Point(124, 261);
@@ -456,7 +578,6 @@
             // 
             // lineaInventarioTxt
             // 
-            this.lineaInventarioTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.formularioBS, "LINEA", true));
             this.lineaInventarioTxt.Location = new System.Drawing.Point(124, 104);
             this.lineaInventarioTxt.Name = "lineaInventarioTxt";
             this.lineaInventarioTxt.Size = new System.Drawing.Size(200, 20);
@@ -464,15 +585,54 @@
             // 
             // parcelaTxt
             // 
-            this.parcelaTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.formularioBS, "PARCELA", true));
             this.parcelaTxt.Location = new System.Drawing.Point(123, 129);
             this.parcelaTxt.Name = "parcelaTxt";
             this.parcelaTxt.Size = new System.Drawing.Size(200, 20);
             this.parcelaTxt.TabIndex = 46;
             // 
+            // lineaInvBS
+            // 
+            this.lineaInvBS.DataSource = typeof(SIFCA_DAL.LINEAINVENTARIO);
+            // 
+            // especieBS
+            // 
+            this.especieBS.DataSource = typeof(SIFCA_DAL.ESPECIE);
+            // 
+            // estadoSanitarioBS
+            // 
+            this.estadoSanitarioBS.DataSource = typeof(SIFCA_DAL.ESTADOSANITARIO);
+            // 
+            // calidadBS
+            // 
+            this.calidadBS.DataSource = typeof(SIFCA_DAL.CALIDAD);
+            // 
+            // datosTabControl
+            // 
+            this.datosTabControl.Controls.Add(this.InventarioTP);
+            this.datosTabControl.Controls.Add(this.RegeneracionTP);
+            this.datosTabControl.Controls.Add(this.NoMaderablesTP);
+            this.datosTabControl.Enabled = false;
+            this.datosTabControl.Location = new System.Drawing.Point(371, 12);
+            this.datosTabControl.Name = "datosTabControl";
+            this.datosTabControl.SelectedIndex = 0;
+            this.datosTabControl.Size = new System.Drawing.Size(385, 436);
+            this.datosTabControl.TabIndex = 1;
+            // 
+            // InventarioTP
+            // 
+            this.InventarioTP.Controls.Add(this.datosInventarioGrx);
+            this.InventarioTP.Location = new System.Drawing.Point(4, 22);
+            this.InventarioTP.Name = "InventarioTP";
+            this.InventarioTP.Padding = new System.Windows.Forms.Padding(3);
+            this.InventarioTP.Size = new System.Drawing.Size(377, 410);
+            this.InventarioTP.TabIndex = 0;
+            this.InventarioTP.Text = "Inventario";
+            this.InventarioTP.UseVisualStyleBackColor = true;
+            // 
             // datosInventarioGrx
             // 
             this.datosInventarioGrx.BackColor = System.Drawing.SystemColors.Window;
+            this.datosInventarioGrx.Controls.Add(this.RegistrarEspecieBtn);
             this.datosInventarioGrx.Controls.Add(this.listarDatosBtn);
             this.datosInventarioGrx.Controls.Add(volumenComercialLbl);
             this.datosInventarioGrx.Controls.Add(this.volComercialTxt);
@@ -493,28 +653,26 @@
             this.datosInventarioGrx.Controls.Add(this.alturaTotalTxt);
             this.datosInventarioGrx.Controls.Add(areaBasalLbl);
             this.datosInventarioGrx.Controls.Add(this.areaBasalTxt);
-            this.datosInventarioGrx.Controls.Add(this.LineaInvBN);
+            this.datosInventarioGrx.Controls.Add(this.lineaInvBN);
             this.datosInventarioGrx.Controls.Add(calidadLbl);
             this.datosInventarioGrx.Controls.Add(dAPLbl);
             this.datosInventarioGrx.Controls.Add(this.dAPTxt);
             this.datosInventarioGrx.Controls.Add(estadoLbl);
-            this.datosInventarioGrx.Enabled = false;
-            this.datosInventarioGrx.Location = new System.Drawing.Point(366, 12);
+            this.datosInventarioGrx.Location = new System.Drawing.Point(-6, -13);
             this.datosInventarioGrx.Name = "datosInventarioGrx";
             this.datosInventarioGrx.Size = new System.Drawing.Size(389, 436);
-            this.datosInventarioGrx.TabIndex = 1;
+            this.datosInventarioGrx.TabIndex = 2;
             this.datosInventarioGrx.TabStop = false;
             this.datosInventarioGrx.Text = "Datos de inventario";
             // 
             // listarDatosBtn
             // 
-            this.listarDatosBtn.Location = new System.Drawing.Point(172, 396);
+            this.listarDatosBtn.Location = new System.Drawing.Point(54, 396);
             this.listarDatosBtn.Name = "listarDatosBtn";
             this.listarDatosBtn.Size = new System.Drawing.Size(97, 23);
             this.listarDatosBtn.TabIndex = 77;
             this.listarDatosBtn.Text = "Listar datos";
             this.listarDatosBtn.UseVisualStyleBackColor = true;
-            this.listarDatosBtn.Click += new System.EventHandler(this.listarDatosBtn_Click);
             // 
             // volComercialTxt
             // 
@@ -523,10 +681,6 @@
             this.volComercialTxt.Name = "volComercialTxt";
             this.volComercialTxt.Size = new System.Drawing.Size(238, 20);
             this.volComercialTxt.TabIndex = 74;
-            // 
-            // lineaInvBS
-            // 
-            this.lineaInvBS.DataSource = typeof(SIFCA_DAL.LINEAINVENTARIO);
             // 
             // volTotalTxt
             // 
@@ -563,11 +717,6 @@
             this.especieCbx.TabIndex = 68;
             this.especieCbx.ValueMember = "CODESP";
             // 
-            // especieBS
-            // 
-            this.especieBS.DataSource = typeof(SIFCA_DAL.ESPECIE);
-            this.especieBS.PositionChanged += new System.EventHandler(this.especieBS_PositionChanged);
-            // 
             // estadoCbx
             // 
             this.estadoCbx.DataSource = this.estadoSanitarioBS;
@@ -579,10 +728,6 @@
             this.estadoCbx.TabIndex = 66;
             this.estadoCbx.ValueMember = "ESTADO";
             // 
-            // estadoSanitarioBS
-            // 
-            this.estadoSanitarioBS.DataSource = typeof(SIFCA_DAL.ESTADOSANITARIO);
-            // 
             // calidadCbx
             // 
             this.calidadCbx.DataSource = this.calidadBS;
@@ -593,10 +738,6 @@
             this.calidadCbx.Size = new System.Drawing.Size(238, 21);
             this.calidadCbx.TabIndex = 65;
             this.calidadCbx.ValueMember = "CODCALIDAD";
-            // 
-            // calidadBS
-            // 
-            this.calidadBS.DataSource = typeof(SIFCA_DAL.CALIDAD);
             // 
             // guardarLineaBtn
             // 
@@ -632,13 +773,13 @@
             this.areaBasalTxt.Size = new System.Drawing.Size(238, 20);
             this.areaBasalTxt.TabIndex = 31;
             // 
-            // LineaInvBN
+            // lineaInvBN
             // 
-            this.LineaInvBN.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.LineaInvBN.BindingSource = this.lineaInvBS;
-            this.LineaInvBN.CountItem = this.bindingNavigatorCountItem;
-            this.LineaInvBN.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.LineaInvBN.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lineaInvBN.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.lineaInvBN.BindingSource = this.lineaInvBS;
+            this.lineaInvBN.CountItem = this.bindingNavigatorCountItem;
+            this.lineaInvBN.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.lineaInvBN.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
@@ -650,16 +791,16 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem});
-            this.LineaInvBN.Location = new System.Drawing.Point(3, 16);
-            this.LineaInvBN.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.LineaInvBN.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.LineaInvBN.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.LineaInvBN.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.LineaInvBN.Name = "LineaInvBN";
-            this.LineaInvBN.PositionItem = this.bindingNavigatorPositionItem;
-            this.LineaInvBN.Size = new System.Drawing.Size(383, 25);
-            this.LineaInvBN.TabIndex = 2;
-            this.LineaInvBN.Text = "bindingNavigator1";
+            this.lineaInvBN.Location = new System.Drawing.Point(3, 16);
+            this.lineaInvBN.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.lineaInvBN.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.lineaInvBN.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.lineaInvBN.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.lineaInvBN.Name = "lineaInvBN";
+            this.lineaInvBN.PositionItem = this.bindingNavigatorPositionItem;
+            this.lineaInvBN.Size = new System.Drawing.Size(383, 25);
+            this.lineaInvBN.TabIndex = 2;
+            this.lineaInvBN.Text = "bindingNavigator1";
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -754,6 +895,425 @@
             this.dAPTxt.Size = new System.Drawing.Size(238, 20);
             this.dAPTxt.TabIndex = 13;
             // 
+            // RegeneracionTP
+            // 
+            this.RegeneracionTP.AutoScroll = true;
+            this.RegeneracionTP.Controls.Add(this.datosRegenGrx);
+            this.RegeneracionTP.Location = new System.Drawing.Point(4, 22);
+            this.RegeneracionTP.Name = "RegeneracionTP";
+            this.RegeneracionTP.Padding = new System.Windows.Forms.Padding(3);
+            this.RegeneracionTP.Size = new System.Drawing.Size(377, 410);
+            this.RegeneracionTP.TabIndex = 1;
+            this.RegeneracionTP.Text = "Regeneracion";
+            this.RegeneracionTP.UseVisualStyleBackColor = true;
+            // 
+            // datosRegenGrx
+            // 
+            this.datosRegenGrx.BackColor = System.Drawing.SystemColors.Window;
+            this.datosRegenGrx.Controls.Add(this.registrarEspecieRegenBtn);
+            this.datosRegenGrx.Controls.Add(this.especieRegenCbx);
+            this.datosRegenGrx.Controls.Add(brinzalLbl);
+            this.datosRegenGrx.Controls.Add(this.brinzalTxt);
+            this.datosRegenGrx.Controls.Add(especieRegeLbl);
+            this.datosRegenGrx.Controls.Add(latizalLbl);
+            this.datosRegenGrx.Controls.Add(this.latizalTxt);
+            this.datosRegenGrx.Controls.Add(nroRegenArbolLbl);
+            this.datosRegenGrx.Controls.Add(this.nroArbolRegenTxt);
+            this.datosRegenGrx.Controls.Add(this.listarRegenbtn);
+            this.datosRegenGrx.Controls.Add(this.guardarRegenBtn);
+            this.datosRegenGrx.Controls.Add(this.regenacionBN);
+            this.datosRegenGrx.Location = new System.Drawing.Point(-6, -13);
+            this.datosRegenGrx.Name = "datosRegenGrx";
+            this.datosRegenGrx.Size = new System.Drawing.Size(380, 420);
+            this.datosRegenGrx.TabIndex = 2;
+            this.datosRegenGrx.TabStop = false;
+            // 
+            // especieRegenCbx
+            // 
+            this.especieRegenCbx.DataSource = this.especieBS;
+            this.especieRegenCbx.DisplayMember = "NOMCOMUN";
+            this.especieRegenCbx.FormattingEnabled = true;
+            this.especieRegenCbx.Location = new System.Drawing.Point(104, 80);
+            this.especieRegenCbx.Name = "especieRegenCbx";
+            this.especieRegenCbx.Size = new System.Drawing.Size(266, 21);
+            this.especieRegenCbx.TabIndex = 89;
+            this.especieRegenCbx.ValueMember = "CODESP";
+            // 
+            // brinzalTxt
+            // 
+            this.brinzalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regenracionBS, "BRINZAL", true));
+            this.brinzalTxt.Location = new System.Drawing.Point(104, 107);
+            this.brinzalTxt.Name = "brinzalTxt";
+            this.brinzalTxt.Size = new System.Drawing.Size(266, 20);
+            this.brinzalTxt.TabIndex = 78;
+            // 
+            // regenracionBS
+            // 
+            this.regenracionBS.DataSource = typeof(SIFCA_DAL.LINEAREGENERACION);
+            // 
+            // latizalTxt
+            // 
+            this.latizalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regenracionBS, "LATIZAL", true));
+            this.latizalTxt.Location = new System.Drawing.Point(104, 133);
+            this.latizalTxt.Name = "latizalTxt";
+            this.latizalTxt.Size = new System.Drawing.Size(266, 20);
+            this.latizalTxt.TabIndex = 82;
+            // 
+            // nroArbolRegenTxt
+            // 
+            this.nroArbolRegenTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regenracionBS, "NROARB", true));
+            this.nroArbolRegenTxt.Location = new System.Drawing.Point(104, 56);
+            this.nroArbolRegenTxt.Name = "nroArbolRegenTxt";
+            this.nroArbolRegenTxt.Size = new System.Drawing.Size(266, 20);
+            this.nroArbolRegenTxt.TabIndex = 86;
+            // 
+            // listarRegenbtn
+            // 
+            this.listarRegenbtn.Location = new System.Drawing.Point(58, 396);
+            this.listarRegenbtn.Name = "listarRegenbtn";
+            this.listarRegenbtn.Size = new System.Drawing.Size(97, 23);
+            this.listarRegenbtn.TabIndex = 77;
+            this.listarRegenbtn.Text = "Listar datos";
+            this.listarRegenbtn.UseVisualStyleBackColor = true;
+            // 
+            // guardarRegenBtn
+            // 
+            this.guardarRegenBtn.Location = new System.Drawing.Point(275, 396);
+            this.guardarRegenBtn.Name = "guardarRegenBtn";
+            this.guardarRegenBtn.Size = new System.Drawing.Size(97, 23);
+            this.guardarRegenBtn.TabIndex = 63;
+            this.guardarRegenBtn.Text = "Guardar Linea";
+            this.guardarRegenBtn.UseVisualStyleBackColor = true;
+            this.guardarRegenBtn.Click += new System.EventHandler(this.guardarRegenBtn_Click);
+            // 
+            // regenacionBN
+            // 
+            this.regenacionBN.AddNewItem = this.toolStripButton1;
+            this.regenacionBN.BindingSource = this.lineaInvBS;
+            this.regenacionBN.CountItem = this.toolStripLabel1;
+            this.regenacionBN.DeleteItem = this.toolStripButton2;
+            this.regenacionBN.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton3,
+            this.toolStripButton4,
+            this.toolStripSeparator1,
+            this.toolStripTextBox1,
+            this.toolStripLabel1,
+            this.toolStripSeparator2,
+            this.toolStripButton5,
+            this.toolStripButton6,
+            this.toolStripSeparator3,
+            this.toolStripButton1,
+            this.toolStripButton2});
+            this.regenacionBN.Location = new System.Drawing.Point(3, 16);
+            this.regenacionBN.MoveFirstItem = this.toolStripButton3;
+            this.regenacionBN.MoveLastItem = this.toolStripButton6;
+            this.regenacionBN.MoveNextItem = this.toolStripButton5;
+            this.regenacionBN.MovePreviousItem = this.toolStripButton4;
+            this.regenacionBN.Name = "regenacionBN";
+            this.regenacionBN.PositionItem = this.toolStripTextBox1;
+            this.regenacionBN.Size = new System.Drawing.Size(374, 25);
+            this.regenacionBN.TabIndex = 2;
+            this.regenacionBN.Text = "bindingNavigator1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "Agregar nuevo";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(37, 22);
+            this.toolStripLabel1.Text = "de {0}";
+            this.toolStripLabel1.ToolTipText = "Número total de elementos";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "Eliminar";
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton3.Text = "Mover primero";
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton4.Text = "Mover anterior";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.AccessibleName = "Posición";
+            this.toolStripTextBox1.AutoSize = false;
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(50, 23);
+            this.toolStripTextBox1.Text = "0";
+            this.toolStripTextBox1.ToolTipText = "Posición actual";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton5.Text = "Mover siguiente";
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton6.Text = "Mover último";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // NoMaderablesTP
+            // 
+            this.NoMaderablesTP.AutoScroll = true;
+            this.NoMaderablesTP.Controls.Add(this.datosNoMaderablesGrx);
+            this.NoMaderablesTP.Location = new System.Drawing.Point(4, 22);
+            this.NoMaderablesTP.Name = "NoMaderablesTP";
+            this.NoMaderablesTP.Padding = new System.Windows.Forms.Padding(3);
+            this.NoMaderablesTP.Size = new System.Drawing.Size(377, 410);
+            this.NoMaderablesTP.TabIndex = 2;
+            this.NoMaderablesTP.Text = "No maderables";
+            this.NoMaderablesTP.UseVisualStyleBackColor = true;
+            // 
+            // datosNoMaderablesGrx
+            // 
+            this.datosNoMaderablesGrx.BackColor = System.Drawing.SystemColors.Window;
+            this.datosNoMaderablesGrx.Controls.Add(this.tipoUsosLbl);
+            this.datosNoMaderablesGrx.Controls.Add(observacionesLbl);
+            this.datosNoMaderablesGrx.Controls.Add(this.observacionesTxt);
+            this.datosNoMaderablesGrx.Controls.Add(this.TipoDeUsosLbc);
+            this.datosNoMaderablesGrx.Controls.Add(this.listarNoMaderableBtn);
+            this.datosNoMaderablesGrx.Controls.Add(this.guardarLineNoMadBtn);
+            this.datosNoMaderablesGrx.Controls.Add(this.noMaderablesBN);
+            this.datosNoMaderablesGrx.Location = new System.Drawing.Point(-6, -13);
+            this.datosNoMaderablesGrx.Name = "datosNoMaderablesGrx";
+            this.datosNoMaderablesGrx.Size = new System.Drawing.Size(380, 420);
+            this.datosNoMaderablesGrx.TabIndex = 2;
+            this.datosNoMaderablesGrx.TabStop = false;
+            // 
+            // tipoUsosLbl
+            // 
+            this.tipoUsosLbl.AutoSize = true;
+            this.tipoUsosLbl.Location = new System.Drawing.Point(14, 142);
+            this.tipoUsosLbl.Name = "tipoUsosLbl";
+            this.tipoUsosLbl.Size = new System.Drawing.Size(71, 13);
+            this.tipoUsosLbl.TabIndex = 80;
+            this.tipoUsosLbl.Text = "Tipo de usos:";
+            // 
+            // observacionesTxt
+            // 
+            this.observacionesTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaNoMaderableBS, "OBSERVACIONES", true));
+            this.observacionesTxt.Location = new System.Drawing.Point(111, 58);
+            this.observacionesTxt.Multiline = true;
+            this.observacionesTxt.Name = "observacionesTxt";
+            this.observacionesTxt.Size = new System.Drawing.Size(261, 78);
+            this.observacionesTxt.TabIndex = 79;
+            // 
+            // lineaNoMaderableBS
+            // 
+            this.lineaNoMaderableBS.DataSource = typeof(SIFCA_DAL.LINEANOMADERABLES);
+            // 
+            // TipoDeUsosLbc
+            // 
+            this.TipoDeUsosLbc.FormattingEnabled = true;
+            this.TipoDeUsosLbc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.TipoDeUsosLbc.Location = new System.Drawing.Point(111, 142);
+            this.TipoDeUsosLbc.Name = "TipoDeUsosLbc";
+            this.TipoDeUsosLbc.Size = new System.Drawing.Size(261, 94);
+            this.TipoDeUsosLbc.TabIndex = 78;
+            // 
+            // listarNoMaderableBtn
+            // 
+            this.listarNoMaderableBtn.Location = new System.Drawing.Point(172, 396);
+            this.listarNoMaderableBtn.Name = "listarNoMaderableBtn";
+            this.listarNoMaderableBtn.Size = new System.Drawing.Size(97, 23);
+            this.listarNoMaderableBtn.TabIndex = 77;
+            this.listarNoMaderableBtn.Text = "Listar datos";
+            this.listarNoMaderableBtn.UseVisualStyleBackColor = true;
+            // 
+            // guardarLineNoMadBtn
+            // 
+            this.guardarLineNoMadBtn.Location = new System.Drawing.Point(275, 396);
+            this.guardarLineNoMadBtn.Name = "guardarLineNoMadBtn";
+            this.guardarLineNoMadBtn.Size = new System.Drawing.Size(97, 23);
+            this.guardarLineNoMadBtn.TabIndex = 63;
+            this.guardarLineNoMadBtn.Text = "Guardar Linea";
+            this.guardarLineNoMadBtn.UseVisualStyleBackColor = true;
+            this.guardarLineNoMadBtn.Click += new System.EventHandler(this.guardarLineNoMadBtn_Click);
+            // 
+            // noMaderablesBN
+            // 
+            this.noMaderablesBN.AddNewItem = this.toolStripButton7;
+            this.noMaderablesBN.BindingSource = this.lineaInvBS;
+            this.noMaderablesBN.CountItem = this.toolStripLabel2;
+            this.noMaderablesBN.DeleteItem = this.toolStripButton8;
+            this.noMaderablesBN.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton9,
+            this.toolStripButton10,
+            this.toolStripSeparator4,
+            this.toolStripTextBox2,
+            this.toolStripLabel2,
+            this.toolStripSeparator5,
+            this.toolStripButton11,
+            this.toolStripButton12,
+            this.toolStripSeparator6,
+            this.toolStripButton7,
+            this.toolStripButton8});
+            this.noMaderablesBN.Location = new System.Drawing.Point(3, 16);
+            this.noMaderablesBN.MoveFirstItem = this.toolStripButton9;
+            this.noMaderablesBN.MoveLastItem = this.toolStripButton12;
+            this.noMaderablesBN.MoveNextItem = this.toolStripButton11;
+            this.noMaderablesBN.MovePreviousItem = this.toolStripButton10;
+            this.noMaderablesBN.Name = "noMaderablesBN";
+            this.noMaderablesBN.PositionItem = this.toolStripTextBox2;
+            this.noMaderablesBN.Size = new System.Drawing.Size(374, 25);
+            this.noMaderablesBN.TabIndex = 2;
+            this.noMaderablesBN.Text = "bindingNavigator1";
+            // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton7.Text = "Agregar nuevo";
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(37, 22);
+            this.toolStripLabel2.Text = "de {0}";
+            this.toolStripLabel2.ToolTipText = "Número total de elementos";
+            // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton8.Text = "Eliminar";
+            // 
+            // toolStripButton9
+            // 
+            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
+            this.toolStripButton9.Name = "toolStripButton9";
+            this.toolStripButton9.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton9.Text = "Mover primero";
+            // 
+            // toolStripButton10
+            // 
+            this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
+            this.toolStripButton10.Name = "toolStripButton10";
+            this.toolStripButton10.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton10.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton10.Text = "Mover anterior";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripTextBox2
+            // 
+            this.toolStripTextBox2.AccessibleName = "Posición";
+            this.toolStripTextBox2.AutoSize = false;
+            this.toolStripTextBox2.Name = "toolStripTextBox2";
+            this.toolStripTextBox2.Size = new System.Drawing.Size(50, 23);
+            this.toolStripTextBox2.Text = "0";
+            this.toolStripTextBox2.ToolTipText = "Posición actual";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton11
+            // 
+            this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton11.Image")));
+            this.toolStripButton11.Name = "toolStripButton11";
+            this.toolStripButton11.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton11.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton11.Text = "Mover siguiente";
+            // 
+            // toolStripButton12
+            // 
+            this.toolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton12.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton12.Image")));
+            this.toolStripButton12.Name = "toolStripButton12";
+            this.toolStripButton12.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton12.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton12.Text = "Mover último";
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tipoUsoBS
+            // 
+            this.tipoUsoBS.DataSource = typeof(SIFCA_DAL.TIPODEUSO);
+            // 
+            // RegistrarEspecieBtn
+            // 
+            this.RegistrarEspecieBtn.Location = new System.Drawing.Point(157, 396);
+            this.RegistrarEspecieBtn.Name = "RegistrarEspecieBtn";
+            this.RegistrarEspecieBtn.Size = new System.Drawing.Size(112, 23);
+            this.RegistrarEspecieBtn.TabIndex = 78;
+            this.RegistrarEspecieBtn.Text = "Registrar Especie";
+            this.RegistrarEspecieBtn.UseVisualStyleBackColor = true;
+            // 
+            // registrarEspecieRegenBtn
+            // 
+            this.registrarEspecieRegenBtn.Location = new System.Drawing.Point(160, 396);
+            this.registrarEspecieRegenBtn.Name = "registrarEspecieRegenBtn";
+            this.registrarEspecieRegenBtn.Size = new System.Drawing.Size(112, 23);
+            this.registrarEspecieRegenBtn.TabIndex = 90;
+            this.registrarEspecieRegenBtn.Text = "Registrar Especie";
+            this.registrarEspecieRegenBtn.UseVisualStyleBackColor = true;
+            // 
             // Crear_Formulario_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -762,7 +1322,7 @@
             this.BackgroundImage = global::SIFCA.Properties.Resources.fondoTab;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(768, 465);
-            this.Controls.Add(this.datosInventarioGrx);
+            this.Controls.Add(this.datosTabControl);
             this.Controls.Add(this.datosFormularioGrx);
             this.Name = "Crear_Formulario_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -773,15 +1333,32 @@
             ((System.ComponentModel.ISupportInitialize)(this.estratoBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoFormularioBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoBS)).EndInit();
-            this.datosInventarioGrx.ResumeLayout(false);
-            this.datosInventarioGrx.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lineaInvBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.especieBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.estadoSanitarioBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.calidadBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LineaInvBN)).EndInit();
-            this.LineaInvBN.ResumeLayout(false);
-            this.LineaInvBN.PerformLayout();
+            this.datosTabControl.ResumeLayout(false);
+            this.InventarioTP.ResumeLayout(false);
+            this.datosInventarioGrx.ResumeLayout(false);
+            this.datosInventarioGrx.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lineaInvBN)).EndInit();
+            this.lineaInvBN.ResumeLayout(false);
+            this.lineaInvBN.PerformLayout();
+            this.RegeneracionTP.ResumeLayout(false);
+            this.datosRegenGrx.ResumeLayout(false);
+            this.datosRegenGrx.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.regenracionBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.regenacionBN)).EndInit();
+            this.regenacionBN.ResumeLayout(false);
+            this.regenacionBN.PerformLayout();
+            this.NoMaderablesTP.ResumeLayout(false);
+            this.datosNoMaderablesGrx.ResumeLayout(false);
+            this.datosNoMaderablesGrx.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lineaNoMaderableBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.noMaderablesBN)).EndInit();
+            this.noMaderablesBN.ResumeLayout(false);
+            this.noMaderablesBN.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoUsoBS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -792,10 +1369,39 @@
         private System.Windows.Forms.GroupBox datosFormularioGrx;
         private System.Windows.Forms.TextBox lineaInventarioTxt;
         private System.Windows.Forms.TextBox parcelaTxt;
-        private System.Windows.Forms.GroupBox datosInventarioGrx;
-        private System.Windows.Forms.BindingNavigator LineaInvBN;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.BindingSource lineaInvBS;
+        private System.Windows.Forms.TextBox coordXTxt;
+        private System.Windows.Forms.TextBox coordYTxt;
+        private System.Windows.Forms.DateTimePicker finalDpk;
+        private System.Windows.Forms.TextBox responsableTxt;
+        private System.Windows.Forms.DateTimePicker inicioDpk;
+        private System.Windows.Forms.ComboBox proyectoCbx;
+        private System.Windows.Forms.Button guardarformularioBtn;
+        private System.Windows.Forms.ComboBox tipoFormularioCbx;
+        private System.Windows.Forms.ComboBox estratoCbx;
+        private System.Windows.Forms.BindingSource estratoBS;
+        private System.Windows.Forms.BindingSource tipoFormularioBS;
+        private System.Windows.Forms.BindingSource proyectoBS;
+        private System.Windows.Forms.BindingSource especieBS;
+        private System.Windows.Forms.BindingSource estadoSanitarioBS;
+        private System.Windows.Forms.BindingSource calidadBS;
+        private System.Windows.Forms.TabControl datosTabControl;
+        private System.Windows.Forms.TabPage InventarioTP;
+        private System.Windows.Forms.GroupBox datosInventarioGrx;
+        private System.Windows.Forms.Button listarDatosBtn;
+        private System.Windows.Forms.TextBox volComercialTxt;
+        private System.Windows.Forms.TextBox volTotalTxt;
+        private System.Windows.Forms.TextBox cAPTxt;
+        private System.Windows.Forms.TextBox nroArbolTxt;
+        private System.Windows.Forms.ComboBox especieCbx;
+        private System.Windows.Forms.ComboBox estadoCbx;
+        private System.Windows.Forms.ComboBox calidadCbx;
+        private System.Windows.Forms.Button guardarLineaBtn;
+        private System.Windows.Forms.TextBox alturaComercialTxt;
+        private System.Windows.Forms.TextBox alturaTotalTxt;
+        private System.Windows.Forms.TextBox areaBasalTxt;
+        private System.Windows.Forms.BindingNavigator lineaInvBN;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
@@ -807,32 +1413,50 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.TextBox dAPTxt;
-        private System.Windows.Forms.TextBox coordXTxt;
-        private System.Windows.Forms.TextBox coordYTxt;
-        private System.Windows.Forms.DateTimePicker finalDpk;
-        private System.Windows.Forms.TextBox responsableTxt;
-        private System.Windows.Forms.DateTimePicker inicioDpk;
-        private System.Windows.Forms.ComboBox proyectoCbx;
-        private System.Windows.Forms.Button guardarformularioBtn;
-        private System.Windows.Forms.Button guardarLineaBtn;
-        private System.Windows.Forms.TextBox alturaComercialTxt;
-        private System.Windows.Forms.TextBox alturaTotalTxt;
-        private System.Windows.Forms.TextBox areaBasalTxt;
-        private System.Windows.Forms.TextBox volComercialTxt;
-        private System.Windows.Forms.TextBox volTotalTxt;
-        private System.Windows.Forms.TextBox cAPTxt;
-        private System.Windows.Forms.TextBox nroArbolTxt;
-        private System.Windows.Forms.ComboBox especieCbx;
-        private System.Windows.Forms.ComboBox estadoCbx;
-        private System.Windows.Forms.ComboBox calidadCbx;
-        private System.Windows.Forms.Button listarDatosBtn;
-        private System.Windows.Forms.ComboBox tipoFormularioCbx;
-        private System.Windows.Forms.ComboBox estratoCbx;
-        private System.Windows.Forms.BindingSource estratoBS;
-        private System.Windows.Forms.BindingSource tipoFormularioBS;
-        private System.Windows.Forms.BindingSource proyectoBS;
-        private System.Windows.Forms.BindingSource especieBS;
-        private System.Windows.Forms.BindingSource estadoSanitarioBS;
-        private System.Windows.Forms.BindingSource calidadBS;
+        private System.Windows.Forms.TabPage RegeneracionTP;
+        private System.Windows.Forms.GroupBox datosRegenGrx;
+        private System.Windows.Forms.Button listarRegenbtn;
+        private System.Windows.Forms.Button guardarRegenBtn;
+        private System.Windows.Forms.BindingNavigator regenacionBN;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripButton toolStripButton6;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.TabPage NoMaderablesTP;
+        private System.Windows.Forms.GroupBox datosNoMaderablesGrx;
+        private System.Windows.Forms.Button listarNoMaderableBtn;
+        private System.Windows.Forms.Button guardarLineNoMadBtn;
+        private System.Windows.Forms.BindingNavigator noMaderablesBN;
+        private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripButton toolStripButton8;
+        private System.Windows.Forms.ToolStripButton toolStripButton9;
+        private System.Windows.Forms.ToolStripButton toolStripButton10;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripButton toolStripButton11;
+        private System.Windows.Forms.ToolStripButton toolStripButton12;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.Button guardarTodoBtn;
+        private System.Windows.Forms.TextBox brinzalTxt;
+        private System.Windows.Forms.BindingSource regenracionBS;
+        private System.Windows.Forms.TextBox latizalTxt;
+        private System.Windows.Forms.TextBox nroArbolRegenTxt;
+        private System.Windows.Forms.CheckedListBox TipoDeUsosLbc;
+        private System.Windows.Forms.BindingSource tipoUsoBS;
+        private System.Windows.Forms.TextBox observacionesTxt;
+        private System.Windows.Forms.BindingSource lineaNoMaderableBS;
+        private System.Windows.Forms.Label tipoUsosLbl;
+        private System.Windows.Forms.ComboBox especieRegenCbx;
+        private System.Windows.Forms.Button RegistrarEspecieBtn;
+        private System.Windows.Forms.Button registrarEspecieRegenBtn;
     }
 }

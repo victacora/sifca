@@ -123,9 +123,9 @@ namespace SIFCA.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap reload {
+        internal static System.Drawing.Bitmap Nueva_Especie {
             get {
-                object obj = ResourceManager.GetObject("reload", resourceCulture);
+                object obj = ResourceManager.GetObject("Nueva_Especie", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace SIFCA.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap reload1 {
+        internal static System.Drawing.Bitmap reload {
             get {
-                object obj = ResourceManager.GetObject("reload1", resourceCulture);
+                object obj = ResourceManager.GetObject("reload", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

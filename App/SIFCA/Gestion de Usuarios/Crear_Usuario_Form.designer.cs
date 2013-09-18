@@ -62,15 +62,6 @@
             label1.TabIndex = 38;
             label1.Text = "Verificar Contraseña:";
             // 
-            // verificarContrasenaTxt
-            // 
-            this.verificarContrasenaTxt.Location = new System.Drawing.Point(134, 209);
-            this.verificarContrasenaTxt.Name = "verificarContrasenaTxt";
-            this.verificarContrasenaTxt.Size = new System.Drawing.Size(206, 20);
-            this.verificarContrasenaTxt.TabIndex = 37;
-            this.verificarContrasenaTxt.UseSystemPasswordChar = true;
-            this.verificarContrasenaTxt.TextChanged += new System.EventHandler(this.verificarContrasenaTxt_TextChanged);
-            // 
             // cONTRASENALabel
             // 
             cONTRASENALabel.AutoSize = true;
@@ -79,15 +70,6 @@
             cONTRASENALabel.Size = new System.Drawing.Size(64, 13);
             cONTRASENALabel.TabIndex = 36;
             cONTRASENALabel.Text = "Contraseña:";
-            // 
-            // contrasenaTxt
-            // 
-            this.contrasenaTxt.Location = new System.Drawing.Point(134, 183);
-            this.contrasenaTxt.Name = "contrasenaTxt";
-            this.contrasenaTxt.Size = new System.Drawing.Size(206, 20);
-            this.contrasenaTxt.TabIndex = 29;
-            this.contrasenaTxt.UseSystemPasswordChar = true;
-            this.contrasenaTxt.TextChanged += new System.EventHandler(this.verificarContrasenaTxt_TextChanged);
             // 
             // aPELLIDOSLabel
             // 
@@ -98,13 +80,6 @@
             aPELLIDOSLabel.TabIndex = 35;
             aPELLIDOSLabel.Text = "Apellidos:";
             // 
-            // apellidosTxt
-            // 
-            this.apellidosTxt.Location = new System.Drawing.Point(134, 106);
-            this.apellidosTxt.Name = "apellidosTxt";
-            this.apellidosTxt.Size = new System.Drawing.Size(206, 20);
-            this.apellidosTxt.TabIndex = 26;
-            // 
             // nOMBRESLabel
             // 
             nOMBRESLabel.AutoSize = true;
@@ -113,13 +88,6 @@
             nOMBRESLabel.Size = new System.Drawing.Size(52, 13);
             nOMBRESLabel.TabIndex = 34;
             nOMBRESLabel.Text = "Nombres:";
-            // 
-            // nombresTxt
-            // 
-            this.nombresTxt.Location = new System.Drawing.Point(134, 81);
-            this.nombresTxt.Name = "nombresTxt";
-            this.nombresTxt.Size = new System.Drawing.Size(206, 20);
-            this.nombresTxt.TabIndex = 25;
             // 
             // cEDULALabel
             // 
@@ -130,13 +98,6 @@
             cEDULALabel.TabIndex = 32;
             cEDULALabel.Text = "Cedula:";
             // 
-            // cedulaTxt
-            // 
-            this.cedulaTxt.Location = new System.Drawing.Point(134, 131);
-            this.cedulaTxt.Name = "cedulaTxt";
-            this.cedulaTxt.Size = new System.Drawing.Size(206, 20);
-            this.cedulaTxt.TabIndex = 27;
-            // 
             // usuarioLbl
             // 
             usuarioLbl.AutoSize = true;
@@ -145,6 +106,45 @@
             usuarioLbl.Size = new System.Drawing.Size(46, 13);
             usuarioLbl.TabIndex = 33;
             usuarioLbl.Text = "Usuario:";
+            // 
+            // verificarContrasenaTxt
+            // 
+            this.verificarContrasenaTxt.Location = new System.Drawing.Point(134, 209);
+            this.verificarContrasenaTxt.Name = "verificarContrasenaTxt";
+            this.verificarContrasenaTxt.Size = new System.Drawing.Size(206, 20);
+            this.verificarContrasenaTxt.TabIndex = 37;
+            this.verificarContrasenaTxt.UseSystemPasswordChar = true;
+            this.verificarContrasenaTxt.TextChanged += new System.EventHandler(this.verificarContrasenaTxt_TextChanged);
+            // 
+            // contrasenaTxt
+            // 
+            this.contrasenaTxt.Location = new System.Drawing.Point(134, 183);
+            this.contrasenaTxt.Name = "contrasenaTxt";
+            this.contrasenaTxt.Size = new System.Drawing.Size(206, 20);
+            this.contrasenaTxt.TabIndex = 29;
+            this.contrasenaTxt.UseSystemPasswordChar = true;
+            this.contrasenaTxt.TextChanged += new System.EventHandler(this.verificarContrasenaTxt_TextChanged);
+            // 
+            // apellidosTxt
+            // 
+            this.apellidosTxt.Location = new System.Drawing.Point(134, 106);
+            this.apellidosTxt.Name = "apellidosTxt";
+            this.apellidosTxt.Size = new System.Drawing.Size(206, 20);
+            this.apellidosTxt.TabIndex = 26;
+            // 
+            // nombresTxt
+            // 
+            this.nombresTxt.Location = new System.Drawing.Point(134, 81);
+            this.nombresTxt.Name = "nombresTxt";
+            this.nombresTxt.Size = new System.Drawing.Size(206, 20);
+            this.nombresTxt.TabIndex = 25;
+            // 
+            // cedulaTxt
+            // 
+            this.cedulaTxt.Location = new System.Drawing.Point(134, 131);
+            this.cedulaTxt.Name = "cedulaTxt";
+            this.cedulaTxt.Size = new System.Drawing.Size(206, 20);
+            this.cedulaTxt.TabIndex = 27;
             // 
             // usuarioTxt
             // 
@@ -196,6 +196,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(360, 316);
             this.Controls.Add(this.errorLbl);
             this.Controls.Add(label1);
@@ -213,6 +214,8 @@
             this.Controls.Add(this.cancelarBtn);
             this.Controls.Add(this.AceptarBtn);
             this.Controls.Add(this.imageNewUser);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Crear_Usuario_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar usuarios";

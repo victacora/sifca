@@ -131,6 +131,7 @@
             // 
             // cancelarBtn
             // 
+            this.cancelarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.cancelarBtn.Location = new System.Drawing.Point(190, 186);
             this.cancelarBtn.Name = "cancelarBtn";
             this.cancelarBtn.Size = new System.Drawing.Size(121, 32);
@@ -141,6 +142,7 @@
             // 
             // AceptarBtn
             // 
+            this.AceptarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.AceptarBtn.Location = new System.Drawing.Point(59, 186);
             this.AceptarBtn.Name = "AceptarBtn";
             this.AceptarBtn.Size = new System.Drawing.Size(121, 32);

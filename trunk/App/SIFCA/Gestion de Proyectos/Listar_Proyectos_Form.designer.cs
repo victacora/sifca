@@ -77,11 +77,15 @@
             this.estratosTabP = new System.Windows.Forms.TabPage();
             this.SeleccEstratosBtn = new System.Windows.Forms.Button();
             this.removerEstratosBtn = new System.Windows.Forms.Button();
-            this.estratoDGW = new System.Windows.Forms.DataGridView();
+            this.estratosDGW = new System.Windows.Forms.DataGridView();
             this.Estratos = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DESCRIPESTRATO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estratoBS = new System.Windows.Forms.BindingSource(this.components);
+            this.formulariosTap = new System.Windows.Forms.TabPage();
+            this.crearFormBtn = new System.Windows.Forms.Button();
+            this.formulariosDGW = new System.Windows.Forms.DataGridView();
+            this.formulariosBS = new System.Windows.Forms.BindingSource(this.components);
             this.proyectosContTabP = new System.Windows.Forms.TabPage();
             this.seleccionarProyectosBtn = new System.Windows.Forms.Button();
             this.removerProyectosBtn = new System.Windows.Forms.Button();
@@ -104,7 +108,13 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.ActualizarEspeciesBtn = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VerDatos = new System.Windows.Forms.DataGridViewButtonColumn();
             descripcionLbl = new System.Windows.Forms.Label();
             DAPLbl = new System.Windows.Forms.Label();
             facFormaLbl = new System.Windows.Forms.Label();
@@ -130,8 +140,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.especiesDGW)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.especieBS)).BeginInit();
             this.estratosTabP.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.estratoDGW)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estratosDGW)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.estratoBS)).BeginInit();
+            this.formulariosTap.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.formulariosDGW)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formulariosBS)).BeginInit();
             this.proyectosContTabP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDGW)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoBN)).BeginInit();
@@ -252,6 +265,7 @@
             this.crearProyectoTab.Controls.Add(this.proyectoTabP);
             this.crearProyectoTab.Controls.Add(this.especiesTabP);
             this.crearProyectoTab.Controls.Add(this.estratosTabP);
+            this.crearProyectoTab.Controls.Add(this.formulariosTap);
             this.crearProyectoTab.Controls.Add(this.proyectosContTabP);
             this.crearProyectoTab.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.crearProyectoTab.ItemSize = new System.Drawing.Size(40, 120);
@@ -313,7 +327,6 @@
             // proyectoBS
             // 
             this.proyectoBS.DataSource = typeof(SIFCA_DAL.PROYECTO);
-            this.proyectoBS.DataSourceChanged += new System.EventHandler(this.proyectoBS_DataSourceChanged);
             this.proyectoBS.PositionChanged += new System.EventHandler(this.proyectoBS_PositionChanged);
             // 
             // DescripcionTxt
@@ -492,7 +505,6 @@
             // 
             // especiesTabP
             // 
-            this.especiesTabP.Controls.Add(this.ActualizarEspeciesBtn);
             this.especiesTabP.Controls.Add(this.seleccEspecieBtn);
             this.especiesTabP.Controls.Add(this.RemoverEspciesBtn);
             this.especiesTabP.Controls.Add(this.especiesDGW);
@@ -506,23 +518,21 @@
             // 
             // seleccEspecieBtn
             // 
-            this.seleccEspecieBtn.Location = new System.Drawing.Point(227, 9);
+            this.seleccEspecieBtn.Location = new System.Drawing.Point(224, 9);
             this.seleccEspecieBtn.Name = "seleccEspecieBtn";
             this.seleccEspecieBtn.Size = new System.Drawing.Size(112, 23);
-            this.seleccEspecieBtn.TabIndex = 16;
+            this.seleccEspecieBtn.TabIndex = 19;
             this.seleccEspecieBtn.Text = "Seleccionar Todos";
             this.seleccEspecieBtn.UseVisualStyleBackColor = true;
-            this.seleccEspecieBtn.Click += new System.EventHandler(this.seleccEspecieBtn_Click);
             // 
             // RemoverEspciesBtn
             // 
-            this.RemoverEspciesBtn.Location = new System.Drawing.Point(345, 9);
+            this.RemoverEspciesBtn.Location = new System.Drawing.Point(342, 9);
             this.RemoverEspciesBtn.Name = "RemoverEspciesBtn";
             this.RemoverEspciesBtn.Size = new System.Drawing.Size(104, 23);
-            this.RemoverEspciesBtn.TabIndex = 14;
+            this.RemoverEspciesBtn.TabIndex = 18;
             this.RemoverEspciesBtn.Text = "Remover Todos";
             this.RemoverEspciesBtn.UseVisualStyleBackColor = true;
-            this.RemoverEspciesBtn.Click += new System.EventHandler(this.RemoverEspciesBtn_Click);
             // 
             // especiesDGW
             // 
@@ -543,6 +553,7 @@
             this.especiesDGW.Size = new System.Drawing.Size(446, 415);
             this.especiesDGW.TabIndex = 0;
             this.especiesDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.especiesDGW_CellValueChanged);
+            this.especiesDGW.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.especiesDGW_DataBindingComplete);
             // 
             // Especie
             // 
@@ -578,7 +589,7 @@
             // 
             this.estratosTabP.Controls.Add(this.SeleccEstratosBtn);
             this.estratosTabP.Controls.Add(this.removerEstratosBtn);
-            this.estratosTabP.Controls.Add(this.estratoDGW);
+            this.estratosTabP.Controls.Add(this.estratosDGW);
             this.estratosTabP.Location = new System.Drawing.Point(124, 4);
             this.estratosTabP.Name = "estratosTabP";
             this.estratosTabP.Padding = new System.Windows.Forms.Padding(3);
@@ -609,25 +620,25 @@
             this.removerEstratosBtn.UseVisualStyleBackColor = true;
             this.removerEstratosBtn.Click += new System.EventHandler(this.removerEstratosBtn_Click);
             // 
-            // estratoDGW
+            // estratosDGW
             // 
-            this.estratoDGW.AllowUserToAddRows = false;
-            this.estratoDGW.AllowUserToDeleteRows = false;
-            this.estratoDGW.AllowUserToOrderColumns = true;
-            this.estratoDGW.AutoGenerateColumns = false;
-            this.estratoDGW.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.estratoDGW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.estratoDGW.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.estratosDGW.AllowUserToAddRows = false;
+            this.estratosDGW.AllowUserToDeleteRows = false;
+            this.estratosDGW.AllowUserToOrderColumns = true;
+            this.estratosDGW.AutoGenerateColumns = false;
+            this.estratosDGW.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.estratosDGW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.estratosDGW.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Estratos,
             this.DESCRIPESTRATO,
             this.Peso});
-            this.estratoDGW.DataSource = this.estratoBS;
-            this.estratoDGW.Enabled = false;
-            this.estratoDGW.Location = new System.Drawing.Point(6, 38);
-            this.estratoDGW.Name = "estratoDGW";
-            this.estratoDGW.Size = new System.Drawing.Size(446, 415);
-            this.estratoDGW.TabIndex = 0;
-            this.estratoDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.estratoDGW_CellValueChanged);
+            this.estratosDGW.DataSource = this.estratoBS;
+            this.estratosDGW.Enabled = false;
+            this.estratosDGW.Location = new System.Drawing.Point(6, 38);
+            this.estratosDGW.Name = "estratosDGW";
+            this.estratosDGW.Size = new System.Drawing.Size(446, 415);
+            this.estratosDGW.TabIndex = 0;
+            this.estratosDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.estratoDGW_CellValueChanged);
             // 
             // Estratos
             // 
@@ -649,6 +660,54 @@
             // estratoBS
             // 
             this.estratoBS.DataSource = typeof(SIFCA_DAL.ESTRATO);
+            // 
+            // formulariosTap
+            // 
+            this.formulariosTap.AutoScroll = true;
+            this.formulariosTap.Controls.Add(this.crearFormBtn);
+            this.formulariosTap.Controls.Add(this.formulariosDGW);
+            this.formulariosTap.Location = new System.Drawing.Point(124, 4);
+            this.formulariosTap.Name = "formulariosTap";
+            this.formulariosTap.Size = new System.Drawing.Size(457, 459);
+            this.formulariosTap.TabIndex = 5;
+            this.formulariosTap.Text = "Formularios";
+            this.formulariosTap.UseVisualStyleBackColor = true;
+            // 
+            // crearFormBtn
+            // 
+            this.crearFormBtn.Location = new System.Drawing.Point(343, 7);
+            this.crearFormBtn.Name = "crearFormBtn";
+            this.crearFormBtn.Size = new System.Drawing.Size(109, 23);
+            this.crearFormBtn.TabIndex = 1;
+            this.crearFormBtn.Text = "Crear Formulario";
+            this.crearFormBtn.UseVisualStyleBackColor = true;
+            this.crearFormBtn.Click += new System.EventHandler(this.crearFormBtn_Click);
+            // 
+            // formulariosDGW
+            // 
+            this.formulariosDGW.AllowUserToAddRows = false;
+            this.formulariosDGW.AllowUserToDeleteRows = false;
+            this.formulariosDGW.AutoGenerateColumns = false;
+            this.formulariosDGW.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.formulariosDGW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.formulariosDGW.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.VerDatos});
+            this.formulariosDGW.DataSource = this.formulariosBS;
+            this.formulariosDGW.Location = new System.Drawing.Point(0, 36);
+            this.formulariosDGW.Name = "formulariosDGW";
+            this.formulariosDGW.ReadOnly = true;
+            this.formulariosDGW.Size = new System.Drawing.Size(454, 420);
+            this.formulariosDGW.TabIndex = 0;
+            // 
+            // formulariosBS
+            // 
+            this.formulariosBS.DataSource = typeof(SIFCA_DAL.FORMULARIO);
             // 
             // proyectosContTabP
             // 
@@ -789,7 +848,7 @@
             this.proyectoBN.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.proyectoBN.Name = "proyectoBN";
             this.proyectoBN.PositionItem = this.bindingNavigatorPositionItem;
-            this.proyectoBN.Size = new System.Drawing.Size(582, 25);
+            this.proyectoBN.Size = new System.Drawing.Size(585, 25);
             this.proyectoBN.TabIndex = 14;
             this.proyectoBN.Text = "proyectoBN";
             // 
@@ -860,15 +919,55 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // ActualizarEspeciesBtn
+            // dataGridViewTextBoxColumn1
             // 
-            this.ActualizarEspeciesBtn.Location = new System.Drawing.Point(109, 9);
-            this.ActualizarEspeciesBtn.Name = "ActualizarEspeciesBtn";
-            this.ActualizarEspeciesBtn.Size = new System.Drawing.Size(112, 23);
-            this.ActualizarEspeciesBtn.TabIndex = 17;
-            this.ActualizarEspeciesBtn.Text = "Actualizar";
-            this.ActualizarEspeciesBtn.UseVisualStyleBackColor = true;
-            this.ActualizarEspeciesBtn.Click += new System.EventHandler(this.btnActualizar_Click);
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "NROFORMULARIO";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Formulario";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "NROUSUARIO";
+            this.dataGridViewTextBoxColumn4.HeaderText = "NROUSUARIO";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "FECHACREACION";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Fecha";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Estrato";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "PARCELA";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Parcela";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "LINEA";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Linea";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // VerDatos
+            // 
+            this.VerDatos.HeaderText = "";
+            this.VerDatos.Name = "VerDatos";
+            this.VerDatos.ReadOnly = true;
+            this.VerDatos.Text = "Ver Datos";
             // 
             // Listar_Proyecto_Form
             // 
@@ -876,7 +975,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIFCA.Properties.Resources.fondoTab;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(582, 527);
+            this.ClientSize = new System.Drawing.Size(585, 527);
             this.Controls.Add(this.proyectoBN);
             this.Controls.Add(this.cancelarBtn);
             this.Controls.Add(this.ActualizarBtn);
@@ -906,8 +1005,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.especiesDGW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.especieBS)).EndInit();
             this.estratosTabP.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.estratoDGW)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estratosDGW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.estratoBS)).EndInit();
+            this.formulariosTap.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.formulariosDGW)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formulariosBS)).EndInit();
             this.proyectosContTabP.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDGW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoBN)).EndInit();
@@ -945,11 +1047,9 @@
         private System.Windows.Forms.Button cancelarBtn;
         private System.Windows.Forms.Button ActualizarBtn;
         private System.Windows.Forms.BindingSource especieBS;
-        private System.Windows.Forms.DataGridView estratoDGW;
+        private System.Windows.Forms.DataGridView estratosDGW;
         private System.Windows.Forms.BindingSource estratoBS;
         private System.Windows.Forms.DataGridView especiesDGW;
-        private System.Windows.Forms.Button seleccEspecieBtn;
-        private System.Windows.Forms.Button RemoverEspciesBtn;
         private System.Windows.Forms.Button SeleccEstratosBtn;
         private System.Windows.Forms.Button removerEstratosBtn;
         private System.Windows.Forms.TabPage proyectosContTabP;
@@ -983,7 +1083,19 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ComboBox TipoProyectoCbx;
-        private System.Windows.Forms.Button ActualizarEspeciesBtn;
+        private System.Windows.Forms.Button seleccEspecieBtn;
+        private System.Windows.Forms.Button RemoverEspciesBtn;
+        private System.Windows.Forms.TabPage formulariosTap;
+        private System.Windows.Forms.DataGridView formulariosDGW;
+        private System.Windows.Forms.BindingSource formulariosBS;
+        private System.Windows.Forms.Button crearFormBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewButtonColumn VerDatos;
 
 
     }

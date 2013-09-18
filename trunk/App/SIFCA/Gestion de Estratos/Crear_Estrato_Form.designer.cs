@@ -44,14 +44,14 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(22, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(270, 99);
+            this.groupBox1.Size = new System.Drawing.Size(265, 155);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Crear estrato";
             // 
             // btn_Cancelar
             // 
-            this.btn_Cancelar.Location = new System.Drawing.Point(149, 65);
+            this.btn_Cancelar.Location = new System.Drawing.Point(176, 116);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(89, 23);
             this.btn_Cancelar.TabIndex = 14;
@@ -61,7 +61,7 @@
             // 
             // btn_Crear
             // 
-            this.btn_Crear.Location = new System.Drawing.Point(24, 65);
+            this.btn_Crear.Location = new System.Drawing.Point(59, 116);
             this.btn_Crear.Name = "btn_Crear";
             this.btn_Crear.Size = new System.Drawing.Size(92, 23);
             this.btn_Crear.TabIndex = 1;
@@ -72,8 +72,9 @@
             // txt_Nombre
             // 
             this.txt_Nombre.Location = new System.Drawing.Point(71, 26);
+            this.txt_Nombre.Multiline = true;
             this.txt_Nombre.Name = "txt_Nombre";
-            this.txt_Nombre.Size = new System.Drawing.Size(167, 20);
+            this.txt_Nombre.Size = new System.Drawing.Size(188, 84);
             this.txt_Nombre.TabIndex = 8;
             // 
             // label2
@@ -89,7 +90,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(306, 123);
+            this.ClientSize = new System.Drawing.Size(308, 179);
             this.Controls.Add(this.groupBox1);
             this.Name = "Crear_Estrato_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -33,6 +33,20 @@ namespace SIFCA_BLL
             return null;
         }
 
+        public List<FORMULARIO> GetProjectFormsList(Guid projectId)
+        {
+            PROYECTO prj = this.sifcaRepository.PROYECTO.SingleOrDefault(p => p.NROPROY == projectId);
+            if (prj != null) return prj.FORMULARIO.ToList();
+            return null;
+        }
+
+        public List<LISTADODEESTRATOS> GetProjectStratumsList(Guid projectId)
+        {
+            PROYECTO prj = this.sifcaRepository.PROYECTO.SingleOrDefault(p => p.NROPROY == projectId);
+            if (prj != null) return prj.LISTADODEESTRATOS.ToList();
+            return null;
+        }
+
         public void InsertProject(PROYECTO project)
         {
             try

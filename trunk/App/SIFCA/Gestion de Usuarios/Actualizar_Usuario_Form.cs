@@ -27,6 +27,7 @@ namespace SIFCA
             contrasenaTxt.Text=userData.CONTRASENA;
             verificarContrasenaTxt.Text = userData.CONTRASENA;
             usuarioTxt.Text=userData.NOMBREUSUARIO;
+            this.ControlBox = false;
         }
 
         private void ActualizarBtn_Click(object sender, EventArgs e)

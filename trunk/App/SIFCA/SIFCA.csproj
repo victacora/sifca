@@ -58,12 +58,6 @@
     <Compile Include="Gestion de Especies\Crear_Especie_Form.designer.cs">
       <DependentUpon>Crear_Especie_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestion de Especies\Crear_Listado_Especies_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gestion de Especies\Crear_Listado_Especies_Form.designer.cs">
-      <DependentUpon>Crear_Listado_Especies_Form.cs</DependentUpon>
-    </Compile>
     <Compile Include="Gestion de Especies\Listado_Especies_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,12 +75,6 @@
     </Compile>
     <Compile Include="Gestion de Estratos\Crear_Estrato_Form.designer.cs">
       <DependentUpon>Crear_Estrato_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gestion de Estratos\Crear_Listado_Estratos_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gestion de Estratos\Crear_Listado_Estratos_Form.designer.cs">
-      <DependentUpon>Crear_Listado_Estratos_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestion de Estratos\Listado_Estratos_Form.cs">
       <SubType>Form</SubType>
@@ -172,13 +160,16 @@
     <Compile Include="Gestion General\Principal_Form.Designer.cs">
       <DependentUpon>Principal_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gestionar Formularios y Datos de Campo\Listar_Datos_Fomulario_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestionar Formularios y Datos de Campo\Listar_Datos_Fomulario_Form.Designer.cs">
+      <DependentUpon>Listar_Datos_Fomulario_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Gestion de Especies\Crear_Especie_Form.resx">
       <DependentUpon>Crear_Especie_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Especies\Crear_Listado_Especies_Form.resx">
-      <DependentUpon>Crear_Listado_Especies_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Especies\Listado_Especies_Form.resx">
       <DependentUpon>Listado_Especies_Form.cs</DependentUpon>
@@ -188,9 +179,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Estratos\Crear_Estrato_Form.resx">
       <DependentUpon>Crear_Estrato_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Estratos\Crear_Listado_Estratos_Form.resx">
-      <DependentUpon>Crear_Listado_Estratos_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Estratos\Listado_Estratos_Form.resx">
       <DependentUpon>Listado_Estratos_Form.cs</DependentUpon>
@@ -233,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion General\Principal_Form.resx">
       <DependentUpon>Principal_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestionar Formularios y Datos de Campo\Listar_Datos_Fomulario_Form.resx">
+      <DependentUpon>Listar_Datos_Fomulario_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -286,6 +277,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\Nueva_Especie.jpg" />
     <None Include="Resources\reload1.jpg" />
     <None Include="Resources\reload.jpg" />
     <None Include="Resources\agregar_usuarios.jpg" />

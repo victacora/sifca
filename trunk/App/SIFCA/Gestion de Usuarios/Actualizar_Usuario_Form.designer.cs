@@ -195,6 +195,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(359, 324);
             this.Controls.Add(this.errorLbl);
             this.Controls.Add(this.imageNewUser);
@@ -212,6 +213,8 @@
             this.Controls.Add(this.usuarioTxt);
             this.Controls.Add(this.cancelarBtn);
             this.Controls.Add(this.AceptarBtn);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Actualizar_Usuario_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Actualizar usuario";

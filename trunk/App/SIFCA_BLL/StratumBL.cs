@@ -22,6 +22,11 @@ namespace SIFCA_BLL
             return this.sifcaRepository.ESTRATO.ToList();
         }
 
+        public ESTRATO GetStratumByDescription(string description)
+        {
+            return this.sifcaRepository.ESTRATO.SingleOrDefault(e=>e.DESCRIPESTRATO==description);
+        }
+
         public ESTRATO GetStratum(int stratumId)
         {
             return this.sifcaRepository.ESTRATO.Find(stratumId);

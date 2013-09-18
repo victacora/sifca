@@ -48,7 +48,7 @@ namespace SIFCA
             tipoDisenoBS.DataSource = typeExample.GetTypeSampleDesignList();
             tipoDisenoCbx.DataSource = tipoDisenoBS;
             estratoBS.DataSource = stratum.GetStratums();
-            estratoDGW.DataSource = estratoBS;
+            estratosDGW.DataSource = estratoBS;
             especieBS.DataSource = species.GetSpecies();
             especiesDGW.DataSource=especieBS;
             proyectoBS.DataSource = project.GetProjects();
@@ -86,9 +86,9 @@ namespace SIFCA
                 newProject.OBJETIVOINVENTARIO = objetivo;
                 newProject.TIPODISENOMUESTRAL = tipoDiseno;
                 //newProject.TIPOPROYECTO = TipoProyectoTxt.Text=="Independiente"?"IN":"CR";
-                newProject.TAMANO = int.Parse(tamParcelaTxt.Text);
-                newProject.LIMITINFDAP = int.Parse(limiteInfTxt.Text);
-                newProject.LIMITSUPDAP = int.Parse(limiteSupTxt.Text);
+                newProject.TAMANO = decimal.Parse(tamParcelaTxt.Text);
+                newProject.LIMITINFDAP = decimal.Parse(limiteInfTxt.Text);
+                newProject.LIMITSUPDAP = decimal.Parse(limiteSupTxt.Text);
                 newProject.INTMUE = decimal.Parse(intMuestreoTxt.Text);
                 newProject.SUPMUE = decimal.Parse(AreaMuestradaTxt.Text);
                 newProject.AREAFUSTALESPORPARCELA = decimal.Parse(areaFustalesTxt.Text);
@@ -134,7 +134,7 @@ namespace SIFCA
 
         private void SeleccEstratosBtn_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in estratoDGW.Rows)
+            foreach (DataGridViewRow row in estratosDGW.Rows)
             {
                 row.Cells[0].Value = true;
             }
@@ -142,7 +142,7 @@ namespace SIFCA
 
         private void removerEstratosBtn_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in estratoDGW.Rows)
+            foreach (DataGridViewRow row in estratosDGW.Rows)
             {
                 row.Cells[0].Value = false;
             }
@@ -193,9 +193,9 @@ namespace SIFCA
 
         private void estratoDGW_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (estratoDGW.Columns[e.ColumnIndex].Name == "Estratos")
+            if (estratosDGW.Columns[e.ColumnIndex].Name == "Estratos")
             {
-                DataGridViewRow row = estratoDGW.Rows[e.RowIndex];
+                DataGridViewRow row = estratosDGW.Rows[e.RowIndex];
                 DataGridViewCheckBoxCell cellSelecion = row.Cells[0] as DataGridViewCheckBoxCell;
                 if (cellSelecion.Value != null)
                 {
@@ -294,46 +294,66 @@ namespace SIFCA
                 {
                     if (p.TIPOPROYECTO == "IN") TipoProyectoCbx.SelectedIndex = 0;
                     else TipoProyectoCbx.SelectedIndex = 1;
+                    List<ESPECIE> speciesProject = project.GetProjectSpeciesList(p.NROPROY);
+                    foreach (DataGridViewRow row in especiesDGW.Rows)
+                    {
+                        ESPECIE tempSpecie = new ESPECIE();
+                        foreach (ESPECIE specie in speciesProject)
+                        {
+                            if (specie.NOMCOMUN == row.Cells[1].Value.ToString())
+                            {
+                                tempSpecie = specie;
+                                break;
+                            }
+                        }
+                        if (tempSpecie.NOMCOMUN != "")
+                        {
+                            speciesProject.Remove(tempSpecie);
+                            row.Cells[0].Value = true;
+                        }
+                    }
+                    formulariosBS.DataSource = project.GetProjectFormsList(p.NROPROY);
+                    formulariosDGW.DataSource = formulariosBS;
+                    formulariosDGW.Refresh();
+                    List<LISTADODEESTRATOS> stratumsProject = project.GetProjectStratumsList(p.NROPROY);
+                    foreach (DataGridViewRow row in estratosDGW.Rows)
+                    {
+                        LISTADODEESTRATOS tempStratum = new LISTADODEESTRATOS();
+                        foreach (LISTADODEESTRATOS stratum in stratumsProject)
+                        {
+                            if (stratum.ESTRATO.DESCRIPESTRATO == row.Cells[1].Value.ToString())
+                            {
+                                tempStratum = stratum;
+                                tempStratum.ESTRATO = stratum.ESTRATO;
+                                break;
+                            }
+                        }
+                        if (tempStratum.ESTRATO != null)
+                        {
+                            if (tempStratum.ESTRATO.DESCRIPESTRATO != "")
+                            {
+                                stratumsProject.Remove(tempStratum);
+                                row.Cells[0].Value = true;
+                                row.Cells[2].Value = tempStratum.PESO;
+                            }
+                        }
+                    }
+                    estratosDGW.Refresh();
                 }
         }
 
-        private void proyectoBS_DataSourceChanged(object sender, EventArgs e)
+        private void especiesDGW_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             PROYECTO p = (PROYECTO)proyectoBS.Current;
             if (p != null)
             {
                 if (p.TIPOPROYECTO == "IN") TipoProyectoCbx.SelectedIndex = 0;
                 else TipoProyectoCbx.SelectedIndex = 1;
-                List<ESPECIE> speciesProject=project.GetProjectSpeciesList(p.NROPROY);
-                foreach (DataGridViewRow row in especiesDGW.Rows)
-                {
-                       ESPECIE tempSpecie = new ESPECIE();
-                       foreach(ESPECIE specie in speciesProject)
-                       {
-                           if (specie.NOMCOMUN == row.Cells[1].Value.ToString()) 
-                           {
-                               tempSpecie = specie;
-                               break;
-                           }
-                       }
-                       if (tempSpecie.NOMCOMUN != "")
-                       {
-                           speciesProject.Remove(tempSpecie);
-                           row.Cells[0].Value = true;
-                       }
-                }
-            }
-        }
-
-        private void btnActualizar_Click(object sender, EventArgs e)
-        {
-            PROYECTO p = (PROYECTO)proyectoBS.Current;
-            if (p != null)
-            {
                 List<ESPECIE> speciesProject = project.GetProjectSpeciesList(p.NROPROY);
                 foreach (DataGridViewRow row in especiesDGW.Rows)
                 {
                     ESPECIE tempSpecie = new ESPECIE();
+                    row.Cells[0].Value = false;
                     foreach (ESPECIE specie in speciesProject)
                     {
                         if (specie.NOMCOMUN == row.Cells[1].Value.ToString())
@@ -348,8 +368,43 @@ namespace SIFCA
                         row.Cells[0].Value = true;
                     }
                 }
+                formulariosBS.DataSource = project.GetProjectFormsList(p.NROPROY);
+                formulariosDGW.DataSource = formulariosBS;
+                formulariosDGW.Refresh();
+                List<LISTADODEESTRATOS> stratumsProject = project.GetProjectStratumsList(p.NROPROY);
+                foreach (DataGridViewRow row in estratosDGW.Rows)
+                {
+                    LISTADODEESTRATOS tempStratum = new LISTADODEESTRATOS();
+                    row.Cells[0].Value = false;
+                    foreach (LISTADODEESTRATOS strat in stratumsProject)
+                    {
+                        if (strat.ESTRATO.DESCRIPESTRATO == row.Cells[1].Value.ToString())
+                        {
+                            tempStratum = strat;
+                            tempStratum.ESTRATO = strat.ESTRATO;
+                            break;
+                        }
+                    }
+                    if (tempStratum.ESTRATO != null)
+                    {
+                        if (tempStratum.ESTRATO.DESCRIPESTRATO != "")
+                        {
+                            stratumsProject.Remove(tempStratum);
+                            row.Cells[0].Value = true;
+                            row.Cells[2].Value = tempStratum.PESO;
+                        }
+                    }
+                }
+                estratosDGW.Refresh();
             }
         }
 
+        private void crearFormBtn_Click(object sender, EventArgs e)
+        {
+            Crear_Formulario_Form childForm = new Crear_Formulario_Form();
+            childForm.MdiParent = this;
+            childForm.Show();
+            this.Close();
+        }        
     }
 }

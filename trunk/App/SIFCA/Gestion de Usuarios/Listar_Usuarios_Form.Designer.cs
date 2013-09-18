@@ -50,7 +50,6 @@
             this.busquedaTxt = new System.Windows.Forms.ToolStripTextBox();
             this.filtrarLbl = new System.Windows.Forms.ToolStripLabel();
             this.criterioCbx = new System.Windows.Forms.ToolStripComboBox();
-            this.recargarBtn = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBN)).BeginInit();
@@ -152,8 +151,7 @@
             this.buscarLbl,
             this.busquedaTxt,
             this.filtrarLbl,
-            this.criterioCbx,
-            this.recargarBtn});
+            this.criterioCbx});
             this.usuarioBN.Location = new System.Drawing.Point(0, 0);
             this.usuarioBN.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.usuarioBN.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -230,16 +228,6 @@
             this.criterioCbx.Name = "criterioCbx";
             this.criterioCbx.Size = new System.Drawing.Size(121, 25);
             // 
-            // recargarBtn
-            // 
-            this.recargarBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.recargarBtn.Image = global::SIFCA.Properties.Resources.reload1;
-            this.recargarBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.recargarBtn.Name = "recargarBtn";
-            this.recargarBtn.Size = new System.Drawing.Size(23, 22);
-            this.recargarBtn.Text = "cargar";
-            this.recargarBtn.Click += new System.EventHandler(this.recargarBtn_Click);
-            // 
             // Listar_Usuarios_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -282,6 +270,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.ToolStripButton recargarBtn;
     }
 }

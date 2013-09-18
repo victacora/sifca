@@ -40,6 +40,7 @@
             System.Windows.Forms.Label TipoDisenoLbl;
             System.Windows.Forms.Label objetivoInvTxt;
             System.Windows.Forms.Label numeroEtapasLbl;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Crear_Proyecto_Form));
             this.label1 = new System.Windows.Forms.Label();
             this.crearProyectoTab = new System.Windows.Forms.TabControl();
             this.proyectoTabP = new System.Windows.Forms.TabPage();
@@ -54,6 +55,7 @@
             this.limiteSupTxt = new System.Windows.Forms.TextBox();
             this.limiteInfTxt = new System.Windows.Forms.TextBox();
             this.otrosDatosGbx = new System.Windows.Forms.GroupBox();
+            this.numeroEtapasTxt = new System.Windows.Forms.TextBox();
             this.factorFormaTxt = new System.Windows.Forms.TextBox();
             this.areaFustalesTxt = new System.Windows.Forms.TextBox();
             this.tamParcelaTxt = new System.Windows.Forms.TextBox();
@@ -74,6 +76,8 @@
             this.estratosTabP = new System.Windows.Forms.TabPage();
             this.SeleccEstratosBtn = new System.Windows.Forms.Button();
             this.removerEstratosBtn = new System.Windows.Forms.Button();
+            this.actualizarBtn = new System.Windows.Forms.Button();
+            this.errorLbl = new System.Windows.Forms.Label();
             this.estratoDGW = new System.Windows.Forms.DataGridView();
             this.Estratos = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DESCRIPESTRATO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,6 +88,7 @@
             this.removerProyectosBtn = new System.Windows.Forms.Button();
             this.proyectoDGW = new System.Windows.Forms.DataGridView();
             this.Proyectos = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LUGAR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OBJETIVOINVENTARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,9 +97,6 @@
             this.proyectoBS = new System.Windows.Forms.BindingSource(this.components);
             this.cancelarBtn = new System.Windows.Forms.Button();
             this.GuardarBtn = new System.Windows.Forms.Button();
-            this.siguienteBtn = new System.Windows.Forms.Button();
-            this.atrasBtn = new System.Windows.Forms.Button();
-            this.numeroEtapasTxt = new System.Windows.Forms.TextBox();
             descripcionLbl = new System.Windows.Forms.Label();
             DAPLbl = new System.Windows.Forms.Label();
             facFormaLbl = new System.Windows.Forms.Label();
@@ -215,6 +217,15 @@
             objetivoInvTxt.Size = new System.Drawing.Size(115, 13);
             objetivoInvTxt.TabIndex = 8;
             objetivoInvTxt.Text = "Objetivo del inventario:";
+            // 
+            // numeroEtapasLbl
+            // 
+            numeroEtapasLbl.AutoSize = true;
+            numeroEtapasLbl.Location = new System.Drawing.Point(3, 107);
+            numeroEtapasLbl.Name = "numeroEtapasLbl";
+            numeroEtapasLbl.Size = new System.Drawing.Size(98, 13);
+            numeroEtapasLbl.TabIndex = 12;
+            numeroEtapasLbl.Text = "Numero de Etapas:";
             // 
             // label1
             // 
@@ -376,6 +387,14 @@
             this.otrosDatosGbx.TabIndex = 22;
             this.otrosDatosGbx.TabStop = false;
             // 
+            // numeroEtapasTxt
+            // 
+            this.numeroEtapasTxt.Location = new System.Drawing.Point(139, 104);
+            this.numeroEtapasTxt.Name = "numeroEtapasTxt";
+            this.numeroEtapasTxt.Size = new System.Drawing.Size(290, 20);
+            this.numeroEtapasTxt.TabIndex = 11;
+            this.numeroEtapasTxt.Text = "0";
+            // 
             // factorFormaTxt
             // 
             this.factorFormaTxt.Location = new System.Drawing.Point(139, 76);
@@ -532,6 +551,8 @@
             // 
             this.estratosTabP.Controls.Add(this.SeleccEstratosBtn);
             this.estratosTabP.Controls.Add(this.removerEstratosBtn);
+            this.estratosTabP.Controls.Add(this.actualizarBtn);
+            this.estratosTabP.Controls.Add(this.errorLbl);
             this.estratosTabP.Controls.Add(this.estratoDGW);
             this.estratosTabP.Location = new System.Drawing.Point(124, 4);
             this.estratosTabP.Name = "estratosTabP";
@@ -544,10 +565,10 @@
             // SeleccEstratosBtn
             // 
             this.SeleccEstratosBtn.Enabled = false;
-            this.SeleccEstratosBtn.Location = new System.Drawing.Point(229, 9);
+            this.SeleccEstratosBtn.Location = new System.Drawing.Point(213, 11);
             this.SeleccEstratosBtn.Name = "SeleccEstratosBtn";
-            this.SeleccEstratosBtn.Size = new System.Drawing.Size(112, 23);
-            this.SeleccEstratosBtn.TabIndex = 18;
+            this.SeleccEstratosBtn.Size = new System.Drawing.Size(104, 23);
+            this.SeleccEstratosBtn.TabIndex = 22;
             this.SeleccEstratosBtn.Text = "Seleccionar Todos";
             this.SeleccEstratosBtn.UseVisualStyleBackColor = true;
             this.SeleccEstratosBtn.Click += new System.EventHandler(this.SeleccEstratosBtn_Click);
@@ -555,15 +576,35 @@
             // removerEstratosBtn
             // 
             this.removerEstratosBtn.Enabled = false;
-            this.removerEstratosBtn.Location = new System.Drawing.Point(347, 9);
+            this.removerEstratosBtn.Location = new System.Drawing.Point(319, 11);
             this.removerEstratosBtn.Name = "removerEstratosBtn";
-            this.removerEstratosBtn.Size = new System.Drawing.Size(104, 23);
-            this.removerEstratosBtn.TabIndex = 17;
+            this.removerEstratosBtn.Size = new System.Drawing.Size(102, 23);
+            this.removerEstratosBtn.TabIndex = 21;
             this.removerEstratosBtn.Text = "Remover Todos";
             this.removerEstratosBtn.UseVisualStyleBackColor = true;
             this.removerEstratosBtn.Click += new System.EventHandler(this.removerEstratosBtn_Click);
             // 
-            // estratoDGW
+            // actualizarBtn
+            // 
+            this.actualizarBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("actualizarBtn.BackgroundImage")));
+            this.actualizarBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.actualizarBtn.Enabled = false;
+            this.actualizarBtn.Location = new System.Drawing.Point(426, 11);
+            this.actualizarBtn.Name = "actualizarBtn";
+            this.actualizarBtn.Size = new System.Drawing.Size(23, 23);
+            this.actualizarBtn.TabIndex = 20;
+            this.actualizarBtn.UseVisualStyleBackColor = true;
+            this.actualizarBtn.Click += new System.EventHandler(this.actualizarBtn_Click);
+            // 
+            // errorLbl
+            // 
+            this.errorLbl.AutoSize = true;
+            this.errorLbl.Location = new System.Drawing.Point(7, 10);
+            this.errorLbl.Name = "errorLbl";
+            this.errorLbl.Size = new System.Drawing.Size(0, 13);
+            this.errorLbl.TabIndex = 19;
+            // 
+            // estratosDGW
             // 
             this.estratoDGW.AllowUserToAddRows = false;
             this.estratoDGW.AllowUserToDeleteRows = false;
@@ -578,10 +619,11 @@
             this.estratoDGW.DataSource = this.estratoBS;
             this.estratoDGW.Enabled = false;
             this.estratoDGW.Location = new System.Drawing.Point(6, 38);
-            this.estratoDGW.Name = "estratoDGW";
+            this.estratoDGW.Name = "estratosDGW";
             this.estratoDGW.Size = new System.Drawing.Size(446, 415);
             this.estratoDGW.TabIndex = 0;
             this.estratoDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.estratoDGW_CellValueChanged);
+            this.estratoDGW.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.estratoDGW_DataBindingComplete);
             // 
             // Estratos
             // 
@@ -649,6 +691,7 @@
             this.proyectoDGW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.proyectoDGW.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Proyectos,
+            this.Codigo,
             this.LUGAR,
             this.FECHA,
             this.OBJETIVOINVENTARIO,
@@ -666,6 +709,13 @@
             // 
             this.Proyectos.HeaderText = "Seleccion";
             this.Proyectos.Name = "Proyectos";
+            // 
+            // Codigo
+            // 
+            this.Codigo.DataPropertyName = "NROPROY";
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.Visible = false;
             // 
             // LUGAR
             // 
@@ -724,44 +774,6 @@
             this.GuardarBtn.UseVisualStyleBackColor = true;
             this.GuardarBtn.Click += new System.EventHandler(this.GuardarBtn_Click);
             // 
-            // siguienteBtn
-            // 
-            this.siguienteBtn.Location = new System.Drawing.Point(332, 472);
-            this.siguienteBtn.Name = "siguienteBtn";
-            this.siguienteBtn.Size = new System.Drawing.Size(75, 23);
-            this.siguienteBtn.TabIndex = 13;
-            this.siguienteBtn.Text = "Siguiente";
-            this.siguienteBtn.UseVisualStyleBackColor = true;
-            this.siguienteBtn.Click += new System.EventHandler(this.Siguiente_Click);
-            // 
-            // atrasBtn
-            // 
-            this.atrasBtn.Enabled = false;
-            this.atrasBtn.Location = new System.Drawing.Point(250, 472);
-            this.atrasBtn.Name = "atrasBtn";
-            this.atrasBtn.Size = new System.Drawing.Size(75, 23);
-            this.atrasBtn.TabIndex = 12;
-            this.atrasBtn.Text = "Atras";
-            this.atrasBtn.UseVisualStyleBackColor = true;
-            this.atrasBtn.Click += new System.EventHandler(this.Atras_Click);
-            // 
-            // numeroEtapasLbl
-            // 
-            numeroEtapasLbl.AutoSize = true;
-            numeroEtapasLbl.Location = new System.Drawing.Point(3, 107);
-            numeroEtapasLbl.Name = "numeroEtapasLbl";
-            numeroEtapasLbl.Size = new System.Drawing.Size(98, 13);
-            numeroEtapasLbl.TabIndex = 12;
-            numeroEtapasLbl.Text = "Numero de Etapas:";
-            // 
-            // numeroEtapasTxt
-            // 
-            this.numeroEtapasTxt.Location = new System.Drawing.Point(139, 104);
-            this.numeroEtapasTxt.Name = "numeroEtapasTxt";
-            this.numeroEtapasTxt.Size = new System.Drawing.Size(290, 20);
-            this.numeroEtapasTxt.TabIndex = 11;
-            this.numeroEtapasTxt.Text = "0";
-            // 
             // Crear_Proyecto_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -769,8 +781,6 @@
             this.BackgroundImage = global::SIFCA.Properties.Resources.fondoTab;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(582, 507);
-            this.Controls.Add(this.siguienteBtn);
-            this.Controls.Add(this.atrasBtn);
             this.Controls.Add(this.cancelarBtn);
             this.Controls.Add(this.GuardarBtn);
             this.Controls.Add(this.crearProyectoTab);
@@ -798,6 +808,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.especiesDGW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.especieBS)).EndInit();
             this.estratosTabP.ResumeLayout(false);
+            this.estratosTabP.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.estratoDGW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.estratoBS)).EndInit();
             this.proyectosContTabP.ResumeLayout(false);
@@ -833,16 +844,12 @@
         private System.Windows.Forms.BindingSource objetivoInventarioBS;
         private System.Windows.Forms.Button cancelarBtn;
         private System.Windows.Forms.Button GuardarBtn;
-        private System.Windows.Forms.Button siguienteBtn;
-        private System.Windows.Forms.Button atrasBtn;
         private System.Windows.Forms.BindingSource especieBS;
         private System.Windows.Forms.DataGridView estratoDGW;
         private System.Windows.Forms.BindingSource estratoBS;
         private System.Windows.Forms.DataGridView especiesDGW;
         private System.Windows.Forms.Button seleccEspecieBtn;
         private System.Windows.Forms.Button RemoverEspciesBtn;
-        private System.Windows.Forms.Button SeleccEstratosBtn;
-        private System.Windows.Forms.Button removerEstratosBtn;
         private System.Windows.Forms.ComboBox TipoProyectoCbx;
         private System.Windows.Forms.TabPage proyectosContTabP;
         private System.Windows.Forms.Button seleccionarProyectosBtn;
@@ -857,13 +864,18 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Estratos;
         private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPESTRATO;
         private System.Windows.Forms.DataGridViewTextBoxColumn Peso;
+        private System.Windows.Forms.TextBox numeroEtapasTxt;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Proyectos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn LUGAR;
         private System.Windows.Forms.DataGridViewTextBoxColumn FECHA;
         private System.Windows.Forms.DataGridViewTextBoxColumn OBJETIVOINVENTARIO;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMTIPODISEMUEST;
         private System.Windows.Forms.DataGridViewTextBoxColumn PesoProyecto;
-        private System.Windows.Forms.TextBox numeroEtapasTxt;
+        private System.Windows.Forms.Label errorLbl;
+        private System.Windows.Forms.Button SeleccEstratosBtn;
+        private System.Windows.Forms.Button removerEstratosBtn;
+        private System.Windows.Forms.Button actualizarBtn;
 
 
     }

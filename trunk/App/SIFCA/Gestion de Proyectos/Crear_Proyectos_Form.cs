@@ -15,26 +15,22 @@ namespace SIFCA
    
     public partial class Crear_Proyecto_Form : Form
     {
-        private int index;
         private ProjectBL project;
         private TypeSampleDesignBl typeExample;
         private ObjectiveInventoryBL objetiveInventory;
         private StratumBL stratum;
         private SpeciesBL species;
-        private List<ESPECIE> listEspecies;
-        private List<LISTADODEESTRATOS> litsStratum;
         private List<PROYECTO> listProjects;
         private PROYECTO newProject;
-
+        
         public Crear_Proyecto_Form()
         {
             InitializeComponent();
             this.ControlBox = false;
             newProject = new PROYECTO();
-            listEspecies = new List<ESPECIE>();
-            litsStratum = new List<LISTADODEESTRATOS>();
             listProjects = new List<PROYECTO>();
             project = new ProjectBL(Program.ContextData);
+            estratoDGW.Columns[2].DefaultCellStyle.Format = "0.000##";
             typeExample = new TypeSampleDesignBl (Program.ContextData);
             objetiveInventory = new ObjectiveInventoryBL(Program.ContextData);
             stratum = new StratumBL(Program.ContextData);
@@ -52,7 +48,6 @@ namespace SIFCA
             especiesDGW.DataSource=especieBS;
             proyectoBS.DataSource = project.GetProjects();
             proyectoDGW.DataSource = proyectoBS;
-            index = 1;
         }
 
         private void crearProyectoTab_DrawItem(object sender, DrawItemEventArgs e)
@@ -72,50 +67,24 @@ namespace SIFCA
             g.DrawString(sText, ctlTab.Font, Brushes.Black, iX, iY);
         }
 
-        private void Siguiente_Click(object sender, EventArgs e)
-        {
-            if (!atrasBtn.Enabled)atrasBtn.Enabled = true;
-            if (index == 3)
-            {
-                siguienteBtn.Enabled = false;
-                crearProyectoTab.SelectedIndex = index;
-                index--;
-            }
-            else
-            {
-                crearProyectoTab.SelectedIndex = index;
-                index++;
-            }
-        }
-
-        private void Atras_Click(object sender, EventArgs e)
-        {
-            if (!siguienteBtn.Enabled) siguienteBtn.Enabled = true;
-            if (index == 0)
-            {
-                atrasBtn.Enabled = false;
-                crearProyectoTab.SelectedIndex = index;
-                index++;
-            }
-            else
-            {
-                crearProyectoTab.SelectedIndex = index;
-                index--;
-            }
-            
-        }
+        
 
         //TODO:arreglar la navegacion, y sehabilitar los click en los tab para que unicamente funcione la navegacion
         private void GuardarBtn_Click(object sender, EventArgs e)
         {
             if(newProject.ESPECIE.Count>0)
             {
+                TIPODISENOMUESTRAL tipoDiseno = (TIPODISENOMUESTRAL)tipoDisenoCbx.SelectedItem;
+                if(tipoDiseno.DESCRIPTIPODISEMUEST=="Diseño estratificado"&&!(newProject.LISTADODEESTRATOS.Count>0))
+                {
+                    MessageBox.Show("No se ha seleccionado ningun estrato para el proyecto.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 newProject.NROPROY = Guid.NewGuid();
                 newProject.USUARIO = (USUARIO)Program.Cache.Get("user");
                 newProject.LUGAR = lugarTxt.Text;
                 newProject.DESCRIPCION = DescripcionTxt.Text;
                 OBJETIVOINVENTARIO objetivo = (OBJETIVOINVENTARIO)tipoObjetivoCbx.SelectedItem;
-                TIPODISENOMUESTRAL tipoDiseno = (TIPODISENOMUESTRAL)tipoDisenoCbx.SelectedItem;
                 newProject.OBJETIVOINVENTARIO = objetivo;
                 newProject.TIPODISENOMUESTRAL = tipoDiseno;
                 string tipoProyecto = TipoProyectoCbx.SelectedItem.ToString();
@@ -147,10 +116,6 @@ namespace SIFCA
             foreach (DataGridViewRow row in especiesDGW.Rows)
             {
                 row.Cells[0].Value = true;
-                string commonName = (string)row.Cells["NOMCOMUN"].Value;
-                string scientificName = (string)row.Cells["NOMCIENTIFICO"].Value;
-                ESPECIE data = species.GetSpecieByComNameAndScienName(commonName, scientificName);
-                if (data != null) newProject.ESPECIE.Add(data);
             }
         }
 
@@ -159,18 +124,17 @@ namespace SIFCA
             foreach (DataGridViewRow row in especiesDGW.Rows)
             {
                 row.Cells[0].Value = false;
-                string commonName = (string)row.Cells["NOMCOMUN"].Value;
-                string scientificName = (string)row.Cells["NOMCIENTIFICO"].Value;
-                ESPECIE data = species.GetSpecieByComNameAndScienName(commonName, scientificName);
-                if (data != null) newProject.ESPECIE.Remove(data);
             }
         }
 
         private void SeleccEstratosBtn_Click(object sender, EventArgs e)
         {
+            decimal porcentaje = (100.000m) / estratoDGW.Rows.Count;
             foreach (DataGridViewRow row in estratoDGW.Rows)
             {
                 row.Cells[0].Value = true;
+                row.Cells[2].Value = porcentaje;
+
             }
         }
 
@@ -179,6 +143,8 @@ namespace SIFCA
             foreach (DataGridViewRow row in estratoDGW.Rows)
             {
                 row.Cells[0].Value = false;
+                row.Cells[2].Value = 0.000m;
+                errorLbl.Text = "";
             }
         }
 
@@ -236,22 +202,114 @@ namespace SIFCA
                     if (Convert.ToBoolean(cellSelecion.Value))
                     {
                         LISTADODEESTRATOS stratumData = new LISTADODEESTRATOS();
-                        string descripcion = (string)row.Cells["DESCRIPESTRATO"].Value;
-                        stratumData.PESO = row.Cells["Peso"].Value!=null?(decimal)row.Cells["Peso"].Value:0;
-                        litsStratum.Add(stratumData);
+                        string description = (string)row.Cells["DESCRIPESTRATO"].Value;
+                        stratumData.PESO =Convert.ToDecimal(row.Cells["Peso"].Value);
+                        ESTRATO data = stratum.GetStratumByDescription(description);
+                        if (data != null)
+                        {
+                            stratumData.ESTRATO = data;
+                            stratumData.PROYECTO = newProject;
+                            newProject.LISTADODEESTRATOS.Add(stratumData);
+                        }
+                        decimal total=0;
+                        foreach (DataGridViewRow r in estratoDGW.Rows)
+                        {
+                            if (Convert.ToBoolean(r.Cells[0].Value)) total += Convert.ToDecimal(row.Cells[2].Value); 
+                        }
+                        if (total>100.000m)
+                        {
+                            errorLbl.Text = "La suma de los pesos no es 100";
+                            errorLbl.ForeColor = Color.Red;
+                        }
+                        else if(total>99.000m&&total<=100.000m)
+                        {
+                            errorLbl.Text = "Suma de pesos correcta.";
+                            errorLbl.ForeColor = Color.Green;
+                        }
+                        else
+                        {
+                            errorLbl.Text = "La suma de los pesos no es 100";
+                            errorLbl.ForeColor = Color.Red;
+                        }
                     }
                     else
                     {
                         LISTADODEESTRATOS stratumData = new LISTADODEESTRATOS();
                         string description = (string)row.Cells["DESCRIPESTRATO"].Value;
-                        stratumData.PESO = row.Cells["Peso"].Value != null ? (decimal)row.Cells["Peso"].Value : 0;
-                        litsStratum.Remove(stratumData);
+                        stratumData.PESO = Convert.ToDecimal(row.Cells["Peso"].Value); 
+                        row.Cells["Peso"].Value = 0.000m;
+                        ESTRATO data = stratum.GetStratumByDescription(description);
+                        if (data != null)
+                        {
+                            stratumData.ESTRATO = data;
+                            stratumData.PROYECTO = newProject;
+                            newProject.LISTADODEESTRATOS.Remove(stratumData);
+                        }
+                        decimal total = 0;
+                        foreach (DataGridViewRow r in estratoDGW.Rows)
+                        {
+                            if (Convert.ToBoolean(r.Cells[0].Value)) total += Convert.ToDecimal(row.Cells[2].Value);
+                        }
+                        if (total > 100.000m)
+                        {
+                            errorLbl.Text = "La suma de los pesos no es 100";
+                            errorLbl.ForeColor = Color.Red;
+                        }
+                        else if (total > 99.000m && total <= 100.000m)
+                        {
+                            errorLbl.Text = "Suma de pesos correcta.";
+                            errorLbl.ForeColor = Color.Green;
+                        }
+                        else
+                        {
+                            errorLbl.Text = "La suma de los pesos no es 100";
+                            errorLbl.ForeColor = Color.Red;
+                        }
                     }
                 }
-
+            }
+            if (estratoDGW.Columns[e.ColumnIndex].Name == "Peso")
+            {
+                DataGridViewRow row = estratoDGW.Rows[e.RowIndex];
+                DataGridViewCheckBoxCell cellSelecion = row.Cells[0] as DataGridViewCheckBoxCell;
+                if (cellSelecion.Value != null)
+                {
+                    //buscar elemento en la lista y modificarlo
+                    string description = (string)row.Cells["DESCRIPESTRATO"].Value;
+                    decimal peso = Convert.ToDecimal(row.Cells["Peso"].Value);
+                    foreach (var lstratum in newProject.LISTADODEESTRATOS)
+                    {
+                        if (lstratum.ESTRATO.DESCRIPESTRATO == description) 
+                        {
+                            lstratum.PESO = peso;
+                        }
+                    }
+                    //verificar suma
+                    decimal total = 0;
+                    foreach (DataGridViewRow r in estratoDGW.Rows)
+                    {
+                        if (Convert.ToBoolean(r.Cells[0].Value)) total += Convert.ToDecimal(row.Cells[2].Value);
+                    }
+                    if (total > 100.000m)
+                    {
+                        errorLbl.Text = "La suma de los pesos no es 100";
+                        errorLbl.ForeColor = Color.Red;
+                    }
+                    else if (total > 99.000m && total <= 100.000m)
+                    {
+                        errorLbl.Text = "Suma de pesos correcta.";
+                        errorLbl.ForeColor = Color.Green;
+                    }
+                    else
+                    {
+                        errorLbl.Text = "La suma de los pesos no es 100";
+                        errorLbl.ForeColor = Color.Red;
+                    }
+                }
             }
         }
 
+        //TODO: modificar que agregue los proyectos y modificar la base de datos para que acepte el peso del proyecto
         private void proyectoDGW_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (proyectoDGW.Columns[e.ColumnIndex].Name == "Proyectos")
@@ -321,5 +379,29 @@ namespace SIFCA
             }
         }
 
+         private void estratoDGW_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow row in estratoDGW.Rows)
+            {
+                row.Cells[2].Value = 0.000m;
+            }
+        }
+
+         private void actualizarBtn_Click(object sender, EventArgs e)
+         {
+             int count=0;
+             foreach (DataGridViewRow row in estratoDGW.Rows)
+             {
+                 if (Convert.ToBoolean(row.Cells[0].Value)) count++;
+             }
+             if (count > 0)
+             {
+                 decimal porcentaje = (100.000m) / count;
+                 foreach (DataGridViewRow row in estratoDGW.Rows)
+                 {
+                     if (Convert.ToBoolean(row.Cells[0].Value)) row.Cells[2].Value = porcentaje;
+                 }
+             }
+         }
     }
 }

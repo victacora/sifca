@@ -218,6 +218,9 @@ namespace SIFCA
             {
                 Program.Cache.Remove("user");
                 EstadoLbl.Text = "Ningun usuario autenticado";
+                Autenticar_Usuario_Form childForm = new Autenticar_Usuario_Form();
+                childForm.MdiParent = this;
+                childForm.Show();
             }
             else MessageBox.Show("Ningun usuario ha iniciado sesión.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
         }

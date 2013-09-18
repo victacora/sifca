@@ -75,6 +75,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.EstadoLbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.eliminarProyectoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -163,6 +164,7 @@
             this.fileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoProyectoTsm,
             this.listarProyectosTsm,
+            this.eliminarProyectoToolStripMenuItem,
             this.importarProyectoTsm,
             this.exportarProyectoTsm});
             this.fileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
@@ -424,6 +426,12 @@
             this.EstadoLbl.Size = new System.Drawing.Size(155, 17);
             this.EstadoLbl.Text = "Ningun usuario autenticado";
             // 
+            // eliminarProyectoToolStripMenuItem
+            // 
+            this.eliminarProyectoToolStripMenuItem.Name = "eliminarProyectoToolStripMenuItem";
+            this.eliminarProyectoToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.eliminarProyectoToolStripMenuItem.Text = "Eliminar Proyecto";
+            // 
             // Principal_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -497,6 +505,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem RegistrarUsuario;
         private System.Windows.Forms.ToolStripMenuItem listarDatosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarProyectoToolStripMenuItem;
     }
 }
 

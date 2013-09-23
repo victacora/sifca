@@ -32,6 +32,41 @@ namespace SIFCA_BLL
             return this.sifcaRepository.ESPECIE.SingleOrDefault(p=>p.NOMCOMUN ==commonName&&p.NOMCIENTIFICO==scientificName);
         }
 
+        public IEnumerable<ESPECIE> SearchSpecies(string search, string criteria)
+        {
+            if (criteria == "Grupo Comercial")
+            {
+                var query = from e in this.sifcaRepository.ESPECIE where (e.GRUPOCOM.Contains(search)) select e;
+                return query.ToList();
+            }
+            if (criteria == "Nombre Comun")
+            {
+                var query = from e in this.sifcaRepository.ESPECIE where (e.NOMCOMUN.Contains(search)) select e;
+                return query.ToList();
+            }
+            if (criteria == "Nombre Cientifico")
+            {
+                var query = from e in this.sifcaRepository.ESPECIE where (e.NOMCIENTIFICO.Contains(search)) select e;
+                return query.ToList();
+            }
+            if (criteria == "Familia")
+            {
+                var query = from e in this.sifcaRepository.ESPECIE where (e.FAMILIA.Contains(search)) select e;
+                return query.ToList();
+            }
+            if (criteria == "Zona Geografica")
+            {
+                var query = from e in this.sifcaRepository.ESPECIE where (e.ZONAGEOGRAFICA.Contains(search)) select e;
+                return query.ToList();
+            }
+            if (criteria == "Zona Vida")
+            {
+                var query = from e in this.sifcaRepository.ESPECIE where (e.ZONADEVIDA.Contains(search)) select e;
+                return query.ToList();
+            }
+            return new List<ESPECIE>();
+        }
+
         public void InsertSpecie(ESPECIE Specie)
         {
             try

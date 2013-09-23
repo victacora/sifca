@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace SIFCA
 {
-    public partial class Listar_Datos_Fomulario_Form : Form
+    public partial class Listar_Datos_Formulario_Form : Form
     {
-        public Listar_Datos_Fomulario_Form()
+        public Listar_Datos_Formulario_Form()
         {
             InitializeComponent();
         }

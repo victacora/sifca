@@ -369,9 +369,26 @@ namespace SIFCA
             this.Close();
         }
 
-        private void formulariosDGW_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        private void formulariosDGW_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.ColumnIndex == formulariosDGW.Columns["ListarDatos"].Index && e.RowIndex >= 0)
+            {
+                Listar_Datos_Formulario_Form childForm = new Listar_Datos_Formulario_Form();
+                childForm.MdiParent = this.ParentForm;
+                childForm.Show();
+                this.Close();
+            }
+        }
 
-        }    
+        private void formulariosDGW_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            UserBL user = new UserBL(Program.ContextData);
+            foreach (DataGridViewRow row in formulariosDGW.Rows)
+            {
+                USUARIO data = user.GetUser((Guid)row.Cells[1].Value);
+                if (data != null) row.Cells[2].Value = data.NOMBRES + " " + data.APELLIDOS;
+            }
+        }
+        
     }
 }

@@ -52,23 +52,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Gestion de Especies\Crear_Especie_Form.cs">
+    <Compile Include="Gestion de Especies\Especies_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestion de Especies\Crear_Especie_Form.designer.cs">
-      <DependentUpon>Crear_Especie_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gestion de Especies\Listado_Especies_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gestion de Especies\Listado_Especies_Form.designer.cs">
-      <DependentUpon>Listado_Especies_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gestion de Especies\Ver_Especie_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gestion de Especies\Ver_Especie_Form.Designer.cs">
-      <DependentUpon>Ver_Especie_Form.cs</DependentUpon>
+    <Compile Include="Gestion de Especies\Especies_Form.Designer.cs">
+      <DependentUpon>Especies_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestion de Estratos\Crear_Estrato_Form.cs">
       <SubType>Form</SubType>
@@ -105,6 +93,12 @@
     </Compile>
     <Compile Include="Gestion de Grupos Comerciales\Ver_GruposCom_Form.Designer.cs">
       <DependentUpon>Ver_GruposCom_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Proyectos\Abrir_Proyecto_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Proyectos\Abrir_Proyecto_Form.Designer.cs">
+      <DependentUpon>Abrir_Proyecto_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestion de Proyectos\Listar_Proyectos_Form.cs">
       <SubType>Form</SubType>
@@ -160,22 +154,16 @@
     <Compile Include="Gestion General\Principal_Form.Designer.cs">
       <DependentUpon>Principal_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestionar Formularios y Datos de Campo\Listar_Datos_Fomulario_Form.cs">
+    <Compile Include="Gestionar Formularios y Datos de Campo\Listar_Datos_Formulario_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestionar Formularios y Datos de Campo\Listar_Datos_Fomulario_Form.Designer.cs">
-      <DependentUpon>Listar_Datos_Fomulario_Form.cs</DependentUpon>
+    <Compile Include="Gestionar Formularios y Datos de Campo\Listar_Datos_Formulario_Form.Designer.cs">
+      <DependentUpon>Listar_Datos_Formulario_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Gestion de Especies\Crear_Especie_Form.resx">
-      <DependentUpon>Crear_Especie_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Especies\Listado_Especies_Form.resx">
-      <DependentUpon>Listado_Especies_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Especies\Ver_Especie_Form.resx">
-      <DependentUpon>Ver_Especie_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Gestion de Especies\Especies_Form.resx">
+      <DependentUpon>Especies_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Estratos\Crear_Estrato_Form.resx">
       <DependentUpon>Crear_Estrato_Form.cs</DependentUpon>
@@ -194,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Grupos Comerciales\Ver_GruposCom_Form.resx">
       <DependentUpon>Ver_GruposCom_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Proyectos\Abrir_Proyecto_Form.resx">
+      <DependentUpon>Abrir_Proyecto_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Proyectos\Listar_Proyectos_Form.resx">
       <DependentUpon>Listar_Proyectos_Form.cs</DependentUpon>
@@ -222,8 +213,8 @@
     <EmbeddedResource Include="Gestion General\Principal_Form.resx">
       <DependentUpon>Principal_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gestionar Formularios y Datos de Campo\Listar_Datos_Fomulario_Form.resx">
-      <DependentUpon>Listar_Datos_Fomulario_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Gestionar Formularios y Datos de Campo\Listar_Datos_Formulario_Form.resx">
+      <DependentUpon>Listar_Datos_Formulario_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

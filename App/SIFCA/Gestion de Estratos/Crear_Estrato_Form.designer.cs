@@ -42,16 +42,16 @@
             this.groupBox1.Controls.Add(this.btn_Crear);
             this.groupBox1.Controls.Add(this.txt_Nombre);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(22, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(265, 155);
+            this.groupBox1.Size = new System.Drawing.Size(282, 172);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Crear estrato";
             // 
             // btn_Cancelar
             // 
-            this.btn_Cancelar.Location = new System.Drawing.Point(176, 116);
+            this.btn_Cancelar.Location = new System.Drawing.Point(187, 143);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(89, 23);
             this.btn_Cancelar.TabIndex = 14;
@@ -61,7 +61,7 @@
             // 
             // btn_Crear
             // 
-            this.btn_Crear.Location = new System.Drawing.Point(59, 116);
+            this.btn_Crear.Location = new System.Drawing.Point(89, 143);
             this.btn_Crear.Name = "btn_Crear";
             this.btn_Crear.Size = new System.Drawing.Size(92, 23);
             this.btn_Crear.TabIndex = 1;
@@ -71,26 +71,26 @@
             // 
             // txt_Nombre
             // 
-            this.txt_Nombre.Location = new System.Drawing.Point(71, 26);
+            this.txt_Nombre.Location = new System.Drawing.Point(9, 35);
             this.txt_Nombre.Multiline = true;
             this.txt_Nombre.Name = "txt_Nombre";
-            this.txt_Nombre.Size = new System.Drawing.Size(188, 84);
+            this.txt_Nombre.Size = new System.Drawing.Size(267, 102);
             this.txt_Nombre.TabIndex = 8;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 29);
+            this.label2.Location = new System.Drawing.Point(8, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Descripcion";
+            this.label2.Text = "Descripcion:";
             // 
             // Crear_Estrato_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(308, 179);
+            this.ClientSize = new System.Drawing.Size(306, 196);
             this.Controls.Add(this.groupBox1);
             this.Name = "Crear_Estrato_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

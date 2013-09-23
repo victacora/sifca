@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using System.Runtime.Caching;
 using SIFCA_DAL;
 using SIFCA_BLL;
-using SIFCA.Gestion_de_Especies;
 
 
 namespace SIFCA
@@ -167,23 +166,23 @@ namespace SIFCA
 
         private void crearEspecieToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Ingresar_Especie_Form childForm = new Ingresar_Especie_Form();
-            childForm.MdiParent = this;
-            childForm.Show();
+            //Ingresar_Especie_Form childForm = new Ingresar_Especie_Form();
+            //childForm.MdiParent = this;
+            //childForm.Show();
         }
 
         private void verEspeciesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Ver_Especie_Form childForm = new Ver_Especie_Form();
-            childForm.MdiParent = this;
-            childForm.Show();
+            //Ver_Especie_Form childForm = new Ver_Especie_Form();
+            //childForm.MdiParent = this;
+            //childForm.Show();
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Listado_Especies_Form childForm = new Listado_Especies_Form();
-            childForm.MdiParent = this;
-            childForm.Show();
+            //Listado_Especies_Form childForm = new Listado_Especies_Form();
+            //childForm.MdiParent = this;
+            //childForm.Show();
 
         }
 
@@ -280,7 +279,7 @@ namespace SIFCA
             USUARIO user = (USUARIO)Program.Cache.Get("user");
             if (user != null)
             {
-                Listar_Datos_Fomulario_Form childForm = new Listar_Datos_Fomulario_Form();
+                Listar_Datos_Formulario_Form childForm = new Listar_Datos_Formulario_Form();
                 childForm.MdiParent = this;
                 childForm.Show();
             }

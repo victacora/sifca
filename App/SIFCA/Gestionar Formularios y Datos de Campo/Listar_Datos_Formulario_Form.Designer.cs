@@ -1,6 +1,6 @@
 ﻿namespace SIFCA
 {
-    partial class Listar_Datos_Fomulario_Form
+    partial class Listar_Datos_Formulario_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -39,7 +39,7 @@
             System.Windows.Forms.Label lineaLbl;
             System.Windows.Forms.Label ProyectoLbl;
             System.Windows.Forms.Label parcelaLbl;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Listar_Datos_Fomulario_Form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Listar_Datos_Formulario_Form));
             this.datosFormularioGrx = new System.Windows.Forms.GroupBox();
             this.estratoCbx = new System.Windows.Forms.ComboBox();
             this.tipoFormularioCbx = new System.Windows.Forms.ComboBox();
@@ -704,7 +704,7 @@
             this.dataGridViewTextBoxColumn24.HeaderText = "Observaciones";
             this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
             // 
-            // Listar_Datos_Fomulario_Form
+            // Listar_Datos_Formulario_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -712,7 +712,7 @@
             this.Controls.Add(this.lineasInevntarioTab);
             this.Controls.Add(this.lineaInventarioBN);
             this.Controls.Add(this.datosFormularioGrx);
-            this.Name = "Listar_Datos_Fomulario_Form";
+            this.Name = "Listar_Datos_Formulario_Form";
             this.Text = "Listar datos formularios";
             this.datosFormularioGrx.ResumeLayout(false);
             this.datosFormularioGrx.PerformLayout();

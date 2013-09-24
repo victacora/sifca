@@ -29,7 +29,7 @@ namespace SIFCA
             childForm.Show();
         }
         
-        private void CreateNewProject(object sender, EventArgs e)
+        private void nuevoProyectoTsm_Click(object sender, EventArgs e)
         {
             USUARIO user = (USUARIO)Program.Cache.Get("user");
             if (user != null)
@@ -40,29 +40,7 @@ namespace SIFCA
             }
             else MessageBox.Show("Usted No se ha Autenticado dentro del sistema.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
         }
-
-        private void ImportProject(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Filter = "Archivos de importacion xml (*.xml)|*.xml|Todos los archivos (*.*)|*.*";
-            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = openFileDialog.FileName;
-            }
-        }
-
-        private void ExportProject(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            saveFileDialog.Filter = "Archivos de exportacion (*.xml)|*.xml|Todos los archivos (*.*)|*.*";
-            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = saveFileDialog.FileName;
-            }
-        }
-
+        
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -91,13 +69,7 @@ namespace SIFCA
                 childForm.Close();
             }
         }
-
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-
+        
         private void listarEstacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Listar_Estaciones_Form childForm = new Listar_Estaciones_Form();
@@ -147,12 +119,8 @@ namespace SIFCA
             //childForm.Show();
         }
 
-        private void crearListadoEspeciesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
 
-        private void IniciarSesion_Click(object sender, EventArgs e)
+        private void iniciarSesionTsm_Click(object sender, EventArgs e)
         {
             USUARIO user = (USUARIO)Program.Cache.Get("user");
             if (user == null)
@@ -198,7 +166,7 @@ namespace SIFCA
             else MessageBox.Show("Usted No se ha Autenticado dentro del sistema.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
         }
 
-        private void ListarUsuarios_Click(object sender, EventArgs e)
+        private void listarUsuariosTsm_Click(object sender, EventArgs e)
         {
             USUARIO user = (USUARIO)Program.Cache.Get("user");
             if (user != null)
@@ -210,7 +178,7 @@ namespace SIFCA
             else  MessageBox.Show("Usted No se ha Autenticado dentro del sistema.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
         }
 
-        private void CerrarSesion_Click(object sender, EventArgs e)
+        private void cerrarSesionTsm_Click(object sender, EventArgs e)
         {
             USUARIO user = (USUARIO)Program.Cache.Get("user");
             if (user != null)
@@ -224,7 +192,7 @@ namespace SIFCA
             else MessageBox.Show("Ningun usuario ha iniciado sesión.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
         }
 
-        private void ActualizarDatosUsuario_Click(object sender, EventArgs e)
+        private void actualizarDatosUsuarioTsm_Click(object sender, EventArgs e)
         {
             USUARIO user = (USUARIO)Program.Cache.Get("user");
             if (user != null)
@@ -233,10 +201,10 @@ namespace SIFCA
                 childForm.MdiParent = this;
                 childForm.Show();
             }
-            else MessageBox.Show("Ningun usuario ha iniciado sesión. Inicie sesión en el sistema para poder realizar esta operación.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+            else MessageBox.Show("No se pudo recuperar la informacion del usuario.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
         }
 
-        private void listarProyectosTsm_Click(object sender, EventArgs e)
+        private void actualizarProyectoTsm_Click(object sender, EventArgs e)
         {
             USUARIO user = (USUARIO)Program.Cache.Get("user");
             if (user != null)
@@ -248,7 +216,7 @@ namespace SIFCA
             else MessageBox.Show("Ningun usuario ha iniciado sesión.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
         }
 
-        private void introducirDatosInventarioTsm_Click(object sender, EventArgs e)
+        private void crearFormularioTsm_Click(object sender, EventArgs e)
         {
             USUARIO user = (USUARIO)Program.Cache.Get("user");
             if (user != null)
@@ -274,7 +242,7 @@ namespace SIFCA
             childForm.Show();
         }
 
-        private void listarDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void abrirFormulariosTsm_Click(object sender, EventArgs e)
         {
             USUARIO user = (USUARIO)Program.Cache.Get("user");
             if (user != null)
@@ -287,7 +255,7 @@ namespace SIFCA
 
         }
 
-        private void abrirProyectosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void abrirProyectosTsm_Click(object sender, EventArgs e)
         {
             USUARIO user = (USUARIO)Program.Cache.Get("user");
             if (user != null)
@@ -310,13 +278,44 @@ namespace SIFCA
                     Program.Cache.Remove("project");
                     EstadoLbl.Text = "Usuario Autenticado: " + user.NOMBREUSUARIO;
                     this.Text = "SIFCA";
-                    Autenticar_Usuario_Form childForm = new Autenticar_Usuario_Form();
-                    childForm.MdiParent = this;
-                    childForm.Show();
                 }
                 else MessageBox.Show("Ningun proyecto ha sido abierto.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else MessageBox.Show("Ningun usuario ha iniciado sesión.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+        }
+
+        private void salirTsm_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void eliminarProyectoTsm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void importarProyectoTsm_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            openFileDialog.Filter = "Archivos de importacion xml (*.xml)|*.xml|Todos los archivos (*.*)|*.*";
+            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                string FileName = openFileDialog.FileName;
+            }
+        }
+
+
+        private void exportarProyectoTsm_Click(object sender, EventArgs e)
+        {
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            saveFileDialog.Filter = "Archivos de exportacion (*.xml)|*.xml|Todos los archivos (*.*)|*.*";
+            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                string FileName = saveFileDialog.FileName;
+            }
         }
 
 

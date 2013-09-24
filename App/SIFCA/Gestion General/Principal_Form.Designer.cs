@@ -33,7 +33,7 @@
             this.sistemaMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.actualizarDatosUsuarioTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.listarUsuariosTsm = new System.Windows.Forms.ToolStripMenuItem();
-            this.iniciarSesion = new System.Windows.Forms.ToolStripMenuItem();
+            this.iniciarSesionTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirTsm = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,6 +44,7 @@
             this.eliminarProyectoTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.importarProyectoTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.exportarProyectoTsm = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarProyectoTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.crearFormularioTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirFormulariosTsm = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,7 +71,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.EstadoLbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.cerrarProyectoTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -97,7 +97,7 @@
             this.sistemaMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.actualizarDatosUsuarioTsm,
             this.listarUsuariosTsm,
-            this.iniciarSesion,
+            this.iniciarSesionTsm,
             this.cerrarSesionTsm,
             this.toolStripSeparator1,
             this.salirTsm});
@@ -110,7 +110,8 @@
             this.actualizarDatosUsuarioTsm.Name = "actualizarDatosUsuarioTsm";
             this.actualizarDatosUsuarioTsm.Size = new System.Drawing.Size(189, 22);
             this.actualizarDatosUsuarioTsm.Text = "&Actualizar datos";
-            this.actualizarDatosUsuarioTsm.Click += new System.EventHandler(this.ActualizarDatosUsuario_Click);
+            this.actualizarDatosUsuarioTsm.Visible = false;
+            this.actualizarDatosUsuarioTsm.Click += new System.EventHandler(this.actualizarDatosUsuarioTsm_Click);
             // 
             // listarUsuariosTsm
             // 
@@ -118,21 +119,22 @@
             this.listarUsuariosTsm.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
             this.listarUsuariosTsm.Size = new System.Drawing.Size(189, 22);
             this.listarUsuariosTsm.Text = "&Listar usuarios";
-            this.listarUsuariosTsm.Click += new System.EventHandler(this.ListarUsuarios_Click);
+            this.listarUsuariosTsm.Visible = false;
+            this.listarUsuariosTsm.Click += new System.EventHandler(this.listarUsuariosTsm_Click);
             // 
-            // iniciarSesion
+            // iniciarSesionTsm
             // 
-            this.iniciarSesion.Name = "iniciarSesion";
-            this.iniciarSesion.Size = new System.Drawing.Size(189, 22);
-            this.iniciarSesion.Text = "&Iniciar sesion";
-            this.iniciarSesion.Click += new System.EventHandler(this.IniciarSesion_Click);
+            this.iniciarSesionTsm.Name = "iniciarSesionTsm";
+            this.iniciarSesionTsm.Size = new System.Drawing.Size(189, 22);
+            this.iniciarSesionTsm.Text = "&Iniciar sesion";
+            this.iniciarSesionTsm.Click += new System.EventHandler(this.iniciarSesionTsm_Click);
             // 
             // cerrarSesionTsm
             // 
             this.cerrarSesionTsm.Name = "cerrarSesionTsm";
             this.cerrarSesionTsm.Size = new System.Drawing.Size(189, 22);
             this.cerrarSesionTsm.Text = "&Cerrar sesion";
-            this.cerrarSesionTsm.Click += new System.EventHandler(this.CerrarSesion_Click);
+            this.cerrarSesionTsm.Click += new System.EventHandler(this.cerrarSesionTsm_Click);
             // 
             // toolStripSeparator1
             // 
@@ -144,6 +146,7 @@
             this.salirTsm.Name = "salirTsm";
             this.salirTsm.Size = new System.Drawing.Size(189, 22);
             this.salirTsm.Text = "&Salir";
+            this.salirTsm.Click += new System.EventHandler(this.salirTsm_Click);
             // 
             // proyectoMenu
             // 
@@ -165,7 +168,7 @@
             this.abrirProyectosTsm.Name = "abrirProyectosTsm";
             this.abrirProyectosTsm.Size = new System.Drawing.Size(207, 22);
             this.abrirProyectosTsm.Text = "Abrir proyecto";
-            this.abrirProyectosTsm.Click += new System.EventHandler(this.abrirProyectosToolStripMenuItem_Click);
+            this.abrirProyectosTsm.Click += new System.EventHandler(this.abrirProyectosTsm_Click);
             // 
             // nuevoProyectoTsm
             // 
@@ -174,20 +177,23 @@
             this.nuevoProyectoTsm.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.nuevoProyectoTsm.Size = new System.Drawing.Size(207, 22);
             this.nuevoProyectoTsm.Text = "&Nuevo proyecto";
-            this.nuevoProyectoTsm.Click += new System.EventHandler(this.CreateNewProject);
+            this.nuevoProyectoTsm.Click += new System.EventHandler(this.nuevoProyectoTsm_Click);
             // 
             // actualizarProyectoTsm
             // 
             this.actualizarProyectoTsm.Name = "actualizarProyectoTsm";
             this.actualizarProyectoTsm.Size = new System.Drawing.Size(207, 22);
             this.actualizarProyectoTsm.Text = "Actualizar  proyecto";
-            this.actualizarProyectoTsm.Click += new System.EventHandler(this.listarProyectosTsm_Click);
+            this.actualizarProyectoTsm.Visible = false;
+            this.actualizarProyectoTsm.Click += new System.EventHandler(this.actualizarProyectoTsm_Click);
             // 
             // eliminarProyectoTsm
             // 
             this.eliminarProyectoTsm.Name = "eliminarProyectoTsm";
             this.eliminarProyectoTsm.Size = new System.Drawing.Size(207, 22);
             this.eliminarProyectoTsm.Text = "Eliminar proyecto";
+            this.eliminarProyectoTsm.Visible = false;
+            this.eliminarProyectoTsm.Click += new System.EventHandler(this.eliminarProyectoTsm_Click);
             // 
             // importarProyectoTsm
             // 
@@ -195,6 +201,7 @@
             this.importarProyectoTsm.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
             this.importarProyectoTsm.Size = new System.Drawing.Size(207, 22);
             this.importarProyectoTsm.Text = "&Importar proyecto";
+            this.importarProyectoTsm.Click += new System.EventHandler(this.importarProyectoTsm_Click);
             // 
             // exportarProyectoTsm
             // 
@@ -202,6 +209,15 @@
             this.exportarProyectoTsm.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
             this.exportarProyectoTsm.Size = new System.Drawing.Size(207, 22);
             this.exportarProyectoTsm.Text = "&Exportar proyecto";
+            this.exportarProyectoTsm.Click += new System.EventHandler(this.exportarProyectoTsm_Click);
+            // 
+            // cerrarProyectoTsm
+            // 
+            this.cerrarProyectoTsm.Name = "cerrarProyectoTsm";
+            this.cerrarProyectoTsm.Size = new System.Drawing.Size(207, 22);
+            this.cerrarProyectoTsm.Text = "Cerrar proyecto";
+            this.cerrarProyectoTsm.Visible = false;
+            this.cerrarProyectoTsm.Click += new System.EventHandler(this.cerrarProyectoTsm_Click);
             // 
             // inventarioMenu
             // 
@@ -211,20 +227,21 @@
             this.inventarioMenu.Name = "inventarioMenu";
             this.inventarioMenu.Size = new System.Drawing.Size(72, 20);
             this.inventarioMenu.Text = "&Inventario";
+            this.inventarioMenu.Visible = false;
             // 
             // crearFormularioTsm
             // 
             this.crearFormularioTsm.Name = "crearFormularioTsm";
             this.crearFormularioTsm.Size = new System.Drawing.Size(167, 22);
             this.crearFormularioTsm.Text = "Crear  formulario";
-            this.crearFormularioTsm.Click += new System.EventHandler(this.introducirDatosInventarioTsm_Click);
+            this.crearFormularioTsm.Click += new System.EventHandler(this.crearFormularioTsm_Click);
             // 
             // abrirFormulariosTsm
             // 
             this.abrirFormulariosTsm.Name = "abrirFormulariosTsm";
             this.abrirFormulariosTsm.Size = new System.Drawing.Size(167, 22);
             this.abrirFormulariosTsm.Text = "Abrir  formularios";
-            this.abrirFormulariosTsm.Click += new System.EventHandler(this.listarDatosToolStripMenuItem_Click);
+            this.abrirFormulariosTsm.Click += new System.EventHandler(this.abrirFormulariosTsm_Click);
             // 
             // especiesMenu
             // 
@@ -237,7 +254,7 @@
             // listarEspeciesTsm
             // 
             this.listarEspeciesTsm.Name = "listarEspeciesTsm";
-            this.listarEspeciesTsm.Size = new System.Drawing.Size(152, 22);
+            this.listarEspeciesTsm.Size = new System.Drawing.Size(149, 22);
             this.listarEspeciesTsm.Text = "Listar especies";
             // 
             // ventanasMenu
@@ -384,13 +401,6 @@
             this.EstadoLbl.Size = new System.Drawing.Size(155, 17);
             this.EstadoLbl.Text = "Ningun usuario autenticado";
             // 
-            // cerrarProyectoTsm
-            // 
-            this.cerrarProyectoTsm.Name = "cerrarProyectoTsm";
-            this.cerrarProyectoTsm.Size = new System.Drawing.Size(207, 22);
-            this.cerrarProyectoTsm.Text = "Cerrar proyecto";
-            this.cerrarProyectoTsm.Click += new System.EventHandler(this.cerrarProyectoTsm_Click);
-            // 
             // Principal_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -453,7 +463,7 @@
         private System.Windows.Forms.ToolStripMenuItem tipoDeUsoTsm;
         private System.Windows.Forms.ToolStripMenuItem calidadTsm;
         private System.Windows.Forms.ToolStripMenuItem estadosTsm;
-        private System.Windows.Forms.ToolStripMenuItem iniciarSesion;
+        private System.Windows.Forms.ToolStripMenuItem iniciarSesionTsm;
         private System.Windows.Forms.ToolStripMenuItem abrirFormulariosTsm;
         private System.Windows.Forms.ToolStripMenuItem eliminarProyectoTsm;
         private System.Windows.Forms.ToolStripMenuItem actualizarDatosUsuarioTsm;

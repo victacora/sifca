@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using SIFCA_DAL;
 using System.Data;
+using System.Data.Objects.SqlClient;
 
 namespace SIFCA_BLL
 {
@@ -125,5 +126,41 @@ namespace SIFCA_BLL
             }
         }
 
+
+        public IEnumerable<PROYECTO> SearchProject(string search, string criteria)
+        {
+            if (criteria == "Responsable")
+            {
+                var query = from p in this.sifcaRepository.PROYECTO where ((p.USUARIO.NOMBRES+" "+p.USUARIO.APELLIDOS).Contains(search)) select p;
+                return query.ToList();
+            }
+            if (criteria == "Lugar")
+            {
+                var query = from p in this.sifcaRepository.PROYECTO where (p.LUGAR.Contains(search)) select p;
+                return query.ToList();
+            }
+            if (criteria == "Fecha (dd/mm/aaaa)")
+            {
+                DateTime parameter = DateTime.Parse(search);
+                var query = from p in this.sifcaRepository.PROYECTO where (p.FECHA==parameter) select p;
+                return query.ToList();
+            }
+            if (criteria == "Tipo Inventario")
+            {
+                var query = from p in this.sifcaRepository.PROYECTO where (p.OBJETIVOINVENTARIO.DESCRIPOBJETINV.Contains(search)) select p;
+                return query.ToList();
+            }
+            if (criteria == "Tipo Diseño")
+            {
+                var query = from p in this.sifcaRepository.PROYECTO where (p.TIPODISENOMUESTRAL.DESCRIPTIPODISEMUEST.Contains(search)) select p;
+                return query.ToList();
+            }
+            if (criteria == "Numero Etapas")
+            {
+                var query = from p in this.sifcaRepository.PROYECTO where ( SqlFunctions.StringConvert(p.NUMEROETAPAS).Contains(search)) select p;
+                return query.ToList();
+            }
+            return new List<PROYECTO>();
+        }
     }
 }

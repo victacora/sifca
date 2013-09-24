@@ -42,8 +42,7 @@ namespace SIFCA_BLL
             if (criteria == "Cedula")
             {
                 var query = from u in this.sifcaRepository.USUARIO where ( SqlFunctions.StringConvert(u.CEDULA).Contains(search)) select u;
-                List<USUARIO> prueba = query.ToList();
-                return prueba;
+                return query.ToList();
             }
             if (criteria == "Usuario")
             {

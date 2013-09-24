@@ -50,6 +50,7 @@ namespace SIFCA
                 Principal_Form parent= (Principal_Form)this.ParentForm;
                 parent.EstatusLabel.Text = parent.EstatusLabel.Text + " - Proyecto Abierto: "+result.LUGAR;
                 parent.Text = parent.Text + " - Proyecto Abierto " + result.LUGAR;
+                parent.changueMenuProject();
                 this.Close();
             }
         }

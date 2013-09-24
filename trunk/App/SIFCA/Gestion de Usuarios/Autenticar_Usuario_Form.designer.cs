@@ -36,8 +36,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.contrasenaTxt = new System.Windows.Forms.TextBox();
             this.usuarioTxt = new System.Windows.Forms.TextBox();
-            this.cancelarBtn = new System.Windows.Forms.Button();
             this.AceptarBtn = new System.Windows.Forms.Button();
+            this.SalirBtn = new System.Windows.Forms.Button();
             usuarioLbl = new System.Windows.Forms.Label();
             cONTRASENALabel = new System.Windows.Forms.Label();
             this.datosAutenticacionGbx.SuspendLayout();
@@ -67,6 +67,7 @@
             // 
             this.datosAutenticacionGbx.BackColor = System.Drawing.SystemColors.Window;
             this.datosAutenticacionGbx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.datosAutenticacionGbx.Controls.Add(this.SalirBtn);
             this.datosAutenticacionGbx.Controls.Add(this.label3);
             this.datosAutenticacionGbx.Controls.Add(this.label2);
             this.datosAutenticacionGbx.Controls.Add(this.label1);
@@ -74,7 +75,6 @@
             this.datosAutenticacionGbx.Controls.Add(this.contrasenaTxt);
             this.datosAutenticacionGbx.Controls.Add(usuarioLbl);
             this.datosAutenticacionGbx.Controls.Add(this.usuarioTxt);
-            this.datosAutenticacionGbx.Controls.Add(this.cancelarBtn);
             this.datosAutenticacionGbx.Controls.Add(this.AceptarBtn);
             this.datosAutenticacionGbx.ForeColor = System.Drawing.SystemColors.ControlText;
             this.datosAutenticacionGbx.Location = new System.Drawing.Point(23, 25);
@@ -129,27 +129,27 @@
             this.usuarioTxt.Size = new System.Drawing.Size(252, 31);
             this.usuarioTxt.TabIndex = 16;
             // 
-            // cancelarBtn
-            // 
-            this.cancelarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.cancelarBtn.Location = new System.Drawing.Point(190, 186);
-            this.cancelarBtn.Name = "cancelarBtn";
-            this.cancelarBtn.Size = new System.Drawing.Size(121, 32);
-            this.cancelarBtn.TabIndex = 7;
-            this.cancelarBtn.Text = "Salir";
-            this.cancelarBtn.UseVisualStyleBackColor = true;
-            this.cancelarBtn.Click += new System.EventHandler(this.cancelarBtn_Click);
-            // 
             // AceptarBtn
             // 
             this.AceptarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.AceptarBtn.Location = new System.Drawing.Point(59, 186);
+            this.AceptarBtn.Location = new System.Drawing.Point(59, 187);
             this.AceptarBtn.Name = "AceptarBtn";
-            this.AceptarBtn.Size = new System.Drawing.Size(121, 32);
+            this.AceptarBtn.Size = new System.Drawing.Size(124, 32);
             this.AceptarBtn.TabIndex = 6;
             this.AceptarBtn.Text = "Ingresar";
             this.AceptarBtn.UseVisualStyleBackColor = true;
             this.AceptarBtn.Click += new System.EventHandler(this.IngresarBtn_Click);
+            // 
+            // SalirBtn
+            // 
+            this.SalirBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.SalirBtn.Location = new System.Drawing.Point(187, 187);
+            this.SalirBtn.Name = "SalirBtn";
+            this.SalirBtn.Size = new System.Drawing.Size(124, 32);
+            this.SalirBtn.TabIndex = 26;
+            this.SalirBtn.Text = "Salir";
+            this.SalirBtn.UseVisualStyleBackColor = true;
+            this.SalirBtn.Click += new System.EventHandler(this.cancelarBtn_Click);
             // 
             // Autenticar_Usuario_Form
             // 
@@ -176,13 +176,13 @@
         #endregion
 
         private System.Windows.Forms.GroupBox datosAutenticacionGbx;
-        private System.Windows.Forms.Button cancelarBtn;
         private System.Windows.Forms.Button AceptarBtn;
         private System.Windows.Forms.TextBox usuarioTxt;
         private System.Windows.Forms.TextBox contrasenaTxt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button SalirBtn;
 
 
     }

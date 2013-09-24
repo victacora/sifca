@@ -30,36 +30,73 @@
         {
             this.components = new System.ComponentModel.Container();
             this.proyectoBS = new System.Windows.Forms.BindingSource(this.components);
-            this.proyectoBN = new System.Windows.Forms.BindingNavigator(this.components);
+            this.objetivoInvBS = new System.Windows.Forms.BindingSource(this.components);
+            this.tipoDisenoMuesBS = new System.Windows.Forms.BindingSource(this.components);
             this.buscarProyectoLbl = new System.Windows.Forms.ToolStripLabel();
             this.busquedaTxt = new System.Windows.Forms.ToolStripTextBox();
             this.criterioLbl = new System.Windows.Forms.ToolStripLabel();
             this.criterioCbx = new System.Windows.Forms.ToolStripComboBox();
+            this.proyectoBN = new System.Windows.Forms.BindingNavigator(this.components);
             this.proyectosDGW = new System.Windows.Forms.DataGridView();
             this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NROPROY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NROUSUARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Responsable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOMBRETIPOINV = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.objetivoInvBS = new System.Windows.Forms.BindingSource(this.components);
             this.NOMTIPODISEMUEST = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.tipoDisenoMuesBS = new System.Windows.Forms.BindingSource(this.components);
             this.LUGAR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NUMEROETAPAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Abrir = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.VerProyectosAsoc = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.objetivoInvBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoDisenoMuesBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoBN)).BeginInit();
             this.proyectoBN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.proyectosDGW)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.objetivoInvBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoDisenoMuesBS)).BeginInit();
             this.SuspendLayout();
             // 
             // proyectoBS
             // 
             this.proyectoBS.DataSource = typeof(SIFCA_DAL.PROYECTO);
+            // 
+            // objetivoInvBS
+            // 
+            this.objetivoInvBS.DataSource = typeof(SIFCA_DAL.OBJETIVOINVENTARIO);
+            // 
+            // tipoDisenoMuesBS
+            // 
+            this.tipoDisenoMuesBS.DataSource = typeof(SIFCA_DAL.TIPODISENOMUESTRAL);
+            // 
+            // buscarProyectoLbl
+            // 
+            this.buscarProyectoLbl.Name = "buscarProyectoLbl";
+            this.buscarProyectoLbl.Size = new System.Drawing.Size(95, 22);
+            this.buscarProyectoLbl.Text = "Buscar proyecto:";
+            // 
+            // busquedaTxt
+            // 
+            this.busquedaTxt.Name = "busquedaTxt";
+            this.busquedaTxt.Size = new System.Drawing.Size(150, 25);
+            this.busquedaTxt.TextChanged += new System.EventHandler(this.busquedaTxt_TextChanged);
+            // 
+            // criterioLbl
+            // 
+            this.criterioLbl.Name = "criterioLbl";
+            this.criterioLbl.Size = new System.Drawing.Size(104, 22);
+            this.criterioLbl.Text = "Criterio busqueda:";
+            // 
+            // criterioCbx
+            // 
+            this.criterioCbx.Items.AddRange(new object[] {
+            "Fecha (dd/mm/aaaa)",
+            "Responsable",
+            "Lugar",
+            "Tipo Inventario",
+            "Tipo Diseño",
+            "Numero Etapas"});
+            this.criterioCbx.Name = "criterioCbx";
+            this.criterioCbx.Size = new System.Drawing.Size(135, 25);
             // 
             // proyectoBN
             // 
@@ -83,40 +120,13 @@
             this.proyectoBN.TabIndex = 0;
             this.proyectoBN.Text = "bindingNavigator1";
             // 
-            // buscarProyectoLbl
-            // 
-            this.buscarProyectoLbl.Name = "buscarProyectoLbl";
-            this.buscarProyectoLbl.Size = new System.Drawing.Size(95, 22);
-            this.buscarProyectoLbl.Text = "Buscar proyecto:";
-            // 
-            // busquedaTxt
-            // 
-            this.busquedaTxt.Name = "busquedaTxt";
-            this.busquedaTxt.Size = new System.Drawing.Size(100, 25);
-            this.busquedaTxt.TextChanged += new System.EventHandler(this.busquedaTxt_TextChanged);
-            // 
-            // criterioLbl
-            // 
-            this.criterioLbl.Name = "criterioLbl";
-            this.criterioLbl.Size = new System.Drawing.Size(104, 22);
-            this.criterioLbl.Text = "Criterio busqueda:";
-            // 
-            // criterioCbx
-            // 
-            this.criterioCbx.Items.AddRange(new object[] {
-            "Fecha (dd/mm/aaaa)",
-            "Responsable",
-            "Lugar",
-            "Tipo Inventario",
-            "Tipo Diseño",
-            "Numero Etapas"});
-            this.criterioCbx.Name = "criterioCbx";
-            this.criterioCbx.Size = new System.Drawing.Size(121, 25);
-            // 
             // proyectosDGW
             // 
             this.proyectosDGW.AllowUserToAddRows = false;
             this.proyectosDGW.AllowUserToDeleteRows = false;
+            this.proyectosDGW.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.proyectosDGW.AutoGenerateColumns = false;
             this.proyectosDGW.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.proyectosDGW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -130,10 +140,8 @@
             this.LUGAR,
             this.DESCRIPCION,
             this.NUMEROETAPAS,
-            this.Abrir,
-            this.VerProyectosAsoc});
+            this.Abrir});
             this.proyectosDGW.DataSource = this.proyectoBS;
-            this.proyectosDGW.Dock = System.Windows.Forms.DockStyle.Fill;
             this.proyectosDGW.Location = new System.Drawing.Point(0, 25);
             this.proyectosDGW.Name = "proyectosDGW";
             this.proyectosDGW.ReadOnly = true;
@@ -183,10 +191,6 @@
             this.NOMBRETIPOINV.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.NOMBRETIPOINV.ValueMember = "NOMBRETIPOINV";
             // 
-            // objetivoInvBS
-            // 
-            this.objetivoInvBS.DataSource = typeof(SIFCA_DAL.OBJETIVOINVENTARIO);
-            // 
             // NOMTIPODISEMUEST
             // 
             this.NOMTIPODISEMUEST.DataPropertyName = "NOMTIPODISEMUEST";
@@ -198,10 +202,6 @@
             this.NOMTIPODISEMUEST.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.NOMTIPODISEMUEST.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.NOMTIPODISEMUEST.ValueMember = "NOMTIPODISEMUEST";
-            // 
-            // tipoDisenoMuesBS
-            // 
-            this.tipoDisenoMuesBS.DataSource = typeof(SIFCA_DAL.TIPODISENOMUESTRAL);
             // 
             // LUGAR
             // 
@@ -232,14 +232,6 @@
             this.Abrir.Text = "Abrir";
             this.Abrir.UseColumnTextForButtonValue = true;
             // 
-            // VerProyectosAsoc
-            // 
-            this.VerProyectosAsoc.HeaderText = "";
-            this.VerProyectosAsoc.Name = "VerProyectosAsoc";
-            this.VerProyectosAsoc.ReadOnly = true;
-            this.VerProyectosAsoc.Text = "Proyectos Asociados";
-            this.VerProyectosAsoc.UseColumnTextForButtonValue = true;
-            // 
             // Abrir_Proyecto_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,14 +242,13 @@
             this.Name = "Abrir_Proyecto_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Abrir Proyecto";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.proyectoBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.objetivoInvBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoDisenoMuesBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoBN)).EndInit();
             this.proyectoBN.ResumeLayout(false);
             this.proyectoBN.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.proyectosDGW)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.objetivoInvBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoDisenoMuesBS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,14 +257,14 @@
         #endregion
 
         private System.Windows.Forms.BindingSource proyectoBS;
-        private System.Windows.Forms.BindingNavigator proyectoBN;
-        private System.Windows.Forms.DataGridView proyectosDGW;
+        private System.Windows.Forms.BindingSource objetivoInvBS;
+        private System.Windows.Forms.BindingSource tipoDisenoMuesBS;
         private System.Windows.Forms.ToolStripLabel buscarProyectoLbl;
         private System.Windows.Forms.ToolStripTextBox busquedaTxt;
         private System.Windows.Forms.ToolStripLabel criterioLbl;
         private System.Windows.Forms.ToolStripComboBox criterioCbx;
-        private System.Windows.Forms.BindingSource objetivoInvBS;
-        private System.Windows.Forms.BindingSource tipoDisenoMuesBS;
+        private System.Windows.Forms.BindingNavigator proyectoBN;
+        private System.Windows.Forms.DataGridView proyectosDGW;
         private System.Windows.Forms.DataGridViewTextBoxColumn FECHA;
         private System.Windows.Forms.DataGridViewTextBoxColumn NROPROY;
         private System.Windows.Forms.DataGridViewTextBoxColumn NROUSUARIO;
@@ -284,6 +275,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPCION;
         private System.Windows.Forms.DataGridViewTextBoxColumn NUMEROETAPAS;
         private System.Windows.Forms.DataGridViewButtonColumn Abrir;
-        private System.Windows.Forms.DataGridViewButtonColumn VerProyectosAsoc;
     }
 }

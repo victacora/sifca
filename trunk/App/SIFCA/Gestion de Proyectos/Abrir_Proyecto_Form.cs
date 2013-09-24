@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using SIFCA_BLL;
 using SIFCA_DAL;
+using System.Runtime.Caching;
 
 namespace SIFCA
 {
@@ -42,18 +43,13 @@ namespace SIFCA
 
         private void proyectoDGW_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == proyectosDGW.Columns["VerProyectosAsoc"].Index && e.RowIndex >= 0)
-            {
-                Listar_Datos_Formulario_Form childForm = new Listar_Datos_Formulario_Form();
-                childForm.MdiParent = this.ParentForm;
-                childForm.Show();
-                this.Close();
-            }
             if (e.ColumnIndex == proyectosDGW.Columns["Abrir"].Index && e.RowIndex >= 0)
             {
-                Listar_Datos_Formulario_Form childForm = new Listar_Datos_Formulario_Form();
-                childForm.MdiParent = this.ParentForm;
-                childForm.Show();
+                PROYECTO result=project.GetProject((Guid)proyectosDGW.Rows[e.RowIndex].Cells[1].Value);
+                Program.Cache.Add("project", result, new CacheItemPolicy());
+                Principal_Form parent= (Principal_Form)this.ParentForm;
+                parent.EstatusLabel.Text = parent.EstatusLabel.Text + " Proyecto Abierto: "+result.LUGAR;
+                parent.Text = parent.Text + " Proyecto " + result.LUGAR;
                 this.Close();
             }
         }

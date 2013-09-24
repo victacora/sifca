@@ -287,6 +287,13 @@ namespace SIFCA
 
         }
 
+        private void abrirProyectosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Abrir_Proyecto_Form childForm = new Abrir_Proyecto_Form();
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
+
 
     }
 }

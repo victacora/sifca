@@ -684,7 +684,7 @@
             this.removerProyectosBtn.UseVisualStyleBackColor = true;
             this.removerProyectosBtn.Click += new System.EventHandler(this.removerProyectosBtn_Click);
             // 
-            // proyectoDGW
+            // proyectosDGW
             // 
             this.proyectoDGW.AllowUserToAddRows = false;
             this.proyectoDGW.AllowUserToDeleteRows = false;
@@ -704,7 +704,7 @@
             this.proyectoDGW.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.proyectoDGW.Enabled = false;
             this.proyectoDGW.Location = new System.Drawing.Point(0, 44);
-            this.proyectoDGW.Name = "proyectoDGW";
+            this.proyectoDGW.Name = "proyectosDGW";
             this.proyectoDGW.Size = new System.Drawing.Size(533, 415);
             this.proyectoDGW.TabIndex = 0;
             this.proyectoDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.proyectoDGW_CellValueChanged);

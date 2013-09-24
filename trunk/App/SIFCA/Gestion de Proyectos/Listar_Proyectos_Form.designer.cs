@@ -827,7 +827,7 @@
             this.proyectosContTabP.Text = "Proyectos contenidos";
             this.proyectosContTabP.UseVisualStyleBackColor = true;
             // 
-            // proyectoDGW
+            // proyectosDGW
             // 
             this.proyectoDGW.AllowUserToAddRows = false;
             this.proyectoDGW.AllowUserToDeleteRows = false;
@@ -863,7 +863,7 @@
             this.proyectoDGW.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.proyectoDGW.Enabled = false;
             this.proyectoDGW.Location = new System.Drawing.Point(0, 44);
-            this.proyectoDGW.Name = "proyectoDGW";
+            this.proyectoDGW.Name = "proyectosDGW";
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

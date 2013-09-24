@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.sistemaMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuarioMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.actualizarDatosUsuarioTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.listarUsuariosTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.iniciarSesionTsm = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,7 +78,7 @@
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sistemaMenu,
+            this.usuarioMenu,
             this.proyectoMenu,
             this.inventarioMenu,
             this.especiesMenu,
@@ -92,18 +92,18 @@
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
-            // sistemaMenu
+            // usuarioMenu
             // 
-            this.sistemaMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usuarioMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.actualizarDatosUsuarioTsm,
             this.listarUsuariosTsm,
             this.iniciarSesionTsm,
             this.cerrarSesionTsm,
             this.toolStripSeparator1,
             this.salirTsm});
-            this.sistemaMenu.Name = "sistemaMenu";
-            this.sistemaMenu.Size = new System.Drawing.Size(60, 20);
-            this.sistemaMenu.Text = "&Sistema";
+            this.usuarioMenu.Name = "usuarioMenu";
+            this.usuarioMenu.Size = new System.Drawing.Size(64, 20);
+            this.usuarioMenu.Text = "&Usuarios";
             // 
             // actualizarDatosUsuarioTsm
             // 
@@ -254,8 +254,9 @@
             // listarEspeciesTsm
             // 
             this.listarEspeciesTsm.Name = "listarEspeciesTsm";
-            this.listarEspeciesTsm.Size = new System.Drawing.Size(149, 22);
+            this.listarEspeciesTsm.Size = new System.Drawing.Size(152, 22);
             this.listarEspeciesTsm.Text = "Listar especies";
+            this.listarEspeciesTsm.Click += new System.EventHandler(this.listarEspeciesTsm_Click);
             // 
             // ventanasMenu
             // 
@@ -273,24 +274,28 @@
             this.cascadaTsm.Name = "cascadaTsm";
             this.cascadaTsm.Size = new System.Drawing.Size(175, 22);
             this.cascadaTsm.Text = "&Cascada";
+            this.cascadaTsm.Click += new System.EventHandler(this.cascadaTsm_Click);
             // 
             // mosaicoVerticalTsm
             // 
             this.mosaicoVerticalTsm.Name = "mosaicoVerticalTsm";
             this.mosaicoVerticalTsm.Size = new System.Drawing.Size(175, 22);
             this.mosaicoVerticalTsm.Text = "Mosaico &vertical";
+            this.mosaicoVerticalTsm.Click += new System.EventHandler(this.mosaicoVerticalTsm_Click);
             // 
             // mosaicoHorizontalTsm
             // 
             this.mosaicoHorizontalTsm.Name = "mosaicoHorizontalTsm";
             this.mosaicoHorizontalTsm.Size = new System.Drawing.Size(175, 22);
             this.mosaicoHorizontalTsm.Text = "Mosaico &horizontal";
+            this.mosaicoHorizontalTsm.Click += new System.EventHandler(this.mosaicoHorizontalTsm_Click);
             // 
             // cerrarTodoTsm
             // 
             this.cerrarTodoTsm.Name = "cerrarTodoTsm";
             this.cerrarTodoTsm.Size = new System.Drawing.Size(175, 22);
             this.cerrarTodoTsm.Text = "C&errar todo";
+            this.cerrarTodoTsm.Click += new System.EventHandler(this.cerrarTodoTsm_Click);
             // 
             // configuracionMenu
             // 
@@ -446,7 +451,7 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem inventarioMenu;
         private System.Windows.Forms.ToolStripMenuItem especiesMenu;
-        private System.Windows.Forms.ToolStripMenuItem sistemaMenu;
+        private System.Windows.Forms.ToolStripMenuItem usuarioMenu;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesionTsm;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem salirTsm;

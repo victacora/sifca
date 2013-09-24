@@ -289,9 +289,34 @@ namespace SIFCA
 
         private void abrirProyectosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Abrir_Proyecto_Form childForm = new Abrir_Proyecto_Form();
-            childForm.MdiParent = this;
-            childForm.Show();
+            USUARIO user = (USUARIO)Program.Cache.Get("user");
+            if (user != null)
+            {
+                Abrir_Proyecto_Form childForm = new Abrir_Proyecto_Form();
+                childForm.MdiParent = this;
+                childForm.Show();
+            }
+            else MessageBox.Show("Ningun usuario ha iniciado sesión.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+        }
+
+        private void cerrarProyectoTsm_Click(object sender, EventArgs e)
+        {
+            USUARIO user = (USUARIO)Program.Cache.Get("user");
+            PROYECTO project = (PROYECTO)Program.Cache.Get("project");
+            if (user != null)
+            {
+                if (project != null)
+                {
+                    Program.Cache.Remove("project");
+                    EstadoLbl.Text = "Usuario Autenticado: " + user.NOMBREUSUARIO;
+                    this.Text = "SIFCA";
+                    Autenticar_Usuario_Form childForm = new Autenticar_Usuario_Form();
+                    childForm.MdiParent = this;
+                    childForm.Show();
+                }
+                else MessageBox.Show("Ningun proyecto ha sido abierto.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else MessageBox.Show("Ningun usuario ha iniciado sesión.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
         }
 
 

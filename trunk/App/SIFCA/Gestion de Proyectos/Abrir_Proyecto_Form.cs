@@ -48,8 +48,8 @@ namespace SIFCA
                 PROYECTO result=project.GetProject((Guid)proyectosDGW.Rows[e.RowIndex].Cells[1].Value);
                 Program.Cache.Add("project", result, new CacheItemPolicy());
                 Principal_Form parent= (Principal_Form)this.ParentForm;
-                parent.EstatusLabel.Text = parent.EstatusLabel.Text + " Proyecto Abierto: "+result.LUGAR;
-                parent.Text = parent.Text + " Proyecto " + result.LUGAR;
+                parent.EstatusLabel.Text = parent.EstatusLabel.Text + " - Proyecto Abierto: "+result.LUGAR;
+                parent.Text = parent.Text + " - Proyecto Abierto " + result.LUGAR;
                 this.Close();
             }
         }

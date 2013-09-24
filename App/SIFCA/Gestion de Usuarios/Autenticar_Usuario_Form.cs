@@ -37,9 +37,9 @@ namespace SIFCA
             {
                 //ingresar el usuario a la cache para mantener activa sesion                
                 Program.Cache.Add("user",result, new CacheItemPolicy());
-                Principal_Form parent = (Principal_Form)ParentForm;
+                Principal_Form parent = (Principal_Form)this.ParentForm;
                 parent.EstatusLabel.Text = "Usuario Autenticado: "+result.NOMBREUSUARIO;
-                //modificar barra estado
+                parent.changueMenuUser();
                 this.Close();
             }
         }

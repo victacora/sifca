@@ -149,6 +149,12 @@ namespace SIFCA
             else  MessageBox.Show("Usted No se ha Autenticado dentro del sistema.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
         }
 
+        public void changueMenuUser() 
+        {
+            listarUsuariosTsm.Visible = true;
+            actualizarDatosUsuarioTsm.Visible = true;
+        }
+
         private void cerrarSesionTsm_Click(object sender, EventArgs e)
         {
             USUARIO user = (USUARIO)Program.Cache.Get("user");
@@ -156,6 +162,8 @@ namespace SIFCA
             {
                 Program.Cache.Remove("user");
                 EstadoLbl.Text = "Ningun usuario autenticado";
+                listarUsuariosTsm.Visible = false;
+                actualizarDatosUsuarioTsm.Visible = false;
                 Autenticar_Usuario_Form childForm = new Autenticar_Usuario_Form();
                 childForm.MdiParent = this;
                 childForm.Show();
@@ -226,6 +234,13 @@ namespace SIFCA
 
         }
 
+        public void changueMenuProject() 
+        {
+            inventarioMenu.Visible = true;
+            cerrarProyectoTsm.Visible = true;
+            actualizarProyectoTsm.Visible = true;
+            eliminarProyectoTsm.Visible = true;
+        }
         private void abrirProyectosTsm_Click(object sender, EventArgs e)
         {
             USUARIO user = (USUARIO)Program.Cache.Get("user");
@@ -248,6 +263,9 @@ namespace SIFCA
                 {
                     Program.Cache.Remove("project");
                     EstadoLbl.Text = "Usuario Autenticado: " + user.NOMBREUSUARIO;
+                    cerrarProyectoTsm.Visible = false;
+                    actualizarProyectoTsm.Visible = false;
+                    eliminarProyectoTsm.Visible = false;
                     this.Text = "SIFCA";
                 }
                 else MessageBox.Show("Ningun proyecto ha sido abierto.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);

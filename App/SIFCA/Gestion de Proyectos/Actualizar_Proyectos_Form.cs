@@ -323,9 +323,11 @@ namespace SIFCA
             UserBL user = new UserBL(Program.ContextData);
             foreach (DataGridViewRow row in formulariosDGW.Rows)
             {
-                Guid id = (Guid)row.Cells[1].Value;
-                USUARIO data = user.GetUser(id);
-                if (data != null) row.Cells[2].Value = data.NOMBRES + " " + data.APELLIDOS;
+                if (row.Cells[1].Value != null)
+                {
+                    USUARIO data = user.GetUser((Guid)row.Cells[1].Value);
+                    if (data != null) row.Cells[2].Value = data.NOMBRES + " " + data.APELLIDOS;
+                }
             }
         }
 

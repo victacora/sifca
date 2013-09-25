@@ -632,6 +632,7 @@
             this.listarDatosBtn.TabIndex = 77;
             this.listarDatosBtn.Text = "Listar datos";
             this.listarDatosBtn.UseVisualStyleBackColor = true;
+            this.listarDatosBtn.Click += new System.EventHandler(this.listarDatosBtn_Click);
             // 
             // cAPTxt
             // 
@@ -969,7 +970,7 @@
             // regeneracionBN
             // 
             this.regeneracionBN.AddNewItem = this.toolStripButton1;
-            this.regeneracionBN.BindingSource = this.lineaInvBS;
+            this.regeneracionBN.BindingSource = this.regeneracionBS;
             this.regeneracionBN.CountItem = this.toolStripLabel1;
             this.regeneracionBN.DeleteItem = this.toolStripButton2;
             this.regeneracionBN.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1162,7 +1163,7 @@
             // noMaderablesBN
             // 
             this.noMaderablesBN.AddNewItem = this.toolStripButton7;
-            this.noMaderablesBN.BindingSource = this.lineaInvBS;
+            this.noMaderablesBN.BindingSource = this.lineaNoMaderableBS;
             this.noMaderablesBN.CountItem = this.toolStripLabel2;
             this.noMaderablesBN.DeleteItem = this.toolStripButton8;
             this.noMaderablesBN.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1287,6 +1288,8 @@
             this.ClientSize = new System.Drawing.Size(768, 465);
             this.Controls.Add(this.datosTabControl);
             this.Controls.Add(this.datosFormularioGrx);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Crear_Formulario_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario de introduccion de datos";

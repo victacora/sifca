@@ -102,10 +102,10 @@ namespace SIFCA
             newLine.CALIDAD = (CALIDAD)calidadCbx.SelectedItem;
             newLine.ESTADOSANITARIO = (ESTADOSANITARIO)estadoCbx.SelectedItem;
             newLine.NROARB = int.Parse(nroArbolTxt.Text);
-            newLine.ALTCOMER_M = int.Parse(alturaComercialTxt.Text);
-            newLine.ALTTOT_M = int.Parse(alturaTotalTxt.Text);
-            newLine.CAP = int.Parse(cAPTxt.Text);
-            newLine.DAP = int.Parse(dAPTxt.Text);
+            newLine.ALTCOMER_M = decimal.Parse(alturaComercialTxt.Text);
+            newLine.ALTTOT_M = decimal.Parse(alturaTotalTxt.Text);
+            newLine.CAP = decimal.Parse(cAPTxt.Text);
+            newLine.DAP = decimal.Parse(dAPTxt.Text);
             newLine.AREABASAL = (decimal)((Math.PI * Math.Pow(((double)newLine.DAP), 2)) / 4);
             newLine.VOLCOM = newLine.AREABASAL * newLine.ALTCOMER_M * project.FACTORDEFORMA;
             newLine.VOLTOT = newLine.AREABASAL * newLine.ALTTOT_M * project.FACTORDEFORMA;
@@ -202,6 +202,7 @@ namespace SIFCA
                 newLineNoTimber.TIPODEUSO.Remove((TIPODEUSO)TipoDeUsosLbc.SelectedItem);
             }
         }
+
 
     }
 }

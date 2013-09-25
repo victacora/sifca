@@ -38,14 +38,11 @@
             System.Windows.Forms.Label coordenaYLbl;
             System.Windows.Forms.Label hORAFINALLabel;
             System.Windows.Forms.Label horaInicioLbl;
-            System.Windows.Forms.Label volumenComercialLbl;
-            System.Windows.Forms.Label volumenTotalLbl;
             System.Windows.Forms.Label cAPLbl;
             System.Windows.Forms.Label nrArbolLbl;
             System.Windows.Forms.Label especieLbl;
             System.Windows.Forms.Label alturaComercialLbl;
             System.Windows.Forms.Label alturaTotalLbl;
-            System.Windows.Forms.Label areaBasalLbl;
             System.Windows.Forms.Label calidadLbl;
             System.Windows.Forms.Label dAPLbl;
             System.Windows.Forms.Label estadoLbl;
@@ -54,15 +51,16 @@
             System.Windows.Forms.Label latizalLbl;
             System.Windows.Forms.Label nroRegenArbolLbl;
             System.Windows.Forms.Label observacionesLbl;
+            System.Windows.Forms.Label label1;
+            System.Windows.Forms.Label label2;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Crear_Formulario_Form));
             this.formularioBS = new System.Windows.Forms.BindingSource(this.components);
             this.datosFormularioGrx = new System.Windows.Forms.GroupBox();
+            this.proyectoTxt = new System.Windows.Forms.TextBox();
             this.guardarTodoBtn = new System.Windows.Forms.Button();
             this.estratoCbx = new System.Windows.Forms.ComboBox();
             this.estratoBS = new System.Windows.Forms.BindingSource(this.components);
             this.guardarformularioBtn = new System.Windows.Forms.Button();
-            this.proyectoCbx = new System.Windows.Forms.ComboBox();
-            this.proyectoBS = new System.Windows.Forms.BindingSource(this.components);
             this.inicioDpk = new System.Windows.Forms.DateTimePicker();
             this.coordXTxt = new System.Windows.Forms.TextBox();
             this.coordYTxt = new System.Windows.Forms.TextBox();
@@ -70,6 +68,7 @@
             this.responsableTxt = new System.Windows.Forms.TextBox();
             this.lineaInventarioTxt = new System.Windows.Forms.TextBox();
             this.parcelaTxt = new System.Windows.Forms.TextBox();
+            this.proyectoBS = new System.Windows.Forms.BindingSource(this.components);
             this.lineaInvBS = new System.Windows.Forms.BindingSource(this.components);
             this.especieBS = new System.Windows.Forms.BindingSource(this.components);
             this.estadoSanitarioBS = new System.Windows.Forms.BindingSource(this.components);
@@ -79,8 +78,6 @@
             this.datosInventarioGrx = new System.Windows.Forms.GroupBox();
             this.RegistrarEspecieBtn = new System.Windows.Forms.Button();
             this.listarDatosBtn = new System.Windows.Forms.Button();
-            this.volComercialTxt = new System.Windows.Forms.TextBox();
-            this.volTotalTxt = new System.Windows.Forms.TextBox();
             this.cAPTxt = new System.Windows.Forms.TextBox();
             this.nroArbolTxt = new System.Windows.Forms.TextBox();
             this.especieCbx = new System.Windows.Forms.ComboBox();
@@ -89,7 +86,6 @@
             this.guardarLineaBtn = new System.Windows.Forms.Button();
             this.alturaComercialTxt = new System.Windows.Forms.TextBox();
             this.alturaTotalTxt = new System.Windows.Forms.TextBox();
-            this.areaBasalTxt = new System.Windows.Forms.TextBox();
             this.lineaInvBN = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -105,11 +101,14 @@
             this.dAPTxt = new System.Windows.Forms.TextBox();
             this.RegeneracionTP = new System.Windows.Forms.TabPage();
             this.datosRegenGrx = new System.Windows.Forms.GroupBox();
+            this.latizalTxt = new System.Windows.Forms.TextBox();
+            this.regenracionBS = new System.Windows.Forms.BindingSource(this.components);
+            this.brinzalTxt = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.latizalRbn = new System.Windows.Forms.RadioButton();
+            this.brinzalRbn = new System.Windows.Forms.RadioButton();
             this.registrarEspecieRegenBtn = new System.Windows.Forms.Button();
             this.especieRegenCbx = new System.Windows.Forms.ComboBox();
-            this.brinzalTxt = new System.Windows.Forms.TextBox();
-            this.regenracionBS = new System.Windows.Forms.BindingSource(this.components);
-            this.latizalTxt = new System.Windows.Forms.TextBox();
             this.nroArbolRegenTxt = new System.Windows.Forms.TextBox();
             this.listarRegenbtn = new System.Windows.Forms.Button();
             this.guardarRegenBtn = new System.Windows.Forms.Button();
@@ -155,14 +154,11 @@
             coordenaYLbl = new System.Windows.Forms.Label();
             hORAFINALLabel = new System.Windows.Forms.Label();
             horaInicioLbl = new System.Windows.Forms.Label();
-            volumenComercialLbl = new System.Windows.Forms.Label();
-            volumenTotalLbl = new System.Windows.Forms.Label();
             cAPLbl = new System.Windows.Forms.Label();
             nrArbolLbl = new System.Windows.Forms.Label();
             especieLbl = new System.Windows.Forms.Label();
             alturaComercialLbl = new System.Windows.Forms.Label();
             alturaTotalLbl = new System.Windows.Forms.Label();
-            areaBasalLbl = new System.Windows.Forms.Label();
             calidadLbl = new System.Windows.Forms.Label();
             dAPLbl = new System.Windows.Forms.Label();
             estadoLbl = new System.Windows.Forms.Label();
@@ -171,6 +167,8 @@
             latizalLbl = new System.Windows.Forms.Label();
             nroRegenArbolLbl = new System.Windows.Forms.Label();
             observacionesLbl = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.formularioBS)).BeginInit();
             this.datosFormularioGrx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.estratoBS)).BeginInit();
@@ -187,6 +185,7 @@
             this.RegeneracionTP.SuspendLayout();
             this.datosRegenGrx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.regenracionBS)).BeginInit();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.regenacionBN)).BeginInit();
             this.regenacionBN.SuspendLayout();
             this.NoMaderablesTP.SuspendLayout();
@@ -278,24 +277,6 @@
             horaInicioLbl.TabIndex = 59;
             horaInicioLbl.Text = "Inicio :";
             // 
-            // volumenComercialLbl
-            // 
-            volumenComercialLbl.AutoSize = true;
-            volumenComercialLbl.Location = new System.Drawing.Point(17, 294);
-            volumenComercialLbl.Name = "volumenComercialLbl";
-            volumenComercialLbl.Size = new System.Drawing.Size(100, 13);
-            volumenComercialLbl.TabIndex = 73;
-            volumenComercialLbl.Text = "Volumen Comercial:";
-            // 
-            // volumenTotalLbl
-            // 
-            volumenTotalLbl.AutoSize = true;
-            volumenTotalLbl.Location = new System.Drawing.Point(17, 320);
-            volumenTotalLbl.Name = "volumenTotalLbl";
-            volumenTotalLbl.Size = new System.Drawing.Size(78, 13);
-            volumenTotalLbl.TabIndex = 75;
-            volumenTotalLbl.Text = "Volumen Total:";
-            // 
             // cAPLbl
             // 
             cAPLbl.AutoSize = true;
@@ -326,7 +307,7 @@
             // alturaComercialLbl
             // 
             alturaComercialLbl.AutoSize = true;
-            alturaComercialLbl.Location = new System.Drawing.Point(17, 240);
+            alturaComercialLbl.Location = new System.Drawing.Point(17, 218);
             alturaComercialLbl.Name = "alturaComercialLbl";
             alturaComercialLbl.Size = new System.Drawing.Size(115, 13);
             alturaComercialLbl.TabIndex = 26;
@@ -335,20 +316,11 @@
             // alturaTotalLbl
             // 
             alturaTotalLbl.AutoSize = true;
-            alturaTotalLbl.Location = new System.Drawing.Point(17, 266);
+            alturaTotalLbl.Location = new System.Drawing.Point(17, 244);
             alturaTotalLbl.Name = "alturaTotalLbl";
             alturaTotalLbl.Size = new System.Drawing.Size(93, 13);
             alturaTotalLbl.TabIndex = 28;
             alturaTotalLbl.Text = "Altura Total (Mtrs):";
-            // 
-            // areaBasalLbl
-            // 
-            areaBasalLbl.AutoSize = true;
-            areaBasalLbl.Location = new System.Drawing.Point(16, 214);
-            areaBasalLbl.Name = "areaBasalLbl";
-            areaBasalLbl.Size = new System.Drawing.Size(60, 13);
-            areaBasalLbl.TabIndex = 30;
-            areaBasalLbl.Text = "Area basal:";
             // 
             // calidadLbl
             // 
@@ -380,7 +352,7 @@
             // brinzalLbl
             // 
             brinzalLbl.AutoSize = true;
-            brinzalLbl.Location = new System.Drawing.Point(17, 107);
+            brinzalLbl.Location = new System.Drawing.Point(12, 21);
             brinzalLbl.Name = "brinzalLbl";
             brinzalLbl.Size = new System.Drawing.Size(41, 13);
             brinzalLbl.TabIndex = 77;
@@ -398,7 +370,7 @@
             // latizalLbl
             // 
             latizalLbl.AutoSize = true;
-            latizalLbl.Location = new System.Drawing.Point(17, 133);
+            latizalLbl.Location = new System.Drawing.Point(12, 47);
             latizalLbl.Name = "latizalLbl";
             latizalLbl.Size = new System.Drawing.Size(40, 13);
             latizalLbl.TabIndex = 81;
@@ -422,6 +394,24 @@
             observacionesLbl.TabIndex = 78;
             observacionesLbl.Text = "Observaciones:";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(18, 213);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(40, 13);
+            label1.TabIndex = 95;
+            label1.Text = "Latizal:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(18, 187);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(41, 13);
+            label2.TabIndex = 94;
+            label2.Text = "Brinzal:";
+            // 
             // formularioBS
             // 
             this.formularioBS.DataSource = typeof(SIFCA_DAL.FORMULARIO);
@@ -429,10 +419,10 @@
             // datosFormularioGrx
             // 
             this.datosFormularioGrx.BackColor = System.Drawing.SystemColors.Window;
+            this.datosFormularioGrx.Controls.Add(this.proyectoTxt);
             this.datosFormularioGrx.Controls.Add(this.guardarTodoBtn);
             this.datosFormularioGrx.Controls.Add(this.estratoCbx);
             this.datosFormularioGrx.Controls.Add(this.guardarformularioBtn);
-            this.datosFormularioGrx.Controls.Add(this.proyectoCbx);
             this.datosFormularioGrx.Controls.Add(horaInicioLbl);
             this.datosFormularioGrx.Controls.Add(this.inicioDpk);
             this.datosFormularioGrx.Controls.Add(coordenadasXLbl);
@@ -455,6 +445,14 @@
             this.datosFormularioGrx.TabIndex = 0;
             this.datosFormularioGrx.TabStop = false;
             this.datosFormularioGrx.Text = "Datos del Formulario";
+            // 
+            // proyectoTxt
+            // 
+            this.proyectoTxt.Enabled = false;
+            this.proyectoTxt.Location = new System.Drawing.Point(125, 51);
+            this.proyectoTxt.Name = "proyectoTxt";
+            this.proyectoTxt.Size = new System.Drawing.Size(200, 20);
+            this.proyectoTxt.TabIndex = 68;
             // 
             // guardarTodoBtn
             // 
@@ -490,21 +488,6 @@
             this.guardarformularioBtn.Text = "Guardar Formulario";
             this.guardarformularioBtn.UseVisualStyleBackColor = true;
             this.guardarformularioBtn.Click += new System.EventHandler(this.guardarformularioBtn_Click);
-            // 
-            // proyectoCbx
-            // 
-            this.proyectoCbx.DataSource = this.proyectoBS;
-            this.proyectoCbx.DisplayMember = "LUGAR";
-            this.proyectoCbx.FormattingEnabled = true;
-            this.proyectoCbx.Location = new System.Drawing.Point(125, 51);
-            this.proyectoCbx.Name = "proyectoCbx";
-            this.proyectoCbx.Size = new System.Drawing.Size(200, 21);
-            this.proyectoCbx.TabIndex = 61;
-            this.proyectoCbx.ValueMember = "NROPROY";
-            // 
-            // proyectoBS
-            // 
-            this.proyectoBS.DataSource = typeof(SIFCA_DAL.PROYECTO);
             // 
             // inicioDpk
             // 
@@ -559,6 +542,10 @@
             this.parcelaTxt.Size = new System.Drawing.Size(200, 20);
             this.parcelaTxt.TabIndex = 46;
             // 
+            // proyectoBS
+            // 
+            this.proyectoBS.DataSource = typeof(SIFCA_DAL.PROYECTO);
+            // 
             // lineaInvBS
             // 
             this.lineaInvBS.DataSource = typeof(SIFCA_DAL.LINEAINVENTARIO);
@@ -603,10 +590,6 @@
             this.datosInventarioGrx.BackColor = System.Drawing.SystemColors.Window;
             this.datosInventarioGrx.Controls.Add(this.RegistrarEspecieBtn);
             this.datosInventarioGrx.Controls.Add(this.listarDatosBtn);
-            this.datosInventarioGrx.Controls.Add(volumenComercialLbl);
-            this.datosInventarioGrx.Controls.Add(this.volComercialTxt);
-            this.datosInventarioGrx.Controls.Add(volumenTotalLbl);
-            this.datosInventarioGrx.Controls.Add(this.volTotalTxt);
             this.datosInventarioGrx.Controls.Add(cAPLbl);
             this.datosInventarioGrx.Controls.Add(this.cAPTxt);
             this.datosInventarioGrx.Controls.Add(nrArbolLbl);
@@ -620,8 +603,6 @@
             this.datosInventarioGrx.Controls.Add(this.alturaComercialTxt);
             this.datosInventarioGrx.Controls.Add(alturaTotalLbl);
             this.datosInventarioGrx.Controls.Add(this.alturaTotalTxt);
-            this.datosInventarioGrx.Controls.Add(areaBasalLbl);
-            this.datosInventarioGrx.Controls.Add(this.areaBasalTxt);
             this.datosInventarioGrx.Controls.Add(this.lineaInvBN);
             this.datosInventarioGrx.Controls.Add(calidadLbl);
             this.datosInventarioGrx.Controls.Add(dAPLbl);
@@ -652,22 +633,6 @@
             this.listarDatosBtn.Text = "Listar datos";
             this.listarDatosBtn.UseVisualStyleBackColor = true;
             // 
-            // volComercialTxt
-            // 
-            this.volComercialTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "VOLCOM", true));
-            this.volComercialTxt.Location = new System.Drawing.Point(134, 291);
-            this.volComercialTxt.Name = "volComercialTxt";
-            this.volComercialTxt.Size = new System.Drawing.Size(238, 20);
-            this.volComercialTxt.TabIndex = 74;
-            // 
-            // volTotalTxt
-            // 
-            this.volTotalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "VOLTOT", true));
-            this.volTotalTxt.Location = new System.Drawing.Point(134, 317);
-            this.volTotalTxt.Name = "volTotalTxt";
-            this.volTotalTxt.Size = new System.Drawing.Size(238, 20);
-            this.volTotalTxt.TabIndex = 76;
-            // 
             // cAPTxt
             // 
             this.cAPTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "CAP", true));
@@ -675,6 +640,7 @@
             this.cAPTxt.Name = "cAPTxt";
             this.cAPTxt.Size = new System.Drawing.Size(238, 20);
             this.cAPTxt.TabIndex = 72;
+            this.cAPTxt.TextChanged += new System.EventHandler(this.cAPTxt_TextChanged);
             // 
             // nroArbolTxt
             // 
@@ -730,7 +696,7 @@
             // alturaComercialTxt
             // 
             this.alturaComercialTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "ALTCOMER_M", true));
-            this.alturaComercialTxt.Location = new System.Drawing.Point(134, 237);
+            this.alturaComercialTxt.Location = new System.Drawing.Point(134, 215);
             this.alturaComercialTxt.Name = "alturaComercialTxt";
             this.alturaComercialTxt.Size = new System.Drawing.Size(238, 20);
             this.alturaComercialTxt.TabIndex = 27;
@@ -738,18 +704,10 @@
             // alturaTotalTxt
             // 
             this.alturaTotalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "ALTTOT_M", true));
-            this.alturaTotalTxt.Location = new System.Drawing.Point(134, 263);
+            this.alturaTotalTxt.Location = new System.Drawing.Point(134, 241);
             this.alturaTotalTxt.Name = "alturaTotalTxt";
             this.alturaTotalTxt.Size = new System.Drawing.Size(238, 20);
             this.alturaTotalTxt.TabIndex = 29;
-            // 
-            // areaBasalTxt
-            // 
-            this.areaBasalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "AREABASAL", true));
-            this.areaBasalTxt.Location = new System.Drawing.Point(134, 211);
-            this.areaBasalTxt.Name = "areaBasalTxt";
-            this.areaBasalTxt.Size = new System.Drawing.Size(238, 20);
-            this.areaBasalTxt.TabIndex = 31;
             // 
             // lineaInvBN
             // 
@@ -872,6 +830,7 @@
             this.dAPTxt.Name = "dAPTxt";
             this.dAPTxt.Size = new System.Drawing.Size(238, 20);
             this.dAPTxt.TabIndex = 13;
+            this.dAPTxt.TextChanged += new System.EventHandler(this.dAPTxt_TextChanged);
             // 
             // RegeneracionTP
             // 
@@ -888,13 +847,14 @@
             // datosRegenGrx
             // 
             this.datosRegenGrx.BackColor = System.Drawing.SystemColors.Window;
+            this.datosRegenGrx.Controls.Add(this.latizalTxt);
+            this.datosRegenGrx.Controls.Add(this.brinzalTxt);
+            this.datosRegenGrx.Controls.Add(label1);
+            this.datosRegenGrx.Controls.Add(label2);
+            this.datosRegenGrx.Controls.Add(this.groupBox1);
             this.datosRegenGrx.Controls.Add(this.registrarEspecieRegenBtn);
             this.datosRegenGrx.Controls.Add(this.especieRegenCbx);
-            this.datosRegenGrx.Controls.Add(brinzalLbl);
-            this.datosRegenGrx.Controls.Add(this.brinzalTxt);
             this.datosRegenGrx.Controls.Add(especieRegeLbl);
-            this.datosRegenGrx.Controls.Add(latizalLbl);
-            this.datosRegenGrx.Controls.Add(this.latizalTxt);
             this.datosRegenGrx.Controls.Add(nroRegenArbolLbl);
             this.datosRegenGrx.Controls.Add(this.nroArbolRegenTxt);
             this.datosRegenGrx.Controls.Add(this.listarRegenbtn);
@@ -905,6 +865,60 @@
             this.datosRegenGrx.Size = new System.Drawing.Size(380, 420);
             this.datosRegenGrx.TabIndex = 2;
             this.datosRegenGrx.TabStop = false;
+            this.datosRegenGrx.Enter += new System.EventHandler(this.datosRegenGrx_Enter);
+            // 
+            // latizalTxt
+            // 
+            this.latizalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regenracionBS, "NROARB", true));
+            this.latizalTxt.Location = new System.Drawing.Point(104, 210);
+            this.latizalTxt.Name = "latizalTxt";
+            this.latizalTxt.Size = new System.Drawing.Size(266, 20);
+            this.latizalTxt.TabIndex = 97;
+            // 
+            // regenracionBS
+            // 
+            this.regenracionBS.DataSource = typeof(SIFCA_DAL.LINEAREGENERACION);
+            // 
+            // brinzalTxt
+            // 
+            this.brinzalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regenracionBS, "NROARB", true));
+            this.brinzalTxt.Location = new System.Drawing.Point(104, 184);
+            this.brinzalTxt.Name = "brinzalTxt";
+            this.brinzalTxt.Size = new System.Drawing.Size(266, 20);
+            this.brinzalTxt.TabIndex = 96;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.latizalRbn);
+            this.groupBox1.Controls.Add(latizalLbl);
+            this.groupBox1.Controls.Add(this.brinzalRbn);
+            this.groupBox1.Controls.Add(brinzalLbl);
+            this.groupBox1.Location = new System.Drawing.Point(12, 107);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(358, 71);
+            this.groupBox1.TabIndex = 93;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Clasificacion";
+            // 
+            // latizalRbn
+            // 
+            this.latizalRbn.AutoSize = true;
+            this.latizalRbn.Location = new System.Drawing.Point(99, 43);
+            this.latizalRbn.Name = "latizalRbn";
+            this.latizalRbn.Size = new System.Drawing.Size(14, 13);
+            this.latizalRbn.TabIndex = 92;
+            this.latizalRbn.TabStop = true;
+            this.latizalRbn.UseVisualStyleBackColor = true;
+            // 
+            // brinzalRbn
+            // 
+            this.brinzalRbn.AutoSize = true;
+            this.brinzalRbn.Location = new System.Drawing.Point(99, 21);
+            this.brinzalRbn.Name = "brinzalRbn";
+            this.brinzalRbn.Size = new System.Drawing.Size(14, 13);
+            this.brinzalRbn.TabIndex = 91;
+            this.brinzalRbn.TabStop = true;
+            this.brinzalRbn.UseVisualStyleBackColor = true;
             // 
             // registrarEspecieRegenBtn
             // 
@@ -925,26 +939,6 @@
             this.especieRegenCbx.Size = new System.Drawing.Size(266, 21);
             this.especieRegenCbx.TabIndex = 89;
             this.especieRegenCbx.ValueMember = "CODESP";
-            // 
-            // brinzalTxt
-            // 
-            this.brinzalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regenracionBS, "BRINZAL", true));
-            this.brinzalTxt.Location = new System.Drawing.Point(104, 107);
-            this.brinzalTxt.Name = "brinzalTxt";
-            this.brinzalTxt.Size = new System.Drawing.Size(266, 20);
-            this.brinzalTxt.TabIndex = 78;
-            // 
-            // regenracionBS
-            // 
-            this.regenracionBS.DataSource = typeof(SIFCA_DAL.LINEAREGENERACION);
-            // 
-            // latizalTxt
-            // 
-            this.latizalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regenracionBS, "LATIZAL", true));
-            this.latizalTxt.Location = new System.Drawing.Point(104, 133);
-            this.latizalTxt.Name = "latizalTxt";
-            this.latizalTxt.Size = new System.Drawing.Size(266, 20);
-            this.latizalTxt.TabIndex = 82;
             // 
             // nroArbolRegenTxt
             // 
@@ -1316,6 +1310,8 @@
             this.datosRegenGrx.ResumeLayout(false);
             this.datosRegenGrx.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.regenracionBS)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.regenacionBN)).EndInit();
             this.regenacionBN.ResumeLayout(false);
             this.regenacionBN.PerformLayout();
@@ -1343,7 +1339,6 @@
         private System.Windows.Forms.DateTimePicker finalDpk;
         private System.Windows.Forms.TextBox responsableTxt;
         private System.Windows.Forms.DateTimePicker inicioDpk;
-        private System.Windows.Forms.ComboBox proyectoCbx;
         private System.Windows.Forms.Button guardarformularioBtn;
         private System.Windows.Forms.ComboBox estratoCbx;
         private System.Windows.Forms.BindingSource estratoBS;
@@ -1355,8 +1350,6 @@
         private System.Windows.Forms.TabPage InventarioTP;
         private System.Windows.Forms.GroupBox datosInventarioGrx;
         private System.Windows.Forms.Button listarDatosBtn;
-        private System.Windows.Forms.TextBox volComercialTxt;
-        private System.Windows.Forms.TextBox volTotalTxt;
         private System.Windows.Forms.TextBox cAPTxt;
         private System.Windows.Forms.TextBox nroArbolTxt;
         private System.Windows.Forms.ComboBox especieCbx;
@@ -1365,7 +1358,6 @@
         private System.Windows.Forms.Button guardarLineaBtn;
         private System.Windows.Forms.TextBox alturaComercialTxt;
         private System.Windows.Forms.TextBox alturaTotalTxt;
-        private System.Windows.Forms.TextBox areaBasalTxt;
         private System.Windows.Forms.BindingNavigator lineaInvBN;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -1412,9 +1404,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton12;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.Button guardarTodoBtn;
-        private System.Windows.Forms.TextBox brinzalTxt;
         private System.Windows.Forms.BindingSource regenracionBS;
-        private System.Windows.Forms.TextBox latizalTxt;
         private System.Windows.Forms.TextBox nroArbolRegenTxt;
         private System.Windows.Forms.CheckedListBox TipoDeUsosLbc;
         private System.Windows.Forms.BindingSource tipoUsoBS;
@@ -1424,5 +1414,11 @@
         private System.Windows.Forms.ComboBox especieRegenCbx;
         private System.Windows.Forms.Button RegistrarEspecieBtn;
         private System.Windows.Forms.Button registrarEspecieRegenBtn;
+        private System.Windows.Forms.RadioButton brinzalRbn;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton latizalRbn;
+        private System.Windows.Forms.TextBox proyectoTxt;
+        private System.Windows.Forms.TextBox latizalTxt;
+        private System.Windows.Forms.TextBox brinzalTxt;
     }
 }

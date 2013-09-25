@@ -13,7 +13,6 @@ namespace SIFCA
 {
     public partial class Crear_Formulario_Form : Form
     {
-        private ProjectBL project;
         private SpeciesBL species;
         private StratumBL stratums;
         private QualityBL quality;
@@ -24,13 +23,12 @@ namespace SIFCA
         private NonTimberLineBL lineNonTimber;
         private TypeUseBL typeUses;
         private FORMULARIO newForm;
-
+        private bool modified;
 
         public Crear_Formulario_Form()
         {
             InitializeComponent();
             newForm = new FORMULARIO();
-            project = new ProjectBL(Program.ContextData);
             species = new SpeciesBL(Program.ContextData);
             stratums = new StratumBL(Program.ContextData);
             quality = new QualityBL(Program.ContextData);
@@ -41,7 +39,6 @@ namespace SIFCA
             lineNonTimber = new NonTimberLineBL(Program.ContextData);
             typeUses = new TypeUseBL(Program.ContextData);
             especieBS.DataSource = species.GetSpecies();
-            proyectoBS.DataSource = project.GetProjects();
             estratoBS.DataSource = stratums.GetStratums();
             calidadBS.DataSource = quality.GetQualities();
             estadoSanitarioBS.DataSource = state.GetStates();
@@ -53,7 +50,10 @@ namespace SIFCA
             lineaNoMaderableBS.DataSource = lineNonTimber.GetNonTimberLineList();
             regenracionBS.DataSource = lineRegen.GetRegenerationLines();
             USUARIO user = (USUARIO)Program.Cache.Get("user");
+            PROYECTO project = (PROYECTO)Program.Cache.Get("project");
             responsableTxt.Text = user.NOMBRES + " " + user.APELLIDOS;
+            proyectoTxt.Text = project.LUGAR;
+            modified = false;
         }
 
         private void guardarformularioBtn_Click(object sender, EventArgs e)
@@ -65,7 +65,7 @@ namespace SIFCA
             newForm.HORAINICIO = inicioDpk.Value;
             newForm.HORAFINAL=inicioDpk.Value;
             newForm.ESTRATO = (ESTRATO)estratoCbx.SelectedItem;
-            newForm.PROYECTO = (PROYECTO)proyectoCbx.SelectedItem;
+            newForm.PROYECTO = (PROYECTO)Program.Cache.Get("project");
             newForm.USUARIO = user;
             newForm.COORDENADAX = decimal.Parse(coordXTxt.Text);
             newForm.COORDENADAY = decimal.Parse(coordYTxt.Text);
@@ -95,13 +95,13 @@ namespace SIFCA
             newLine.CALIDAD = (CALIDAD)calidadCbx.SelectedItem;
             newLine.ESTADOSANITARIO = (ESTADOSANITARIO)estadoCbx.SelectedItem;
             newLine.NROARB = int.Parse(nroArbolTxt.Text);
-            newLine.VOLCOM = int.Parse(volComercialTxt.Text);
-            newLine.VOLTOT = int.Parse(volTotalTxt.Text);
+            newLine.VOLCOM = 0;
+            newLine.VOLTOT = 0;
             newLine.ALTCOMER_M = int.Parse(alturaComercialTxt.Text);
             newLine.ALTTOT_M = int.Parse(alturaTotalTxt.Text);
             newLine.CAP = int.Parse(cAPTxt.Text);
             newLine.DAP = int.Parse(dAPTxt.Text);
-            newLine.AREABASAL = int.Parse(areaBasalTxt.Text);
+            newLine.AREABASAL = 0;
             lineInv.InsertInventoryLine(newLine);
             lineInv.SaveChanges();
             lineaInvBS.DataSource=lineInv.GetInventoryLines();
@@ -118,13 +118,13 @@ namespace SIFCA
             newLine.CALIDAD = (CALIDAD)calidadCbx.SelectedItem;
             newLine.ESTADOSANITARIO = (ESTADOSANITARIO)estadoCbx.SelectedItem;
             newLine.NROARB = int.Parse(nroArbolTxt.Text);
-            newLine.VOLCOM = int.Parse(volComercialTxt.Text);
-            newLine.VOLTOT = int.Parse(volTotalTxt.Text);
+            newLine.VOLCOM = 0;
+            newLine.VOLTOT = 0;
             newLine.ALTCOMER_M = int.Parse(alturaComercialTxt.Text);
             newLine.ALTTOT_M = int.Parse(alturaTotalTxt.Text);
             newLine.CAP = int.Parse(cAPTxt.Text);
             newLine.DAP = int.Parse(dAPTxt.Text);
-            newLine.AREABASAL = int.Parse(areaBasalTxt.Text);
+            newLine.AREABASAL = 0;
             lineInv.InsertInventoryLine(newLine);
             lineInv.SaveChanges();
             lineaInvBS.DataSource = lineInv.GetInventoryLines().Where(p=>p.NROFORMULARIO==newForm.NROFORMULARIO);
@@ -141,18 +141,51 @@ namespace SIFCA
             newLine.CALIDAD = (CALIDAD)calidadCbx.SelectedItem;
             newLine.ESTADOSANITARIO = (ESTADOSANITARIO)estadoCbx.SelectedItem;
             newLine.NROARB = int.Parse(nroArbolTxt.Text);
-            newLine.VOLCOM = int.Parse(volComercialTxt.Text);
-            newLine.VOLTOT = int.Parse(volTotalTxt.Text);
+            newLine.VOLCOM = 0;
+            newLine.VOLTOT = 0;
             newLine.ALTCOMER_M = int.Parse(alturaComercialTxt.Text);
             newLine.ALTTOT_M = int.Parse(alturaTotalTxt.Text);
             newLine.CAP = int.Parse(cAPTxt.Text);
             newLine.DAP = int.Parse(dAPTxt.Text);
-            newLine.AREABASAL = int.Parse(areaBasalTxt.Text);
+            newLine.AREABASAL = 0;
             lineInv.InsertInventoryLine(newLine);
             lineInv.SaveChanges();
             lineaInvBS.DataSource = lineInv.GetInventoryLines();
             lineaInvBN.Refresh();
             MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void datosRegenGrx_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dAPTxt_TextChanged(object sender, EventArgs e)
+        {
+            if (dAPTxt.Text!="")
+            {
+                int output = 0;
+                bool result = int.TryParse(dAPTxt.Text, out output);
+                if (result)
+                {
+                    cAPTxt.Text = (Math.PI * double.Parse(dAPTxt.Text)).ToString();
+                }
+                else MessageBox.Show("Entra invalida para el diametro.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cAPTxt_TextChanged(object sender, EventArgs e)
+        {
+            if (cAPTxt.Text != "")
+            {
+                int output = 0;
+                bool result = int.TryParse(dAPTxt.Text, out output);
+                if (result)
+                {
+                    dAPTxt.Text = (double.Parse(cAPTxt.Text) / Math.PI).ToString();
+                }
+                else MessageBox.Show("Entra invalida para la medida de la circunferencia.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
     }

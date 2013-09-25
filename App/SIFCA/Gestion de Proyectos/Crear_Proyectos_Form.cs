@@ -211,7 +211,7 @@ namespace SIFCA
                             stratumData.PROYECTO = newProject;
                             newProject.LISTADODEESTRATOS.Add(stratumData);
                         }
-                        decimal total=0;
+                        decimal total=0.000m;
                         foreach (DataGridViewRow r in estratoDGW.Rows)
                         {
                             if (Convert.ToBoolean(r.Cells[0].Value)) total += Convert.ToDecimal(row.Cells[2].Value); 
@@ -245,7 +245,7 @@ namespace SIFCA
                             stratumData.PROYECTO = newProject;
                             newProject.LISTADODEESTRATOS.Remove(stratumData);
                         }
-                        decimal total = 0;
+                        decimal total = 0.000m;
                         foreach (DataGridViewRow r in estratoDGW.Rows)
                         {
                             if (Convert.ToBoolean(r.Cells[0].Value)) total += Convert.ToDecimal(row.Cells[2].Value);
@@ -285,7 +285,7 @@ namespace SIFCA
                         }
                     }
                     //verificar suma
-                    decimal total = 0;
+                    decimal total = 0.000m;
                     foreach (DataGridViewRow r in estratoDGW.Rows)
                     {
                         if (Convert.ToBoolean(r.Cells[0].Value)) total += Convert.ToDecimal(row.Cells[2].Value);

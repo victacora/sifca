@@ -18,7 +18,6 @@ namespace SIFCA
         private StratumBL stratums;
         private QualityBL quality;
         private StateBL state;
-        private FormTypeBL formType;
         private FormBL form;
         private InventoryLineBL lineInv;
         private RegenerationLineBL lineRegen;
@@ -36,7 +35,6 @@ namespace SIFCA
             stratums = new StratumBL(Program.ContextData);
             quality = new QualityBL(Program.ContextData);
             state = new StateBL(Program.ContextData);
-            formType = new FormTypeBL(Program.ContextData);
             form = new FormBL(Program.ContextData);
             lineInv = new InventoryLineBL(Program.ContextData);
             lineRegen = new  RegenerationLineBL(Program.ContextData);
@@ -47,7 +45,6 @@ namespace SIFCA
             estratoBS.DataSource = stratums.GetStratums();
             calidadBS.DataSource = quality.GetQualities();
             estadoSanitarioBS.DataSource = state.GetStates();
-            tipoFormularioBS.DataSource = formType.GetFormTypes();
             formularioBS.DataSource = form.GetForms();
             tipoUsoBS.DataSource=typeUses.GetTypeUse();
             TipoDeUsosLbc.DataSource = tipoUsoBS;
@@ -67,7 +64,6 @@ namespace SIFCA
             newForm.LINEA = int.Parse(lineaInventarioTxt.Text);
             newForm.HORAINICIO = inicioDpk.Value;
             newForm.HORAFINAL=inicioDpk.Value;
-            newForm.TIPOFORMULARIO = (TIPOFORMULARIO)tipoFormularioCbx.SelectedItem;
             newForm.ESTRATO = (ESTRATO)estratoCbx.SelectedItem;
             newForm.PROYECTO = (PROYECTO)proyectoCbx.SelectedItem;
             newForm.USUARIO = user;
@@ -158,5 +154,6 @@ namespace SIFCA
             lineaInvBN.Refresh();
             MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
     }
 }

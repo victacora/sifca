@@ -22,7 +22,6 @@ namespace SIFCA_DAL
         }
     
         public System.Guid NROFORMULARIO { get; set; }
-        public decimal TIPFORM_ID { get; set; }
         public decimal CODEST { get; set; }
         public System.Guid NROUSUARIO { get; set; }
         public System.Guid NROPROY { get; set; }
@@ -36,7 +35,6 @@ namespace SIFCA_DAL
     
         public virtual ESTRATO ESTRATO { get; set; }
         public virtual PROYECTO PROYECTO { get; set; }
-        public virtual TIPOFORMULARIO TIPOFORMULARIO { get; set; }
         public virtual USUARIO USUARIO { get; set; }
         public virtual ICollection<LINEAINVENTARIO> LINEAINVENTARIO { get; set; }
         public virtual ICollection<LINEANOMADERABLES> LINEANOMADERABLES { get; set; }

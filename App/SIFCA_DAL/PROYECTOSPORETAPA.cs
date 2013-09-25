@@ -12,18 +12,14 @@ using System.Collections.Generic;
 
 namespace SIFCA_DAL
 {
-    public partial class TIPOFORMULARIO
+    public partial class PROYECTOSPORETAPA
     {
-        public TIPOFORMULARIO()
-        {
-            this.FORMULARIO = new HashSet<FORMULARIO>();
-        }
+        public System.Guid NROPROYCONTENEDOR { get; set; }
+        public System.Guid NROPROYCONTENIDO { get; set; }
+        public decimal PESO { get; set; }
     
-        public string NOMBRETIPOFORM { get; set; }
-        public string DESCRIPCION { get; set; }
-        public decimal TIPFORM_ID { get; set; }
-    
-        public virtual ICollection<FORMULARIO> FORMULARIO { get; set; }
+        public virtual PROYECTO PROYECTOCONTENEDOR { get; set; }
+        public virtual PROYECTO PROYECTOCONTENIDO { get; set; }
     }
     
 }

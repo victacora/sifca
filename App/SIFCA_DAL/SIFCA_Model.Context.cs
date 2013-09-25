@@ -37,9 +37,9 @@ namespace SIFCA_DAL
         public DbSet<LISTADODEESTRATOS> LISTADODEESTRATOS { get; set; }
         public DbSet<OBJETIVOINVENTARIO> OBJETIVOINVENTARIO { get; set; }
         public DbSet<PROYECTO> PROYECTO { get; set; }
+        public DbSet<PROYECTOSPORETAPA> PROYECTOSPORETAPA { get; set; }
         public DbSet<TIPODEUSO> TIPODEUSO { get; set; }
         public DbSet<TIPODISENOMUESTRAL> TIPODISENOMUESTRAL { get; set; }
-        public DbSet<TIPOFORMULARIO> TIPOFORMULARIO { get; set; }
         public DbSet<TRANSACCION> TRANSACCION { get; set; }
         public DbSet<TSTUDENT> TSTUDENT { get; set; }
         public DbSet<USUARIO> USUARIO { get; set; }

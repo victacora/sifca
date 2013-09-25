@@ -17,7 +17,6 @@
     <EntitySet Name="PROYECTOSPORETAPA" EntityType="SIFCA_Model.Store.PROYECTOSPORETAPA" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TIPODEUSO" EntityType="SIFCA_Model.Store.TIPODEUSO" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TIPODISENOMUESTRAL" EntityType="SIFCA_Model.Store.TIPODISENOMUESTRAL" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TIPOFORMULARIO" EntityType="SIFCA_Model.Store.TIPOFORMULARIO" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TRANSACCION" EntityType="SIFCA_Model.Store.TRANSACCION" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TSTUDENT" EntityType="SIFCA_Model.Store.TSTUDENT" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="USO" EntityType="SIFCA_Model.Store.USO" store:Type="Tables" Schema="dbo" />
@@ -28,10 +27,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_FORMULAR_DESARROLL_PROYECTO" Association="SIFCA_Model.Store.FK_FORMULAR_DESARROLL_PROYECTO">
       <End Role="PROYECTO" EntitySet="PROYECTO" />
-      <End Role="FORMULARIO" EntitySet="FORMULARIO" />
-    </AssociationSet>
-    <AssociationSet Name="FK_FORMULAR_ES_DE_TIPOFORM" Association="SIFCA_Model.Store.FK_FORMULAR_ES_DE_TIPOFORM">
-      <End Role="TIPOFORMULARIO" EntitySet="TIPOFORMULARIO" />
       <End Role="FORMULARIO" EntitySet="FORMULARIO" />
     </AssociationSet>
     <AssociationSet Name="FK_FORMULAR_ES_REPONS_USUARIO" Association="SIFCA_Model.Store.FK_FORMULAR_ES_REPONS_USUARIO">
@@ -158,7 +153,6 @@
       <PropertyRef Name="NROFORMULARIO" />
     </Key>
     <Property Name="NROFORMULARIO" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="TIPFORM_ID" Type="numeric" Nullable="false" />
     <Property Name="CODEST" Type="numeric" Nullable="false" />
     <Property Name="NROUSUARIO" Type="uniqueidentifier" Nullable="false" />
     <Property Name="NROPROY" Type="uniqueidentifier" Nullable="false" />
@@ -267,6 +261,7 @@
     </Key>
     <Property Name="NROPROYCONTENEDOR" Type="uniqueidentifier" Nullable="false" />
     <Property Name="NROPROYCONTENIDO" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PESO" Type="decimal" Nullable="false" Scale="3" />
   </EntityType>
   <EntityType Name="TIPODEUSO">
     <Key>
@@ -281,14 +276,6 @@
     </Key>
     <Property Name="NOMTIPODISEMUEST" Type="varchar" Nullable="false" MaxLength="100" />
     <Property Name="DESCRIPTIPODISEMUEST" Type="varchar" MaxLength="500" />
-  </EntityType>
-  <EntityType Name="TIPOFORMULARIO">
-    <Key>
-      <PropertyRef Name="TIPFORM_ID" />
-    </Key>
-    <Property Name="NOMBRETIPOFORM" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="DESCRIPCION" Type="varchar" MaxLength="500" />
-    <Property Name="TIPFORM_ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
   </EntityType>
   <EntityType Name="TRANSACCION">
     <Key>
@@ -331,6 +318,7 @@
     <Property Name="NOMBREUSUARIO" Type="varchar" Nullable="false" MaxLength="100" />
     <Property Name="CONTRASENA" Type="varchar" Nullable="false" MaxLength="1000" />
     <Property Name="CEDULA" Type="numeric" Nullable="false" />
+    <Property Name="TIPOUSUARIO" Type="char" Nullable="false" MaxLength="2" />
   </EntityType>
   <Association Name="FK_ESPECIE_PERTENECE_GRUPOCOM">
     <End Role="GRUPOCOMERCIAL" Type="SIFCA_Model.Store.GRUPOCOMERCIAL" Multiplicity="1">
@@ -357,20 +345,6 @@
       </Principal>
       <Dependent Role="FORMULARIO">
         <PropertyRef Name="NROPROY" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_FORMULAR_ES_DE_TIPOFORM">
-    <End Role="TIPOFORMULARIO" Type="SIFCA_Model.Store.TIPOFORMULARIO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="FORMULARIO" Type="SIFCA_Model.Store.FORMULARIO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TIPOFORMULARIO">
-        <PropertyRef Name="TIPFORM_ID" />
-      </Principal>
-      <Dependent Role="FORMULARIO">
-        <PropertyRef Name="TIPFORM_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

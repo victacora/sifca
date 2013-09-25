@@ -27,6 +27,7 @@ namespace SIFCA_DAL
         public string NOMBREUSUARIO { get; set; }
         public string CONTRASENA { get; set; }
         public decimal CEDULA { get; set; }
+        public string TIPOUSUARIO { get; set; }
     
         public virtual ICollection<FORMULARIO> FORMULARIO { get; set; }
         public virtual ICollection<PROYECTO> PROYECTO { get; set; }

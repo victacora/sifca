@@ -24,9 +24,11 @@ namespace SIFCA
             nombresTxt.Text=userData.NOMBRES;
             apellidosTxt.Text=userData.APELLIDOS;
             cedulaTxt.Text= userData.CEDULA.ToString();
-            contrasenaTxt.Text=userData.CONTRASENA;
-            verificarContrasenaTxt.Text = userData.CONTRASENA;
+            contrasenaTxt.Text=AuthenticatorHelper.Decrypt(userData.CONTRASENA);
+            verificarContrasenaTxt.Text = contrasenaTxt.Text;
             usuarioTxt.Text=userData.NOMBREUSUARIO;
+            tipoUsuarioCbx.SelectedIndex = (userData.TIPOUSUARIO == "AD" ? 0 : 1);
+            tipoUsuarioCbx.Enabled = (userData.TIPOUSUARIO == "AD" ? true : false); 
             this.ControlBox = false;
         }
 
@@ -37,6 +39,7 @@ namespace SIFCA
             userData.CEDULA = int.Parse(cedulaTxt.Text);
             userData.CONTRASENA = contrasenaTxt.Text;
             userData.NOMBREUSUARIO = usuarioTxt.Text;
+            userData.TIPOUSUARIO = (tipoUsuarioCbx.SelectedItem.ToString()=="Administrador"?"AD":"NA");
             user.UpdateUser(userData);
             user.SaveChanges();
             Program.Cache.Set("user",userData, new CacheItemPolicy());
@@ -51,7 +54,7 @@ namespace SIFCA
 
         private void verificarContrasenaTxt_TextChanged(object sender, EventArgs e)
         {
-            if (contrasenaTxt.Text != verificarContrasenaTxt.Text)
+            if (contrasenaTxt.Text != verificarContrasenaTxt.Text && verificarContrasenaTxt.Text!="")
             {
                 errorLbl.Text = "Las contraseñas no coinciden";
                 errorLbl.ForeColor = Color.Red;

@@ -164,13 +164,14 @@ namespace SIFCA
         {
             if (dAPTxt.Text!="")
             {
-                int output = 0;
-                bool result = int.TryParse(dAPTxt.Text, out output);
+                double output = 0;
+                bool result = double.TryParse(dAPTxt.Text, out output);
                 if (result)
                 {
                     if (modified)
                     {
-                        cAPTxt.Text = (Math.PI * double.Parse(dAPTxt.Text)).ToString();
+                        modified = false;
+                        cAPTxt.Text = (Math.PI * output).ToString();
                     }
                     else
                     {
@@ -180,20 +181,20 @@ namespace SIFCA
                 }
                 else MessageBox.Show("Entra invalida para el diametro.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            modified = false;
         }
 
         private void cAPTxt_TextChanged(object sender, EventArgs e)
         {
             if (cAPTxt.Text != "")
             {
-                int output = 0;
-                bool result = int.TryParse(dAPTxt.Text, out output);
+                double output = 0;
+                bool result = double.TryParse(cAPTxt.Text, out output);
                 if (result)
                 {
                     if (modified)
                     {
-                        dAPTxt.Text = (double.Parse(cAPTxt.Text) / Math.PI).ToString();
+                        modified = false;
+                        dAPTxt.Text = (output / Math.PI).ToString();
                     }
                     else
                     {
@@ -203,7 +204,6 @@ namespace SIFCA
                 }
                 else MessageBox.Show("Entra invalida para la medida de la circunferencia.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            modified = false;
         }
 
     }

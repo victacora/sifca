@@ -615,7 +615,7 @@
             this.noMaderablesTP.Text = "No maderables";
             this.noMaderablesTP.UseVisualStyleBackColor = true;
             // 
-            // regenracionBS
+            // regeneracionBS
             // 
             this.regenracionBS.DataSource = typeof(SIFCA_DAL.LINEAREGENERACION);
             // 

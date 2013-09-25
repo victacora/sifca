@@ -865,7 +865,6 @@
             this.datosRegenGrx.Size = new System.Drawing.Size(380, 420);
             this.datosRegenGrx.TabIndex = 2;
             this.datosRegenGrx.TabStop = false;
-            this.datosRegenGrx.Enter += new System.EventHandler(this.datosRegenGrx_Enter);
             // 
             // latizalTxt
             // 

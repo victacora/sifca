@@ -67,6 +67,7 @@ namespace SIFCA
                     Program.Cache.Add("user", result, new CacheItemPolicy());
                     Principal_Form parent = (Principal_Form)ParentForm;
                     parent.EstatusLabel.Text = "Usuario Autenticado: " + result.NOMBREUSUARIO;
+                    parent.changueMenuUser();
                     //modificar barra estado
                     this.Close();
                 }

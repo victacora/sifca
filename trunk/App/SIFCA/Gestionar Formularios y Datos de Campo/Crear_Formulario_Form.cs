@@ -74,7 +74,11 @@ namespace SIFCA
             MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
             datosTabControl.Enabled = true;
             guardarformularioBtn.Enabled = false;
-            
+            coordXTxt.Enabled = false;
+            coordYTxt.Enabled = false;
+            estratoCbx.Enabled = false;
+            parcelaTxt.Enabled = false;
+            lineaInventarioTxt.Enabled = false;
             guardarTodoBtn.Enabled = true;
             guardarformularioBtn.Text="Actualizar Formulario";
             finalDpk.Enabled = true;
@@ -88,6 +92,7 @@ namespace SIFCA
 
         private void guardarLineaBtn_Click(object sender, EventArgs e)
         {
+            PROYECTO project = (PROYECTO)Program.Cache.Get("project");
             LINEAINVENTARIO newLine = new LINEAINVENTARIO();
             newLine.LINEAINV = Guid.NewGuid();
             newLine.FORMULARIO = form.GetForm(newForm.NROFORMULARIO);
@@ -95,22 +100,23 @@ namespace SIFCA
             newLine.CALIDAD = (CALIDAD)calidadCbx.SelectedItem;
             newLine.ESTADOSANITARIO = (ESTADOSANITARIO)estadoCbx.SelectedItem;
             newLine.NROARB = int.Parse(nroArbolTxt.Text);
-            newLine.VOLCOM = 0;
-            newLine.VOLTOT = 0;
             newLine.ALTCOMER_M = int.Parse(alturaComercialTxt.Text);
             newLine.ALTTOT_M = int.Parse(alturaTotalTxt.Text);
             newLine.CAP = int.Parse(cAPTxt.Text);
             newLine.DAP = int.Parse(dAPTxt.Text);
-            newLine.AREABASAL = 0;
+            newLine.AREABASAL = (decimal)((Math.PI * Math.Pow(((double)newLine.DAP), 2)) / 4);
+            newLine.VOLCOM = newLine.AREABASAL * newLine.ALTCOMER_M * project.FACTORDEFORMA;
+            newLine.VOLTOT = newLine.AREABASAL * newLine.ALTTOT_M * project.FACTORDEFORMA;
             lineInv.InsertInventoryLine(newLine);
             lineInv.SaveChanges();
-            lineaInvBS.DataSource=lineInv.GetInventoryLines();
+            lineaInvBS.DataSource = lineInv.GetInventoryLines();
             lineaInvBN.Refresh();
             MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void guardarRegenBtn_Click(object sender, EventArgs e)
         {
+            PROYECTO project = (PROYECTO)Program.Cache.Get("project");
             LINEAINVENTARIO newLine = new LINEAINVENTARIO();
             newLine.LINEAINV = Guid.NewGuid();
             newLine.FORMULARIO = form.GetForm(newForm.NROFORMULARIO);
@@ -118,22 +124,23 @@ namespace SIFCA
             newLine.CALIDAD = (CALIDAD)calidadCbx.SelectedItem;
             newLine.ESTADOSANITARIO = (ESTADOSANITARIO)estadoCbx.SelectedItem;
             newLine.NROARB = int.Parse(nroArbolTxt.Text);
-            newLine.VOLCOM = 0;
-            newLine.VOLTOT = 0;
             newLine.ALTCOMER_M = int.Parse(alturaComercialTxt.Text);
             newLine.ALTTOT_M = int.Parse(alturaTotalTxt.Text);
             newLine.CAP = int.Parse(cAPTxt.Text);
             newLine.DAP = int.Parse(dAPTxt.Text);
-            newLine.AREABASAL = 0;
+            newLine.AREABASAL = (decimal)((Math.PI * Math.Pow(((double)newLine.DAP), 2)) / 4);
+            newLine.VOLCOM = newLine.AREABASAL * newLine.ALTCOMER_M * project.FACTORDEFORMA;
+            newLine.VOLTOT = newLine.AREABASAL * newLine.ALTTOT_M * project.FACTORDEFORMA;
             lineInv.InsertInventoryLine(newLine);
             lineInv.SaveChanges();
-            lineaInvBS.DataSource = lineInv.GetInventoryLines().Where(p=>p.NROFORMULARIO==newForm.NROFORMULARIO);
+            lineaInvBS.DataSource = lineInv.GetInventoryLines();
             lineaInvBN.Refresh();
             MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void guardarLineNoMadBtn_Click(object sender, EventArgs e)
         {
+            PROYECTO project = (PROYECTO)Program.Cache.Get("project");
             LINEAINVENTARIO newLine = new LINEAINVENTARIO();
             newLine.LINEAINV = Guid.NewGuid();
             newLine.FORMULARIO = form.GetForm(newForm.NROFORMULARIO);
@@ -141,13 +148,13 @@ namespace SIFCA
             newLine.CALIDAD = (CALIDAD)calidadCbx.SelectedItem;
             newLine.ESTADOSANITARIO = (ESTADOSANITARIO)estadoCbx.SelectedItem;
             newLine.NROARB = int.Parse(nroArbolTxt.Text);
-            newLine.VOLCOM = 0;
-            newLine.VOLTOT = 0;
             newLine.ALTCOMER_M = int.Parse(alturaComercialTxt.Text);
             newLine.ALTTOT_M = int.Parse(alturaTotalTxt.Text);
             newLine.CAP = int.Parse(cAPTxt.Text);
             newLine.DAP = int.Parse(dAPTxt.Text);
-            newLine.AREABASAL = 0;
+            newLine.AREABASAL =(decimal)((Math.PI *Math.Pow(((double)newLine.DAP),2))/4);
+            newLine.VOLCOM = newLine.AREABASAL * newLine.ALTCOMER_M*project.FACTORDEFORMA;
+            newLine.VOLTOT = newLine.AREABASAL * newLine.ALTTOT_M * project.FACTORDEFORMA;
             lineInv.InsertInventoryLine(newLine);
             lineInv.SaveChanges();
             lineaInvBS.DataSource = lineInv.GetInventoryLines();

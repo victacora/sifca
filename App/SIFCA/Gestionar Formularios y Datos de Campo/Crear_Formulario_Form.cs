@@ -48,7 +48,7 @@ namespace SIFCA
             TipoDeUsosLbc.DisplayMember ="DESCRIPCION";
             TipoDeUsosLbc.ValueMember = "NOMBRETIPOUSO";
             lineaNoMaderableBS.DataSource = lineNonTimber.GetNonTimberLineList();
-            regenracionBS.DataSource = lineRegen.GetRegenerationLines();
+            regeneracionBS.DataSource = lineRegen.GetRegenerationLines();
             USUARIO user = (USUARIO)Program.Cache.Get("user");
             PROYECTO project = (PROYECTO)Program.Cache.Get("project");
             responsableTxt.Text = user.NOMBRES + " " + user.APELLIDOS;
@@ -117,24 +117,17 @@ namespace SIFCA
         private void guardarRegenBtn_Click(object sender, EventArgs e)
         {
             PROYECTO project = (PROYECTO)Program.Cache.Get("project");
-            LINEAINVENTARIO newLine = new LINEAINVENTARIO();
-            newLine.LINEAINV = Guid.NewGuid();
+            LINEAREGENERACION newLine = new LINEAREGENERACION();
+            newLine.LINEAREGEN = Guid.NewGuid();
             newLine.FORMULARIO = form.GetForm(newForm.NROFORMULARIO);
             newLine.ESPECIE = (ESPECIE)especieCbx.SelectedItem;
-            newLine.CALIDAD = (CALIDAD)calidadCbx.SelectedItem;
-            newLine.ESTADOSANITARIO = (ESTADOSANITARIO)estadoCbx.SelectedItem;
             newLine.NROARB = int.Parse(nroArbolTxt.Text);
-            newLine.ALTCOMER_M = int.Parse(alturaComercialTxt.Text);
-            newLine.ALTTOT_M = int.Parse(alturaTotalTxt.Text);
-            newLine.CAP = int.Parse(cAPTxt.Text);
-            newLine.DAP = int.Parse(dAPTxt.Text);
-            newLine.AREABASAL = (decimal)((Math.PI * Math.Pow(((double)newLine.DAP), 2)) / 4);
-            newLine.VOLCOM = newLine.AREABASAL * newLine.ALTCOMER_M * project.FACTORDEFORMA;
-            newLine.VOLTOT = newLine.AREABASAL * newLine.ALTTOT_M * project.FACTORDEFORMA;
-            lineInv.InsertInventoryLine(newLine);
-            lineInv.SaveChanges();
-            lineaInvBS.DataSource = lineInv.GetInventoryLines();
-            lineaInvBN.Refresh();
+            newLine.LATIZAL = decimal.Parse(latizalTxt.Text);
+            newLine.BRINZAL = decimal.Parse(brinzalTxt.Text);
+            lineRegen.InsertRegenerationLine(newLine);
+            lineRegen.SaveChanges();
+            regeneracionBS.DataSource = lineInv.GetInventoryLines();
+            regeneracionBN.Refresh();
             MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 

@@ -102,7 +102,7 @@
             this.RegeneracionTP = new System.Windows.Forms.TabPage();
             this.datosRegenGrx = new System.Windows.Forms.GroupBox();
             this.latizalTxt = new System.Windows.Forms.TextBox();
-            this.regenracionBS = new System.Windows.Forms.BindingSource(this.components);
+            this.regeneracionBS = new System.Windows.Forms.BindingSource(this.components);
             this.brinzalTxt = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.latizalRbn = new System.Windows.Forms.RadioButton();
@@ -112,7 +112,7 @@
             this.nroArbolRegenTxt = new System.Windows.Forms.TextBox();
             this.listarRegenbtn = new System.Windows.Forms.Button();
             this.guardarRegenBtn = new System.Windows.Forms.Button();
-            this.regenacionBN = new System.Windows.Forms.BindingNavigator(this.components);
+            this.regeneracionBN = new System.Windows.Forms.BindingNavigator(this.components);
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -184,10 +184,10 @@
             this.lineaInvBN.SuspendLayout();
             this.RegeneracionTP.SuspendLayout();
             this.datosRegenGrx.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.regenracionBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.regeneracionBS)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.regenacionBN)).BeginInit();
-            this.regenacionBN.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.regeneracionBN)).BeginInit();
+            this.regeneracionBN.SuspendLayout();
             this.NoMaderablesTP.SuspendLayout();
             this.datosNoMaderablesGrx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lineaNoMaderableBS)).BeginInit();
@@ -859,7 +859,7 @@
             this.datosRegenGrx.Controls.Add(this.nroArbolRegenTxt);
             this.datosRegenGrx.Controls.Add(this.listarRegenbtn);
             this.datosRegenGrx.Controls.Add(this.guardarRegenBtn);
-            this.datosRegenGrx.Controls.Add(this.regenacionBN);
+            this.datosRegenGrx.Controls.Add(this.regeneracionBN);
             this.datosRegenGrx.Location = new System.Drawing.Point(-6, -13);
             this.datosRegenGrx.Name = "datosRegenGrx";
             this.datosRegenGrx.Size = new System.Drawing.Size(380, 420);
@@ -869,19 +869,19 @@
             // 
             // latizalTxt
             // 
-            this.latizalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regenracionBS, "NROARB", true));
+            this.latizalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regeneracionBS, "NROARB", true));
             this.latizalTxt.Location = new System.Drawing.Point(104, 210);
             this.latizalTxt.Name = "latizalTxt";
             this.latizalTxt.Size = new System.Drawing.Size(266, 20);
             this.latizalTxt.TabIndex = 97;
             // 
-            // regenracionBS
+            // regeneracionBS
             // 
-            this.regenracionBS.DataSource = typeof(SIFCA_DAL.LINEAREGENERACION);
+            this.regeneracionBS.DataSource = typeof(SIFCA_DAL.LINEAREGENERACION);
             // 
             // brinzalTxt
             // 
-            this.brinzalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regenracionBS, "NROARB", true));
+            this.brinzalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regeneracionBS, "NROARB", true));
             this.brinzalTxt.Location = new System.Drawing.Point(104, 184);
             this.brinzalTxt.Name = "brinzalTxt";
             this.brinzalTxt.Size = new System.Drawing.Size(266, 20);
@@ -942,7 +942,7 @@
             // 
             // nroArbolRegenTxt
             // 
-            this.nroArbolRegenTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regenracionBS, "NROARB", true));
+            this.nroArbolRegenTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regeneracionBS, "NROARB", true));
             this.nroArbolRegenTxt.Location = new System.Drawing.Point(104, 56);
             this.nroArbolRegenTxt.Name = "nroArbolRegenTxt";
             this.nroArbolRegenTxt.Size = new System.Drawing.Size(266, 20);
@@ -967,13 +967,13 @@
             this.guardarRegenBtn.UseVisualStyleBackColor = true;
             this.guardarRegenBtn.Click += new System.EventHandler(this.guardarRegenBtn_Click);
             // 
-            // regenacionBN
+            // regeneracionBN
             // 
-            this.regenacionBN.AddNewItem = this.toolStripButton1;
-            this.regenacionBN.BindingSource = this.lineaInvBS;
-            this.regenacionBN.CountItem = this.toolStripLabel1;
-            this.regenacionBN.DeleteItem = this.toolStripButton2;
-            this.regenacionBN.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.regeneracionBN.AddNewItem = this.toolStripButton1;
+            this.regeneracionBN.BindingSource = this.lineaInvBS;
+            this.regeneracionBN.CountItem = this.toolStripLabel1;
+            this.regeneracionBN.DeleteItem = this.toolStripButton2;
+            this.regeneracionBN.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton3,
             this.toolStripButton4,
             this.toolStripSeparator1,
@@ -985,16 +985,16 @@
             this.toolStripSeparator3,
             this.toolStripButton1,
             this.toolStripButton2});
-            this.regenacionBN.Location = new System.Drawing.Point(3, 16);
-            this.regenacionBN.MoveFirstItem = this.toolStripButton3;
-            this.regenacionBN.MoveLastItem = this.toolStripButton6;
-            this.regenacionBN.MoveNextItem = this.toolStripButton5;
-            this.regenacionBN.MovePreviousItem = this.toolStripButton4;
-            this.regenacionBN.Name = "regenacionBN";
-            this.regenacionBN.PositionItem = this.toolStripTextBox1;
-            this.regenacionBN.Size = new System.Drawing.Size(374, 25);
-            this.regenacionBN.TabIndex = 2;
-            this.regenacionBN.Text = "bindingNavigator1";
+            this.regeneracionBN.Location = new System.Drawing.Point(3, 16);
+            this.regeneracionBN.MoveFirstItem = this.toolStripButton3;
+            this.regeneracionBN.MoveLastItem = this.toolStripButton6;
+            this.regeneracionBN.MoveNextItem = this.toolStripButton5;
+            this.regeneracionBN.MovePreviousItem = this.toolStripButton4;
+            this.regeneracionBN.Name = "regeneracionBN";
+            this.regeneracionBN.PositionItem = this.toolStripTextBox1;
+            this.regeneracionBN.Size = new System.Drawing.Size(374, 25);
+            this.regeneracionBN.TabIndex = 2;
+            this.regeneracionBN.Text = "bindingNavigator1";
             // 
             // toolStripButton1
             // 
@@ -1309,12 +1309,12 @@
             this.RegeneracionTP.ResumeLayout(false);
             this.datosRegenGrx.ResumeLayout(false);
             this.datosRegenGrx.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.regenracionBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.regeneracionBS)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.regenacionBN)).EndInit();
-            this.regenacionBN.ResumeLayout(false);
-            this.regenacionBN.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.regeneracionBN)).EndInit();
+            this.regeneracionBN.ResumeLayout(false);
+            this.regeneracionBN.PerformLayout();
             this.NoMaderablesTP.ResumeLayout(false);
             this.datosNoMaderablesGrx.ResumeLayout(false);
             this.datosNoMaderablesGrx.PerformLayout();
@@ -1375,7 +1375,7 @@
         private System.Windows.Forms.GroupBox datosRegenGrx;
         private System.Windows.Forms.Button listarRegenbtn;
         private System.Windows.Forms.Button guardarRegenBtn;
-        private System.Windows.Forms.BindingNavigator regenacionBN;
+        private System.Windows.Forms.BindingNavigator regeneracionBN;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
@@ -1404,7 +1404,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton12;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.Button guardarTodoBtn;
-        private System.Windows.Forms.BindingSource regenracionBS;
+        private System.Windows.Forms.BindingSource regeneracionBS;
         private System.Windows.Forms.TextBox nroArbolRegenTxt;
         private System.Windows.Forms.CheckedListBox TipoDeUsosLbc;
         private System.Windows.Forms.BindingSource tipoUsoBS;

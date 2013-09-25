@@ -70,6 +70,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.EstadoLbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.cerrarFormularioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -217,7 +218,8 @@
             // 
             this.inventarioMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.crearFormularioTsm,
-            this.abrirFormulariosTsm});
+            this.abrirFormulariosTsm,
+            this.cerrarFormularioToolStripMenuItem});
             this.inventarioMenu.Name = "inventarioMenu";
             this.inventarioMenu.Size = new System.Drawing.Size(72, 20);
             this.inventarioMenu.Text = "&Inventario";
@@ -400,6 +402,13 @@
             this.EstadoLbl.Size = new System.Drawing.Size(155, 17);
             this.EstadoLbl.Text = "Ningun usuario autenticado";
             // 
+            // cerrarFormularioToolStripMenuItem
+            // 
+            this.cerrarFormularioToolStripMenuItem.Name = "cerrarFormularioToolStripMenuItem";
+            this.cerrarFormularioToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.cerrarFormularioToolStripMenuItem.Text = "Cerrar formulario";
+            this.cerrarFormularioToolStripMenuItem.Click += new System.EventHandler(this.cerrarFormularioToolStripMenuItem_Click);
+            // 
             // Principal_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -468,6 +477,7 @@
         private System.Windows.Forms.ToolStripMenuItem abrirProyectosTsm;
         private System.Windows.Forms.ToolStripMenuItem cerrarProyectoTsm;
         private System.Windows.Forms.ToolStripMenuItem registrarUsuarioTsm;
+        private System.Windows.Forms.ToolStripMenuItem cerrarFormularioToolStripMenuItem;
     }
 }
 

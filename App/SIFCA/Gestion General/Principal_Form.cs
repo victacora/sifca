@@ -185,7 +185,7 @@ namespace SIFCA
             USUARIO user = (USUARIO)Program.Cache.Get("user");
             if (user != null)
             {
-                Listar_Proyecto_Form childForm = new Listar_Proyecto_Form();
+                Actualizar_Proyectos_Form childForm = new Actualizar_Proyectos_Form();
                 childForm.MdiParent = this;
                 childForm.Show();
             }
@@ -338,6 +338,11 @@ namespace SIFCA
                 childForm.Show();
             }
             else MessageBox.Show("Usted No se ha Autenticado dentro del sistema.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+        }
+
+        private void cerrarFormularioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
 

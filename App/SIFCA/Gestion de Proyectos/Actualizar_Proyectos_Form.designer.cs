@@ -1,6 +1,6 @@
 ﻿namespace SIFCA
 {
-    partial class Listar_Proyecto_Form
+    partial class Actualizar_Proyectos_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -43,7 +43,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Listar_Proyecto_Form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Actualizar_Proyectos_Form));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -98,6 +98,13 @@
             this.formulariosTap = new System.Windows.Forms.TabPage();
             this.crearFormBtn = new System.Windows.Forms.Button();
             this.formulariosDGW = new System.Windows.Forms.DataGridView();
+            this.FECHACREACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreResponsable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CODEST = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.PARCELA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LINEA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ListarDatos = new System.Windows.Forms.DataGridViewButtonColumn();
             this.formulariosBS = new System.Windows.Forms.BindingSource(this.components);
             this.proyectosContTabP = new System.Windows.Forms.TabPage();
             this.proyectoDGW = new System.Windows.Forms.DataGridView();
@@ -113,23 +120,6 @@
             this.usuarioBS = new System.Windows.Forms.BindingSource(this.components);
             this.cancelarBtn = new System.Windows.Forms.Button();
             this.ActualizarBtn = new System.Windows.Forms.Button();
-            this.proyectoBN = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.FECHACREACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreResponsable = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CODEST = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.PARCELA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LINEA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ListarDatos = new System.Windows.Forms.DataGridViewButtonColumn();
             descripcionLbl = new System.Windows.Forms.Label();
             DAPLbl = new System.Windows.Forms.Label();
             numeroEtapasLbl = new System.Windows.Forms.Label();
@@ -163,8 +153,6 @@
             this.proyectosContTabP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDGW)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoBN)).BeginInit();
-            this.proyectoBN.SuspendLayout();
             this.SuspendLayout();
             // 
             // descripcionLbl
@@ -274,9 +262,10 @@
             this.crearProyectoTab.Controls.Add(this.estratosTabP);
             this.crearProyectoTab.Controls.Add(this.formulariosTap);
             this.crearProyectoTab.Controls.Add(this.proyectosContTabP);
+            this.crearProyectoTab.Dock = System.Windows.Forms.DockStyle.Top;
             this.crearProyectoTab.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.crearProyectoTab.ItemSize = new System.Drawing.Size(40, 120);
-            this.crearProyectoTab.Location = new System.Drawing.Point(0, 24);
+            this.crearProyectoTab.Location = new System.Drawing.Point(0, 0);
             this.crearProyectoTab.Multiline = true;
             this.crearProyectoTab.Name = "crearProyectoTab";
             this.crearProyectoTab.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -354,7 +343,6 @@
             // proyectoBS
             // 
             this.proyectoBS.DataSource = typeof(SIFCA_DAL.PROYECTO);
-            this.proyectoBS.PositionChanged += new System.EventHandler(this.proyectoBS_PositionChanged);
             // 
             // tipoDisenoCbx
             // 
@@ -575,6 +563,7 @@
             this.especiesDGW.Size = new System.Drawing.Size(525, 415);
             this.especiesDGW.TabIndex = 19;
             this.especiesDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.especiesDGW_CellValueChanged);
+            this.especiesDGW.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.especiesDGW_DataBindingComplete);
             // 
             // Especie
             // 
@@ -717,6 +706,7 @@
             this.estratosDGW.Size = new System.Drawing.Size(525, 415);
             this.estratosDGW.TabIndex = 0;
             this.estratosDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.estratoDGW_CellValueChanged);
+            this.estratosDGW.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.estratosDGW_DataBindingComplete);
             // 
             // Estratos
             // 
@@ -810,6 +800,62 @@
             this.formulariosDGW.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.formulariosDGW_CellClick);
             this.formulariosDGW.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.formulariosDGW_DataBindingComplete);
             // 
+            // FECHACREACION
+            // 
+            this.FECHACREACION.DataPropertyName = "FECHACREACION";
+            this.FECHACREACION.HeaderText = "Fecha";
+            this.FECHACREACION.Name = "FECHACREACION";
+            this.FECHACREACION.ReadOnly = true;
+            // 
+            // Usuario
+            // 
+            this.Usuario.DataPropertyName = "NROUSUARIO";
+            this.Usuario.HeaderText = "Responsable";
+            this.Usuario.Name = "Usuario";
+            this.Usuario.ReadOnly = true;
+            this.Usuario.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Usuario.Visible = false;
+            // 
+            // NombreResponsable
+            // 
+            this.NombreResponsable.HeaderText = "Responsable";
+            this.NombreResponsable.Name = "NombreResponsable";
+            this.NombreResponsable.ReadOnly = true;
+            // 
+            // CODEST
+            // 
+            this.CODEST.DataPropertyName = "CODEST";
+            this.CODEST.DataSource = this.estratoBS;
+            this.CODEST.DisplayMember = "DESCRIPESTRATO";
+            this.CODEST.HeaderText = "Estrato";
+            this.CODEST.Name = "CODEST";
+            this.CODEST.ReadOnly = true;
+            this.CODEST.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CODEST.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.CODEST.ValueMember = "CODEST";
+            // 
+            // PARCELA
+            // 
+            this.PARCELA.DataPropertyName = "PARCELA";
+            this.PARCELA.HeaderText = "Parcela";
+            this.PARCELA.Name = "PARCELA";
+            this.PARCELA.ReadOnly = true;
+            // 
+            // LINEA
+            // 
+            this.LINEA.DataPropertyName = "LINEA";
+            this.LINEA.HeaderText = "Linea";
+            this.LINEA.Name = "LINEA";
+            this.LINEA.ReadOnly = true;
+            // 
+            // ListarDatos
+            // 
+            this.ListarDatos.HeaderText = "";
+            this.ListarDatos.Name = "ListarDatos";
+            this.ListarDatos.ReadOnly = true;
+            this.ListarDatos.Text = "Ver";
+            this.ListarDatos.UseColumnTextForButtonValue = true;
+            // 
             // formulariosBS
             // 
             this.formulariosBS.DataSource = typeof(SIFCA_DAL.FORMULARIO);
@@ -827,7 +873,7 @@
             this.proyectosContTabP.Text = "Proyectos contenidos";
             this.proyectosContTabP.UseVisualStyleBackColor = true;
             // 
-            // proyectosDGW
+            // proyectoDGW
             // 
             this.proyectoDGW.AllowUserToAddRows = false;
             this.proyectoDGW.AllowUserToDeleteRows = false;
@@ -863,7 +909,7 @@
             this.proyectoDGW.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.proyectoDGW.Enabled = false;
             this.proyectoDGW.Location = new System.Drawing.Point(0, 44);
-            this.proyectoDGW.Name = "proyectosDGW";
+            this.proyectoDGW.Name = "proyectoDGW";
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -977,171 +1023,20 @@
             this.ActualizarBtn.UseVisualStyleBackColor = true;
             this.ActualizarBtn.Click += new System.EventHandler(this.GuardarBtn_Click);
             // 
-            // proyectoBN
-            // 
-            this.proyectoBN.AddNewItem = null;
-            this.proyectoBN.BindingSource = this.proyectoBS;
-            this.proyectoBN.CountItem = this.bindingNavigatorCountItem;
-            this.proyectoBN.DeleteItem = null;
-            this.proyectoBN.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2});
-            this.proyectoBN.Location = new System.Drawing.Point(0, 0);
-            this.proyectoBN.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.proyectoBN.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.proyectoBN.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.proyectoBN.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.proyectoBN.Name = "proyectoBN";
-            this.proyectoBN.PositionItem = this.bindingNavigatorPositionItem;
-            this.proyectoBN.Size = new System.Drawing.Size(659, 25);
-            this.proyectoBN.TabIndex = 14;
-            this.proyectoBN.Text = "proyectoBN";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
-            this.bindingNavigatorCountItem.Text = "de {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Mover primero";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Mover anterior";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Posición";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Posición actual";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Mover siguiente";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Mover último";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // FECHACREACION
-            // 
-            this.FECHACREACION.DataPropertyName = "FECHACREACION";
-            this.FECHACREACION.HeaderText = "Fecha";
-            this.FECHACREACION.Name = "FECHACREACION";
-            this.FECHACREACION.ReadOnly = true;
-            // 
-            // Usuario
-            // 
-            this.Usuario.DataPropertyName = "NROUSUARIO";
-            this.Usuario.HeaderText = "Responsable";
-            this.Usuario.Name = "Usuario";
-            this.Usuario.ReadOnly = true;
-            this.Usuario.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Usuario.Visible = false;
-            // 
-            // NombreResponsable
-            // 
-            this.NombreResponsable.HeaderText = "Responsable";
-            this.NombreResponsable.Name = "NombreResponsable";
-            this.NombreResponsable.ReadOnly = true;
-            // 
-            // CODEST
-            // 
-            this.CODEST.DataPropertyName = "CODEST";
-            this.CODEST.DataSource = this.estratoBS;
-            this.CODEST.DisplayMember = "DESCRIPESTRATO";
-            this.CODEST.HeaderText = "Estrato";
-            this.CODEST.Name = "CODEST";
-            this.CODEST.ReadOnly = true;
-            this.CODEST.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CODEST.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.CODEST.ValueMember = "CODEST";
-            // 
-            // PARCELA
-            // 
-            this.PARCELA.DataPropertyName = "PARCELA";
-            this.PARCELA.HeaderText = "Parcela";
-            this.PARCELA.Name = "PARCELA";
-            this.PARCELA.ReadOnly = true;
-            // 
-            // LINEA
-            // 
-            this.LINEA.DataPropertyName = "LINEA";
-            this.LINEA.HeaderText = "Linea";
-            this.LINEA.Name = "LINEA";
-            this.LINEA.ReadOnly = true;
-            // 
-            // ListarDatos
-            // 
-            this.ListarDatos.HeaderText = "";
-            this.ListarDatos.Name = "ListarDatos";
-            this.ListarDatos.ReadOnly = true;
-            this.ListarDatos.Text = "Ver";
-            this.ListarDatos.UseColumnTextForButtonValue = true;
-            // 
-            // Listar_Proyecto_Form
+            // Actualizar_Proyectos_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIFCA.Properties.Resources.fondoTab;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(659, 525);
-            this.Controls.Add(this.proyectoBN);
             this.Controls.Add(this.cancelarBtn);
             this.Controls.Add(this.ActualizarBtn);
             this.Controls.Add(this.crearProyectoTab);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Listar_Proyecto_Form";
+            this.Name = "Actualizar_Proyectos_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listar proyectos";
             this.crearProyectoTab.ResumeLayout(false);
@@ -1171,11 +1066,7 @@
             this.proyectosContTabP.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDGW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoBN)).EndInit();
-            this.proyectoBN.ResumeLayout(false);
-            this.proyectoBN.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1201,16 +1092,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Estratos;
         private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPESTRATO;
         private System.Windows.Forms.DataGridViewTextBoxColumn Peso;
-        private System.Windows.Forms.BindingNavigator proyectoBN;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.Button seleccEspecieBtn;
         private System.Windows.Forms.Button RemoverEspciesBtn;
         private System.Windows.Forms.TabPage formulariosTap;

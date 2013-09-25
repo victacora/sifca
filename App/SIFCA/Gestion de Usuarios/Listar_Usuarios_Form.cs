@@ -19,7 +19,7 @@ namespace SIFCA
             InitializeComponent();
             user=new UserBL(Program.ContextData);
             usuarioBS.DataSource=user.GetUsers();
-            usuarioDGV.DataSource = usuarioBS;
+            usuarioDGW.DataSource = usuarioBS;
             criterioCbx.SelectedIndex = 0;
         }
 
@@ -32,8 +32,8 @@ namespace SIFCA
                 if (criteria != "Cedula")
                 {
                     usuarioBS.DataSource = user.SearchUsers(busquedaTxt.Text, criteria);
-                    usuarioDGV.DataSource = usuarioBS;
-                    usuarioDGV.Refresh();
+                    usuarioDGW.DataSource = usuarioBS;
+                    usuarioDGW.Refresh();
                 }
                 else
                 {
@@ -42,8 +42,8 @@ namespace SIFCA
                     if (result)
                     {
                         usuarioBS.DataSource = user.SearchUsers(busquedaTxt.Text, criteria);
-                        usuarioDGV.DataSource = usuarioBS;
-                        usuarioDGV.Refresh();
+                        usuarioDGW.DataSource = usuarioBS;
+                        usuarioDGW.Refresh();
                     }
                     else MessageBox.Show("Entra invalida para el parametro cedula.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -51,8 +51,8 @@ namespace SIFCA
             else 
             {
                 usuarioBS.DataSource = user.GetUsers();
-                usuarioDGV.DataSource = usuarioBS;
-                usuarioDGV.Refresh();
+                usuarioDGW.DataSource = usuarioBS;
+                usuarioDGW.Refresh();
             }
         }
 

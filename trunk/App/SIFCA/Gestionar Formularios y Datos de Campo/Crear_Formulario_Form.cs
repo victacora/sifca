@@ -23,6 +23,7 @@ namespace SIFCA
         private NonTimberLineBL lineNonTimber;
         private TypeUseBL typeUses;
         private FORMULARIO newForm;
+        private LINEANOMADERABLES newLineNoTimber;
         private bool modified;
 
         public Crear_Formulario_Form()
@@ -53,6 +54,7 @@ namespace SIFCA
             PROYECTO project = (PROYECTO)Program.Cache.Get("project");
             responsableTxt.Text = user.NOMBRES + " " + user.APELLIDOS;
             proyectoTxt.Text = project.LUGAR;
+            newLineNoTimber = new LINEANOMADERABLES();
             modified = true;
         }
 
@@ -120,7 +122,7 @@ namespace SIFCA
             LINEAREGENERACION newLine = new LINEAREGENERACION();
             newLine.LINEAREGEN = Guid.NewGuid();
             newLine.FORMULARIO = form.GetForm(newForm.NROFORMULARIO);
-            newLine.ESPECIE = (ESPECIE)especieCbx.SelectedItem;
+            newLine.ESPECIE = (ESPECIE)especieRegenCbx.SelectedItem;
             newLine.NROARB = int.Parse(nroArbolTxt.Text);
             newLine.LATIZAL = decimal.Parse(latizalTxt.Text);
             newLine.BRINZAL = decimal.Parse(brinzalTxt.Text);
@@ -134,30 +136,13 @@ namespace SIFCA
         private void guardarLineNoMadBtn_Click(object sender, EventArgs e)
         {
             PROYECTO project = (PROYECTO)Program.Cache.Get("project");
-            LINEAINVENTARIO newLine = new LINEAINVENTARIO();
-            newLine.LINEAINV = Guid.NewGuid();
-            newLine.FORMULARIO = form.GetForm(newForm.NROFORMULARIO);
-            newLine.ESPECIE = (ESPECIE)especieCbx.SelectedItem;
-            newLine.CALIDAD = (CALIDAD)calidadCbx.SelectedItem;
-            newLine.ESTADOSANITARIO = (ESTADOSANITARIO)estadoCbx.SelectedItem;
-            newLine.NROARB = int.Parse(nroArbolTxt.Text);
-            newLine.ALTCOMER_M = int.Parse(alturaComercialTxt.Text);
-            newLine.ALTTOT_M = int.Parse(alturaTotalTxt.Text);
-            newLine.CAP = int.Parse(cAPTxt.Text);
-            newLine.DAP = int.Parse(dAPTxt.Text);
-            newLine.AREABASAL =(decimal)((Math.PI *Math.Pow(((double)newLine.DAP),2))/4);
-            newLine.VOLCOM = newLine.AREABASAL * newLine.ALTCOMER_M*project.FACTORDEFORMA;
-            newLine.VOLTOT = newLine.AREABASAL * newLine.ALTTOT_M * project.FACTORDEFORMA;
-            lineInv.InsertInventoryLine(newLine);
+            newLineNoTimber.LINEANMAD = Guid.NewGuid();
+            newLineNoTimber.FORMULARIO = form.GetForm(newForm.NROFORMULARIO);
+            newLineNoTimber.OBSERVACIONES = observacionesTxt.Text;
             lineInv.SaveChanges();
             lineaInvBS.DataSource = lineInv.GetInventoryLines();
             lineaInvBN.Refresh();
             MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void datosRegenGrx_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void dAPTxt_TextChanged(object sender, EventArgs e)
@@ -203,6 +188,18 @@ namespace SIFCA
                     }
                 }
                 else MessageBox.Show("Entra invalida para la medida de la circunferencia.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void TipoDeUsosLbc_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (e.NewValue == CheckState.Checked)
+            {
+                newLineNoTimber.TIPODEUSO.Add((TIPODEUSO)TipoDeUsosLbc.SelectedItem);
+            }
+            else
+            {
+                newLineNoTimber.TIPODEUSO.Remove((TIPODEUSO)TipoDeUsosLbc.SelectedItem);
             }
         }
 

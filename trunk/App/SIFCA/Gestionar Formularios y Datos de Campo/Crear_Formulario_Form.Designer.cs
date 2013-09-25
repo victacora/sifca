@@ -1139,6 +1139,7 @@
             this.TipoDeUsosLbc.Name = "TipoDeUsosLbc";
             this.TipoDeUsosLbc.Size = new System.Drawing.Size(261, 94);
             this.TipoDeUsosLbc.TabIndex = 78;
+            this.TipoDeUsosLbc.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TipoDeUsosLbc_ItemCheck);
             // 
             // listarNoMaderableBtn
             // 

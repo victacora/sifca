@@ -53,7 +53,7 @@ namespace SIFCA
             PROYECTO project = (PROYECTO)Program.Cache.Get("project");
             responsableTxt.Text = user.NOMBRES + " " + user.APELLIDOS;
             proyectoTxt.Text = project.LUGAR;
-            modified = false;
+            modified = true;
         }
 
         private void guardarformularioBtn_Click(object sender, EventArgs e)
@@ -168,10 +168,19 @@ namespace SIFCA
                 bool result = int.TryParse(dAPTxt.Text, out output);
                 if (result)
                 {
-                    cAPTxt.Text = (Math.PI * double.Parse(dAPTxt.Text)).ToString();
+                    if (modified)
+                    {
+                        cAPTxt.Text = (Math.PI * double.Parse(dAPTxt.Text)).ToString();
+                    }
+                    else
+                    {
+                        modified = true;
+                        return;
+                    }
                 }
                 else MessageBox.Show("Entra invalida para el diametro.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            modified = false;
         }
 
         private void cAPTxt_TextChanged(object sender, EventArgs e)
@@ -182,10 +191,19 @@ namespace SIFCA
                 bool result = int.TryParse(dAPTxt.Text, out output);
                 if (result)
                 {
-                    dAPTxt.Text = (double.Parse(cAPTxt.Text) / Math.PI).ToString();
+                    if (modified)
+                    {
+                        dAPTxt.Text = (double.Parse(cAPTxt.Text) / Math.PI).ToString();
+                    }
+                    else
+                    {
+                        modified = true;
+                        return;
+                    }
                 }
                 else MessageBox.Show("Entra invalida para la medida de la circunferencia.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            modified = false;
         }
 
     }

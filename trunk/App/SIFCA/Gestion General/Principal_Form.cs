@@ -124,19 +124,7 @@ namespace SIFCA
             //childForm.Show();
 
         }
-
-        private void IntroducirDatosUsuario_Click(object sender, EventArgs e)
-        {
-            USUARIO user = (USUARIO)Program.Cache.Get("user");
-            if (user != null)
-            {
-                Crear_Usuario_Form childForm = new Crear_Usuario_Form();
-                childForm.MdiParent = this;
-                childForm.Show();
-            }
-            else MessageBox.Show("Usted No se ha Autenticado dentro del sistema.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-        }
-
+        
         private void listarUsuariosTsm_Click(object sender, EventArgs e)
         {
             USUARIO user = (USUARIO)Program.Cache.Get("user");
@@ -153,6 +141,7 @@ namespace SIFCA
         {
             listarUsuariosTsm.Visible = true;
             actualizarDatosUsuarioTsm.Visible = true;
+           
         }
 
         private void cerrarSesionTsm_Click(object sender, EventArgs e)
@@ -266,18 +255,14 @@ namespace SIFCA
                     cerrarProyectoTsm.Visible = false;
                     actualizarProyectoTsm.Visible = false;
                     eliminarProyectoTsm.Visible = false;
+                    inventarioMenu.Visible = false;
                     this.Text = "SIFCA";
                 }
                 else MessageBox.Show("Ningun proyecto ha sido abierto.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else MessageBox.Show("Ningun usuario ha iniciado sesión.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
         }
-
-        private void salirTsm_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+        
         private void eliminarProyectoTsm_Click(object sender, EventArgs e)
         {
 
@@ -333,6 +318,18 @@ namespace SIFCA
             {
                 childForm.Close();
             }
+        }
+
+        private void registrarUsuarioTsm_Click(object sender, EventArgs e)
+        {
+            USUARIO user = (USUARIO)Program.Cache.Get("user");
+            if (user != null)
+            {
+                Crear_Usuario_Form childForm = new Crear_Usuario_Form();
+                childForm.MdiParent = this;
+                childForm.Show();
+            }
+            else MessageBox.Show("Usted No se ha Autenticado dentro del sistema.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
         }
 
 

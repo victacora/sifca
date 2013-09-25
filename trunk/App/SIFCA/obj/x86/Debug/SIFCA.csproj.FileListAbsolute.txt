@@ -14,7 +14,6 @@ C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_de_GruposCom.Crear_GruposCom_Form.resources
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_de_GruposCom.Listado_GruposCom_Form.resources
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_de_GruposCom.Ver_GruposCom_Form.resources
-C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Listar_Proyecto_Form.resources
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Crear_Proyecto_Form.resources
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Autenticar_Usuario_Form.resources
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Actualizar_Usuario_Form.resources
@@ -30,3 +29,4 @@ C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Listar_Datos_Formulario_Form.resources
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.Especies_Form.resources
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Abrir_Proyecto_Form.resources
+C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Actualizar_Proyectos_Form.resources

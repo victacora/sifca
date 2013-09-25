@@ -100,11 +100,11 @@
     <Compile Include="Gestion de Proyectos\Abrir_Proyecto_Form.Designer.cs">
       <DependentUpon>Abrir_Proyecto_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestion de Proyectos\Listar_Proyectos_Form.cs">
+    <Compile Include="Gestion de Proyectos\Actualizar_Proyectos_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestion de Proyectos\Listar_Proyectos_Form.designer.cs">
-      <DependentUpon>Listar_Proyectos_Form.cs</DependentUpon>
+    <Compile Include="Gestion de Proyectos\Actualizar_Proyectos_Form.designer.cs">
+      <DependentUpon>Actualizar_Proyectos_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestion de Proyectos\Crear_Proyectos_Form.cs">
       <SubType>Form</SubType>
@@ -142,10 +142,10 @@
     <Compile Include="Gestion General\Acerca_De_Form.Designer.cs">
       <DependentUpon>Acerca_De_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestionar Formularios y Datos de Campo\Crear_Formulario_Form.cs">
+    <Compile Include="Gestionar Formularios\Crear_Formulario_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestionar Formularios y Datos de Campo\Crear_Formulario_Form.Designer.cs">
+    <Compile Include="Gestionar Formularios\Crear_Formulario_Form.Designer.cs">
       <DependentUpon>Crear_Formulario_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestion General\Principal_Form.cs">
@@ -154,10 +154,10 @@
     <Compile Include="Gestion General\Principal_Form.Designer.cs">
       <DependentUpon>Principal_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestionar Formularios y Datos de Campo\Listar_Datos_Formulario_Form.cs">
+    <Compile Include="Gestionar Formularios\Listar_Datos_Formulario_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestionar Formularios y Datos de Campo\Listar_Datos_Formulario_Form.Designer.cs">
+    <Compile Include="Gestionar Formularios\Listar_Datos_Formulario_Form.Designer.cs">
       <DependentUpon>Listar_Datos_Formulario_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -186,8 +186,8 @@
     <EmbeddedResource Include="Gestion de Proyectos\Abrir_Proyecto_Form.resx">
       <DependentUpon>Abrir_Proyecto_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Proyectos\Listar_Proyectos_Form.resx">
-      <DependentUpon>Listar_Proyectos_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Gestion de Proyectos\Actualizar_Proyectos_Form.resx">
+      <DependentUpon>Actualizar_Proyectos_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Proyectos\Crear_Proyectos_Form.resx">
       <DependentUpon>Crear_Proyectos_Form.cs</DependentUpon>
@@ -207,13 +207,13 @@
     <EmbeddedResource Include="Gestion General\Acerca_De_Form.resx">
       <DependentUpon>Acerca_De_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gestionar Formularios y Datos de Campo\Crear_Formulario_Form.resx">
+    <EmbeddedResource Include="Gestionar Formularios\Crear_Formulario_Form.resx">
       <DependentUpon>Crear_Formulario_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion General\Principal_Form.resx">
       <DependentUpon>Principal_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gestionar Formularios y Datos de Campo\Listar_Datos_Formulario_Form.resx">
+    <EmbeddedResource Include="Gestionar Formularios\Listar_Datos_Formulario_Form.resx">
       <DependentUpon>Listar_Datos_Formulario_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

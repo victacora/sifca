@@ -13,9 +13,9 @@
     <EntitySet Name="LISTADODEESTRATOS" EntityType="SIFCA_Model.LISTADODEESTRATOS" />
     <EntitySet Name="OBJETIVOINVENTARIO" EntityType="SIFCA_Model.OBJETIVOINVENTARIO" />
     <EntitySet Name="PROYECTO" EntityType="SIFCA_Model.PROYECTO" />
+    <EntitySet Name="PROYECTOSPORETAPA" EntityType="SIFCA_Model.PROYECTOSPORETAPA" />
     <EntitySet Name="TIPODEUSO" EntityType="SIFCA_Model.TIPODEUSO" />
     <EntitySet Name="TIPODISENOMUESTRAL" EntityType="SIFCA_Model.TIPODISENOMUESTRAL" />
-    <EntitySet Name="TIPOFORMULARIO" EntityType="SIFCA_Model.TIPOFORMULARIO" />
     <EntitySet Name="TRANSACCION" EntityType="SIFCA_Model.TRANSACCION" />
     <EntitySet Name="TSTUDENT" EntityType="SIFCA_Model.TSTUDENT" />
     <EntitySet Name="USUARIO" EntityType="SIFCA_Model.USUARIO" />
@@ -51,10 +51,6 @@
       <End Role="PROYECTO" EntitySet="PROYECTO" />
       <End Role="FORMULARIO" EntitySet="FORMULARIO" />
     </AssociationSet>
-    <AssociationSet Name="FK_FORMULAR_ES_DE_TIPOFORM" Association="SIFCA_Model.FK_FORMULAR_ES_DE_TIPOFORM">
-      <End Role="TIPOFORMULARIO" EntitySet="TIPOFORMULARIO" />
-      <End Role="FORMULARIO" EntitySet="FORMULARIO" />
-    </AssociationSet>
     <AssociationSet Name="FK_FORMULAR_ES_REPONS_USUARIO" Association="SIFCA_Model.FK_FORMULAR_ES_REPONS_USUARIO">
       <End Role="USUARIO" EntitySet="USUARIO" />
       <End Role="FORMULARIO" EntitySet="FORMULARIO" />
@@ -79,6 +75,14 @@
       <End Role="OBJETIVOINVENTARIO" EntitySet="OBJETIVOINVENTARIO" />
       <End Role="PROYECTO" EntitySet="PROYECTO" />
     </AssociationSet>
+    <AssociationSet Name="FK_PROYECTO_CONTENEDOR" Association="SIFCA_Model.FK_PROYECTO_CONTENEDOR">
+      <End Role="PROYECTO" EntitySet="PROYECTO" />
+      <End Role="PROYECTOSPORETAPA" EntitySet="PROYECTOSPORETAPA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROYECTO_CONTENIDOS" Association="SIFCA_Model.FK_PROYECTO_CONTENIDOS">
+      <End Role="PROYECTO" EntitySet="PROYECTO" />
+      <End Role="PROYECTOSPORETAPA" EntitySet="PROYECTOSPORETAPA" />
+    </AssociationSet>
     <AssociationSet Name="FK_PROYECTO_CREA_USUARIO" Association="SIFCA_Model.FK_PROYECTO_CREA_USUARIO">
       <End Role="USUARIO" EntitySet="USUARIO" />
       <End Role="PROYECTO" EntitySet="PROYECTO" />
@@ -94,10 +98,6 @@
     <AssociationSet Name="LISTADODEESPECIES" Association="SIFCA_Model.LISTADODEESPECIES">
       <End Role="ESPECIE" EntitySet="ESPECIE" />
       <End Role="PROYECTO" EntitySet="PROYECTO" />
-    </AssociationSet>
-    <AssociationSet Name="PROYECTOSPORETAPA" Association="SIFCA_Model.PROYECTOSPORETAPA">
-      <End Role="PROYECTO" EntitySet="PROYECTO" />
-      <End Role="PROYECTO1" EntitySet="PROYECTO" />
     </AssociationSet>
     <AssociationSet Name="USO" Association="SIFCA_Model.USO">
       <End Role="TIPODEUSO" EntitySet="TIPODEUSO" />
@@ -151,7 +151,6 @@
       <PropertyRef Name="NROFORMULARIO" />
     </Key>
     <Property Type="Guid" Name="NROFORMULARIO" Nullable="false" />
-    <Property Type="Decimal" Name="TIPFORM_ID" Nullable="false" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="CODEST" Nullable="false" Precision="18" Scale="0" />
     <Property Type="Guid" Name="NROUSUARIO" Nullable="false" />
     <Property Type="Guid" Name="NROPROY" Nullable="false" />
@@ -164,7 +163,6 @@
     <Property Type="Decimal" Name="COORDENADAY" Precision="18" Scale="0" />
     <NavigationProperty Name="ESTRATO" Relationship="SIFCA_Model.FK_FORMULAR_MANEJA_ESTRATO" FromRole="FORMULARIO" ToRole="ESTRATO" />
     <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_FORMULAR_DESARROLL_PROYECTO" FromRole="FORMULARIO" ToRole="PROYECTO" />
-    <NavigationProperty Name="TIPOFORMULARIO" Relationship="SIFCA_Model.FK_FORMULAR_ES_DE_TIPOFORM" FromRole="FORMULARIO" ToRole="TIPOFORMULARIO" />
     <NavigationProperty Name="USUARIO" Relationship="SIFCA_Model.FK_FORMULAR_ES_REPONS_USUARIO" FromRole="FORMULARIO" ToRole="USUARIO" />
     <NavigationProperty Name="LINEAINVENTARIO" Relationship="SIFCA_Model.FK_LINEAINV_LLENA_FORMULAR" FromRole="FORMULARIO" ToRole="LINEAINVENTARIO" />
     <NavigationProperty Name="LINEANOMADERABLES" Relationship="SIFCA_Model.FK_LINEANOM_RECOLECTA_FORMULAR" FromRole="FORMULARIO" ToRole="LINEANOMADERABLES" />
@@ -266,11 +264,22 @@
     <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_FORMULAR_DESARROLL_PROYECTO" FromRole="PROYECTO" ToRole="FORMULARIO" />
     <NavigationProperty Name="LISTADODEESTRATOS" Relationship="SIFCA_Model.FK_LISTAESTRATOS_PROYECTO" FromRole="PROYECTO" ToRole="LISTADODEESTRATOS" />
     <NavigationProperty Name="OBJETIVOINVENTARIO" Relationship="SIFCA_Model.FK_PROYECTO_ES_OBJETIVO" FromRole="PROYECTO" ToRole="OBJETIVOINVENTARIO" />
+    <NavigationProperty Name="PROYECTOSPORETAPA" Relationship="SIFCA_Model.FK_PROYECTO_CONTENEDOR" FromRole="PROYECTO" ToRole="PROYECTOSPORETAPA" />
+    <NavigationProperty Name="PROYECTOSPORETAPA1" Relationship="SIFCA_Model.FK_PROYECTO_CONTENIDOS" FromRole="PROYECTO" ToRole="PROYECTOSPORETAPA" />
     <NavigationProperty Name="USUARIO" Relationship="SIFCA_Model.FK_PROYECTO_CREA_USUARIO" FromRole="PROYECTO" ToRole="USUARIO" />
     <NavigationProperty Name="TIPODISENOMUESTRAL" Relationship="SIFCA_Model.FK_PROYECTO_REALIZA_TIPODISE" FromRole="PROYECTO" ToRole="TIPODISENOMUESTRAL" />
     <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.LISTADODEESPECIES" FromRole="PROYECTO" ToRole="ESPECIE" />
-    <NavigationProperty Name="PROYECTO1" Relationship="SIFCA_Model.PROYECTOSPORETAPA" FromRole="PROYECTO" ToRole="PROYECTO1" />
-    <NavigationProperty Name="PROYECTO2" Relationship="SIFCA_Model.PROYECTOSPORETAPA" FromRole="PROYECTO1" ToRole="PROYECTO" />
+  </EntityType>
+  <EntityType Name="PROYECTOSPORETAPA">
+    <Key>
+      <PropertyRef Name="NROPROYCONTENEDOR" />
+      <PropertyRef Name="NROPROYCONTENIDO" />
+    </Key>
+    <Property Type="Guid" Name="NROPROYCONTENEDOR" Nullable="false" />
+    <Property Type="Guid" Name="NROPROYCONTENIDO" Nullable="false" />
+    <Property Type="Decimal" Name="PESO" Nullable="false" Precision="18" Scale="3" />
+    <NavigationProperty Name="PROYECTOCONTENEDOR" Relationship="SIFCA_Model.FK_PROYECTO_CONTENEDOR" FromRole="PROYECTOSPORETAPA" ToRole="PROYECTO" />
+    <NavigationProperty Name="PROYECTOCONTENIDO" Relationship="SIFCA_Model.FK_PROYECTO_CONTENIDOS" FromRole="PROYECTOSPORETAPA" ToRole="PROYECTO" />
   </EntityType>
   <EntityType Name="TIPODEUSO">
     <Key>
@@ -287,15 +296,6 @@
     <Property Type="String" Name="NOMTIPODISEMUEST" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="DESCRIPTIPODISEMUEST" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_REALIZA_TIPODISE" FromRole="TIPODISENOMUESTRAL" ToRole="PROYECTO" />
-  </EntityType>
-  <EntityType Name="TIPOFORMULARIO">
-    <Key>
-      <PropertyRef Name="TIPFORM_ID" />
-    </Key>
-    <Property Type="String" Name="NOMBRETIPOFORM" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="DESCRIPCION" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Type="Decimal" Name="TIPFORM_ID" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-    <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_FORMULAR_ES_DE_TIPOFORM" FromRole="TIPOFORMULARIO" ToRole="FORMULARIO" />
   </EntityType>
   <EntityType Name="TRANSACCION">
     <Key>
@@ -331,6 +331,7 @@
     <Property Type="String" Name="NOMBREUSUARIO" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="CONTRASENA" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
     <Property Type="Decimal" Name="CEDULA" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="TIPOUSUARIO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_FORMULAR_ES_REPONS_USUARIO" FromRole="USUARIO" ToRole="FORMULARIO" />
     <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_CREA_USUARIO" FromRole="USUARIO" ToRole="PROYECTO" />
     <NavigationProperty Name="TRANSACCION" Relationship="SIFCA_Model.FK_TRANSACC_REGISTRA_USUARIO" FromRole="USUARIO" ToRole="TRANSACCION" />
@@ -431,18 +432,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_FORMULAR_ES_DE_TIPOFORM">
-    <End Type="SIFCA_Model.TIPOFORMULARIO" Role="TIPOFORMULARIO" Multiplicity="1" />
-    <End Type="SIFCA_Model.FORMULARIO" Role="FORMULARIO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TIPOFORMULARIO">
-        <PropertyRef Name="TIPFORM_ID" />
-      </Principal>
-      <Dependent Role="FORMULARIO">
-        <PropertyRef Name="TIPFORM_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_FORMULAR_ES_REPONS_USUARIO">
     <End Type="SIFCA_Model.USUARIO" Role="USUARIO" Multiplicity="1" />
     <End Type="SIFCA_Model.FORMULARIO" Role="FORMULARIO" Multiplicity="*" />
@@ -515,6 +504,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_PROYECTO_CONTENEDOR">
+    <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="1" />
+    <End Type="SIFCA_Model.PROYECTOSPORETAPA" Role="PROYECTOSPORETAPA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROYECTO">
+        <PropertyRef Name="NROPROY" />
+      </Principal>
+      <Dependent Role="PROYECTOSPORETAPA">
+        <PropertyRef Name="NROPROYCONTENEDOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROYECTO_CONTENIDOS">
+    <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="1" />
+    <End Type="SIFCA_Model.PROYECTOSPORETAPA" Role="PROYECTOSPORETAPA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROYECTO">
+        <PropertyRef Name="NROPROY" />
+      </Principal>
+      <Dependent Role="PROYECTOSPORETAPA">
+        <PropertyRef Name="NROPROYCONTENIDO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_PROYECTO_CREA_USUARIO">
     <End Type="SIFCA_Model.USUARIO" Role="USUARIO" Multiplicity="1" />
     <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="*" />
@@ -554,10 +567,6 @@
   <Association Name="LISTADODEESPECIES">
     <End Type="SIFCA_Model.ESPECIE" Role="ESPECIE" Multiplicity="*" />
     <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="*" />
-  </Association>
-  <Association Name="PROYECTOSPORETAPA">
-    <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="*" />
-    <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO1" Multiplicity="*" />
   </Association>
   <Association Name="USO">
     <End Type="SIFCA_Model.TIPODEUSO" Role="TIPODEUSO" Multiplicity="*" />

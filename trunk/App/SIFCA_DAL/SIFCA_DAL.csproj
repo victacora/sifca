@@ -84,6 +84,9 @@
     <Compile Include="PROYECTO.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="PROYECTOSPORETAPA.cs">
+      <DependentUpon>SIFCA_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="SIFCA_Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,9 +106,6 @@
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="TIPODISENOMUESTRAL.cs">
-      <DependentUpon>SIFCA_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TIPOFORMULARIO.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="TRANSACCION.cs">

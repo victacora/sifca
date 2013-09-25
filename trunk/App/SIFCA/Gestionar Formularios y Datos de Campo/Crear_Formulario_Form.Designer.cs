@@ -38,7 +38,6 @@
             System.Windows.Forms.Label coordenaYLbl;
             System.Windows.Forms.Label hORAFINALLabel;
             System.Windows.Forms.Label horaInicioLbl;
-            System.Windows.Forms.Label tipoFormularioLbl;
             System.Windows.Forms.Label volumenComercialLbl;
             System.Windows.Forms.Label volumenTotalLbl;
             System.Windows.Forms.Label cAPLbl;
@@ -61,8 +60,6 @@
             this.guardarTodoBtn = new System.Windows.Forms.Button();
             this.estratoCbx = new System.Windows.Forms.ComboBox();
             this.estratoBS = new System.Windows.Forms.BindingSource(this.components);
-            this.tipoFormularioCbx = new System.Windows.Forms.ComboBox();
-            this.tipoFormularioBS = new System.Windows.Forms.BindingSource(this.components);
             this.guardarformularioBtn = new System.Windows.Forms.Button();
             this.proyectoCbx = new System.Windows.Forms.ComboBox();
             this.proyectoBS = new System.Windows.Forms.BindingSource(this.components);
@@ -80,6 +77,7 @@
             this.datosTabControl = new System.Windows.Forms.TabControl();
             this.InventarioTP = new System.Windows.Forms.TabPage();
             this.datosInventarioGrx = new System.Windows.Forms.GroupBox();
+            this.RegistrarEspecieBtn = new System.Windows.Forms.Button();
             this.listarDatosBtn = new System.Windows.Forms.Button();
             this.volComercialTxt = new System.Windows.Forms.TextBox();
             this.volTotalTxt = new System.Windows.Forms.TextBox();
@@ -107,6 +105,7 @@
             this.dAPTxt = new System.Windows.Forms.TextBox();
             this.RegeneracionTP = new System.Windows.Forms.TabPage();
             this.datosRegenGrx = new System.Windows.Forms.GroupBox();
+            this.registrarEspecieRegenBtn = new System.Windows.Forms.Button();
             this.especieRegenCbx = new System.Windows.Forms.ComboBox();
             this.brinzalTxt = new System.Windows.Forms.TextBox();
             this.regenracionBS = new System.Windows.Forms.BindingSource(this.components);
@@ -147,8 +146,6 @@
             this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tipoUsoBS = new System.Windows.Forms.BindingSource(this.components);
-            this.RegistrarEspecieBtn = new System.Windows.Forms.Button();
-            this.registrarEspecieRegenBtn = new System.Windows.Forms.Button();
             estratoLbl = new System.Windows.Forms.Label();
             lineaLbl = new System.Windows.Forms.Label();
             ProyectoLbl = new System.Windows.Forms.Label();
@@ -158,7 +155,6 @@
             coordenaYLbl = new System.Windows.Forms.Label();
             hORAFINALLabel = new System.Windows.Forms.Label();
             horaInicioLbl = new System.Windows.Forms.Label();
-            tipoFormularioLbl = new System.Windows.Forms.Label();
             volumenComercialLbl = new System.Windows.Forms.Label();
             volumenTotalLbl = new System.Windows.Forms.Label();
             cAPLbl = new System.Windows.Forms.Label();
@@ -178,7 +174,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.formularioBS)).BeginInit();
             this.datosFormularioGrx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.estratoBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoFormularioBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lineaInvBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.especieBS)).BeginInit();
@@ -205,7 +200,7 @@
             // estratoLbl
             // 
             estratoLbl.AutoSize = true;
-            estratoLbl.Location = new System.Drawing.Point(12, 158);
+            estratoLbl.Location = new System.Drawing.Point(13, 132);
             estratoLbl.Name = "estratoLbl";
             estratoLbl.Size = new System.Drawing.Size(43, 13);
             estratoLbl.TabIndex = 25;
@@ -214,7 +209,7 @@
             // lineaLbl
             // 
             lineaLbl.AutoSize = true;
-            lineaLbl.Location = new System.Drawing.Point(14, 106);
+            lineaLbl.Location = new System.Drawing.Point(15, 80);
             lineaLbl.Name = "lineaLbl";
             lineaLbl.Size = new System.Drawing.Size(36, 13);
             lineaLbl.TabIndex = 37;
@@ -232,7 +227,7 @@
             // parcelaLbl
             // 
             parcelaLbl.AutoSize = true;
-            parcelaLbl.Location = new System.Drawing.Point(12, 132);
+            parcelaLbl.Location = new System.Drawing.Point(13, 106);
             parcelaLbl.Name = "parcelaLbl";
             parcelaLbl.Size = new System.Drawing.Size(100, 13);
             parcelaLbl.TabIndex = 45;
@@ -250,7 +245,7 @@
             // coordenadasXLbl
             // 
             coordenadasXLbl.AutoSize = true;
-            coordenadasXLbl.Location = new System.Drawing.Point(12, 184);
+            coordenadasXLbl.Location = new System.Drawing.Point(13, 158);
             coordenadasXLbl.Name = "coordenadasXLbl";
             coordenadasXLbl.Size = new System.Drawing.Size(84, 13);
             coordenadasXLbl.TabIndex = 51;
@@ -259,7 +254,7 @@
             // coordenaYLbl
             // 
             coordenaYLbl.AutoSize = true;
-            coordenaYLbl.Location = new System.Drawing.Point(12, 210);
+            coordenaYLbl.Location = new System.Drawing.Point(13, 184);
             coordenaYLbl.Name = "coordenaYLbl";
             coordenaYLbl.Size = new System.Drawing.Size(84, 13);
             coordenaYLbl.TabIndex = 53;
@@ -268,7 +263,7 @@
             // hORAFINALLabel
             // 
             hORAFINALLabel.AutoSize = true;
-            hORAFINALLabel.Location = new System.Drawing.Point(13, 265);
+            hORAFINALLabel.Location = new System.Drawing.Point(14, 239);
             hORAFINALLabel.Name = "hORAFINALLabel";
             hORAFINALLabel.Size = new System.Drawing.Size(35, 13);
             hORAFINALLabel.TabIndex = 55;
@@ -277,20 +272,11 @@
             // horaInicioLbl
             // 
             horaInicioLbl.AutoSize = true;
-            horaInicioLbl.Location = new System.Drawing.Point(12, 237);
+            horaInicioLbl.Location = new System.Drawing.Point(13, 211);
             horaInicioLbl.Name = "horaInicioLbl";
             horaInicioLbl.Size = new System.Drawing.Size(38, 13);
             horaInicioLbl.TabIndex = 59;
             horaInicioLbl.Text = "Inicio :";
-            // 
-            // tipoFormularioLbl
-            // 
-            tipoFormularioLbl.AutoSize = true;
-            tipoFormularioLbl.Location = new System.Drawing.Point(13, 81);
-            tipoFormularioLbl.Name = "tipoFormularioLbl";
-            tipoFormularioLbl.Size = new System.Drawing.Size(94, 13);
-            tipoFormularioLbl.TabIndex = 64;
-            tipoFormularioLbl.Text = "Tipo de formulario:";
             // 
             // volumenComercialLbl
             // 
@@ -445,8 +431,6 @@
             this.datosFormularioGrx.BackColor = System.Drawing.SystemColors.Window;
             this.datosFormularioGrx.Controls.Add(this.guardarTodoBtn);
             this.datosFormularioGrx.Controls.Add(this.estratoCbx);
-            this.datosFormularioGrx.Controls.Add(this.tipoFormularioCbx);
-            this.datosFormularioGrx.Controls.Add(tipoFormularioLbl);
             this.datosFormularioGrx.Controls.Add(this.guardarformularioBtn);
             this.datosFormularioGrx.Controls.Add(this.proyectoCbx);
             this.datosFormularioGrx.Controls.Add(horaInicioLbl);
@@ -487,7 +471,7 @@
             this.estratoCbx.DataSource = this.estratoBS;
             this.estratoCbx.DisplayMember = "DESCRIPESTRATO";
             this.estratoCbx.FormattingEnabled = true;
-            this.estratoCbx.Location = new System.Drawing.Point(123, 155);
+            this.estratoCbx.Location = new System.Drawing.Point(124, 129);
             this.estratoCbx.Name = "estratoCbx";
             this.estratoCbx.Size = new System.Drawing.Size(200, 21);
             this.estratoCbx.TabIndex = 66;
@@ -496,21 +480,6 @@
             // estratoBS
             // 
             this.estratoBS.DataSource = typeof(SIFCA_DAL.ESTRATO);
-            // 
-            // tipoFormularioCbx
-            // 
-            this.tipoFormularioCbx.DataSource = this.tipoFormularioBS;
-            this.tipoFormularioCbx.DisplayMember = "NOMBRETIPOFORM";
-            this.tipoFormularioCbx.FormattingEnabled = true;
-            this.tipoFormularioCbx.Location = new System.Drawing.Point(124, 78);
-            this.tipoFormularioCbx.Name = "tipoFormularioCbx";
-            this.tipoFormularioCbx.Size = new System.Drawing.Size(200, 21);
-            this.tipoFormularioCbx.TabIndex = 65;
-            this.tipoFormularioCbx.ValueMember = "TIPFORM_ID";
-            // 
-            // tipoFormularioBS
-            // 
-            this.tipoFormularioBS.DataSource = typeof(SIFCA_DAL.TIPOFORMULARIO);
             // 
             // guardarformularioBtn
             // 
@@ -540,21 +509,21 @@
             // inicioDpk
             // 
             this.inicioDpk.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.inicioDpk.Location = new System.Drawing.Point(123, 233);
+            this.inicioDpk.Location = new System.Drawing.Point(124, 207);
             this.inicioDpk.Name = "inicioDpk";
             this.inicioDpk.Size = new System.Drawing.Size(200, 20);
             this.inicioDpk.TabIndex = 60;
             // 
             // coordXTxt
             // 
-            this.coordXTxt.Location = new System.Drawing.Point(123, 181);
+            this.coordXTxt.Location = new System.Drawing.Point(124, 155);
             this.coordXTxt.Name = "coordXTxt";
             this.coordXTxt.Size = new System.Drawing.Size(200, 20);
             this.coordXTxt.TabIndex = 52;
             // 
             // coordYTxt
             // 
-            this.coordYTxt.Location = new System.Drawing.Point(123, 207);
+            this.coordYTxt.Location = new System.Drawing.Point(124, 181);
             this.coordYTxt.Name = "coordYTxt";
             this.coordYTxt.Size = new System.Drawing.Size(200, 20);
             this.coordYTxt.TabIndex = 54;
@@ -563,7 +532,7 @@
             // 
             this.finalDpk.Enabled = false;
             this.finalDpk.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.finalDpk.Location = new System.Drawing.Point(124, 261);
+            this.finalDpk.Location = new System.Drawing.Point(125, 235);
             this.finalDpk.Name = "finalDpk";
             this.finalDpk.Size = new System.Drawing.Size(200, 20);
             this.finalDpk.TabIndex = 56;
@@ -578,14 +547,14 @@
             // 
             // lineaInventarioTxt
             // 
-            this.lineaInventarioTxt.Location = new System.Drawing.Point(124, 104);
+            this.lineaInventarioTxt.Location = new System.Drawing.Point(125, 78);
             this.lineaInventarioTxt.Name = "lineaInventarioTxt";
             this.lineaInventarioTxt.Size = new System.Drawing.Size(200, 20);
             this.lineaInventarioTxt.TabIndex = 38;
             // 
             // parcelaTxt
             // 
-            this.parcelaTxt.Location = new System.Drawing.Point(123, 129);
+            this.parcelaTxt.Location = new System.Drawing.Point(124, 103);
             this.parcelaTxt.Name = "parcelaTxt";
             this.parcelaTxt.Size = new System.Drawing.Size(200, 20);
             this.parcelaTxt.TabIndex = 46;
@@ -664,6 +633,15 @@
             this.datosInventarioGrx.TabIndex = 2;
             this.datosInventarioGrx.TabStop = false;
             this.datosInventarioGrx.Text = "Datos de inventario";
+            // 
+            // RegistrarEspecieBtn
+            // 
+            this.RegistrarEspecieBtn.Location = new System.Drawing.Point(157, 396);
+            this.RegistrarEspecieBtn.Name = "RegistrarEspecieBtn";
+            this.RegistrarEspecieBtn.Size = new System.Drawing.Size(112, 23);
+            this.RegistrarEspecieBtn.TabIndex = 78;
+            this.RegistrarEspecieBtn.Text = "Registrar Especie";
+            this.RegistrarEspecieBtn.UseVisualStyleBackColor = true;
             // 
             // listarDatosBtn
             // 
@@ -927,6 +905,15 @@
             this.datosRegenGrx.Size = new System.Drawing.Size(380, 420);
             this.datosRegenGrx.TabIndex = 2;
             this.datosRegenGrx.TabStop = false;
+            // 
+            // registrarEspecieRegenBtn
+            // 
+            this.registrarEspecieRegenBtn.Location = new System.Drawing.Point(160, 396);
+            this.registrarEspecieRegenBtn.Name = "registrarEspecieRegenBtn";
+            this.registrarEspecieRegenBtn.Size = new System.Drawing.Size(112, 23);
+            this.registrarEspecieRegenBtn.TabIndex = 90;
+            this.registrarEspecieRegenBtn.Text = "Registrar Especie";
+            this.registrarEspecieRegenBtn.UseVisualStyleBackColor = true;
             // 
             // especieRegenCbx
             // 
@@ -1296,24 +1283,6 @@
             // 
             this.tipoUsoBS.DataSource = typeof(SIFCA_DAL.TIPODEUSO);
             // 
-            // RegistrarEspecieBtn
-            // 
-            this.RegistrarEspecieBtn.Location = new System.Drawing.Point(157, 396);
-            this.RegistrarEspecieBtn.Name = "RegistrarEspecieBtn";
-            this.RegistrarEspecieBtn.Size = new System.Drawing.Size(112, 23);
-            this.RegistrarEspecieBtn.TabIndex = 78;
-            this.RegistrarEspecieBtn.Text = "Registrar Especie";
-            this.RegistrarEspecieBtn.UseVisualStyleBackColor = true;
-            // 
-            // registrarEspecieRegenBtn
-            // 
-            this.registrarEspecieRegenBtn.Location = new System.Drawing.Point(160, 396);
-            this.registrarEspecieRegenBtn.Name = "registrarEspecieRegenBtn";
-            this.registrarEspecieRegenBtn.Size = new System.Drawing.Size(112, 23);
-            this.registrarEspecieRegenBtn.TabIndex = 90;
-            this.registrarEspecieRegenBtn.Text = "Registrar Especie";
-            this.registrarEspecieRegenBtn.UseVisualStyleBackColor = true;
-            // 
             // Crear_Formulario_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1331,7 +1300,6 @@
             this.datosFormularioGrx.ResumeLayout(false);
             this.datosFormularioGrx.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.estratoBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoFormularioBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lineaInvBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.especieBS)).EndInit();
@@ -1377,10 +1345,8 @@
         private System.Windows.Forms.DateTimePicker inicioDpk;
         private System.Windows.Forms.ComboBox proyectoCbx;
         private System.Windows.Forms.Button guardarformularioBtn;
-        private System.Windows.Forms.ComboBox tipoFormularioCbx;
         private System.Windows.Forms.ComboBox estratoCbx;
         private System.Windows.Forms.BindingSource estratoBS;
-        private System.Windows.Forms.BindingSource tipoFormularioBS;
         private System.Windows.Forms.BindingSource proyectoBS;
         private System.Windows.Forms.BindingSource especieBS;
         private System.Windows.Forms.BindingSource estadoSanitarioBS;

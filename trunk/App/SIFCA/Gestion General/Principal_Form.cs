@@ -139,9 +139,16 @@ namespace SIFCA
 
         public void changueMenuUser() 
         {
-            listarUsuariosTsm.Visible = true;
             actualizarDatosUsuarioTsm.Visible = true;
-           
+            USUARIO user = (USUARIO)Program.Cache.Get("user");
+            if (user != null)
+            {
+                if (user.TIPOUSUARIO == "AD")
+                {
+                    listarUsuariosTsm.Visible = true;
+                    registrarUsuarioTsm.Visible = true;
+                }
+            }
         }
 
         private void cerrarSesionTsm_Click(object sender, EventArgs e)
@@ -153,6 +160,7 @@ namespace SIFCA
                 EstadoLbl.Text = "Ningun usuario autenticado";
                 listarUsuariosTsm.Visible = false;
                 actualizarDatosUsuarioTsm.Visible = false;
+                registrarUsuarioTsm.Visible = false;
                 Autenticar_Usuario_Form childForm = new Autenticar_Usuario_Form();
                 childForm.MdiParent = this;
                 childForm.Show();

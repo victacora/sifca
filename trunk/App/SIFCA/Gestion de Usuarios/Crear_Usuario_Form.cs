@@ -21,6 +21,7 @@ namespace SIFCA
             InitializeComponent();
             user = new UserBL(Program.ContextData);
             this.ControlBox = false;
+            tipoUsuarioCbx.SelectedIndex = 0;
         }
 
         private void AceptarBtn_Click(object sender, EventArgs e)
@@ -32,6 +33,7 @@ namespace SIFCA
             newUser.CEDULA = int.Parse(cedulaTxt.Text);
             newUser.CONTRASENA = contrasenaTxt.Text;
             newUser.NOMBREUSUARIO = usuarioTxt.Text;
+            newUser.TIPOUSUARIO = (tipoUsuarioCbx.SelectedItem.ToString() == "Administrador" ? "AD" : "NA");
             user.InsertUser(newUser);
             user.SaveChanges();
             MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);

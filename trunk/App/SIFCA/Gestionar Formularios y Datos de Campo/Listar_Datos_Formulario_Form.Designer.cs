@@ -267,10 +267,6 @@
             this.tipoFormularioCbx.TabIndex = 65;
             this.tipoFormularioCbx.ValueMember = "TIPFORM_ID";
             // 
-            // tipoFormularioBS
-            // 
-            this.tipoFormularioBS.DataSource = typeof(SIFCA_DAL.TIPOFORMULARIO);
-            // 
             // proyectoCbx
             // 
             this.proyectoCbx.DataSource = this.proyectoBS;

@@ -18,9 +18,9 @@ namespace SIFCA_DAL
         {
             this.FORMULARIO = new HashSet<FORMULARIO>();
             this.LISTADODEESTRATOS = new HashSet<LISTADODEESTRATOS>();
+            this.PROYECTOSPORETAPA = new HashSet<PROYECTOSPORETAPA>();
+            this.PROYECTOSPORETAPA1 = new HashSet<PROYECTOSPORETAPA>();
             this.ESPECIE = new HashSet<ESPECIE>();
-            this.PROYECTO1 = new HashSet<PROYECTO>();
-            this.PROYECTO2 = new HashSet<PROYECTO>();
         }
     
         public System.Guid NROPROY { get; set; }
@@ -44,11 +44,11 @@ namespace SIFCA_DAL
         public virtual ICollection<FORMULARIO> FORMULARIO { get; set; }
         public virtual ICollection<LISTADODEESTRATOS> LISTADODEESTRATOS { get; set; }
         public virtual OBJETIVOINVENTARIO OBJETIVOINVENTARIO { get; set; }
+        public virtual ICollection<PROYECTOSPORETAPA> PROYECTOSPORETAPA { get; set; }
+        public virtual ICollection<PROYECTOSPORETAPA> PROYECTOSPORETAPA1 { get; set; }
         public virtual USUARIO USUARIO { get; set; }
         public virtual TIPODISENOMUESTRAL TIPODISENOMUESTRAL { get; set; }
         public virtual ICollection<ESPECIE> ESPECIE { get; set; }
-        public virtual ICollection<PROYECTO> PROYECTO1 { get; set; }
-        public virtual ICollection<PROYECTO> PROYECTO2 { get; set; }
     }
     
 }

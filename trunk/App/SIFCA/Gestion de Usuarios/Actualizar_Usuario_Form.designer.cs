@@ -30,10 +30,11 @@
         {
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label cONTRASENALabel;
-            System.Windows.Forms.Label aPELLIDOSLabel;
+            System.Windows.Forms.Label apellidosLabel;
             System.Windows.Forms.Label nOMBRESLabel;
             System.Windows.Forms.Label cEDULALabel;
             System.Windows.Forms.Label usuarioLbl;
+            System.Windows.Forms.Label tipoUsuarioLbl;
             this.verificarContrasenaTxt = new System.Windows.Forms.TextBox();
             this.contrasenaTxt = new System.Windows.Forms.TextBox();
             this.apellidosTxt = new System.Windows.Forms.TextBox();
@@ -44,19 +45,21 @@
             this.AceptarBtn = new System.Windows.Forms.Button();
             this.imageNewUser = new System.Windows.Forms.PictureBox();
             this.errorLbl = new System.Windows.Forms.Label();
+            this.tipoUsuarioCbx = new System.Windows.Forms.ComboBox();
             label1 = new System.Windows.Forms.Label();
             cONTRASENALabel = new System.Windows.Forms.Label();
-            aPELLIDOSLabel = new System.Windows.Forms.Label();
+            apellidosLabel = new System.Windows.Forms.Label();
             nOMBRESLabel = new System.Windows.Forms.Label();
             cEDULALabel = new System.Windows.Forms.Label();
             usuarioLbl = new System.Windows.Forms.Label();
+            tipoUsuarioLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imageNewUser)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(19, 221);
+            label1.Location = new System.Drawing.Point(19, 249);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(104, 13);
             label1.TabIndex = 38;
@@ -65,20 +68,20 @@
             // cONTRASENALabel
             // 
             cONTRASENALabel.AutoSize = true;
-            cONTRASENALabel.Location = new System.Drawing.Point(19, 195);
+            cONTRASENALabel.Location = new System.Drawing.Point(19, 223);
             cONTRASENALabel.Name = "cONTRASENALabel";
             cONTRASENALabel.Size = new System.Drawing.Size(64, 13);
             cONTRASENALabel.TabIndex = 37;
             cONTRASENALabel.Text = "Contraseña:";
             // 
-            // aPELLIDOSLabel
+            // apellidosLabel
             // 
-            aPELLIDOSLabel.AutoSize = true;
-            aPELLIDOSLabel.Location = new System.Drawing.Point(19, 117);
-            aPELLIDOSLabel.Name = "aPELLIDOSLabel";
-            aPELLIDOSLabel.Size = new System.Drawing.Size(52, 13);
-            aPELLIDOSLabel.TabIndex = 36;
-            aPELLIDOSLabel.Text = "Apellidos:";
+            apellidosLabel.AutoSize = true;
+            apellidosLabel.Location = new System.Drawing.Point(19, 117);
+            apellidosLabel.Name = "apellidosLabel";
+            apellidosLabel.Size = new System.Drawing.Size(52, 13);
+            apellidosLabel.TabIndex = 36;
+            apellidosLabel.Text = "Apellidos:";
             // 
             // nOMBRESLabel
             // 
@@ -101,7 +104,7 @@
             // usuarioLbl
             // 
             usuarioLbl.AutoSize = true;
-            usuarioLbl.Location = new System.Drawing.Point(19, 169);
+            usuarioLbl.Location = new System.Drawing.Point(19, 197);
             usuarioLbl.Name = "usuarioLbl";
             usuarioLbl.Size = new System.Drawing.Size(46, 13);
             usuarioLbl.TabIndex = 34;
@@ -109,7 +112,7 @@
             // 
             // verificarContrasenaTxt
             // 
-            this.verificarContrasenaTxt.Location = new System.Drawing.Point(131, 217);
+            this.verificarContrasenaTxt.Location = new System.Drawing.Point(131, 245);
             this.verificarContrasenaTxt.Name = "verificarContrasenaTxt";
             this.verificarContrasenaTxt.Size = new System.Drawing.Size(206, 20);
             this.verificarContrasenaTxt.TabIndex = 30;
@@ -117,7 +120,7 @@
             // 
             // contrasenaTxt
             // 
-            this.contrasenaTxt.Location = new System.Drawing.Point(131, 191);
+            this.contrasenaTxt.Location = new System.Drawing.Point(131, 219);
             this.contrasenaTxt.Name = "contrasenaTxt";
             this.contrasenaTxt.Size = new System.Drawing.Size(206, 20);
             this.contrasenaTxt.TabIndex = 29;
@@ -147,14 +150,14 @@
             // 
             // usuarioTxt
             // 
-            this.usuarioTxt.Location = new System.Drawing.Point(131, 165);
+            this.usuarioTxt.Location = new System.Drawing.Point(131, 193);
             this.usuarioTxt.Name = "usuarioTxt";
             this.usuarioTxt.Size = new System.Drawing.Size(206, 20);
             this.usuarioTxt.TabIndex = 28;
             // 
             // cancelarBtn
             // 
-            this.cancelarBtn.Location = new System.Drawing.Point(247, 278);
+            this.cancelarBtn.Location = new System.Drawing.Point(247, 313);
             this.cancelarBtn.Name = "cancelarBtn";
             this.cancelarBtn.Size = new System.Drawing.Size(90, 23);
             this.cancelarBtn.TabIndex = 32;
@@ -164,7 +167,7 @@
             // 
             // AceptarBtn
             // 
-            this.AceptarBtn.Location = new System.Drawing.Point(151, 278);
+            this.AceptarBtn.Location = new System.Drawing.Point(151, 313);
             this.AceptarBtn.Name = "AceptarBtn";
             this.AceptarBtn.Size = new System.Drawing.Size(90, 23);
             this.AceptarBtn.TabIndex = 31;
@@ -178,7 +181,7 @@
             this.imageNewUser.Image = global::SIFCA.Properties.Resources.actualizar_usuarios;
             this.imageNewUser.Location = new System.Drawing.Point(0, 0);
             this.imageNewUser.Name = "imageNewUser";
-            this.imageNewUser.Size = new System.Drawing.Size(359, 62);
+            this.imageNewUser.Size = new System.Drawing.Size(358, 62);
             this.imageNewUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imageNewUser.TabIndex = 39;
             this.imageNewUser.TabStop = false;
@@ -186,24 +189,47 @@
             // errorLbl
             // 
             this.errorLbl.AutoSize = true;
-            this.errorLbl.Location = new System.Drawing.Point(128, 250);
+            this.errorLbl.Location = new System.Drawing.Point(128, 283);
             this.errorLbl.Name = "errorLbl";
             this.errorLbl.Size = new System.Drawing.Size(0, 13);
             this.errorLbl.TabIndex = 40;
+            // 
+            // tipoUsuarioLbl
+            // 
+            tipoUsuarioLbl.AutoSize = true;
+            tipoUsuarioLbl.Location = new System.Drawing.Point(18, 170);
+            tipoUsuarioLbl.Name = "tipoUsuarioLbl";
+            tipoUsuarioLbl.Size = new System.Drawing.Size(68, 13);
+            tipoUsuarioLbl.TabIndex = 41;
+            tipoUsuarioLbl.Text = "Tipo usuario:";
+            // 
+            // tipoUsuarioCbx
+            // 
+            this.tipoUsuarioCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tipoUsuarioCbx.FormattingEnabled = true;
+            this.tipoUsuarioCbx.Items.AddRange(new object[] {
+            "Administrador",
+            "No Administrador"});
+            this.tipoUsuarioCbx.Location = new System.Drawing.Point(131, 165);
+            this.tipoUsuarioCbx.Name = "tipoUsuarioCbx";
+            this.tipoUsuarioCbx.Size = new System.Drawing.Size(206, 21);
+            this.tipoUsuarioCbx.TabIndex = 42;
             // 
             // Actualizar_Usuario_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(359, 324);
+            this.ClientSize = new System.Drawing.Size(358, 348);
+            this.Controls.Add(this.tipoUsuarioCbx);
+            this.Controls.Add(tipoUsuarioLbl);
             this.Controls.Add(this.errorLbl);
             this.Controls.Add(this.imageNewUser);
             this.Controls.Add(label1);
             this.Controls.Add(this.verificarContrasenaTxt);
             this.Controls.Add(cONTRASENALabel);
             this.Controls.Add(this.contrasenaTxt);
-            this.Controls.Add(aPELLIDOSLabel);
+            this.Controls.Add(apellidosLabel);
             this.Controls.Add(this.apellidosTxt);
             this.Controls.Add(nOMBRESLabel);
             this.Controls.Add(this.nombresTxt);
@@ -236,6 +262,7 @@
         private System.Windows.Forms.Button AceptarBtn;
         private System.Windows.Forms.PictureBox imageNewUser;
         private System.Windows.Forms.Label errorLbl;
+        private System.Windows.Forms.ComboBox tipoUsuarioCbx;
 
 
 

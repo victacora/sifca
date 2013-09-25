@@ -53,13 +53,20 @@ namespace SIFCA_BLL
         }
         public USUARIO LoginUser(USUARIO user)
         {
-            return this.sifcaRepository.USUARIO.SingleOrDefault(u=>u.NOMBREUSUARIO==user.NOMBREUSUARIO&&u.CONTRASENA==user.CONTRASENA);
+            USUARIO userData=this.sifcaRepository.USUARIO.SingleOrDefault(u=>u.NOMBREUSUARIO==user.NOMBREUSUARIO);
+            if (userData != null)
+            {
+                if (AuthenticatorHelper.Decrypt(userData.CONTRASENA) == user.CONTRASENA) return userData;
+            }
+            return null;
+            
         }
 
         public void InsertUser(USUARIO user)
         {
             try
             {
+                user.CONTRASENA = AuthenticatorHelper.Encrypt(user.CONTRASENA);
                 this.sifcaRepository.USUARIO.Add(user);
             }
             catch (Exception ex)
@@ -85,8 +92,8 @@ namespace SIFCA_BLL
         {
             try
             {
+                user.CONTRASENA = AuthenticatorHelper.Encrypt(user.CONTRASENA);
                 this.sifcaRepository.Entry(user).State = EntityState.Modified;
-                
             }
             catch (Exception ex)
             {

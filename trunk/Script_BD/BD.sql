@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     10/09/2013 03:30:30 p.m.                     */
+/* Created on:     25/09/2013 07:11:18 a.m.                     */
 /*==============================================================*/
 
 
@@ -16,13 +16,6 @@ if exists (select 1
    where r.fkeyid = object_id('FORMULARIO') and o.name = 'FK_FORMULAR_DESARROLL_PROYECTO')
 alter table FORMULARIO
    drop constraint FK_FORMULAR_DESARROLL_PROYECTO
-go
-
-if exists (select 1
-   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('FORMULARIO') and o.name = 'FK_FORMULAR_ES_DE_TIPOFORM')
-alter table FORMULARIO
-   drop constraint FK_FORMULAR_ES_DE_TIPOFORM
 go
 
 if exists (select 1
@@ -207,15 +200,6 @@ if exists (select 1
            where  id = object_id('ESTRATO')
             and   type = 'U')
    drop table ESTRATO
-go
-
-if exists (select 1
-            from  sysindexes
-           where  id    = object_id('FORMULARIO')
-            and   name  = 'ES_DE_FK'
-            and   indid > 0
-            and   indid < 255)
-   drop index FORMULARIO.ES_DE_FK
 go
 
 if exists (select 1
@@ -420,13 +404,6 @@ if exists (select 1
 go
 
 if exists (select 1
-            from  sysobjects
-           where  id = object_id('TIPOFORMULARIO')
-            and   type = 'U')
-   drop table TIPOFORMULARIO
-go
-
-if exists (select 1
             from  sysindexes
            where  id    = object_id('TRANSACCION')
             and   name  = 'REGISTRA_FK'
@@ -479,6 +456,14 @@ if exists(select 1 from systypes where name='TIPOPROYECTO')
    drop type TIPOPROYECTO
 go
 
+if exists(select 1 from systypes where name='TIPOUSUARIO')
+   execute sp_unbindrule TIPOUSUARIO
+go
+
+if exists(select 1 from systypes where name='TIPOUSUARIO')
+   drop type TIPOUSUARIO
+go
+
 if exists (select 1 from sysobjects where id=object_id('R_TIPOOPERACION') and type='R')
    drop rule  R_TIPOOPERACION
 go
@@ -487,12 +472,20 @@ if exists (select 1 from sysobjects where id=object_id('R_TIPOPROYECTO') and typ
    drop rule  R_TIPOPROYECTO
 go
 
+if exists (select 1 from sysobjects where id=object_id('R_TIPOUSUARIO') and type='R')
+   drop rule  R_TIPOUSUARIO
+go
+
 create rule R_TIPOOPERACION as
       @column in ('I','A','E')
 go
 
 create rule R_TIPOPROYECTO as
       @column in ('CR','CO','IN')
+go
+
+create rule R_TIPOUSUARIO as
+      @column in ('AD','NA')
 go
 
 /*==============================================================*/
@@ -513,6 +506,16 @@ create type TIPOPROYECTO
 go
 
 execute sp_bindrule R_TIPOPROYECTO, TIPOPROYECTO
+go
+
+/*==============================================================*/
+/* Domain: TIPOUSUARIO                                          */
+/*==============================================================*/
+create type TIPOUSUARIO
+   from char(2) not null
+go
+
+execute sp_bindrule R_TIPOUSUARIO, TIPOUSUARIO
 go
 
 /*==============================================================*/
@@ -574,7 +577,6 @@ go
 /*==============================================================*/
 create table FORMULARIO (
    NROFORMULARIO        uniqueidentifier     not null,
-   TIPFORM_ID           numeric              not null,
    CODEST               numeric              not null,
    NROUSUARIO           uniqueidentifier     not null,
    NROPROY              uniqueidentifier     not null,
@@ -610,14 +612,6 @@ go
 /*==============================================================*/
 create index DESARROLLA_FK on FORMULARIO (
 NROPROY ASC
-)
-go
-
-/*==============================================================*/
-/* Index: ES_DE_FK                                              */
-/*==============================================================*/
-create index ES_DE_FK on FORMULARIO (
-TIPFORM_ID ASC
 )
 go
 
@@ -819,6 +813,7 @@ go
 create table PROYECTOSPORETAPA (
    NROPROYCONTENEDOR    uniqueidentifier     not null,
    NROPROYCONTENIDO     uniqueidentifier     not null,
+   PESO                 decimal(18,3)        not null,
    constraint PK_PROYECTOSPORETAPA primary key (NROPROYCONTENEDOR, NROPROYCONTENIDO)
 )
 go
@@ -840,17 +835,6 @@ create table TIPODISENOMUESTRAL (
    NOMTIPODISEMUEST     varchar(100)         not null,
    DESCRIPTIPODISEMUEST varchar(500)         null,
    constraint PK_TIPODISENOMUESTRAL primary key nonclustered (NOMTIPODISEMUEST)
-)
-go
-
-/*==============================================================*/
-/* Table: TIPOFORMULARIO                                        */
-/*==============================================================*/
-create table TIPOFORMULARIO (
-   NOMBRETIPOFORM       varchar(100)         not null,
-   DESCRIPCION          varchar(500)         null,
-   TIPFORM_ID           numeric              identity,
-   constraint PK_TIPOFORMULARIO primary key nonclustered (TIPFORM_ID)
 )
 go
 
@@ -909,6 +893,7 @@ create table USUARIO (
    NOMBREUSUARIO        varchar(100)         not null,
    CONTRASENA           varchar(1000)        not null,
    CEDULA               numeric              not null,
+   TIPOUSUARIO          TIPOUSUARIO          not null,
    constraint PK_USUARIO primary key nonclustered (NROUSUARIO)
 )
 go
@@ -922,12 +907,6 @@ go
 alter table FORMULARIO
    add constraint FK_FORMULAR_DESARROLL_PROYECTO foreign key (NROPROY)
       references PROYECTO (NROPROY)
-         on update cascade on delete cascade
-go
-
-alter table FORMULARIO
-   add constraint FK_FORMULAR_ES_DE_TIPOFORM foreign key (TIPFORM_ID)
-      references TIPOFORMULARIO (TIPFORM_ID)
          on update cascade on delete cascade
 go
 

@@ -116,6 +116,7 @@
             this.registrarUsuarioTsm.Name = "registrarUsuarioTsm";
             this.registrarUsuarioTsm.Size = new System.Drawing.Size(189, 22);
             this.registrarUsuarioTsm.Text = "Registrar usuario";
+            this.registrarUsuarioTsm.Visible = false;
             this.registrarUsuarioTsm.Click += new System.EventHandler(this.registrarUsuarioTsm_Click);
             // 
             // listarUsuariosTsm

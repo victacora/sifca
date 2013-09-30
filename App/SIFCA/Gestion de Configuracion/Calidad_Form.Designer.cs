@@ -32,9 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calidad_Form));
             this.panel1 = new System.Windows.Forms.Panel();
             this.ListadoCalidades = new System.Windows.Forms.DataGridView();
-            this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.cODCALIDADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dESCRIPCALIDADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QualityBSource = new System.Windows.Forms.BindingSource(this.components);
             this.paginacionCalidad = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -58,11 +55,14 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.Btn_Guardar = new System.Windows.Forms.Button();
             this.updateDescripcionTxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.updateNombreTxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Btn_Guardar = new System.Windows.Forms.Button();
+            this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cODCALIDADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dESCRIPCALIDADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListadoCalidades)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QualityBSource)).BeginInit();
@@ -103,30 +103,6 @@
             this.ListadoCalidades.ReadOnly = true;
             this.ListadoCalidades.Size = new System.Drawing.Size(497, 271);
             this.ListadoCalidades.TabIndex = 5;
-            // 
-            // Acciones
-            // 
-            this.Acciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Acciones.HeaderText = "Acciones";
-            this.Acciones.Name = "Acciones";
-            this.Acciones.ReadOnly = true;
-            this.Acciones.Text = "Editar";
-            this.Acciones.Width = 57;
-            // 
-            // cODCALIDADDataGridViewTextBoxColumn
-            // 
-            this.cODCALIDADDataGridViewTextBoxColumn.DataPropertyName = "CODCALIDAD";
-            this.cODCALIDADDataGridViewTextBoxColumn.HeaderText = "CODCALIDAD";
-            this.cODCALIDADDataGridViewTextBoxColumn.Name = "cODCALIDADDataGridViewTextBoxColumn";
-            this.cODCALIDADDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cODCALIDADDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // dESCRIPCALIDADDataGridViewTextBoxColumn
-            // 
-            this.dESCRIPCALIDADDataGridViewTextBoxColumn.DataPropertyName = "DESCRIPCALIDAD";
-            this.dESCRIPCALIDADDataGridViewTextBoxColumn.HeaderText = "DESCRIPCALIDAD";
-            this.dESCRIPCALIDADDataGridViewTextBoxColumn.Name = "dESCRIPCALIDADDataGridViewTextBoxColumn";
-            this.dESCRIPCALIDADDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // QualityBSource
             // 
@@ -348,16 +324,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Btn_CancelarUpdate_Click);
             // 
-            // Btn_Guardar
-            // 
-            this.Btn_Guardar.Location = new System.Drawing.Point(18, 125);
-            this.Btn_Guardar.Name = "Btn_Guardar";
-            this.Btn_Guardar.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Guardar.TabIndex = 27;
-            this.Btn_Guardar.Text = "Guardar";
-            this.Btn_Guardar.UseVisualStyleBackColor = true;
-            this.Btn_Guardar.Click += new System.EventHandler(this.Btn_guardar_Click);
-            // 
             // updateDescripcionTxt
             // 
             this.updateDescripcionTxt.Location = new System.Drawing.Point(86, 47);
@@ -393,6 +359,40 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
+            // Btn_Guardar
+            // 
+            this.Btn_Guardar.Location = new System.Drawing.Point(18, 125);
+            this.Btn_Guardar.Name = "Btn_Guardar";
+            this.Btn_Guardar.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Guardar.TabIndex = 27;
+            this.Btn_Guardar.Text = "Guardar";
+            this.Btn_Guardar.UseVisualStyleBackColor = true;
+            this.Btn_Guardar.Click += new System.EventHandler(this.Btn_guardar_Click);
+            // 
+            // Acciones
+            // 
+            this.Acciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Acciones.HeaderText = "Acciones";
+            this.Acciones.Name = "Acciones";
+            this.Acciones.ReadOnly = true;
+            this.Acciones.Text = "Editar";
+            this.Acciones.Width = 57;
+            // 
+            // cODCALIDADDataGridViewTextBoxColumn
+            // 
+            this.cODCALIDADDataGridViewTextBoxColumn.DataPropertyName = "CODCALIDAD";
+            this.cODCALIDADDataGridViewTextBoxColumn.HeaderText = "CODCALIDAD";
+            this.cODCALIDADDataGridViewTextBoxColumn.Name = "cODCALIDADDataGridViewTextBoxColumn";
+            this.cODCALIDADDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cODCALIDADDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dESCRIPCALIDADDataGridViewTextBoxColumn
+            // 
+            this.dESCRIPCALIDADDataGridViewTextBoxColumn.DataPropertyName = "DESCRIPCALIDAD";
+            this.dESCRIPCALIDADDataGridViewTextBoxColumn.HeaderText = "Descripcion calidad";
+            this.dESCRIPCALIDADDataGridViewTextBoxColumn.Name = "dESCRIPCALIDADDataGridViewTextBoxColumn";
+            this.dESCRIPCALIDADDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // Calidad_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,9 +424,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView ListadoCalidades;
-        private System.Windows.Forms.DataGridViewButtonColumn Acciones;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cODCALIDADDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dESCRIPCALIDADDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource QualityBSource;
         private System.Windows.Forms.BindingNavigator paginacionCalidad;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -455,5 +452,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox updateNombreTxt;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewButtonColumn Acciones;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cODCALIDADDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dESCRIPCALIDADDataGridViewTextBoxColumn;
     }
 }

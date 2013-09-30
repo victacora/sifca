@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Estratos_Form));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ListadoEspecies = new System.Windows.Forms.DataGridView();
+            this.ListadoEstratos = new System.Windows.Forms.DataGridView();
             this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cODESTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dESCRIPESTRATODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,7 +63,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.stratumEditBSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ListadoEspecies)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListadoEstratos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stratumListBSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paginacionEstrato)).BeginInit();
             this.paginacionEstrato.SuspendLayout();
@@ -77,7 +77,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.ListadoEspecies);
+            this.panel1.Controls.Add(this.ListadoEstratos);
             this.panel1.Controls.Add(this.paginacionEstrato);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -85,23 +85,23 @@
             this.panel1.Size = new System.Drawing.Size(646, 404);
             this.panel1.TabIndex = 0;
             // 
-            // ListadoEspecies
+            // ListadoEstratos
             // 
-            this.ListadoEspecies.AllowUserToAddRows = false;
-            this.ListadoEspecies.AllowUserToDeleteRows = false;
-            this.ListadoEspecies.AutoGenerateColumns = false;
-            this.ListadoEspecies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ListadoEspecies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ListadoEspecies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ListadoEstratos.AllowUserToAddRows = false;
+            this.ListadoEstratos.AllowUserToDeleteRows = false;
+            this.ListadoEstratos.AutoGenerateColumns = false;
+            this.ListadoEstratos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ListadoEstratos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ListadoEstratos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Acciones,
             this.cODESTDataGridViewTextBoxColumn,
             this.dESCRIPESTRATODataGridViewTextBoxColumn});
-            this.ListadoEspecies.DataSource = this.stratumListBSource;
-            this.ListadoEspecies.Location = new System.Drawing.Point(0, 27);
-            this.ListadoEspecies.Name = "ListadoEspecies";
-            this.ListadoEspecies.Size = new System.Drawing.Size(642, 370);
-            this.ListadoEspecies.TabIndex = 3;
-            this.ListadoEspecies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListadoDeEstratos_CellValueChanged);
+            this.ListadoEstratos.DataSource = this.stratumListBSource;
+            this.ListadoEstratos.Location = new System.Drawing.Point(0, 27);
+            this.ListadoEstratos.Name = "ListadoEstratos";
+            this.ListadoEstratos.Size = new System.Drawing.Size(642, 370);
+            this.ListadoEstratos.TabIndex = 3;
+            this.ListadoEstratos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListadoDeEstratos_CellValueChanged);
             // 
             // Acciones
             // 
@@ -380,15 +380,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(646, 404);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
             this.Name = "Estratos_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Estratos Form";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ListadoEspecies)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListadoEstratos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stratumListBSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paginacionEstrato)).EndInit();
             this.paginacionEstrato.ResumeLayout(false);
@@ -407,7 +407,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView ListadoEspecies;
+        private System.Windows.Forms.DataGridView ListadoEstratos;
         private System.Windows.Forms.BindingSource stratumListBSource;
         private System.Windows.Forms.BindingNavigator paginacionEstrato;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;

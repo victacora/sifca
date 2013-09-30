@@ -32,9 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TiposUso_Form));
             this.panel1 = new System.Windows.Forms.Panel();
             this.ListadoTiposUso = new System.Windows.Forms.DataGridView();
-            this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.nOMBRETIPOUSODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dESCRIPCIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeUseBSource = new System.Windows.Forms.BindingSource(this.components);
             this.paginacionTipoUso = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -67,6 +64,9 @@
             this.Btn_Guardar = new System.Windows.Forms.Button();
             this.updateNombreTxt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.nOMBRETIPOUSODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dESCRIPCIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListadoTiposUso)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TypeUseBSource)).BeginInit();
@@ -108,31 +108,6 @@
             this.ListadoTiposUso.Size = new System.Drawing.Size(716, 262);
             this.ListadoTiposUso.TabIndex = 5;
             this.ListadoTiposUso.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListadoDeEspecies_CellValueChanged);
-            // 
-            // Acciones
-            // 
-            this.Acciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Acciones.HeaderText = "Acciones";
-            this.Acciones.Name = "Acciones";
-            this.Acciones.ReadOnly = true;
-            this.Acciones.Text = "Editar";
-            this.Acciones.UseColumnTextForButtonValue = true;
-            this.Acciones.Width = 57;
-            // 
-            // nOMBRETIPOUSODataGridViewTextBoxColumn
-            // 
-            this.nOMBRETIPOUSODataGridViewTextBoxColumn.DataPropertyName = "NOMBRETIPOUSO";
-            this.nOMBRETIPOUSODataGridViewTextBoxColumn.HeaderText = "NOMBRETIPOUSO";
-            this.nOMBRETIPOUSODataGridViewTextBoxColumn.Name = "nOMBRETIPOUSODataGridViewTextBoxColumn";
-            this.nOMBRETIPOUSODataGridViewTextBoxColumn.ReadOnly = true;
-            this.nOMBRETIPOUSODataGridViewTextBoxColumn.Visible = false;
-            // 
-            // dESCRIPCIONDataGridViewTextBoxColumn
-            // 
-            this.dESCRIPCIONDataGridViewTextBoxColumn.DataPropertyName = "DESCRIPCION";
-            this.dESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "DESCRIPCION";
-            this.dESCRIPCIONDataGridViewTextBoxColumn.Name = "dESCRIPCIONDataGridViewTextBoxColumn";
-            this.dESCRIPCIONDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // TypeUseBSource
             // 
@@ -433,6 +408,31 @@
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Nombre";
+            // 
+            // Acciones
+            // 
+            this.Acciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Acciones.HeaderText = "Acciones";
+            this.Acciones.Name = "Acciones";
+            this.Acciones.ReadOnly = true;
+            this.Acciones.Text = "Editar";
+            this.Acciones.UseColumnTextForButtonValue = true;
+            this.Acciones.Width = 57;
+            // 
+            // nOMBRETIPOUSODataGridViewTextBoxColumn
+            // 
+            this.nOMBRETIPOUSODataGridViewTextBoxColumn.DataPropertyName = "NOMBRETIPOUSO";
+            this.nOMBRETIPOUSODataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nOMBRETIPOUSODataGridViewTextBoxColumn.Name = "nOMBRETIPOUSODataGridViewTextBoxColumn";
+            this.nOMBRETIPOUSODataGridViewTextBoxColumn.ReadOnly = true;
+            this.nOMBRETIPOUSODataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dESCRIPCIONDataGridViewTextBoxColumn
+            // 
+            this.dESCRIPCIONDataGridViewTextBoxColumn.DataPropertyName = "DESCRIPCION";
+            this.dESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "Descripción";
+            this.dESCRIPCIONDataGridViewTextBoxColumn.Name = "dESCRIPCIONDataGridViewTextBoxColumn";
+            this.dESCRIPCIONDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // TiposUso_Form
             // 

@@ -48,6 +48,7 @@
             this.DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NUMEROETAPAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.abrir = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.objetivoInvBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoDisenoMuesBS)).BeginInit();
@@ -140,7 +141,8 @@
             this.LUGAR,
             this.DESCRIPCION,
             this.NUMEROETAPAS,
-            this.abrir});
+            this.abrir,
+            this.eliminar});
             this.proyectosDGW.DataSource = this.proyectoBS;
             this.proyectosDGW.Location = new System.Drawing.Point(0, 25);
             this.proyectosDGW.Name = "proyectosDGW";
@@ -232,6 +234,14 @@
             this.abrir.Text = "Abrir";
             this.abrir.UseColumnTextForButtonValue = true;
             // 
+            // eliminar
+            // 
+            this.eliminar.HeaderText = "";
+            this.eliminar.Name = "eliminar";
+            this.eliminar.ReadOnly = true;
+            this.eliminar.Text = "Eliminar";
+            this.eliminar.UseColumnTextForButtonValue = true;
+            // 
             // Abrir_Proyecto_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,5 +285,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPCION;
         private System.Windows.Forms.DataGridViewTextBoxColumn NUMEROETAPAS;
         private System.Windows.Forms.DataGridViewButtonColumn abrir;
+        private System.Windows.Forms.DataGridViewButtonColumn eliminar;
     }
 }

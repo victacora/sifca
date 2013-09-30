@@ -70,3 +70,4 @@ C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.Ti
 C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.TiposUso_Form.resources
 C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Abrir_Formulario_Form.resources
 C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Realizar_Copia_Seguridad_Form.resources
+C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Editar_Formulario_Form.resources

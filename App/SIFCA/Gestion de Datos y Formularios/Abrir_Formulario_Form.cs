@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using SIFCA_BLL;
 using SIFCA_DAL;
+using System.Runtime.Caching;
 
 namespace SIFCA
 {
@@ -15,13 +16,14 @@ namespace SIFCA
     {
         private FormBL form;
         private StratumBL stratum;
-
+        private ProjectBL project;
 
         public Abrir_Formulario_Form()
         {
             InitializeComponent();
             form = new FormBL(Program.ContextData);
             stratum = new StratumBL(Program.ContextData);
+            project = new ProjectBL(Program.ContextData);
             formularioBS.DataSource = ((PROYECTO)Program.Cache.Get("project")).FORMULARIO.ToList();
             formularioDGW.DataSource = formularioBS;
             estratosBS.DataSource = stratum.GetStratums();
@@ -48,7 +50,9 @@ namespace SIFCA
             if (e.ColumnIndex == formularioDGW.Columns["abrir"].Index && e.RowIndex >= 0)
             {
                 FORMULARIO result = form.GetForm((Guid)formularioDGW.Rows[e.RowIndex].Cells[1].Value);
-                this.Close();
+                Editar_Formulario_Form childForm = new Editar_Formulario_Form(result);
+                childForm.MdiParent = ParentForm;
+                childForm.Show();
             }
             else if (e.ColumnIndex == formularioDGW.Columns["verDatos"].Index && e.RowIndex >= 0)
             {
@@ -56,6 +60,20 @@ namespace SIFCA
                 Listar_Datos_Formulario_Form childForm = new Listar_Datos_Formulario_Form(result,0);
                 childForm.MdiParent = ParentForm;
                 childForm.Show();
+            }
+            else if (e.ColumnIndex == formularioDGW.Columns["eliminar"].Index && e.RowIndex >= 0)
+            {
+                DialogResult myResult= MessageBox.Show("¿Esta seguro de querer eliminar este formulario?", "Mensaje de confirmacion", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (myResult == DialogResult.OK)
+                {
+                    PROYECTO result = project.GetProject(((PROYECTO)Program.Cache.Get("project")).NROPROY);
+                    Program.Cache.Add("project", result, new CacheItemPolicy());
+                    form.DeleteForm((Guid)formularioDGW.Rows[e.RowIndex].Cells[1].Value);
+                    form.SaveChanges();
+                    formularioBS.DataSource = result.FORMULARIO.ToList();
+                    formularioDGW.DataSource = formularioBS;
+                    formularioDGW.Refresh();
+                }
             }
         }
 

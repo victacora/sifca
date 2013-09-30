@@ -32,9 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TiposMuestrales_Form));
             this.panel1 = new System.Windows.Forms.Panel();
             this.ListadoTiposMuestrales = new System.Windows.Forms.DataGridView();
-            this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.nOMTIPODISEMUESTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeSampleDesingBSource = new System.Windows.Forms.BindingSource(this.components);
             this.paginacionGruposCom = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -67,6 +64,9 @@
             this.btn_Guardar = new System.Windows.Forms.Button();
             this.updateNombreTxt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.nOMTIPODISEMUESTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListadoTiposMuestrales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TypeSampleDesingBSource)).BeginInit();
@@ -108,30 +108,6 @@
             this.ListadoTiposMuestrales.Size = new System.Drawing.Size(627, 271);
             this.ListadoTiposMuestrales.TabIndex = 5;
             this.ListadoTiposMuestrales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListadoDeEspecies_CellValueChanged);
-            // 
-            // Acciones
-            // 
-            this.Acciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Acciones.HeaderText = "Acciones";
-            this.Acciones.Name = "Acciones";
-            this.Acciones.ReadOnly = true;
-            this.Acciones.Text = "Editar";
-            this.Acciones.UseColumnTextForButtonValue = true;
-            this.Acciones.Width = 57;
-            // 
-            // nOMTIPODISEMUESTDataGridViewTextBoxColumn
-            // 
-            this.nOMTIPODISEMUESTDataGridViewTextBoxColumn.DataPropertyName = "NOMTIPODISEMUEST";
-            this.nOMTIPODISEMUESTDataGridViewTextBoxColumn.HeaderText = "NOMTIPODISEMUEST";
-            this.nOMTIPODISEMUESTDataGridViewTextBoxColumn.Name = "nOMTIPODISEMUESTDataGridViewTextBoxColumn";
-            this.nOMTIPODISEMUESTDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn
-            // 
-            this.dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn.DataPropertyName = "DESCRIPTIPODISEMUEST";
-            this.dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn.HeaderText = "DESCRIPTIPODISEMUEST";
-            this.dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn.Name = "dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn";
-            this.dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // TypeSampleDesingBSource
             // 
@@ -436,6 +412,30 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Nombre";
             // 
+            // Acciones
+            // 
+            this.Acciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Acciones.HeaderText = "Acciones";
+            this.Acciones.Name = "Acciones";
+            this.Acciones.ReadOnly = true;
+            this.Acciones.Text = "Editar";
+            this.Acciones.UseColumnTextForButtonValue = true;
+            this.Acciones.Width = 57;
+            // 
+            // nOMTIPODISEMUESTDataGridViewTextBoxColumn
+            // 
+            this.nOMTIPODISEMUESTDataGridViewTextBoxColumn.DataPropertyName = "NOMTIPODISEMUEST";
+            this.nOMTIPODISEMUESTDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nOMTIPODISEMUESTDataGridViewTextBoxColumn.Name = "nOMTIPODISEMUESTDataGridViewTextBoxColumn";
+            this.nOMTIPODISEMUESTDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn
+            // 
+            this.dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn.DataPropertyName = "DESCRIPTIPODISEMUEST";
+            this.dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn.HeaderText = "Descripción";
+            this.dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn.Name = "dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn";
+            this.dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // TiposMuestrales_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -498,10 +498,10 @@
         private System.Windows.Forms.TextBox updateNombreTxt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripButton Btn_nuevo;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripComboBox criterioCbx;
         private System.Windows.Forms.DataGridViewButtonColumn Acciones;
         private System.Windows.Forms.DataGridViewTextBoxColumn nOMTIPODISEMUESTDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripComboBox criterioCbx;
     }
 }

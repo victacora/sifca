@@ -91,14 +91,12 @@ namespace SIFCA
             MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
             datosTabControl.Enabled = true;
-            guardarformularioBtn.Enabled = false;
+            actualizarformularioBtn.Enabled = false;
             coordXTxt.Enabled = false;
             coordYTxt.Enabled = false;
             estratoCbx.Enabled = false;
             parcelaTxt.Enabled = false;
             lineaInventarioTxt.Enabled = false;
-            guardarTodoBtn.Enabled = true;
-            guardarformularioBtn.Text="Actualizar Formulario";
             finalDpk.Enabled = true;
             inicioDpk.Enabled = false;
 
@@ -251,6 +249,11 @@ namespace SIFCA
             Listar_Datos_Formulario_Form childForm = new Listar_Datos_Formulario_Form(f, 2);
             childForm.MdiParent = this.ParentForm;
             childForm.Show();
+        }
+
+        private void RegistrarEspecieBtn_Click(object sender, EventArgs e)
+        {
+
         }
 
 

@@ -16,20 +16,38 @@ namespace SIFCA
     {
         private UserBL user;
         private USUARIO userData;
-        public Actualizar_Usuario_Form()
+        private bool updateCache;
+        public Actualizar_Usuario_Form(USUARIO userUpdate)
         {
             InitializeComponent();
             user = new UserBL(Program.ContextData);
-            userData = (USUARIO)Program.Cache.Get("user");
-            nombresTxt.Text=userData.NOMBRES;
-            apellidosTxt.Text=userData.APELLIDOS;
-            cedulaTxt.Text= userData.CEDULA.ToString();
-            contrasenaTxt.Text=AuthenticatorHelper.Decrypt(userData.CONTRASENA);
+            if (userUpdate != null)
+            {
+                userData = userUpdate;
+                updateCache = false;
+            }
+            else
+            {
+                userData = (USUARIO)Program.Cache.Get("user");
+                updateCache = true;
+            }
+            nombresTxt.Text = userData.NOMBRES;
+            apellidosTxt.Text = userData.APELLIDOS;
+            cedulaTxt.Text = userData.CEDULA.ToString();
+            contrasenaTxt.Text = AuthenticatorHelper.Decrypt(userData.CONTRASENA);
             verificarContrasenaTxt.Text = contrasenaTxt.Text;
-            usuarioTxt.Text=userData.NOMBREUSUARIO;
-            tipoUsuarioCbx.SelectedIndex = (userData.TIPOUSUARIO == "AD" ? 0 : 1);
-            tipoUsuarioCbx.Enabled = (userData.TIPOUSUARIO == "AD" ? true : false); 
+            usuarioTxt.Text = userData.NOMBREUSUARIO;
+            if (userUpdate != null)
+            {
+                tipoUsuarioCbx.SelectedIndex = (userData.TIPOUSUARIO == "AD" ? 0 : 1);
+            }
+            else 
+            {
+                tipoUsuarioCbx.SelectedIndex = (userData.TIPOUSUARIO == "AD" ? 0 : 1);
+                tipoUsuarioCbx.Enabled = (userData.TIPOUSUARIO == "AD" ? true : false);
+            }
             this.ControlBox = false;
+            
         }
 
         private void ActualizarBtn_Click(object sender, EventArgs e)
@@ -42,7 +60,7 @@ namespace SIFCA
             userData.TIPOUSUARIO = (tipoUsuarioCbx.SelectedItem.ToString()=="Administrador"?"AD":"NA");
             user.UpdateUser(userData);
             user.SaveChanges();
-            Program.Cache.Set("user",userData, new CacheItemPolicy());
+            if(updateCache)Program.Cache.Set("user",userData, new CacheItemPolicy());
             MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
@@ -63,6 +81,22 @@ namespace SIFCA
             {
                 errorLbl.Text = "Las contraseñas coinciden";
                 errorLbl.ForeColor = Color.Green;
+            }
+        }
+
+        private void verContrasena_Click(object sender, EventArgs e)
+        {
+            if (verContrasena.Text == "Ver Contraseña")
+            {
+                verContrasena.Text = "No Ver Contraseña";
+                contrasenaTxt.UseSystemPasswordChar = false;
+                verificarContrasenaTxt.UseSystemPasswordChar = false;
+            }
+            else 
+            {
+                verContrasena.Text = "Ver Contraseña";
+                contrasenaTxt.UseSystemPasswordChar = true;
+                verificarContrasenaTxt.UseSystemPasswordChar = true;
             }
         }
 

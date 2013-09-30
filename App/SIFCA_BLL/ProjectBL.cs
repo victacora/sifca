@@ -139,7 +139,7 @@ namespace SIFCA_BLL
                 var query = from p in this.sifcaRepository.PROYECTO where (p.LUGAR.Contains(search)) select p;
                 return query.ToList();
             }
-            if (criteria == "Fecha (dd/mm/aaaa)")
+            if (criteria == "dd/mm/aaaa")
             {
                 DateTime parameter = DateTime.Parse(search);
                 var query = from p in this.sifcaRepository.PROYECTO where (p.FECHA==parameter) select p;

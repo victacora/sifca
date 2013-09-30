@@ -36,7 +36,6 @@ namespace SIFCA.Gestion_Configuracion
         {
             panel3.Hide();
             panel2.Show();
-
             GroupComBSource.DataSource = group.GetGroups();
             
         }

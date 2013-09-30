@@ -7,7 +7,7 @@ using System.Data;
 
 namespace SIFCA_BLL
 {
-    public class TypeSampleDesignBl 
+    public class TypeSampleDesignBl
     {
         private SIFCA_CONTEXT sifcaRepository;
 
@@ -22,7 +22,23 @@ namespace SIFCA_BLL
             return this.sifcaRepository.TIPODISENOMUESTRAL.ToList();
         }
 
-        public TIPODISENOMUESTRAL GetTypeSampleDesign(int TypeSampleDesignId)
+        public IEnumerable<TIPODISENOMUESTRAL> SearchType(string search, string criterio)
+        {
+            if (criterio == "Nombre")
+            {
+                var query = from e in this.sifcaRepository.TIPODISENOMUESTRAL where (e.NOMTIPODISEMUEST.Contains(search)) select e;
+                return query.ToList();
+            }
+            if (criterio == "Descripcion")
+            {
+                var query = from e in this.sifcaRepository.TIPODISENOMUESTRAL where (e.DESCRIPTIPODISEMUEST.Contains(search)) select e;
+                return query.ToList();
+            }
+            return new List<TIPODISENOMUESTRAL>();
+
+        }
+
+        public TIPODISENOMUESTRAL GetTypeSampleDesign(String TypeSampleDesignId)
         {
             return this.sifcaRepository.TIPODISENOMUESTRAL.Find(TypeSampleDesignId);
         }
@@ -32,7 +48,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.TIPODISENOMUESTRAL.Add(TypeSampleDesign);
-                
+
             }
             catch (Exception ex)
             {
@@ -46,7 +62,7 @@ namespace SIFCA_BLL
             {
                 TIPODISENOMUESTRAL TypeSampleDesign = this.sifcaRepository.TIPODISENOMUESTRAL.Find(TypeSampleDesignId);
                 this.sifcaRepository.TIPODISENOMUESTRAL.Remove(TypeSampleDesign);
-                
+
             }
             catch (Exception ex)
             {
@@ -59,7 +75,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.Entry(TypeSampleDesign).State = EntityState.Modified;
-                
+
             }
             catch (Exception ex)
             {

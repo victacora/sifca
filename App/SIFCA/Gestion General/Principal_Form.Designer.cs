@@ -70,7 +70,8 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.EstadoLbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.cerrarFormularioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.realizarCopiaDeSeguridadTsm = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportarDatosAExcelTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -152,7 +153,9 @@
             this.eliminarProyectoTsm,
             this.importarProyectoTsm,
             this.exportarProyectoTsm,
-            this.cerrarProyectoTsm});
+            this.cerrarProyectoTsm,
+            this.realizarCopiaDeSeguridadTsm,
+            this.exportarDatosAExcelTsm});
             this.proyectoMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.proyectoMenu.Name = "proyectoMenu";
             this.proyectoMenu.Size = new System.Drawing.Size(66, 20);
@@ -161,7 +164,7 @@
             // abrirProyectosTsm
             // 
             this.abrirProyectosTsm.Name = "abrirProyectosTsm";
-            this.abrirProyectosTsm.Size = new System.Drawing.Size(207, 22);
+            this.abrirProyectosTsm.Size = new System.Drawing.Size(217, 22);
             this.abrirProyectosTsm.Text = "&Abrir proyecto";
             this.abrirProyectosTsm.Click += new System.EventHandler(this.abrirProyectosTsm_Click);
             // 
@@ -170,14 +173,14 @@
             this.nuevoProyectoTsm.ImageTransparentColor = System.Drawing.Color.Black;
             this.nuevoProyectoTsm.Name = "nuevoProyectoTsm";
             this.nuevoProyectoTsm.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.nuevoProyectoTsm.Size = new System.Drawing.Size(207, 22);
+            this.nuevoProyectoTsm.Size = new System.Drawing.Size(217, 22);
             this.nuevoProyectoTsm.Text = "&Nuevo proyecto";
             this.nuevoProyectoTsm.Click += new System.EventHandler(this.nuevoProyectoTsm_Click);
             // 
             // actualizarProyectoTsm
             // 
             this.actualizarProyectoTsm.Name = "actualizarProyectoTsm";
-            this.actualizarProyectoTsm.Size = new System.Drawing.Size(207, 22);
+            this.actualizarProyectoTsm.Size = new System.Drawing.Size(217, 22);
             this.actualizarProyectoTsm.Text = "Actualizar  proyecto";
             this.actualizarProyectoTsm.Visible = false;
             this.actualizarProyectoTsm.Click += new System.EventHandler(this.actualizarProyectoTsm_Click);
@@ -185,7 +188,7 @@
             // eliminarProyectoTsm
             // 
             this.eliminarProyectoTsm.Name = "eliminarProyectoTsm";
-            this.eliminarProyectoTsm.Size = new System.Drawing.Size(207, 22);
+            this.eliminarProyectoTsm.Size = new System.Drawing.Size(217, 22);
             this.eliminarProyectoTsm.Text = "Eliminar proyecto";
             this.eliminarProyectoTsm.Visible = false;
             this.eliminarProyectoTsm.Click += new System.EventHandler(this.eliminarProyectoTsm_Click);
@@ -194,7 +197,7 @@
             // 
             this.importarProyectoTsm.Name = "importarProyectoTsm";
             this.importarProyectoTsm.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.importarProyectoTsm.Size = new System.Drawing.Size(207, 22);
+            this.importarProyectoTsm.Size = new System.Drawing.Size(217, 22);
             this.importarProyectoTsm.Text = "&Importar proyecto";
             this.importarProyectoTsm.Click += new System.EventHandler(this.importarProyectoTsm_Click);
             // 
@@ -202,14 +205,14 @@
             // 
             this.exportarProyectoTsm.Name = "exportarProyectoTsm";
             this.exportarProyectoTsm.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.exportarProyectoTsm.Size = new System.Drawing.Size(207, 22);
+            this.exportarProyectoTsm.Size = new System.Drawing.Size(217, 22);
             this.exportarProyectoTsm.Text = "&Exportar proyecto";
             this.exportarProyectoTsm.Click += new System.EventHandler(this.exportarProyectoTsm_Click);
             // 
             // cerrarProyectoTsm
             // 
             this.cerrarProyectoTsm.Name = "cerrarProyectoTsm";
-            this.cerrarProyectoTsm.Size = new System.Drawing.Size(207, 22);
+            this.cerrarProyectoTsm.Size = new System.Drawing.Size(217, 22);
             this.cerrarProyectoTsm.Text = "Cerrar proyecto";
             this.cerrarProyectoTsm.Visible = false;
             this.cerrarProyectoTsm.Click += new System.EventHandler(this.cerrarProyectoTsm_Click);
@@ -218,8 +221,7 @@
             // 
             this.inventarioMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.crearFormularioTsm,
-            this.abrirFormulariosTsm,
-            this.cerrarFormularioToolStripMenuItem});
+            this.abrirFormulariosTsm});
             this.inventarioMenu.Name = "inventarioMenu";
             this.inventarioMenu.Size = new System.Drawing.Size(72, 20);
             this.inventarioMenu.Text = "&Inventario";
@@ -250,7 +252,7 @@
             // listarEspeciesTsm
             // 
             this.listarEspeciesTsm.Name = "listarEspeciesTsm";
-            this.listarEspeciesTsm.Size = new System.Drawing.Size(149, 22);
+            this.listarEspeciesTsm.Size = new System.Drawing.Size(152, 22);
             this.listarEspeciesTsm.Text = "Listar especies";
             this.listarEspeciesTsm.Click += new System.EventHandler(this.listarEspeciesTsm_Click);
             // 
@@ -402,12 +404,19 @@
             this.EstadoLbl.Size = new System.Drawing.Size(155, 17);
             this.EstadoLbl.Text = "Ningun usuario autenticado";
             // 
-            // cerrarFormularioToolStripMenuItem
+            // realizarCopiaDeSeguridadTsm
             // 
-            this.cerrarFormularioToolStripMenuItem.Name = "cerrarFormularioToolStripMenuItem";
-            this.cerrarFormularioToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.cerrarFormularioToolStripMenuItem.Text = "Cerrar formulario";
-            this.cerrarFormularioToolStripMenuItem.Click += new System.EventHandler(this.cerrarFormularioToolStripMenuItem_Click);
+            this.realizarCopiaDeSeguridadTsm.Name = "realizarCopiaDeSeguridadTsm";
+            this.realizarCopiaDeSeguridadTsm.Size = new System.Drawing.Size(217, 22);
+            this.realizarCopiaDeSeguridadTsm.Text = "Realizar copia de seguridad";
+            this.realizarCopiaDeSeguridadTsm.Click += new System.EventHandler(this.realizarCopiaDeSeguridadTsm_Click);
+            // 
+            // exportarDatosAExcelTsm
+            // 
+            this.exportarDatosAExcelTsm.Name = "exportarDatosAExcelTsm";
+            this.exportarDatosAExcelTsm.Size = new System.Drawing.Size(217, 22);
+            this.exportarDatosAExcelTsm.Text = "Exportar datos a excel";
+            this.exportarDatosAExcelTsm.Click += new System.EventHandler(this.exportarDatosAExcelTsm_Click);
             // 
             // Principal_Form
             // 
@@ -477,7 +486,8 @@
         private System.Windows.Forms.ToolStripMenuItem abrirProyectosTsm;
         private System.Windows.Forms.ToolStripMenuItem cerrarProyectoTsm;
         private System.Windows.Forms.ToolStripMenuItem registrarUsuarioTsm;
-        private System.Windows.Forms.ToolStripMenuItem cerrarFormularioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem realizarCopiaDeSeguridadTsm;
+        private System.Windows.Forms.ToolStripMenuItem exportarDatosAExcelTsm;
     }
 }
 

@@ -56,6 +56,26 @@ namespace SIFCA
             }
         }
 
+        private void usuarioDGW_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == usuarioDGW.Columns["editar"].Index && e.RowIndex >= 0)
+            {
+                USUARIO result = user.GetUser((Guid)usuarioDGW.Rows[e.RowIndex].Cells[0].Value);
+                Actualizar_Usuario_Form childForm = new Actualizar_Usuario_Form(result);
+                childForm.MdiParent = ParentForm;
+                childForm.Show();
+            }
+        }
+
+        private void nuevoBtn_Click(object sender, EventArgs e)
+        {
+            Crear_Usuario_Form childForm = new Crear_Usuario_Form();
+            childForm.ShowDialog();
+            usuarioBS.DataSource = user.GetUsers();
+            usuarioDGW.DataSource = usuarioBS;
+            criterioCbx.SelectedIndex = 0;
+        }
+
         
     }
 }

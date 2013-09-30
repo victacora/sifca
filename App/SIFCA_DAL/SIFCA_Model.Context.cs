@@ -10,6 +10,7 @@
 using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.Objects;
 
 namespace SIFCA_DAL
 {
@@ -43,5 +44,18 @@ namespace SIFCA_DAL
         public DbSet<TRANSACCION> TRANSACCION { get; set; }
         public DbSet<TSTUDENT> TSTUDENT { get; set; }
         public DbSet<USUARIO> USUARIO { get; set; }
+    
+        public virtual int createBackupDB(string baseLocation, string backupType)
+        {
+            var baseLocationParameter = baseLocation != null ?
+                new ObjectParameter("BaseLocation", baseLocation) :
+                new ObjectParameter("BaseLocation", typeof(string));
+    
+            var backupTypeParameter = backupType != null ?
+                new ObjectParameter("BackupType", backupType) :
+                new ObjectParameter("BackupType", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("createBackupDB", baseLocationParameter, backupTypeParameter);
+        }
     }
 }

@@ -46,9 +46,7 @@
             System.Windows.Forms.Label calidadLbl;
             System.Windows.Forms.Label dAPLbl;
             System.Windows.Forms.Label estadoLbl;
-            System.Windows.Forms.Label brinzalLbl;
             System.Windows.Forms.Label especieRegeLbl;
-            System.Windows.Forms.Label latizalLbl;
             System.Windows.Forms.Label nroRegenArbolLbl;
             System.Windows.Forms.Label observacionesLbl;
             System.Windows.Forms.Label label1;
@@ -78,7 +76,6 @@
             this.datosInventarioGrx = new System.Windows.Forms.GroupBox();
             this.RegistrarEspecieBtn = new System.Windows.Forms.Button();
             this.listarDatosBtn = new System.Windows.Forms.Button();
-            this.cAPTxt = new System.Windows.Forms.TextBox();
             this.nroArbolTxt = new System.Windows.Forms.TextBox();
             this.especieCbx = new System.Windows.Forms.ComboBox();
             this.estadoCbx = new System.Windows.Forms.ComboBox();
@@ -98,18 +95,11 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.dAPTxt = new System.Windows.Forms.TextBox();
             this.RegeneracionTP = new System.Windows.Forms.TabPage();
             this.datosRegenGrx = new System.Windows.Forms.GroupBox();
-            this.latizalTxt = new System.Windows.Forms.TextBox();
             this.regeneracionBS = new System.Windows.Forms.BindingSource(this.components);
-            this.brinzalTxt = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.latizalRbn = new System.Windows.Forms.RadioButton();
-            this.brinzalRbn = new System.Windows.Forms.RadioButton();
             this.registrarEspecieRegenBtn = new System.Windows.Forms.Button();
             this.especieRegenCbx = new System.Windows.Forms.ComboBox();
-            this.nroArbolRegenTxt = new System.Windows.Forms.TextBox();
             this.listarRegenbtn = new System.Windows.Forms.Button();
             this.guardarRegenBtn = new System.Windows.Forms.Button();
             this.regeneracionBN = new System.Windows.Forms.BindingNavigator(this.components);
@@ -128,7 +118,7 @@
             this.datosNoMaderablesGrx = new System.Windows.Forms.GroupBox();
             this.tipoUsosLbl = new System.Windows.Forms.Label();
             this.observacionesTxt = new System.Windows.Forms.TextBox();
-            this.lineaNoMaderableBS = new System.Windows.Forms.BindingSource(this.components);
+            this.noMaderableBS = new System.Windows.Forms.BindingSource(this.components);
             this.TipoDeUsosLbc = new System.Windows.Forms.CheckedListBox();
             this.listarNoMaderableBtn = new System.Windows.Forms.Button();
             this.guardarLineNoMadBtn = new System.Windows.Forms.Button();
@@ -145,6 +135,11 @@
             this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tipoUsoBS = new System.Windows.Forms.BindingSource(this.components);
+            this.brinzalTxt = new System.Windows.Forms.TextBox();
+            this.latizalTxt = new System.Windows.Forms.TextBox();
+            this.nroArbolRegenTxt = new System.Windows.Forms.TextBox();
+            this.dAPTxt = new System.Windows.Forms.TextBox();
+            this.cAPTxt = new System.Windows.Forms.TextBox();
             estratoLbl = new System.Windows.Forms.Label();
             lineaLbl = new System.Windows.Forms.Label();
             ProyectoLbl = new System.Windows.Forms.Label();
@@ -162,9 +157,7 @@
             calidadLbl = new System.Windows.Forms.Label();
             dAPLbl = new System.Windows.Forms.Label();
             estadoLbl = new System.Windows.Forms.Label();
-            brinzalLbl = new System.Windows.Forms.Label();
             especieRegeLbl = new System.Windows.Forms.Label();
-            latizalLbl = new System.Windows.Forms.Label();
             nroRegenArbolLbl = new System.Windows.Forms.Label();
             observacionesLbl = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
@@ -185,12 +178,11 @@
             this.RegeneracionTP.SuspendLayout();
             this.datosRegenGrx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.regeneracionBS)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.regeneracionBN)).BeginInit();
             this.regeneracionBN.SuspendLayout();
             this.NoMaderablesTP.SuspendLayout();
             this.datosNoMaderablesGrx.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lineaNoMaderableBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.noMaderableBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.noMaderablesBN)).BeginInit();
             this.noMaderablesBN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tipoUsoBS)).BeginInit();
@@ -349,15 +341,6 @@
             estadoLbl.TabIndex = 14;
             estadoLbl.Text = "Estado:";
             // 
-            // brinzalLbl
-            // 
-            brinzalLbl.AutoSize = true;
-            brinzalLbl.Location = new System.Drawing.Point(12, 21);
-            brinzalLbl.Name = "brinzalLbl";
-            brinzalLbl.Size = new System.Drawing.Size(41, 13);
-            brinzalLbl.TabIndex = 77;
-            brinzalLbl.Text = "Brinzal:";
-            // 
             // especieRegeLbl
             // 
             especieRegeLbl.AutoSize = true;
@@ -367,23 +350,14 @@
             especieRegeLbl.TabIndex = 79;
             especieRegeLbl.Text = "Especie:";
             // 
-            // latizalLbl
-            // 
-            latizalLbl.AutoSize = true;
-            latizalLbl.Location = new System.Drawing.Point(12, 47);
-            latizalLbl.Name = "latizalLbl";
-            latizalLbl.Size = new System.Drawing.Size(40, 13);
-            latizalLbl.TabIndex = 81;
-            latizalLbl.Text = "Latizal:";
-            // 
             // nroRegenArbolLbl
             // 
             nroRegenArbolLbl.AutoSize = true;
             nroRegenArbolLbl.Location = new System.Drawing.Point(17, 51);
             nroRegenArbolLbl.Name = "nroRegenArbolLbl";
-            nroRegenArbolLbl.Size = new System.Drawing.Size(57, 13);
+            nroRegenArbolLbl.Size = new System.Drawing.Size(74, 13);
             nroRegenArbolLbl.TabIndex = 85;
-            nroRegenArbolLbl.Text = "Nro. Arbol:";
+            nroRegenArbolLbl.Text = "Numero Arbol:";
             // 
             // observacionesLbl
             // 
@@ -397,7 +371,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(18, 213);
+            label1.Location = new System.Drawing.Point(18, 136);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(40, 13);
             label1.TabIndex = 95;
@@ -406,7 +380,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(18, 187);
+            label2.Location = new System.Drawing.Point(18, 110);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(41, 13);
             label2.TabIndex = 94;
@@ -491,7 +465,8 @@
             // 
             // inicioDpk
             // 
-            this.inicioDpk.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.inicioDpk.CustomFormat = "dd/mm/yyyy hh:mm tt";
+            this.inicioDpk.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.inicioDpk.Location = new System.Drawing.Point(124, 207);
             this.inicioDpk.Name = "inicioDpk";
             this.inicioDpk.Size = new System.Drawing.Size(200, 20);
@@ -513,8 +488,9 @@
             // 
             // finalDpk
             // 
+            this.finalDpk.CustomFormat = "dd/mm/yyyy hh:mm tt";
             this.finalDpk.Enabled = false;
-            this.finalDpk.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.finalDpk.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.finalDpk.Location = new System.Drawing.Point(125, 235);
             this.finalDpk.Name = "finalDpk";
             this.finalDpk.Size = new System.Drawing.Size(200, 20);
@@ -588,10 +564,11 @@
             // datosInventarioGrx
             // 
             this.datosInventarioGrx.BackColor = System.Drawing.SystemColors.Window;
+            this.datosInventarioGrx.Controls.Add(this.cAPTxt);
+            this.datosInventarioGrx.Controls.Add(this.dAPTxt);
             this.datosInventarioGrx.Controls.Add(this.RegistrarEspecieBtn);
             this.datosInventarioGrx.Controls.Add(this.listarDatosBtn);
             this.datosInventarioGrx.Controls.Add(cAPLbl);
-            this.datosInventarioGrx.Controls.Add(this.cAPTxt);
             this.datosInventarioGrx.Controls.Add(nrArbolLbl);
             this.datosInventarioGrx.Controls.Add(this.nroArbolTxt);
             this.datosInventarioGrx.Controls.Add(this.especieCbx);
@@ -606,7 +583,6 @@
             this.datosInventarioGrx.Controls.Add(this.lineaInvBN);
             this.datosInventarioGrx.Controls.Add(calidadLbl);
             this.datosInventarioGrx.Controls.Add(dAPLbl);
-            this.datosInventarioGrx.Controls.Add(this.dAPTxt);
             this.datosInventarioGrx.Controls.Add(estadoLbl);
             this.datosInventarioGrx.Location = new System.Drawing.Point(-6, -13);
             this.datosInventarioGrx.Name = "datosInventarioGrx";
@@ -633,15 +609,6 @@
             this.listarDatosBtn.Text = "Listar datos";
             this.listarDatosBtn.UseVisualStyleBackColor = true;
             this.listarDatosBtn.Click += new System.EventHandler(this.listarDatosBtn_Click);
-            // 
-            // cAPTxt
-            // 
-            this.cAPTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "CAP", true));
-            this.cAPTxt.Location = new System.Drawing.Point(134, 185);
-            this.cAPTxt.Name = "cAPTxt";
-            this.cAPTxt.Size = new System.Drawing.Size(238, 20);
-            this.cAPTxt.TabIndex = 72;
-            this.cAPTxt.TextChanged += new System.EventHandler(this.cAPTxt_TextChanged);
             // 
             // nroArbolTxt
             // 
@@ -824,15 +791,6 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // dAPTxt
-            // 
-            this.dAPTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "DAP", true));
-            this.dAPTxt.Location = new System.Drawing.Point(134, 158);
-            this.dAPTxt.Name = "dAPTxt";
-            this.dAPTxt.Size = new System.Drawing.Size(238, 20);
-            this.dAPTxt.TabIndex = 13;
-            this.dAPTxt.TextChanged += new System.EventHandler(this.dAPTxt_TextChanged);
-            // 
             // RegeneracionTP
             // 
             this.RegeneracionTP.AutoScroll = true;
@@ -852,7 +810,6 @@
             this.datosRegenGrx.Controls.Add(this.brinzalTxt);
             this.datosRegenGrx.Controls.Add(label1);
             this.datosRegenGrx.Controls.Add(label2);
-            this.datosRegenGrx.Controls.Add(this.groupBox1);
             this.datosRegenGrx.Controls.Add(this.registrarEspecieRegenBtn);
             this.datosRegenGrx.Controls.Add(this.especieRegenCbx);
             this.datosRegenGrx.Controls.Add(especieRegeLbl);
@@ -867,58 +824,9 @@
             this.datosRegenGrx.TabIndex = 2;
             this.datosRegenGrx.TabStop = false;
             // 
-            // latizalTxt
-            // 
-            this.latizalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regeneracionBS, "NROARB", true));
-            this.latizalTxt.Location = new System.Drawing.Point(104, 210);
-            this.latizalTxt.Name = "latizalTxt";
-            this.latizalTxt.Size = new System.Drawing.Size(266, 20);
-            this.latizalTxt.TabIndex = 97;
-            // 
             // regeneracionBS
             // 
             this.regeneracionBS.DataSource = typeof(SIFCA_DAL.LINEAREGENERACION);
-            // 
-            // brinzalTxt
-            // 
-            this.brinzalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regeneracionBS, "NROARB", true));
-            this.brinzalTxt.Location = new System.Drawing.Point(104, 184);
-            this.brinzalTxt.Name = "brinzalTxt";
-            this.brinzalTxt.Size = new System.Drawing.Size(266, 20);
-            this.brinzalTxt.TabIndex = 96;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.latizalRbn);
-            this.groupBox1.Controls.Add(latizalLbl);
-            this.groupBox1.Controls.Add(this.brinzalRbn);
-            this.groupBox1.Controls.Add(brinzalLbl);
-            this.groupBox1.Location = new System.Drawing.Point(12, 107);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(358, 71);
-            this.groupBox1.TabIndex = 93;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Clasificacion";
-            // 
-            // latizalRbn
-            // 
-            this.latizalRbn.AutoSize = true;
-            this.latizalRbn.Location = new System.Drawing.Point(99, 43);
-            this.latizalRbn.Name = "latizalRbn";
-            this.latizalRbn.Size = new System.Drawing.Size(14, 13);
-            this.latizalRbn.TabIndex = 92;
-            this.latizalRbn.TabStop = true;
-            this.latizalRbn.UseVisualStyleBackColor = true;
-            // 
-            // brinzalRbn
-            // 
-            this.brinzalRbn.AutoSize = true;
-            this.brinzalRbn.Location = new System.Drawing.Point(99, 21);
-            this.brinzalRbn.Name = "brinzalRbn";
-            this.brinzalRbn.Size = new System.Drawing.Size(14, 13);
-            this.brinzalRbn.TabIndex = 91;
-            this.brinzalRbn.TabStop = true;
-            this.brinzalRbn.UseVisualStyleBackColor = true;
             // 
             // registrarEspecieRegenBtn
             // 
@@ -940,14 +848,6 @@
             this.especieRegenCbx.TabIndex = 89;
             this.especieRegenCbx.ValueMember = "CODESP";
             // 
-            // nroArbolRegenTxt
-            // 
-            this.nroArbolRegenTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regeneracionBS, "NROARB", true));
-            this.nroArbolRegenTxt.Location = new System.Drawing.Point(104, 56);
-            this.nroArbolRegenTxt.Name = "nroArbolRegenTxt";
-            this.nroArbolRegenTxt.Size = new System.Drawing.Size(266, 20);
-            this.nroArbolRegenTxt.TabIndex = 86;
-            // 
             // listarRegenbtn
             // 
             this.listarRegenbtn.Location = new System.Drawing.Point(58, 396);
@@ -956,6 +856,7 @@
             this.listarRegenbtn.TabIndex = 77;
             this.listarRegenbtn.Text = "Listar datos";
             this.listarRegenbtn.UseVisualStyleBackColor = true;
+            this.listarRegenbtn.Click += new System.EventHandler(this.listarRegenbtn_Click);
             // 
             // guardarRegenBtn
             // 
@@ -1120,16 +1021,16 @@
             // 
             // observacionesTxt
             // 
-            this.observacionesTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaNoMaderableBS, "OBSERVACIONES", true));
+            this.observacionesTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.noMaderableBS, "OBSERVACIONES", true));
             this.observacionesTxt.Location = new System.Drawing.Point(111, 58);
             this.observacionesTxt.Multiline = true;
             this.observacionesTxt.Name = "observacionesTxt";
             this.observacionesTxt.Size = new System.Drawing.Size(261, 78);
             this.observacionesTxt.TabIndex = 79;
             // 
-            // lineaNoMaderableBS
+            // noMaderableBS
             // 
-            this.lineaNoMaderableBS.DataSource = typeof(SIFCA_DAL.LINEANOMADERABLES);
+            this.noMaderableBS.DataSource = typeof(SIFCA_DAL.LINEANOMADERABLES);
             // 
             // TipoDeUsosLbc
             // 
@@ -1149,6 +1050,7 @@
             this.listarNoMaderableBtn.TabIndex = 77;
             this.listarNoMaderableBtn.Text = "Listar datos";
             this.listarNoMaderableBtn.UseVisualStyleBackColor = true;
+            this.listarNoMaderableBtn.Click += new System.EventHandler(this.listarNoMaderableBtn_Click);
             // 
             // guardarLineNoMadBtn
             // 
@@ -1163,7 +1065,7 @@
             // noMaderablesBN
             // 
             this.noMaderablesBN.AddNewItem = this.toolStripButton7;
-            this.noMaderablesBN.BindingSource = this.lineaNoMaderableBS;
+            this.noMaderablesBN.BindingSource = this.noMaderableBS;
             this.noMaderablesBN.CountItem = this.toolStripLabel2;
             this.noMaderablesBN.DeleteItem = this.toolStripButton8;
             this.noMaderablesBN.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1278,6 +1180,48 @@
             // 
             this.tipoUsoBS.DataSource = typeof(SIFCA_DAL.TIPODEUSO);
             // 
+            // brinzalTxt
+            // 
+            this.brinzalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regeneracionBS, "BRINZAL", true));
+            this.brinzalTxt.Location = new System.Drawing.Point(104, 107);
+            this.brinzalTxt.Name = "brinzalTxt";
+            this.brinzalTxt.Size = new System.Drawing.Size(266, 20);
+            this.brinzalTxt.TabIndex = 96;
+            // 
+            // latizalTxt
+            // 
+            this.latizalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regeneracionBS, "LATIZAL", true));
+            this.latizalTxt.Location = new System.Drawing.Point(104, 136);
+            this.latizalTxt.Name = "latizalTxt";
+            this.latizalTxt.Size = new System.Drawing.Size(266, 20);
+            this.latizalTxt.TabIndex = 97;
+            // 
+            // nroArbolRegenTxt
+            // 
+            this.nroArbolRegenTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regeneracionBS, "NROARB", true));
+            this.nroArbolRegenTxt.Location = new System.Drawing.Point(104, 56);
+            this.nroArbolRegenTxt.Name = "nroArbolRegenTxt";
+            this.nroArbolRegenTxt.Size = new System.Drawing.Size(266, 20);
+            this.nroArbolRegenTxt.TabIndex = 86;
+            // 
+            // dAPTxt
+            // 
+            this.dAPTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "DAP", true));
+            this.dAPTxt.Location = new System.Drawing.Point(135, 159);
+            this.dAPTxt.Name = "dAPTxt";
+            this.dAPTxt.Size = new System.Drawing.Size(237, 20);
+            this.dAPTxt.TabIndex = 79;
+            this.dAPTxt.TextChanged += new System.EventHandler(this.dAPTxt_TextChanged);
+            // 
+            // cAPTxt
+            // 
+            this.cAPTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "CAP", true));
+            this.cAPTxt.Location = new System.Drawing.Point(134, 185);
+            this.cAPTxt.Name = "cAPTxt";
+            this.cAPTxt.Size = new System.Drawing.Size(237, 20);
+            this.cAPTxt.TabIndex = 80;
+            this.cAPTxt.TextChanged += new System.EventHandler(this.cAPTxt_TextChanged);
+            // 
             // Crear_Formulario_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1292,7 +1236,7 @@
             this.MinimizeBox = false;
             this.Name = "Crear_Formulario_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Formulario de introduccion de datos";
+            this.Text = "Crear formulario e introducir datos";
             ((System.ComponentModel.ISupportInitialize)(this.formularioBS)).EndInit();
             this.datosFormularioGrx.ResumeLayout(false);
             this.datosFormularioGrx.PerformLayout();
@@ -1313,15 +1257,13 @@
             this.datosRegenGrx.ResumeLayout(false);
             this.datosRegenGrx.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.regeneracionBS)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.regeneracionBN)).EndInit();
             this.regeneracionBN.ResumeLayout(false);
             this.regeneracionBN.PerformLayout();
             this.NoMaderablesTP.ResumeLayout(false);
             this.datosNoMaderablesGrx.ResumeLayout(false);
             this.datosNoMaderablesGrx.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lineaNoMaderableBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.noMaderableBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.noMaderablesBN)).EndInit();
             this.noMaderablesBN.ResumeLayout(false);
             this.noMaderablesBN.PerformLayout();
@@ -1353,7 +1295,6 @@
         private System.Windows.Forms.TabPage InventarioTP;
         private System.Windows.Forms.GroupBox datosInventarioGrx;
         private System.Windows.Forms.Button listarDatosBtn;
-        private System.Windows.Forms.TextBox cAPTxt;
         private System.Windows.Forms.TextBox nroArbolTxt;
         private System.Windows.Forms.ComboBox especieCbx;
         private System.Windows.Forms.ComboBox estadoCbx;
@@ -1373,7 +1314,6 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.TextBox dAPTxt;
         private System.Windows.Forms.TabPage RegeneracionTP;
         private System.Windows.Forms.GroupBox datosRegenGrx;
         private System.Windows.Forms.Button listarRegenbtn;
@@ -1408,20 +1348,19 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.Button guardarTodoBtn;
         private System.Windows.Forms.BindingSource regeneracionBS;
-        private System.Windows.Forms.TextBox nroArbolRegenTxt;
         private System.Windows.Forms.CheckedListBox TipoDeUsosLbc;
         private System.Windows.Forms.BindingSource tipoUsoBS;
         private System.Windows.Forms.TextBox observacionesTxt;
-        private System.Windows.Forms.BindingSource lineaNoMaderableBS;
+        private System.Windows.Forms.BindingSource noMaderableBS;
         private System.Windows.Forms.Label tipoUsosLbl;
         private System.Windows.Forms.ComboBox especieRegenCbx;
         private System.Windows.Forms.Button RegistrarEspecieBtn;
         private System.Windows.Forms.Button registrarEspecieRegenBtn;
-        private System.Windows.Forms.RadioButton brinzalRbn;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton latizalRbn;
         private System.Windows.Forms.TextBox proyectoTxt;
         private System.Windows.Forms.TextBox latizalTxt;
         private System.Windows.Forms.TextBox brinzalTxt;
+        private System.Windows.Forms.TextBox nroArbolRegenTxt;
+        private System.Windows.Forms.TextBox cAPTxt;
+        private System.Windows.Forms.TextBox dAPTxt;
     }
 }

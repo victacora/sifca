@@ -52,6 +52,7 @@ namespace SIFCA_BLL
             //parse base64 string
             byte[] data = Convert.FromBase64String(cipher);
             //decrypt data
+            
             byte[] decrypted = ProtectedData.Unprotect(data, null, DataProtectionScope.CurrentUser);
             return Encoding.Unicode.GetString(decrypted);
         }

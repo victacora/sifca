@@ -7,7 +7,7 @@ using System.Data;
 
 namespace SIFCA_BLL
 {
-    public class StratumBL 
+    public class StratumBL
     {
         private SIFCA_CONTEXT sifcaRepository;
 
@@ -24,7 +24,7 @@ namespace SIFCA_BLL
 
         public ESTRATO GetStratumByDescription(string description)
         {
-            return this.sifcaRepository.ESTRATO.SingleOrDefault(e=>e.DESCRIPESTRATO==description);
+            return this.sifcaRepository.ESTRATO.SingleOrDefault(e => e.DESCRIPESTRATO == description);
         }
 
         public ESTRATO GetStratum(int stratumId)
@@ -37,7 +37,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.ESTRATO.Add(stratum);
-                
+
             }
             catch (Exception ex)
             {
@@ -51,7 +51,7 @@ namespace SIFCA_BLL
             {
                 ESTRATO proyecto = this.sifcaRepository.ESTRATO.Find(stratumId);
                 this.sifcaRepository.ESTRATO.Remove(proyecto);
-                
+
             }
             catch (Exception ex)
             {
@@ -64,7 +64,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.Entry(stratum).State = EntityState.Modified;
-                
+
             }
             catch (Exception ex)
             {

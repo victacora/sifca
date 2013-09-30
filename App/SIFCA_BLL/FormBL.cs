@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using SIFCA_DAL;
 using System.Data;
+using System.Data.Objects.SqlClient;
 
 namespace SIFCA_BLL
 {
@@ -77,5 +78,41 @@ namespace SIFCA_BLL
             }
         }
 
+
+        public List<FORMULARIO> SearchForm(string search, string criteria)
+        {
+            if (criteria == "Responsable")
+            {
+                var query = from f in this.sifcaRepository.FORMULARIO where ((f.USUARIO.NOMBRES+" "+f.USUARIO.APELLIDOS).Contains(search)) select f;
+                return query.ToList();
+            }
+            if (criteria == "dd/mm/aaaa")
+            {
+                DateTime parameter = DateTime.Parse(search);
+                var query = from f in this.sifcaRepository.FORMULARIO where (f.FECHACREACION==parameter) select f;
+                return query.ToList();
+            }
+            if (criteria == "Estrato")
+            {
+                var query = from f in this.sifcaRepository.FORMULARIO where (f.ESTRATO.DESCRIPESTRATO.Contains(search)) select f;
+                return query.ToList();
+            }
+            if (criteria == "Parcela")
+            {
+                var query = from f in this.sifcaRepository.FORMULARIO where (SqlFunctions.StringConvert(f.PARCELA).Contains(search)) select f;
+                return query.ToList();
+            }
+            if (criteria == "Coord.X;Coord.Y")
+            {
+                var query = from f in this.sifcaRepository.FORMULARIO where ((SqlFunctions.StringConvert(f.COORDENADAX)+";"+SqlFunctions.StringConvert(f.COORDENADAY)).Contains(search)) select f;
+                return query.ToList();
+            }
+            if (criteria == "Linea")
+            {
+                var query = from f in this.sifcaRepository.FORMULARIO where ( SqlFunctions.StringConvert(f.LINEA).Contains(search)) select f;
+                return query.ToList();
+            }
+            return new List<FORMULARIO>();
+        }
     }
 }

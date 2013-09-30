@@ -636,4 +636,8 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="sp_BackupDB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BaseLocation" Type="varchar" Mode="In" />
+    <Parameter Name="BackupType" Type="varchar" Mode="In" />
+  </Function>
 </Schema>

@@ -17,6 +17,7 @@ namespace SIFCA
     {
  
         private ProjectBL project;
+        private FormBL form;
         private TypeSampleDesignBl typeExample;
         private ObjectiveInventoryBL objetiveInventory;
         private StratumBL stratum;
@@ -37,6 +38,7 @@ namespace SIFCA
             objetiveInventory = new ObjectiveInventoryBL(Program.ContextData);
             stratum = new StratumBL(Program.ContextData);
             species = new SpeciesBL(Program.ContextData);
+            form = new FormBL(Program.ContextData);
             PROYECTO p = (PROYECTO)Program.Cache.Get("project");
 
             proyectoBS.DataSource = p;
@@ -311,7 +313,8 @@ namespace SIFCA
         {
             if (e.ColumnIndex == formulariosDGW.Columns["ListarDatos"].Index && e.RowIndex >= 0)
             {
-                Listar_Datos_Formulario_Form childForm = new Listar_Datos_Formulario_Form();
+                FORMULARIO result = form.GetForm((Guid)formulariosDGW.Rows[e.RowIndex].Cells[1].Value);
+                Listar_Datos_Formulario_Form childForm = new Listar_Datos_Formulario_Form(result,0);
                 childForm.MdiParent = this.ParentForm;
                 childForm.Show();
                 this.Close();

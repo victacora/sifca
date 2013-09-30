@@ -104,6 +104,12 @@
     <Compile Include="Gestion de Datos y Formularios\Abrir_Formulario_Form.Designer.cs">
       <DependentUpon>Abrir_Formulario_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gestion de Datos y Formularios\Editar_Formulario_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Datos y Formularios\Editar_Formulario_Form.Designer.cs">
+      <DependentUpon>Editar_Formulario_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gestion de Estratos\Crear_Estrato_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,11 +200,11 @@
     <Compile Include="Gestion General\Acerca_De_Form.Designer.cs">
       <DependentUpon>Acerca_De_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestion de Datos y Formularios\Formulario_Form.cs">
+    <Compile Include="Gestion de Datos y Formularios\Crear_Formulario_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestion de Datos y Formularios\Formulario_Form.Designer.cs">
-      <DependentUpon>Formulario_Form.cs</DependentUpon>
+    <Compile Include="Gestion de Datos y Formularios\Crear_Formulario_Form.Designer.cs">
+      <DependentUpon>Crear_Formulario_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestion General\Principal_Form.cs">
       <SubType>Form</SubType>
@@ -237,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Datos y Formularios\Abrir_Formulario_Form.resx">
       <DependentUpon>Abrir_Formulario_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Datos y Formularios\Editar_Formulario_Form.resx">
+      <DependentUpon>Editar_Formulario_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Estratos\Crear_Estrato_Form.resx">
       <DependentUpon>Crear_Estrato_Form.cs</DependentUpon>
@@ -283,8 +292,8 @@
     <EmbeddedResource Include="Gestion General\Acerca_De_Form.resx">
       <DependentUpon>Acerca_De_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Datos y Formularios\Formulario_Form.resx">
-      <DependentUpon>Formulario_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Gestion de Datos y Formularios\Crear_Formulario_Form.resx">
+      <DependentUpon>Crear_Formulario_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion General\Principal_Form.resx">
       <DependentUpon>Principal_Form.cs</DependentUpon>

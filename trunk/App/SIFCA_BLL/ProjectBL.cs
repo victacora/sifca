@@ -61,7 +61,7 @@ namespace SIFCA_BLL
             }
         }
 
-        public void DeleteProject(int projectId)
+        public void DeleteProject(Guid projectId)
         {
             try
             {

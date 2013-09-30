@@ -32,12 +32,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EstadosSanitarios_Form));
             this.panel1 = new System.Windows.Forms.Panel();
             this.ListadoEstados = new System.Windows.Forms.DataGridView();
-            this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.StateBSource = new System.Windows.Forms.BindingSource(this.components);
             this.paginacionEstadoSanitario = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.Btn_nuevo = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.buscarLbl = new System.Windows.Forms.ToolStripLabel();
             this.busquedaTxt = new System.Windows.Forms.ToolStripTextBox();
@@ -51,14 +56,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.eSTADODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dESCRIPESTADODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StateBSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Btn_nuevo = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -67,13 +64,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.updateNombreTxt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.eSTADODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dESCRIPESTADODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListadoEstados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StateBSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paginacionEstadoSanitario)).BeginInit();
             this.paginacionEstadoSanitario.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.StateBSource)).BeginInit();
             this.panel3.SuspendLayout();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
@@ -102,22 +102,16 @@
             this.dESCRIPESTADODataGridViewTextBoxColumn});
             this.ListadoEstados.DataSource = this.StateBSource;
             this.ListadoEstados.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ListadoEstados.Location = new System.Drawing.Point(0, 27);
+            this.ListadoEstados.Location = new System.Drawing.Point(0, 25);
             this.ListadoEstados.Name = "ListadoEstados";
             this.ListadoEstados.ReadOnly = true;
-            this.ListadoEstados.Size = new System.Drawing.Size(681, 242);
+            this.ListadoEstados.Size = new System.Drawing.Size(681, 244);
             this.ListadoEstados.TabIndex = 5;
             this.ListadoEstados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListadoDeEspecies_CellValueChanged);
             // 
-            // Acciones
+            // StateBSource
             // 
-            this.Acciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Acciones.HeaderText = "Acciones";
-            this.Acciones.Name = "Acciones";
-            this.Acciones.ReadOnly = true;
-            this.Acciones.Text = "Editar";
-            this.Acciones.UseColumnTextForButtonValue = true;
-            this.Acciones.Width = 57;
+            this.StateBSource.DataSource = typeof(SIFCA_DAL.ESTADOSANITARIO);
             // 
             // paginacionEstadoSanitario
             // 
@@ -147,21 +141,49 @@
             this.paginacionEstadoSanitario.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.paginacionEstadoSanitario.Name = "paginacionEstadoSanitario";
             this.paginacionEstadoSanitario.PositionItem = this.bindingNavigatorPositionItem;
-            this.paginacionEstadoSanitario.Size = new System.Drawing.Size(681, 27);
+            this.paginacionEstadoSanitario.Size = new System.Drawing.Size(681, 25);
             this.paginacionEstadoSanitario.TabIndex = 4;
             this.paginacionEstadoSanitario.Text = "bindingNavigator1";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 24);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
             this.bindingNavigatorCountItem.Text = "de {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
+            // 
+            // Btn_nuevo
+            // 
+            this.Btn_nuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.Btn_nuevo.Image = ((System.Drawing.Image)(resources.GetObject("Btn_nuevo.Image")));
+            this.Btn_nuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Btn_nuevo.Name = "Btn_nuevo";
+            this.Btn_nuevo.Size = new System.Drawing.Size(46, 22);
+            this.Btn_nuevo.Text = "Nuevo";
+            this.Btn_nuevo.Click += new System.EventHandler(this.Btn_nuevo_Click);
+            // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstItem.Text = "Mover primero";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousItem.Text = "Mover anterior";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -175,29 +197,47 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextItem.Text = "Mover siguiente";
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem.Text = "Mover último";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // buscarLbl
             // 
             this.buscarLbl.Name = "buscarLbl";
-            this.buscarLbl.Size = new System.Drawing.Size(45, 24);
+            this.buscarLbl.Size = new System.Drawing.Size(45, 22);
             this.buscarLbl.Text = "Buscar:";
             // 
             // busquedaTxt
             // 
             this.busquedaTxt.Name = "busquedaTxt";
-            this.busquedaTxt.Size = new System.Drawing.Size(150, 27);
+            this.busquedaTxt.Size = new System.Drawing.Size(150, 25);
             this.busquedaTxt.TextChanged += new System.EventHandler(this.busquedaTxt_TextChanged);
             // 
             // filtrarLbl
             // 
             this.filtrarLbl.Name = "filtrarLbl";
-            this.filtrarLbl.Size = new System.Drawing.Size(92, 24);
+            this.filtrarLbl.Size = new System.Drawing.Size(92, 22);
             this.filtrarLbl.Text = "Filtrar busqueda";
             // 
             // criterioCbx
@@ -206,7 +246,7 @@
             this.criterioCbx.Items.AddRange(new object[] {
             "Descripcion"});
             this.criterioCbx.Name = "criterioCbx";
-            this.criterioCbx.Size = new System.Drawing.Size(121, 23);
+            this.criterioCbx.Size = new System.Drawing.Size(121, 25);
             // 
             // panel2
             // 
@@ -285,71 +325,6 @@
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
-            // 
-            // eSTADODataGridViewTextBoxColumn
-            // 
-            this.eSTADODataGridViewTextBoxColumn.DataPropertyName = "ESTADO";
-            this.eSTADODataGridViewTextBoxColumn.HeaderText = "ESTADO";
-            this.eSTADODataGridViewTextBoxColumn.Name = "eSTADODataGridViewTextBoxColumn";
-            this.eSTADODataGridViewTextBoxColumn.ReadOnly = true;
-            this.eSTADODataGridViewTextBoxColumn.Visible = false;
-            // 
-            // dESCRIPESTADODataGridViewTextBoxColumn
-            // 
-            this.dESCRIPESTADODataGridViewTextBoxColumn.DataPropertyName = "DESCRIPESTADO";
-            this.dESCRIPESTADODataGridViewTextBoxColumn.HeaderText = "DESCRIPESTADO";
-            this.dESCRIPESTADODataGridViewTextBoxColumn.Name = "dESCRIPESTADODataGridViewTextBoxColumn";
-            this.dESCRIPESTADODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // StateBSource
-            // 
-            this.StateBSource.DataSource = typeof(SIFCA_DAL.ESTADOSANITARIO);
-            // 
-            // Btn_nuevo
-            // 
-            this.Btn_nuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.Btn_nuevo.Image = ((System.Drawing.Image)(resources.GetObject("Btn_nuevo.Image")));
-            this.Btn_nuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Btn_nuevo.Name = "Btn_nuevo";
-            this.Btn_nuevo.Size = new System.Drawing.Size(46, 24);
-            this.Btn_nuevo.Text = "Nuevo";
-            this.Btn_nuevo.Click += new System.EventHandler(this.Btn_nuevo_Click);
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 24);
-            this.bindingNavigatorMoveFirstItem.Text = "Mover primero";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 24);
-            this.bindingNavigatorMovePreviousItem.Text = "Mover anterior";
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 24);
-            this.bindingNavigatorMoveNextItem.Text = "Mover siguiente";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 24);
-            this.bindingNavigatorMoveLastItem.Text = "Mover último";
             // 
             // panel3
             // 
@@ -431,6 +406,31 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Nombre";
             // 
+            // Acciones
+            // 
+            this.Acciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Acciones.HeaderText = "Acciones";
+            this.Acciones.Name = "Acciones";
+            this.Acciones.ReadOnly = true;
+            this.Acciones.Text = "Editar";
+            this.Acciones.UseColumnTextForButtonValue = true;
+            this.Acciones.Width = 57;
+            // 
+            // eSTADODataGridViewTextBoxColumn
+            // 
+            this.eSTADODataGridViewTextBoxColumn.DataPropertyName = "ESTADO";
+            this.eSTADODataGridViewTextBoxColumn.HeaderText = "ESTADO";
+            this.eSTADODataGridViewTextBoxColumn.Name = "eSTADODataGridViewTextBoxColumn";
+            this.eSTADODataGridViewTextBoxColumn.ReadOnly = true;
+            this.eSTADODataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dESCRIPESTADODataGridViewTextBoxColumn
+            // 
+            this.dESCRIPESTADODataGridViewTextBoxColumn.DataPropertyName = "DESCRIPESTADO";
+            this.dESCRIPESTADODataGridViewTextBoxColumn.HeaderText = "Descripción estado";
+            this.dESCRIPESTADODataGridViewTextBoxColumn.Name = "dESCRIPESTADODataGridViewTextBoxColumn";
+            this.dESCRIPESTADODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // EstadosSanitarios_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -445,13 +445,13 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListadoEstados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StateBSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paginacionEstadoSanitario)).EndInit();
             this.paginacionEstadoSanitario.ResumeLayout(false);
             this.paginacionEstadoSanitario.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.StateBSource)).EndInit();
             this.panel3.ResumeLayout(false);
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();

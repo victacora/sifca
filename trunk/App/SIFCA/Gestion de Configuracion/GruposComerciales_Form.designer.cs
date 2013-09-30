@@ -49,9 +49,7 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.buscarLbl = new System.Windows.Forms.ToolStripLabel();
             this.busquedaTxt = new System.Windows.Forms.ToolStripTextBox();
-            this.ListadoEspecies = new System.Windows.Forms.DataGridView();
-            this.gRUPOCOMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dESCRIPGRUPODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ListadoGruposCom = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.descripcionTxt = new System.Windows.Forms.TextBox();
@@ -68,12 +66,14 @@
             this.btn_Guardar = new System.Windows.Forms.Button();
             this.updateAbrevTxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.gRUPOCOMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dESCRIPGRUPODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListadoGruposComerciales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grupoComBSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paginacionGruposCom)).BeginInit();
             this.paginacionGruposCom.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ListadoEspecies)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListadoGruposCom)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -85,7 +85,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.ListadoGruposComerciales);
             this.panel1.Controls.Add(this.paginacionGruposCom);
-            this.panel1.Controls.Add(this.ListadoEspecies);
+            this.panel1.Controls.Add(this.ListadoGruposCom);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -257,37 +257,23 @@
             this.busquedaTxt.Name = "busquedaTxt";
             this.busquedaTxt.Size = new System.Drawing.Size(150, 25);
             // 
-            // ListadoEspecies
+            // ListadoGruposCom
             // 
-            this.ListadoEspecies.AllowUserToAddRows = false;
-            this.ListadoEspecies.AllowUserToDeleteRows = false;
-            this.ListadoEspecies.AutoGenerateColumns = false;
-            this.ListadoEspecies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ListadoEspecies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ListadoEspecies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ListadoGruposCom.AllowUserToAddRows = false;
+            this.ListadoGruposCom.AllowUserToDeleteRows = false;
+            this.ListadoGruposCom.AutoGenerateColumns = false;
+            this.ListadoGruposCom.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ListadoGruposCom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ListadoGruposCom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.gRUPOCOMDataGridViewTextBoxColumn,
             this.dESCRIPGRUPODataGridViewTextBoxColumn});
-            this.ListadoEspecies.DataSource = this.grupoComBSource;
-            this.ListadoEspecies.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ListadoEspecies.Location = new System.Drawing.Point(0, 0);
-            this.ListadoEspecies.Name = "ListadoEspecies";
-            this.ListadoEspecies.ReadOnly = true;
-            this.ListadoEspecies.Size = new System.Drawing.Size(460, 206);
-            this.ListadoEspecies.TabIndex = 3;
-            // 
-            // gRUPOCOMDataGridViewTextBoxColumn
-            // 
-            this.gRUPOCOMDataGridViewTextBoxColumn.DataPropertyName = "GRUPOCOM";
-            this.gRUPOCOMDataGridViewTextBoxColumn.HeaderText = "GRUPOCOM";
-            this.gRUPOCOMDataGridViewTextBoxColumn.Name = "gRUPOCOMDataGridViewTextBoxColumn";
-            this.gRUPOCOMDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dESCRIPGRUPODataGridViewTextBoxColumn
-            // 
-            this.dESCRIPGRUPODataGridViewTextBoxColumn.DataPropertyName = "DESCRIPGRUPO";
-            this.dESCRIPGRUPODataGridViewTextBoxColumn.HeaderText = "DESCRIPGRUPO";
-            this.dESCRIPGRUPODataGridViewTextBoxColumn.Name = "dESCRIPGRUPODataGridViewTextBoxColumn";
-            this.dESCRIPGRUPODataGridViewTextBoxColumn.ReadOnly = true;
+            this.ListadoGruposCom.DataSource = this.grupoComBSource;
+            this.ListadoGruposCom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ListadoGruposCom.Location = new System.Drawing.Point(0, 0);
+            this.ListadoGruposCom.Name = "ListadoGruposCom";
+            this.ListadoGruposCom.ReadOnly = true;
+            this.ListadoGruposCom.Size = new System.Drawing.Size(460, 206);
+            this.ListadoGruposCom.TabIndex = 3;
             // 
             // panel2
             // 
@@ -448,14 +434,28 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Abreviatura";
             // 
+            // gRUPOCOMDataGridViewTextBoxColumn
+            // 
+            this.gRUPOCOMDataGridViewTextBoxColumn.DataPropertyName = "GRUPOCOM";
+            this.gRUPOCOMDataGridViewTextBoxColumn.HeaderText = "GRUPOCOM";
+            this.gRUPOCOMDataGridViewTextBoxColumn.Name = "gRUPOCOMDataGridViewTextBoxColumn";
+            this.gRUPOCOMDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dESCRIPGRUPODataGridViewTextBoxColumn
+            // 
+            this.dESCRIPGRUPODataGridViewTextBoxColumn.DataPropertyName = "DESCRIPGRUPO";
+            this.dESCRIPGRUPODataGridViewTextBoxColumn.HeaderText = "Descripión";
+            this.dESCRIPGRUPODataGridViewTextBoxColumn.Name = "dESCRIPGRUPODataGridViewTextBoxColumn";
+            this.dESCRIPGRUPODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // GruposComerciales_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 210);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
             this.Name = "GruposComerciales_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Grupos Comerciales";
@@ -466,7 +466,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.paginacionGruposCom)).EndInit();
             this.paginacionGruposCom.ResumeLayout(false);
             this.paginacionGruposCom.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ListadoEspecies)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListadoGruposCom)).EndInit();
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -493,9 +493,7 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripLabel buscarLbl;
         private System.Windows.Forms.ToolStripTextBox busquedaTxt;
-        private System.Windows.Forms.DataGridView ListadoEspecies;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gRUPOCOMDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dESCRIPGRUPODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView ListadoGruposCom;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox descripcionTxt;
@@ -517,5 +515,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn gRUPOCOMDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dESCRIPGRUPODataGridViewTextBoxColumn1;
         private System.Windows.Forms.ToolStripButton Btn_nuevo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gRUPOCOMDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dESCRIPGRUPODataGridViewTextBoxColumn;
     }
 }

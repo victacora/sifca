@@ -22,7 +22,7 @@ namespace SIFCA.Gestion_Configuracion
             stratum = new ESTRATO();
             stratumBl = new StratumBL(Program.ContextData);
             this.stratumListBSource.DataSource = stratumBl.GetStratums();
-            this.ListadoEspecies.DataSource = stratumListBSource;            
+            this.ListadoEstratos.DataSource = stratumListBSource;            
             panel2.Hide();
             panel3.Hide();
             panel1.Show();
@@ -50,12 +50,12 @@ namespace SIFCA.Gestion_Configuracion
             //
             // Solo se trabaja ante los cambios en la columan de los checkbox 
             //
-            if (ListadoEspecies.Columns[e.ColumnIndex].Name == "Acciones")
+            if (ListadoEstratos.Columns[e.ColumnIndex].Name == "Acciones")
             {
                 //
                 // Se toma la fila seleccionada
                 //
-                DataGridViewRow row = ListadoEspecies.Rows[e.RowIndex];
+                DataGridViewRow row = ListadoEstratos.Rows[e.RowIndex];
 
                 //
                 // Se selecciona la celda del boton

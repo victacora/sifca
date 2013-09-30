@@ -36,12 +36,12 @@
             this.criterioLbl = new System.Windows.Forms.ToolStripLabel();
             this.criterioCbx = new System.Windows.Forms.ToolStripComboBox();
             this.formularioDGW = new System.Windows.Forms.DataGridView();
+            this.estratosBS = new System.Windows.Forms.BindingSource(this.components);
             this.FECHACREACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NROFORMULARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NROUSUARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.responsable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CODEST = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.estratosBS = new System.Windows.Forms.BindingSource(this.components);
             this.HORAINICIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HORAFINAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PARCELA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +50,7 @@
             this.COORDENADAY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.verDatos = new System.Windows.Forms.DataGridViewButtonColumn();
             this.abrir = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.formularioBN)).BeginInit();
             this.formularioBN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.formularioBS)).BeginInit();
@@ -133,7 +134,8 @@
             this.COORDENADAX,
             this.COORDENADAY,
             this.verDatos,
-            this.abrir});
+            this.abrir,
+            this.eliminar});
             this.formularioDGW.DataSource = this.formularioBS;
             this.formularioDGW.Dock = System.Windows.Forms.DockStyle.Fill;
             this.formularioDGW.Location = new System.Drawing.Point(0, 25);
@@ -143,6 +145,10 @@
             this.formularioDGW.TabIndex = 1;
             this.formularioDGW.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.formularioDGW_CellClick);
             this.formularioDGW.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.formularioDGW_DataBindingComplete);
+            // 
+            // estratosBS
+            // 
+            this.estratosBS.DataSource = typeof(SIFCA_DAL.ESTRATO);
             // 
             // FECHACREACION
             // 
@@ -184,10 +190,6 @@
             this.CODEST.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CODEST.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.CODEST.ValueMember = "CODEST";
-            // 
-            // estratosBS
-            // 
-            this.estratosBS.DataSource = typeof(SIFCA_DAL.ESTRATO);
             // 
             // HORAINICIO
             // 
@@ -247,6 +249,16 @@
             this.abrir.Text = "Abrir";
             this.abrir.UseColumnTextForButtonValue = true;
             // 
+            // eliminar
+            // 
+            this.eliminar.HeaderText = "";
+            this.eliminar.Name = "eliminar";
+            this.eliminar.ReadOnly = true;
+            this.eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.eliminar.Text = "Eliminar";
+            this.eliminar.UseColumnTextForButtonValue = true;
+            // 
             // Abrir_Formulario_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -291,5 +303,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn COORDENADAY;
         private System.Windows.Forms.DataGridViewButtonColumn verDatos;
         private System.Windows.Forms.DataGridViewButtonColumn abrir;
+        private System.Windows.Forms.DataGridViewButtonColumn eliminar;
     }
 }

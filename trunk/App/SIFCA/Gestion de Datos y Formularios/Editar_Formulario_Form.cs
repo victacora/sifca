@@ -24,14 +24,14 @@ namespace SIFCA
         private RegenerationLineBL lineRegen;
         private NonTimberLineBL lineNonTimber;
         private TypeUseBL typeUses;
-        private FORMULARIO newForm;
+        private FORMULARIO formToUpdate;
         private LINEANOMADERABLES newLineNoTimber;
         private bool modified;
 
-        public Editar_Formulario_Form(FORMULARIO formToUpdate)
+        public Editar_Formulario_Form(FORMULARIO f)
         {
             InitializeComponent();
-            newForm = new FORMULARIO();
+            formToUpdate = f;
             project = new ProjectBL(Program.ContextData);
             species = new SpeciesBL(Program.ContextData);
             stratums = new StratumBL(Program.ContextData);
@@ -55,61 +55,43 @@ namespace SIFCA
             TipoDeUsosLbc.DisplayMember ="DESCRIPCION";
             TipoDeUsosLbc.ValueMember = "NOMBRETIPOUSO";
             
-            noMaderableBS.DataSource = new List<LINEANOMADERABLES>();
-            regeneracionBS.DataSource = new List<LINEAREGENERACION>();
-            lineaInvBS.DataSource = new List<LINEAINVENTARIO>();
+            noMaderableBS.DataSource = formToUpdate.LINEANOMADERABLES.ToList();
+            regeneracionBS.DataSource = formToUpdate.LINEAREGENERACION.ToList();
+            lineaInvBS.DataSource = formToUpdate.LINEAINVENTARIO.ToList();
 
-            USUARIO user = (USUARIO)Program.Cache.Get("user");
-            PROYECTO p = (PROYECTO)Program.Cache.Get("project");
-            responsableTxt.Text = user.NOMBRES + " " + user.APELLIDOS;
-            proyectoTxt.Text = p.LUGAR;
             newLineNoTimber = new LINEANOMADERABLES();
 
             modified = true;
-        }
-
-        private void guardarformularioBtn_Click(object sender, EventArgs e)
-        {
-            USUARIO user = (USUARIO)Program.Cache.Get("user");
-            newForm.NROFORMULARIO = Guid.NewGuid();
-            newForm.FECHACREACION = DateTime.Now;
-            newForm.PARCELA = decimal.Parse(parcelaTxt.Text); 
-            newForm.LINEA = int.Parse(lineaInventarioTxt.Text);
-            newForm.HORAINICIO = inicioDpk.Value;
-            newForm.HORAFINAL=inicioDpk.Value;
-            newForm.ESTRATO = (ESTRATO)estratoCbx.SelectedItem;
-            newForm.PROYECTO = (PROYECTO)Program.Cache.Get("project");
-            newForm.USUARIO = user;
-            newForm.COORDENADAX = decimal.Parse(coordXTxt.Text);
-            newForm.COORDENADAY = decimal.Parse(coordYTxt.Text);
-            form.InsertForm(newForm);
-            form.SaveChanges();
-            
-            PROYECTO result = project.GetProject(newForm.PROYECTO.NROPROY);
-            Program.Cache.Add("project", result, new CacheItemPolicy());
-            
-            MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
-            datosTabControl.Enabled = true;
-            guardarformularioBtn.Enabled = false;
-            coordXTxt.Enabled = false;
-            coordYTxt.Enabled = false;
-            estratoCbx.Enabled = false;
-            parcelaTxt.Enabled = false;
-            lineaInventarioTxt.Enabled = false;
-            guardarTodoBtn.Enabled = true;
-            guardarformularioBtn.Text="Actualizar Formulario";
-            finalDpk.Enabled = true;
-            inicioDpk.Enabled = false;
 
             lineaInvBS.AddNew();
             regeneracionBS.AddNew();
             noMaderableBS.AddNew();
+            responsableTxt.Text=f.USUARIO.NOMBRES+" "+f.USUARIO.APELLIDOS;
+            proyectoTxt.Text = f.PROYECTO.LUGAR;
+            formularioBS.DataSource = f;
+        }
+
+        private void actualizarformularioBtn_Click(object sender, EventArgs e)
+        {
+            USUARIO user = (USUARIO)Program.Cache.Get("user");
+            formToUpdate.PARCELA = decimal.Parse(parcelaTxt.Text); 
+            formToUpdate.LINEA = int.Parse(lineaInventarioTxt.Text);
+            formToUpdate.HORAFINAL=inicioDpk.Value;
+            formToUpdate.ESTRATO = (ESTRATO)estratoCbx.SelectedItem;
+            formToUpdate.COORDENADAX = decimal.Parse(coordXTxt.Text);
+            formToUpdate.COORDENADAY = decimal.Parse(coordYTxt.Text);
+            form.UpdateForm(formToUpdate);
+            form.SaveChanges();
+            
+            PROYECTO result = project.GetProject(formToUpdate.PROYECTO.NROPROY);
+            Program.Cache.Add("project", result, new CacheItemPolicy());
+            
+            MessageBox.Show("Los datos fueron actualizados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void listarDatosBtn_Click(object sender, EventArgs e)
         {
-            FORMULARIO f = form.GetForm(newForm.NROFORMULARIO);
+            FORMULARIO f = form.GetForm(formToUpdate.NROFORMULARIO);
             Listar_Datos_Formulario_Form childForm = new Listar_Datos_Formulario_Form(f, 0);
             childForm.MdiParent = this.ParentForm;
             childForm.Show();
@@ -119,7 +101,7 @@ namespace SIFCA
         {
             PROYECTO p = (PROYECTO)Program.Cache.Get("project");
             LINEAINVENTARIO newLine = new LINEAINVENTARIO();
-            FORMULARIO f = form.GetForm(newForm.NROFORMULARIO);
+            FORMULARIO f = form.GetForm(formToUpdate.NROFORMULARIO);
             newLine.LINEAINV = Guid.NewGuid();
             newLine.FORMULARIO = f;
             newLine.ESPECIE = (ESPECIE)especieCbx.SelectedItem;
@@ -134,14 +116,14 @@ namespace SIFCA
             newLine.VOLCOM = (decimal)(ForestCalculator.TreeVolumeByBasalArea((double)newLine.AREABASAL, (double)newLine.ALTCOMER_M, (double)p.FACTORDEFORMA));
             newLine.VOLTOT = (decimal)(ForestCalculator.TreeVolumeByBasalArea((double)newLine.AREABASAL, (double)newLine.ALTTOT_M, (double)p.FACTORDEFORMA)); 
             lineInv.InsertInventoryLine(newLine);
-            f = form.GetForm(newForm.NROFORMULARIO);
+            f = form.GetForm(formToUpdate.NROFORMULARIO);
             lineInv.SaveChanges();
             lineaInvBS.DataSource = f.LINEAINVENTARIO.ToList();
             lineaInvBN.Refresh();
             lineaInvBS.AddNew();
             MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
-            PROYECTO result = project.GetProject(newForm.PROYECTO.NROPROY);
+            PROYECTO result = project.GetProject(formToUpdate.PROYECTO.NROPROY);
             Program.Cache.Add("project", result, new CacheItemPolicy());
         }
 
@@ -149,7 +131,7 @@ namespace SIFCA
         {
             LINEAREGENERACION newLine = new LINEAREGENERACION();
             newLine.LINEAREGEN = Guid.NewGuid();
-            FORMULARIO f = form.GetForm(newForm.NROFORMULARIO);
+            FORMULARIO f = form.GetForm(formToUpdate.NROFORMULARIO);
             newLine.FORMULARIO = f;
             newLine.ESPECIE = (ESPECIE)especieRegenCbx.SelectedItem;
             newLine.NROARB = int.Parse(nroArbolRegenTxt.Text);
@@ -157,31 +139,31 @@ namespace SIFCA
             newLine.BRINZAL = decimal.Parse(brinzalTxt.Text);
             lineRegen.InsertRegenerationLine(newLine);
             lineRegen.SaveChanges();
-            f = form.GetForm(newForm.NROFORMULARIO);
+            f = form.GetForm(formToUpdate.NROFORMULARIO);
             regeneracionBS.DataSource = f.LINEAREGENERACION.ToList();
             regeneracionBN.Refresh();
             regeneracionBS.AddNew();
             MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
-            PROYECTO result = project.GetProject(newForm.PROYECTO.NROPROY);
+            PROYECTO result = project.GetProject(formToUpdate.PROYECTO.NROPROY);
             Program.Cache.Add("project", result, new CacheItemPolicy());
         }
 
         private void guardarLineNoMadBtn_Click(object sender, EventArgs e)
         {
             newLineNoTimber.LINEANMAD = Guid.NewGuid();
-            FORMULARIO f = form.GetForm(newForm.NROFORMULARIO);
+            FORMULARIO f = form.GetForm(formToUpdate.NROFORMULARIO);
             newLineNoTimber.FORMULARIO = f;
             newLineNoTimber.OBSERVACIONES = observacionesTxt.Text;
             lineNonTimber.InsertNonTimberLine(newLineNoTimber);
             lineNonTimber.SaveChanges();
-            f = form.GetForm(newForm.NROFORMULARIO);
+            f = form.GetForm(formToUpdate.NROFORMULARIO);
             noMaderableBS.DataSource = f.LINEANOMADERABLES.ToList();
             noMaderablesBN.Refresh();
             noMaderableBS.AddNew();
             MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
-            PROYECTO result = project.GetProject(newForm.PROYECTO.NROPROY);
+            PROYECTO result = project.GetProject(formToUpdate.PROYECTO.NROPROY);
             Program.Cache.Add("project", result, new CacheItemPolicy());
         }
 
@@ -239,7 +221,7 @@ namespace SIFCA
 
         private void listarRegenbtn_Click(object sender, EventArgs e)
         {
-            FORMULARIO f = form.GetForm(newForm.NROFORMULARIO);
+            FORMULARIO f = form.GetForm(formToUpdate.NROFORMULARIO);
             Listar_Datos_Formulario_Form childForm = new Listar_Datos_Formulario_Form(f, 1);
             childForm.MdiParent = this.ParentForm;
             childForm.Show();
@@ -247,7 +229,7 @@ namespace SIFCA
 
         private void listarNoMaderableBtn_Click(object sender, EventArgs e)
         {
-            FORMULARIO f = form.GetForm(newForm.NROFORMULARIO);
+            FORMULARIO f = form.GetForm(formToUpdate.NROFORMULARIO);
             Listar_Datos_Formulario_Form childForm = new Listar_Datos_Formulario_Form(f, 2);
             childForm.MdiParent = this.ParentForm;
             childForm.Show();

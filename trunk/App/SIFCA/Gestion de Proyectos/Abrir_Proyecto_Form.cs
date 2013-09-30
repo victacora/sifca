@@ -43,7 +43,7 @@ namespace SIFCA
 
         private void proyectoDGW_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == proyectosDGW.Columns["Abrir"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == proyectosDGW.Columns["abrir"].Index && e.RowIndex >= 0)
             {
                 PROYECTO result=project.GetProject((Guid)proyectosDGW.Rows[e.RowIndex].Cells[1].Value);
                 Program.Cache.Add("project", result, new CacheItemPolicy());
@@ -60,7 +60,7 @@ namespace SIFCA
             if (busquedaTxt.Text != "")
             {
                 string criteria = criterioCbx.SelectedItem.ToString();
-                if (criteria != "Fecha (dd/mm/aaaa)")
+                if (criteria != "dd/mm/aaaa")
                 {
                     proyectoBS.DataSource = project.SearchProject(busquedaTxt.Text, criteria);
                     proyectosDGW.DataSource = proyectoBS;

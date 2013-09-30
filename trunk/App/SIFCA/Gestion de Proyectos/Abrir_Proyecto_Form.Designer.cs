@@ -47,7 +47,7 @@
             this.LUGAR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NUMEROETAPAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Abrir = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.abrir = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.objetivoInvBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoDisenoMuesBS)).BeginInit();
@@ -89,7 +89,7 @@
             // criterioCbx
             // 
             this.criterioCbx.Items.AddRange(new object[] {
-            "Fecha (dd/mm/aaaa)",
+            "dd/mm/aaaa",
             "Responsable",
             "Lugar",
             "Tipo Inventario",
@@ -140,7 +140,7 @@
             this.LUGAR,
             this.DESCRIPCION,
             this.NUMEROETAPAS,
-            this.Abrir});
+            this.abrir});
             this.proyectosDGW.DataSource = this.proyectoBS;
             this.proyectosDGW.Location = new System.Drawing.Point(0, 25);
             this.proyectosDGW.Name = "proyectosDGW";
@@ -224,13 +224,13 @@
             this.NUMEROETAPAS.Name = "NUMEROETAPAS";
             this.NUMEROETAPAS.ReadOnly = true;
             // 
-            // Abrir
+            // abrir
             // 
-            this.Abrir.HeaderText = "";
-            this.Abrir.Name = "Abrir";
-            this.Abrir.ReadOnly = true;
-            this.Abrir.Text = "Abrir";
-            this.Abrir.UseColumnTextForButtonValue = true;
+            this.abrir.HeaderText = "";
+            this.abrir.Name = "abrir";
+            this.abrir.ReadOnly = true;
+            this.abrir.Text = "Abrir";
+            this.abrir.UseColumnTextForButtonValue = true;
             // 
             // Abrir_Proyecto_Form
             // 
@@ -274,6 +274,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LUGAR;
         private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPCION;
         private System.Windows.Forms.DataGridViewTextBoxColumn NUMEROETAPAS;
-        private System.Windows.Forms.DataGridViewButtonColumn Abrir;
+        private System.Windows.Forms.DataGridViewButtonColumn abrir;
     }
 }

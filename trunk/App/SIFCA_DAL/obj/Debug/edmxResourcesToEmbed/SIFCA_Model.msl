@@ -221,5 +221,6 @@
         <ScalarProperty Name="NOMBRETIPOUSO" ColumnName="NOMBRETIPOUSO" />
       </EndProperty>
     </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="createBackupDB" FunctionName="SIFCA_Model.Store.sp_BackupDB" />
   </EntityContainerMapping>
 </Mapping>

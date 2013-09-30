@@ -641,6 +641,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="sp_BackupDB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BaseLocation" Type="varchar" Mode="In" />
+          <Parameter Name="BackupType" Type="varchar" Mode="In" />
+        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -748,6 +752,10 @@
             <End Role="TIPODEUSO" EntitySet="TIPODEUSO" />
             <End Role="LINEANOMADERABLES" EntitySet="LINEANOMADERABLES" />
           </AssociationSet>
+          <FunctionImport Name="createBackupDB">
+            <Parameter Name="BaseLocation" Mode="In" Type="String" />
+            <Parameter Name="BackupType" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="CALIDAD">
           <Key>
@@ -1443,6 +1451,7 @@
               <ScalarProperty Name="NOMBRETIPOUSO" ColumnName="NOMBRETIPOUSO" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="createBackupDB" FunctionName="SIFCA_Model.Store.sp_BackupDB" />
         </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

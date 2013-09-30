@@ -103,6 +103,10 @@
       <End Role="TIPODEUSO" EntitySet="TIPODEUSO" />
       <End Role="LINEANOMADERABLES" EntitySet="LINEANOMADERABLES" />
     </AssociationSet>
+    <FunctionImport Name="createBackupDB">
+      <Parameter Name="BaseLocation" Mode="In" Type="String" />
+      <Parameter Name="BackupType" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="CALIDAD">
     <Key>

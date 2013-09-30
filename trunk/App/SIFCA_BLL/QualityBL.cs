@@ -16,13 +16,18 @@ namespace SIFCA_BLL
             this.sifcaRepository = contextProvider;
         }
 
+        public IEnumerable<CALIDAD> SearchType(string search)
+        {
+            var query = from e in this.sifcaRepository.CALIDAD where (e.DESCRIPCALIDAD.Contains(search)) select e;
+            return query.ToList();         
+        }
 
         public IEnumerable<CALIDAD> GetQualities()
         {
             return this.sifcaRepository.CALIDAD.ToList();
         }
 
-        public CALIDAD GetQuality(int QualityId)
+        public CALIDAD GetQuality(Decimal QualityId)
         {
             return this.sifcaRepository.CALIDAD.Find(QualityId);
         }

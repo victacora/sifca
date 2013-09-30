@@ -14,6 +14,10 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -52,11 +56,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Gestion de Especies\Especies_Form.cs">
+    <Compile Include="Gestion de Configuracion\Calidad_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestion de Especies\Especies_Form.Designer.cs">
+    <Compile Include="Gestion de Configuracion\Calidad_Form.designer.cs">
+      <DependentUpon>Calidad_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Configuracion\Especies_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Configuracion\Especies_Form.designer.cs">
       <DependentUpon>Especies_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Configuracion\EstadosSanitarios_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Configuracion\EstadosSanitarios_Form.designer.cs">
+      <DependentUpon>EstadosSanitarios_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Configuracion\Estratos_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Configuracion\Estratos_Form.designer.cs">
+      <DependentUpon>Estratos_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Configuracion\GruposComerciales_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Configuracion\GruposComerciales_Form.designer.cs">
+      <DependentUpon>GruposComerciales_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Configuracion\TiposMuestrales_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Configuracion\TiposMuestrales_Form.designer.cs">
+      <DependentUpon>TiposMuestrales_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Configuracion\TiposUso_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Configuracion\TiposUso_Form.designer.cs">
+      <DependentUpon>TiposUso_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Datos y Formularios\Abrir_Formulario_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Datos y Formularios\Abrir_Formulario_Form.Designer.cs">
+      <DependentUpon>Abrir_Formulario_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestion de Estratos\Crear_Estrato_Form.cs">
       <SubType>Form</SubType>
@@ -112,6 +158,12 @@
     <Compile Include="Gestion de Proyectos\Crear_Proyectos_Form.designer.cs">
       <DependentUpon>Crear_Proyectos_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gestion de Proyectos\Realizar_Copia_Seguridad_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Proyectos\Realizar_Copia_Seguridad_Form.Designer.cs">
+      <DependentUpon>Realizar_Copia_Seguridad_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gestion de Usuarios\Autenticar_Usuario_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,11 +194,11 @@
     <Compile Include="Gestion General\Acerca_De_Form.Designer.cs">
       <DependentUpon>Acerca_De_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestionar Formularios\Crear_Formulario_Form.cs">
+    <Compile Include="Gestion de Datos y Formularios\Formulario_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestionar Formularios\Crear_Formulario_Form.Designer.cs">
-      <DependentUpon>Crear_Formulario_Form.cs</DependentUpon>
+    <Compile Include="Gestion de Datos y Formularios\Formulario_Form.Designer.cs">
+      <DependentUpon>Formulario_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestion General\Principal_Form.cs">
       <SubType>Form</SubType>
@@ -154,16 +206,37 @@
     <Compile Include="Gestion General\Principal_Form.Designer.cs">
       <DependentUpon>Principal_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestionar Formularios\Listar_Datos_Formulario_Form.cs">
+    <Compile Include="Gestion de Datos y Formularios\Listar_Datos_Formulario_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestionar Formularios\Listar_Datos_Formulario_Form.Designer.cs">
+    <Compile Include="Gestion de Datos y Formularios\Listar_Datos_Formulario_Form.Designer.cs">
       <DependentUpon>Listar_Datos_Formulario_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Gestion de Especies\Especies_Form.resx">
+    <EmbeddedResource Include="Gestion de Configuracion\Calidad_Form.resx">
+      <DependentUpon>Calidad_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Configuracion\Especies_Form.resx">
       <DependentUpon>Especies_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Configuracion\EstadosSanitarios_Form.resx">
+      <DependentUpon>EstadosSanitarios_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Configuracion\Estratos_Form.resx">
+      <DependentUpon>Estratos_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Configuracion\GruposComerciales_Form.resx">
+      <DependentUpon>GruposComerciales_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Configuracion\TiposMuestrales_Form.resx">
+      <DependentUpon>TiposMuestrales_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Configuracion\TiposUso_Form.resx">
+      <DependentUpon>TiposUso_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Datos y Formularios\Abrir_Formulario_Form.resx">
+      <DependentUpon>Abrir_Formulario_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Estratos\Crear_Estrato_Form.resx">
       <DependentUpon>Crear_Estrato_Form.cs</DependentUpon>
@@ -192,6 +265,9 @@
     <EmbeddedResource Include="Gestion de Proyectos\Crear_Proyectos_Form.resx">
       <DependentUpon>Crear_Proyectos_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Proyectos\Realizar_Copia_Seguridad_Form.resx">
+      <DependentUpon>Realizar_Copia_Seguridad_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Usuarios\Autenticar_Usuario_Form.resx">
       <DependentUpon>Autenticar_Usuario_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,13 +283,13 @@
     <EmbeddedResource Include="Gestion General\Acerca_De_Form.resx">
       <DependentUpon>Acerca_De_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gestionar Formularios\Crear_Formulario_Form.resx">
-      <DependentUpon>Crear_Formulario_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Gestion de Datos y Formularios\Formulario_Form.resx">
+      <DependentUpon>Formulario_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion General\Principal_Form.resx">
       <DependentUpon>Principal_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gestionar Formularios\Listar_Datos_Formulario_Form.resx">
+    <EmbeddedResource Include="Gestion de Datos y Formularios\Listar_Datos_Formulario_Form.resx">
       <DependentUpon>Listar_Datos_Formulario_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -242,7 +318,6 @@
     <None Include="Properties\DataSources\SIFCA_DAL.SIFCA_CONTEXT.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.TIPODEUSO.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.TIPODISENOMUESTRAL.datasource" />
-    <None Include="Properties\DataSources\SIFCA_DAL.TIPOFORMULARIO.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.TRANSACCION.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.TSTUDENT.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.USUARIO.datasource" />

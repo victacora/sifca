@@ -31,11 +31,28 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Especies_Form));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.paginacionEspecie = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.Btn_nuevaEspecie = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.buscarLbl = new System.Windows.Forms.ToolStripLabel();
+            this.busquedaTxt = new System.Windows.Forms.ToolStripTextBox();
+            this.filtrarLbl = new System.Windows.Forms.ToolStripLabel();
+            this.criterioCbx = new System.Windows.Forms.ToolStripComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbox_GrupoComercial = new System.Windows.Forms.ComboBox();
             this.grupoComercialBSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btn_Cancelar = new System.Windows.Forms.Button();
             this.txt_DMC = new System.Windows.Forms.TextBox();
+            this.Btn_Crear = new System.Windows.Forms.Button();
             this.txt_ZonaVida = new System.Windows.Forms.TextBox();
             this.txt_ZonaGeografica = new System.Windows.Forms.TextBox();
             this.txt_Familia = new System.Windows.Forms.TextBox();
@@ -48,9 +65,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.btn_Cancelar = new System.Windows.Forms.Button();
-            this.Btn_Crear = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Btn_CancelarUpdate = new System.Windows.Forms.Button();
@@ -81,21 +95,6 @@
             this.zONADEVIDADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dIAMMINCORTEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specieBSource = new System.Windows.Forms.BindingSource(this.components);
-            this.paginacionEspecie = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.Btn_nuevaEspecie = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.buscarLbl = new System.Windows.Forms.ToolStripLabel();
-            this.busquedaTxt = new System.Windows.Forms.ToolStripTextBox();
-            this.filtrarLbl = new System.Windows.Forms.ToolStripLabel();
-            this.criterioCbx = new System.Windows.Forms.ToolStripComboBox();
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.cbx_GroupCom = new System.Windows.Forms.ComboBox();
@@ -131,6 +130,8 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.paginacionEspecie)).BeginInit();
+            this.paginacionEspecie.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grupoComercialBSource)).BeginInit();
@@ -139,41 +140,178 @@
             ((System.ComponentModel.ISupportInitialize)(this.GroupComBSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ListadoEspecies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.specieBSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paginacionEspecie)).BeginInit();
-            this.paginacionEspecie.SuspendLayout();
             this.groupBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.paginacionEspecie);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.ListadoEspecies);
-            this.panel1.Controls.Add(this.paginacionEspecie);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(828, 374);
             this.panel1.TabIndex = 0;
             // 
+            // paginacionEspecie
+            // 
+            this.paginacionEspecie.AddNewItem = null;
+            this.paginacionEspecie.CountItem = this.bindingNavigatorCountItem;
+            this.paginacionEspecie.DeleteItem = null;
+            this.paginacionEspecie.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Btn_nuevaEspecie,
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorSeparator,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorSeparator1,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem,
+            this.bindingNavigatorSeparator2,
+            this.buscarLbl,
+            this.busquedaTxt,
+            this.filtrarLbl,
+            this.criterioCbx});
+            this.paginacionEspecie.Location = new System.Drawing.Point(0, 0);
+            this.paginacionEspecie.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.paginacionEspecie.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.paginacionEspecie.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.paginacionEspecie.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.paginacionEspecie.Name = "paginacionEspecie";
+            this.paginacionEspecie.PositionItem = this.bindingNavigatorPositionItem;
+            this.paginacionEspecie.Size = new System.Drawing.Size(824, 25);
+            this.paginacionEspecie.TabIndex = 2;
+            this.paginacionEspecie.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
+            this.bindingNavigatorCountItem.Text = "de {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
+            // 
+            // Btn_nuevaEspecie
+            // 
+            this.Btn_nuevaEspecie.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.Btn_nuevaEspecie.Image = ((System.Drawing.Image)(resources.GetObject("Btn_nuevaEspecie.Image")));
+            this.Btn_nuevaEspecie.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Btn_nuevaEspecie.Name = "Btn_nuevaEspecie";
+            this.Btn_nuevaEspecie.Size = new System.Drawing.Size(87, 22);
+            this.Btn_nuevaEspecie.Text = "Nueva Especie";
+            this.Btn_nuevaEspecie.Click += new System.EventHandler(this.Btn_nuevaEspecie_Click);
+            // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstItem.Text = "Mover primero";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousItem.Text = "Mover anterior";
+            // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Posición";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Posición actual";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextItem.Text = "Mover siguiente";
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem.Text = "Mover último";
+            // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // buscarLbl
+            // 
+            this.buscarLbl.Name = "buscarLbl";
+            this.buscarLbl.Size = new System.Drawing.Size(45, 22);
+            this.buscarLbl.Text = "Buscar:";
+            // 
+            // busquedaTxt
+            // 
+            this.busquedaTxt.Name = "busquedaTxt";
+            this.busquedaTxt.Size = new System.Drawing.Size(150, 25);
+            this.busquedaTxt.TextChanged += new System.EventHandler(this.busquedaTxt_TextChanged);
+            // 
+            // filtrarLbl
+            // 
+            this.filtrarLbl.Name = "filtrarLbl";
+            this.filtrarLbl.Size = new System.Drawing.Size(92, 22);
+            this.filtrarLbl.Text = "Filtrar busqueda";
+            // 
+            // criterioCbx
+            // 
+            this.criterioCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.criterioCbx.Items.AddRange(new object[] {
+            "Grupo Comercial",
+            "Nombre Comun",
+            "Nombre Cientifico",
+            "Familia",
+            "Zona Geografica",
+            "Zona Vida"});
+            this.criterioCbx.Name = "criterioCbx";
+            this.criterioCbx.Size = new System.Drawing.Size(121, 25);
+            // 
             // panel2
             // 
             this.panel2.BackgroundImage = global::SIFCA.Properties.Resources.fondoTab;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.groupBox1);
-            this.panel2.Controls.Add(this.btn_Cancelar);
-            this.panel2.Controls.Add(this.Btn_Crear);
-            this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 25);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(828, 349);
+            this.panel2.Size = new System.Drawing.Size(824, 370);
             this.panel2.TabIndex = 0;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cbox_GrupoComercial);
+            this.groupBox1.Controls.Add(this.btn_Cancelar);
             this.groupBox1.Controls.Add(this.txt_DMC);
+            this.groupBox1.Controls.Add(this.Btn_Crear);
             this.groupBox1.Controls.Add(this.txt_ZonaVida);
             this.groupBox1.Controls.Add(this.txt_ZonaGeografica);
             this.groupBox1.Controls.Add(this.txt_Familia);
@@ -186,9 +324,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Location = new System.Drawing.Point(9, 8);
+            this.groupBox1.Location = new System.Drawing.Point(242, 66);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(339, 217);
+            this.groupBox1.Size = new System.Drawing.Size(339, 244);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Crear especie";
@@ -208,12 +346,32 @@
             // 
             this.grupoComercialBSource.DataSource = typeof(SIFCA_DAL.GRUPOCOMERCIAL);
             // 
+            // btn_Cancelar
+            // 
+            this.btn_Cancelar.Location = new System.Drawing.Point(246, 210);
+            this.btn_Cancelar.Name = "btn_Cancelar";
+            this.btn_Cancelar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Cancelar.TabIndex = 17;
+            this.btn_Cancelar.Text = "Cancelar";
+            this.btn_Cancelar.UseVisualStyleBackColor = true;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
+            // 
             // txt_DMC
             // 
             this.txt_DMC.Location = new System.Drawing.Point(154, 184);
             this.txt_DMC.Name = "txt_DMC";
-            this.txt_DMC.Size = new System.Drawing.Size(167, 20);
+            this.txt_DMC.Size = new System.Drawing.Size(75, 20);
             this.txt_DMC.TabIndex = 13;
+            // 
+            // Btn_Crear
+            // 
+            this.Btn_Crear.Location = new System.Drawing.Point(154, 210);
+            this.Btn_Crear.Name = "Btn_Crear";
+            this.Btn_Crear.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Crear.TabIndex = 16;
+            this.Btn_Crear.Text = "Crear";
+            this.Btn_Crear.UseVisualStyleBackColor = true;
+            this.Btn_Crear.Click += new System.EventHandler(this.Btn_Crear_Click);
             // 
             // txt_ZonaVida
             // 
@@ -314,42 +472,15 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Grupo comercial";
             // 
-            // btn_Cancelar
-            // 
-            this.btn_Cancelar.Location = new System.Drawing.Point(273, 244);
-            this.btn_Cancelar.Name = "btn_Cancelar";
-            this.btn_Cancelar.Size = new System.Drawing.Size(75, 23);
-            this.btn_Cancelar.TabIndex = 17;
-            this.btn_Cancelar.Text = "Cancelar";
-            this.btn_Cancelar.UseVisualStyleBackColor = true;
-            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
-            // 
-            // Btn_Crear
-            // 
-            this.Btn_Crear.Location = new System.Drawing.Point(181, 244);
-            this.Btn_Crear.Name = "Btn_Crear";
-            this.Btn_Crear.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Crear.TabIndex = 16;
-            this.Btn_Crear.Text = "Crear";
-            this.Btn_Crear.UseVisualStyleBackColor = true;
-            this.Btn_Crear.Click += new System.EventHandler(this.Btn_Crear_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "label2";
-            // 
             // panel3
             // 
+            this.panel3.BackgroundImage = global::SIFCA.Properties.Resources.fondoTab;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.groupBox3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 25);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(828, 349);
+            this.panel3.Size = new System.Drawing.Size(824, 370);
             this.panel3.TabIndex = 4;
             // 
             // groupBox3
@@ -370,16 +501,16 @@
             this.groupBox3.Controls.Add(this.label28);
             this.groupBox3.Controls.Add(this.txt_NomComun);
             this.groupBox3.Controls.Add(this.label29);
-            this.groupBox3.Location = new System.Drawing.Point(11, 7);
+            this.groupBox3.Location = new System.Drawing.Point(242, 44);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(327, 267);
+            this.groupBox3.Size = new System.Drawing.Size(327, 260);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Editar Especie";
             // 
             // Btn_CancelarUpdate
             // 
-            this.Btn_CancelarUpdate.Location = new System.Drawing.Point(208, 231);
+            this.Btn_CancelarUpdate.Location = new System.Drawing.Point(230, 231);
             this.Btn_CancelarUpdate.Name = "Btn_CancelarUpdate";
             this.Btn_CancelarUpdate.Size = new System.Drawing.Size(75, 23);
             this.Btn_CancelarUpdate.TabIndex = 6;
@@ -404,7 +535,7 @@
             // 
             // Guardar
             // 
-            this.Guardar.Location = new System.Drawing.Point(50, 231);
+            this.Guardar.Location = new System.Drawing.Point(139, 231);
             this.Guardar.Name = "Guardar";
             this.Guardar.Size = new System.Drawing.Size(75, 23);
             this.Guardar.TabIndex = 5;
@@ -536,10 +667,10 @@
             this.dIAMMINCORTEDataGridViewTextBoxColumn});
             this.ListadoEspecies.DataSource = this.specieBSource;
             this.ListadoEspecies.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ListadoEspecies.Location = new System.Drawing.Point(0, 25);
+            this.ListadoEspecies.Location = new System.Drawing.Point(0, 0);
             this.ListadoEspecies.Name = "ListadoEspecies";
             this.ListadoEspecies.ReadOnly = true;
-            this.ListadoEspecies.Size = new System.Drawing.Size(828, 349);
+            this.ListadoEspecies.Size = new System.Drawing.Size(824, 370);
             this.ListadoEspecies.TabIndex = 3;
             this.ListadoEspecies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListadoDeEspecies_CellValueChanged);
             // 
@@ -617,145 +748,6 @@
             // specieBSource
             // 
             this.specieBSource.DataSource = typeof(SIFCA_DAL.ESPECIE);
-            // 
-            // paginacionEspecie
-            // 
-            this.paginacionEspecie.AddNewItem = null;
-            this.paginacionEspecie.CountItem = this.bindingNavigatorCountItem;
-            this.paginacionEspecie.DeleteItem = null;
-            this.paginacionEspecie.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Btn_nuevaEspecie,
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.buscarLbl,
-            this.busquedaTxt,
-            this.filtrarLbl,
-            this.criterioCbx});
-            this.paginacionEspecie.Location = new System.Drawing.Point(0, 0);
-            this.paginacionEspecie.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.paginacionEspecie.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.paginacionEspecie.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.paginacionEspecie.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.paginacionEspecie.Name = "paginacionEspecie";
-            this.paginacionEspecie.PositionItem = this.bindingNavigatorPositionItem;
-            this.paginacionEspecie.Size = new System.Drawing.Size(828, 25);
-            this.paginacionEspecie.TabIndex = 2;
-            this.paginacionEspecie.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
-            this.bindingNavigatorCountItem.Text = "de {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
-            // 
-            // Btn_nuevaEspecie
-            // 
-            this.Btn_nuevaEspecie.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.Btn_nuevaEspecie.Image = ((System.Drawing.Image)(resources.GetObject("Btn_nuevaEspecie.Image")));
-            this.Btn_nuevaEspecie.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Btn_nuevaEspecie.Name = "Btn_nuevaEspecie";
-            this.Btn_nuevaEspecie.Size = new System.Drawing.Size(87, 22);
-            this.Btn_nuevaEspecie.Text = "Nueva Especie";
-            this.Btn_nuevaEspecie.Click += new System.EventHandler(this.Btn_nuevaEspecie_Click);
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Mover primero";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Mover anterior";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Posición";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Posición actual";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Mover siguiente";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Mover último";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // buscarLbl
-            // 
-            this.buscarLbl.Name = "buscarLbl";
-            this.buscarLbl.Size = new System.Drawing.Size(45, 22);
-            this.buscarLbl.Text = "Buscar:";
-            // 
-            // busquedaTxt
-            // 
-            this.busquedaTxt.Name = "busquedaTxt";
-            this.busquedaTxt.Size = new System.Drawing.Size(150, 25);
-            this.busquedaTxt.TextChanged += new System.EventHandler(this.busquedaTxt_TextChanged);
-            // 
-            // filtrarLbl
-            // 
-            this.filtrarLbl.Name = "filtrarLbl";
-            this.filtrarLbl.Size = new System.Drawing.Size(92, 22);
-            this.filtrarLbl.Text = "Filtrar busqueda";
-            // 
-            // criterioCbx
-            // 
-            this.criterioCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.criterioCbx.Items.AddRange(new object[] {
-            "Grupo Comercial",
-            "Nombre Comun",
-            "Nombre Cientifico",
-            "Familia",
-            "Zona Geografica",
-            "Zona Vida"});
-            this.criterioCbx.Name = "criterioCbx";
-            this.criterioCbx.Size = new System.Drawing.Size(121, 25);
             // 
             // groupBox
             // 
@@ -1082,11 +1074,13 @@
             this.Controls.Add(this.panel1);
             this.Name = "Especies_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Especies_Form";
+            this.Text = "Especies";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.paginacionEspecie)).EndInit();
+            this.paginacionEspecie.ResumeLayout(false);
+            this.paginacionEspecie.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grupoComercialBSource)).EndInit();
@@ -1096,9 +1090,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.GroupComBSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ListadoEspecies)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.specieBSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paginacionEspecie)).EndInit();
-            this.paginacionEspecie.ResumeLayout(false);
-            this.paginacionEspecie.PerformLayout();
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1111,7 +1102,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.BindingSource grupoComercialBSource;
         private System.Windows.Forms.BindingNavigator paginacionEspecie;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;

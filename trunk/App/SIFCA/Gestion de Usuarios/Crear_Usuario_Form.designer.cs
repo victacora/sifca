@@ -41,11 +41,12 @@
             this.nombresTxt = new System.Windows.Forms.TextBox();
             this.cedulaTxt = new System.Windows.Forms.TextBox();
             this.usuarioTxt = new System.Windows.Forms.TextBox();
-            this.cancelarBtn = new System.Windows.Forms.Button();
-            this.AceptarBtn = new System.Windows.Forms.Button();
-            this.errorLbl = new System.Windows.Forms.Label();
+            this.GuardarBtn = new System.Windows.Forms.Button();
             this.imageNewUser = new System.Windows.Forms.PictureBox();
             this.tipoUsuarioCbx = new System.Windows.Forms.ComboBox();
+            this.verContrasena = new System.Windows.Forms.Button();
+            this.errorLbl = new System.Windows.Forms.Label();
+            this.cancelarBtn = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             cONTRASENALabel = new System.Windows.Forms.Label();
             aPELLIDOSLabel = new System.Windows.Forms.Label();
@@ -110,6 +111,15 @@
             usuarioLbl.TabIndex = 33;
             usuarioLbl.Text = "Usuario:";
             // 
+            // tipoUsuarioLbl
+            // 
+            tipoUsuarioLbl.AutoSize = true;
+            tipoUsuarioLbl.Location = new System.Drawing.Point(21, 165);
+            tipoUsuarioLbl.Name = "tipoUsuarioLbl";
+            tipoUsuarioLbl.Size = new System.Drawing.Size(68, 13);
+            tipoUsuarioLbl.TabIndex = 43;
+            tipoUsuarioLbl.Text = "Tipo usuario:";
+            // 
             // verificarContrasenaTxt
             // 
             this.verificarContrasenaTxt.Location = new System.Drawing.Point(134, 240);
@@ -156,33 +166,15 @@
             this.usuarioTxt.Size = new System.Drawing.Size(206, 20);
             this.usuarioTxt.TabIndex = 28;
             // 
-            // cancelarBtn
+            // GuardarBtn
             // 
-            this.cancelarBtn.Location = new System.Drawing.Point(250, 304);
-            this.cancelarBtn.Name = "cancelarBtn";
-            this.cancelarBtn.Size = new System.Drawing.Size(90, 23);
-            this.cancelarBtn.TabIndex = 31;
-            this.cancelarBtn.Text = "Salir";
-            this.cancelarBtn.UseVisualStyleBackColor = true;
-            this.cancelarBtn.Click += new System.EventHandler(this.cancelarBtn_Click);
-            // 
-            // AceptarBtn
-            // 
-            this.AceptarBtn.Location = new System.Drawing.Point(155, 304);
-            this.AceptarBtn.Name = "AceptarBtn";
-            this.AceptarBtn.Size = new System.Drawing.Size(90, 23);
-            this.AceptarBtn.TabIndex = 30;
-            this.AceptarBtn.Text = "Guardar";
-            this.AceptarBtn.UseVisualStyleBackColor = true;
-            this.AceptarBtn.Click += new System.EventHandler(this.AceptarBtn_Click);
-            // 
-            // errorLbl
-            // 
-            this.errorLbl.AutoSize = true;
-            this.errorLbl.Location = new System.Drawing.Point(131, 274);
-            this.errorLbl.Name = "errorLbl";
-            this.errorLbl.Size = new System.Drawing.Size(0, 13);
-            this.errorLbl.TabIndex = 39;
+            this.GuardarBtn.Location = new System.Drawing.Point(154, 330);
+            this.GuardarBtn.Name = "GuardarBtn";
+            this.GuardarBtn.Size = new System.Drawing.Size(90, 23);
+            this.GuardarBtn.TabIndex = 30;
+            this.GuardarBtn.Text = "Guardar";
+            this.GuardarBtn.UseVisualStyleBackColor = true;
+            this.GuardarBtn.Click += new System.EventHandler(this.AceptarBtn_Click);
             // 
             // imageNewUser
             // 
@@ -207,24 +199,45 @@
             this.tipoUsuarioCbx.Size = new System.Drawing.Size(206, 21);
             this.tipoUsuarioCbx.TabIndex = 44;
             // 
-            // tipoUsuarioLbl
+            // verContrasena
             // 
-            tipoUsuarioLbl.AutoSize = true;
-            tipoUsuarioLbl.Location = new System.Drawing.Point(21, 165);
-            tipoUsuarioLbl.Name = "tipoUsuarioLbl";
-            tipoUsuarioLbl.Size = new System.Drawing.Size(68, 13);
-            tipoUsuarioLbl.TabIndex = 43;
-            tipoUsuarioLbl.Text = "Tipo usuario:";
+            this.verContrasena.Location = new System.Drawing.Point(226, 263);
+            this.verContrasena.Name = "verContrasena";
+            this.verContrasena.Size = new System.Drawing.Size(114, 23);
+            this.verContrasena.TabIndex = 47;
+            this.verContrasena.Text = "Ver Contraseña";
+            this.verContrasena.UseVisualStyleBackColor = true;
+            this.verContrasena.Click += new System.EventHandler(this.verContrasena_Click);
+            // 
+            // errorLbl
+            // 
+            this.errorLbl.AutoSize = true;
+            this.errorLbl.Location = new System.Drawing.Point(131, 299);
+            this.errorLbl.Name = "errorLbl";
+            this.errorLbl.Size = new System.Drawing.Size(0, 13);
+            this.errorLbl.TabIndex = 46;
+            // 
+            // cancelarBtn
+            // 
+            this.cancelarBtn.Location = new System.Drawing.Point(250, 330);
+            this.cancelarBtn.Name = "cancelarBtn";
+            this.cancelarBtn.Size = new System.Drawing.Size(90, 23);
+            this.cancelarBtn.TabIndex = 45;
+            this.cancelarBtn.Text = "Cancelar";
+            this.cancelarBtn.UseVisualStyleBackColor = true;
+            this.cancelarBtn.Click += new System.EventHandler(this.cancelarBtn_Click);
             // 
             // Crear_Usuario_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(360, 344);
+            this.ClientSize = new System.Drawing.Size(360, 373);
+            this.Controls.Add(this.verContrasena);
+            this.Controls.Add(this.errorLbl);
+            this.Controls.Add(this.cancelarBtn);
             this.Controls.Add(this.tipoUsuarioCbx);
             this.Controls.Add(tipoUsuarioLbl);
-            this.Controls.Add(this.errorLbl);
             this.Controls.Add(label1);
             this.Controls.Add(this.verificarContrasenaTxt);
             this.Controls.Add(cONTRASENALabel);
@@ -237,8 +250,7 @@
             this.Controls.Add(this.cedulaTxt);
             this.Controls.Add(usuarioLbl);
             this.Controls.Add(this.usuarioTxt);
-            this.Controls.Add(this.cancelarBtn);
-            this.Controls.Add(this.AceptarBtn);
+            this.Controls.Add(this.GuardarBtn);
             this.Controls.Add(this.imageNewUser);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -260,10 +272,11 @@
         private System.Windows.Forms.TextBox nombresTxt;
         private System.Windows.Forms.TextBox cedulaTxt;
         private System.Windows.Forms.TextBox usuarioTxt;
-        private System.Windows.Forms.Button cancelarBtn;
-        private System.Windows.Forms.Button AceptarBtn;
-        private System.Windows.Forms.Label errorLbl;
+        private System.Windows.Forms.Button GuardarBtn;
         private System.Windows.Forms.ComboBox tipoUsuarioCbx;
+        private System.Windows.Forms.Button verContrasena;
+        private System.Windows.Forms.Label errorLbl;
+        private System.Windows.Forms.Button cancelarBtn;
 
 
 

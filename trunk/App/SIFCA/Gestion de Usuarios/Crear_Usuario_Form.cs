@@ -59,6 +59,22 @@ namespace SIFCA
             }
         }
 
+        private void verContrasena_Click(object sender, EventArgs e)
+        {
+            if (verContrasena.Text == "Ver Contraseña")
+            {
+                verContrasena.Text = "No Ver Contraseña";
+                contrasenaTxt.UseSystemPasswordChar = false;
+                verificarContrasenaTxt.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                verContrasena.Text = "Ver Contraseña";
+                contrasenaTxt.UseSystemPasswordChar = true;
+                verificarContrasenaTxt.UseSystemPasswordChar = true;
+            }
+        }
+
 
     }
 }

@@ -16,3 +16,12 @@ C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_BLL\bin\Debug\Entity
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_BLL\obj\Debug\SIFCA_BLL.csprojResolveAssemblyReference.cache
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_BLL\obj\Debug\SIFCA_BLL.dll
 C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_BLL\obj\Debug\SIFCA_BLL.pdb
+C:\ANTEPROYECTO\Prototipo\App\SIFCA_BLL\bin\Debug\SIFCA_BLL.dll
+C:\ANTEPROYECTO\Prototipo\App\SIFCA_BLL\bin\Debug\SIFCA_BLL.pdb
+C:\ANTEPROYECTO\Prototipo\App\SIFCA_BLL\bin\Debug\EntityFramework.dll
+C:\ANTEPROYECTO\Prototipo\App\SIFCA_BLL\bin\Debug\SIFCA_DAL.dll
+C:\ANTEPROYECTO\Prototipo\App\SIFCA_BLL\bin\Debug\SIFCA_DAL.pdb
+C:\ANTEPROYECTO\Prototipo\App\SIFCA_BLL\bin\Debug\EntityFramework.xml
+C:\ANTEPROYECTO\Prototipo\App\SIFCA_BLL\obj\Debug\SIFCA_BLL.csprojResolveAssemblyReference.cache
+C:\ANTEPROYECTO\Prototipo\App\SIFCA_BLL\obj\Debug\SIFCA_BLL.dll
+C:\ANTEPROYECTO\Prototipo\App\SIFCA_BLL\obj\Debug\SIFCA_BLL.pdb

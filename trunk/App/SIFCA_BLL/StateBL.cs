@@ -7,7 +7,7 @@ using System.Data;
 
 namespace SIFCA_BLL
 {
-    public class StateBL 
+    public class StateBL
     {
         private SIFCA_CONTEXT sifcaRepository;
 
@@ -16,13 +16,25 @@ namespace SIFCA_BLL
             this.sifcaRepository = contextProvider;
         }
 
+        public IEnumerable<ESTADOSANITARIO> SearchStates(string search, string criteria)
+        {
+            if (criteria == "Descripcion")
+            {
+                var query = from e in this.sifcaRepository.ESTADOSANITARIO where (e.DESCRIPESTADO.Contains(search)) select e;
+                return query.ToList();
+            }
+            else
+            {
+                return new List<ESTADOSANITARIO>();
+            }
+        }
 
         public IEnumerable<ESTADOSANITARIO> GetStates()
         {
             return this.sifcaRepository.ESTADOSANITARIO.ToList();
         }
 
-        public ESTADOSANITARIO GetState(int stateId)
+        public ESTADOSANITARIO GetState(String stateId)
         {
             return this.sifcaRepository.ESTADOSANITARIO.Find(stateId);
         }
@@ -32,7 +44,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.ESTADOSANITARIO.Add(state);
-                
+
             }
             catch (Exception ex)
             {
@@ -46,7 +58,7 @@ namespace SIFCA_BLL
             {
                 ESTADOSANITARIO state = this.sifcaRepository.ESTADOSANITARIO.Find(stateId);
                 this.sifcaRepository.ESTADOSANITARIO.Remove(state);
-                
+
             }
             catch (Exception ex)
             {
@@ -59,7 +71,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.Entry(state).State = EntityState.Modified;
-                
+
             }
             catch (Exception ex)
             {

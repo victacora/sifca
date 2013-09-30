@@ -7,7 +7,7 @@ using System.Data;
 
 namespace SIFCA_BLL
 {
-    public class TypeUseBL 
+    public class TypeUseBL
     {
         private SIFCA_CONTEXT sifcaRepository;
 
@@ -16,13 +16,28 @@ namespace SIFCA_BLL
             this.sifcaRepository = contextProvider;
         }
 
+        public IEnumerable<TIPODEUSO> SearchType(string search, string criterio)
+        {
+            if (criterio == "Nombre")
+            {
+                var query = from e in this.sifcaRepository.TIPODEUSO where (e.NOMBRETIPOUSO.Contains(search)) select e;
+                return query.ToList();
+            }
+            if (criterio == "Descripcion")
+            {
+                var query = from e in this.sifcaRepository.TIPODEUSO where (e.DESCRIPCION.Contains(search)) select e;
+                return query.ToList();
+            }
+            return new List<TIPODEUSO>();
+
+        }
 
         public IEnumerable<TIPODEUSO> GetTypeUse()
         {
             return this.sifcaRepository.TIPODEUSO.ToList();
         }
 
-        public TIPODEUSO GetTypeUse(int TypeUseId)
+        public TIPODEUSO GetTypeUse(String TypeUseId)
         {
             return this.sifcaRepository.TIPODEUSO.Find(TypeUseId);
         }
@@ -32,7 +47,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.TIPODEUSO.Add(TypeUse);
-                
+
             }
             catch (Exception ex)
             {
@@ -46,7 +61,7 @@ namespace SIFCA_BLL
             {
                 TIPODEUSO TypeUse = this.sifcaRepository.TIPODEUSO.Find(TypeUseId);
                 this.sifcaRepository.TIPODEUSO.Remove(TypeUse);
-                
+
             }
             catch (Exception ex)
             {
@@ -59,7 +74,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.Entry(TypeUse).State = EntityState.Modified;
-                
+
             }
             catch (Exception ex)
             {

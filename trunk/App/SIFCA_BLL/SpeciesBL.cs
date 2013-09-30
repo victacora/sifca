@@ -7,7 +7,7 @@ using System.Data;
 
 namespace SIFCA_BLL
 {
-    public class SpeciesBL 
+    public class SpeciesBL
     {
         private SIFCA_CONTEXT sifcaRepository;
 
@@ -27,9 +27,9 @@ namespace SIFCA_BLL
             return this.sifcaRepository.ESPECIE.Find(SpecieId);
         }
 
-        public ESPECIE GetSpecieByComNameAndScienName(string commonName,string scientificName)
+        public ESPECIE GetSpecieByComNameAndScienName(string commonName, string scientificName)
         {
-            return this.sifcaRepository.ESPECIE.SingleOrDefault(p=>p.NOMCOMUN ==commonName&&p.NOMCIENTIFICO==scientificName);
+            return this.sifcaRepository.ESPECIE.SingleOrDefault(p => p.NOMCOMUN == commonName && p.NOMCIENTIFICO == scientificName);
         }
 
         public IEnumerable<ESPECIE> SearchSpecies(string search, string criteria)
@@ -72,7 +72,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.ESPECIE.Add(Specie);
-                
+
             }
             catch (Exception ex)
             {
@@ -86,7 +86,7 @@ namespace SIFCA_BLL
             {
                 ESPECIE specie = this.sifcaRepository.ESPECIE.Find(SpecieId);
                 this.sifcaRepository.ESPECIE.Remove(specie);
-                
+
             }
             catch (Exception ex)
             {
@@ -99,7 +99,7 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.Entry(Specie).State = EntityState.Modified;
-                
+
             }
             catch (Exception ex)
             {

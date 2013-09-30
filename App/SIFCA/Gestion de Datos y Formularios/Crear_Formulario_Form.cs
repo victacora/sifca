@@ -26,8 +26,7 @@ namespace SIFCA
         private TypeUseBL typeUses;
         private FORMULARIO newForm;
         private LINEANOMADERABLES newLineNoTimber;
-        private bool ignoreTextChangedCAP;
-        private bool ignoreTextChangedDAP;
+        private bool modified;
 
         public Crear_Formulario_Form()
         {
@@ -51,8 +50,6 @@ namespace SIFCA
             
             estadoSanitarioBS.DataSource = state.GetStates();
             
-            formularioBS.DataSource = form.GetForms();
-            
             tipoUsoBS.DataSource=typeUses.GetTypeUse();
             TipoDeUsosLbc.DataSource = tipoUsoBS;
             TipoDeUsosLbc.DisplayMember ="DESCRIPCION";
@@ -68,6 +65,7 @@ namespace SIFCA
             proyectoTxt.Text = p.LUGAR;
             newLineNoTimber = new LINEANOMADERABLES();
 
+            modified = true;
         }
 
         private void guardarformularioBtn_Click(object sender, EventArgs e)
@@ -189,16 +187,19 @@ namespace SIFCA
 
         private void dAPTxt_TextChanged(object sender, EventArgs e)
         {
-            if (ignoreTextChangedDAP) return;
+            if (!modified)
+            {
+                modified = true;
+                return;
+            }
             if (dAPTxt.Text!="")
             {
                 double output = 0;
                 bool result = double.TryParse(dAPTxt.Text, out output);
                 if (result)
                 {
-                    ignoreTextChangedCAP = true;
+                    modified = false;
                     ((LINEAINVENTARIO)lineaInvBS.Current).CAP = (decimal)(output * Math.PI);
-                    ignoreTextChangedCAP = false;
                 }
                 else MessageBox.Show("Entra invalida para el diametro.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -206,16 +207,19 @@ namespace SIFCA
 
         private void cAPTxt_TextChanged(object sender, EventArgs e)
         {
-            if (ignoreTextChangedCAP) return;
+            if (!modified)
+            {
+                modified = true;
+                return;
+            }
             if (cAPTxt.Text != "")
             {
                 double output = 0;
                 bool result = double.TryParse(cAPTxt.Text, out output);
                 if (result)
                 {
-                    ignoreTextChangedDAP = true;   
+                    modified = false;   
                     ((LINEAINVENTARIO)lineaInvBS.Current).DAP =(decimal) (output / Math.PI);
-                    ignoreTextChangedDAP = true;
                 }
                 else MessageBox.Show("Entra invalida para la medida de la circunferencia.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

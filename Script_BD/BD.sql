@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     25/09/2013 07:11:18 a.m.                     */
+/* Created on:     03/10/2013 11:33:17 p.m.                     */
 /*==============================================================*/
 
 
@@ -30,6 +30,13 @@ if exists (select 1
    where r.fkeyid = object_id('FORMULARIO') and o.name = 'FK_FORMULAR_MANEJA_ESTRATO')
 alter table FORMULARIO
    drop constraint FK_FORMULAR_MANEJA_ESTRATO
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('IMAGEN') and o.name = 'FK_IMAGEN_IMAGENE_ESPECIE')
+alter table IMAGEN
+   drop constraint FK_IMAGEN_IMAGENE_ESPECIE
 go
 
 if exists (select 1
@@ -107,6 +114,13 @@ if exists (select 1
    where r.fkeyid = object_id('LISTADODEESTRATOS') and o.name = 'FK_LISTADOD_LISTAESTR_ESTRATO')
 alter table LISTADODEESTRATOS
    drop constraint FK_LISTADOD_LISTAESTR_ESTRATO
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('MEDIDACAPYDAP') and o.name = 'FK_MEDIDA_LINEAINV')
+alter table MEDIDACAPYDAP
+   drop constraint FK_MEDIDA_LINEAINV
 go
 
 if exists (select 1
@@ -245,6 +259,22 @@ go
 
 if exists (select 1
             from  sysindexes
+           where  id    = object_id('IMAGEN')
+            and   name  = 'IMAGENID'
+            and   indid > 0
+            and   indid < 255)
+   drop index IMAGEN.IMAGENID
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('IMAGEN')
+            and   type = 'U')
+   drop table IMAGEN
+go
+
+if exists (select 1
+            from  sysindexes
            where  id    = object_id('LINEAINVENTARIO')
             and   name  = 'LLENA_FK'
             and   indid > 0
@@ -339,6 +369,22 @@ if exists (select 1
            where  id = object_id('LISTADODEESTRATOS')
             and   type = 'U')
    drop table LISTADODEESTRATOS
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('MEDIDACAPYDAP')
+            and   name  = 'MEDIDAID'
+            and   indid > 0
+            and   indid < 255)
+   drop index MEDIDACAPYDAP.MEDIDAID
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('MEDIDACAPYDAP')
+            and   type = 'U')
+   drop table MEDIDACAPYDAP
 go
 
 if exists (select 1
@@ -440,6 +486,14 @@ if exists (select 1
    drop table USUARIO
 go
 
+if exists(select 1 from systypes where name='TIPOARBOL')
+   execute sp_unbindrule TIPOARBOL
+go
+
+if exists(select 1 from systypes where name='TIPOARBOL')
+   drop type TIPOARBOL
+go
+
 if exists(select 1 from systypes where name='TIPOOPERACION')
    execute sp_unbindrule TIPOOPERACION
 go
@@ -464,6 +518,10 @@ if exists(select 1 from systypes where name='TIPOUSUARIO')
    drop type TIPOUSUARIO
 go
 
+if exists (select 1 from sysobjects where id=object_id('R_TIPOARBOL') and type='R')
+   drop rule  R_TIPOARBOL
+go
+
 if exists (select 1 from sysobjects where id=object_id('R_TIPOOPERACION') and type='R')
    drop rule  R_TIPOOPERACION
 go
@@ -476,6 +534,10 @@ if exists (select 1 from sysobjects where id=object_id('R_TIPOUSUARIO') and type
    drop rule  R_TIPOUSUARIO
 go
 
+create rule R_TIPOARBOL as
+      @column in ('BF','NF')
+go
+
 create rule R_TIPOOPERACION as
       @column in ('I','A','E')
 go
@@ -486,6 +548,16 @@ go
 
 create rule R_TIPOUSUARIO as
       @column in ('AD','NA')
+go
+
+/*==============================================================*/
+/* Domain: TIPOARBOL                                            */
+/*==============================================================*/
+create type TIPOARBOL
+   from char(2) not null
+go
+
+execute sp_bindrule R_TIPOARBOL, TIPOARBOL
 go
 
 /*==============================================================*/
@@ -581,8 +653,8 @@ create table FORMULARIO (
    NROUSUARIO           uniqueidentifier     not null,
    NROPROY              uniqueidentifier     not null,
    FECHACREACION        datetime             not null,
-   HORAINICIO           datetime             not null,
-   HORAFINAL            datetime             not null,
+   HORAINICIO           datetime             null,
+   HORAFINAL            datetime             null,
    PARCELA              numeric              not null,
    LINEA                numeric              not null,
    COORDENADAX          numeric              null,
@@ -626,6 +698,27 @@ create table GRUPOCOMERCIAL (
 go
 
 /*==============================================================*/
+/* Table: IMAGEN                                                */
+/*==============================================================*/
+create table IMAGEN (
+   IMAGENID             numeric              identity,
+   CODESP               uniqueidentifier     not null,
+   DESCRIPCION          varchar(1000)        null,
+   NOMBRE               varchar(250)         not null,
+   RUTA                 varchar(1000)        not null,
+   constraint PK_IMAGEN primary key (IMAGENID, CODESP)
+)
+go
+
+/*==============================================================*/
+/* Index: IMAGENID                                              */
+/*==============================================================*/
+create index IMAGENID on IMAGEN (
+IMAGENID ASC
+)
+go
+
+/*==============================================================*/
 /* Table: LINEAINVENTARIO                                       */
 /*==============================================================*/
 create table LINEAINVENTARIO (
@@ -635,13 +728,12 @@ create table LINEAINVENTARIO (
    ESTADO               char(2)              not null,
    CODESP               uniqueidentifier     not null,
    NROARB               numeric              null,
-   CAP                  numeric              null,
-   DAP                  numeric              null,
    ALTCOMER_M           numeric              null,
    ALTTOT_M             numeric              null,
    AREABASAL            decimal(18,3)        null,
    VOLCOM               decimal(18,3)        null,
    VOLTOT               decimal(18,3)        null,
+   TIPOARBOL            TIPOARBOL            not null,
    constraint PK_LINEAINVENTARIO primary key nonclustered (LINEAINV)
 )
 go
@@ -701,9 +793,8 @@ go
 /* Table: LINEAREGENERACION                                     */
 /*==============================================================*/
 create table LINEAREGENERACION (
-   NROARB               numeric              null,
-   LATIZAL              numeric              null,
-   BRINZAL              numeric              null,
+   LATIZAL              numeric              not null,
+   BRINZAL              numeric              not null,
    LINEAREGEN           uniqueidentifier     not null,
    NROFORMULARIO        uniqueidentifier     not null,
    CODESP               uniqueidentifier     not null,
@@ -745,6 +836,26 @@ create table LISTADODEESTRATOS (
    CODEST               numeric              not null,
    PESO                 decimal(18,3)        null,
    constraint PK_LISTADODEESTRATOS primary key (NROPROY, CODEST)
+)
+go
+
+/*==============================================================*/
+/* Table: MEDIDACAPYDAP                                         */
+/*==============================================================*/
+create table MEDIDACAPYDAP (
+   CAP                  numeric              not null,
+   DAP                  numeric              not null,
+   MEDIDAID             numeric              identity,
+   LINEAINV             uniqueidentifier     not null,
+   constraint PK_MEDIDACAPYDAP primary key (MEDIDAID, LINEAINV)
+)
+go
+
+/*==============================================================*/
+/* Index: MEDIDAID                                              */
+/*==============================================================*/
+create index MEDIDAID on MEDIDACAPYDAP (
+MEDIDAID ASC
 )
 go
 
@@ -813,7 +924,7 @@ go
 create table PROYECTOSPORETAPA (
    NROPROYCONTENEDOR    uniqueidentifier     not null,
    NROPROYCONTENIDO     uniqueidentifier     not null,
-   PESO                 decimal(18,3)        not null,
+   PESO                 decimal(18,3)        null,
    constraint PK_PROYECTOSPORETAPA primary key (NROPROYCONTENEDOR, NROPROYCONTENIDO)
 )
 go
@@ -922,6 +1033,12 @@ alter table FORMULARIO
          on update cascade on delete cascade
 go
 
+alter table IMAGEN
+   add constraint FK_IMAGEN_IMAGENE_ESPECIE foreign key (CODESP)
+      references ESPECIE (CODESP)
+         on update cascade on delete cascade
+go
+
 alter table LINEAINVENTARIO
    add constraint FK_LINEAINV_ASOCIADO_ESTADOSA foreign key (ESTADO)
       references ESTADOSANITARIO (ESTADO)
@@ -985,6 +1102,12 @@ go
 alter table LISTADODEESTRATOS
    add constraint FK_LISTADOD_LISTAESTR_ESTRATO foreign key (CODEST)
       references ESTRATO (CODEST)
+         on update cascade on delete cascade
+go
+
+alter table MEDIDACAPYDAP
+   add constraint FK_MEDIDA_LINEAINV foreign key (LINEAINV)
+      references LINEAINVENTARIO (LINEAINV)
          on update cascade on delete cascade
 go
 

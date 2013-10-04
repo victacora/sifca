@@ -12,16 +12,15 @@ using System.Collections.Generic;
 
 namespace SIFCA_DAL
 {
-    public partial class LINEAREGENERACION
+    public partial class IMAGEN
     {
-        public decimal LATIZAL { get; set; }
-        public decimal BRINZAL { get; set; }
-        public System.Guid LINEAREGEN { get; set; }
-        public System.Guid NROFORMULARIO { get; set; }
+        public decimal IMAGENID { get; set; }
         public System.Guid CODESP { get; set; }
+        public string DESCRIPCION { get; set; }
+        public string NOMBRE { get; set; }
+        public string RUTA { get; set; }
     
         public virtual ESPECIE ESPECIE { get; set; }
-        public virtual FORMULARIO FORMULARIO { get; set; }
     }
     
 }

@@ -366,8 +366,8 @@ namespace SIFCA
                             hoja_trabajo.Cells[i, 9] = lineInv.ESPECIE.NOMCOMUN.ToString(); 
                             hoja_trabajo.Cells[i, 10] = lineInv.ESPECIE.NOMCIENTIFICO.ToString();
                             hoja_trabajo.Cells[i, 11] = lineInv.CALIDAD.DESCRIPCALIDAD.ToString();
-                            hoja_trabajo.Cells[i, 12] = lineInv.DAP.ToString();
-                            hoja_trabajo.Cells[i, 13] = lineInv.CAP.ToString();
+                            //hoja_trabajo.Cells[i, 12] = lineInv.DAP.ToString();
+                            //hoja_trabajo.Cells[i, 13] = lineInv.CAP.ToString();
                             hoja_trabajo.Cells[i, 14] = lineInv.ALTCOMER_M.ToString();
                             hoja_trabajo.Cells[i, 15] = lineInv.ALTTOT_M.ToString();
                         }

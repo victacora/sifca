@@ -7,11 +7,13 @@
     <EntitySet Name="ESTRATO" EntityType="SIFCA_Model.Store.ESTRATO" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="FORMULARIO" EntityType="SIFCA_Model.Store.FORMULARIO" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="GRUPOCOMERCIAL" EntityType="SIFCA_Model.Store.GRUPOCOMERCIAL" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="IMAGEN" EntityType="SIFCA_Model.Store.IMAGEN" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="LINEAINVENTARIO" EntityType="SIFCA_Model.Store.LINEAINVENTARIO" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="LINEANOMADERABLES" EntityType="SIFCA_Model.Store.LINEANOMADERABLES" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="LINEAREGENERACION" EntityType="SIFCA_Model.Store.LINEAREGENERACION" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="LISTADODEESPECIES" EntityType="SIFCA_Model.Store.LISTADODEESPECIES" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="LISTADODEESTRATOS" EntityType="SIFCA_Model.Store.LISTADODEESTRATOS" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MEDIDACAPYDAP" EntityType="SIFCA_Model.Store.MEDIDACAPYDAP" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="OBJETIVOINVENTARIO" EntityType="SIFCA_Model.Store.OBJETIVOINVENTARIO" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PROYECTO" EntityType="SIFCA_Model.Store.PROYECTO" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PROYECTOSPORETAPA" EntityType="SIFCA_Model.Store.PROYECTOSPORETAPA" store:Type="Tables" Schema="dbo" />
@@ -36,6 +38,10 @@
     <AssociationSet Name="FK_FORMULAR_MANEJA_ESTRATO" Association="SIFCA_Model.Store.FK_FORMULAR_MANEJA_ESTRATO">
       <End Role="ESTRATO" EntitySet="ESTRATO" />
       <End Role="FORMULARIO" EntitySet="FORMULARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IMAGEN_IMAGENE_ESPECIE" Association="SIFCA_Model.Store.FK_IMAGEN_IMAGENE_ESPECIE">
+      <End Role="ESPECIE" EntitySet="ESPECIE" />
+      <End Role="IMAGEN" EntitySet="IMAGEN" />
     </AssociationSet>
     <AssociationSet Name="FK_LINEAINV_ASOCIADO_ESTADOSA" Association="SIFCA_Model.Store.FK_LINEAINV_ASOCIADO_ESTADOSA">
       <End Role="ESTADOSANITARIO" EntitySet="ESTADOSANITARIO" />
@@ -80,6 +86,10 @@
     <AssociationSet Name="FK_LISTAESTRATOS_PROYECTO" Association="SIFCA_Model.Store.FK_LISTAESTRATOS_PROYECTO">
       <End Role="PROYECTO" EntitySet="PROYECTO" />
       <End Role="LISTADODEESTRATOS" EntitySet="LISTADODEESTRATOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MEDIDA_LINEAINV" Association="SIFCA_Model.Store.FK_MEDIDA_LINEAINV">
+      <End Role="LINEAINVENTARIO" EntitySet="LINEAINVENTARIO" />
+      <End Role="MEDIDACAPYDAP" EntitySet="MEDIDACAPYDAP" />
     </AssociationSet>
     <AssociationSet Name="FK_PROYECTO_CONTENEDOR" Association="SIFCA_Model.Store.FK_PROYECTO_CONTENEDOR">
       <End Role="PROYECTO" EntitySet="PROYECTO" />
@@ -157,8 +167,8 @@
     <Property Name="NROUSUARIO" Type="uniqueidentifier" Nullable="false" />
     <Property Name="NROPROY" Type="uniqueidentifier" Nullable="false" />
     <Property Name="FECHACREACION" Type="datetime" Nullable="false" />
-    <Property Name="HORAINICIO" Type="datetime" Nullable="false" />
-    <Property Name="HORAFINAL" Type="datetime" Nullable="false" />
+    <Property Name="HORAINICIO" Type="datetime" />
+    <Property Name="HORAFINAL" Type="datetime" />
     <Property Name="PARCELA" Type="numeric" Nullable="false" />
     <Property Name="LINEA" Type="numeric" Nullable="false" />
     <Property Name="COORDENADAX" Type="numeric" />
@@ -171,6 +181,17 @@
     <Property Name="GRUPOCOM" Type="char" Nullable="false" MaxLength="2" />
     <Property Name="DESCRIPGRUPO" Type="varchar" MaxLength="500" />
   </EntityType>
+  <EntityType Name="IMAGEN">
+    <Key>
+      <PropertyRef Name="IMAGENID" />
+      <PropertyRef Name="CODESP" />
+    </Key>
+    <Property Name="IMAGENID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CODESP" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="1000" />
+    <Property Name="NOMBRE" Type="varchar" Nullable="false" MaxLength="250" />
+    <Property Name="RUTA" Type="varchar" Nullable="false" MaxLength="1000" />
+  </EntityType>
   <EntityType Name="LINEAINVENTARIO">
     <Key>
       <PropertyRef Name="LINEAINV" />
@@ -181,13 +202,12 @@
     <Property Name="ESTADO" Type="char" Nullable="false" MaxLength="2" />
     <Property Name="CODESP" Type="uniqueidentifier" Nullable="false" />
     <Property Name="NROARB" Type="numeric" />
-    <Property Name="CAP" Type="numeric" />
-    <Property Name="DAP" Type="numeric" />
     <Property Name="ALTCOMER_M" Type="numeric" />
     <Property Name="ALTTOT_M" Type="numeric" />
     <Property Name="AREABASAL" Type="decimal" Scale="3" />
     <Property Name="VOLCOM" Type="decimal" Scale="3" />
     <Property Name="VOLTOT" Type="decimal" Scale="3" />
+    <Property Name="TIPOARBOL" Type="char" Nullable="false" MaxLength="2" />
   </EntityType>
   <EntityType Name="LINEANOMADERABLES">
     <Key>
@@ -201,9 +221,8 @@
     <Key>
       <PropertyRef Name="LINEAREGEN" />
     </Key>
-    <Property Name="NROARB" Type="numeric" />
-    <Property Name="LATIZAL" Type="numeric" />
-    <Property Name="BRINZAL" Type="numeric" />
+    <Property Name="LATIZAL" Type="numeric" Nullable="false" />
+    <Property Name="BRINZAL" Type="numeric" Nullable="false" />
     <Property Name="LINEAREGEN" Type="uniqueidentifier" Nullable="false" />
     <Property Name="NROFORMULARIO" Type="uniqueidentifier" Nullable="false" />
     <Property Name="CODESP" Type="uniqueidentifier" Nullable="false" />
@@ -224,6 +243,16 @@
     <Property Name="NROPROY" Type="uniqueidentifier" Nullable="false" />
     <Property Name="CODEST" Type="numeric" Nullable="false" />
     <Property Name="PESO" Type="decimal" Scale="3" />
+  </EntityType>
+  <EntityType Name="MEDIDACAPYDAP">
+    <Key>
+      <PropertyRef Name="MEDIDAID" />
+      <PropertyRef Name="LINEAINV" />
+    </Key>
+    <Property Name="CAP" Type="numeric" Nullable="false" />
+    <Property Name="DAP" Type="numeric" Nullable="false" />
+    <Property Name="MEDIDAID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LINEAINV" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="OBJETIVOINVENTARIO">
     <Key>
@@ -261,7 +290,7 @@
     </Key>
     <Property Name="NROPROYCONTENEDOR" Type="uniqueidentifier" Nullable="false" />
     <Property Name="NROPROYCONTENIDO" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PESO" Type="decimal" Nullable="false" Scale="3" />
+    <Property Name="PESO" Type="decimal" Scale="3" />
   </EntityType>
   <EntityType Name="TIPODEUSO">
     <Key>
@@ -373,6 +402,20 @@
       </Principal>
       <Dependent Role="FORMULARIO">
         <PropertyRef Name="CODEST" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IMAGEN_IMAGENE_ESPECIE">
+    <End Role="ESPECIE" Type="SIFCA_Model.Store.ESPECIE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="IMAGEN" Type="SIFCA_Model.Store.IMAGEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESPECIE">
+        <PropertyRef Name="CODESP" />
+      </Principal>
+      <Dependent Role="IMAGEN">
+        <PropertyRef Name="CODESP" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -527,6 +570,20 @@
       </Principal>
       <Dependent Role="LISTADODEESTRATOS">
         <PropertyRef Name="NROPROY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MEDIDA_LINEAINV">
+    <End Role="LINEAINVENTARIO" Type="SIFCA_Model.Store.LINEAINVENTARIO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MEDIDACAPYDAP" Type="SIFCA_Model.Store.MEDIDACAPYDAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LINEAINVENTARIO">
+        <PropertyRef Name="LINEAINV" />
+      </Principal>
+      <Dependent Role="MEDIDACAPYDAP">
+        <PropertyRef Name="LINEAINV" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

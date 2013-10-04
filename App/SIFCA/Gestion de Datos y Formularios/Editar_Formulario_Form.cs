@@ -110,9 +110,9 @@ namespace SIFCA
             newLine.NROARB = int.Parse(nroArbolTxt.Text);
             newLine.ALTCOMER_M = decimal.Parse(alturaComercialTxt.Text);
             newLine.ALTTOT_M = decimal.Parse(alturaTotalTxt.Text);
-            newLine.CAP = decimal.Parse(cAPTxt.Text);
-            newLine.DAP = decimal.Parse(dAPTxt.Text);
-            newLine.AREABASAL = (decimal)(ForestCalculator.BasalAreaDAP((double)newLine.DAP));
+            //newLine.CAP = decimal.Parse(cAPTxt.Text);
+            //newLine.DAP = decimal.Parse(dAPTxt.Text);
+            //newLine.AREABASAL = (decimal)(ForestCalculator.BasalAreaDAP((double)newLine.DAP));
             newLine.VOLCOM = (decimal)(ForestCalculator.TreeVolumeByBasalArea((double)newLine.AREABASAL, (double)newLine.ALTCOMER_M, (double)p.FACTORDEFORMA));
             newLine.VOLTOT = (decimal)(ForestCalculator.TreeVolumeByBasalArea((double)newLine.AREABASAL, (double)newLine.ALTTOT_M, (double)p.FACTORDEFORMA)); 
             lineInv.InsertInventoryLine(newLine);
@@ -180,7 +180,7 @@ namespace SIFCA
                 if (result)
                 {
                     modified = false;
-                    ((LINEAINVENTARIO)lineaInvBS.Current).CAP = (decimal)(output * Math.PI);
+                    //((LINEAINVENTARIO)lineaInvBS.Current).CAP = (decimal)(output * Math.PI);
                 }
                 else MessageBox.Show("Entra invalida para el diametro.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -200,7 +200,7 @@ namespace SIFCA
                 if (result)
                 {
                     modified = false;   
-                    ((LINEAINVENTARIO)lineaInvBS.Current).DAP =(decimal) (output / Math.PI);
+                    //((LINEAINVENTARIO)lineaInvBS.Current).DAP =(decimal) (output / Math.PI);
                 }
                 else MessageBox.Show("Entra invalida para la medida de la circunferencia.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

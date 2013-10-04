@@ -16,6 +16,7 @@ namespace SIFCA_DAL
     {
         public ESPECIE()
         {
+            this.IMAGEN = new HashSet<IMAGEN>();
             this.LINEAINVENTARIO = new HashSet<LINEAINVENTARIO>();
             this.LINEAREGENERACION = new HashSet<LINEAREGENERACION>();
             this.PROYECTO = new HashSet<PROYECTO>();
@@ -31,6 +32,7 @@ namespace SIFCA_DAL
         public Nullable<decimal> DIAMMINCORTE { get; set; }
     
         public virtual GRUPOCOMERCIAL GRUPOCOMERCIAL { get; set; }
+        public virtual ICollection<IMAGEN> IMAGEN { get; set; }
         public virtual ICollection<LINEAINVENTARIO> LINEAINVENTARIO { get; set; }
         public virtual ICollection<LINEAREGENERACION> LINEAREGENERACION { get; set; }
         public virtual ICollection<PROYECTO> PROYECTO { get; set; }

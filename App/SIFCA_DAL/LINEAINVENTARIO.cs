@@ -14,24 +14,29 @@ namespace SIFCA_DAL
 {
     public partial class LINEAINVENTARIO
     {
+        public LINEAINVENTARIO()
+        {
+            this.MEDIDACAPYDAP = new HashSet<MEDIDACAPYDAP>();
+        }
+    
         public System.Guid LINEAINV { get; set; }
         public decimal CODCALIDAD { get; set; }
         public System.Guid NROFORMULARIO { get; set; }
         public string ESTADO { get; set; }
         public System.Guid CODESP { get; set; }
         public Nullable<decimal> NROARB { get; set; }
-        public Nullable<decimal> CAP { get; set; }
-        public Nullable<decimal> DAP { get; set; }
         public Nullable<decimal> ALTCOMER_M { get; set; }
         public Nullable<decimal> ALTTOT_M { get; set; }
         public Nullable<decimal> AREABASAL { get; set; }
         public Nullable<decimal> VOLCOM { get; set; }
         public Nullable<decimal> VOLTOT { get; set; }
+        public string TIPOARBOL { get; set; }
     
         public virtual CALIDAD CALIDAD { get; set; }
         public virtual ESPECIE ESPECIE { get; set; }
         public virtual ESTADOSANITARIO ESTADOSANITARIO { get; set; }
         public virtual FORMULARIO FORMULARIO { get; set; }
+        public virtual ICollection<MEDIDACAPYDAP> MEDIDACAPYDAP { get; set; }
     }
     
 }

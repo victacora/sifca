@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="SIFCA_ModelStoreContainer" CdmEntityContainer="SIFCA_CONTEXT">
+    <FunctionImportMapping FunctionImportName="createBackupDB" FunctionName="SIFCA_Model.Store.sp_BackupDB" />
     <EntitySetMapping Name="CALIDAD">
       <EntityTypeMapping TypeName="SIFCA_Model.CALIDAD">
         <MappingFragment StoreEntitySet="CALIDAD">
@@ -64,16 +65,26 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="IMAGEN">
+      <EntityTypeMapping TypeName="SIFCA_Model.IMAGEN">
+        <MappingFragment StoreEntitySet="IMAGEN">
+          <ScalarProperty Name="RUTA" ColumnName="RUTA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="CODESP" ColumnName="CODESP" />
+          <ScalarProperty Name="IMAGENID" ColumnName="IMAGENID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="LINEAINVENTARIO">
       <EntityTypeMapping TypeName="SIFCA_Model.LINEAINVENTARIO">
         <MappingFragment StoreEntitySet="LINEAINVENTARIO">
+          <ScalarProperty Name="TIPOARBOL" ColumnName="TIPOARBOL" />
           <ScalarProperty Name="VOLTOT" ColumnName="VOLTOT" />
           <ScalarProperty Name="VOLCOM" ColumnName="VOLCOM" />
           <ScalarProperty Name="AREABASAL" ColumnName="AREABASAL" />
           <ScalarProperty Name="ALTTOT_M" ColumnName="ALTTOT_M" />
           <ScalarProperty Name="ALTCOMER_M" ColumnName="ALTCOMER_M" />
-          <ScalarProperty Name="DAP" ColumnName="DAP" />
-          <ScalarProperty Name="CAP" ColumnName="CAP" />
           <ScalarProperty Name="NROARB" ColumnName="NROARB" />
           <ScalarProperty Name="CODESP" ColumnName="CODESP" />
           <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
@@ -100,7 +111,6 @@
           <ScalarProperty Name="LINEAREGEN" ColumnName="LINEAREGEN" />
           <ScalarProperty Name="BRINZAL" ColumnName="BRINZAL" />
           <ScalarProperty Name="LATIZAL" ColumnName="LATIZAL" />
-          <ScalarProperty Name="NROARB" ColumnName="NROARB" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -110,6 +120,16 @@
           <ScalarProperty Name="PESO" ColumnName="PESO" />
           <ScalarProperty Name="CODEST" ColumnName="CODEST" />
           <ScalarProperty Name="NROPROY" ColumnName="NROPROY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MEDIDACAPYDAP">
+      <EntityTypeMapping TypeName="SIFCA_Model.MEDIDACAPYDAP">
+        <MappingFragment StoreEntitySet="MEDIDACAPYDAP">
+          <ScalarProperty Name="LINEAINV" ColumnName="LINEAINV" />
+          <ScalarProperty Name="MEDIDAID" ColumnName="MEDIDAID" />
+          <ScalarProperty Name="DAP" ColumnName="DAP" />
+          <ScalarProperty Name="CAP" ColumnName="CAP" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -221,6 +241,5 @@
         <ScalarProperty Name="NOMBRETIPOUSO" ColumnName="NOMBRETIPOUSO" />
       </EndProperty>
     </AssociationSetMapping>
-    <FunctionImportMapping FunctionImportName="createBackupDB" FunctionName="SIFCA_Model.Store.sp_BackupDB" />
   </EntityContainerMapping>
 </Mapping>

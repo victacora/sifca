@@ -62,7 +62,6 @@ C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Properties.Resources.res
 C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.csproj.GenerateResource.Cache
 C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.exe
 C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.pdb
-C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_de_Configuracion.Calidad_Form.resources
 C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.EstadosSanitarios_Form.resources
 C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.Estratos_Form.resources
 C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.GruposComerciales_Form.resources

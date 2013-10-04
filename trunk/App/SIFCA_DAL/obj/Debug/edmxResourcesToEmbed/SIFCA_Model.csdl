@@ -1,16 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="SIFCA_Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
   <EntityContainer Name="SIFCA_CONTEXT" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="createBackupDB">
+      <Parameter Name="BaseLocation" Mode="In" Type="String" />
+      <Parameter Name="BackupType" Mode="In" Type="String" />
+    </FunctionImport>
     <EntitySet Name="CALIDAD" EntityType="SIFCA_Model.CALIDAD" />
     <EntitySet Name="ESPECIE" EntityType="SIFCA_Model.ESPECIE" />
     <EntitySet Name="ESTADOSANITARIO" EntityType="SIFCA_Model.ESTADOSANITARIO" />
     <EntitySet Name="ESTRATO" EntityType="SIFCA_Model.ESTRATO" />
     <EntitySet Name="FORMULARIO" EntityType="SIFCA_Model.FORMULARIO" />
     <EntitySet Name="GRUPOCOMERCIAL" EntityType="SIFCA_Model.GRUPOCOMERCIAL" />
+    <EntitySet Name="IMAGEN" EntityType="SIFCA_Model.IMAGEN" />
     <EntitySet Name="LINEAINVENTARIO" EntityType="SIFCA_Model.LINEAINVENTARIO" />
     <EntitySet Name="LINEANOMADERABLES" EntityType="SIFCA_Model.LINEANOMADERABLES" />
     <EntitySet Name="LINEAREGENERACION" EntityType="SIFCA_Model.LINEAREGENERACION" />
     <EntitySet Name="LISTADODEESTRATOS" EntityType="SIFCA_Model.LISTADODEESTRATOS" />
+    <EntitySet Name="MEDIDACAPYDAP" EntityType="SIFCA_Model.MEDIDACAPYDAP" />
     <EntitySet Name="OBJETIVOINVENTARIO" EntityType="SIFCA_Model.OBJETIVOINVENTARIO" />
     <EntitySet Name="PROYECTO" EntityType="SIFCA_Model.PROYECTO" />
     <EntitySet Name="PROYECTOSPORETAPA" EntityType="SIFCA_Model.PROYECTOSPORETAPA" />
@@ -26,6 +32,10 @@
     <AssociationSet Name="FK_ESPECIE_PERTENECE_GRUPOCOM" Association="SIFCA_Model.FK_ESPECIE_PERTENECE_GRUPOCOM">
       <End Role="GRUPOCOMERCIAL" EntitySet="GRUPOCOMERCIAL" />
       <End Role="ESPECIE" EntitySet="ESPECIE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IMAGEN_IMAGENE_ESPECIE" Association="SIFCA_Model.FK_IMAGEN_IMAGENE_ESPECIE">
+      <End Role="ESPECIE" EntitySet="ESPECIE" />
+      <End Role="IMAGEN" EntitySet="IMAGEN" />
     </AssociationSet>
     <AssociationSet Name="FK_LINEAINV_CONTIENE_ESPECIE" Association="SIFCA_Model.FK_LINEAINV_CONTIENE_ESPECIE">
       <End Role="ESPECIE" EntitySet="ESPECIE" />
@@ -67,6 +77,10 @@
       <End Role="FORMULARIO" EntitySet="FORMULARIO" />
       <End Role="LINEAREGENERACION" EntitySet="LINEAREGENERACION" />
     </AssociationSet>
+    <AssociationSet Name="FK_MEDIDA_LINEAINV" Association="SIFCA_Model.FK_MEDIDA_LINEAINV">
+      <End Role="LINEAINVENTARIO" EntitySet="LINEAINVENTARIO" />
+      <End Role="MEDIDACAPYDAP" EntitySet="MEDIDACAPYDAP" />
+    </AssociationSet>
     <AssociationSet Name="FK_LISTAESTRATOS_PROYECTO" Association="SIFCA_Model.FK_LISTAESTRATOS_PROYECTO">
       <End Role="PROYECTO" EntitySet="PROYECTO" />
       <End Role="LISTADODEESTRATOS" EntitySet="LISTADODEESTRATOS" />
@@ -103,10 +117,6 @@
       <End Role="TIPODEUSO" EntitySet="TIPODEUSO" />
       <End Role="LINEANOMADERABLES" EntitySet="LINEANOMADERABLES" />
     </AssociationSet>
-    <FunctionImport Name="createBackupDB">
-      <Parameter Name="BaseLocation" Mode="In" Type="String" />
-      <Parameter Name="BackupType" Mode="In" Type="String" />
-    </FunctionImport>
   </EntityContainer>
   <EntityType Name="CALIDAD">
     <Key>
@@ -129,6 +139,7 @@
     <Property Type="String" Name="ZONADEVIDA" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Type="Decimal" Name="DIAMMINCORTE" Precision="18" Scale="0" />
     <NavigationProperty Name="GRUPOCOMERCIAL" Relationship="SIFCA_Model.FK_ESPECIE_PERTENECE_GRUPOCOM" FromRole="ESPECIE" ToRole="GRUPOCOMERCIAL" />
+    <NavigationProperty Name="IMAGEN" Relationship="SIFCA_Model.FK_IMAGEN_IMAGENE_ESPECIE" FromRole="ESPECIE" ToRole="IMAGEN" />
     <NavigationProperty Name="LINEAINVENTARIO" Relationship="SIFCA_Model.FK_LINEAINV_CONTIENE_ESPECIE" FromRole="ESPECIE" ToRole="LINEAINVENTARIO" />
     <NavigationProperty Name="LINEAREGENERACION" Relationship="SIFCA_Model.FK_LINEAREG_EVALUACIO_ESPECIE" FromRole="ESPECIE" ToRole="LINEAREGENERACION" />
     <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.LISTADODEESPECIES" FromRole="ESPECIE" ToRole="PROYECTO" />
@@ -159,8 +170,8 @@
     <Property Type="Guid" Name="NROUSUARIO" Nullable="false" />
     <Property Type="Guid" Name="NROPROY" Nullable="false" />
     <Property Type="DateTime" Name="FECHACREACION" Nullable="false" />
-    <Property Type="DateTime" Name="HORAINICIO" Nullable="false" />
-    <Property Type="DateTime" Name="HORAFINAL" Nullable="false" />
+    <Property Type="DateTime" Name="HORAINICIO" />
+    <Property Type="DateTime" Name="HORAFINAL" />
     <Property Type="Decimal" Name="PARCELA" Nullable="false" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="LINEA" Nullable="false" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="COORDENADAX" Precision="18" Scale="0" />
@@ -180,6 +191,18 @@
     <Property Type="String" Name="DESCRIPGRUPO" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.FK_ESPECIE_PERTENECE_GRUPOCOM" FromRole="GRUPOCOMERCIAL" ToRole="ESPECIE" />
   </EntityType>
+  <EntityType Name="IMAGEN">
+    <Key>
+      <PropertyRef Name="IMAGENID" />
+      <PropertyRef Name="CODESP" />
+    </Key>
+    <Property Type="Decimal" Name="IMAGENID" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Guid" Name="CODESP" Nullable="false" />
+    <Property Type="String" Name="DESCRIPCION" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="RUTA" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.FK_IMAGEN_IMAGENE_ESPECIE" FromRole="IMAGEN" ToRole="ESPECIE" />
+  </EntityType>
   <EntityType Name="LINEAINVENTARIO">
     <Key>
       <PropertyRef Name="LINEAINV" />
@@ -190,17 +213,17 @@
     <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
     <Property Type="Guid" Name="CODESP" Nullable="false" />
     <Property Type="Decimal" Name="NROARB" Precision="18" Scale="0" />
-    <Property Type="Decimal" Name="CAP" Precision="18" Scale="0" />
-    <Property Type="Decimal" Name="DAP" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="ALTCOMER_M" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="ALTTOT_M" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="AREABASAL" Precision="18" Scale="3" />
     <Property Type="Decimal" Name="VOLCOM" Precision="18" Scale="3" />
     <Property Type="Decimal" Name="VOLTOT" Precision="18" Scale="3" />
+    <Property Type="String" Name="TIPOARBOL" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="CALIDAD" Relationship="SIFCA_Model.FK_LINEAINV_POSEE_CALIDAD" FromRole="LINEAINVENTARIO" ToRole="CALIDAD" />
     <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.FK_LINEAINV_CONTIENE_ESPECIE" FromRole="LINEAINVENTARIO" ToRole="ESPECIE" />
     <NavigationProperty Name="ESTADOSANITARIO" Relationship="SIFCA_Model.FK_LINEAINV_ASOCIADO_ESTADOSA" FromRole="LINEAINVENTARIO" ToRole="ESTADOSANITARIO" />
     <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_LINEAINV_LLENA_FORMULAR" FromRole="LINEAINVENTARIO" ToRole="FORMULARIO" />
+    <NavigationProperty Name="MEDIDACAPYDAP" Relationship="SIFCA_Model.FK_MEDIDA_LINEAINV" FromRole="LINEAINVENTARIO" ToRole="MEDIDACAPYDAP" />
   </EntityType>
   <EntityType Name="LINEANOMADERABLES">
     <Key>
@@ -216,9 +239,8 @@
     <Key>
       <PropertyRef Name="LINEAREGEN" />
     </Key>
-    <Property Type="Decimal" Name="NROARB" Precision="18" Scale="0" />
-    <Property Type="Decimal" Name="LATIZAL" Precision="18" Scale="0" />
-    <Property Type="Decimal" Name="BRINZAL" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="LATIZAL" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="BRINZAL" Nullable="false" Precision="18" Scale="0" />
     <Property Type="Guid" Name="LINEAREGEN" Nullable="false" />
     <Property Type="Guid" Name="NROFORMULARIO" Nullable="false" />
     <Property Type="Guid" Name="CODESP" Nullable="false" />
@@ -235,6 +257,17 @@
     <Property Type="Decimal" Name="PESO" Precision="18" Scale="3" />
     <NavigationProperty Name="ESTRATO" Relationship="SIFCA_Model.FK_LISTADOD_LISTAESTR_ESTRATO" FromRole="LISTADODEESTRATOS" ToRole="ESTRATO" />
     <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_LISTAESTRATOS_PROYECTO" FromRole="LISTADODEESTRATOS" ToRole="PROYECTO" />
+  </EntityType>
+  <EntityType Name="MEDIDACAPYDAP">
+    <Key>
+      <PropertyRef Name="MEDIDAID" />
+      <PropertyRef Name="LINEAINV" />
+    </Key>
+    <Property Type="Decimal" Name="CAP" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="DAP" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="MEDIDAID" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Guid" Name="LINEAINV" Nullable="false" />
+    <NavigationProperty Name="LINEAINVENTARIO" Relationship="SIFCA_Model.FK_MEDIDA_LINEAINV" FromRole="MEDIDACAPYDAP" ToRole="LINEAINVENTARIO" />
   </EntityType>
   <EntityType Name="OBJETIVOINVENTARIO">
     <Key>
@@ -281,9 +314,9 @@
     </Key>
     <Property Type="Guid" Name="NROPROYCONTENEDOR" Nullable="false" />
     <Property Type="Guid" Name="NROPROYCONTENIDO" Nullable="false" />
-    <Property Type="Decimal" Name="PESO" Nullable="false" Precision="18" Scale="3" />
-    <NavigationProperty Name="PROYECTOCONTENEDOR" Relationship="SIFCA_Model.FK_PROYECTO_CONTENEDOR" FromRole="PROYECTOSPORETAPA" ToRole="PROYECTO" />
-    <NavigationProperty Name="PROYECTOCONTENIDO" Relationship="SIFCA_Model.FK_PROYECTO_CONTENIDOS" FromRole="PROYECTOSPORETAPA" ToRole="PROYECTO" />
+    <Property Type="Decimal" Name="PESO" Precision="18" Scale="3" />
+    <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_CONTENEDOR" FromRole="PROYECTOSPORETAPA" ToRole="PROYECTO" />
+    <NavigationProperty Name="PROYECTO1" Relationship="SIFCA_Model.FK_PROYECTO_CONTENIDOS" FromRole="PROYECTOSPORETAPA" ToRole="PROYECTO" />
   </EntityType>
   <EntityType Name="TIPODEUSO">
     <Key>
@@ -361,6 +394,18 @@
       </Principal>
       <Dependent Role="ESPECIE">
         <PropertyRef Name="GRUPOCOM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IMAGEN_IMAGENE_ESPECIE">
+    <End Type="SIFCA_Model.ESPECIE" Role="ESPECIE" Multiplicity="1" />
+    <End Type="SIFCA_Model.IMAGEN" Role="IMAGEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESPECIE">
+        <PropertyRef Name="CODESP" />
+      </Principal>
+      <Dependent Role="IMAGEN">
+        <PropertyRef Name="CODESP" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -481,6 +526,18 @@
       </Principal>
       <Dependent Role="LINEAREGENERACION">
         <PropertyRef Name="NROFORMULARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MEDIDA_LINEAINV">
+    <End Type="SIFCA_Model.LINEAINVENTARIO" Role="LINEAINVENTARIO" Multiplicity="1" />
+    <End Type="SIFCA_Model.MEDIDACAPYDAP" Role="MEDIDACAPYDAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LINEAINVENTARIO">
+        <PropertyRef Name="LINEAINV" />
+      </Principal>
+      <Dependent Role="MEDIDACAPYDAP">
+        <PropertyRef Name="LINEAINV" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

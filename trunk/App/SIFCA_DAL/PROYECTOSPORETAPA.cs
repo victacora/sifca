@@ -16,10 +16,10 @@ namespace SIFCA_DAL
     {
         public System.Guid NROPROYCONTENEDOR { get; set; }
         public System.Guid NROPROYCONTENIDO { get; set; }
-        public decimal PESO { get; set; }
+        public Nullable<decimal> PESO { get; set; }
     
-        public virtual PROYECTO PROYECTOCONTENEDOR { get; set; }
-        public virtual PROYECTO PROYECTOCONTENIDO { get; set; }
+        public virtual PROYECTO PROYECTO { get; set; }
+        public virtual PROYECTO PROYECTO1 { get; set; }
     }
     
 }

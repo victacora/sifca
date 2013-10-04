@@ -26,8 +26,8 @@ namespace SIFCA_DAL
         public System.Guid NROUSUARIO { get; set; }
         public System.Guid NROPROY { get; set; }
         public System.DateTime FECHACREACION { get; set; }
-        public System.DateTime HORAINICIO { get; set; }
-        public System.DateTime HORAFINAL { get; set; }
+        public Nullable<System.DateTime> HORAINICIO { get; set; }
+        public Nullable<System.DateTime> HORAFINAL { get; set; }
         public decimal PARCELA { get; set; }
         public decimal LINEA { get; set; }
         public Nullable<decimal> COORDENADAX { get; set; }

@@ -1,4 +1,4 @@
-﻿namespace SIFCA.Gestion_de_Configuracion
+﻿namespace SIFCA.Gestion_Configuracion
 {
     partial class Calidad_Form
     {
@@ -32,6 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calidad_Form));
             this.panel1 = new System.Windows.Forms.Panel();
             this.ListadoCalidades = new System.Windows.Forms.DataGridView();
+            this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cODCALIDADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dESCRIPCALIDADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QualityBSource = new System.Windows.Forms.BindingSource(this.components);
             this.paginacionCalidad = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -60,9 +63,6 @@
             this.updateNombreTxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Btn_Guardar = new System.Windows.Forms.Button();
-            this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.cODCALIDADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dESCRIPCALIDADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListadoCalidades)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QualityBSource)).BeginInit();
@@ -103,6 +103,30 @@
             this.ListadoCalidades.ReadOnly = true;
             this.ListadoCalidades.Size = new System.Drawing.Size(497, 271);
             this.ListadoCalidades.TabIndex = 5;
+            // 
+            // Acciones
+            // 
+            this.Acciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Acciones.HeaderText = "Acciones";
+            this.Acciones.Name = "Acciones";
+            this.Acciones.ReadOnly = true;
+            this.Acciones.Text = "Editar";
+            this.Acciones.Width = 57;
+            // 
+            // cODCALIDADDataGridViewTextBoxColumn
+            // 
+            this.cODCALIDADDataGridViewTextBoxColumn.DataPropertyName = "CODCALIDAD";
+            this.cODCALIDADDataGridViewTextBoxColumn.HeaderText = "CODCALIDAD";
+            this.cODCALIDADDataGridViewTextBoxColumn.Name = "cODCALIDADDataGridViewTextBoxColumn";
+            this.cODCALIDADDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cODCALIDADDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dESCRIPCALIDADDataGridViewTextBoxColumn
+            // 
+            this.dESCRIPCALIDADDataGridViewTextBoxColumn.DataPropertyName = "DESCRIPCALIDAD";
+            this.dESCRIPCALIDADDataGridViewTextBoxColumn.HeaderText = "Descripcion calidad";
+            this.dESCRIPCALIDADDataGridViewTextBoxColumn.Name = "dESCRIPCALIDADDataGridViewTextBoxColumn";
+            this.dESCRIPCALIDADDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // QualityBSource
             // 
@@ -369,39 +393,17 @@
             this.Btn_Guardar.UseVisualStyleBackColor = true;
             this.Btn_Guardar.Click += new System.EventHandler(this.Btn_guardar_Click);
             // 
-            // Acciones
-            // 
-            this.Acciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Acciones.HeaderText = "Acciones";
-            this.Acciones.Name = "Acciones";
-            this.Acciones.ReadOnly = true;
-            this.Acciones.Text = "Editar";
-            this.Acciones.Width = 57;
-            // 
-            // cODCALIDADDataGridViewTextBoxColumn
-            // 
-            this.cODCALIDADDataGridViewTextBoxColumn.DataPropertyName = "CODCALIDAD";
-            this.cODCALIDADDataGridViewTextBoxColumn.HeaderText = "CODCALIDAD";
-            this.cODCALIDADDataGridViewTextBoxColumn.Name = "cODCALIDADDataGridViewTextBoxColumn";
-            this.cODCALIDADDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cODCALIDADDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // dESCRIPCALIDADDataGridViewTextBoxColumn
-            // 
-            this.dESCRIPCALIDADDataGridViewTextBoxColumn.DataPropertyName = "DESCRIPCALIDAD";
-            this.dESCRIPCALIDADDataGridViewTextBoxColumn.HeaderText = "Descripcion calidad";
-            this.dESCRIPCALIDADDataGridViewTextBoxColumn.Name = "dESCRIPCALIDADDataGridViewTextBoxColumn";
-            this.dESCRIPCALIDADDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // Calidad_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(501, 300);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Name = "Calidad_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calidad";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

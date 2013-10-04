@@ -47,7 +47,6 @@
             System.Windows.Forms.Label dAPLbl;
             System.Windows.Forms.Label estadoLbl;
             System.Windows.Forms.Label especieRegeLbl;
-            System.Windows.Forms.Label nroRegenArbolLbl;
             System.Windows.Forms.Label observacionesLbl;
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label2;
@@ -103,7 +102,6 @@
             this.brinzalTxt = new System.Windows.Forms.TextBox();
             this.registrarEspecieRegenBtn = new System.Windows.Forms.Button();
             this.especieRegenCbx = new System.Windows.Forms.ComboBox();
-            this.nroArbolRegenTxt = new System.Windows.Forms.TextBox();
             this.listarRegenbtn = new System.Windows.Forms.Button();
             this.guardarRegenBtn = new System.Windows.Forms.Button();
             this.regeneracionBN = new System.Windows.Forms.BindingNavigator(this.components);
@@ -157,7 +155,6 @@
             dAPLbl = new System.Windows.Forms.Label();
             estadoLbl = new System.Windows.Forms.Label();
             especieRegeLbl = new System.Windows.Forms.Label();
-            nroRegenArbolLbl = new System.Windows.Forms.Label();
             observacionesLbl = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -343,20 +340,11 @@
             // especieRegeLbl
             // 
             especieRegeLbl.AutoSize = true;
-            especieRegeLbl.Location = new System.Drawing.Point(18, 80);
+            especieRegeLbl.Location = new System.Drawing.Point(18, 56);
             especieRegeLbl.Name = "especieRegeLbl";
             especieRegeLbl.Size = new System.Drawing.Size(48, 13);
             especieRegeLbl.TabIndex = 79;
             especieRegeLbl.Text = "Especie:";
-            // 
-            // nroRegenArbolLbl
-            // 
-            nroRegenArbolLbl.AutoSize = true;
-            nroRegenArbolLbl.Location = new System.Drawing.Point(17, 51);
-            nroRegenArbolLbl.Name = "nroRegenArbolLbl";
-            nroRegenArbolLbl.Size = new System.Drawing.Size(74, 13);
-            nroRegenArbolLbl.TabIndex = 85;
-            nroRegenArbolLbl.Text = "Numero Arbol:";
             // 
             // observacionesLbl
             // 
@@ -370,7 +358,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(18, 136);
+            label1.Location = new System.Drawing.Point(18, 112);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(40, 13);
             label1.TabIndex = 95;
@@ -379,7 +367,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(18, 110);
+            label2.Location = new System.Drawing.Point(18, 86);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(41, 13);
             label2.TabIndex = 94;
@@ -820,8 +808,6 @@
             this.datosRegenGrx.Controls.Add(this.registrarEspecieRegenBtn);
             this.datosRegenGrx.Controls.Add(this.especieRegenCbx);
             this.datosRegenGrx.Controls.Add(especieRegeLbl);
-            this.datosRegenGrx.Controls.Add(nroRegenArbolLbl);
-            this.datosRegenGrx.Controls.Add(this.nroArbolRegenTxt);
             this.datosRegenGrx.Controls.Add(this.listarRegenbtn);
             this.datosRegenGrx.Controls.Add(this.guardarRegenBtn);
             this.datosRegenGrx.Controls.Add(this.regeneracionBN);
@@ -834,7 +820,7 @@
             // latizalTxt
             // 
             this.latizalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regeneracionBS, "LATIZAL", true));
-            this.latizalTxt.Location = new System.Drawing.Point(104, 136);
+            this.latizalTxt.Location = new System.Drawing.Point(104, 112);
             this.latizalTxt.Name = "latizalTxt";
             this.latizalTxt.Size = new System.Drawing.Size(266, 20);
             this.latizalTxt.TabIndex = 97;
@@ -846,7 +832,7 @@
             // brinzalTxt
             // 
             this.brinzalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regeneracionBS, "BRINZAL", true));
-            this.brinzalTxt.Location = new System.Drawing.Point(104, 107);
+            this.brinzalTxt.Location = new System.Drawing.Point(104, 83);
             this.brinzalTxt.Name = "brinzalTxt";
             this.brinzalTxt.Size = new System.Drawing.Size(266, 20);
             this.brinzalTxt.TabIndex = 96;
@@ -865,19 +851,11 @@
             this.especieRegenCbx.DataSource = this.especieBS;
             this.especieRegenCbx.DisplayMember = "NOMCOMUN";
             this.especieRegenCbx.FormattingEnabled = true;
-            this.especieRegenCbx.Location = new System.Drawing.Point(104, 80);
+            this.especieRegenCbx.Location = new System.Drawing.Point(104, 56);
             this.especieRegenCbx.Name = "especieRegenCbx";
             this.especieRegenCbx.Size = new System.Drawing.Size(266, 21);
             this.especieRegenCbx.TabIndex = 89;
             this.especieRegenCbx.ValueMember = "CODESP";
-            // 
-            // nroArbolRegenTxt
-            // 
-            this.nroArbolRegenTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regeneracionBS, "NROARB", true));
-            this.nroArbolRegenTxt.Location = new System.Drawing.Point(104, 56);
-            this.nroArbolRegenTxt.Name = "nroArbolRegenTxt";
-            this.nroArbolRegenTxt.Size = new System.Drawing.Size(266, 20);
-            this.nroArbolRegenTxt.TabIndex = 86;
             // 
             // listarRegenbtn
             // 
@@ -1347,7 +1325,6 @@
         private System.Windows.Forms.TextBox proyectoTxt;
         private System.Windows.Forms.TextBox latizalTxt;
         private System.Windows.Forms.TextBox brinzalTxt;
-        private System.Windows.Forms.TextBox nroArbolRegenTxt;
         private System.Windows.Forms.TextBox cAPTxt;
         private System.Windows.Forms.TextBox dAPTxt;
     }

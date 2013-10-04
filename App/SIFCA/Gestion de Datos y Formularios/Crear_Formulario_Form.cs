@@ -150,7 +150,6 @@ namespace SIFCA
             FORMULARIO f = form.GetForm(newForm.NROFORMULARIO);
             newLine.FORMULARIO = f;
             newLine.ESPECIE = (ESPECIE)especieRegenCbx.SelectedItem;
-            newLine.NROARB = int.Parse(nroArbolRegenTxt.Text);
             newLine.LATIZAL = decimal.Parse(latizalTxt.Text);
             newLine.BRINZAL = decimal.Parse(brinzalTxt.Text);
             lineRegen.InsertRegenerationLine(newLine);

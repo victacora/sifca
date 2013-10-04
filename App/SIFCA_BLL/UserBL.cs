@@ -5,6 +5,8 @@ using System.Text;
 using SIFCA_DAL;
 using System.Data;
 using System.Data.Objects.SqlClient;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 
 namespace SIFCA_BLL
 {
@@ -107,6 +109,15 @@ namespace SIFCA_BLL
             try
             {
                 this.sifcaRepository.SaveChanges();
+            }
+            catch (DbUpdateException ex)
+            {
+                var sqlException = ex.GetBaseException() as SqlException;
+
+                if (sqlException != null)
+                {
+                    Console.WriteLine("Excepcion: "+sqlException.Number+" "+sqlException.Message);
+                }
             }
             catch (Exception ex)
             {

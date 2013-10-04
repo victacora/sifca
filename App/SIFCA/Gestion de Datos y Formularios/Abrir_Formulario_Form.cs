@@ -103,7 +103,7 @@ namespace SIFCA
             }
             else
             {
-                formularioBS.DataSource = ((PROYECTO)Program.Cache.Get("project")).FORMULARIO;
+                formularioBS.DataSource = ((PROYECTO)Program.Cache.Get("project")).FORMULARIO.ToList();
                 formularioDGW.DataSource = formularioBS;
                 formularioDGW.Refresh();
             }

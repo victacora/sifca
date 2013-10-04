@@ -87,9 +87,6 @@
             this.seleccionarProyectosBtn = new System.Windows.Forms.Button();
             this.removerProyectosBtn = new System.Windows.Forms.Button();
             this.proyectoDGW = new System.Windows.Forms.DataGridView();
-            this.proyectoBS = new System.Windows.Forms.BindingSource(this.components);
-            this.cancelarBtn = new System.Windows.Forms.Button();
-            this.GuardarBtn = new System.Windows.Forms.Button();
             this.Proyectos = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LUGAR = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,6 +94,9 @@
             this.NOMBRETIPOINV = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.NOMTIPODISEMUEST = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.PesoProyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proyectoBS = new System.Windows.Forms.BindingSource(this.components);
+            this.cancelarBtn = new System.Windows.Forms.Button();
+            this.GuardarBtn = new System.Windows.Forms.Button();
             descripcionLbl = new System.Windows.Forms.Label();
             DAPLbl = new System.Windows.Forms.Label();
             facFormaLbl = new System.Windows.Forms.Label();
@@ -684,7 +684,7 @@
             this.removerProyectosBtn.UseVisualStyleBackColor = true;
             this.removerProyectosBtn.Click += new System.EventHandler(this.removerProyectosBtn_Click);
             // 
-            // proyectosDGW
+            // proyectoDGW
             // 
             this.proyectoDGW.AllowUserToAddRows = false;
             this.proyectoDGW.AllowUserToDeleteRows = false;
@@ -704,34 +704,10 @@
             this.proyectoDGW.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.proyectoDGW.Enabled = false;
             this.proyectoDGW.Location = new System.Drawing.Point(0, 44);
-            this.proyectoDGW.Name = "proyectosDGW";
+            this.proyectoDGW.Name = "proyectoDGW";
             this.proyectoDGW.Size = new System.Drawing.Size(533, 415);
             this.proyectoDGW.TabIndex = 0;
             this.proyectoDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.proyectoDGW_CellValueChanged);
-            // 
-            // proyectoBS
-            // 
-            this.proyectoBS.DataSource = typeof(SIFCA_DAL.PROYECTO);
-            // 
-            // cancelarBtn
-            // 
-            this.cancelarBtn.Location = new System.Drawing.Point(579, 490);
-            this.cancelarBtn.Name = "cancelarBtn";
-            this.cancelarBtn.Size = new System.Drawing.Size(75, 23);
-            this.cancelarBtn.TabIndex = 11;
-            this.cancelarBtn.Text = "Cancelar";
-            this.cancelarBtn.UseVisualStyleBackColor = true;
-            this.cancelarBtn.Click += new System.EventHandler(this.CancelarBtn_Click);
-            // 
-            // GuardarBtn
-            // 
-            this.GuardarBtn.Location = new System.Drawing.Point(497, 490);
-            this.GuardarBtn.Name = "GuardarBtn";
-            this.GuardarBtn.Size = new System.Drawing.Size(75, 23);
-            this.GuardarBtn.TabIndex = 10;
-            this.GuardarBtn.Text = "Guardar";
-            this.GuardarBtn.UseVisualStyleBackColor = true;
-            this.GuardarBtn.Click += new System.EventHandler(this.GuardarBtn_Click);
             // 
             // Proyectos
             // 
@@ -789,6 +765,30 @@
             this.PesoProyecto.HeaderText = "Peso";
             this.PesoProyecto.Name = "PesoProyecto";
             // 
+            // proyectoBS
+            // 
+            this.proyectoBS.DataSource = typeof(SIFCA_DAL.PROYECTO);
+            // 
+            // cancelarBtn
+            // 
+            this.cancelarBtn.Location = new System.Drawing.Point(579, 490);
+            this.cancelarBtn.Name = "cancelarBtn";
+            this.cancelarBtn.Size = new System.Drawing.Size(75, 23);
+            this.cancelarBtn.TabIndex = 11;
+            this.cancelarBtn.Text = "Cancelar";
+            this.cancelarBtn.UseVisualStyleBackColor = true;
+            this.cancelarBtn.Click += new System.EventHandler(this.CancelarBtn_Click);
+            // 
+            // GuardarBtn
+            // 
+            this.GuardarBtn.Location = new System.Drawing.Point(497, 490);
+            this.GuardarBtn.Name = "GuardarBtn";
+            this.GuardarBtn.Size = new System.Drawing.Size(75, 23);
+            this.GuardarBtn.TabIndex = 10;
+            this.GuardarBtn.Text = "Guardar";
+            this.GuardarBtn.UseVisualStyleBackColor = true;
+            this.GuardarBtn.Click += new System.EventHandler(this.GuardarBtn_Click);
+            // 
             // Crear_Proyecto_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -800,6 +800,7 @@
             this.Controls.Add(this.GuardarBtn);
             this.Controls.Add(this.crearProyectoTab);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Crear_Proyecto_Form";

@@ -1,6 +1,6 @@
 ﻿namespace SIFCA.Gestion_Configuracion
 {
-    partial class TiposUso_Form
+    partial class EstadosSanitarios_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TiposUso_Form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EstadosSanitarios_Form));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ListadoTiposUso = new System.Windows.Forms.DataGridView();
-            this.TypeUseBSource = new System.Windows.Forms.BindingSource(this.components);
-            this.paginacionTipoUso = new System.Windows.Forms.BindingNavigator(this.components);
+            this.ListadoEstados = new System.Windows.Forms.DataGridView();
+            this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.eSTADODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dESCRIPESTADODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StateBSource = new System.Windows.Forms.BindingSource(this.components);
+            this.paginacionEstadoSanitario = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.Btn_nuevo = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -59,19 +62,16 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.updateDescripcionTxt = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.Btn_Guardar = new System.Windows.Forms.Button();
+            this.updateDescripTxt = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.updateNombreTxt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.nOMBRETIPOUSODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dESCRIPCIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ListadoTiposUso)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TypeUseBSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paginacionTipoUso)).BeginInit();
-            this.paginacionTipoUso.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ListadoEstados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StateBSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paginacionEstadoSanitario)).BeginInit();
+            this.paginacionEstadoSanitario.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -81,45 +81,70 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.ListadoTiposUso);
-            this.panel1.Controls.Add(this.paginacionTipoUso);
+            this.panel1.Controls.Add(this.ListadoEstados);
+            this.panel1.Controls.Add(this.paginacionEstadoSanitario);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(720, 291);
+            this.panel1.Size = new System.Drawing.Size(685, 273);
             this.panel1.TabIndex = 0;
             // 
-            // ListadoTiposUso
+            // ListadoEstados
             // 
-            this.ListadoTiposUso.AllowUserToAddRows = false;
-            this.ListadoTiposUso.AllowUserToDeleteRows = false;
-            this.ListadoTiposUso.AutoGenerateColumns = false;
-            this.ListadoTiposUso.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ListadoTiposUso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ListadoTiposUso.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ListadoEstados.AllowUserToAddRows = false;
+            this.ListadoEstados.AllowUserToDeleteRows = false;
+            this.ListadoEstados.AutoGenerateColumns = false;
+            this.ListadoEstados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ListadoEstados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ListadoEstados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Acciones,
-            this.nOMBRETIPOUSODataGridViewTextBoxColumn,
-            this.dESCRIPCIONDataGridViewTextBoxColumn});
-            this.ListadoTiposUso.DataSource = this.TypeUseBSource;
-            this.ListadoTiposUso.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ListadoTiposUso.Location = new System.Drawing.Point(0, 25);
-            this.ListadoTiposUso.Name = "ListadoTiposUso";
-            this.ListadoTiposUso.ReadOnly = true;
-            this.ListadoTiposUso.Size = new System.Drawing.Size(716, 262);
-            this.ListadoTiposUso.TabIndex = 5;
-            this.ListadoTiposUso.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListadoDeEspecies_CellValueChanged);
+            this.eSTADODataGridViewTextBoxColumn,
+            this.dESCRIPESTADODataGridViewTextBoxColumn});
+            this.ListadoEstados.DataSource = this.StateBSource;
+            this.ListadoEstados.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ListadoEstados.Location = new System.Drawing.Point(0, 25);
+            this.ListadoEstados.Name = "ListadoEstados";
+            this.ListadoEstados.ReadOnly = true;
+            this.ListadoEstados.Size = new System.Drawing.Size(681, 244);
+            this.ListadoEstados.TabIndex = 5;
+            this.ListadoEstados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListadoDeEspecies_CellValueChanged);
             // 
-            // TypeUseBSource
+            // Acciones
             // 
-            this.TypeUseBSource.DataSource = typeof(SIFCA_DAL.TIPODEUSO);
+            this.Acciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Acciones.HeaderText = "Acciones";
+            this.Acciones.Name = "Acciones";
+            this.Acciones.ReadOnly = true;
+            this.Acciones.Text = "Editar";
+            this.Acciones.UseColumnTextForButtonValue = true;
+            this.Acciones.Width = 57;
             // 
-            // paginacionTipoUso
+            // eSTADODataGridViewTextBoxColumn
             // 
-            this.paginacionTipoUso.AddNewItem = null;
-            this.paginacionTipoUso.BindingSource = this.TypeUseBSource;
-            this.paginacionTipoUso.CountItem = this.bindingNavigatorCountItem;
-            this.paginacionTipoUso.DeleteItem = null;
-            this.paginacionTipoUso.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.eSTADODataGridViewTextBoxColumn.DataPropertyName = "ESTADO";
+            this.eSTADODataGridViewTextBoxColumn.HeaderText = "ESTADO";
+            this.eSTADODataGridViewTextBoxColumn.Name = "eSTADODataGridViewTextBoxColumn";
+            this.eSTADODataGridViewTextBoxColumn.ReadOnly = true;
+            this.eSTADODataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dESCRIPESTADODataGridViewTextBoxColumn
+            // 
+            this.dESCRIPESTADODataGridViewTextBoxColumn.DataPropertyName = "DESCRIPESTADO";
+            this.dESCRIPESTADODataGridViewTextBoxColumn.HeaderText = "Descripción estado";
+            this.dESCRIPESTADODataGridViewTextBoxColumn.Name = "dESCRIPESTADODataGridViewTextBoxColumn";
+            this.dESCRIPESTADODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // StateBSource
+            // 
+            this.StateBSource.DataSource = typeof(SIFCA_DAL.ESTADOSANITARIO);
+            // 
+            // paginacionEstadoSanitario
+            // 
+            this.paginacionEstadoSanitario.AddNewItem = null;
+            this.paginacionEstadoSanitario.BindingSource = this.StateBSource;
+            this.paginacionEstadoSanitario.CountItem = this.bindingNavigatorCountItem;
+            this.paginacionEstadoSanitario.DeleteItem = null;
+            this.paginacionEstadoSanitario.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Btn_nuevo,
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -134,16 +159,16 @@
             this.busquedaTxt,
             this.filtrarLbl,
             this.criterioCbx});
-            this.paginacionTipoUso.Location = new System.Drawing.Point(0, 0);
-            this.paginacionTipoUso.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.paginacionTipoUso.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.paginacionTipoUso.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.paginacionTipoUso.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.paginacionTipoUso.Name = "paginacionTipoUso";
-            this.paginacionTipoUso.PositionItem = this.bindingNavigatorPositionItem;
-            this.paginacionTipoUso.Size = new System.Drawing.Size(716, 25);
-            this.paginacionTipoUso.TabIndex = 4;
-            this.paginacionTipoUso.Text = "bindingNavigator1";
+            this.paginacionEstadoSanitario.Location = new System.Drawing.Point(0, 0);
+            this.paginacionEstadoSanitario.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.paginacionEstadoSanitario.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.paginacionEstadoSanitario.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.paginacionEstadoSanitario.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.paginacionEstadoSanitario.Name = "paginacionEstadoSanitario";
+            this.paginacionEstadoSanitario.PositionItem = this.bindingNavigatorPositionItem;
+            this.paginacionEstadoSanitario.Size = new System.Drawing.Size(681, 25);
+            this.paginacionEstadoSanitario.TabIndex = 4;
+            this.paginacionEstadoSanitario.Text = "bindingNavigator1";
             // 
             // bindingNavigatorCountItem
             // 
@@ -244,7 +269,6 @@
             // 
             this.criterioCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.criterioCbx.Items.AddRange(new object[] {
-            "Nombre",
             "Descripcion"});
             this.criterioCbx.Name = "criterioCbx";
             this.criterioCbx.Size = new System.Drawing.Size(121, 25);
@@ -252,12 +276,11 @@
             // panel2
             // 
             this.panel2.BackgroundImage = global::SIFCA.Properties.Resources.fondoTab;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(720, 291);
+            this.panel2.Size = new System.Drawing.Size(685, 273);
             this.panel2.TabIndex = 1;
             // 
             // groupBox1
@@ -268,12 +291,12 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txt_Nombre);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(209, 45);
+            this.groupBox1.Location = new System.Drawing.Point(206, 34);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(329, 179);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Crear Tipo De Uso";
+            this.groupBox1.Text = "Crear Estado Sanitario";
             // 
             // Btn_Cancelar
             // 
@@ -331,32 +354,31 @@
             // panel3
             // 
             this.panel3.BackgroundImage = global::SIFCA.Properties.Resources.fondoTab;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.groupBox);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(720, 291);
+            this.panel3.Size = new System.Drawing.Size(685, 273);
             this.panel3.TabIndex = 2;
             // 
             // groupBox
             // 
             this.groupBox.Controls.Add(this.button1);
-            this.groupBox.Controls.Add(this.updateDescripcionTxt);
-            this.groupBox.Controls.Add(this.label6);
             this.groupBox.Controls.Add(this.Btn_Guardar);
+            this.groupBox.Controls.Add(this.updateDescripTxt);
+            this.groupBox.Controls.Add(this.label6);
             this.groupBox.Controls.Add(this.updateNombreTxt);
             this.groupBox.Controls.Add(this.label3);
-            this.groupBox.Location = new System.Drawing.Point(217, 51);
+            this.groupBox.Location = new System.Drawing.Point(206, 34);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(314, 169);
+            this.groupBox.Size = new System.Drawing.Size(301, 174);
             this.groupBox.TabIndex = 29;
             this.groupBox.TabStop = false;
-            this.groupBox.Text = "Editar Tipo Uso";
+            this.groupBox.Text = "Editar Estado Sanitario";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(213, 135);
+            this.button1.Location = new System.Drawing.Point(202, 141);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 28;
@@ -364,27 +386,9 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Btn_CancelarUpdate_Click);
             // 
-            // updateDescripcionTxt
-            // 
-            this.updateDescripcionTxt.Location = new System.Drawing.Point(101, 50);
-            this.updateDescripcionTxt.Multiline = true;
-            this.updateDescripcionTxt.Name = "updateDescripcionTxt";
-            this.updateDescripcionTxt.ShortcutsEnabled = false;
-            this.updateDescripcionTxt.Size = new System.Drawing.Size(187, 72);
-            this.updateDescripcionTxt.TabIndex = 7;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 50);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Descripción";
-            // 
             // Btn_Guardar
             // 
-            this.Btn_Guardar.Location = new System.Drawing.Point(22, 135);
+            this.Btn_Guardar.Location = new System.Drawing.Point(17, 141);
             this.Btn_Guardar.Name = "Btn_Guardar";
             this.Btn_Guardar.Size = new System.Drawing.Size(75, 23);
             this.Btn_Guardar.TabIndex = 27;
@@ -392,9 +396,27 @@
             this.Btn_Guardar.UseVisualStyleBackColor = true;
             this.Btn_Guardar.Click += new System.EventHandler(this.Btn_guardar_Click);
             // 
+            // updateDescripTxt
+            // 
+            this.updateDescripTxt.Location = new System.Drawing.Point(93, 63);
+            this.updateDescripTxt.Multiline = true;
+            this.updateDescripTxt.Name = "updateDescripTxt";
+            this.updateDescripTxt.ShortcutsEnabled = false;
+            this.updateDescripTxt.Size = new System.Drawing.Size(187, 72);
+            this.updateDescripTxt.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(14, 63);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(63, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Descripción";
+            // 
             // updateNombreTxt
             // 
-            this.updateNombreTxt.Location = new System.Drawing.Point(101, 21);
+            this.updateNombreTxt.Location = new System.Drawing.Point(93, 34);
             this.updateNombreTxt.Name = "updateNombreTxt";
             this.updateNombreTxt.ReadOnly = true;
             this.updateNombreTxt.Size = new System.Drawing.Size(187, 20);
@@ -403,55 +425,32 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 21);
+            this.label3.Location = new System.Drawing.Point(13, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Nombre";
             // 
-            // Acciones
-            // 
-            this.Acciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Acciones.HeaderText = "Acciones";
-            this.Acciones.Name = "Acciones";
-            this.Acciones.ReadOnly = true;
-            this.Acciones.Text = "Editar";
-            this.Acciones.UseColumnTextForButtonValue = true;
-            this.Acciones.Width = 57;
-            // 
-            // nOMBRETIPOUSODataGridViewTextBoxColumn
-            // 
-            this.nOMBRETIPOUSODataGridViewTextBoxColumn.DataPropertyName = "NOMBRETIPOUSO";
-            this.nOMBRETIPOUSODataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nOMBRETIPOUSODataGridViewTextBoxColumn.Name = "nOMBRETIPOUSODataGridViewTextBoxColumn";
-            this.nOMBRETIPOUSODataGridViewTextBoxColumn.ReadOnly = true;
-            this.nOMBRETIPOUSODataGridViewTextBoxColumn.Visible = false;
-            // 
-            // dESCRIPCIONDataGridViewTextBoxColumn
-            // 
-            this.dESCRIPCIONDataGridViewTextBoxColumn.DataPropertyName = "DESCRIPCION";
-            this.dESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "Descripción";
-            this.dESCRIPCIONDataGridViewTextBoxColumn.Name = "dESCRIPCIONDataGridViewTextBoxColumn";
-            this.dESCRIPCIONDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // TiposUso_Form
+            // EstadosSanitarios_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(720, 291);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(685, 273);
             this.Controls.Add(this.panel1);
-            this.Name = "TiposUso_Form";
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "EstadosSanitarios_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tipos de Uso";
+            this.Text = "Estados Sanitarios";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ListadoTiposUso)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TypeUseBSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paginacionTipoUso)).EndInit();
-            this.paginacionTipoUso.ResumeLayout(false);
-            this.paginacionTipoUso.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ListadoEstados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StateBSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paginacionEstadoSanitario)).EndInit();
+            this.paginacionEstadoSanitario.ResumeLayout(false);
+            this.paginacionEstadoSanitario.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -465,9 +464,9 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView ListadoTiposUso;
-        private System.Windows.Forms.BindingSource TypeUseBSource;
-        private System.Windows.Forms.BindingNavigator paginacionTipoUso;
+        private System.Windows.Forms.DataGridView ListadoEstados;
+        private System.Windows.Forms.BindingSource StateBSource;
+        private System.Windows.Forms.BindingNavigator paginacionEstadoSanitario;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
@@ -479,8 +478,6 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripLabel buscarLbl;
         private System.Windows.Forms.ToolStripTextBox busquedaTxt;
-        private System.Windows.Forms.ToolStripLabel filtrarLbl;
-        private System.Windows.Forms.ToolStripComboBox criterioCbx;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button Btn_Cancelar;
@@ -490,16 +487,18 @@
         private System.Windows.Forms.TextBox txt_Nombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox updateDescripcionTxt;
+        private System.Windows.Forms.GroupBox groupBox;
+        private System.Windows.Forms.TextBox updateDescripTxt;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button Btn_Guardar;
         private System.Windows.Forms.TextBox updateNombreTxt;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button Btn_Guardar;
+        private System.Windows.Forms.ToolStripLabel filtrarLbl;
+        private System.Windows.Forms.ToolStripComboBox criterioCbx;
         private System.Windows.Forms.ToolStripButton Btn_nuevo;
         private System.Windows.Forms.DataGridViewButtonColumn Acciones;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nOMBRETIPOUSODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dESCRIPCIONDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eSTADODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dESCRIPESTADODataGridViewTextBoxColumn;
     }
 }

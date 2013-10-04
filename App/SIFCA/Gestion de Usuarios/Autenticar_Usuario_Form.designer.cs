@@ -30,14 +30,15 @@
         {
             System.Windows.Forms.Label usuarioLbl;
             System.Windows.Forms.Label cONTRASENALabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Autenticar_Usuario_Form));
             this.datosAutenticacionGbx = new System.Windows.Forms.GroupBox();
+            this.SalirBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.contrasenaTxt = new System.Windows.Forms.TextBox();
             this.usuarioTxt = new System.Windows.Forms.TextBox();
             this.AceptarBtn = new System.Windows.Forms.Button();
-            this.SalirBtn = new System.Windows.Forms.Button();
             usuarioLbl = new System.Windows.Forms.Label();
             cONTRASENALabel = new System.Windows.Forms.Label();
             this.datosAutenticacionGbx.SuspendLayout();
@@ -82,6 +83,17 @@
             this.datosAutenticacionGbx.Size = new System.Drawing.Size(366, 283);
             this.datosAutenticacionGbx.TabIndex = 0;
             this.datosAutenticacionGbx.TabStop = false;
+            // 
+            // SalirBtn
+            // 
+            this.SalirBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.SalirBtn.Location = new System.Drawing.Point(187, 187);
+            this.SalirBtn.Name = "SalirBtn";
+            this.SalirBtn.Size = new System.Drawing.Size(124, 32);
+            this.SalirBtn.TabIndex = 26;
+            this.SalirBtn.Text = "Salir";
+            this.SalirBtn.UseVisualStyleBackColor = true;
+            this.SalirBtn.Click += new System.EventHandler(this.cancelarBtn_Click);
             // 
             // label3
             // 
@@ -140,17 +152,6 @@
             this.AceptarBtn.UseVisualStyleBackColor = true;
             this.AceptarBtn.Click += new System.EventHandler(this.IngresarBtn_Click);
             // 
-            // SalirBtn
-            // 
-            this.SalirBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.SalirBtn.Location = new System.Drawing.Point(187, 187);
-            this.SalirBtn.Name = "SalirBtn";
-            this.SalirBtn.Size = new System.Drawing.Size(124, 32);
-            this.SalirBtn.TabIndex = 26;
-            this.SalirBtn.Text = "Salir";
-            this.SalirBtn.UseVisualStyleBackColor = true;
-            this.SalirBtn.Click += new System.EventHandler(this.cancelarBtn_Click);
-            // 
             // Autenticar_Usuario_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,6 +161,7 @@
             this.ClientSize = new System.Drawing.Size(414, 336);
             this.Controls.Add(this.datosAutenticacionGbx);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

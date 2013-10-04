@@ -98,6 +98,14 @@
             this.formulariosTap = new System.Windows.Forms.TabPage();
             this.crearFormBtn = new System.Windows.Forms.Button();
             this.formulariosDGW = new System.Windows.Forms.DataGridView();
+            this.FECHACREACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NROFORMULARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreResponsable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CODEST = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.PARCELA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LINEA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ListarDatos = new System.Windows.Forms.DataGridViewButtonColumn();
             this.formulariosBS = new System.Windows.Forms.BindingSource(this.components);
             this.proyectosContTabP = new System.Windows.Forms.TabPage();
             this.proyectoDGW = new System.Windows.Forms.DataGridView();
@@ -113,14 +121,6 @@
             this.usuarioBS = new System.Windows.Forms.BindingSource(this.components);
             this.cancelarBtn = new System.Windows.Forms.Button();
             this.ActualizarBtn = new System.Windows.Forms.Button();
-            this.FECHACREACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NROFORMULARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreResponsable = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CODEST = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.PARCELA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LINEA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ListarDatos = new System.Windows.Forms.DataGridViewButtonColumn();
             descripcionLbl = new System.Windows.Forms.Label();
             DAPLbl = new System.Windows.Forms.Label();
             numeroEtapasLbl = new System.Windows.Forms.Label();
@@ -802,6 +802,70 @@
             this.formulariosDGW.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.formulariosDGW_CellClick);
             this.formulariosDGW.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.formulariosDGW_DataBindingComplete);
             // 
+            // FECHACREACION
+            // 
+            this.FECHACREACION.DataPropertyName = "FECHACREACION";
+            this.FECHACREACION.HeaderText = "Fecha";
+            this.FECHACREACION.Name = "FECHACREACION";
+            this.FECHACREACION.ReadOnly = true;
+            // 
+            // NROFORMULARIO
+            // 
+            this.NROFORMULARIO.DataPropertyName = "NROFORMULARIO";
+            this.NROFORMULARIO.HeaderText = "NROFORMULARIO";
+            this.NROFORMULARIO.Name = "NROFORMULARIO";
+            this.NROFORMULARIO.ReadOnly = true;
+            this.NROFORMULARIO.Visible = false;
+            // 
+            // Usuario
+            // 
+            this.Usuario.DataPropertyName = "NROUSUARIO";
+            this.Usuario.HeaderText = "Responsable";
+            this.Usuario.Name = "Usuario";
+            this.Usuario.ReadOnly = true;
+            this.Usuario.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Usuario.Visible = false;
+            // 
+            // NombreResponsable
+            // 
+            this.NombreResponsable.HeaderText = "Responsable";
+            this.NombreResponsable.Name = "NombreResponsable";
+            this.NombreResponsable.ReadOnly = true;
+            // 
+            // CODEST
+            // 
+            this.CODEST.DataPropertyName = "CODEST";
+            this.CODEST.DataSource = this.estratoBS;
+            this.CODEST.DisplayMember = "DESCRIPESTRATO";
+            this.CODEST.HeaderText = "Estrato";
+            this.CODEST.Name = "CODEST";
+            this.CODEST.ReadOnly = true;
+            this.CODEST.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CODEST.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.CODEST.ValueMember = "CODEST";
+            // 
+            // PARCELA
+            // 
+            this.PARCELA.DataPropertyName = "PARCELA";
+            this.PARCELA.HeaderText = "Parcela";
+            this.PARCELA.Name = "PARCELA";
+            this.PARCELA.ReadOnly = true;
+            // 
+            // LINEA
+            // 
+            this.LINEA.DataPropertyName = "LINEA";
+            this.LINEA.HeaderText = "Linea";
+            this.LINEA.Name = "LINEA";
+            this.LINEA.ReadOnly = true;
+            // 
+            // ListarDatos
+            // 
+            this.ListarDatos.HeaderText = "";
+            this.ListarDatos.Name = "ListarDatos";
+            this.ListarDatos.ReadOnly = true;
+            this.ListarDatos.Text = "Ver";
+            this.ListarDatos.UseColumnTextForButtonValue = true;
+            // 
             // formulariosBS
             // 
             this.formulariosBS.DataSource = typeof(SIFCA_DAL.FORMULARIO);
@@ -969,70 +1033,6 @@
             this.ActualizarBtn.UseVisualStyleBackColor = true;
             this.ActualizarBtn.Click += new System.EventHandler(this.GuardarBtn_Click);
             // 
-            // FECHACREACION
-            // 
-            this.FECHACREACION.DataPropertyName = "FECHACREACION";
-            this.FECHACREACION.HeaderText = "Fecha";
-            this.FECHACREACION.Name = "FECHACREACION";
-            this.FECHACREACION.ReadOnly = true;
-            // 
-            // NROFORMULARIO
-            // 
-            this.NROFORMULARIO.DataPropertyName = "NROFORMULARIO";
-            this.NROFORMULARIO.HeaderText = "NROFORMULARIO";
-            this.NROFORMULARIO.Name = "NROFORMULARIO";
-            this.NROFORMULARIO.ReadOnly = true;
-            this.NROFORMULARIO.Visible = false;
-            // 
-            // Usuario
-            // 
-            this.Usuario.DataPropertyName = "NROUSUARIO";
-            this.Usuario.HeaderText = "Responsable";
-            this.Usuario.Name = "Usuario";
-            this.Usuario.ReadOnly = true;
-            this.Usuario.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Usuario.Visible = false;
-            // 
-            // NombreResponsable
-            // 
-            this.NombreResponsable.HeaderText = "Responsable";
-            this.NombreResponsable.Name = "NombreResponsable";
-            this.NombreResponsable.ReadOnly = true;
-            // 
-            // CODEST
-            // 
-            this.CODEST.DataPropertyName = "CODEST";
-            this.CODEST.DataSource = this.estratoBS;
-            this.CODEST.DisplayMember = "DESCRIPESTRATO";
-            this.CODEST.HeaderText = "Estrato";
-            this.CODEST.Name = "CODEST";
-            this.CODEST.ReadOnly = true;
-            this.CODEST.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CODEST.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.CODEST.ValueMember = "CODEST";
-            // 
-            // PARCELA
-            // 
-            this.PARCELA.DataPropertyName = "PARCELA";
-            this.PARCELA.HeaderText = "Parcela";
-            this.PARCELA.Name = "PARCELA";
-            this.PARCELA.ReadOnly = true;
-            // 
-            // LINEA
-            // 
-            this.LINEA.DataPropertyName = "LINEA";
-            this.LINEA.HeaderText = "Linea";
-            this.LINEA.Name = "LINEA";
-            this.LINEA.ReadOnly = true;
-            // 
-            // ListarDatos
-            // 
-            this.ListarDatos.HeaderText = "";
-            this.ListarDatos.Name = "ListarDatos";
-            this.ListarDatos.ReadOnly = true;
-            this.ListarDatos.Text = "Ver";
-            this.ListarDatos.UseColumnTextForButtonValue = true;
-            // 
             // Actualizar_Proyectos_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1044,6 +1044,7 @@
             this.Controls.Add(this.ActualizarBtn);
             this.Controls.Add(this.crearProyectoTab);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Actualizar_Proyectos_Form";

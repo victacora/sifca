@@ -13,7 +13,6 @@
     <EntitySet Name="LINEAREGENERACION" EntityType="SIFCA_Model.Store.LINEAREGENERACION" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="LISTADODEESPECIES" EntityType="SIFCA_Model.Store.LISTADODEESPECIES" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="LISTADODEESTRATOS" EntityType="SIFCA_Model.Store.LISTADODEESTRATOS" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="MEDIDACAPYDAP" EntityType="SIFCA_Model.Store.MEDIDACAPYDAP" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="OBJETIVOINVENTARIO" EntityType="SIFCA_Model.Store.OBJETIVOINVENTARIO" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PROYECTO" EntityType="SIFCA_Model.Store.PROYECTO" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PROYECTOSPORETAPA" EntityType="SIFCA_Model.Store.PROYECTOSPORETAPA" store:Type="Tables" Schema="dbo" />
@@ -86,10 +85,6 @@
     <AssociationSet Name="FK_LISTAESTRATOS_PROYECTO" Association="SIFCA_Model.Store.FK_LISTAESTRATOS_PROYECTO">
       <End Role="PROYECTO" EntitySet="PROYECTO" />
       <End Role="LISTADODEESTRATOS" EntitySet="LISTADODEESTRATOS" />
-    </AssociationSet>
-    <AssociationSet Name="FK_MEDIDA_LINEAINV" Association="SIFCA_Model.Store.FK_MEDIDA_LINEAINV">
-      <End Role="LINEAINVENTARIO" EntitySet="LINEAINVENTARIO" />
-      <End Role="MEDIDACAPYDAP" EntitySet="MEDIDACAPYDAP" />
     </AssociationSet>
     <AssociationSet Name="FK_PROYECTO_CONTENEDOR" Association="SIFCA_Model.Store.FK_PROYECTO_CONTENEDOR">
       <End Role="PROYECTO" EntitySet="PROYECTO" />
@@ -201,13 +196,15 @@
     <Property Name="NROFORMULARIO" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ESTADO" Type="char" Nullable="false" MaxLength="2" />
     <Property Name="CODESP" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="NROARB" Type="numeric" />
-    <Property Name="ALTCOMER_M" Type="numeric" />
-    <Property Name="ALTTOT_M" Type="numeric" />
-    <Property Name="AREABASAL" Type="decimal" Scale="3" />
-    <Property Name="VOLCOM" Type="decimal" Scale="3" />
-    <Property Name="VOLTOT" Type="decimal" Scale="3" />
-    <Property Name="TIPOARBOL" Type="char" Nullable="false" MaxLength="2" />
+    <Property Name="NROARB" Type="numeric" Nullable="false" />
+    <Property Name="ALTCOMER_M" Type="numeric" Nullable="false" />
+    <Property Name="ALTTOT_M" Type="numeric" Nullable="false" />
+    <Property Name="AREABASAL" Type="decimal" Nullable="false" Scale="3" />
+    <Property Name="VOLCOM" Type="decimal" Nullable="false" Scale="3" />
+    <Property Name="VOLTOT" Type="decimal" Nullable="false" Scale="3" />
+    <Property Name="CAP" Type="numeric" Nullable="false" />
+    <Property Name="DAP" Type="numeric" Nullable="false" />
+    <Property Name="TIPOARBOL" Type="char" Nullable="false" MaxLength="3" />
   </EntityType>
   <EntityType Name="LINEANOMADERABLES">
     <Key>
@@ -215,7 +212,7 @@
     </Key>
     <Property Name="LINEANMAD" Type="uniqueidentifier" Nullable="false" />
     <Property Name="NROFORMULARIO" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="OBSERVACIONES" Type="varchar" MaxLength="500" />
+    <Property Name="OBSERVACIONES" Type="varchar" Nullable="false" MaxLength="500" />
   </EntityType>
   <EntityType Name="LINEAREGENERACION">
     <Key>
@@ -243,16 +240,6 @@
     <Property Name="NROPROY" Type="uniqueidentifier" Nullable="false" />
     <Property Name="CODEST" Type="numeric" Nullable="false" />
     <Property Name="PESO" Type="decimal" Scale="3" />
-  </EntityType>
-  <EntityType Name="MEDIDACAPYDAP">
-    <Key>
-      <PropertyRef Name="MEDIDAID" />
-      <PropertyRef Name="LINEAINV" />
-    </Key>
-    <Property Name="CAP" Type="numeric" Nullable="false" />
-    <Property Name="DAP" Type="numeric" Nullable="false" />
-    <Property Name="MEDIDAID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="LINEAINV" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="OBJETIVOINVENTARIO">
     <Key>
@@ -570,20 +557,6 @@
       </Principal>
       <Dependent Role="LISTADODEESTRATOS">
         <PropertyRef Name="NROPROY" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_MEDIDA_LINEAINV">
-    <End Role="LINEAINVENTARIO" Type="SIFCA_Model.Store.LINEAINVENTARIO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="MEDIDACAPYDAP" Type="SIFCA_Model.Store.MEDIDACAPYDAP" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="LINEAINVENTARIO">
-        <PropertyRef Name="LINEAINV" />
-      </Principal>
-      <Dependent Role="MEDIDACAPYDAP">
-        <PropertyRef Name="LINEAINV" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

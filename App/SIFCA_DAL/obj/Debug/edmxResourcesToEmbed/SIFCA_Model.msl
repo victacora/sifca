@@ -80,6 +80,8 @@
       <EntityTypeMapping TypeName="SIFCA_Model.LINEAINVENTARIO">
         <MappingFragment StoreEntitySet="LINEAINVENTARIO">
           <ScalarProperty Name="TIPOARBOL" ColumnName="TIPOARBOL" />
+          <ScalarProperty Name="DAP" ColumnName="DAP" />
+          <ScalarProperty Name="CAP" ColumnName="CAP" />
           <ScalarProperty Name="VOLTOT" ColumnName="VOLTOT" />
           <ScalarProperty Name="VOLCOM" ColumnName="VOLCOM" />
           <ScalarProperty Name="AREABASAL" ColumnName="AREABASAL" />
@@ -120,16 +122,6 @@
           <ScalarProperty Name="PESO" ColumnName="PESO" />
           <ScalarProperty Name="CODEST" ColumnName="CODEST" />
           <ScalarProperty Name="NROPROY" ColumnName="NROPROY" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MEDIDACAPYDAP">
-      <EntityTypeMapping TypeName="SIFCA_Model.MEDIDACAPYDAP">
-        <MappingFragment StoreEntitySet="MEDIDACAPYDAP">
-          <ScalarProperty Name="LINEAINV" ColumnName="LINEAINV" />
-          <ScalarProperty Name="MEDIDAID" ColumnName="MEDIDAID" />
-          <ScalarProperty Name="DAP" ColumnName="DAP" />
-          <ScalarProperty Name="CAP" ColumnName="CAP" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

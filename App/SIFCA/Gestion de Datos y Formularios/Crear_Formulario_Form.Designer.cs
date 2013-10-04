@@ -51,6 +51,7 @@
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label2;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Crear_Formulario_Form));
+            System.Windows.Forms.Label tipoArbolLbl;
             this.formularioBS = new System.Windows.Forms.BindingSource(this.components);
             this.datosFormularioGrx = new System.Windows.Forms.GroupBox();
             this.proyectoTxt = new System.Windows.Forms.TextBox();
@@ -137,6 +138,10 @@
             this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tipoUsoBS = new System.Windows.Forms.BindingSource(this.components);
+            this.tipoArbolCbx = new System.Windows.Forms.ComboBox();
+            this.verDetalleBtn = new System.Windows.Forms.Button();
+            this.nombreCientRbtn = new System.Windows.Forms.RadioButton();
+            this.nombreComunRbtn = new System.Windows.Forms.RadioButton();
             estratoLbl = new System.Windows.Forms.Label();
             lineaLbl = new System.Windows.Forms.Label();
             ProyectoLbl = new System.Windows.Forms.Label();
@@ -158,6 +163,7 @@
             observacionesLbl = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
+            tipoArbolLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.formularioBS)).BeginInit();
             this.datosFormularioGrx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.estratoBS)).BeginInit();
@@ -268,7 +274,7 @@
             // cAPLbl
             // 
             cAPLbl.AutoSize = true;
-            cAPLbl.Location = new System.Drawing.Point(16, 188);
+            cAPLbl.Location = new System.Drawing.Point(16, 241);
             cAPLbl.Name = "cAPLbl";
             cAPLbl.Size = new System.Drawing.Size(101, 13);
             cAPLbl.TabIndex = 71;
@@ -295,7 +301,7 @@
             // alturaComercialLbl
             // 
             alturaComercialLbl.AutoSize = true;
-            alturaComercialLbl.Location = new System.Drawing.Point(17, 218);
+            alturaComercialLbl.Location = new System.Drawing.Point(17, 272);
             alturaComercialLbl.Name = "alturaComercialLbl";
             alturaComercialLbl.Size = new System.Drawing.Size(115, 13);
             alturaComercialLbl.TabIndex = 26;
@@ -304,7 +310,7 @@
             // alturaTotalLbl
             // 
             alturaTotalLbl.AutoSize = true;
-            alturaTotalLbl.Location = new System.Drawing.Point(17, 244);
+            alturaTotalLbl.Location = new System.Drawing.Point(17, 297);
             alturaTotalLbl.Name = "alturaTotalLbl";
             alturaTotalLbl.Size = new System.Drawing.Size(93, 13);
             alturaTotalLbl.TabIndex = 28;
@@ -313,7 +319,7 @@
             // calidadLbl
             // 
             calidadLbl.AutoSize = true;
-            calidadLbl.Location = new System.Drawing.Point(16, 108);
+            calidadLbl.Location = new System.Drawing.Point(16, 136);
             calidadLbl.Name = "calidadLbl";
             calidadLbl.Size = new System.Drawing.Size(45, 13);
             calidadLbl.TabIndex = 8;
@@ -322,7 +328,7 @@
             // dAPLbl
             // 
             dAPLbl.AutoSize = true;
-            dAPLbl.Location = new System.Drawing.Point(16, 161);
+            dAPLbl.Location = new System.Drawing.Point(16, 214);
             dAPLbl.Name = "dAPLbl";
             dAPLbl.Size = new System.Drawing.Size(75, 13);
             dAPLbl.TabIndex = 12;
@@ -331,7 +337,7 @@
             // estadoLbl
             // 
             estadoLbl.AutoSize = true;
-            estadoLbl.Location = new System.Drawing.Point(16, 135);
+            estadoLbl.Location = new System.Drawing.Point(16, 188);
             estadoLbl.Name = "estadoLbl";
             estadoLbl.Size = new System.Drawing.Size(43, 13);
             estadoLbl.TabIndex = 14;
@@ -540,6 +546,11 @@
             // datosInventarioGrx
             // 
             this.datosInventarioGrx.BackColor = System.Drawing.SystemColors.Window;
+            this.datosInventarioGrx.Controls.Add(this.nombreComunRbtn);
+            this.datosInventarioGrx.Controls.Add(this.nombreCientRbtn);
+            this.datosInventarioGrx.Controls.Add(this.verDetalleBtn);
+            this.datosInventarioGrx.Controls.Add(this.tipoArbolCbx);
+            this.datosInventarioGrx.Controls.Add(tipoArbolLbl);
             this.datosInventarioGrx.Controls.Add(this.cAPTxt);
             this.datosInventarioGrx.Controls.Add(this.dAPTxt);
             this.datosInventarioGrx.Controls.Add(this.RegistrarEspecieBtn);
@@ -570,7 +581,7 @@
             // cAPTxt
             // 
             this.cAPTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "CAP", true));
-            this.cAPTxt.Location = new System.Drawing.Point(134, 185);
+            this.cAPTxt.Location = new System.Drawing.Point(134, 239);
             this.cAPTxt.Name = "cAPTxt";
             this.cAPTxt.Size = new System.Drawing.Size(237, 20);
             this.cAPTxt.TabIndex = 80;
@@ -579,7 +590,7 @@
             // dAPTxt
             // 
             this.dAPTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "DAP", true));
-            this.dAPTxt.Location = new System.Drawing.Point(135, 159);
+            this.dAPTxt.Location = new System.Drawing.Point(135, 213);
             this.dAPTxt.Name = "dAPTxt";
             this.dAPTxt.Size = new System.Drawing.Size(237, 20);
             this.dAPTxt.TabIndex = 79;
@@ -587,7 +598,7 @@
             // 
             // RegistrarEspecieBtn
             // 
-            this.RegistrarEspecieBtn.Location = new System.Drawing.Point(157, 396);
+            this.RegistrarEspecieBtn.Location = new System.Drawing.Point(158, 396);
             this.RegistrarEspecieBtn.Name = "RegistrarEspecieBtn";
             this.RegistrarEspecieBtn.Size = new System.Drawing.Size(112, 23);
             this.RegistrarEspecieBtn.TabIndex = 78;
@@ -618,7 +629,7 @@
             this.especieCbx.DataSource = this.especieBS;
             this.especieCbx.DisplayMember = "NOMCOMUN";
             this.especieCbx.FormattingEnabled = true;
-            this.especieCbx.Location = new System.Drawing.Point(135, 78);
+            this.especieCbx.Location = new System.Drawing.Point(135, 73);
             this.especieCbx.Name = "especieCbx";
             this.especieCbx.Size = new System.Drawing.Size(238, 21);
             this.especieCbx.TabIndex = 68;
@@ -629,7 +640,7 @@
             this.estadoCbx.DataSource = this.estadoSanitarioBS;
             this.estadoCbx.DisplayMember = "DESCRIPESTADO";
             this.estadoCbx.FormattingEnabled = true;
-            this.estadoCbx.Location = new System.Drawing.Point(135, 131);
+            this.estadoCbx.Location = new System.Drawing.Point(135, 187);
             this.estadoCbx.Name = "estadoCbx";
             this.estadoCbx.Size = new System.Drawing.Size(237, 21);
             this.estadoCbx.TabIndex = 66;
@@ -640,7 +651,7 @@
             this.calidadCbx.DataSource = this.calidadBS;
             this.calidadCbx.DisplayMember = "DESCRIPCALIDAD";
             this.calidadCbx.FormattingEnabled = true;
-            this.calidadCbx.Location = new System.Drawing.Point(134, 104);
+            this.calidadCbx.Location = new System.Drawing.Point(135, 133);
             this.calidadCbx.Name = "calidadCbx";
             this.calidadCbx.Size = new System.Drawing.Size(238, 21);
             this.calidadCbx.TabIndex = 65;
@@ -659,7 +670,7 @@
             // alturaComercialTxt
             // 
             this.alturaComercialTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "ALTCOMER_M", true));
-            this.alturaComercialTxt.Location = new System.Drawing.Point(134, 215);
+            this.alturaComercialTxt.Location = new System.Drawing.Point(135, 267);
             this.alturaComercialTxt.Name = "alturaComercialTxt";
             this.alturaComercialTxt.Size = new System.Drawing.Size(238, 20);
             this.alturaComercialTxt.TabIndex = 27;
@@ -667,7 +678,7 @@
             // alturaTotalTxt
             // 
             this.alturaTotalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "ALTTOT_M", true));
-            this.alturaTotalTxt.Location = new System.Drawing.Point(134, 241);
+            this.alturaTotalTxt.Location = new System.Drawing.Point(135, 293);
             this.alturaTotalTxt.Name = "alturaTotalTxt";
             this.alturaTotalTxt.Size = new System.Drawing.Size(238, 20);
             this.alturaTotalTxt.TabIndex = 29;
@@ -1189,6 +1200,63 @@
             // 
             this.tipoUsoBS.DataSource = typeof(SIFCA_DAL.TIPODEUSO);
             // 
+            // tipoArbolCbx
+            // 
+            this.tipoArbolCbx.DataSource = this.estadoSanitarioBS;
+            this.tipoArbolCbx.DisplayMember = "DESCRIPESTADO";
+            this.tipoArbolCbx.FormattingEnabled = true;
+            this.tipoArbolCbx.Location = new System.Drawing.Point(135, 160);
+            this.tipoArbolCbx.Name = "tipoArbolCbx";
+            this.tipoArbolCbx.Size = new System.Drawing.Size(237, 21);
+            this.tipoArbolCbx.TabIndex = 82;
+            this.tipoArbolCbx.ValueMember = "ESTADO";
+            // 
+            // tipoArbolLbl
+            // 
+            tipoArbolLbl.AutoSize = true;
+            tipoArbolLbl.Location = new System.Drawing.Point(17, 162);
+            tipoArbolLbl.Name = "tipoArbolLbl";
+            tipoArbolLbl.Size = new System.Drawing.Size(57, 13);
+            tipoArbolLbl.TabIndex = 81;
+            tipoArbolLbl.Text = "Tipo arbol:";
+            // 
+            // verDetalleBtn
+            // 
+            this.verDetalleBtn.Location = new System.Drawing.Point(298, 101);
+            this.verDetalleBtn.Name = "verDetalleBtn";
+            this.verDetalleBtn.Size = new System.Drawing.Size(75, 23);
+            this.verDetalleBtn.TabIndex = 83;
+            this.verDetalleBtn.Text = "Ver detalle";
+            this.verDetalleBtn.UseVisualStyleBackColor = true;
+            this.verDetalleBtn.Click += new System.EventHandler(this.verDetalleBtn_Click);
+            // 
+            // nombreCientRbtn
+            // 
+            this.nombreCientRbtn.AutoSize = true;
+            this.nombreCientRbtn.Location = new System.Drawing.Point(16, 104);
+            this.nombreCientRbtn.Name = "nombreCientRbtn";
+            this.nombreCientRbtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.nombreCientRbtn.Size = new System.Drawing.Size(107, 17);
+            this.nombreCientRbtn.TabIndex = 84;
+            this.nombreCientRbtn.TabStop = true;
+            this.nombreCientRbtn.Text = "Nombre cientifico";
+            this.nombreCientRbtn.UseVisualStyleBackColor = true;
+            this.nombreCientRbtn.CheckedChanged += new System.EventHandler(this.cambiarOpcionBusqueda);
+            // 
+            // nombreComunRbtn
+            // 
+            this.nombreComunRbtn.AutoSize = true;
+            this.nombreComunRbtn.Checked = true;
+            this.nombreComunRbtn.Location = new System.Drawing.Point(164, 104);
+            this.nombreComunRbtn.Name = "nombreComunRbtn";
+            this.nombreComunRbtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.nombreComunRbtn.Size = new System.Drawing.Size(97, 17);
+            this.nombreComunRbtn.TabIndex = 85;
+            this.nombreComunRbtn.TabStop = true;
+            this.nombreComunRbtn.Text = "Nombre comun";
+            this.nombreComunRbtn.UseVisualStyleBackColor = true;
+            this.nombreComunRbtn.CheckedChanged += new System.EventHandler(this.cambiarOpcionBusqueda);
+            // 
             // Crear_Formulario_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1327,5 +1395,9 @@
         private System.Windows.Forms.TextBox brinzalTxt;
         private System.Windows.Forms.TextBox cAPTxt;
         private System.Windows.Forms.TextBox dAPTxt;
+        private System.Windows.Forms.ComboBox tipoArbolCbx;
+        private System.Windows.Forms.RadioButton nombreComunRbtn;
+        private System.Windows.Forms.RadioButton nombreCientRbtn;
+        private System.Windows.Forms.Button verDetalleBtn;
     }
 }

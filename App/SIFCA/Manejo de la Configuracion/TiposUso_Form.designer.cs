@@ -1,6 +1,6 @@
 ﻿namespace SIFCA.Gestion_Configuracion
 {
-    partial class Calidad_Form
+    partial class TiposUso_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calidad_Form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TiposUso_Form));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ListadoCalidades = new System.Windows.Forms.DataGridView();
+            this.ListadoTiposUso = new System.Windows.Forms.DataGridView();
             this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.cODCALIDADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dESCRIPCALIDADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QualityBSource = new System.Windows.Forms.BindingSource(this.components);
-            this.paginacionCalidad = new System.Windows.Forms.BindingNavigator(this.components);
+            this.nOMBRETIPOUSODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dESCRIPCIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeUseBSource = new System.Windows.Forms.BindingSource(this.components);
+            this.paginacionTipoUso = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.Btn_nuevo = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -49,25 +49,29 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.buscarLbl = new System.Windows.Forms.ToolStripLabel();
             this.busquedaTxt = new System.Windows.Forms.ToolStripTextBox();
+            this.filtrarLbl = new System.Windows.Forms.ToolStripLabel();
+            this.criterioCbx = new System.Windows.Forms.ToolStripComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Btn_Cancelar = new System.Windows.Forms.Button();
             this.Btn_Crear = new System.Windows.Forms.Button();
             this.txt_Descripcion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txt_Nombre = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.updateDescripcionTxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.updateNombreTxt = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.Btn_Guardar = new System.Windows.Forms.Button();
+            this.updateNombreTxt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ListadoCalidades)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.QualityBSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paginacionCalidad)).BeginInit();
-            this.paginacionCalidad.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ListadoTiposUso)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TypeUseBSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paginacionTipoUso)).BeginInit();
+            this.paginacionTipoUso.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -77,32 +81,33 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.ListadoCalidades);
-            this.panel1.Controls.Add(this.paginacionCalidad);
+            this.panel1.Controls.Add(this.ListadoTiposUso);
+            this.panel1.Controls.Add(this.paginacionTipoUso);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(501, 300);
+            this.panel1.Size = new System.Drawing.Size(720, 291);
             this.panel1.TabIndex = 0;
             // 
-            // ListadoCalidades
+            // ListadoTiposUso
             // 
-            this.ListadoCalidades.AllowUserToAddRows = false;
-            this.ListadoCalidades.AllowUserToDeleteRows = false;
-            this.ListadoCalidades.AutoGenerateColumns = false;
-            this.ListadoCalidades.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ListadoCalidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ListadoCalidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ListadoTiposUso.AllowUserToAddRows = false;
+            this.ListadoTiposUso.AllowUserToDeleteRows = false;
+            this.ListadoTiposUso.AutoGenerateColumns = false;
+            this.ListadoTiposUso.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ListadoTiposUso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ListadoTiposUso.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Acciones,
-            this.cODCALIDADDataGridViewTextBoxColumn,
-            this.dESCRIPCALIDADDataGridViewTextBoxColumn});
-            this.ListadoCalidades.DataSource = this.QualityBSource;
-            this.ListadoCalidades.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ListadoCalidades.Location = new System.Drawing.Point(0, 25);
-            this.ListadoCalidades.Name = "ListadoCalidades";
-            this.ListadoCalidades.ReadOnly = true;
-            this.ListadoCalidades.Size = new System.Drawing.Size(497, 271);
-            this.ListadoCalidades.TabIndex = 5;
+            this.nOMBRETIPOUSODataGridViewTextBoxColumn,
+            this.dESCRIPCIONDataGridViewTextBoxColumn});
+            this.ListadoTiposUso.DataSource = this.TypeUseBSource;
+            this.ListadoTiposUso.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ListadoTiposUso.Location = new System.Drawing.Point(0, 25);
+            this.ListadoTiposUso.Name = "ListadoTiposUso";
+            this.ListadoTiposUso.ReadOnly = true;
+            this.ListadoTiposUso.Size = new System.Drawing.Size(716, 262);
+            this.ListadoTiposUso.TabIndex = 5;
+            this.ListadoTiposUso.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListadoDeEspecies_CellValueChanged);
             // 
             // Acciones
             // 
@@ -111,34 +116,35 @@
             this.Acciones.Name = "Acciones";
             this.Acciones.ReadOnly = true;
             this.Acciones.Text = "Editar";
+            this.Acciones.UseColumnTextForButtonValue = true;
             this.Acciones.Width = 57;
             // 
-            // cODCALIDADDataGridViewTextBoxColumn
+            // nOMBRETIPOUSODataGridViewTextBoxColumn
             // 
-            this.cODCALIDADDataGridViewTextBoxColumn.DataPropertyName = "CODCALIDAD";
-            this.cODCALIDADDataGridViewTextBoxColumn.HeaderText = "CODCALIDAD";
-            this.cODCALIDADDataGridViewTextBoxColumn.Name = "cODCALIDADDataGridViewTextBoxColumn";
-            this.cODCALIDADDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cODCALIDADDataGridViewTextBoxColumn.Visible = false;
+            this.nOMBRETIPOUSODataGridViewTextBoxColumn.DataPropertyName = "NOMBRETIPOUSO";
+            this.nOMBRETIPOUSODataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nOMBRETIPOUSODataGridViewTextBoxColumn.Name = "nOMBRETIPOUSODataGridViewTextBoxColumn";
+            this.nOMBRETIPOUSODataGridViewTextBoxColumn.ReadOnly = true;
+            this.nOMBRETIPOUSODataGridViewTextBoxColumn.Visible = false;
             // 
-            // dESCRIPCALIDADDataGridViewTextBoxColumn
+            // dESCRIPCIONDataGridViewTextBoxColumn
             // 
-            this.dESCRIPCALIDADDataGridViewTextBoxColumn.DataPropertyName = "DESCRIPCALIDAD";
-            this.dESCRIPCALIDADDataGridViewTextBoxColumn.HeaderText = "Descripcion calidad";
-            this.dESCRIPCALIDADDataGridViewTextBoxColumn.Name = "dESCRIPCALIDADDataGridViewTextBoxColumn";
-            this.dESCRIPCALIDADDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dESCRIPCIONDataGridViewTextBoxColumn.DataPropertyName = "DESCRIPCION";
+            this.dESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "Descripción";
+            this.dESCRIPCIONDataGridViewTextBoxColumn.Name = "dESCRIPCIONDataGridViewTextBoxColumn";
+            this.dESCRIPCIONDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // QualityBSource
+            // TypeUseBSource
             // 
-            this.QualityBSource.DataSource = typeof(SIFCA_DAL.CALIDAD);
+            this.TypeUseBSource.DataSource = typeof(SIFCA_DAL.TIPODEUSO);
             // 
-            // paginacionCalidad
+            // paginacionTipoUso
             // 
-            this.paginacionCalidad.AddNewItem = null;
-            this.paginacionCalidad.BindingSource = this.QualityBSource;
-            this.paginacionCalidad.CountItem = this.bindingNavigatorCountItem;
-            this.paginacionCalidad.DeleteItem = null;
-            this.paginacionCalidad.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.paginacionTipoUso.AddNewItem = null;
+            this.paginacionTipoUso.BindingSource = this.TypeUseBSource;
+            this.paginacionTipoUso.CountItem = this.bindingNavigatorCountItem;
+            this.paginacionTipoUso.DeleteItem = null;
+            this.paginacionTipoUso.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Btn_nuevo,
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -150,17 +156,19 @@
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
             this.buscarLbl,
-            this.busquedaTxt});
-            this.paginacionCalidad.Location = new System.Drawing.Point(0, 0);
-            this.paginacionCalidad.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.paginacionCalidad.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.paginacionCalidad.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.paginacionCalidad.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.paginacionCalidad.Name = "paginacionCalidad";
-            this.paginacionCalidad.PositionItem = this.bindingNavigatorPositionItem;
-            this.paginacionCalidad.Size = new System.Drawing.Size(497, 25);
-            this.paginacionCalidad.TabIndex = 4;
-            this.paginacionCalidad.Text = "bindingNavigator1";
+            this.busquedaTxt,
+            this.filtrarLbl,
+            this.criterioCbx});
+            this.paginacionTipoUso.Location = new System.Drawing.Point(0, 0);
+            this.paginacionTipoUso.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.paginacionTipoUso.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.paginacionTipoUso.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.paginacionTipoUso.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.paginacionTipoUso.Name = "paginacionTipoUso";
+            this.paginacionTipoUso.PositionItem = this.bindingNavigatorPositionItem;
+            this.paginacionTipoUso.Size = new System.Drawing.Size(716, 25);
+            this.paginacionTipoUso.TabIndex = 4;
+            this.paginacionTipoUso.Text = "bindingNavigator1";
             // 
             // bindingNavigatorCountItem
             // 
@@ -251,6 +259,21 @@
             this.busquedaTxt.Size = new System.Drawing.Size(150, 25);
             this.busquedaTxt.TextChanged += new System.EventHandler(this.busquedaTxt_TextChanged);
             // 
+            // filtrarLbl
+            // 
+            this.filtrarLbl.Name = "filtrarLbl";
+            this.filtrarLbl.Size = new System.Drawing.Size(92, 22);
+            this.filtrarLbl.Text = "Filtrar busqueda";
+            // 
+            // criterioCbx
+            // 
+            this.criterioCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.criterioCbx.Items.AddRange(new object[] {
+            "Nombre",
+            "Descripcion"});
+            this.criterioCbx.Name = "criterioCbx";
+            this.criterioCbx.Size = new System.Drawing.Size(121, 25);
+            // 
             // panel2
             // 
             this.panel2.BackgroundImage = global::SIFCA.Properties.Resources.fondoTab;
@@ -259,7 +282,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(501, 300);
+            this.panel2.Size = new System.Drawing.Size(720, 291);
             this.panel2.TabIndex = 1;
             // 
             // groupBox1
@@ -268,16 +291,18 @@
             this.groupBox1.Controls.Add(this.Btn_Crear);
             this.groupBox1.Controls.Add(this.txt_Descripcion);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(94, 67);
+            this.groupBox1.Controls.Add(this.txt_Nombre);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(209, 45);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(296, 141);
+            this.groupBox1.Size = new System.Drawing.Size(329, 179);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Crear Calidad";
+            this.groupBox1.Text = "Crear Tipo De Uso";
             // 
             // Btn_Cancelar
             // 
-            this.Btn_Cancelar.Location = new System.Drawing.Point(171, 104);
+            this.Btn_Cancelar.Location = new System.Drawing.Point(187, 146);
             this.Btn_Cancelar.Name = "Btn_Cancelar";
             this.Btn_Cancelar.Size = new System.Drawing.Size(113, 23);
             this.Btn_Cancelar.TabIndex = 5;
@@ -287,7 +312,7 @@
             // 
             // Btn_Crear
             // 
-            this.Btn_Crear.Location = new System.Drawing.Point(12, 104);
+            this.Btn_Crear.Location = new System.Drawing.Point(28, 146);
             this.Btn_Crear.Name = "Btn_Crear";
             this.Btn_Crear.Size = new System.Drawing.Size(101, 23);
             this.Btn_Crear.TabIndex = 4;
@@ -297,20 +322,36 @@
             // 
             // txt_Descripcion
             // 
-            this.txt_Descripcion.Location = new System.Drawing.Point(105, 16);
+            this.txt_Descripcion.Location = new System.Drawing.Point(121, 66);
             this.txt_Descripcion.Multiline = true;
             this.txt_Descripcion.Name = "txt_Descripcion";
-            this.txt_Descripcion.Size = new System.Drawing.Size(179, 76);
+            this.txt_Descripcion.Size = new System.Drawing.Size(179, 65);
             this.txt_Descripcion.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 16);
+            this.label2.Location = new System.Drawing.Point(25, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Descripcion";
+            // 
+            // txt_Nombre
+            // 
+            this.txt_Nombre.Location = new System.Drawing.Point(121, 28);
+            this.txt_Nombre.Name = "txt_Nombre";
+            this.txt_Nombre.Size = new System.Drawing.Size(179, 20);
+            this.txt_Nombre.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nombre";
             // 
             // panel3
             // 
@@ -320,7 +361,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(501, 300);
+            this.panel3.Size = new System.Drawing.Size(720, 291);
             this.panel3.TabIndex = 2;
             // 
             // groupBox
@@ -328,19 +369,19 @@
             this.groupBox.Controls.Add(this.button1);
             this.groupBox.Controls.Add(this.updateDescripcionTxt);
             this.groupBox.Controls.Add(this.label6);
-            this.groupBox.Controls.Add(this.updateNombreTxt);
-            this.groupBox.Controls.Add(this.label1);
             this.groupBox.Controls.Add(this.Btn_Guardar);
-            this.groupBox.Location = new System.Drawing.Point(109, 64);
+            this.groupBox.Controls.Add(this.updateNombreTxt);
+            this.groupBox.Controls.Add(this.label3);
+            this.groupBox.Location = new System.Drawing.Point(217, 51);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(280, 158);
+            this.groupBox.Size = new System.Drawing.Size(314, 169);
             this.groupBox.TabIndex = 29;
             this.groupBox.TabStop = false;
-            this.groupBox.Text = "Editar Calidad";
+            this.groupBox.Text = "Editar Tipo Uso";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(190, 125);
+            this.button1.Location = new System.Drawing.Point(213, 135);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 28;
@@ -350,42 +391,25 @@
             // 
             // updateDescripcionTxt
             // 
-            this.updateDescripcionTxt.Location = new System.Drawing.Point(86, 47);
+            this.updateDescripcionTxt.Location = new System.Drawing.Point(101, 50);
             this.updateDescripcionTxt.Multiline = true;
             this.updateDescripcionTxt.Name = "updateDescripcionTxt";
             this.updateDescripcionTxt.ShortcutsEnabled = false;
-            this.updateDescripcionTxt.Size = new System.Drawing.Size(179, 72);
+            this.updateDescripcionTxt.Size = new System.Drawing.Size(187, 72);
             this.updateDescripcionTxt.TabIndex = 7;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 47);
+            this.label6.Location = new System.Drawing.Point(19, 50);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 13);
             this.label6.TabIndex = 6;
             this.label6.Text = "Descripción";
             // 
-            // updateNombreTxt
-            // 
-            this.updateNombreTxt.Location = new System.Drawing.Point(87, 18);
-            this.updateNombreTxt.Name = "updateNombreTxt";
-            this.updateNombreTxt.ReadOnly = true;
-            this.updateNombreTxt.Size = new System.Drawing.Size(178, 20);
-            this.updateNombreTxt.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre";
-            // 
             // Btn_Guardar
             // 
-            this.Btn_Guardar.Location = new System.Drawing.Point(18, 125);
+            this.Btn_Guardar.Location = new System.Drawing.Point(22, 135);
             this.Btn_Guardar.Name = "Btn_Guardar";
             this.Btn_Guardar.Size = new System.Drawing.Size(75, 23);
             this.Btn_Guardar.TabIndex = 27;
@@ -393,25 +417,42 @@
             this.Btn_Guardar.UseVisualStyleBackColor = true;
             this.Btn_Guardar.Click += new System.EventHandler(this.Btn_guardar_Click);
             // 
-            // Calidad_Form
+            // updateNombreTxt
+            // 
+            this.updateNombreTxt.Location = new System.Drawing.Point(101, 21);
+            this.updateNombreTxt.Name = "updateNombreTxt";
+            this.updateNombreTxt.ReadOnly = true;
+            this.updateNombreTxt.Size = new System.Drawing.Size(187, 20);
+            this.updateNombreTxt.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Nombre";
+            // 
+            // TiposUso_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(501, 300);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(720, 291);
             this.Controls.Add(this.panel3);
-            this.Name = "Calidad_Form";
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "TiposUso_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Calidad";
+            this.Text = "Tipos de Uso";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ListadoCalidades)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.QualityBSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paginacionCalidad)).EndInit();
-            this.paginacionCalidad.ResumeLayout(false);
-            this.paginacionCalidad.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ListadoTiposUso)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TypeUseBSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paginacionTipoUso)).EndInit();
+            this.paginacionTipoUso.ResumeLayout(false);
+            this.paginacionTipoUso.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -425,9 +466,9 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView ListadoCalidades;
-        private System.Windows.Forms.BindingSource QualityBSource;
-        private System.Windows.Forms.BindingNavigator paginacionCalidad;
+        private System.Windows.Forms.DataGridView ListadoTiposUso;
+        private System.Windows.Forms.BindingSource TypeUseBSource;
+        private System.Windows.Forms.BindingNavigator paginacionTipoUso;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
@@ -439,23 +480,27 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripLabel buscarLbl;
         private System.Windows.Forms.ToolStripTextBox busquedaTxt;
-        private System.Windows.Forms.ToolStripButton Btn_nuevo;
+        private System.Windows.Forms.ToolStripLabel filtrarLbl;
+        private System.Windows.Forms.ToolStripComboBox criterioCbx;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button Btn_Cancelar;
         private System.Windows.Forms.Button Btn_Crear;
         private System.Windows.Forms.TextBox txt_Descripcion;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txt_Nombre;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button Btn_Guardar;
         private System.Windows.Forms.TextBox updateDescripcionTxt;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button Btn_Guardar;
         private System.Windows.Forms.TextBox updateNombreTxt;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolStripButton Btn_nuevo;
         private System.Windows.Forms.DataGridViewButtonColumn Acciones;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cODCALIDADDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dESCRIPCALIDADDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nOMBRETIPOUSODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dESCRIPCIONDataGridViewTextBoxColumn;
     }
 }

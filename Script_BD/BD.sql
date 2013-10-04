@@ -535,7 +535,7 @@ if exists (select 1 from sysobjects where id=object_id('R_TIPOUSUARIO') and type
 go
 
 create rule R_TIPOARBOL as
-      @column in ('BF','NF')
+      @column in ('BFA','NBF','BFB')
 go
 
 create rule R_TIPOOPERACION as
@@ -554,7 +554,7 @@ go
 /* Domain: TIPOARBOL                                            */
 /*==============================================================*/
 create type TIPOARBOL
-   from char(2) not null
+   from char(3) not null
 go
 
 execute sp_bindrule R_TIPOARBOL, TIPOARBOL
@@ -727,12 +727,14 @@ create table LINEAINVENTARIO (
    NROFORMULARIO        uniqueidentifier     not null,
    ESTADO               char(2)              not null,
    CODESP               uniqueidentifier     not null,
-   NROARB               numeric              null,
-   ALTCOMER_M           numeric              null,
-   ALTTOT_M             numeric              null,
-   AREABASAL            decimal(18,3)        null,
-   VOLCOM               decimal(18,3)        null,
-   VOLTOT               decimal(18,3)        null,
+   NROARB               numeric              not null,
+   ALTCOMER_M           numeric              not null,
+   ALTTOT_M             numeric              not null,
+   AREABASAL            decimal(18,3)        not null,
+   VOLCOM               decimal(18,3)        not null,
+   VOLTOT               decimal(18,3)        not null,
+   CAP                  numeric              not null,
+   DAP                  numeric              not null,
    TIPOARBOL            TIPOARBOL            not null,
    constraint PK_LINEAINVENTARIO primary key nonclustered (LINEAINV)
 )
@@ -776,7 +778,7 @@ go
 create table LINEANOMADERABLES (
    LINEANMAD            uniqueidentifier     not null,
    NROFORMULARIO        uniqueidentifier     not null,
-   OBSERVACIONES        varchar(500)         null,
+   OBSERVACIONES        varchar(500)         not null,
    constraint PK_LINEANOMADERABLES primary key nonclustered (LINEANMAD)
 )
 go
@@ -839,25 +841,6 @@ create table LISTADODEESTRATOS (
 )
 go
 
-/*==============================================================*/
-/* Table: MEDIDACAPYDAP                                         */
-/*==============================================================*/
-create table MEDIDACAPYDAP (
-   CAP                  numeric              not null,
-   DAP                  numeric              not null,
-   MEDIDAID             numeric              identity,
-   LINEAINV             uniqueidentifier     not null,
-   constraint PK_MEDIDACAPYDAP primary key (MEDIDAID, LINEAINV)
-)
-go
-
-/*==============================================================*/
-/* Index: MEDIDAID                                              */
-/*==============================================================*/
-create index MEDIDAID on MEDIDACAPYDAP (
-MEDIDAID ASC
-)
-go
 
 /*==============================================================*/
 /* Table: OBJETIVOINVENTARIO                                    */
@@ -1102,12 +1085,6 @@ go
 alter table LISTADODEESTRATOS
    add constraint FK_LISTADOD_LISTAESTR_ESTRATO foreign key (CODEST)
       references ESTRATO (CODEST)
-         on update cascade on delete cascade
-go
-
-alter table MEDIDACAPYDAP
-   add constraint FK_MEDIDA_LINEAINV foreign key (LINEAINV)
-      references LINEAINVENTARIO (LINEAINV)
          on update cascade on delete cascade
 go
 

@@ -336,8 +336,6 @@ namespace SIFCA
                     hoja_trabajo.Cells[1, 9] = "Especie Nombre Comun";
                     hoja_trabajo.Cells[1, 10] = "Especie Nombre Cientifico";
                     hoja_trabajo.Cells[1, 11] = "Calidad";
-                    hoja_trabajo.Cells[1, 12] = "DAP";
-                    hoja_trabajo.Cells[1, 13] = "CAP";
                     hoja_trabajo.Cells[1, 14] = "Altura Comercial";
                     hoja_trabajo.Cells[1, 15] = "Altura Total";
 

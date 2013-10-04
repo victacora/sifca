@@ -55,7 +55,7 @@ namespace SIFCA
             }
             else if (e.ColumnIndex == proyectosDGW.Columns["eliminar"].Index && e.RowIndex >= 0)
             {
-                DialogResult myResult = MessageBox.Show("¿Esta seguro de querer eliminar este formulario?", "Mensaje de confirmacion", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult myResult = MessageBox.Show("¿Esta seguro de querer eliminar este ptoyecto?", "Mensaje de confirmacion", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (myResult == DialogResult.OK)
                 {
                     project.DeleteProject((Guid)proyectosDGW.Rows[e.RowIndex].Cells[1].Value);

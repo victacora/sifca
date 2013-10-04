@@ -32,6 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EstadosSanitarios_Form));
             this.panel1 = new System.Windows.Forms.Panel();
             this.ListadoEstados = new System.Windows.Forms.DataGridView();
+            this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.eSTADODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dESCRIPESTADODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StateBSource = new System.Windows.Forms.BindingSource(this.components);
             this.paginacionEstadoSanitario = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -64,9 +67,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.updateNombreTxt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.eSTADODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dESCRIPESTADODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListadoEstados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StateBSource)).BeginInit();
@@ -108,6 +108,31 @@
             this.ListadoEstados.Size = new System.Drawing.Size(681, 244);
             this.ListadoEstados.TabIndex = 5;
             this.ListadoEstados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListadoDeEspecies_CellValueChanged);
+            // 
+            // Acciones
+            // 
+            this.Acciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Acciones.HeaderText = "Acciones";
+            this.Acciones.Name = "Acciones";
+            this.Acciones.ReadOnly = true;
+            this.Acciones.Text = "Editar";
+            this.Acciones.UseColumnTextForButtonValue = true;
+            this.Acciones.Width = 57;
+            // 
+            // eSTADODataGridViewTextBoxColumn
+            // 
+            this.eSTADODataGridViewTextBoxColumn.DataPropertyName = "ESTADO";
+            this.eSTADODataGridViewTextBoxColumn.HeaderText = "ESTADO";
+            this.eSTADODataGridViewTextBoxColumn.Name = "eSTADODataGridViewTextBoxColumn";
+            this.eSTADODataGridViewTextBoxColumn.ReadOnly = true;
+            this.eSTADODataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dESCRIPESTADODataGridViewTextBoxColumn
+            // 
+            this.dESCRIPESTADODataGridViewTextBoxColumn.DataPropertyName = "DESCRIPESTADO";
+            this.dESCRIPESTADODataGridViewTextBoxColumn.HeaderText = "Descripción estado";
+            this.dESCRIPESTADODataGridViewTextBoxColumn.Name = "dESCRIPESTADODataGridViewTextBoxColumn";
+            this.dESCRIPESTADODataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // StateBSource
             // 
@@ -406,35 +431,11 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Nombre";
             // 
-            // Acciones
-            // 
-            this.Acciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Acciones.HeaderText = "Acciones";
-            this.Acciones.Name = "Acciones";
-            this.Acciones.ReadOnly = true;
-            this.Acciones.Text = "Editar";
-            this.Acciones.UseColumnTextForButtonValue = true;
-            this.Acciones.Width = 57;
-            // 
-            // eSTADODataGridViewTextBoxColumn
-            // 
-            this.eSTADODataGridViewTextBoxColumn.DataPropertyName = "ESTADO";
-            this.eSTADODataGridViewTextBoxColumn.HeaderText = "ESTADO";
-            this.eSTADODataGridViewTextBoxColumn.Name = "eSTADODataGridViewTextBoxColumn";
-            this.eSTADODataGridViewTextBoxColumn.ReadOnly = true;
-            this.eSTADODataGridViewTextBoxColumn.Visible = false;
-            // 
-            // dESCRIPESTADODataGridViewTextBoxColumn
-            // 
-            this.dESCRIPESTADODataGridViewTextBoxColumn.DataPropertyName = "DESCRIPESTADO";
-            this.dESCRIPESTADODataGridViewTextBoxColumn.HeaderText = "Descripción estado";
-            this.dESCRIPESTADODataGridViewTextBoxColumn.Name = "dESCRIPESTADODataGridViewTextBoxColumn";
-            this.dESCRIPESTADODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // EstadosSanitarios_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(685, 273);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);

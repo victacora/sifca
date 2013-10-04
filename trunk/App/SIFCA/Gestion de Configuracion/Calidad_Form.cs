@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using SIFCA_BLL;
 using SIFCA_DAL;
 
-namespace SIFCA.Gestion_de_Configuracion
+namespace SIFCA.Gestion_Configuracion
 {
     public partial class Calidad_Form : Form
     {

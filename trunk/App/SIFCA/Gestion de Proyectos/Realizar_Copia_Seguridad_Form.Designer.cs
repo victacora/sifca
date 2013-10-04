@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Realizar_Copia_Seguridad_Form));
             this.CancelarBtn = new System.Windows.Forms.Button();
             this.guardarBtn = new System.Windows.Forms.Button();
             this.datosCopiaSeguridadGrx = new System.Windows.Forms.GroupBox();
@@ -128,6 +129,7 @@
             this.Controls.Add(this.datosCopiaSeguridadGrx);
             this.Controls.Add(this.guardarBtn);
             this.Controls.Add(this.CancelarBtn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Realizar_Copia_Seguridad_Form";

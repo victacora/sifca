@@ -54,7 +54,16 @@ namespace SIFCA
             TipoDeUsosLbc.DataSource = tipoUsoBS;
             TipoDeUsosLbc.DisplayMember ="DESCRIPCION";
             TipoDeUsosLbc.ValueMember = "NOMBRETIPOUSO";
-            
+
+            List<KeyValuePair<string, string>> data = new List<KeyValuePair<string, string>>();
+            data.Add(new KeyValuePair<string, string>("NBF", "Ninguna Bifurcacion"));
+            data.Add(new KeyValuePair<string, string>("BFA", "Bifurcacion Arriba de la A.P."));
+            data.Add(new KeyValuePair<string, string>("BFB", "Bifurcacion Abajo de la A.P."));
+            tipoArbolCbx.DataSource = data;
+            tipoArbolCbx.DisplayMember = "Value";
+            tipoArbolCbx.ValueMember = "Key";
+            tipoArbolCbx.SelectedIndex = 0;
+
             noMaderableBS.DataSource = formToUpdate.LINEANOMADERABLES.ToList();
             regeneracionBS.DataSource = formToUpdate.LINEAREGENERACION.ToList();
             lineaInvBS.DataSource = formToUpdate.LINEAINVENTARIO.ToList();
@@ -110,9 +119,9 @@ namespace SIFCA
             newLine.NROARB = int.Parse(nroArbolTxt.Text);
             newLine.ALTCOMER_M = decimal.Parse(alturaComercialTxt.Text);
             newLine.ALTTOT_M = decimal.Parse(alturaTotalTxt.Text);
-            //newLine.CAP = decimal.Parse(cAPTxt.Text);
-            //newLine.DAP = decimal.Parse(dAPTxt.Text);
-            //newLine.AREABASAL = (decimal)(ForestCalculator.BasalAreaDAP((double)newLine.DAP));
+            newLine.CAP = decimal.Parse(cAPTxt.Text);
+            newLine.DAP = decimal.Parse(dAPTxt.Text);
+            newLine.AREABASAL = (decimal)(ForestCalculator.BasalAreaDAP((double)newLine.DAP));
             newLine.VOLCOM = (decimal)(ForestCalculator.TreeVolumeByBasalArea((double)newLine.AREABASAL, (double)newLine.ALTCOMER_M, (double)p.FACTORDEFORMA));
             newLine.VOLTOT = (decimal)(ForestCalculator.TreeVolumeByBasalArea((double)newLine.AREABASAL, (double)newLine.ALTTOT_M, (double)p.FACTORDEFORMA)); 
             lineInv.InsertInventoryLine(newLine);
@@ -180,7 +189,7 @@ namespace SIFCA
                 if (result)
                 {
                     modified = false;
-                    //((LINEAINVENTARIO)lineaInvBS.Current).CAP = (decimal)(output * Math.PI);
+                    ((LINEAINVENTARIO)lineaInvBS.Current).CAP = (decimal)(output * Math.PI);
                 }
                 else MessageBox.Show("Entra invalida para el diametro.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -234,6 +243,37 @@ namespace SIFCA
             childForm.Show();
         }
 
+        private void verDetalleBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cambiarOpcionBusqueda(object sender, EventArgs e)
+        {
+            if (nombreCientRbtn.Checked)
+            {
+                nombreComunRbtn.Checked = false;
+                especieBS.DataSource = species.GetSpecies();
+                especieCbx.DataSource = especieBS;
+                especieCbx.DisplayMember = "NOMCIENTIFICO";
+                especieCbx.ValueMember = "CODESP";
+                especieCbx.Refresh();
+            }
+            else
+            {
+                nombreCientRbtn.Checked = false;
+                especieBS.DataSource = species.GetSpecies();
+                especieCbx.DataSource = especieBS;
+                especieCbx.DisplayMember = "NOMCOMUN";
+                especieCbx.ValueMember = "CODESP";
+                especieCbx.Refresh();
+            }
+        }
+
+        private void lineaInvBS_CurrentItemChanged(object sender, EventArgs e)
+        {
+
+        }
 
     }
 }

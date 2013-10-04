@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Abrir_Proyecto_Form));
             this.proyectoBS = new System.Windows.Forms.BindingSource(this.components);
             this.objetivoInvBS = new System.Windows.Forms.BindingSource(this.components);
             this.tipoDisenoMuesBS = new System.Windows.Forms.BindingSource(this.components);
@@ -249,6 +250,7 @@
             this.ClientSize = new System.Drawing.Size(834, 397);
             this.Controls.Add(this.proyectosDGW);
             this.Controls.Add(this.proyectoBN);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Abrir_Proyecto_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Abrir Proyecto";

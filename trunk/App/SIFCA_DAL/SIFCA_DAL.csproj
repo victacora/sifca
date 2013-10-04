@@ -84,9 +84,6 @@
     <Compile Include="LISTADODEESTRATOS.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="MEDIDACAPYDAP.cs">
-      <DependentUpon>SIFCA_Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="OBJETIVOINVENTARIO.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>

@@ -59,46 +59,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Gestion de Configuracion\Calidad_Form.cs">
+    <Compile Include="Manejo de la Configuracion\Calidad_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestion de Configuracion\Calidad_Form.designer.cs">
+    <Compile Include="Manejo de la Configuracion\Calidad_Form.designer.cs">
       <DependentUpon>Calidad_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestion de Configuracion\Especies_Form.cs">
+    <Compile Include="Manejo de la Configuracion\Especies_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestion de Configuracion\Especies_Form.designer.cs">
+    <Compile Include="Manejo de la Configuracion\Especies_Form.designer.cs">
       <DependentUpon>Especies_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestion de Configuracion\EstadosSanitarios_Form.cs">
+    <Compile Include="Manejo de la Configuracion\EstadosSanitarios_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestion de Configuracion\EstadosSanitarios_Form.designer.cs">
+    <Compile Include="Manejo de la Configuracion\EstadosSanitarios_Form.designer.cs">
       <DependentUpon>EstadosSanitarios_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestion de Configuracion\Estratos_Form.cs">
+    <Compile Include="Manejo de la Configuracion\Estratos_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestion de Configuracion\Estratos_Form.designer.cs">
+    <Compile Include="Manejo de la Configuracion\Estratos_Form.designer.cs">
       <DependentUpon>Estratos_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestion de Configuracion\GruposComerciales_Form.cs">
+    <Compile Include="Manejo de la Configuracion\GruposComerciales_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestion de Configuracion\GruposComerciales_Form.designer.cs">
+    <Compile Include="Manejo de la Configuracion\GruposComerciales_Form.designer.cs">
       <DependentUpon>GruposComerciales_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestion de Configuracion\TiposMuestrales_Form.cs">
+    <Compile Include="Manejo de la Configuracion\TiposMuestrales_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestion de Configuracion\TiposMuestrales_Form.designer.cs">
+    <Compile Include="Manejo de la Configuracion\TiposMuestrales_Form.designer.cs">
       <DependentUpon>TiposMuestrales_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestion de Configuracion\TiposUso_Form.cs">
+    <Compile Include="Manejo de la Configuracion\TiposUso_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestion de Configuracion\TiposUso_Form.designer.cs">
+    <Compile Include="Manejo de la Configuracion\TiposUso_Form.designer.cs">
       <DependentUpon>TiposUso_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestion de Datos y Formularios\Abrir_Formulario_Form.cs">
@@ -112,42 +112,6 @@
     </Compile>
     <Compile Include="Gestion de Datos y Formularios\Editar_Formulario_Form.Designer.cs">
       <DependentUpon>Editar_Formulario_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gestion de Estratos\Crear_Estrato_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gestion de Estratos\Crear_Estrato_Form.designer.cs">
-      <DependentUpon>Crear_Estrato_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gestion de Estratos\Listado_Estratos_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gestion de Estratos\Listado_Estratos_Form.designer.cs">
-      <DependentUpon>Listado_Estratos_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gestion de Estratos\Ver_Estrato_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gestion de Estratos\Ver_Estrato_Form.Designer.cs">
-      <DependentUpon>Ver_Estrato_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gestion de Grupos Comerciales\Crear_GruposCom_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gestion de Grupos Comerciales\Crear_GruposCom_Form.designer.cs">
-      <DependentUpon>Crear_GruposCom_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gestion de Grupos Comerciales\Listado_GruposCom_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gestion de Grupos Comerciales\Listado_GruposCom_Form.designer.cs">
-      <DependentUpon>Listado_GruposCom_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gestion de Grupos Comerciales\Ver_GruposCom_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gestion de Grupos Comerciales\Ver_GruposCom_Form.Designer.cs">
-      <DependentUpon>Ver_GruposCom_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestion de Proyectos\Abrir_Proyecto_Form.cs">
       <SubType>Form</SubType>
@@ -223,25 +187,25 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Gestion de Configuracion\Calidad_Form.resx">
+    <EmbeddedResource Include="Manejo de la Configuracion\Calidad_Form.resx">
       <DependentUpon>Calidad_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Configuracion\Especies_Form.resx">
+    <EmbeddedResource Include="Manejo de la Configuracion\Especies_Form.resx">
       <DependentUpon>Especies_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Configuracion\EstadosSanitarios_Form.resx">
+    <EmbeddedResource Include="Manejo de la Configuracion\EstadosSanitarios_Form.resx">
       <DependentUpon>EstadosSanitarios_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Configuracion\Estratos_Form.resx">
+    <EmbeddedResource Include="Manejo de la Configuracion\Estratos_Form.resx">
       <DependentUpon>Estratos_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Configuracion\GruposComerciales_Form.resx">
+    <EmbeddedResource Include="Manejo de la Configuracion\GruposComerciales_Form.resx">
       <DependentUpon>GruposComerciales_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Configuracion\TiposMuestrales_Form.resx">
+    <EmbeddedResource Include="Manejo de la Configuracion\TiposMuestrales_Form.resx">
       <DependentUpon>TiposMuestrales_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Configuracion\TiposUso_Form.resx">
+    <EmbeddedResource Include="Manejo de la Configuracion\TiposUso_Form.resx">
       <DependentUpon>TiposUso_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Datos y Formularios\Abrir_Formulario_Form.resx">
@@ -249,24 +213,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Datos y Formularios\Editar_Formulario_Form.resx">
       <DependentUpon>Editar_Formulario_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Estratos\Crear_Estrato_Form.resx">
-      <DependentUpon>Crear_Estrato_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Estratos\Listado_Estratos_Form.resx">
-      <DependentUpon>Listado_Estratos_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Estratos\Ver_Estrato_Form.resx">
-      <DependentUpon>Ver_Estrato_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Grupos Comerciales\Crear_GruposCom_Form.resx">
-      <DependentUpon>Crear_GruposCom_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Grupos Comerciales\Listado_GruposCom_Form.resx">
-      <DependentUpon>Listado_GruposCom_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Grupos Comerciales\Ver_GruposCom_Form.resx">
-      <DependentUpon>Ver_GruposCom_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Proyectos\Abrir_Proyecto_Form.resx">
       <DependentUpon>Abrir_Proyecto_Form.cs</DependentUpon>

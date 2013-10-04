@@ -37,7 +37,6 @@ namespace SIFCA_DAL
         public DbSet<LINEANOMADERABLES> LINEANOMADERABLES { get; set; }
         public DbSet<LINEAREGENERACION> LINEAREGENERACION { get; set; }
         public DbSet<LISTADODEESTRATOS> LISTADODEESTRATOS { get; set; }
-        public DbSet<MEDIDACAPYDAP> MEDIDACAPYDAP { get; set; }
         public DbSet<OBJETIVOINVENTARIO> OBJETIVOINVENTARIO { get; set; }
         public DbSet<PROYECTO> PROYECTO { get; set; }
         public DbSet<PROYECTOSPORETAPA> PROYECTOSPORETAPA { get; set; }

@@ -50,6 +50,8 @@
             this.buscarLbl = new System.Windows.Forms.ToolStripLabel();
             this.busquedaTxt = new System.Windows.Forms.ToolStripTextBox();
             this.ListadoGruposCom = new System.Windows.Forms.DataGridView();
+            this.gRUPOCOMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dESCRIPGRUPODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.descripcionTxt = new System.Windows.Forms.TextBox();
@@ -66,8 +68,6 @@
             this.btn_Guardar = new System.Windows.Forms.Button();
             this.updateAbrevTxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.gRUPOCOMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dESCRIPGRUPODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListadoGruposComerciales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grupoComBSource)).BeginInit();
@@ -275,6 +275,20 @@
             this.ListadoGruposCom.Size = new System.Drawing.Size(460, 206);
             this.ListadoGruposCom.TabIndex = 3;
             // 
+            // gRUPOCOMDataGridViewTextBoxColumn
+            // 
+            this.gRUPOCOMDataGridViewTextBoxColumn.DataPropertyName = "GRUPOCOM";
+            this.gRUPOCOMDataGridViewTextBoxColumn.HeaderText = "GRUPOCOM";
+            this.gRUPOCOMDataGridViewTextBoxColumn.Name = "gRUPOCOMDataGridViewTextBoxColumn";
+            this.gRUPOCOMDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dESCRIPGRUPODataGridViewTextBoxColumn
+            // 
+            this.dESCRIPGRUPODataGridViewTextBoxColumn.DataPropertyName = "DESCRIPGRUPO";
+            this.dESCRIPGRUPODataGridViewTextBoxColumn.HeaderText = "Descripión";
+            this.dESCRIPGRUPODataGridViewTextBoxColumn.Name = "dESCRIPGRUPODataGridViewTextBoxColumn";
+            this.dESCRIPGRUPODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // panel2
             // 
             this.panel2.BackgroundImage = global::SIFCA.Properties.Resources.fondoTab;
@@ -434,20 +448,6 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Abreviatura";
             // 
-            // gRUPOCOMDataGridViewTextBoxColumn
-            // 
-            this.gRUPOCOMDataGridViewTextBoxColumn.DataPropertyName = "GRUPOCOM";
-            this.gRUPOCOMDataGridViewTextBoxColumn.HeaderText = "GRUPOCOM";
-            this.gRUPOCOMDataGridViewTextBoxColumn.Name = "gRUPOCOMDataGridViewTextBoxColumn";
-            this.gRUPOCOMDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dESCRIPGRUPODataGridViewTextBoxColumn
-            // 
-            this.dESCRIPGRUPODataGridViewTextBoxColumn.DataPropertyName = "DESCRIPGRUPO";
-            this.dESCRIPGRUPODataGridViewTextBoxColumn.HeaderText = "Descripión";
-            this.dESCRIPGRUPODataGridViewTextBoxColumn.Name = "dESCRIPGRUPODataGridViewTextBoxColumn";
-            this.dESCRIPGRUPODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // GruposComerciales_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -456,6 +456,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GruposComerciales_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Grupos Comerciales";

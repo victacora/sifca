@@ -1,6 +1,6 @@
 ﻿namespace SIFCA.Gestion_Configuracion
 {
-    partial class EstadosSanitarios_Form
+    partial class TiposMuestrales_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EstadosSanitarios_Form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TiposMuestrales_Form));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ListadoEstados = new System.Windows.Forms.DataGridView();
+            this.ListadoTiposMuestrales = new System.Windows.Forms.DataGridView();
             this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.eSTADODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dESCRIPESTADODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StateBSource = new System.Windows.Forms.BindingSource(this.components);
-            this.paginacionEstadoSanitario = new System.Windows.Forms.BindingNavigator(this.components);
+            this.nOMTIPODISEMUESTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeSampleDesingBSource = new System.Windows.Forms.BindingSource(this.components);
+            this.paginacionGruposCom = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.Btn_nuevo = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -49,7 +49,7 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.buscarLbl = new System.Windows.Forms.ToolStripLabel();
             this.busquedaTxt = new System.Windows.Forms.ToolStripTextBox();
-            this.filtrarLbl = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.criterioCbx = new System.Windows.Forms.ToolStripComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -61,17 +61,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.Btn_Guardar = new System.Windows.Forms.Button();
-            this.updateDescripTxt = new System.Windows.Forms.TextBox();
+            this.btn_cancelarUpdate = new System.Windows.Forms.Button();
+            this.updateDescripcionTxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btn_Guardar = new System.Windows.Forms.Button();
             this.updateNombreTxt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ListadoEstados)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StateBSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paginacionEstadoSanitario)).BeginInit();
-            this.paginacionEstadoSanitario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ListadoTiposMuestrales)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TypeSampleDesingBSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paginacionGruposCom)).BeginInit();
+            this.paginacionGruposCom.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -81,33 +81,33 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.ListadoEstados);
-            this.panel1.Controls.Add(this.paginacionEstadoSanitario);
+            this.panel1.Controls.Add(this.ListadoTiposMuestrales);
+            this.panel1.Controls.Add(this.paginacionGruposCom);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(685, 273);
+            this.panel1.Size = new System.Drawing.Size(631, 300);
             this.panel1.TabIndex = 0;
             // 
-            // ListadoEstados
+            // ListadoTiposMuestrales
             // 
-            this.ListadoEstados.AllowUserToAddRows = false;
-            this.ListadoEstados.AllowUserToDeleteRows = false;
-            this.ListadoEstados.AutoGenerateColumns = false;
-            this.ListadoEstados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ListadoEstados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ListadoEstados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ListadoTiposMuestrales.AllowUserToAddRows = false;
+            this.ListadoTiposMuestrales.AllowUserToDeleteRows = false;
+            this.ListadoTiposMuestrales.AutoGenerateColumns = false;
+            this.ListadoTiposMuestrales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ListadoTiposMuestrales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ListadoTiposMuestrales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Acciones,
-            this.eSTADODataGridViewTextBoxColumn,
-            this.dESCRIPESTADODataGridViewTextBoxColumn});
-            this.ListadoEstados.DataSource = this.StateBSource;
-            this.ListadoEstados.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ListadoEstados.Location = new System.Drawing.Point(0, 25);
-            this.ListadoEstados.Name = "ListadoEstados";
-            this.ListadoEstados.ReadOnly = true;
-            this.ListadoEstados.Size = new System.Drawing.Size(681, 244);
-            this.ListadoEstados.TabIndex = 5;
-            this.ListadoEstados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListadoDeEspecies_CellValueChanged);
+            this.nOMTIPODISEMUESTDataGridViewTextBoxColumn,
+            this.dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn});
+            this.ListadoTiposMuestrales.DataSource = this.TypeSampleDesingBSource;
+            this.ListadoTiposMuestrales.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ListadoTiposMuestrales.Location = new System.Drawing.Point(0, 25);
+            this.ListadoTiposMuestrales.Name = "ListadoTiposMuestrales";
+            this.ListadoTiposMuestrales.ReadOnly = true;
+            this.ListadoTiposMuestrales.Size = new System.Drawing.Size(627, 271);
+            this.ListadoTiposMuestrales.TabIndex = 5;
+            this.ListadoTiposMuestrales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListadoDeEspecies_CellValueChanged);
             // 
             // Acciones
             // 
@@ -119,32 +119,31 @@
             this.Acciones.UseColumnTextForButtonValue = true;
             this.Acciones.Width = 57;
             // 
-            // eSTADODataGridViewTextBoxColumn
+            // nOMTIPODISEMUESTDataGridViewTextBoxColumn
             // 
-            this.eSTADODataGridViewTextBoxColumn.DataPropertyName = "ESTADO";
-            this.eSTADODataGridViewTextBoxColumn.HeaderText = "ESTADO";
-            this.eSTADODataGridViewTextBoxColumn.Name = "eSTADODataGridViewTextBoxColumn";
-            this.eSTADODataGridViewTextBoxColumn.ReadOnly = true;
-            this.eSTADODataGridViewTextBoxColumn.Visible = false;
+            this.nOMTIPODISEMUESTDataGridViewTextBoxColumn.DataPropertyName = "NOMTIPODISEMUEST";
+            this.nOMTIPODISEMUESTDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nOMTIPODISEMUESTDataGridViewTextBoxColumn.Name = "nOMTIPODISEMUESTDataGridViewTextBoxColumn";
+            this.nOMTIPODISEMUESTDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dESCRIPESTADODataGridViewTextBoxColumn
+            // dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn
             // 
-            this.dESCRIPESTADODataGridViewTextBoxColumn.DataPropertyName = "DESCRIPESTADO";
-            this.dESCRIPESTADODataGridViewTextBoxColumn.HeaderText = "Descripción estado";
-            this.dESCRIPESTADODataGridViewTextBoxColumn.Name = "dESCRIPESTADODataGridViewTextBoxColumn";
-            this.dESCRIPESTADODataGridViewTextBoxColumn.ReadOnly = true;
+            this.dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn.DataPropertyName = "DESCRIPTIPODISEMUEST";
+            this.dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn.HeaderText = "Descripción";
+            this.dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn.Name = "dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn";
+            this.dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // StateBSource
+            // TypeSampleDesingBSource
             // 
-            this.StateBSource.DataSource = typeof(SIFCA_DAL.ESTADOSANITARIO);
+            this.TypeSampleDesingBSource.DataSource = typeof(SIFCA_DAL.TIPODISENOMUESTRAL);
             // 
-            // paginacionEstadoSanitario
+            // paginacionGruposCom
             // 
-            this.paginacionEstadoSanitario.AddNewItem = null;
-            this.paginacionEstadoSanitario.BindingSource = this.StateBSource;
-            this.paginacionEstadoSanitario.CountItem = this.bindingNavigatorCountItem;
-            this.paginacionEstadoSanitario.DeleteItem = null;
-            this.paginacionEstadoSanitario.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.paginacionGruposCom.AddNewItem = null;
+            this.paginacionGruposCom.BindingSource = this.TypeSampleDesingBSource;
+            this.paginacionGruposCom.CountItem = this.bindingNavigatorCountItem;
+            this.paginacionGruposCom.DeleteItem = null;
+            this.paginacionGruposCom.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Btn_nuevo,
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -157,18 +156,19 @@
             this.bindingNavigatorSeparator2,
             this.buscarLbl,
             this.busquedaTxt,
-            this.filtrarLbl,
+            this.toolStripLabel1,
             this.criterioCbx});
-            this.paginacionEstadoSanitario.Location = new System.Drawing.Point(0, 0);
-            this.paginacionEstadoSanitario.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.paginacionEstadoSanitario.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.paginacionEstadoSanitario.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.paginacionEstadoSanitario.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.paginacionEstadoSanitario.Name = "paginacionEstadoSanitario";
-            this.paginacionEstadoSanitario.PositionItem = this.bindingNavigatorPositionItem;
-            this.paginacionEstadoSanitario.Size = new System.Drawing.Size(681, 25);
-            this.paginacionEstadoSanitario.TabIndex = 4;
-            this.paginacionEstadoSanitario.Text = "bindingNavigator1";
+            this.paginacionGruposCom.Location = new System.Drawing.Point(0, 0);
+            this.paginacionGruposCom.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.paginacionGruposCom.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.paginacionGruposCom.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.paginacionGruposCom.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.paginacionGruposCom.Name = "paginacionGruposCom";
+            this.paginacionGruposCom.PositionItem = this.bindingNavigatorPositionItem;
+            this.paginacionGruposCom.Size = new System.Drawing.Size(627, 25);
+            this.paginacionGruposCom.TabIndex = 4;
+            this.paginacionGruposCom.Text = "bindingNavigator1";
+            this.paginacionGruposCom.TextChanged += new System.EventHandler(this.busquedaTxt_TextChanged);
             // 
             // bindingNavigatorCountItem
             // 
@@ -257,18 +257,21 @@
             // 
             this.busquedaTxt.Name = "busquedaTxt";
             this.busquedaTxt.Size = new System.Drawing.Size(150, 25);
-            this.busquedaTxt.TextChanged += new System.EventHandler(this.busquedaTxt_TextChanged);
+            this.busquedaTxt.Click += new System.EventHandler(this.busquedaTxt_TextChanged);
             // 
-            // filtrarLbl
+            // toolStripLabel1
             // 
-            this.filtrarLbl.Name = "filtrarLbl";
-            this.filtrarLbl.Size = new System.Drawing.Size(92, 22);
-            this.filtrarLbl.Text = "Filtrar busqueda";
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(33, 22);
+            this.toolStripLabel1.Text = "Filtar";
             // 
             // criterioCbx
             // 
-            this.criterioCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.criterioCbx.AutoCompleteCustomSource.AddRange(new string[] {
+            "Nombre",
+            "Descripcion"});
             this.criterioCbx.Items.AddRange(new object[] {
+            "Nombre",
             "Descripcion"});
             this.criterioCbx.Name = "criterioCbx";
             this.criterioCbx.Size = new System.Drawing.Size(121, 25);
@@ -276,12 +279,13 @@
             // panel2
             // 
             this.panel2.BackgroundImage = global::SIFCA.Properties.Resources.fondoTab;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(685, 273);
-            this.panel2.TabIndex = 1;
+            this.panel2.Size = new System.Drawing.Size(631, 300);
+            this.panel2.TabIndex = 4;
             // 
             // groupBox1
             // 
@@ -291,12 +295,12 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txt_Nombre);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(206, 34);
+            this.groupBox1.Location = new System.Drawing.Point(160, 52);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(329, 179);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Crear Estado Sanitario";
+            this.groupBox1.Text = "Crear Tipo Muestreo";
             // 
             // Btn_Cancelar
             // 
@@ -354,102 +358,103 @@
             // panel3
             // 
             this.panel3.BackgroundImage = global::SIFCA.Properties.Resources.fondoTab;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.groupBox);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(685, 273);
-            this.panel3.TabIndex = 2;
+            this.panel3.Size = new System.Drawing.Size(631, 300);
+            this.panel3.TabIndex = 5;
             // 
             // groupBox
             // 
-            this.groupBox.Controls.Add(this.button1);
-            this.groupBox.Controls.Add(this.Btn_Guardar);
-            this.groupBox.Controls.Add(this.updateDescripTxt);
+            this.groupBox.Controls.Add(this.btn_cancelarUpdate);
+            this.groupBox.Controls.Add(this.updateDescripcionTxt);
             this.groupBox.Controls.Add(this.label6);
+            this.groupBox.Controls.Add(this.btn_Guardar);
             this.groupBox.Controls.Add(this.updateNombreTxt);
             this.groupBox.Controls.Add(this.label3);
-            this.groupBox.Location = new System.Drawing.Point(206, 34);
+            this.groupBox.Location = new System.Drawing.Point(185, 59);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(301, 174);
+            this.groupBox.Size = new System.Drawing.Size(283, 167);
             this.groupBox.TabIndex = 29;
             this.groupBox.TabStop = false;
-            this.groupBox.Text = "Editar Estado Sanitario";
+            this.groupBox.Text = "Editar Tipo Muestral";
             // 
-            // button1
+            // btn_cancelarUpdate
             // 
-            this.button1.Location = new System.Drawing.Point(202, 141);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "Cancelar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Btn_CancelarUpdate_Click);
+            this.btn_cancelarUpdate.Location = new System.Drawing.Point(188, 131);
+            this.btn_cancelarUpdate.Name = "btn_cancelarUpdate";
+            this.btn_cancelarUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btn_cancelarUpdate.TabIndex = 28;
+            this.btn_cancelarUpdate.Text = "Cancelar";
+            this.btn_cancelarUpdate.UseVisualStyleBackColor = true;
+            this.btn_cancelarUpdate.Click += new System.EventHandler(this.Btn_CancelarUpdate_Click);
             // 
-            // Btn_Guardar
+            // updateDescripcionTxt
             // 
-            this.Btn_Guardar.Location = new System.Drawing.Point(17, 141);
-            this.Btn_Guardar.Name = "Btn_Guardar";
-            this.Btn_Guardar.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Guardar.TabIndex = 27;
-            this.Btn_Guardar.Text = "Guardar";
-            this.Btn_Guardar.UseVisualStyleBackColor = true;
-            this.Btn_Guardar.Click += new System.EventHandler(this.Btn_guardar_Click);
-            // 
-            // updateDescripTxt
-            // 
-            this.updateDescripTxt.Location = new System.Drawing.Point(93, 63);
-            this.updateDescripTxt.Multiline = true;
-            this.updateDescripTxt.Name = "updateDescripTxt";
-            this.updateDescripTxt.ShortcutsEnabled = false;
-            this.updateDescripTxt.Size = new System.Drawing.Size(187, 72);
-            this.updateDescripTxt.TabIndex = 7;
+            this.updateDescripcionTxt.Location = new System.Drawing.Point(92, 53);
+            this.updateDescripcionTxt.Multiline = true;
+            this.updateDescripcionTxt.Name = "updateDescripcionTxt";
+            this.updateDescripcionTxt.ShortcutsEnabled = false;
+            this.updateDescripcionTxt.Size = new System.Drawing.Size(171, 72);
+            this.updateDescripcionTxt.TabIndex = 7;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 63);
+            this.label6.Location = new System.Drawing.Point(13, 53);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 13);
             this.label6.TabIndex = 6;
             this.label6.Text = "Descripción";
             // 
+            // btn_Guardar
+            // 
+            this.btn_Guardar.Location = new System.Drawing.Point(16, 135);
+            this.btn_Guardar.Name = "btn_Guardar";
+            this.btn_Guardar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Guardar.TabIndex = 27;
+            this.btn_Guardar.Text = "Guardar";
+            this.btn_Guardar.UseVisualStyleBackColor = true;
+            this.btn_Guardar.Click += new System.EventHandler(this.Btn_guardar_Click);
+            // 
             // updateNombreTxt
             // 
-            this.updateNombreTxt.Location = new System.Drawing.Point(93, 34);
+            this.updateNombreTxt.Location = new System.Drawing.Point(92, 24);
             this.updateNombreTxt.Name = "updateNombreTxt";
             this.updateNombreTxt.ReadOnly = true;
-            this.updateNombreTxt.Size = new System.Drawing.Size(187, 20);
+            this.updateNombreTxt.Size = new System.Drawing.Size(171, 20);
             this.updateNombreTxt.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 34);
+            this.label3.Location = new System.Drawing.Point(12, 24);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Nombre";
             // 
-            // EstadosSanitarios_Form
+            // TiposMuestrales_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(685, 273);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(631, 300);
             this.Controls.Add(this.panel3);
-            this.Name = "EstadosSanitarios_Form";
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "TiposMuestrales_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Estados Sanitarios";
+            this.Text = "Tipos Muestrales";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ListadoEstados)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StateBSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paginacionEstadoSanitario)).EndInit();
-            this.paginacionEstadoSanitario.ResumeLayout(false);
-            this.paginacionEstadoSanitario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ListadoTiposMuestrales)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TypeSampleDesingBSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paginacionGruposCom)).EndInit();
+            this.paginacionGruposCom.ResumeLayout(false);
+            this.paginacionGruposCom.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -463,9 +468,9 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView ListadoEstados;
-        private System.Windows.Forms.BindingSource StateBSource;
-        private System.Windows.Forms.BindingNavigator paginacionEstadoSanitario;
+        private System.Windows.Forms.DataGridView ListadoTiposMuestrales;
+        private System.Windows.Forms.BindingSource TypeSampleDesingBSource;
+        private System.Windows.Forms.BindingNavigator paginacionGruposCom;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
@@ -486,18 +491,18 @@
         private System.Windows.Forms.TextBox txt_Nombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox;
-        private System.Windows.Forms.TextBox updateDescripTxt;
+        private System.Windows.Forms.Button btn_cancelarUpdate;
+        private System.Windows.Forms.TextBox updateDescripcionTxt;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btn_Guardar;
         private System.Windows.Forms.TextBox updateNombreTxt;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button Btn_Guardar;
-        private System.Windows.Forms.ToolStripLabel filtrarLbl;
-        private System.Windows.Forms.ToolStripComboBox criterioCbx;
         private System.Windows.Forms.ToolStripButton Btn_nuevo;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripComboBox criterioCbx;
         private System.Windows.Forms.DataGridViewButtonColumn Acciones;
-        private System.Windows.Forms.DataGridViewTextBoxColumn eSTADODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dESCRIPESTADODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nOMTIPODISEMUESTDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dESCRIPTIPODISEMUESTDataGridViewTextBoxColumn;
     }
 }

@@ -35,6 +35,7 @@
             System.Windows.Forms.Label cEDULALabel;
             System.Windows.Forms.Label usuarioLbl;
             System.Windows.Forms.Label tipoUsuarioLbl;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Actualizar_Usuario_Form));
             this.verificarContrasenaTxt = new System.Windows.Forms.TextBox();
             this.contrasenaTxt = new System.Windows.Forms.TextBox();
             this.apellidosTxt = new System.Windows.Forms.TextBox();
@@ -251,6 +252,7 @@
             this.Controls.Add(this.usuarioTxt);
             this.Controls.Add(this.cancelarBtn);
             this.Controls.Add(this.AceptarBtn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Actualizar_Usuario_Form";

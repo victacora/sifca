@@ -41,12 +41,6 @@ C:\ANTEPROYECTO\Prototipo\App\SIFCA\bin\Debug\SIFCA_DAL.pdb
 C:\ANTEPROYECTO\Prototipo\App\SIFCA\bin\Debug\EntityFramework.xml
 C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.csprojResolveAssemblyReference.cache
 C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.Especies_Form.resources
-C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_de_Estratos.Crear_Estrato_Form.resources
-C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_de_Estratos.Listado_Estratos_Form.resources
-C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_de_Estratos.Ver_Estrato_Form.resources
-C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_de_GruposCom.Crear_GruposCom_Form.resources
-C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_de_GruposCom.Listado_GruposCom_Form.resources
-C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Gestion_de_GruposCom.Ver_GruposCom_Form.resources
 C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Abrir_Proyecto_Form.resources
 C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Actualizar_Proyectos_Form.resources
 C:\ANTEPROYECTO\Prototipo\App\SIFCA\obj\x86\Debug\SIFCA.Crear_Proyecto_Form.resources

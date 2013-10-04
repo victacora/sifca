@@ -44,6 +44,8 @@
             this.importarProyectoTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.exportarProyectoTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarProyectoTsm = new System.Windows.Forms.ToolStripMenuItem();
+            this.realizarCopiaDeSeguridadTsm = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportarDatosAExcelTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.crearFormularioTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirFormulariosTsm = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,8 +72,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.EstadoLbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.realizarCopiaDeSeguridadTsm = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportarDatosAExcelTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -217,6 +217,20 @@
             this.cerrarProyectoTsm.Visible = false;
             this.cerrarProyectoTsm.Click += new System.EventHandler(this.cerrarProyectoTsm_Click);
             // 
+            // realizarCopiaDeSeguridadTsm
+            // 
+            this.realizarCopiaDeSeguridadTsm.Name = "realizarCopiaDeSeguridadTsm";
+            this.realizarCopiaDeSeguridadTsm.Size = new System.Drawing.Size(217, 22);
+            this.realizarCopiaDeSeguridadTsm.Text = "Realizar copia de seguridad";
+            this.realizarCopiaDeSeguridadTsm.Click += new System.EventHandler(this.realizarCopiaDeSeguridadTsm_Click);
+            // 
+            // exportarDatosAExcelTsm
+            // 
+            this.exportarDatosAExcelTsm.Name = "exportarDatosAExcelTsm";
+            this.exportarDatosAExcelTsm.Size = new System.Drawing.Size(217, 22);
+            this.exportarDatosAExcelTsm.Text = "Exportar datos a excel";
+            this.exportarDatosAExcelTsm.Click += new System.EventHandler(this.exportarDatosAExcelTsm_Click);
+            // 
             // inventarioMenu
             // 
             this.inventarioMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -252,7 +266,7 @@
             // listarEspeciesTsm
             // 
             this.listarEspeciesTsm.Name = "listarEspeciesTsm";
-            this.listarEspeciesTsm.Size = new System.Drawing.Size(152, 22);
+            this.listarEspeciesTsm.Size = new System.Drawing.Size(149, 22);
             this.listarEspeciesTsm.Text = "Listar especies";
             this.listarEspeciesTsm.Click += new System.EventHandler(this.listarEspeciesTsm_Click);
             // 
@@ -314,18 +328,21 @@
             this.estratosTsm.Name = "estratosTsm";
             this.estratosTsm.Size = new System.Drawing.Size(232, 22);
             this.estratosTsm.Text = "Estratos";
+            this.estratosTsm.Click += new System.EventHandler(this.estadosTsm_Click);
             // 
             // gruposComercialesTsm
             // 
             this.gruposComercialesTsm.Name = "gruposComercialesTsm";
             this.gruposComercialesTsm.Size = new System.Drawing.Size(232, 22);
             this.gruposComercialesTsm.Text = "Grupos comerciales";
+            this.gruposComercialesTsm.Click += new System.EventHandler(this.gruposComercialesTsm_Click);
             // 
             // tipoDeDiseñoTsm
             // 
             this.tipoDeDiseñoTsm.Name = "tipoDeDiseñoTsm";
             this.tipoDeDiseñoTsm.Size = new System.Drawing.Size(232, 22);
             this.tipoDeDiseñoTsm.Text = "Tipo de diseños";
+            this.tipoDeDiseñoTsm.Click += new System.EventHandler(this.tipoDeDiseñoTsm_Click);
             // 
             // objetivoInevntarioTsm
             // 
@@ -338,18 +355,21 @@
             this.tipoDeUsoTsm.Name = "tipoDeUsoTsm";
             this.tipoDeUsoTsm.Size = new System.Drawing.Size(232, 22);
             this.tipoDeUsoTsm.Text = "Tipo de usos (No maderables)";
+            this.tipoDeUsoTsm.Click += new System.EventHandler(this.tipoDeUsoTsm_Click);
             // 
             // calidadTsm
             // 
             this.calidadTsm.Name = "calidadTsm";
             this.calidadTsm.Size = new System.Drawing.Size(232, 22);
             this.calidadTsm.Text = "Calidad";
+            this.calidadTsm.Click += new System.EventHandler(this.calidadTsm_Click);
             // 
             // estadosTsm
             // 
             this.estadosTsm.Name = "estadosTsm";
             this.estadosTsm.Size = new System.Drawing.Size(232, 22);
             this.estadosTsm.Text = "Estados";
+            this.estadosTsm.Click += new System.EventHandler(this.estadosTsm_Click);
             // 
             // ayudaMenu
             // 
@@ -403,20 +423,6 @@
             this.EstadoLbl.Name = "EstadoLbl";
             this.EstadoLbl.Size = new System.Drawing.Size(155, 17);
             this.EstadoLbl.Text = "Ningun usuario autenticado";
-            // 
-            // realizarCopiaDeSeguridadTsm
-            // 
-            this.realizarCopiaDeSeguridadTsm.Name = "realizarCopiaDeSeguridadTsm";
-            this.realizarCopiaDeSeguridadTsm.Size = new System.Drawing.Size(217, 22);
-            this.realizarCopiaDeSeguridadTsm.Text = "Realizar copia de seguridad";
-            this.realizarCopiaDeSeguridadTsm.Click += new System.EventHandler(this.realizarCopiaDeSeguridadTsm_Click);
-            // 
-            // exportarDatosAExcelTsm
-            // 
-            this.exportarDatosAExcelTsm.Name = "exportarDatosAExcelTsm";
-            this.exportarDatosAExcelTsm.Size = new System.Drawing.Size(217, 22);
-            this.exportarDatosAExcelTsm.Text = "Exportar datos a excel";
-            this.exportarDatosAExcelTsm.Click += new System.EventHandler(this.exportarDatosAExcelTsm_Click);
             // 
             // Principal_Form
             // 

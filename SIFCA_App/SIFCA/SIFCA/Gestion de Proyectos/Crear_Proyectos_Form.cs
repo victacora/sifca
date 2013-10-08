@@ -98,7 +98,7 @@ namespace SIFCA
                 newProject.FACTORDEFORMA = decimal.Parse(factorFormaTxt.Text);
                 newProject.FECHA = DateTime.Today;
                 newProject.NUMEROETAPAS = int.Parse(numeroEtapasTxt.Text);
-                project.InsertProject(newProject);
+                project.UpdateProject(newProject);
                 project.SaveChanges();
                 MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();

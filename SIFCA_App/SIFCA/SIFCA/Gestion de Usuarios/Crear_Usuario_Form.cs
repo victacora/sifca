@@ -26,6 +26,40 @@ namespace SIFCA
 
         private void AceptarBtn_Click(object sender, EventArgs e)
         {
+            bool error=false;
+            if (nombresTxt.Text=="")
+            {
+                controladorErrores.SetError(nombresTxt, "El nombre es un campo requerido.");
+                error = true;
+            }
+            if (apellidosTxt.Text == "")
+            {
+                controladorErrores.SetError(apellidosTxt, "Los apellidos son un campo requerido.");
+                error = true;
+            }
+            if (cedulaTxt.Text == "")
+            {
+                controladorErrores.SetError(cedulaTxt, "La cedula es un campo requerido.");
+                error = true;
+            }
+            if (contrasenaTxt.Text == "")
+            {
+                controladorErrores.SetError(contrasenaTxt, "La contraseña es un campo requerido.");
+                error = true;
+            }
+            if (usuarioTxt.Text == "")
+            {
+                controladorErrores.SetError(usuarioTxt, "El usuario es un campo requerido.");
+                error = true;
+            }
+            if (verificarContrasenaTxt.Text != contrasenaTxt.Text)
+            {
+                controladorErrores.SetError(verificarContrasenaTxt, "La contraseña no coinciden.");
+                error = true;
+            }
+            if (error) return;
+            
+            controladorErrores.Clear();
             USUARIO newUser = new USUARIO();
             newUser.NROUSUARIO = Guid.NewGuid();
             newUser.NOMBRES = nombresTxt.Text;
@@ -35,8 +69,17 @@ namespace SIFCA
             newUser.NOMBREUSUARIO = usuarioTxt.Text;
             newUser.TIPOUSUARIO = (tipoUsuarioCbx.SelectedItem.ToString() == "Administrador" ? "AD" : "NA");
             user.InsertUser(newUser);
-            user.SaveChanges();
-            MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string result=user.SaveChanges();
+            if(result!="")    
+            {
+                MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                Error_Form errorForm = new Error_Form(result);
+                errorForm.MdiParent = ParentForm;
+                errorForm.Show();
+            }
             this.Close();
         }
 

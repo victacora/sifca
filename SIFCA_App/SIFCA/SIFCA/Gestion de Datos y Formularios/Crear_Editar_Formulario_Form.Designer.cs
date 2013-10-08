@@ -432,7 +432,7 @@
             this.finalDpk.Location = new System.Drawing.Point(124, 233);
             this.finalDpk.Name = "finalDpk";
             this.finalDpk.Size = new System.Drawing.Size(200, 20);
-            this.finalDpk.TabIndex = 72;
+            this.finalDpk.TabIndex = 9;
             // 
             // proyectoTxt
             // 
@@ -440,7 +440,7 @@
             this.proyectoTxt.Location = new System.Drawing.Point(125, 51);
             this.proyectoTxt.Name = "proyectoTxt";
             this.proyectoTxt.Size = new System.Drawing.Size(200, 20);
-            this.proyectoTxt.TabIndex = 68;
+            this.proyectoTxt.TabIndex = 2;
             // 
             // estratoCbx
             // 
@@ -452,7 +452,7 @@
             this.estratoCbx.Location = new System.Drawing.Point(124, 129);
             this.estratoCbx.Name = "estratoCbx";
             this.estratoCbx.Size = new System.Drawing.Size(200, 21);
-            this.estratoCbx.TabIndex = 66;
+            this.estratoCbx.TabIndex = 5;
             this.estratoCbx.ValueMember = "CODEST";
             // 
             // estratoBS
@@ -464,7 +464,7 @@
             this.guardarformularioBtn.Location = new System.Drawing.Point(219, 405);
             this.guardarformularioBtn.Name = "guardarformularioBtn";
             this.guardarformularioBtn.Size = new System.Drawing.Size(105, 23);
-            this.guardarformularioBtn.TabIndex = 62;
+            this.guardarformularioBtn.TabIndex = 10;
             this.guardarformularioBtn.Text = "Guardar Formulario";
             this.guardarformularioBtn.UseVisualStyleBackColor = true;
             this.guardarformularioBtn.Click += new System.EventHandler(this.guardarformularioBtn_Click);
@@ -476,7 +476,7 @@
             this.inicioDpk.Location = new System.Drawing.Point(124, 207);
             this.inicioDpk.Name = "inicioDpk";
             this.inicioDpk.Size = new System.Drawing.Size(200, 20);
-            this.inicioDpk.TabIndex = 60;
+            this.inicioDpk.TabIndex = 8;
             // 
             // coordXTxt
             // 
@@ -484,7 +484,7 @@
             this.coordXTxt.Location = new System.Drawing.Point(124, 155);
             this.coordXTxt.Name = "coordXTxt";
             this.coordXTxt.Size = new System.Drawing.Size(200, 20);
-            this.coordXTxt.TabIndex = 52;
+            this.coordXTxt.TabIndex = 6;
             // 
             // coordYTxt
             // 
@@ -492,7 +492,7 @@
             this.coordYTxt.Location = new System.Drawing.Point(124, 181);
             this.coordYTxt.Name = "coordYTxt";
             this.coordYTxt.Size = new System.Drawing.Size(200, 20);
-            this.coordYTxt.TabIndex = 54;
+            this.coordYTxt.TabIndex = 7;
             // 
             // responsableTxt
             // 
@@ -500,7 +500,7 @@
             this.responsableTxt.Location = new System.Drawing.Point(125, 25);
             this.responsableTxt.Name = "responsableTxt";
             this.responsableTxt.Size = new System.Drawing.Size(200, 20);
-            this.responsableTxt.TabIndex = 50;
+            this.responsableTxt.TabIndex = 1;
             // 
             // lineaInventarioTxt
             // 
@@ -508,7 +508,7 @@
             this.lineaInventarioTxt.Location = new System.Drawing.Point(125, 78);
             this.lineaInventarioTxt.Name = "lineaInventarioTxt";
             this.lineaInventarioTxt.Size = new System.Drawing.Size(200, 20);
-            this.lineaInventarioTxt.TabIndex = 38;
+            this.lineaInventarioTxt.TabIndex = 3;
             // 
             // parcelaTxt
             // 
@@ -516,7 +516,7 @@
             this.parcelaTxt.Location = new System.Drawing.Point(124, 103);
             this.parcelaTxt.Name = "parcelaTxt";
             this.parcelaTxt.Size = new System.Drawing.Size(200, 20);
-            this.parcelaTxt.TabIndex = 46;
+            this.parcelaTxt.TabIndex = 4;
             // 
             // proyectoBS
             // 
@@ -549,7 +549,7 @@
             this.datosTabControl.Name = "datosTabControl";
             this.datosTabControl.SelectedIndex = 0;
             this.datosTabControl.Size = new System.Drawing.Size(385, 436);
-            this.datosTabControl.TabIndex = 1;
+            this.datosTabControl.TabIndex = 37;
             // 
             // InventarioTP
             // 
@@ -605,7 +605,7 @@
             this.nombreComunRbtn.Name = "nombreComunRbtn";
             this.nombreComunRbtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.nombreComunRbtn.Size = new System.Drawing.Size(97, 17);
-            this.nombreComunRbtn.TabIndex = 85;
+            this.nombreComunRbtn.TabIndex = 15;
             this.nombreComunRbtn.TabStop = true;
             this.nombreComunRbtn.Text = "Nombre comun";
             this.nombreComunRbtn.UseVisualStyleBackColor = true;
@@ -618,7 +618,7 @@
             this.nombreCientRbtn.Name = "nombreCientRbtn";
             this.nombreCientRbtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.nombreCientRbtn.Size = new System.Drawing.Size(107, 17);
-            this.nombreCientRbtn.TabIndex = 84;
+            this.nombreCientRbtn.TabIndex = 14;
             this.nombreCientRbtn.TabStop = true;
             this.nombreCientRbtn.Text = "Nombre cientifico";
             this.nombreCientRbtn.UseVisualStyleBackColor = true;
@@ -629,7 +629,7 @@
             this.verDetalleBtn.Location = new System.Drawing.Point(298, 101);
             this.verDetalleBtn.Name = "verDetalleBtn";
             this.verDetalleBtn.Size = new System.Drawing.Size(75, 23);
-            this.verDetalleBtn.TabIndex = 83;
+            this.verDetalleBtn.TabIndex = 16;
             this.verDetalleBtn.Text = "Ver detalle";
             this.verDetalleBtn.UseVisualStyleBackColor = true;
             this.verDetalleBtn.Click += new System.EventHandler(this.verDetalleBtn_Click);
@@ -642,7 +642,7 @@
             this.tipoArbolCbx.Location = new System.Drawing.Point(135, 160);
             this.tipoArbolCbx.Name = "tipoArbolCbx";
             this.tipoArbolCbx.Size = new System.Drawing.Size(237, 21);
-            this.tipoArbolCbx.TabIndex = 82;
+            this.tipoArbolCbx.TabIndex = 18;
             this.tipoArbolCbx.ValueMember = "ESTADO";
             // 
             // cAPTxt
@@ -651,7 +651,7 @@
             this.cAPTxt.Location = new System.Drawing.Point(134, 239);
             this.cAPTxt.Name = "cAPTxt";
             this.cAPTxt.Size = new System.Drawing.Size(237, 20);
-            this.cAPTxt.TabIndex = 80;
+            this.cAPTxt.TabIndex = 21;
             this.cAPTxt.TextChanged += new System.EventHandler(this.cAPTxt_TextChanged);
             // 
             // dAPTxt
@@ -660,7 +660,7 @@
             this.dAPTxt.Location = new System.Drawing.Point(135, 213);
             this.dAPTxt.Name = "dAPTxt";
             this.dAPTxt.Size = new System.Drawing.Size(237, 20);
-            this.dAPTxt.TabIndex = 79;
+            this.dAPTxt.TabIndex = 20;
             this.dAPTxt.TextChanged += new System.EventHandler(this.dAPTxt_TextChanged);
             // 
             // RegistrarEspecieBtn
@@ -668,7 +668,7 @@
             this.RegistrarEspecieBtn.Location = new System.Drawing.Point(158, 396);
             this.RegistrarEspecieBtn.Name = "RegistrarEspecieBtn";
             this.RegistrarEspecieBtn.Size = new System.Drawing.Size(112, 23);
-            this.RegistrarEspecieBtn.TabIndex = 78;
+            this.RegistrarEspecieBtn.TabIndex = 25;
             this.RegistrarEspecieBtn.Text = "Registrar Especie";
             this.RegistrarEspecieBtn.UseVisualStyleBackColor = true;
             this.RegistrarEspecieBtn.Click += new System.EventHandler(this.RegistrarEspecieBtn_Click);
@@ -678,7 +678,7 @@
             this.listarDatosBtn.Location = new System.Drawing.Point(54, 396);
             this.listarDatosBtn.Name = "listarDatosBtn";
             this.listarDatosBtn.Size = new System.Drawing.Size(97, 23);
-            this.listarDatosBtn.TabIndex = 77;
+            this.listarDatosBtn.TabIndex = 24;
             this.listarDatosBtn.Text = "Listar datos";
             this.listarDatosBtn.UseVisualStyleBackColor = true;
             this.listarDatosBtn.Click += new System.EventHandler(this.listarDatosBtn_Click);
@@ -689,7 +689,7 @@
             this.nroArbolTxt.Location = new System.Drawing.Point(135, 48);
             this.nroArbolTxt.Name = "nroArbolTxt";
             this.nroArbolTxt.Size = new System.Drawing.Size(238, 20);
-            this.nroArbolTxt.TabIndex = 70;
+            this.nroArbolTxt.TabIndex = 12;
             // 
             // especieCbx
             // 
@@ -699,7 +699,7 @@
             this.especieCbx.Location = new System.Drawing.Point(135, 73);
             this.especieCbx.Name = "especieCbx";
             this.especieCbx.Size = new System.Drawing.Size(238, 21);
-            this.especieCbx.TabIndex = 68;
+            this.especieCbx.TabIndex = 13;
             this.especieCbx.ValueMember = "CODESP";
             // 
             // estadoCbx
@@ -710,7 +710,7 @@
             this.estadoCbx.Location = new System.Drawing.Point(135, 187);
             this.estadoCbx.Name = "estadoCbx";
             this.estadoCbx.Size = new System.Drawing.Size(237, 21);
-            this.estadoCbx.TabIndex = 66;
+            this.estadoCbx.TabIndex = 19;
             this.estadoCbx.ValueMember = "ESTADO";
             // 
             // calidadCbx
@@ -721,7 +721,7 @@
             this.calidadCbx.Location = new System.Drawing.Point(135, 133);
             this.calidadCbx.Name = "calidadCbx";
             this.calidadCbx.Size = new System.Drawing.Size(238, 21);
-            this.calidadCbx.TabIndex = 65;
+            this.calidadCbx.TabIndex = 17;
             this.calidadCbx.ValueMember = "CODCALIDAD";
             // 
             // guardarLineaBtn
@@ -729,7 +729,7 @@
             this.guardarLineaBtn.Location = new System.Drawing.Point(275, 396);
             this.guardarLineaBtn.Name = "guardarLineaBtn";
             this.guardarLineaBtn.Size = new System.Drawing.Size(97, 23);
-            this.guardarLineaBtn.TabIndex = 63;
+            this.guardarLineaBtn.TabIndex = 26;
             this.guardarLineaBtn.Text = "Guardar Linea";
             this.guardarLineaBtn.UseVisualStyleBackColor = true;
             this.guardarLineaBtn.Click += new System.EventHandler(this.guardarLineaBtn_Click);
@@ -740,7 +740,7 @@
             this.alturaComercialTxt.Location = new System.Drawing.Point(135, 267);
             this.alturaComercialTxt.Name = "alturaComercialTxt";
             this.alturaComercialTxt.Size = new System.Drawing.Size(238, 20);
-            this.alturaComercialTxt.TabIndex = 27;
+            this.alturaComercialTxt.TabIndex = 22;
             // 
             // alturaTotalTxt
             // 
@@ -748,7 +748,7 @@
             this.alturaTotalTxt.Location = new System.Drawing.Point(135, 293);
             this.alturaTotalTxt.Name = "alturaTotalTxt";
             this.alturaTotalTxt.Size = new System.Drawing.Size(238, 20);
-            this.alturaTotalTxt.TabIndex = 29;
+            this.alturaTotalTxt.TabIndex = 23;
             // 
             // lineaInvBN
             // 
@@ -907,7 +907,7 @@
             this.nombreComunRegenRbtn.Name = "nombreComunRegenRbtn";
             this.nombreComunRegenRbtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.nombreComunRegenRbtn.Size = new System.Drawing.Size(97, 17);
-            this.nombreComunRegenRbtn.TabIndex = 103;
+            this.nombreComunRegenRbtn.TabIndex = 30;
             this.nombreComunRegenRbtn.TabStop = true;
             this.nombreComunRegenRbtn.Text = "Nombre comun";
             this.nombreComunRegenRbtn.UseVisualStyleBackColor = true;
@@ -920,7 +920,7 @@
             this.nomCientificoRegenRbtn.Name = "nomCientificoRegenRbtn";
             this.nomCientificoRegenRbtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.nomCientificoRegenRbtn.Size = new System.Drawing.Size(107, 17);
-            this.nomCientificoRegenRbtn.TabIndex = 102;
+            this.nomCientificoRegenRbtn.TabIndex = 29;
             this.nomCientificoRegenRbtn.TabStop = true;
             this.nomCientificoRegenRbtn.Text = "Nombre cientifico";
             this.nomCientificoRegenRbtn.UseVisualStyleBackColor = true;
@@ -931,7 +931,7 @@
             this.detalleEspecieRegenBtn.Location = new System.Drawing.Point(296, 81);
             this.detalleEspecieRegenBtn.Name = "detalleEspecieRegenBtn";
             this.detalleEspecieRegenBtn.Size = new System.Drawing.Size(75, 23);
-            this.detalleEspecieRegenBtn.TabIndex = 101;
+            this.detalleEspecieRegenBtn.TabIndex = 31;
             this.detalleEspecieRegenBtn.Text = "Ver detalle";
             this.detalleEspecieRegenBtn.UseVisualStyleBackColor = true;
             this.detalleEspecieRegenBtn.Click += new System.EventHandler(this.detalleEspecieRegenBtn_Click);
@@ -942,7 +942,7 @@
             this.latizalTxt.Location = new System.Drawing.Point(104, 138);
             this.latizalTxt.Name = "latizalTxt";
             this.latizalTxt.Size = new System.Drawing.Size(266, 20);
-            this.latizalTxt.TabIndex = 97;
+            this.latizalTxt.TabIndex = 33;
             // 
             // regeneracionBS
             // 
@@ -954,16 +954,17 @@
             this.brinzalTxt.Location = new System.Drawing.Point(104, 109);
             this.brinzalTxt.Name = "brinzalTxt";
             this.brinzalTxt.Size = new System.Drawing.Size(266, 20);
-            this.brinzalTxt.TabIndex = 96;
+            this.brinzalTxt.TabIndex = 32;
             // 
             // registrarEspecieRegenBtn
             // 
             this.registrarEspecieRegenBtn.Location = new System.Drawing.Point(160, 396);
             this.registrarEspecieRegenBtn.Name = "registrarEspecieRegenBtn";
             this.registrarEspecieRegenBtn.Size = new System.Drawing.Size(112, 23);
-            this.registrarEspecieRegenBtn.TabIndex = 90;
+            this.registrarEspecieRegenBtn.TabIndex = 35;
             this.registrarEspecieRegenBtn.Text = "Registrar Especie";
             this.registrarEspecieRegenBtn.UseVisualStyleBackColor = true;
+            this.registrarEspecieRegenBtn.Click += new System.EventHandler(this.registrarEspecieRegenBtn_Click);
             // 
             // especieRegenCbx
             // 
@@ -973,7 +974,7 @@
             this.especieRegenCbx.Location = new System.Drawing.Point(104, 56);
             this.especieRegenCbx.Name = "especieRegenCbx";
             this.especieRegenCbx.Size = new System.Drawing.Size(266, 21);
-            this.especieRegenCbx.TabIndex = 89;
+            this.especieRegenCbx.TabIndex = 28;
             this.especieRegenCbx.ValueMember = "CODESP";
             // 
             // listarRegenbtn
@@ -981,7 +982,7 @@
             this.listarRegenbtn.Location = new System.Drawing.Point(58, 396);
             this.listarRegenbtn.Name = "listarRegenbtn";
             this.listarRegenbtn.Size = new System.Drawing.Size(97, 23);
-            this.listarRegenbtn.TabIndex = 77;
+            this.listarRegenbtn.TabIndex = 34;
             this.listarRegenbtn.Text = "Listar datos";
             this.listarRegenbtn.UseVisualStyleBackColor = true;
             this.listarRegenbtn.Click += new System.EventHandler(this.listarRegenbtn_Click);
@@ -991,7 +992,7 @@
             this.guardarRegenBtn.Location = new System.Drawing.Point(275, 396);
             this.guardarRegenBtn.Name = "guardarRegenBtn";
             this.guardarRegenBtn.Size = new System.Drawing.Size(97, 23);
-            this.guardarRegenBtn.TabIndex = 63;
+            this.guardarRegenBtn.TabIndex = 36;
             this.guardarRegenBtn.Text = "Guardar Linea";
             this.guardarRegenBtn.UseVisualStyleBackColor = true;
             this.guardarRegenBtn.Click += new System.EventHandler(this.guardarRegenBtn_Click);
@@ -1155,7 +1156,7 @@
             this.observacionesTxt.Multiline = true;
             this.observacionesTxt.Name = "observacionesTxt";
             this.observacionesTxt.Size = new System.Drawing.Size(261, 78);
-            this.observacionesTxt.TabIndex = 79;
+            this.observacionesTxt.TabIndex = 38;
             // 
             // noMaderableBS
             // 
@@ -1169,7 +1170,7 @@
             this.tipoDeUsosLbc.Location = new System.Drawing.Point(111, 142);
             this.tipoDeUsosLbc.Name = "tipoDeUsosLbc";
             this.tipoDeUsosLbc.Size = new System.Drawing.Size(261, 94);
-            this.tipoDeUsosLbc.TabIndex = 78;
+            this.tipoDeUsosLbc.TabIndex = 39;
             this.tipoDeUsosLbc.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TipoDeUsosLbc_ItemCheck);
             // 
             // listarNoMaderableBtn
@@ -1177,7 +1178,7 @@
             this.listarNoMaderableBtn.Location = new System.Drawing.Point(172, 396);
             this.listarNoMaderableBtn.Name = "listarNoMaderableBtn";
             this.listarNoMaderableBtn.Size = new System.Drawing.Size(97, 23);
-            this.listarNoMaderableBtn.TabIndex = 77;
+            this.listarNoMaderableBtn.TabIndex = 40;
             this.listarNoMaderableBtn.Text = "Listar datos";
             this.listarNoMaderableBtn.UseVisualStyleBackColor = true;
             this.listarNoMaderableBtn.Click += new System.EventHandler(this.listarNoMaderableBtn_Click);
@@ -1187,7 +1188,7 @@
             this.guardarLineNoMadBtn.Location = new System.Drawing.Point(275, 396);
             this.guardarLineNoMadBtn.Name = "guardarLineNoMadBtn";
             this.guardarLineNoMadBtn.Size = new System.Drawing.Size(97, 23);
-            this.guardarLineNoMadBtn.TabIndex = 63;
+            this.guardarLineNoMadBtn.TabIndex = 41;
             this.guardarLineNoMadBtn.Text = "Guardar Linea";
             this.guardarLineNoMadBtn.UseVisualStyleBackColor = true;
             this.guardarLineNoMadBtn.Click += new System.EventHandler(this.guardarLineNoMadBtn_Click);

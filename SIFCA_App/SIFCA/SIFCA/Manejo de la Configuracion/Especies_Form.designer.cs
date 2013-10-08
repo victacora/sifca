@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Especies_Form));
             this.pn_listado = new System.Windows.Forms.Panel();
-            this.grupoComercialBSource = new System.Windows.Forms.BindingSource(this.components);
-            this.GroupComBSource = new System.Windows.Forms.BindingSource(this.components);
             this.paginacionEspecie = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.Btn_nuevaEspecie = new System.Windows.Forms.ToolStripButton();
@@ -53,6 +51,7 @@
             this.cODESPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nOMCIENTIFICODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gRUPOCOMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.grupoComercialBSource = new System.Windows.Forms.BindingSource(this.components);
             this.fAMILIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zONAGEOGRAFICADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zONADEVIDADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +59,7 @@
             this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.specieBSource = new System.Windows.Forms.BindingSource(this.components);
+            this.GroupComBSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.cbx_GroupCom = new System.Windows.Forms.ComboBox();
@@ -95,6 +95,7 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.pn_crear = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbox_GrupoComercial = new System.Windows.Forms.ComboBox();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.txt_DMC = new System.Windows.Forms.TextBox();
@@ -109,40 +110,58 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.pn_editar = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Btn_CancelarUpdate = new System.Windows.Forms.Button();
             this.cbxGrupoComercial = new System.Windows.Forms.ComboBox();
             this.Guardar = new System.Windows.Forms.Button();
+            this.txt_DimCor = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.txt_ZonaVid = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txt_ZonaGeogra = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.txt_Fam = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.txt_NomCientifico = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.txt_NomComun = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.txt_ZonaVid = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txt_DimCor = new System.Windows.Forms.TextBox();
-            this.txt_ZonaGeogra = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
+            this.pn_detalle = new System.Windows.Forms.Panel();
+            this.ver_detalle = new System.Windows.Forms.GroupBox();
+            this.btn_cerrar = new System.Windows.Forms.Button();
+            this.cbxGrupoComercial_det = new System.Windows.Forms.ComboBox();
+            this.txt_DimCor_det = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_ZonaVid_det = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.txt_ZonaGeogra_det = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.txt_Fam_det = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.txt_NomCientifico_det = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.txt_NomComun_det = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
             this.pn_listado.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grupoComercialBSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GroupComBSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paginacionEspecie)).BeginInit();
             this.paginacionEspecie.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListadoEspecies)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grupoComercialBSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.specieBSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GroupComBSource)).BeginInit();
             this.groupBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.pn_crear.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.pn_editar.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.pn_detalle.SuspendLayout();
+            this.ver_detalle.SuspendLayout();
             this.SuspendLayout();
             // 
             // pn_listado
@@ -154,14 +173,6 @@
             this.pn_listado.Name = "pn_listado";
             this.pn_listado.Size = new System.Drawing.Size(828, 374);
             this.pn_listado.TabIndex = 0;
-            // 
-            // grupoComercialBSource
-            // 
-            this.grupoComercialBSource.DataSource = typeof(SIFCA_DAL.GRUPOCOMERCIAL);
-            // 
-            // GroupComBSource
-            // 
-            this.GroupComBSource.DataSource = typeof(SIFCA_DAL.GRUPOCOMERCIAL);
             // 
             // paginacionEspecie
             // 
@@ -363,6 +374,10 @@
             this.gRUPOCOMDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.gRUPOCOMDataGridViewTextBoxColumn.ValueMember = "GRUPOCOM";
             // 
+            // grupoComercialBSource
+            // 
+            this.grupoComercialBSource.DataSource = typeof(SIFCA_DAL.GRUPOCOMERCIAL);
+            // 
             // fAMILIADataGridViewTextBoxColumn
             // 
             this.fAMILIADataGridViewTextBoxColumn.DataPropertyName = "FAMILIA";
@@ -414,6 +429,10 @@
             // specieBSource
             // 
             this.specieBSource.DataSource = typeof(SIFCA_DAL.ESPECIE);
+            // 
+            // GroupComBSource
+            // 
+            this.GroupComBSource.DataSource = typeof(SIFCA_DAL.GRUPOCOMERCIAL);
             // 
             // groupBox
             // 
@@ -740,6 +759,31 @@
             this.pn_crear.Size = new System.Drawing.Size(371, 297);
             this.pn_crear.TabIndex = 1;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cbox_GrupoComercial);
+            this.groupBox1.Controls.Add(this.btn_Cancelar);
+            this.groupBox1.Controls.Add(this.txt_DMC);
+            this.groupBox1.Controls.Add(this.Btn_Crear);
+            this.groupBox1.Controls.Add(this.txt_ZonaVida);
+            this.groupBox1.Controls.Add(this.txt_ZonaGeografica);
+            this.groupBox1.Controls.Add(this.txt_Familia);
+            this.groupBox1.Controls.Add(this.txt_NombreCientifico);
+            this.groupBox1.Controls.Add(this.txt_NombreComun);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Location = new System.Drawing.Point(7, 4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(339, 244);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Crear especie";
+            // 
             // cbox_GrupoComercial
             // 
             this.cbox_GrupoComercial.DataSource = this.grupoComercialBSource;
@@ -859,31 +903,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Nombre cientifico";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.cbox_GrupoComercial);
-            this.groupBox1.Controls.Add(this.btn_Cancelar);
-            this.groupBox1.Controls.Add(this.txt_DMC);
-            this.groupBox1.Controls.Add(this.Btn_Crear);
-            this.groupBox1.Controls.Add(this.txt_ZonaVida);
-            this.groupBox1.Controls.Add(this.txt_ZonaGeografica);
-            this.groupBox1.Controls.Add(this.txt_Familia);
-            this.groupBox1.Controls.Add(this.txt_NombreCientifico);
-            this.groupBox1.Controls.Add(this.txt_NombreComun);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Location = new System.Drawing.Point(7, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(339, 244);
-            this.groupBox1.TabIndex = 16;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Crear especie";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -909,6 +928,31 @@
             this.pn_editar.Name = "pn_editar";
             this.pn_editar.Size = new System.Drawing.Size(360, 300);
             this.pn_editar.TabIndex = 2;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.Btn_CancelarUpdate);
+            this.groupBox3.Controls.Add(this.cbxGrupoComercial);
+            this.groupBox3.Controls.Add(this.Guardar);
+            this.groupBox3.Controls.Add(this.txt_DimCor);
+            this.groupBox3.Controls.Add(this.label23);
+            this.groupBox3.Controls.Add(this.txt_ZonaVid);
+            this.groupBox3.Controls.Add(this.label24);
+            this.groupBox3.Controls.Add(this.txt_ZonaGeogra);
+            this.groupBox3.Controls.Add(this.label25);
+            this.groupBox3.Controls.Add(this.txt_Fam);
+            this.groupBox3.Controls.Add(this.label26);
+            this.groupBox3.Controls.Add(this.label27);
+            this.groupBox3.Controls.Add(this.txt_NomCientifico);
+            this.groupBox3.Controls.Add(this.label28);
+            this.groupBox3.Controls.Add(this.txt_NomComun);
+            this.groupBox3.Controls.Add(this.label29);
+            this.groupBox3.Location = new System.Drawing.Point(8, 4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(327, 260);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Editar Especie";
             // 
             // Btn_CancelarUpdate
             // 
@@ -941,12 +985,69 @@
             this.Guardar.UseVisualStyleBackColor = true;
             this.Guardar.Click += new System.EventHandler(this.Btn_guardar_Click);
             // 
+            // txt_DimCor
+            // 
+            this.txt_DimCor.Location = new System.Drawing.Point(153, 201);
+            this.txt_DimCor.Name = "txt_DimCor";
+            this.txt_DimCor.Size = new System.Drawing.Size(61, 20);
+            this.txt_DimCor.TabIndex = 17;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(33, 201);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(77, 13);
+            this.label23.TabIndex = 16;
+            this.label23.Text = "Diametro Corte";
+            // 
+            // txt_ZonaVid
+            // 
+            this.txt_ZonaVid.Location = new System.Drawing.Point(152, 171);
+            this.txt_ZonaVid.Name = "txt_ZonaVid";
+            this.txt_ZonaVid.Size = new System.Drawing.Size(153, 20);
+            this.txt_ZonaVid.TabIndex = 15;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(31, 171);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(73, 13);
+            this.label24.TabIndex = 14;
+            this.label24.Text = "Zona De Vida";
+            // 
+            // txt_ZonaGeogra
+            // 
+            this.txt_ZonaGeogra.Location = new System.Drawing.Point(152, 141);
+            this.txt_ZonaGeogra.Name = "txt_ZonaGeogra";
+            this.txt_ZonaGeogra.Size = new System.Drawing.Size(153, 20);
+            this.txt_ZonaGeogra.TabIndex = 13;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(32, 141);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(87, 13);
+            this.label25.TabIndex = 12;
+            this.label25.Text = "Zona Geografica";
+            // 
             // txt_Fam
             // 
             this.txt_Fam.Location = new System.Drawing.Point(152, 111);
             this.txt_Fam.Name = "txt_Fam";
             this.txt_Fam.Size = new System.Drawing.Size(153, 20);
             this.txt_Fam.TabIndex = 11;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(31, 111);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(39, 13);
+            this.label26.TabIndex = 10;
+            this.label26.Text = "Familia";
             // 
             // label27
             // 
@@ -989,109 +1090,195 @@
             this.label29.TabIndex = 0;
             this.label29.Text = "Nombre Comun";
             // 
-            // label23
+            // pn_detalle
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(33, 201);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(77, 13);
-            this.label23.TabIndex = 16;
-            this.label23.Text = "Diametro Corte";
+            this.pn_detalle.Controls.Add(this.ver_detalle);
+            this.pn_detalle.Location = new System.Drawing.Point(0, 0);
+            this.pn_detalle.Name = "pn_detalle";
+            this.pn_detalle.Size = new System.Drawing.Size(360, 311);
+            this.pn_detalle.TabIndex = 3;
+            this.pn_detalle.Visible = false;
             // 
-            // txt_ZonaVid
+            // ver_detalle
             // 
-            this.txt_ZonaVid.Location = new System.Drawing.Point(152, 171);
-            this.txt_ZonaVid.Name = "txt_ZonaVid";
-            this.txt_ZonaVid.Size = new System.Drawing.Size(153, 20);
-            this.txt_ZonaVid.TabIndex = 15;
+            this.ver_detalle.Controls.Add(this.btn_cerrar);
+            this.ver_detalle.Controls.Add(this.cbxGrupoComercial_det);
+            this.ver_detalle.Controls.Add(this.txt_DimCor_det);
+            this.ver_detalle.Controls.Add(this.label2);
+            this.ver_detalle.Controls.Add(this.txt_ZonaVid_det);
+            this.ver_detalle.Controls.Add(this.label30);
+            this.ver_detalle.Controls.Add(this.txt_ZonaGeogra_det);
+            this.ver_detalle.Controls.Add(this.label31);
+            this.ver_detalle.Controls.Add(this.txt_Fam_det);
+            this.ver_detalle.Controls.Add(this.label32);
+            this.ver_detalle.Controls.Add(this.label33);
+            this.ver_detalle.Controls.Add(this.txt_NomCientifico_det);
+            this.ver_detalle.Controls.Add(this.label34);
+            this.ver_detalle.Controls.Add(this.txt_NomComun_det);
+            this.ver_detalle.Controls.Add(this.label35);
+            this.ver_detalle.Location = new System.Drawing.Point(8, 4);
+            this.ver_detalle.Name = "ver_detalle";
+            this.ver_detalle.Size = new System.Drawing.Size(327, 260);
+            this.ver_detalle.TabIndex = 6;
+            this.ver_detalle.TabStop = false;
+            this.ver_detalle.Text = "Ver detalle";
             // 
-            // label24
+            // btn_cerrar
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(31, 171);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(73, 13);
-            this.label24.TabIndex = 14;
-            this.label24.Text = "Zona De Vida";
+            this.btn_cerrar.Location = new System.Drawing.Point(125, 231);
+            this.btn_cerrar.Name = "btn_cerrar";
+            this.btn_cerrar.Size = new System.Drawing.Size(75, 23);
+            this.btn_cerrar.TabIndex = 6;
+            this.btn_cerrar.Text = "Cerrar";
+            this.btn_cerrar.UseVisualStyleBackColor = true;
+            this.btn_cerrar.Click += new System.EventHandler(this.btn_cerrar_Click);
             // 
-            // groupBox3
+            // cbxGrupoComercial_det
             // 
-            this.groupBox3.Controls.Add(this.Btn_CancelarUpdate);
-            this.groupBox3.Controls.Add(this.cbxGrupoComercial);
-            this.groupBox3.Controls.Add(this.Guardar);
-            this.groupBox3.Controls.Add(this.txt_DimCor);
-            this.groupBox3.Controls.Add(this.label23);
-            this.groupBox3.Controls.Add(this.txt_ZonaVid);
-            this.groupBox3.Controls.Add(this.label24);
-            this.groupBox3.Controls.Add(this.txt_ZonaGeogra);
-            this.groupBox3.Controls.Add(this.label25);
-            this.groupBox3.Controls.Add(this.txt_Fam);
-            this.groupBox3.Controls.Add(this.label26);
-            this.groupBox3.Controls.Add(this.label27);
-            this.groupBox3.Controls.Add(this.txt_NomCientifico);
-            this.groupBox3.Controls.Add(this.label28);
-            this.groupBox3.Controls.Add(this.txt_NomComun);
-            this.groupBox3.Controls.Add(this.label29);
-            this.groupBox3.Location = new System.Drawing.Point(8, 4);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(327, 260);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Editar Especie";
+            this.cbxGrupoComercial_det.DataSource = this.GroupComBSource;
+            this.cbxGrupoComercial_det.DisplayMember = "DESCRIPGRUPO";
+            this.cbxGrupoComercial_det.Enabled = false;
+            this.cbxGrupoComercial_det.FormattingEnabled = true;
+            this.cbxGrupoComercial_det.Location = new System.Drawing.Point(153, 82);
+            this.cbxGrupoComercial_det.Name = "cbxGrupoComercial_det";
+            this.cbxGrupoComercial_det.Size = new System.Drawing.Size(152, 21);
+            this.cbxGrupoComercial_det.TabIndex = 18;
+            this.cbxGrupoComercial_det.ValueMember = "GRUPOCOM";
             // 
-            // txt_DimCor
+            // txt_DimCor_det
             // 
-            this.txt_DimCor.Location = new System.Drawing.Point(153, 201);
-            this.txt_DimCor.Name = "txt_DimCor";
-            this.txt_DimCor.Size = new System.Drawing.Size(61, 20);
-            this.txt_DimCor.TabIndex = 17;
+            this.txt_DimCor_det.Location = new System.Drawing.Point(153, 201);
+            this.txt_DimCor_det.Name = "txt_DimCor_det";
+            this.txt_DimCor_det.ReadOnly = true;
+            this.txt_DimCor_det.Size = new System.Drawing.Size(61, 20);
+            this.txt_DimCor_det.TabIndex = 17;
             // 
-            // txt_ZonaGeogra
+            // label2
             // 
-            this.txt_ZonaGeogra.Location = new System.Drawing.Point(152, 141);
-            this.txt_ZonaGeogra.Name = "txt_ZonaGeogra";
-            this.txt_ZonaGeogra.Size = new System.Drawing.Size(153, 20);
-            this.txt_ZonaGeogra.TabIndex = 13;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(33, 201);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Diametro Corte";
             // 
-            // label25
+            // txt_ZonaVid_det
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(32, 141);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(87, 13);
-            this.label25.TabIndex = 12;
-            this.label25.Text = "Zona Geografica";
+            this.txt_ZonaVid_det.Location = new System.Drawing.Point(152, 171);
+            this.txt_ZonaVid_det.Name = "txt_ZonaVid_det";
+            this.txt_ZonaVid_det.ReadOnly = true;
+            this.txt_ZonaVid_det.Size = new System.Drawing.Size(153, 20);
+            this.txt_ZonaVid_det.TabIndex = 15;
             // 
-            // label26
+            // label30
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(31, 111);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(39, 13);
-            this.label26.TabIndex = 10;
-            this.label26.Text = "Familia";
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(31, 171);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(73, 13);
+            this.label30.TabIndex = 14;
+            this.label30.Text = "Zona De Vida";
+            // 
+            // txt_ZonaGeogra_det
+            // 
+            this.txt_ZonaGeogra_det.Location = new System.Drawing.Point(152, 141);
+            this.txt_ZonaGeogra_det.Name = "txt_ZonaGeogra_det";
+            this.txt_ZonaGeogra_det.ReadOnly = true;
+            this.txt_ZonaGeogra_det.Size = new System.Drawing.Size(153, 20);
+            this.txt_ZonaGeogra_det.TabIndex = 13;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(32, 141);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(87, 13);
+            this.label31.TabIndex = 12;
+            this.label31.Text = "Zona Geografica";
+            // 
+            // txt_Fam_det
+            // 
+            this.txt_Fam_det.Location = new System.Drawing.Point(152, 111);
+            this.txt_Fam_det.Name = "txt_Fam_det";
+            this.txt_Fam_det.ReadOnly = true;
+            this.txt_Fam_det.Size = new System.Drawing.Size(153, 20);
+            this.txt_Fam_det.TabIndex = 11;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(31, 111);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(39, 13);
+            this.label32.TabIndex = 10;
+            this.label32.Text = "Familia";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(31, 82);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(85, 13);
+            this.label33.TabIndex = 8;
+            this.label33.Text = "Grupo Comercial";
+            // 
+            // txt_NomCientifico_det
+            // 
+            this.txt_NomCientifico_det.Location = new System.Drawing.Point(152, 52);
+            this.txt_NomCientifico_det.Name = "txt_NomCientifico_det";
+            this.txt_NomCientifico_det.ReadOnly = true;
+            this.txt_NomCientifico_det.Size = new System.Drawing.Size(153, 20);
+            this.txt_NomCientifico_det.TabIndex = 7;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(32, 52);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(90, 13);
+            this.label34.TabIndex = 6;
+            this.label34.Text = "Nombre Cientifico";
+            // 
+            // txt_NomComun_det
+            // 
+            this.txt_NomComun_det.Location = new System.Drawing.Point(152, 23);
+            this.txt_NomComun_det.Name = "txt_NomComun_det";
+            this.txt_NomComun_det.ReadOnly = true;
+            this.txt_NomComun_det.Size = new System.Drawing.Size(153, 20);
+            this.txt_NomComun_det.TabIndex = 5;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(31, 23);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(80, 13);
+            this.label35.TabIndex = 0;
+            this.label35.Text = "Nombre Comun";
             // 
             // Especies_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(940, 407);
+            this.ClientSize = new System.Drawing.Size(835, 380);
+            this.Controls.Add(this.pn_detalle);
             this.Controls.Add(this.pn_editar);
             this.Controls.Add(this.pn_crear);
             this.Controls.Add(this.pn_listado);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Especies_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Especies";
             this.pn_listado.ResumeLayout(false);
             this.pn_listado.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grupoComercialBSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GroupComBSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paginacionEspecie)).EndInit();
             this.paginacionEspecie.ResumeLayout(false);
             this.paginacionEspecie.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListadoEspecies)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grupoComercialBSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.specieBSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GroupComBSource)).EndInit();
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1102,6 +1289,9 @@
             this.pn_editar.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.pn_detalle.ResumeLayout(false);
+            this.ver_detalle.ResumeLayout(false);
+            this.ver_detalle.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1208,5 +1398,22 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox txt_NomComun;
         private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Panel pn_detalle;
+        private System.Windows.Forms.GroupBox ver_detalle;
+        private System.Windows.Forms.Button btn_cerrar;
+        private System.Windows.Forms.ComboBox cbxGrupoComercial_det;
+        private System.Windows.Forms.TextBox txt_DimCor_det;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txt_ZonaVid_det;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox txt_ZonaGeogra_det;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.TextBox txt_Fam_det;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox txt_NomCientifico_det;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.TextBox txt_NomComun_det;
+        private System.Windows.Forms.Label label35;
     }
 }

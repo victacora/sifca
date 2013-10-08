@@ -32,6 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Estratos_Form));
             this.pn_listado = new System.Windows.Forms.Panel();
             this.ListadoEstratos = new System.Windows.Forms.DataGridView();
+            this.cODESTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dESCRIPESTRATODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.stratumListBSource = new System.Windows.Forms.BindingSource(this.components);
             this.paginacionEstrato = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -59,10 +63,6 @@
             this.btn_Guardar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.stratumEditBSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cODESTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dESCRIPESTRATODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pn_listado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListadoEstratos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stratumListBSource)).BeginInit();
@@ -103,6 +103,39 @@
             this.ListadoEstratos.Size = new System.Drawing.Size(666, 370);
             this.ListadoEstratos.TabIndex = 3;
             this.ListadoEstratos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListadoDeEstratos_CellValueChanged);
+            // 
+            // cODESTDataGridViewTextBoxColumn
+            // 
+            this.cODESTDataGridViewTextBoxColumn.DataPropertyName = "CODEST";
+            this.cODESTDataGridViewTextBoxColumn.HeaderText = "Codigo";
+            this.cODESTDataGridViewTextBoxColumn.Name = "cODESTDataGridViewTextBoxColumn";
+            this.cODESTDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dESCRIPESTRATODataGridViewTextBoxColumn
+            // 
+            this.dESCRIPESTRATODataGridViewTextBoxColumn.DataPropertyName = "DESCRIPESTRATO";
+            this.dESCRIPESTRATODataGridViewTextBoxColumn.HeaderText = "Descripcion";
+            this.dESCRIPESTRATODataGridViewTextBoxColumn.Name = "dESCRIPESTRATODataGridViewTextBoxColumn";
+            // 
+            // Editar
+            // 
+            this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Editar.HeaderText = "";
+            this.Editar.Name = "Editar";
+            this.Editar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Editar.Text = "Editar";
+            this.Editar.UseColumnTextForButtonValue = true;
+            this.Editar.Width = 19;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Text = "Eliminar";
+            this.Eliminar.UseColumnTextForButtonValue = true;
+            this.Eliminar.Width = 5;
             // 
             // stratumListBSource
             // 
@@ -348,39 +381,6 @@
             // 
             this.stratumEditBSource.DataSource = typeof(SIFCA_DAL.ESTRATO);
             // 
-            // cODESTDataGridViewTextBoxColumn
-            // 
-            this.cODESTDataGridViewTextBoxColumn.DataPropertyName = "CODEST";
-            this.cODESTDataGridViewTextBoxColumn.HeaderText = "Codigo";
-            this.cODESTDataGridViewTextBoxColumn.Name = "cODESTDataGridViewTextBoxColumn";
-            this.cODESTDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // dESCRIPESTRATODataGridViewTextBoxColumn
-            // 
-            this.dESCRIPESTRATODataGridViewTextBoxColumn.DataPropertyName = "DESCRIPESTRATO";
-            this.dESCRIPESTRATODataGridViewTextBoxColumn.HeaderText = "Descripcion";
-            this.dESCRIPESTRATODataGridViewTextBoxColumn.Name = "dESCRIPESTRATODataGridViewTextBoxColumn";
-            // 
-            // Editar
-            // 
-            this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Editar.HeaderText = "";
-            this.Editar.Name = "Editar";
-            this.Editar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Editar.Text = "Editar";
-            this.Editar.UseColumnTextForButtonValue = true;
-            this.Editar.Width = 19;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Eliminar.HeaderText = "";
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Text = "Eliminar";
-            this.Eliminar.UseColumnTextForButtonValue = true;
-            this.Eliminar.Width = 5;
-            // 
             // Estratos_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -389,6 +389,7 @@
             this.Controls.Add(this.pn_crear);
             this.Controls.Add(this.pn_editar);
             this.Controls.Add(this.pn_listado);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Estratos_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Estratos Form";

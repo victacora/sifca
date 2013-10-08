@@ -90,7 +90,7 @@
             this.SalirBtn.Location = new System.Drawing.Point(187, 187);
             this.SalirBtn.Name = "SalirBtn";
             this.SalirBtn.Size = new System.Drawing.Size(124, 32);
-            this.SalirBtn.TabIndex = 26;
+            this.SalirBtn.TabIndex = 4;
             this.SalirBtn.Text = "Salir";
             this.SalirBtn.UseVisualStyleBackColor = true;
             this.SalirBtn.Click += new System.EventHandler(this.cancelarBtn_Click);
@@ -129,7 +129,7 @@
             this.contrasenaTxt.Location = new System.Drawing.Point(59, 132);
             this.contrasenaTxt.Name = "contrasenaTxt";
             this.contrasenaTxt.Size = new System.Drawing.Size(252, 31);
-            this.contrasenaTxt.TabIndex = 22;
+            this.contrasenaTxt.TabIndex = 2;
             this.contrasenaTxt.Tag = "";
             this.contrasenaTxt.UseSystemPasswordChar = true;
             // 
@@ -139,7 +139,7 @@
             this.usuarioTxt.Location = new System.Drawing.Point(59, 74);
             this.usuarioTxt.Name = "usuarioTxt";
             this.usuarioTxt.Size = new System.Drawing.Size(252, 31);
-            this.usuarioTxt.TabIndex = 16;
+            this.usuarioTxt.TabIndex = 1;
             // 
             // AceptarBtn
             // 
@@ -147,7 +147,7 @@
             this.AceptarBtn.Location = new System.Drawing.Point(59, 187);
             this.AceptarBtn.Name = "AceptarBtn";
             this.AceptarBtn.Size = new System.Drawing.Size(124, 32);
-            this.AceptarBtn.TabIndex = 6;
+            this.AceptarBtn.TabIndex = 3;
             this.AceptarBtn.Text = "Ingresar";
             this.AceptarBtn.UseVisualStyleBackColor = true;
             this.AceptarBtn.Click += new System.EventHandler(this.IngresarBtn_Click);

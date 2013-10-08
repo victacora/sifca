@@ -300,7 +300,7 @@
             this.TipoProyectoCbx.Location = new System.Drawing.Point(147, 179);
             this.TipoProyectoCbx.Name = "TipoProyectoCbx";
             this.TipoProyectoCbx.Size = new System.Drawing.Size(361, 21);
-            this.TipoProyectoCbx.TabIndex = 28;
+            this.TipoProyectoCbx.TabIndex = 5;
             this.TipoProyectoCbx.SelectedIndexChanged += new System.EventHandler(this.TipoProyectoCbx_SelectedIndexChanged);
             // 
             // DescripcionTxt
@@ -309,7 +309,7 @@
             this.DescripcionTxt.Multiline = true;
             this.DescripcionTxt.Name = "DescripcionTxt";
             this.DescripcionTxt.Size = new System.Drawing.Size(363, 62);
-            this.DescripcionTxt.TabIndex = 26;
+            this.DescripcionTxt.TabIndex = 2;
             // 
             // tipoDisenoCbx
             // 
@@ -320,7 +320,7 @@
             this.tipoDisenoCbx.Location = new System.Drawing.Point(145, 146);
             this.tipoDisenoCbx.Name = "tipoDisenoCbx";
             this.tipoDisenoCbx.Size = new System.Drawing.Size(363, 21);
-            this.tipoDisenoCbx.TabIndex = 23;
+            this.tipoDisenoCbx.TabIndex = 4;
             this.tipoDisenoCbx.ValueMember = "NOMTIPODISEMUEST";
             this.tipoDisenoCbx.SelectedIndexChanged += new System.EventHandler(this.tipoDisenoCbx_SelectedIndexChanged);
             // 
@@ -337,7 +337,7 @@
             this.tipoObjetivoCbx.Location = new System.Drawing.Point(145, 118);
             this.tipoObjetivoCbx.Name = "tipoObjetivoCbx";
             this.tipoObjetivoCbx.Size = new System.Drawing.Size(363, 21);
-            this.tipoObjetivoCbx.TabIndex = 2;
+            this.tipoObjetivoCbx.TabIndex = 3;
             this.tipoObjetivoCbx.ValueMember = "NOMBRETIPOINV";
             // 
             // objetivoInventarioBS
@@ -361,7 +361,7 @@
             this.limiteSupTxt.Location = new System.Drawing.Point(111, 19);
             this.limiteSupTxt.Name = "limiteSupTxt";
             this.limiteSupTxt.Size = new System.Drawing.Size(34, 20);
-            this.limiteSupTxt.TabIndex = 5;
+            this.limiteSupTxt.TabIndex = 7;
             this.limiteSupTxt.Text = "100";
             // 
             // limiteInfTxt
@@ -369,7 +369,7 @@
             this.limiteInfTxt.Location = new System.Drawing.Point(6, 19);
             this.limiteInfTxt.Name = "limiteInfTxt";
             this.limiteInfTxt.Size = new System.Drawing.Size(34, 20);
-            this.limiteInfTxt.TabIndex = 4;
+            this.limiteInfTxt.TabIndex = 6;
             this.limiteInfTxt.Text = "10";
             // 
             // otrosDatosGbx
@@ -393,7 +393,7 @@
             this.numeroEtapasTxt.Location = new System.Drawing.Point(139, 104);
             this.numeroEtapasTxt.Name = "numeroEtapasTxt";
             this.numeroEtapasTxt.Size = new System.Drawing.Size(340, 20);
-            this.numeroEtapasTxt.TabIndex = 11;
+            this.numeroEtapasTxt.TabIndex = 13;
             this.numeroEtapasTxt.Text = "0";
             // 
             // factorFormaTxt
@@ -401,7 +401,7 @@
             this.factorFormaTxt.Location = new System.Drawing.Point(139, 76);
             this.factorFormaTxt.Name = "factorFormaTxt";
             this.factorFormaTxt.Size = new System.Drawing.Size(340, 20);
-            this.factorFormaTxt.TabIndex = 9;
+            this.factorFormaTxt.TabIndex = 12;
             this.factorFormaTxt.Text = "0.000";
             // 
             // areaFustalesTxt
@@ -409,7 +409,7 @@
             this.areaFustalesTxt.Location = new System.Drawing.Point(139, 50);
             this.areaFustalesTxt.Name = "areaFustalesTxt";
             this.areaFustalesTxt.Size = new System.Drawing.Size(340, 20);
-            this.areaFustalesTxt.TabIndex = 7;
+            this.areaFustalesTxt.TabIndex = 11;
             this.areaFustalesTxt.Text = "1.000";
             // 
             // tamParcelaTxt
@@ -417,7 +417,7 @@
             this.tamParcelaTxt.Location = new System.Drawing.Point(139, 24);
             this.tamParcelaTxt.Name = "tamParcelaTxt";
             this.tamParcelaTxt.Size = new System.Drawing.Size(340, 20);
-            this.tamParcelaTxt.TabIndex = 5;
+            this.tamParcelaTxt.TabIndex = 10;
             this.tamParcelaTxt.Text = "1";
             // 
             // IntensidadGbx
@@ -436,7 +436,7 @@
             this.intMuestreoTxt.Location = new System.Drawing.Point(6, 19);
             this.intMuestreoTxt.Name = "intMuestreoTxt";
             this.intMuestreoTxt.Size = new System.Drawing.Size(125, 20);
-            this.intMuestreoTxt.TabIndex = 6;
+            this.intMuestreoTxt.TabIndex = 8;
             this.intMuestreoTxt.Text = "10.000";
             // 
             // AreaMuestreadaGbx
@@ -455,7 +455,7 @@
             this.AreaMuestradaTxt.Location = new System.Drawing.Point(6, 19);
             this.AreaMuestradaTxt.Name = "AreaMuestradaTxt";
             this.AreaMuestradaTxt.Size = new System.Drawing.Size(102, 20);
-            this.AreaMuestradaTxt.TabIndex = 5;
+            this.AreaMuestradaTxt.TabIndex = 9;
             this.AreaMuestradaTxt.Text = "1.000";
             // 
             // lugarTxt
@@ -483,7 +483,7 @@
             this.seleccEspecieBtn.Location = new System.Drawing.Point(304, 12);
             this.seleccEspecieBtn.Name = "seleccEspecieBtn";
             this.seleccEspecieBtn.Size = new System.Drawing.Size(112, 23);
-            this.seleccEspecieBtn.TabIndex = 16;
+            this.seleccEspecieBtn.TabIndex = 14;
             this.seleccEspecieBtn.Text = "Seleccionar Todos";
             this.seleccEspecieBtn.UseVisualStyleBackColor = true;
             this.seleccEspecieBtn.Click += new System.EventHandler(this.seleccEspecieBtn_Click);
@@ -493,7 +493,7 @@
             this.RemoverEspciesBtn.Location = new System.Drawing.Point(422, 12);
             this.RemoverEspciesBtn.Name = "RemoverEspciesBtn";
             this.RemoverEspciesBtn.Size = new System.Drawing.Size(104, 23);
-            this.RemoverEspciesBtn.TabIndex = 14;
+            this.RemoverEspciesBtn.TabIndex = 15;
             this.RemoverEspciesBtn.Text = "Remover Todos";
             this.RemoverEspciesBtn.UseVisualStyleBackColor = true;
             this.RemoverEspciesBtn.Click += new System.EventHandler(this.RemoverEspciesBtn_Click);
@@ -502,7 +502,6 @@
             // 
             this.especiesDGW.AllowUserToAddRows = false;
             this.especiesDGW.AllowUserToDeleteRows = false;
-            this.especiesDGW.AllowUserToOrderColumns = true;
             this.especiesDGW.AutoGenerateColumns = false;
             this.especiesDGW.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.especiesDGW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -523,6 +522,7 @@
             // 
             this.Especie.HeaderText = "Seleccion";
             this.Especie.Name = "Especie";
+            this.Especie.ReadOnly = true;
             // 
             // NOMCOMUN
             // 
@@ -570,7 +570,7 @@
             this.SeleccEstratosBtn.Location = new System.Drawing.Point(290, 10);
             this.SeleccEstratosBtn.Name = "SeleccEstratosBtn";
             this.SeleccEstratosBtn.Size = new System.Drawing.Size(104, 23);
-            this.SeleccEstratosBtn.TabIndex = 22;
+            this.SeleccEstratosBtn.TabIndex = 16;
             this.SeleccEstratosBtn.Text = "Seleccionar Todos";
             this.SeleccEstratosBtn.UseVisualStyleBackColor = true;
             this.SeleccEstratosBtn.Click += new System.EventHandler(this.SeleccEstratosBtn_Click);
@@ -581,7 +581,7 @@
             this.removerEstratosBtn.Location = new System.Drawing.Point(396, 10);
             this.removerEstratosBtn.Name = "removerEstratosBtn";
             this.removerEstratosBtn.Size = new System.Drawing.Size(102, 23);
-            this.removerEstratosBtn.TabIndex = 21;
+            this.removerEstratosBtn.TabIndex = 17;
             this.removerEstratosBtn.Text = "Remover Todos";
             this.removerEstratosBtn.UseVisualStyleBackColor = true;
             this.removerEstratosBtn.Click += new System.EventHandler(this.removerEstratosBtn_Click);
@@ -594,7 +594,7 @@
             this.actualizarBtn.Location = new System.Drawing.Point(503, 10);
             this.actualizarBtn.Name = "actualizarBtn";
             this.actualizarBtn.Size = new System.Drawing.Size(23, 23);
-            this.actualizarBtn.TabIndex = 20;
+            this.actualizarBtn.TabIndex = 18;
             this.actualizarBtn.UseVisualStyleBackColor = true;
             this.actualizarBtn.Click += new System.EventHandler(this.actualizarBtn_Click);
             // 
@@ -610,7 +610,6 @@
             // 
             this.estratoDGW.AllowUserToAddRows = false;
             this.estratoDGW.AllowUserToDeleteRows = false;
-            this.estratoDGW.AllowUserToOrderColumns = true;
             this.estratoDGW.AutoGenerateColumns = false;
             this.estratoDGW.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.estratoDGW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -668,7 +667,7 @@
             this.seleccionarProyectosBtn.Location = new System.Drawing.Point(304, 9);
             this.seleccionarProyectosBtn.Name = "seleccionarProyectosBtn";
             this.seleccionarProyectosBtn.Size = new System.Drawing.Size(112, 23);
-            this.seleccionarProyectosBtn.TabIndex = 20;
+            this.seleccionarProyectosBtn.TabIndex = 19;
             this.seleccionarProyectosBtn.Text = "Seleccionar Todos";
             this.seleccionarProyectosBtn.UseVisualStyleBackColor = true;
             this.seleccionarProyectosBtn.Click += new System.EventHandler(this.seleccionarProyectosBtn_Click);
@@ -679,7 +678,7 @@
             this.removerProyectosBtn.Location = new System.Drawing.Point(422, 9);
             this.removerProyectosBtn.Name = "removerProyectosBtn";
             this.removerProyectosBtn.Size = new System.Drawing.Size(104, 23);
-            this.removerProyectosBtn.TabIndex = 19;
+            this.removerProyectosBtn.TabIndex = 20;
             this.removerProyectosBtn.Text = "Remover Todos";
             this.removerProyectosBtn.UseVisualStyleBackColor = true;
             this.removerProyectosBtn.Click += new System.EventHandler(this.removerProyectosBtn_Click);
@@ -774,7 +773,7 @@
             this.cancelarBtn.Location = new System.Drawing.Point(579, 490);
             this.cancelarBtn.Name = "cancelarBtn";
             this.cancelarBtn.Size = new System.Drawing.Size(75, 23);
-            this.cancelarBtn.TabIndex = 11;
+            this.cancelarBtn.TabIndex = 22;
             this.cancelarBtn.Text = "Cancelar";
             this.cancelarBtn.UseVisualStyleBackColor = true;
             this.cancelarBtn.Click += new System.EventHandler(this.CancelarBtn_Click);
@@ -784,7 +783,7 @@
             this.GuardarBtn.Location = new System.Drawing.Point(497, 490);
             this.GuardarBtn.Name = "GuardarBtn";
             this.GuardarBtn.Size = new System.Drawing.Size(75, 23);
-            this.GuardarBtn.TabIndex = 10;
+            this.GuardarBtn.TabIndex = 21;
             this.GuardarBtn.Text = "Guardar";
             this.GuardarBtn.UseVisualStyleBackColor = true;
             this.GuardarBtn.Click += new System.EventHandler(this.GuardarBtn_Click);

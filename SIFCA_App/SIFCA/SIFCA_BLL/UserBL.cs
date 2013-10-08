@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.Objects.SqlClient;
 using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
+using System.Data.Entity.Validation;
 
 namespace SIFCA_BLL
 {
@@ -104,26 +105,32 @@ namespace SIFCA_BLL
 
         }
 
-        public void SaveChanges()
+        public string SaveChanges()
         {
             try
             {
                 this.sifcaRepository.SaveChanges();
             }
-            catch (DbUpdateException ex)
+            catch (DbEntityValidationException ex)
             {
-                var sqlException = ex.GetBaseException() as SqlException;
-
-                if (sqlException != null)
+                string error="";
+                foreach (var eve in ex.EntityValidationErrors)
                 {
-                    Console.WriteLine("Excepcion: "+sqlException.Number+" "+sqlException.Message);
+                    error+=string.Format("Entidad \"{0}\" \nEstado \"{1}\" \nErrores a validar:",eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        error += string.Format("\nPropiedad: \"{0}\", Error: \"{1}\"", ve.PropertyName, ve.ErrorMessage);
+                    }
                 }
+                return error;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+            return string.Empty;
         }
+
 
     }
 }

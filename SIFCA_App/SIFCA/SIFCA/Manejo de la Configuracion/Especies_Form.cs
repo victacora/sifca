@@ -27,6 +27,7 @@ namespace SIFCA.Gestion_Configuracion
             pn_listado.Show();
             pn_crear.Hide();
             pn_editar.Hide();
+            pn_detalle.Hide();
             specieBSource.DataSource = specieBL.GetSpecies();
             grupoComercialBSource.DataSource = group.GetGroups();
             criterioCbx.SelectedIndex =1;
@@ -38,11 +39,23 @@ namespace SIFCA.Gestion_Configuracion
             pn_editar.Hide();
             pn_crear.Show();
             pn_listado.Hide();
+            pn_detalle.Hide();
             GroupComBSource.DataSource = group.GetGroups();
             this.Width = pn_crear.Width;
             this.Height = pn_crear.Height;
             this.CenterToScreen();
             
+        }
+
+        public void Btn_nuevaEspecieForm_Click(object sender, EventArgs e)
+        {
+            pn_editar.Hide();
+            pn_crear.Show();
+            pn_detalle.Hide();
+            btn_Cancelar.Visible = false;
+            this.Width = pn_crear.Width;
+            this.Height = pn_crear.Height;
+            this.CenterToScreen();
         }
 
         private void Btn_Crear_Click(object sender, EventArgs e)
@@ -76,6 +89,7 @@ namespace SIFCA.Gestion_Configuracion
             pn_crear.Hide();
             pn_listado.Show();
             pn_editar.Hide();
+            pn_detalle.Hide();
             this.Width = pn_listado.Width;
             this.Height = pn_listado.Height;
             this.CenterToScreen();
@@ -101,6 +115,7 @@ namespace SIFCA.Gestion_Configuracion
                 specie = new ESPECIE();
                 pn_crear.Hide();
                 pn_editar.Show();
+                pn_detalle.Hide();
                 specie = specieBL.GetSpecie(codigo);
                 
                 GroupComBSource.DataSource = group.GetGroups();
@@ -145,6 +160,7 @@ namespace SIFCA.Gestion_Configuracion
                         pn_listado.Show();
                         pn_crear.Hide();
                         pn_editar.Hide();
+                        pn_detalle.Hide();
                         break;
 
                     case DialogResult.Cancel:
@@ -182,6 +198,7 @@ namespace SIFCA.Gestion_Configuracion
             ListadoEspecies.Refresh();
             pn_listado.Show();
             pn_crear.Hide();
+            pn_detalle.Hide();
             pn_editar.Hide();
             this.Width = pn_listado.Width;
             this.Height = pn_listado.Height;
@@ -193,6 +210,7 @@ namespace SIFCA.Gestion_Configuracion
             pn_listado.Show();
             pn_crear.Hide();
             pn_editar.Hide();
+            pn_detalle.Hide();
             this.Width = pn_listado.Width;
             this.Height = pn_listado.Height;
             this.CenterToScreen();
@@ -203,6 +221,7 @@ namespace SIFCA.Gestion_Configuracion
             pn_crear.Hide();
             pn_editar.Hide();
             pn_listado.Show();
+            pn_detalle.Hide();
             this.Width = pn_listado.Width;
             this.Height = pn_listado.Height;
             this.CenterToScreen();
@@ -250,6 +269,35 @@ namespace SIFCA.Gestion_Configuracion
                 ListadoEspecies.Refresh();
             }
         }
+
+        public void btn_detalle(object sender, EventArgs e, Guid codigo)
+        {
+            specie = new ESPECIE();
+            pn_crear.Hide();
+            pn_editar.Hide();
+            pn_listado.Hide();
+            pn_detalle.Show();
+            
+            specie = specieBL.GetSpecie(codigo);
+
+            GroupComBSource.DataSource = group.GetGroups();
+            cbxGrupoComercial_det.SelectedValue = specie.GRUPOCOM;
+            txt_NomComun_det.Text = specie.NOMCOMUN;
+            txt_NomCientifico_det.Text = specie.NOMCIENTIFICO;
+            txt_Fam_det.Text = specie.FAMILIA;
+            txt_ZonaGeogra_det.Text = specie.ZONAGEOGRAFICA;
+            txt_ZonaVid_det.Text = specie.ZONADEVIDA;
+            txt_DimCor_det.Text = "" + specie.DIAMMINCORTE;
+            this.Width = pn_editar.Width;
+            this.Height = pn_editar.Height;
+            this.CenterToScreen();
+        }
+
+        private void btn_cerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
 
     }
 }

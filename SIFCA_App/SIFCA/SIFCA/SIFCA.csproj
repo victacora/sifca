@@ -76,7 +76,7 @@
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
@@ -103,6 +103,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Gestion de Proyectos\Actualizar_Proyectos_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Proyectos\Actualizar_Proyectos_Form.designer.cs">
+      <DependentUpon>Actualizar_Proyectos_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion General\Error_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion General\Error_Form.Designer.cs">
+      <DependentUpon>Error_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manejo de la Configuracion\Calidad_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,12 +168,6 @@
     </Compile>
     <Compile Include="Gestion de Proyectos\Abrir_Proyecto_Form.Designer.cs">
       <DependentUpon>Abrir_Proyecto_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gestion de Proyectos\Actualizar_Proyectos_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gestion de Proyectos\Actualizar_Proyectos_Form.designer.cs">
-      <DependentUpon>Actualizar_Proyectos_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestion de Proyectos\Crear_Proyectos_Form.cs">
       <SubType>Form</SubType>
@@ -225,6 +231,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Gestion de Proyectos\Actualizar_Proyectos_Form.resx">
+      <DependentUpon>Actualizar_Proyectos_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion General\Error_Form.resx">
+      <DependentUpon>Error_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Manejo de la Configuracion\Calidad_Form.resx">
       <DependentUpon>Calidad_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,9 +263,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Proyectos\Abrir_Proyecto_Form.resx">
       <DependentUpon>Abrir_Proyecto_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Proyectos\Actualizar_Proyectos_Form.resx">
-      <DependentUpon>Actualizar_Proyectos_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Proyectos\Crear_Proyectos_Form.resx">
       <DependentUpon>Crear_Proyectos_Form.cs</DependentUpon>

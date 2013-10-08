@@ -48,3 +48,4 @@ C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\SIFCA.application
 C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.TrustInfo.xml
 C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.exe.manifest
 C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.application
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Error_Form.resources

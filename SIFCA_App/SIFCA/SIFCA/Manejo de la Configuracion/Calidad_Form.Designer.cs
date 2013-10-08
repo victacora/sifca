@@ -32,6 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calidad_Form));
             this.pn_listado = new System.Windows.Forms.Panel();
             this.ListadoCalidades = new System.Windows.Forms.DataGridView();
+            this.cODCALIDADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dESCRIPCALIDADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.QualityBSource = new System.Windows.Forms.BindingSource(this.components);
             this.paginacionCalidad = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -60,10 +64,6 @@
             this.updateNombreTxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Btn_Guardar = new System.Windows.Forms.Button();
-            this.cODCALIDADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dESCRIPCALIDADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pn_listado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListadoCalidades)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QualityBSource)).BeginInit();
@@ -105,6 +105,42 @@
             this.ListadoCalidades.Size = new System.Drawing.Size(497, 271);
             this.ListadoCalidades.TabIndex = 5;
             this.ListadoCalidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListadoDeEspecies_CellValueChanged);
+            // 
+            // cODCALIDADDataGridViewTextBoxColumn
+            // 
+            this.cODCALIDADDataGridViewTextBoxColumn.DataPropertyName = "CODCALIDAD";
+            this.cODCALIDADDataGridViewTextBoxColumn.HeaderText = "CODCALIDAD";
+            this.cODCALIDADDataGridViewTextBoxColumn.Name = "cODCALIDADDataGridViewTextBoxColumn";
+            this.cODCALIDADDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cODCALIDADDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dESCRIPCALIDADDataGridViewTextBoxColumn
+            // 
+            this.dESCRIPCALIDADDataGridViewTextBoxColumn.DataPropertyName = "DESCRIPCALIDAD";
+            this.dESCRIPCALIDADDataGridViewTextBoxColumn.HeaderText = "Descripcion calidad";
+            this.dESCRIPCALIDADDataGridViewTextBoxColumn.Name = "dESCRIPCALIDADDataGridViewTextBoxColumn";
+            this.dESCRIPCALIDADDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Editar
+            // 
+            this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Editar.HeaderText = "";
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            this.Editar.Text = "Editar";
+            this.Editar.UseColumnTextForButtonValue = true;
+            this.Editar.Width = 5;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Eliminar.DataPropertyName = "CODCALIDAD";
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Text = "Eliminar";
+            this.Eliminar.UseColumnTextForButtonValue = true;
+            this.Eliminar.Width = 5;
             // 
             // QualityBSource
             // 
@@ -367,42 +403,6 @@
             this.Btn_Guardar.UseVisualStyleBackColor = true;
             this.Btn_Guardar.Click += new System.EventHandler(this.Btn_guardar_Click);
             // 
-            // cODCALIDADDataGridViewTextBoxColumn
-            // 
-            this.cODCALIDADDataGridViewTextBoxColumn.DataPropertyName = "CODCALIDAD";
-            this.cODCALIDADDataGridViewTextBoxColumn.HeaderText = "CODCALIDAD";
-            this.cODCALIDADDataGridViewTextBoxColumn.Name = "cODCALIDADDataGridViewTextBoxColumn";
-            this.cODCALIDADDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cODCALIDADDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // dESCRIPCALIDADDataGridViewTextBoxColumn
-            // 
-            this.dESCRIPCALIDADDataGridViewTextBoxColumn.DataPropertyName = "DESCRIPCALIDAD";
-            this.dESCRIPCALIDADDataGridViewTextBoxColumn.HeaderText = "Descripcion calidad";
-            this.dESCRIPCALIDADDataGridViewTextBoxColumn.Name = "dESCRIPCALIDADDataGridViewTextBoxColumn";
-            this.dESCRIPCALIDADDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Editar
-            // 
-            this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Editar.HeaderText = "";
-            this.Editar.Name = "Editar";
-            this.Editar.ReadOnly = true;
-            this.Editar.Text = "Editar";
-            this.Editar.UseColumnTextForButtonValue = true;
-            this.Editar.Width = 5;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Eliminar.DataPropertyName = "CODCALIDAD";
-            this.Eliminar.HeaderText = "";
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Text = "Eliminar";
-            this.Eliminar.UseColumnTextForButtonValue = true;
-            this.Eliminar.Width = 5;
-            // 
             // Calidad_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,6 +412,7 @@
             this.Controls.Add(this.pn_editar);
             this.Controls.Add(this.pn_listado);
             this.Controls.Add(this.pn_crear);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Calidad_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calidad";

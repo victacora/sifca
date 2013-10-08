@@ -1,0 +1,9 @@
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_BLL\bin\Debug\SIFCA_BLL.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_BLL\bin\Debug\SIFCA_BLL.pdb
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_BLL\bin\Debug\EntityFramework.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_BLL\bin\Debug\SIFCA_DAL.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_BLL\bin\Debug\SIFCA_DAL.pdb
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_BLL\bin\Debug\EntityFramework.xml
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_BLL\obj\Debug\SIFCA_BLL.csprojResolveAssemblyReference.cache
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_BLL\obj\Debug\SIFCA_BLL.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_BLL\obj\Debug\SIFCA_BLL.pdb

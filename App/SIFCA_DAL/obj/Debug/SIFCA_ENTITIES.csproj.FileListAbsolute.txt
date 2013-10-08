@@ -1,8 +1,0 @@
-C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_ENTITIES\bin\Debug\SIFCA_ENTITIES.dll.config
-C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_ENTITIES\bin\Debug\SIFCA_ENTITIES.dll
-C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_ENTITIES\bin\Debug\SIFCA_ENTITIES.pdb
-C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_ENTITIES\bin\Debug\EntityFramework.dll
-C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_ENTITIES\bin\Debug\EntityFramework.xml
-C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_ENTITIES\obj\Debug\SIFCA_ENTITIES.csprojResolveAssemblyReference.cache
-C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_ENTITIES\obj\Debug\SIFCA_ENTITIES.dll
-C:\Users\Victacora\Desktop\ANTEPROYECTO\Prototipo\App\SIFCA_ENTITIES\obj\Debug\SIFCA_ENTITIES.pdb

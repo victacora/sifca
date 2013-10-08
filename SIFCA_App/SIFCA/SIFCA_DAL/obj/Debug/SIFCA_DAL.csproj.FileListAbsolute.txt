@@ -1,0 +1,7 @@
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_DAL\bin\Debug\SIFCA_DAL.dll.config
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_DAL\bin\Debug\SIFCA_DAL.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_DAL\bin\Debug\SIFCA_DAL.pdb
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_DAL\bin\Debug\EntityFramework.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_DAL\bin\Debug\EntityFramework.xml
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_DAL\obj\Debug\SIFCA_DAL.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_DAL\obj\Debug\SIFCA_DAL.pdb

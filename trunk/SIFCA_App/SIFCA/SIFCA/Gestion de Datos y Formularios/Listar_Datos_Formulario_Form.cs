@@ -27,6 +27,7 @@ namespace SIFCA
             state = new StateBL(Program.ContextData);
             notimberLine = new NonTimberLineBL(Program.ContextData);
 
+            this.form = form;
             especieBS.DataSource = specie.GetSpecies();
             calidadBS.DataSource = quality.GetQualities();
             estadoSanitarioBS.DataSource = state.GetStates();
@@ -107,6 +108,232 @@ namespace SIFCA
                     row.Cells["usos"].Value = usos;
                 }
             }
+        }
+
+        private void exportarExcelBtn_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog fichero = new SaveFileDialog();
+            ProjectBL pyBl = new ProjectBL(Program.ContextData);
+            FormBL formBl = new FormBL(Program.ContextData);
+            InventoryLineBL lineInvBl = new InventoryLineBL(Program.ContextData);
+
+            PROYECTO project = (PROYECTO)Program.Cache.Get("project");
+            if (project != null)
+            {
+
+                fichero.Filter = "Excel (*.xls)|*.xls";
+                if (fichero.ShowDialog() == DialogResult.OK)
+                {
+
+                    Microsoft.Office.Interop.Excel.Application aplicacion;
+                    Microsoft.Office.Interop.Excel.Workbook libros_trabajo;
+                    aplicacion = new Microsoft.Office.Interop.Excel.Application();
+                    libros_trabajo = aplicacion.Workbooks.Add();
+
+                    PROYECTO py = pyBl.GetProject(project.NROPROY);
+
+                    Microsoft.Office.Interop.Excel.Worksheet hoja_regeneracion;
+                    hoja_regeneracion = (Microsoft.Office.Interop.Excel.Worksheet)libros_trabajo.Worksheets.get_Item(1);
+                    hoja_regeneracion.Name = "Regeneracion";
+                    hoja_regeneracion.Cells[1, 1] = "Lugar";
+                    hoja_regeneracion.Cells[1, 2] = "Responsable";                    
+                    hoja_regeneracion.Cells[1, 3] = "Coor X";
+                    hoja_regeneracion.Cells[1, 4] = "Coor Y";
+                    hoja_regeneracion.Cells[1, 5] = "Linea";
+                    hoja_regeneracion.Cells[1, 6] = "Parcela";
+                    hoja_regeneracion.Cells[1, 7] = "Estrato";
+
+                    hoja_regeneracion.Cells[1, 8] = "Brinzal";
+                    hoja_regeneracion.Cells[1, 9] = "Latizal";
+                    hoja_regeneracion.get_Range("A1", "O1").Font.Bold = true;
+                    hoja_regeneracion.get_Range("A1", "O1").VerticalAlignment =
+                        Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+
+                    int j = 2;
+                    hoja_regeneracion.Cells[j, 1] = py.LUGAR.ToString();
+                    hoja_regeneracion.Cells[j, 2] = form.USUARIO.NOMBRES + form.USUARIO.APELLIDOS;                        
+                    hoja_regeneracion.Cells[j, 3] = form.COORDENADAX.ToString();
+                    hoja_regeneracion.Cells[j, 4] = form.COORDENADAY.ToString();
+                    hoja_regeneracion.Cells[j, 5] = form.LINEA.ToString();
+                    hoja_regeneracion.Cells[j, 6] = form.PARCELA.ToString();
+                    hoja_regeneracion.Cells[j, 7] = form.ESTRATO.DESCRIPESTRATO.ToString();
+
+                    foreach (LINEAREGENERACION lineInv in form.LINEAREGENERACION)
+                    {
+                        hoja_regeneracion.Cells[j, 1] = py.LUGAR.ToString();
+                        hoja_regeneracion.Cells[j, 2] = form.USUARIO.NOMBRES + form.USUARIO.APELLIDOS;
+                        hoja_regeneracion.Cells[j, 3] = form.COORDENADAX.ToString();
+                        hoja_regeneracion.Cells[j, 4] = form.COORDENADAY.ToString();
+                        hoja_regeneracion.Cells[j, 5] = form.LINEA.ToString();
+                        hoja_regeneracion.Cells[j, 6] = form.PARCELA.ToString();
+                        hoja_regeneracion.Cells[j, 7] = form.ESTRATO.DESCRIPESTRATO.ToString();
+
+                        hoja_regeneracion.Cells[j, 8] = lineInv.BRINZAL.ToString();
+                        hoja_regeneracion.Cells[j, 9] = lineInv.LATIZAL.ToString();
+                        j++;
+                    }
+                    j++;
+
+                    libros_trabajo.Worksheets.Add(hoja_regeneracion);
+
+
+                    Microsoft.Office.Interop.Excel.Worksheet hoja_nomaderables;
+                    hoja_nomaderables = (Microsoft.Office.Interop.Excel.Worksheet)libros_trabajo.Worksheets.get_Item(1);
+
+                    hoja_nomaderables.Name = "No maderable";
+                    hoja_nomaderables.Cells[1, 1] = "Lugar";
+                    hoja_nomaderables.Cells[1, 2] = "Responsable";                    
+                    hoja_nomaderables.Cells[1, 3] = "Coor X";
+                    hoja_nomaderables.Cells[1, 4] = "Coor Y";
+                    hoja_nomaderables.Cells[1, 5] = "Linea";
+                    hoja_nomaderables.Cells[1, 6] = "Parcela";
+                    hoja_nomaderables.Cells[1, 7] = "Estrato";
+
+                    hoja_nomaderables.Cells[1, 8] = "Observaciones";
+                    TypeUseBL typeUseBl = new TypeUseBL(Program.ContextData);
+                    int cont=9;
+                    foreach(TIPODEUSO type in typeUseBl.GetTypeUse()){
+                        hoja_nomaderables.Cells[1, cont] = type.DESCRIPCION.ToString();
+                        cont++;
+                    }
+                    
+
+
+                    hoja_nomaderables.get_Range("A1", "O1").Font.Bold = true;
+                    hoja_nomaderables.get_Range("A1", "O1").VerticalAlignment =
+                        Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+
+                    int k = 2;
+                    hoja_nomaderables.Cells[k, 1] = py.LUGAR.ToString();
+                    hoja_nomaderables.Cells[k, 2] = form.USUARIO.NOMBRES + form.USUARIO.APELLIDOS;                        
+                    hoja_nomaderables.Cells[k, 3] = form.COORDENADAX.ToString();
+                    hoja_nomaderables.Cells[k, 4] = form.COORDENADAY.ToString();
+                    hoja_nomaderables.Cells[k, 5] = form.LINEA.ToString();
+                    hoja_nomaderables.Cells[k, 6] = form.PARCELA.ToString();
+                    hoja_nomaderables.Cells[k, 7] = form.ESTRATO.DESCRIPESTRATO.ToString();
+
+                    foreach (LINEANOMADERABLES lineInv in form.LINEANOMADERABLES)
+                    {                            
+                        hoja_nomaderables.Cells[k, 1] = py.LUGAR.ToString();
+                        hoja_nomaderables.Cells[k, 2] = form.USUARIO.NOMBRES + form.USUARIO.APELLIDOS;
+                        hoja_nomaderables.Cells[k, 3] = form.COORDENADAX.ToString();
+                        hoja_nomaderables.Cells[k, 4] = form.COORDENADAY.ToString();
+                        hoja_nomaderables.Cells[k, 5] = form.LINEA.ToString();
+                        hoja_nomaderables.Cells[k, 6] = form.PARCELA.ToString();
+                        hoja_nomaderables.Cells[k, 7] = form.ESTRATO.DESCRIPESTRATO.ToString();
+                        hoja_nomaderables.Cells[k, 8] = lineInv.OBSERVACIONES.ToString();
+                        string usos = "";
+                            
+                        int n = 9;
+                        foreach(TIPODEUSO t in typeUseBl.GetTypeUse()){
+                            foreach (TIPODEUSO use in lineInv.TIPODEUSO)
+                            {
+                                if (use.NOMBRETIPOUSO.Equals(t.NOMBRETIPOUSO))
+                                {
+                                    hoja_nomaderables.Cells[k, n] = "1";
+                                    break;
+                                }
+                                else
+                                {
+                                    hoja_nomaderables.Cells[k, n] = "0";
+                                    break;
+                                }                                 
+                            }
+                            n++;
+                        }
+                        k++;
+                    }
+                    k++;
+                        
+                    libros_trabajo.Worksheets.Add(hoja_nomaderables);
+                    
+                    
+                    Microsoft.Office.Interop.Excel.Worksheet hoja_maderable;
+                    hoja_maderable = (Microsoft.Office.Interop.Excel.Worksheet)libros_trabajo.Worksheets.get_Item(1);
+                    
+                    QualityBL qualityBl = new QualityBL(Program.ContextData);
+
+                    hoja_maderable.Name = "Maderable";
+                    hoja_maderable.Cells[1, 1] = "Convenciones calidad";
+                    hoja_maderable.Cells[2, 1] = "Código";
+                    hoja_maderable.Cells[2, 2] = "Significado";
+                    int i = 3;
+                    foreach(CALIDAD quality in qualityBl.GetQualities())
+                    {
+                        hoja_maderable.Cells[i, 1] = quality.CODCALIDAD;
+                        hoja_maderable.Cells[i, 2] = quality.DESCRIPCALIDAD;
+                        i++;
+                    }
+                    i += 2;
+                    
+                    hoja_maderable.Cells[i, 1] = "Lugar";
+                    hoja_maderable.Cells[i, 2] = "Responsable";                    
+                    hoja_maderable.Cells[i, 3] = "Coor X";
+                    hoja_maderable.Cells[i, 4] = "Coor Y";
+                    hoja_maderable.Cells[i, 5] = "Linea";
+                    hoja_maderable.Cells[i, 6] = "Parcela";
+                    hoja_maderable.Cells[i, 7] = "Estrato";
+
+                    hoja_maderable.Cells[i, 8] = "Numero de arbol";
+                    hoja_maderable.Cells[i, 9] = "Nombre comun";
+                    hoja_maderable.Cells[i, 10] = "Nombre cientifico";
+                    hoja_maderable.Cells[i, 11] = "Calidad";
+                    hoja_maderable.Cells[i, 12] = "DAP";
+                    hoja_maderable.Cells[i, 13] = "CAP";
+                    hoja_maderable.Cells[i, 14] = "Altura Comercial";
+                    hoja_maderable.Cells[i, 15] = "Altura Total";
+
+                    hoja_maderable.get_Range("A1", "O1").Font.Bold = true;
+                    hoja_maderable.get_Range("A1", "O1").VerticalAlignment =
+                        Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+
+                    i++;
+ 
+                    hoja_maderable.Cells[i, 1] = py.LUGAR.ToString();
+                    hoja_maderable.Cells[i, 2] = form.USUARIO.NOMBRES + form.USUARIO.APELLIDOS;
+                        
+                    hoja_maderable.Cells[i, 3] = form.COORDENADAX.ToString();
+                    hoja_maderable.Cells[i, 4] = form.COORDENADAY.ToString();
+                    hoja_maderable.Cells[i, 5] = form.LINEA.ToString();
+                    hoja_maderable.Cells[i, 6] = form.PARCELA.ToString();
+                    hoja_maderable.Cells[i, 7] = form.ESTRATO.DESCRIPESTRATO.ToString();
+
+                    foreach (LINEAINVENTARIO lineInv in form.LINEAINVENTARIO)
+                    {
+                        hoja_maderable.Cells[i, 1] = py.LUGAR.ToString();
+                        hoja_maderable.Cells[i, 2] = form.USUARIO.NOMBRES + form.USUARIO.APELLIDOS;
+                            
+                        hoja_maderable.Cells[i, 3] = form.COORDENADAX.ToString();
+                        hoja_maderable.Cells[i, 4] = form.COORDENADAY.ToString();
+                        hoja_maderable.Cells[i, 5] = form.LINEA.ToString();
+                        hoja_maderable.Cells[i, 6] = form.PARCELA.ToString();
+                        hoja_maderable.Cells[i, 7] = form.ESTRATO.DESCRIPESTRATO.ToString();
+                            
+                        hoja_maderable.Cells[i, 8] = lineInv.NROARB.ToString();
+                        hoja_maderable.Cells[i, 9] = lineInv.ESPECIE.NOMCOMUN.ToString();
+                        hoja_maderable.Cells[i, 10] = lineInv.ESPECIE.NOMCIENTIFICO.ToString();
+                        hoja_maderable.Cells[i, 11] = lineInv.CALIDAD.CODCALIDAD.ToString();
+                        hoja_maderable.Cells[i, 12] = lineInv.DAP.ToString();
+                        hoja_maderable.Cells[i, 13] = lineInv.CAP.ToString();
+                        hoja_maderable.Cells[i, 14] = lineInv.ALTCOMER_M.ToString();
+                        hoja_maderable.Cells[i, 15] = lineInv.ALTTOT_M.ToString();
+                        i++;
+                    }
+                    i++;                        
+                    libros_trabajo.Worksheets.Add(hoja_maderable);
+                    
+                    libros_trabajo.SaveAs(fichero.FileName,
+                        Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
+                    libros_trabajo.Close(true);
+                    aplicacion.Quit();
+                }
+
+            }
+            else MessageBox.Show("No existe un proyecto abierto dentro del sistema.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                
         }
     }
 }

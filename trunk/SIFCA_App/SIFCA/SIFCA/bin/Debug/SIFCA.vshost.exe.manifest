@@ -55,26 +55,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SIFCA.exe" size="2036224">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SIFCA.exe" size="2531328">
       <assemblyIdentity name="SIFCA" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>dlP2lvKntj+O0x79vgziZQwp3ak=</dsig:DigestValue>
+        <dsig:DigestValue>xfT8MuR/jdJfAJCh6r7mMd/ZVVc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SIFCA_BLL.dll" size="29184">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SIFCA_BLL.dll" size="33792">
       <assemblyIdentity name="SIFCA_BLL" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>QRkI8cbmFe66d/qFTOiufuqVNRM=</dsig:DigestValue>
+        <dsig:DigestValue>/ab30yJT1KZhpbplyIZuajZ2VUY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -86,7 +86,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>mHwBl2Q1uZE2ctgv3t5AULcV1aY=</dsig:DigestValue>
+        <dsig:DigestValue>9ua9Jeth3MPRhCespmEi051Jrb8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -186,7 +186,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>KVKvG6+vv20PIea/m9oL2IMbsjk=</dsig:DigestValue>
+      <dsig:DigestValue>2axB2Mh2chCse6UB9uFV32HJuU4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="SIFCA_BD_log.ldf" size="851968" writeableType="applicationData">
@@ -195,7 +195,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>7lL/u4Rg6/0aCjqzMHRsAphjpck=</dsig:DigestValue>
+      <dsig:DigestValue>kWLZZeqZQ+UDppdRmGGI/Uz1CJ0=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

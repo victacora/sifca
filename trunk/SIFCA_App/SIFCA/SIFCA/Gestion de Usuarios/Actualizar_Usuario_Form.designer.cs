@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label cONTRASENALabel;
             System.Windows.Forms.Label apellidosLabel;
@@ -48,6 +49,7 @@
             this.errorLbl = new System.Windows.Forms.Label();
             this.tipoUsuarioCbx = new System.Windows.Forms.ComboBox();
             this.verContrasena = new System.Windows.Forms.Button();
+            this.controladorErrores = new System.Windows.Forms.ErrorProvider(this.components);
             label1 = new System.Windows.Forms.Label();
             cONTRASENALabel = new System.Windows.Forms.Label();
             apellidosLabel = new System.Windows.Forms.Label();
@@ -56,6 +58,7 @@
             usuarioLbl = new System.Windows.Forms.Label();
             tipoUsuarioLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imageNewUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controladorErrores)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -126,7 +129,7 @@
             this.verificarContrasenaTxt.Location = new System.Drawing.Point(131, 245);
             this.verificarContrasenaTxt.Name = "verificarContrasenaTxt";
             this.verificarContrasenaTxt.Size = new System.Drawing.Size(206, 20);
-            this.verificarContrasenaTxt.TabIndex = 30;
+            this.verificarContrasenaTxt.TabIndex = 7;
             this.verificarContrasenaTxt.UseSystemPasswordChar = true;
             // 
             // contrasenaTxt
@@ -134,7 +137,7 @@
             this.contrasenaTxt.Location = new System.Drawing.Point(131, 219);
             this.contrasenaTxt.Name = "contrasenaTxt";
             this.contrasenaTxt.Size = new System.Drawing.Size(206, 20);
-            this.contrasenaTxt.TabIndex = 29;
+            this.contrasenaTxt.TabIndex = 6;
             this.contrasenaTxt.UseSystemPasswordChar = true;
             this.contrasenaTxt.TextChanged += new System.EventHandler(this.verificarContrasenaTxt_TextChanged);
             // 
@@ -143,35 +146,35 @@
             this.apellidosTxt.Location = new System.Drawing.Point(131, 114);
             this.apellidosTxt.Name = "apellidosTxt";
             this.apellidosTxt.Size = new System.Drawing.Size(206, 20);
-            this.apellidosTxt.TabIndex = 26;
+            this.apellidosTxt.TabIndex = 2;
             // 
             // nombresTxt
             // 
             this.nombresTxt.Location = new System.Drawing.Point(131, 89);
             this.nombresTxt.Name = "nombresTxt";
             this.nombresTxt.Size = new System.Drawing.Size(206, 20);
-            this.nombresTxt.TabIndex = 25;
+            this.nombresTxt.TabIndex = 1;
             // 
             // cedulaTxt
             // 
             this.cedulaTxt.Location = new System.Drawing.Point(131, 139);
             this.cedulaTxt.Name = "cedulaTxt";
             this.cedulaTxt.Size = new System.Drawing.Size(206, 20);
-            this.cedulaTxt.TabIndex = 27;
+            this.cedulaTxt.TabIndex = 3;
             // 
             // usuarioTxt
             // 
             this.usuarioTxt.Location = new System.Drawing.Point(131, 193);
             this.usuarioTxt.Name = "usuarioTxt";
             this.usuarioTxt.Size = new System.Drawing.Size(206, 20);
-            this.usuarioTxt.TabIndex = 28;
+            this.usuarioTxt.TabIndex = 5;
             // 
             // cancelarBtn
             // 
             this.cancelarBtn.Location = new System.Drawing.Point(247, 338);
             this.cancelarBtn.Name = "cancelarBtn";
             this.cancelarBtn.Size = new System.Drawing.Size(90, 23);
-            this.cancelarBtn.TabIndex = 32;
+            this.cancelarBtn.TabIndex = 10;
             this.cancelarBtn.Text = "Salir";
             this.cancelarBtn.UseVisualStyleBackColor = true;
             this.cancelarBtn.Click += new System.EventHandler(this.cancelarBtn_Click);
@@ -181,7 +184,7 @@
             this.AceptarBtn.Location = new System.Drawing.Point(151, 338);
             this.AceptarBtn.Name = "AceptarBtn";
             this.AceptarBtn.Size = new System.Drawing.Size(90, 23);
-            this.AceptarBtn.TabIndex = 31;
+            this.AceptarBtn.TabIndex = 9;
             this.AceptarBtn.Text = "Actualizar";
             this.AceptarBtn.UseVisualStyleBackColor = true;
             this.AceptarBtn.Click += new System.EventHandler(this.ActualizarBtn_Click);
@@ -215,17 +218,22 @@
             this.tipoUsuarioCbx.Location = new System.Drawing.Point(131, 165);
             this.tipoUsuarioCbx.Name = "tipoUsuarioCbx";
             this.tipoUsuarioCbx.Size = new System.Drawing.Size(206, 21);
-            this.tipoUsuarioCbx.TabIndex = 42;
+            this.tipoUsuarioCbx.TabIndex = 4;
             // 
             // verContrasena
             // 
             this.verContrasena.Location = new System.Drawing.Point(223, 271);
             this.verContrasena.Name = "verContrasena";
             this.verContrasena.Size = new System.Drawing.Size(114, 23);
-            this.verContrasena.TabIndex = 44;
+            this.verContrasena.TabIndex = 8;
             this.verContrasena.Text = "Ver Contraseña";
             this.verContrasena.UseVisualStyleBackColor = true;
             this.verContrasena.Click += new System.EventHandler(this.verContrasena_Click);
+            // 
+            // controladorErrores
+            // 
+            this.controladorErrores.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.controladorErrores.ContainerControl = this;
             // 
             // Actualizar_Usuario_Form
             // 
@@ -259,6 +267,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Actualizar usuario";
             ((System.ComponentModel.ISupportInitialize)(this.imageNewUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controladorErrores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,6 +287,7 @@
         private System.Windows.Forms.Label errorLbl;
         private System.Windows.Forms.ComboBox tipoUsuarioCbx;
         private System.Windows.Forms.Button verContrasena;
+        private System.Windows.Forms.ErrorProvider controladorErrores;
 
 
 

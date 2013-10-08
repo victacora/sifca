@@ -38,9 +38,23 @@
             this.criterioInvLbl = new System.Windows.Forms.ToolStripLabel();
             this.criterioInvCbx = new System.Windows.Forms.ToolStripComboBox();
             this.lineaInventarioDGW = new System.Windows.Forms.DataGridView();
+            this.NumeroMaderables = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.especieBS = new System.Windows.Forms.BindingSource(this.components);
+            this.CODCALIDAD = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.calidadBS = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.estadoSanitarioBS = new System.Windows.Forms.BindingSource(this.components);
+            this.CAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lineaInventarioBS = new System.Windows.Forms.BindingSource(this.components);
             this.regeneracionTP = new System.Windows.Forms.TabPage();
             this.regenracionBN = new System.Windows.Forms.BindingNavigator(this.components);
@@ -49,6 +63,11 @@
             this.criterioRegenLbl = new System.Windows.Forms.ToolStripLabel();
             this.criterioRegenCbx = new System.Windows.Forms.ToolStripComboBox();
             this.regenracionDGW = new System.Windows.Forms.DataGridView();
+            this.NumeroRegen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CODESP = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.regeneracionBS = new System.Windows.Forms.BindingSource(this.components);
             this.noMaderablesTP = new System.Windows.Forms.TabPage();
             this.noMaderablesBN = new System.Windows.Forms.BindingNavigator(this.components);
@@ -57,32 +76,13 @@
             this.criterioNoMaderLbl = new System.Windows.Forms.ToolStripLabel();
             this.criterioNoMaderCbx = new System.Windows.Forms.ToolStripComboBox();
             this.noMaderablesDGW = new System.Windows.Forms.DataGridView();
-            this.noMaderablesBS = new System.Windows.Forms.BindingSource(this.components);
-            this.exportarExcelBtn = new System.Windows.Forms.Button();
-            this.formularioBS = new System.Windows.Forms.BindingSource(this.components);
             this.NumeroNoMade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumeroRegen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CODESP = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.NumeroMaderables = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.CODCALIDAD = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.CAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noMaderablesBS = new System.Windows.Forms.BindingSource(this.components);
+            this.exportarExcelBtn = new System.Windows.Forms.Button();
+            this.formularioBS = new System.Windows.Forms.BindingSource(this.components);
             this.lineasTab.SuspendLayout();
             this.inventarioTP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datosInventarioBN)).BeginInit();
@@ -208,17 +208,131 @@
             this.lineaInventarioDGW.TabIndex = 3;
             this.lineaInventarioDGW.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.lineaInventarioDGW_DataBindingComplete);
             // 
+            // NumeroMaderables
+            // 
+            this.NumeroMaderables.HeaderText = "Registro N°";
+            this.NumeroMaderables.Name = "NumeroMaderables";
+            this.NumeroMaderables.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "LINEAINV";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Linea";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "NROFORMULARIO";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Formulario";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "NROARB";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Arbol";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "CODESP";
+            this.dataGridViewTextBoxColumn5.DataSource = this.especieBS;
+            this.dataGridViewTextBoxColumn5.DisplayMember = "NOMCOMUN";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Especie";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn5.ValueMember = "CODESP";
+            // 
             // especieBS
             // 
             this.especieBS.DataSource = typeof(SIFCA_DAL.ESPECIE);
+            // 
+            // CODCALIDAD
+            // 
+            this.CODCALIDAD.DataPropertyName = "CODCALIDAD";
+            this.CODCALIDAD.DataSource = this.calidadBS;
+            this.CODCALIDAD.DisplayMember = "DESCRIPCALIDAD";
+            this.CODCALIDAD.HeaderText = "Calidad";
+            this.CODCALIDAD.Name = "CODCALIDAD";
+            this.CODCALIDAD.ReadOnly = true;
+            this.CODCALIDAD.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CODCALIDAD.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.CODCALIDAD.ValueMember = "CODCALIDAD";
             // 
             // calidadBS
             // 
             this.calidadBS.DataSource = typeof(SIFCA_DAL.CALIDAD);
             // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "ESTADO";
+            this.dataGridViewTextBoxColumn4.DataSource = this.estadoSanitarioBS;
+            this.dataGridViewTextBoxColumn4.DisplayMember = "DESCRIPESTADO";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Estado";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn4.ValueMember = "ESTADO";
+            // 
             // estadoSanitarioBS
             // 
             this.estadoSanitarioBS.DataSource = typeof(SIFCA_DAL.ESTADOSANITARIO);
+            // 
+            // CAP
+            // 
+            this.CAP.DataPropertyName = "CAP";
+            this.CAP.HeaderText = "Circunferencia A.P.";
+            this.CAP.Name = "CAP";
+            this.CAP.ReadOnly = true;
+            // 
+            // DAP
+            // 
+            this.DAP.DataPropertyName = "DAP";
+            this.DAP.HeaderText = "Diametro A.P.";
+            this.DAP.Name = "DAP";
+            this.DAP.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "AREABASAL";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Area Basal";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "ALTCOMER_M";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Alt. Comercial";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "ALTTOT_M";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Alt. Total";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "VOLCOM";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Vol. Comercial";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "VOLTOT";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Vol. Total";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
             // 
             // lineaInventarioBS
             // 
@@ -305,6 +419,46 @@
             this.regenracionDGW.TabIndex = 0;
             this.regenracionDGW.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.regenracionDGW_DataBindingComplete);
             // 
+            // NumeroRegen
+            // 
+            this.NumeroRegen.HeaderText = "Registro N°";
+            this.NumeroRegen.Name = "NumeroRegen";
+            this.NumeroRegen.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "LATIZAL";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Latizal";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "BRINZAL";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Brinzal";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "LINEAREGEN";
+            this.dataGridViewTextBoxColumn17.HeaderText = "Codigo";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            this.dataGridViewTextBoxColumn17.Visible = false;
+            // 
+            // CODESP
+            // 
+            this.CODESP.DataPropertyName = "CODESP";
+            this.CODESP.DataSource = this.especieBS;
+            this.CODESP.DisplayMember = "NOMCOMUN";
+            this.CODESP.HeaderText = "Especie";
+            this.CODESP.Name = "CODESP";
+            this.CODESP.ReadOnly = true;
+            this.CODESP.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CODESP.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.CODESP.ValueMember = "CODESP";
+            // 
             // regeneracionBS
             // 
             this.regeneracionBS.DataSource = typeof(SIFCA_DAL.LINEAREGENERACION);
@@ -388,23 +542,6 @@
             this.noMaderablesDGW.TabIndex = 0;
             this.noMaderablesDGW.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.noMaderablesDGW_DataBindingComplete);
             // 
-            // noMaderablesBS
-            // 
-            this.noMaderablesBS.DataSource = typeof(SIFCA_DAL.LINEANOMADERABLES);
-            // 
-            // exportarExcelBtn
-            // 
-            this.exportarExcelBtn.Location = new System.Drawing.Point(12, 452);
-            this.exportarExcelBtn.Name = "exportarExcelBtn";
-            this.exportarExcelBtn.Size = new System.Drawing.Size(106, 23);
-            this.exportarExcelBtn.TabIndex = 4;
-            this.exportarExcelBtn.Text = "Exportar a Excel";
-            this.exportarExcelBtn.UseVisualStyleBackColor = true;
-            // 
-            // formularioBS
-            // 
-            this.formularioBS.DataSource = typeof(SIFCA_DAL.FORMULARIO);
-            // 
             // NumeroNoMade
             // 
             this.NumeroNoMade.HeaderText = "Registro N°";
@@ -432,159 +569,23 @@
             this.usos.Name = "usos";
             this.usos.ReadOnly = true;
             // 
-            // NumeroRegen
+            // noMaderablesBS
             // 
-            this.NumeroRegen.HeaderText = "Registro N°";
-            this.NumeroRegen.Name = "NumeroRegen";
-            this.NumeroRegen.ReadOnly = true;
+            this.noMaderablesBS.DataSource = typeof(SIFCA_DAL.LINEANOMADERABLES);
             // 
-            // dataGridViewTextBoxColumn15
+            // exportarExcelBtn
             // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "LATIZAL";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Latizal";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.exportarExcelBtn.Location = new System.Drawing.Point(12, 452);
+            this.exportarExcelBtn.Name = "exportarExcelBtn";
+            this.exportarExcelBtn.Size = new System.Drawing.Size(106, 23);
+            this.exportarExcelBtn.TabIndex = 4;
+            this.exportarExcelBtn.Text = "Exportar a Excel";
+            this.exportarExcelBtn.UseVisualStyleBackColor = true;
+            this.exportarExcelBtn.Click += new System.EventHandler(this.exportarExcelBtn_Click);
             // 
-            // dataGridViewTextBoxColumn16
+            // formularioBS
             // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "BRINZAL";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Brinzal";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "LINEAREGEN";
-            this.dataGridViewTextBoxColumn17.HeaderText = "Codigo";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            this.dataGridViewTextBoxColumn17.Visible = false;
-            // 
-            // CODESP
-            // 
-            this.CODESP.DataPropertyName = "CODESP";
-            this.CODESP.DataSource = this.especieBS;
-            this.CODESP.DisplayMember = "NOMCOMUN";
-            this.CODESP.HeaderText = "Especie";
-            this.CODESP.Name = "CODESP";
-            this.CODESP.ReadOnly = true;
-            this.CODESP.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CODESP.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.CODESP.ValueMember = "CODESP";
-            // 
-            // NumeroMaderables
-            // 
-            this.NumeroMaderables.HeaderText = "Registro N°";
-            this.NumeroMaderables.Name = "NumeroMaderables";
-            this.NumeroMaderables.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "LINEAINV";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Linea";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "NROFORMULARIO";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Formulario";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "NROARB";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Arbol";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "CODESP";
-            this.dataGridViewTextBoxColumn5.DataSource = this.especieBS;
-            this.dataGridViewTextBoxColumn5.DisplayMember = "NOMCOMUN";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Especie";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn5.ValueMember = "CODESP";
-            // 
-            // CODCALIDAD
-            // 
-            this.CODCALIDAD.DataPropertyName = "CODCALIDAD";
-            this.CODCALIDAD.DataSource = this.calidadBS;
-            this.CODCALIDAD.DisplayMember = "DESCRIPCALIDAD";
-            this.CODCALIDAD.HeaderText = "Calidad";
-            this.CODCALIDAD.Name = "CODCALIDAD";
-            this.CODCALIDAD.ReadOnly = true;
-            this.CODCALIDAD.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CODCALIDAD.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.CODCALIDAD.ValueMember = "CODCALIDAD";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "ESTADO";
-            this.dataGridViewTextBoxColumn4.DataSource = this.estadoSanitarioBS;
-            this.dataGridViewTextBoxColumn4.DisplayMember = "DESCRIPESTADO";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Estado";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn4.ValueMember = "ESTADO";
-            // 
-            // CAP
-            // 
-            this.CAP.DataPropertyName = "CAP";
-            this.CAP.HeaderText = "Circunferencia A.P.";
-            this.CAP.Name = "CAP";
-            this.CAP.ReadOnly = true;
-            // 
-            // DAP
-            // 
-            this.DAP.DataPropertyName = "DAP";
-            this.DAP.HeaderText = "Diametro A.P.";
-            this.DAP.Name = "DAP";
-            this.DAP.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "AREABASAL";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Area Basal";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "ALTCOMER_M";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Alt. Comercial";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "ALTTOT_M";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Alt. Total";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "VOLCOM";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Vol. Comercial";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "VOLTOT";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Vol. Total";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.formularioBS.DataSource = typeof(SIFCA_DAL.FORMULARIO);
             // 
             // Listar_Datos_Formulario_Form
             // 

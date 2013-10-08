@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using SIFCA_BLL;
 using SIFCA_DAL;
 using System.Runtime.Caching;
+using SIFCA.Gestion_Configuracion;
 
 namespace SIFCA
 {
@@ -375,7 +376,10 @@ namespace SIFCA
 
         private void RegistrarEspecieBtn_Click(object sender, EventArgs e)
         {
-
+            Especies_Form childForm = new Especies_Form();
+            childForm.MdiParent = ParentForm;
+            childForm.Btn_nuevaEspecieForm_Click(sender, e);
+            childForm.Show();
         }
 
         private void cambiarOpcionBusqueda(object sender, EventArgs e)
@@ -424,7 +428,11 @@ namespace SIFCA
 
         private void verDetalleBtn_Click(object sender, EventArgs e)
         {
-
+            Guid cod = (Guid)especieCbx.SelectedValue;
+            Especies_Form childForm = new Especies_Form();
+            childForm.MdiParent = ParentForm;
+            childForm.btn_detalle(sender, e, cod);
+            childForm.Show();
         }
 
         private void noMaderableBS_CurrentChanged(object sender, EventArgs e)
@@ -514,7 +522,19 @@ namespace SIFCA
 
         private void detalleEspecieRegenBtn_Click(object sender, EventArgs e)
         {
+            Guid cod = (Guid)especieRegenCbx.SelectedValue;
+            Especies_Form childForm = new Especies_Form();
+            childForm.MdiParent = ParentForm;
+            childForm.btn_detalle(sender, e, cod);
+            childForm.Show();
+        }
 
+        private void registrarEspecieRegenBtn_Click(object sender, EventArgs e)
+        {
+            Especies_Form childForm = new Especies_Form();
+            childForm.MdiParent = ParentForm;
+            childForm.Btn_nuevaEspecieForm_Click(sender, e);
+            childForm.Show();
         }
     }
 }

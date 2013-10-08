@@ -52,6 +52,40 @@ namespace SIFCA
 
         private void ActualizarBtn_Click(object sender, EventArgs e)
         {
+            bool error = false;
+            if (nombresTxt.Text == "")
+            {
+                controladorErrores.SetError(nombresTxt, "El nombre es un campo requerido.");
+                error = true;
+            }
+            if (apellidosTxt.Text == "")
+            {
+                controladorErrores.SetError(apellidosTxt, "Los apellidos son un campo requerido.");
+                error = true;
+            }
+            if (cedulaTxt.Text == "")
+            {
+                controladorErrores.SetError(cedulaTxt, "La cedula es un campo requerido.");
+                error = true;
+            }
+            if (contrasenaTxt.Text == "")
+            {
+                controladorErrores.SetError(contrasenaTxt, "La contraseña es un campo requerido.");
+                error = true;
+            }
+            if (usuarioTxt.Text == "")
+            {
+                controladorErrores.SetError(usuarioTxt, "El usuario es un campo requerido.");
+                error = true;
+            }
+            if (verificarContrasenaTxt.Text != contrasenaTxt.Text)
+            {
+                controladorErrores.SetError(verificarContrasenaTxt, "La contraseña no coinciden.");
+                error = true;
+            }
+            if (error) return;
+
+            controladorErrores.Clear();
             userData.NOMBRES = nombresTxt.Text;
             userData.APELLIDOS = apellidosTxt.Text;
             userData.CEDULA = int.Parse(cedulaTxt.Text);
@@ -59,9 +93,18 @@ namespace SIFCA
             userData.NOMBREUSUARIO = usuarioTxt.Text;
             userData.TIPOUSUARIO = (tipoUsuarioCbx.SelectedItem.ToString()=="Administrador"?"AD":"NA");
             user.UpdateUser(userData);
-            user.SaveChanges();
-            if(updateCache)Program.Cache.Set("user",userData, new CacheItemPolicy());
-            MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string result=user.SaveChanges();
+            if (result == "")
+            {
+                if (updateCache) Program.Cache.Set("user", userData, new CacheItemPolicy());
+                MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                Error_Form errorForm = new Error_Form(result);
+                errorForm.MdiParent = ParentForm;
+                errorForm.Show();
+            }
             this.Close();
         }
 

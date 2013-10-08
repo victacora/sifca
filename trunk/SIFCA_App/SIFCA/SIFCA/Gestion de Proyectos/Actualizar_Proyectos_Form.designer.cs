@@ -87,10 +87,11 @@
             this.seleccEspecieBtn = new System.Windows.Forms.Button();
             this.RemoverEspciesBtn = new System.Windows.Forms.Button();
             this.estratosTabP = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.errorLbl = new System.Windows.Forms.Label();
+            this.actualizarPesosEstratosBtn = new System.Windows.Forms.Button();
             this.SeleccEstratosBtn = new System.Windows.Forms.Button();
             this.removerEstratosBtn = new System.Windows.Forms.Button();
-            this.estratosDGW = new System.Windows.Forms.DataGridView();
+            this.estratoDGW = new System.Windows.Forms.DataGridView();
             this.Estratos = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DESCRIPESTRATO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -116,6 +117,7 @@
             this.NOMBRETIPOINV = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.NOMTIPODISEMUEST = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.PesoProyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proyectosBS = new System.Windows.Forms.BindingSource(this.components);
             this.seleccionarProyectosBtn = new System.Windows.Forms.Button();
             this.removerProyectosBtn = new System.Windows.Forms.Button();
             this.usuarioBS = new System.Windows.Forms.BindingSource(this.components);
@@ -146,13 +148,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.especiesDGW)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.especieBS)).BeginInit();
             this.estratosTabP.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.estratosDGW)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estratoDGW)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.estratoBS)).BeginInit();
             this.formulariosTap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.formulariosDGW)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formulariosBS)).BeginInit();
             this.proyectosContTabP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDGW)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectosBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -321,7 +324,8 @@
             this.TipoProyectoCbx.Location = new System.Drawing.Point(147, 179);
             this.TipoProyectoCbx.Name = "TipoProyectoCbx";
             this.TipoProyectoCbx.Size = new System.Drawing.Size(361, 21);
-            this.TipoProyectoCbx.TabIndex = 28;
+            this.TipoProyectoCbx.TabIndex = 5;
+            this.TipoProyectoCbx.SelectedIndexChanged += new System.EventHandler(this.TipoProyectoCbx_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -339,7 +343,7 @@
             this.DescripcionTxt.Multiline = true;
             this.DescripcionTxt.Name = "DescripcionTxt";
             this.DescripcionTxt.Size = new System.Drawing.Size(363, 62);
-            this.DescripcionTxt.TabIndex = 26;
+            this.DescripcionTxt.TabIndex = 2;
             // 
             // proyectoBS
             // 
@@ -347,6 +351,7 @@
             // 
             // tipoDisenoCbx
             // 
+            this.tipoDisenoCbx.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.proyectoBS, "NOMTIPODISEMUEST", true));
             this.tipoDisenoCbx.DataSource = this.tipoDisenoBS;
             this.tipoDisenoCbx.DisplayMember = "DESCRIPTIPODISEMUEST";
             this.tipoDisenoCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -354,8 +359,9 @@
             this.tipoDisenoCbx.Location = new System.Drawing.Point(145, 146);
             this.tipoDisenoCbx.Name = "tipoDisenoCbx";
             this.tipoDisenoCbx.Size = new System.Drawing.Size(363, 21);
-            this.tipoDisenoCbx.TabIndex = 23;
+            this.tipoDisenoCbx.TabIndex = 4;
             this.tipoDisenoCbx.ValueMember = "NOMTIPODISEMUEST";
+            this.tipoDisenoCbx.SelectedIndexChanged += new System.EventHandler(this.tipoDisenoCbx_SelectedIndexChanged);
             // 
             // tipoDisenoBS
             // 
@@ -363,6 +369,7 @@
             // 
             // tipoObjetivoCbx
             // 
+            this.tipoObjetivoCbx.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.proyectoBS, "NOMBRETIPOINV", true));
             this.tipoObjetivoCbx.DataSource = this.objetivoInventarioBS;
             this.tipoObjetivoCbx.DisplayMember = "DESCRIPOBJETINV";
             this.tipoObjetivoCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -370,7 +377,7 @@
             this.tipoObjetivoCbx.Location = new System.Drawing.Point(145, 118);
             this.tipoObjetivoCbx.Name = "tipoObjetivoCbx";
             this.tipoObjetivoCbx.Size = new System.Drawing.Size(363, 21);
-            this.tipoObjetivoCbx.TabIndex = 2;
+            this.tipoObjetivoCbx.TabIndex = 3;
             this.tipoObjetivoCbx.ValueMember = "NOMBRETIPOINV";
             // 
             // objetivoInventarioBS
@@ -395,7 +402,7 @@
             this.limiteSupTxt.Location = new System.Drawing.Point(111, 19);
             this.limiteSupTxt.Name = "limiteSupTxt";
             this.limiteSupTxt.Size = new System.Drawing.Size(34, 20);
-            this.limiteSupTxt.TabIndex = 5;
+            this.limiteSupTxt.TabIndex = 7;
             this.limiteSupTxt.Text = "100";
             // 
             // limiteInfTxt
@@ -404,7 +411,7 @@
             this.limiteInfTxt.Location = new System.Drawing.Point(6, 19);
             this.limiteInfTxt.Name = "limiteInfTxt";
             this.limiteInfTxt.Size = new System.Drawing.Size(34, 20);
-            this.limiteInfTxt.TabIndex = 4;
+            this.limiteInfTxt.TabIndex = 6;
             this.limiteInfTxt.Text = "10";
             // 
             // otrosDatosGbx
@@ -429,7 +436,7 @@
             this.numeroEtapasTxt.Location = new System.Drawing.Point(139, 104);
             this.numeroEtapasTxt.Name = "numeroEtapasTxt";
             this.numeroEtapasTxt.Size = new System.Drawing.Size(340, 20);
-            this.numeroEtapasTxt.TabIndex = 11;
+            this.numeroEtapasTxt.TabIndex = 13;
             this.numeroEtapasTxt.Text = "0";
             // 
             // factorFormaTxt
@@ -438,7 +445,7 @@
             this.factorFormaTxt.Location = new System.Drawing.Point(139, 76);
             this.factorFormaTxt.Name = "factorFormaTxt";
             this.factorFormaTxt.Size = new System.Drawing.Size(340, 20);
-            this.factorFormaTxt.TabIndex = 9;
+            this.factorFormaTxt.TabIndex = 12;
             this.factorFormaTxt.Text = "0.000";
             // 
             // areaFustalesTxt
@@ -447,7 +454,7 @@
             this.areaFustalesTxt.Location = new System.Drawing.Point(139, 50);
             this.areaFustalesTxt.Name = "areaFustalesTxt";
             this.areaFustalesTxt.Size = new System.Drawing.Size(340, 20);
-            this.areaFustalesTxt.TabIndex = 7;
+            this.areaFustalesTxt.TabIndex = 11;
             this.areaFustalesTxt.Text = "1.000";
             // 
             // tamParcelaTxt
@@ -456,7 +463,7 @@
             this.tamParcelaTxt.Location = new System.Drawing.Point(139, 24);
             this.tamParcelaTxt.Name = "tamParcelaTxt";
             this.tamParcelaTxt.Size = new System.Drawing.Size(340, 20);
-            this.tamParcelaTxt.TabIndex = 5;
+            this.tamParcelaTxt.TabIndex = 10;
             this.tamParcelaTxt.Text = "1";
             // 
             // IntensidadGbx
@@ -476,7 +483,7 @@
             this.intMuestreoTxt.Location = new System.Drawing.Point(6, 19);
             this.intMuestreoTxt.Name = "intMuestreoTxt";
             this.intMuestreoTxt.Size = new System.Drawing.Size(125, 20);
-            this.intMuestreoTxt.TabIndex = 6;
+            this.intMuestreoTxt.TabIndex = 8;
             this.intMuestreoTxt.Text = "10.000";
             // 
             // AreaMuestreadaGbx
@@ -496,7 +503,7 @@
             this.AreaMuestradaTxt.Location = new System.Drawing.Point(6, 19);
             this.AreaMuestradaTxt.Name = "AreaMuestradaTxt";
             this.AreaMuestradaTxt.Size = new System.Drawing.Size(102, 20);
-            this.AreaMuestradaTxt.TabIndex = 5;
+            this.AreaMuestradaTxt.TabIndex = 9;
             this.AreaMuestradaTxt.Text = "1.000";
             // 
             // lugarTxt
@@ -601,7 +608,7 @@
             this.seleccEspecieBtn.Location = new System.Drawing.Point(301, 12);
             this.seleccEspecieBtn.Name = "seleccEspecieBtn";
             this.seleccEspecieBtn.Size = new System.Drawing.Size(112, 23);
-            this.seleccEspecieBtn.TabIndex = 19;
+            this.seleccEspecieBtn.TabIndex = 14;
             this.seleccEspecieBtn.Text = "Seleccionar Todos";
             this.seleccEspecieBtn.UseVisualStyleBackColor = true;
             this.seleccEspecieBtn.Click += new System.EventHandler(this.seleccEspecieBtn_Click);
@@ -611,17 +618,18 @@
             this.RemoverEspciesBtn.Location = new System.Drawing.Point(419, 12);
             this.RemoverEspciesBtn.Name = "RemoverEspciesBtn";
             this.RemoverEspciesBtn.Size = new System.Drawing.Size(104, 23);
-            this.RemoverEspciesBtn.TabIndex = 18;
+            this.RemoverEspciesBtn.TabIndex = 15;
             this.RemoverEspciesBtn.Text = "Remover Todos";
             this.RemoverEspciesBtn.UseVisualStyleBackColor = true;
             this.RemoverEspciesBtn.Click += new System.EventHandler(this.RemoverEspciesBtn_Click);
             // 
             // estratosTabP
             // 
-            this.estratosTabP.Controls.Add(this.button1);
+            this.estratosTabP.Controls.Add(this.errorLbl);
+            this.estratosTabP.Controls.Add(this.actualizarPesosEstratosBtn);
             this.estratosTabP.Controls.Add(this.SeleccEstratosBtn);
             this.estratosTabP.Controls.Add(this.removerEstratosBtn);
-            this.estratosTabP.Controls.Add(this.estratosDGW);
+            this.estratosTabP.Controls.Add(this.estratoDGW);
             this.estratosTabP.Location = new System.Drawing.Point(124, 4);
             this.estratosTabP.Name = "estratosTabP";
             this.estratosTabP.Padding = new System.Windows.Forms.Padding(3);
@@ -630,16 +638,25 @@
             this.estratosTabP.Text = "Listado de Estratos";
             this.estratosTabP.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // errorLbl
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(502, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(23, 23);
-            this.button1.TabIndex = 21;
-            this.button1.UseVisualStyleBackColor = true;
+            this.errorLbl.AutoSize = true;
+            this.errorLbl.Location = new System.Drawing.Point(8, 10);
+            this.errorLbl.Name = "errorLbl";
+            this.errorLbl.Size = new System.Drawing.Size(0, 13);
+            this.errorLbl.TabIndex = 22;
+            // 
+            // actualizarPesosEstratosBtn
+            // 
+            this.actualizarPesosEstratosBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("actualizarPesosEstratosBtn.BackgroundImage")));
+            this.actualizarPesosEstratosBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.actualizarPesosEstratosBtn.Enabled = false;
+            this.actualizarPesosEstratosBtn.Location = new System.Drawing.Point(502, 9);
+            this.actualizarPesosEstratosBtn.Name = "actualizarPesosEstratosBtn";
+            this.actualizarPesosEstratosBtn.Size = new System.Drawing.Size(23, 23);
+            this.actualizarPesosEstratosBtn.TabIndex = 18;
+            this.actualizarPesosEstratosBtn.UseVisualStyleBackColor = true;
+            this.actualizarPesosEstratosBtn.Click += new System.EventHandler(this.actualizarBtn_Click);
             // 
             // SeleccEstratosBtn
             // 
@@ -647,7 +664,7 @@
             this.SeleccEstratosBtn.Location = new System.Drawing.Point(273, 9);
             this.SeleccEstratosBtn.Name = "SeleccEstratosBtn";
             this.SeleccEstratosBtn.Size = new System.Drawing.Size(112, 23);
-            this.SeleccEstratosBtn.TabIndex = 18;
+            this.SeleccEstratosBtn.TabIndex = 16;
             this.SeleccEstratosBtn.Text = "Seleccionar Todos";
             this.SeleccEstratosBtn.UseVisualStyleBackColor = true;
             this.SeleccEstratosBtn.Click += new System.EventHandler(this.SeleccEstratosBtn_Click);
@@ -663,13 +680,13 @@
             this.removerEstratosBtn.UseVisualStyleBackColor = true;
             this.removerEstratosBtn.Click += new System.EventHandler(this.removerEstratosBtn_Click);
             // 
-            // estratosDGW
+            // estratoDGW
             // 
-            this.estratosDGW.AllowUserToAddRows = false;
-            this.estratosDGW.AllowUserToDeleteRows = false;
-            this.estratosDGW.AllowUserToOrderColumns = true;
-            this.estratosDGW.AutoGenerateColumns = false;
-            this.estratosDGW.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.estratoDGW.AllowUserToAddRows = false;
+            this.estratoDGW.AllowUserToDeleteRows = false;
+            this.estratoDGW.AllowUserToOrderColumns = true;
+            this.estratoDGW.AutoGenerateColumns = false;
+            this.estratoDGW.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -677,13 +694,13 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.estratosDGW.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.estratosDGW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.estratosDGW.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.estratoDGW.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.estratoDGW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.estratoDGW.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Estratos,
             this.DESCRIPESTRATO,
             this.Peso});
-            this.estratosDGW.DataSource = this.estratoBS;
+            this.estratoDGW.DataSource = this.estratoBS;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -691,11 +708,11 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.estratosDGW.DefaultCellStyle = dataGridViewCellStyle5;
-            this.estratosDGW.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.estratosDGW.Enabled = false;
-            this.estratosDGW.Location = new System.Drawing.Point(3, 41);
-            this.estratosDGW.Name = "estratosDGW";
+            this.estratoDGW.DefaultCellStyle = dataGridViewCellStyle5;
+            this.estratoDGW.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.estratoDGW.Enabled = false;
+            this.estratoDGW.Location = new System.Drawing.Point(3, 41);
+            this.estratoDGW.Name = "estratoDGW";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -703,11 +720,11 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.estratosDGW.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.estratosDGW.Size = new System.Drawing.Size(525, 415);
-            this.estratosDGW.TabIndex = 0;
-            this.estratosDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.estratoDGW_CellValueChanged);
-            this.estratosDGW.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.estratosDGW_DataBindingComplete);
+            this.estratoDGW.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.estratoDGW.Size = new System.Drawing.Size(525, 415);
+            this.estratoDGW.TabIndex = 0;
+            this.estratoDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.estratoDGW_CellValueChanged);
+            this.estratoDGW.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.estratosDGW_DataBindingComplete);
             // 
             // Estratos
             // 
@@ -747,7 +764,7 @@
             this.crearFormBtn.Location = new System.Drawing.Point(414, 10);
             this.crearFormBtn.Name = "crearFormBtn";
             this.crearFormBtn.Size = new System.Drawing.Size(109, 23);
-            this.crearFormBtn.TabIndex = 1;
+            this.crearFormBtn.TabIndex = 19;
             this.crearFormBtn.Text = "Crear Formulario";
             this.crearFormBtn.UseVisualStyleBackColor = true;
             this.crearFormBtn.Click += new System.EventHandler(this.crearFormBtn_Click);
@@ -788,7 +805,6 @@
             this.formulariosDGW.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.formulariosDGW.Location = new System.Drawing.Point(0, 39);
             this.formulariosDGW.Name = "formulariosDGW";
-            this.formulariosDGW.ReadOnly = true;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -807,14 +823,12 @@
             this.FECHACREACION.DataPropertyName = "FECHACREACION";
             this.FECHACREACION.HeaderText = "Fecha";
             this.FECHACREACION.Name = "FECHACREACION";
-            this.FECHACREACION.ReadOnly = true;
             // 
             // NROFORMULARIO
             // 
             this.NROFORMULARIO.DataPropertyName = "NROFORMULARIO";
             this.NROFORMULARIO.HeaderText = "NROFORMULARIO";
             this.NROFORMULARIO.Name = "NROFORMULARIO";
-            this.NROFORMULARIO.ReadOnly = true;
             this.NROFORMULARIO.Visible = false;
             // 
             // Usuario
@@ -822,7 +836,6 @@
             this.Usuario.DataPropertyName = "NROUSUARIO";
             this.Usuario.HeaderText = "Responsable";
             this.Usuario.Name = "Usuario";
-            this.Usuario.ReadOnly = true;
             this.Usuario.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Usuario.Visible = false;
             // 
@@ -830,7 +843,6 @@
             // 
             this.NombreResponsable.HeaderText = "Responsable";
             this.NombreResponsable.Name = "NombreResponsable";
-            this.NombreResponsable.ReadOnly = true;
             // 
             // CODEST
             // 
@@ -839,7 +851,6 @@
             this.CODEST.DisplayMember = "DESCRIPESTRATO";
             this.CODEST.HeaderText = "Estrato";
             this.CODEST.Name = "CODEST";
-            this.CODEST.ReadOnly = true;
             this.CODEST.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CODEST.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.CODEST.ValueMember = "CODEST";
@@ -849,20 +860,17 @@
             this.PARCELA.DataPropertyName = "PARCELA";
             this.PARCELA.HeaderText = "Parcela";
             this.PARCELA.Name = "PARCELA";
-            this.PARCELA.ReadOnly = true;
             // 
             // LINEA
             // 
             this.LINEA.DataPropertyName = "LINEA";
             this.LINEA.HeaderText = "Linea";
             this.LINEA.Name = "LINEA";
-            this.LINEA.ReadOnly = true;
             // 
             // ListarDatos
             // 
             this.ListarDatos.HeaderText = "";
             this.ListarDatos.Name = "ListarDatos";
-            this.ListarDatos.ReadOnly = true;
             this.ListarDatos.Text = "Ver";
             this.ListarDatos.UseColumnTextForButtonValue = true;
             // 
@@ -907,7 +915,7 @@
             this.NOMBRETIPOINV,
             this.NOMTIPODISEMUEST,
             this.PesoProyecto});
-            this.proyectoDGW.DataSource = this.proyectoBS;
+            this.proyectoDGW.DataSource = this.proyectosBS;
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -987,6 +995,10 @@
             this.PesoProyecto.HeaderText = "Peso";
             this.PesoProyecto.Name = "PesoProyecto";
             // 
+            // proyectosBS
+            // 
+            this.proyectosBS.DataSource = typeof(SIFCA_DAL.PROYECTO);
+            // 
             // seleccionarProyectosBtn
             // 
             this.seleccionarProyectosBtn.Enabled = false;
@@ -1004,7 +1016,7 @@
             this.removerProyectosBtn.Location = new System.Drawing.Point(424, 15);
             this.removerProyectosBtn.Name = "removerProyectosBtn";
             this.removerProyectosBtn.Size = new System.Drawing.Size(104, 23);
-            this.removerProyectosBtn.TabIndex = 19;
+            this.removerProyectosBtn.TabIndex = 21;
             this.removerProyectosBtn.Text = "Remover Todos";
             this.removerProyectosBtn.UseVisualStyleBackColor = true;
             this.removerProyectosBtn.Click += new System.EventHandler(this.removerProyectosBtn_Click);
@@ -1018,7 +1030,7 @@
             this.cancelarBtn.Location = new System.Drawing.Point(579, 497);
             this.cancelarBtn.Name = "cancelarBtn";
             this.cancelarBtn.Size = new System.Drawing.Size(75, 23);
-            this.cancelarBtn.TabIndex = 11;
+            this.cancelarBtn.TabIndex = 23;
             this.cancelarBtn.Text = "Cancelar";
             this.cancelarBtn.UseVisualStyleBackColor = true;
             this.cancelarBtn.Click += new System.EventHandler(this.CancelarBtn_Click);
@@ -1028,10 +1040,10 @@
             this.ActualizarBtn.Location = new System.Drawing.Point(497, 497);
             this.ActualizarBtn.Name = "ActualizarBtn";
             this.ActualizarBtn.Size = new System.Drawing.Size(75, 23);
-            this.ActualizarBtn.TabIndex = 10;
+            this.ActualizarBtn.TabIndex = 22;
             this.ActualizarBtn.Text = "Actualizar";
             this.ActualizarBtn.UseVisualStyleBackColor = true;
-            this.ActualizarBtn.Click += new System.EventHandler(this.GuardarBtn_Click);
+            this.ActualizarBtn.Click += new System.EventHandler(this.ActualizarProyectoBtn_Click);
             // 
             // Actualizar_Proyectos_Form
             // 
@@ -1049,7 +1061,7 @@
             this.MinimizeBox = false;
             this.Name = "Actualizar_Proyectos_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Listar proyectos";
+            this.Text = "Actualizar proyecto";
             this.crearProyectoTab.ResumeLayout(false);
             this.proyectoTabP.ResumeLayout(false);
             this.DatosProyectoGbx.ResumeLayout(false);
@@ -1069,13 +1081,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.especiesDGW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.especieBS)).EndInit();
             this.estratosTabP.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.estratosDGW)).EndInit();
+            this.estratosTabP.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.estratoDGW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.estratoBS)).EndInit();
             this.formulariosTap.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.formulariosDGW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formulariosBS)).EndInit();
             this.proyectosContTabP.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDGW)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectosBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBS)).EndInit();
             this.ResumeLayout(false);
 
@@ -1092,14 +1106,14 @@
         private System.Windows.Forms.Button cancelarBtn;
         private System.Windows.Forms.Button ActualizarBtn;
         private System.Windows.Forms.BindingSource especieBS;
-        private System.Windows.Forms.DataGridView estratosDGW;
+        private System.Windows.Forms.DataGridView estratoDGW;
         private System.Windows.Forms.BindingSource estratoBS;
         private System.Windows.Forms.Button SeleccEstratosBtn;
         private System.Windows.Forms.Button removerEstratosBtn;
         private System.Windows.Forms.TabPage proyectosContTabP;
         private System.Windows.Forms.Button seleccionarProyectosBtn;
         private System.Windows.Forms.Button removerProyectosBtn;
-        private System.Windows.Forms.BindingSource proyectoBS;
+        private System.Windows.Forms.BindingSource proyectosBS;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Estratos;
         private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPESTRATO;
         private System.Windows.Forms.DataGridViewTextBoxColumn Peso;
@@ -1136,7 +1150,7 @@
         private System.Windows.Forms.GroupBox AreaMuestreadaGbx;
         private System.Windows.Forms.TextBox AreaMuestradaTxt;
         private System.Windows.Forms.TextBox lugarTxt;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button actualizarPesosEstratosBtn;
         private System.Windows.Forms.DataGridView especiesDGW;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Especie;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMCOMUN;
@@ -1151,6 +1165,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PARCELA;
         private System.Windows.Forms.DataGridViewTextBoxColumn LINEA;
         private System.Windows.Forms.DataGridViewButtonColumn ListarDatos;
+        private System.Windows.Forms.BindingSource proyectoBS;
+        private System.Windows.Forms.Label errorLbl;
 
 
     }

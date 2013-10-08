@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using SIFCA_DAL;
 using System.Data;
+using System.Data.Entity.Validation;
 
 namespace SIFCA_BLL
 {
@@ -68,16 +69,30 @@ namespace SIFCA_BLL
 
         }
 
-        public void SaveChanges()
+        public string SaveChanges()
         {
             try
             {
                 this.sifcaRepository.SaveChanges();
             }
+            catch (DbEntityValidationException ex)
+            {
+                string error = "";
+                foreach (var eve in ex.EntityValidationErrors)
+                {
+                    error += string.Format("Entidad \"{0}\" \nEstado \"{1}\" \nErrores a validar:", eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        error += string.Format("\nPropiedad: \"{0}\", Error: \"{1}\"", ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                return error;
+            }
             catch (Exception ex)
             {
                 throw ex;
             }
+            return string.Empty;
         }
 
     }

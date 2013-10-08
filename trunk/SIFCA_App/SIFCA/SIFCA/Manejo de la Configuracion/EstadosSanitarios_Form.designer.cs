@@ -451,6 +451,7 @@
             this.Controls.Add(this.pn_crear);
             this.Controls.Add(this.pn_editar);
             this.Controls.Add(this.pn_listado);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EstadosSanitarios_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Estados Sanitarios";

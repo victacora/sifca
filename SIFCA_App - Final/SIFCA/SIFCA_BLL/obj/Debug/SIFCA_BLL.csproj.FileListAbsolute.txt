@@ -1,0 +1,22 @@
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_BLL\bin\Debug\SIFCA_BLL.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_BLL\bin\Debug\SIFCA_BLL.pdb
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_BLL\bin\Debug\EntityFramework.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_BLL\bin\Debug\SIFCA_DAL.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_BLL\bin\Debug\SIFCA_DAL.pdb
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_BLL\bin\Debug\EntityFramework.xml
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_BLL\obj\Debug\SIFCA_BLL.csprojResolveAssemblyReference.cache
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_BLL\obj\Debug\SIFCA_BLL.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_BLL\obj\Debug\SIFCA_BLL.pdb
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_BLL\bin\Debug\SIFCA_BLL.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_BLL\bin\Debug\SIFCA_BLL.pdb
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_BLL\bin\Debug\MathNet.Numerics.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_BLL\bin\Debug\MathNet.Numerics.IO.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_BLL\bin\Debug\SIFCA_DAL.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_BLL\bin\Debug\SIFCA_DAL.pdb
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_BLL\bin\Debug\MathNet.Numerics.pdb
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_BLL\bin\Debug\MathNet.Numerics.xml
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_BLL\bin\Debug\MathNet.Numerics.IO.pdb
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_BLL\bin\Debug\MathNet.Numerics.IO.xml
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_BLL\obj\Debug\SIFCA_BLL.csprojResolveAssemblyReference.cache
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_BLL\obj\Debug\SIFCA_BLL.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_BLL\obj\Debug\SIFCA_BLL.pdb

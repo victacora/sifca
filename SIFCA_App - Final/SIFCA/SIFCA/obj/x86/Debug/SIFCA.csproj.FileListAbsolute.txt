@@ -1,0 +1,114 @@
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\Resources\SIFCA.ico
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\Resources\Nueva_Especie.jpg
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\Resources\reload.jpg
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\Resources\agregar_usuarios.jpg
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\Resources\actualizar_usuarios.jpg
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\Resources\buscar.jpg
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\Resources\fondo.jpg
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\Resources\FondoRecoleccion.jpg
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\Resources\fondoTab.jpg
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\SIFCA.exe.config
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\SIFCA.exe
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\SIFCA.pdb
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\EntityFramework.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\SIFCA_BLL.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\SIFCA_DAL.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\SIFCA_BLL.pdb
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\SIFCA_DAL.pdb
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\EntityFramework.xml
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.csprojResolveAssemblyReference.cache
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.Calidad_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.Especies_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.EstadosSanitarios_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.Estratos_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.GruposComerciales_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.TiposMuestrales_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.TiposUso_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Abrir_Formulario_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Abrir_Proyecto_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Actualizar_Proyectos_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Crear_Proyecto_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Realizar_Copia_Seguridad_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Autenticar_Usuario_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Actualizar_Usuario_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Crear_Usuario_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Listar_Usuarios_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Acerca_De_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Crear_Editar_Formulario_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Principal_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Listar_Datos_Formulario_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Properties.Resources.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.csproj.GenerateResource.Cache
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.exe
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.pdb
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Error_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\Resources\uninstall.ico
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\Base de datos 32\SIFCA_BD.mdf
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\Base de datos 32\SIFCA_BD_log.ldf
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\Resources\ninguna_imagen.jpg
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\Base de datos 64\SIFCA_BD.mdf
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\Base de datos 64\SIFCA_BD_log.ldf
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\Base de datos 32\SIFCA.exe.config
+C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA\bin\Debug\Base de datos 64\SIFCA.exe.config
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\SIFCA.exe.config
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\Resources\SIFCA.ico
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\Resources\Nueva_Especie.jpg
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\Resources\reload.jpg
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\Resources\agregar_usuarios.jpg
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\Resources\actualizar_usuarios.jpg
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\Resources\buscar.jpg
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\Resources\fondo.jpg
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\Resources\FondoRecoleccion.jpg
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\Resources\fondoTab.jpg
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\Resources\uninstall.ico
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\Resources\ninguna_imagen.jpg
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\Reportes\ResultsReport.rdlc
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\LinqToExcel.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\log4net.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\Remotion.Data.Linq.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\Remotion.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\Remotion.Interfaces.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\SIFCA_BLL.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\SIFCA_DAL.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\MathNet.Numerics.dll
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\SIFCA_BLL.pdb
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\SIFCA_DAL.pdb
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\LinqToExcel.xml
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\MathNet.Numerics.pdb
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\MathNet.Numerics.xml
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.csprojResolveAssemblyReference.cache
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Seleccionar_Estratos_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Totales_Formularios_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Actualizar_Proyectos_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Error_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Abrir_Formulario_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Abrir_Proyecto_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Crear_Proyecto_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Realizar_Copia_Seguridad_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Autenticar_Usuario_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Actualizar_Usuario_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Crear_Usuario_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Listar_Usuarios_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Acerca_De_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Crear_Editar_Formulario_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Principal_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Listar_Datos_Formulario_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.Calidad_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.Especies_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.EstadosSanitarios_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.Estratos_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.GruposComerciales_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.TiposMuestrales_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.TiposUso_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Properties.Resources.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Ver_Reporte_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.csproj.GenerateResource.Cache
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\RdlCompile.cache
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\RdlCompile.compiled
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.exe
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.pdb
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\SIFCA.exe
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\SIFCA.pdb
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Arbol_Proyectos_Por_Etapas_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.TStudent_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.ClasesDiametricas_Form.resources

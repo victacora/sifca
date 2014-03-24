@@ -1,0 +1,507 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{683351D9-2A18-47C7-BD93-B9F9D45F042D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIFCA</RootNamespace>
+    <AssemblyName>SIFCA</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\SIFCA\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <ProductName>SIFCA</ProductName>
+    <PublisherName>SIFCA</PublisherName>
+    <SuiteName>SIFCA</SuiteName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\SIFCA.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>E264AEFFA153EBB0E4E67BB895006EE3DB8704FE</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>SIFCA_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>Custom</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqToExcel">
+      <HintPath>..\packages\LinqToExcel.1.7.1\lib\LinqToExcel.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\LinqToExcel.1.7.1\lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Remotion">
+      <HintPath>..\packages\LinqToExcel.1.7.1\lib\Remotion.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Data.Linq">
+      <HintPath>..\packages\LinqToExcel.1.7.1\lib\Remotion.Data.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Interfaces">
+      <HintPath>..\packages\LinqToExcel.1.7.1\lib\Remotion.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Gestion de Datos y Formularios\Seleccionar_Estratos_Variables_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Datos y Formularios\Seleccionar_Estratos_Variables_Form.Designer.cs">
+      <DependentUpon>Seleccionar_Estratos_Variables_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Datos y Formularios\Totales_Formularios_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Datos y Formularios\Totales_Formularios_Form.Designer.cs">
+      <DependentUpon>Totales_Formularios_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Proyectos\Actualizar_Proyectos_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Proyectos\Actualizar_Proyectos_Form.designer.cs">
+      <DependentUpon>Actualizar_Proyectos_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Proyectos\Arbol_Proyectos_Por_Etapas_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Proyectos\Arbol_Proyectos_Por_Etapas_Form.Designer.cs">
+      <DependentUpon>Arbol_Proyectos_Por_Etapas_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion General\Error_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion General\Error_Form.Designer.cs">
+      <DependentUpon>Error_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Datos y Formularios\Abrir_Formulario_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Datos y Formularios\Abrir_Formulario_Form.Designer.cs">
+      <DependentUpon>Abrir_Formulario_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Proyectos\Abrir_Proyecto_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Proyectos\Abrir_Proyecto_Form.Designer.cs">
+      <DependentUpon>Abrir_Proyecto_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Proyectos\Crear_Proyectos_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Proyectos\Crear_Proyectos_Form.designer.cs">
+      <DependentUpon>Crear_Proyectos_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Proyectos\Realizar_Copia_Seguridad_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Proyectos\Realizar_Copia_Seguridad_Form.Designer.cs">
+      <DependentUpon>Realizar_Copia_Seguridad_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Usuarios\Autenticar_Usuario_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Usuarios\Autenticar_Usuario_Form.designer.cs">
+      <DependentUpon>Autenticar_Usuario_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Usuarios\Actualizar_Usuario_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Usuarios\Actualizar_Usuario_Form.designer.cs">
+      <DependentUpon>Actualizar_Usuario_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Usuarios\Crear_Usuario_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Usuarios\Crear_Usuario_Form.designer.cs">
+      <DependentUpon>Crear_Usuario_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Usuarios\Listar_Usuarios_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Usuarios\Listar_Usuarios_Form.Designer.cs">
+      <DependentUpon>Listar_Usuarios_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion General\Acerca_De_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion General\Acerca_De_Form.Designer.cs">
+      <DependentUpon>Acerca_De_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Datos y Formularios\Crear_Editar_Formulario_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Datos y Formularios\Crear_Editar_Formulario_Form.Designer.cs">
+      <DependentUpon>Crear_Editar_Formulario_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion General\Principal_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion General\Principal_Form.Designer.cs">
+      <DependentUpon>Principal_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Datos y Formularios\Listar_Datos_Formulario_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Datos y Formularios\Listar_Datos_Formulario_Form.Designer.cs">
+      <DependentUpon>Listar_Datos_Formulario_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\ImporExportExcel.cs" />
+    <Compile Include="Manejo de la Configuracion\Calidad_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\Calidad_Form.designer.cs">
+      <DependentUpon>Calidad_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\Especies_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\Especies_Form.designer.cs">
+      <DependentUpon>Especies_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\EstadosSanitarios_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\EstadosSanitarios_Form.designer.cs">
+      <DependentUpon>EstadosSanitarios_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\Estratos_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\Estratos_Form.designer.cs">
+      <DependentUpon>Estratos_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\GruposComerciales_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\GruposComerciales_Form.designer.cs">
+      <DependentUpon>GruposComerciales_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\TiposMuestrales_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\TiposMuestrales_Form.designer.cs">
+      <DependentUpon>TiposMuestrales_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\TiposUso_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\TiposUso_Form.designer.cs">
+      <DependentUpon>TiposUso_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\TStudent_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\TStudent_Form.designer.cs">
+      <DependentUpon>TStudent_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\ClasesDiametricas_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ClasesDiametricas_Form.Designer.cs">
+      <DependentUpon>ClasesDiametricas_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Ver_Reporte_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Ver_Reporte_Form.Designer.cs">
+      <DependentUpon>Ver_Reporte_Form.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Gestion de Datos y Formularios\Seleccionar_Estratos_Variables_Form.resx">
+      <DependentUpon>Seleccionar_Estratos_Variables_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Datos y Formularios\Totales_Formularios_Form.resx">
+      <DependentUpon>Totales_Formularios_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Proyectos\Actualizar_Proyectos_Form.resx">
+      <DependentUpon>Actualizar_Proyectos_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Proyectos\Arbol_Proyectos_Por_Etapas_Form.resx">
+      <DependentUpon>Arbol_Proyectos_Por_Etapas_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion General\Error_Form.resx">
+      <DependentUpon>Error_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Datos y Formularios\Abrir_Formulario_Form.resx">
+      <DependentUpon>Abrir_Formulario_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Proyectos\Abrir_Proyecto_Form.resx">
+      <DependentUpon>Abrir_Proyecto_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Proyectos\Crear_Proyectos_Form.resx">
+      <DependentUpon>Crear_Proyectos_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Proyectos\Realizar_Copia_Seguridad_Form.resx">
+      <DependentUpon>Realizar_Copia_Seguridad_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Usuarios\Autenticar_Usuario_Form.resx">
+      <DependentUpon>Autenticar_Usuario_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Usuarios\Actualizar_Usuario_Form.resx">
+      <DependentUpon>Actualizar_Usuario_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Usuarios\Crear_Usuario_Form.resx">
+      <DependentUpon>Crear_Usuario_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Usuarios\Listar_Usuarios_Form.resx">
+      <DependentUpon>Listar_Usuarios_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion General\Acerca_De_Form.resx">
+      <DependentUpon>Acerca_De_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Datos y Formularios\Crear_Editar_Formulario_Form.resx">
+      <DependentUpon>Crear_Editar_Formulario_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion General\Principal_Form.resx">
+      <DependentUpon>Principal_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Datos y Formularios\Listar_Datos_Formulario_Form.resx">
+      <DependentUpon>Listar_Datos_Formulario_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manejo de la Configuracion\Calidad_Form.resx">
+      <DependentUpon>Calidad_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manejo de la Configuracion\Especies_Form.resx">
+      <DependentUpon>Especies_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manejo de la Configuracion\EstadosSanitarios_Form.resx">
+      <DependentUpon>EstadosSanitarios_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manejo de la Configuracion\Estratos_Form.resx">
+      <DependentUpon>Estratos_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manejo de la Configuracion\GruposComerciales_Form.resx">
+      <DependentUpon>GruposComerciales_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manejo de la Configuracion\TiposMuestrales_Form.resx">
+      <DependentUpon>TiposMuestrales_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manejo de la Configuracion\TiposUso_Form.resx">
+      <DependentUpon>TiposUso_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manejo de la Configuracion\TStudent_Form.resx">
+      <DependentUpon>TStudent_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reportes\ClasesDiametricas_Form.resx">
+      <DependentUpon>ClasesDiametricas_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\DiametricClassesReport.rdlc" />
+    <EmbeddedResource Include="Reportes\GraphicsReport.rdlc" />
+    <EmbeddedResource Include="Reportes\ResultsReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\StratumReport.rdlc" />
+    <EmbeddedResource Include="Reportes\Ver_Reporte_Form.resx">
+      <DependentUpon>Ver_Reporte_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\SIFCA_BLL.SampleDesignItem.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.CALIDAD.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.ESPECIE.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.ESTADOSANITARIO.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.ESTRATO.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.FORMULARIO.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.GRUPOCOMERCIAL.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.IMAGEN.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.LINEAINVENTARIO.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.LINEANOMADERABLES.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.LINEAREGENERACION.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.LISTADODEESTRATOS.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.OBJETIVOINVENTARIO.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.PROYECTO.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.PROYECTOSPORETAPA.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.REPORTERESULTADODATASOURCE.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.SIFCA_CONTEXT.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.TIPODEUSO.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.TIPODISENOMUESTRAL.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.TRANSACCION.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.TSTUDENT.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.USUARIO.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SIFCA_BLL\SIFCA_BLL.csproj">
+      <Project>{E735AE40-FD8E-409E-80DC-23F44C4B8E72}</Project>
+      <Name>SIFCA_BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SIFCA_DAL\SIFCA_DAL.csproj">
+      <Project>{EE4872EC-67BA-4B8E-B7BA-8EB8DD171DE3}</Project>
+      <Name>SIFCA_DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Sql.Server.Express.10.0">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2008 Express Edition</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\ninguna_imagen.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\SIFCA.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Nueva_Especie.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\reload.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\agregar_usuarios.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\actualizar_usuarios.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\buscar.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\fondo.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\FondoRecoleccion.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\fondoTab.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\uninstall.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

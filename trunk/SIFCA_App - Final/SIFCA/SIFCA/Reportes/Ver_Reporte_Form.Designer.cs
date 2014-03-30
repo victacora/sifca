@@ -46,7 +46,7 @@
             this.verReporteRPVW.Dock = System.Windows.Forms.DockStyle.Fill;
             this.verReporteRPVW.Location = new System.Drawing.Point(0, 0);
             this.verReporteRPVW.Name = "verReporteRPVW";
-            this.verReporteRPVW.Size = new System.Drawing.Size(798, 516);
+            this.verReporteRPVW.Size = new System.Drawing.Size(788, 444);
             this.verReporteRPVW.TabIndex = 0;
             // 
             // resultadosBS
@@ -70,7 +70,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 516);
+            this.ClientSize = new System.Drawing.Size(788, 444);
             this.Controls.Add(this.verReporteRPVW);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Ver_Reporte_Form";

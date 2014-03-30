@@ -14,7 +14,8 @@ namespace SIFCA.Gestion_Configuracion
     public partial class Estratos_Form : Form
     {
         private StratumBL stratumBl;
-        ESTRATO stratum;
+        private ESTRATO stratum;
+        private string state;
 
         public Estratos_Form()
         {
@@ -29,7 +30,7 @@ namespace SIFCA.Gestion_Configuracion
             pn_crear.Hide();
             pn_editar.Hide();
             pn_listado.Show();
-
+            state="estrato";
         }
 
         private void btn_Crear_Click(object sender, EventArgs e)
@@ -53,8 +54,24 @@ namespace SIFCA.Gestion_Configuracion
                 stratumBl.InsertStratum(newStratum);
                 string result = stratumBl.SaveChanges();
                 if (result == "")
-                {
+                {                    
                     MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    stratumListBSource.DataSource = stratumBl.GetStratums();
+                    ListadoEstratos.Refresh();
+                    txt_Nombre.Text = "";
+                    txt_Descripcion.Text = "";
+
+                    if (this.state == "proyecto")
+                    {
+                        this.Close();
+                        return;
+                    }
+                    this.Width = pn_listado.Width;
+                    this.Height = pn_listado.Height;
+                    this.CenterToScreen();
+                    pn_listado.Show();
+                    pn_editar.Hide();
+                    pn_crear.Hide();
                 }
                 else
                 {
@@ -62,18 +79,31 @@ namespace SIFCA.Gestion_Configuracion
                     errorForm.MdiParent = ParentForm;
                     errorForm.Show();
                 }
-                stratumListBSource.DataSource = stratumBl.GetStratums();
-                ListadoEstratos.Refresh();
-                txt_Nombre.Text = "";
-                txt_Descripcion.Text = "";
-                pn_listado.Show();
-                pn_editar.Hide();
-                pn_crear.Hide();
-                this.Width = pn_listado.Width;
-                this.Height = pn_listado.Height;
-                this.CenterToScreen();
+                
             }
         }
+
+        public void Btn_nuevoEstratoForm_Click(object sender, EventArgs e, string formCall)
+        {
+            try
+            {
+                pn_editar.Hide();
+                pn_crear.Show();
+                pn_listado.Hide();
+                btn_Cancelar.Visible = false;
+                this.Width = pn_crear.Width;
+                this.Height = pn_crear.Height;
+                this.CenterToScreen();
+                this.state = formCall;
+            }
+            catch (Exception ex)
+            {
+                Error_Form er = new Error_Form(ex.Message);
+                er.Show();
+            }
+
+        }
+
 
         private void ListadoDeEstratos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {

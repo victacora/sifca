@@ -595,7 +595,7 @@ namespace SIFCA
         {
             try
             {
-                TStudent_Form childForm = new TStudent_Form();
+                Calidad_Form childForm = new Calidad_Form();
                 childForm.MdiParent = this;
                 childForm.Show();
             }

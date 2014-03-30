@@ -75,7 +75,6 @@
             this.datosInventarioGrx = new System.Windows.Forms.GroupBox();
             this.limpiarBtn = new System.Windows.Forms.Button();
             this.lineaInvBN = new System.Windows.Forms.BindingNavigator(this.components);
-            this.agregarLineInv = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
@@ -85,6 +84,7 @@
             this.toolStripButton14 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton15 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.agregarLineInv = new System.Windows.Forms.ToolStripButton();
             this.eliminarLinea = new System.Windows.Forms.ToolStripButton();
             this.nombreComunRbtn = new System.Windows.Forms.RadioButton();
             this.nombreCientRbtn = new System.Windows.Forms.RadioButton();
@@ -104,7 +104,6 @@
             this.RegeneracionTP = new System.Windows.Forms.TabPage();
             this.datosRegenGrx = new System.Windows.Forms.GroupBox();
             this.regeneracionBN = new System.Windows.Forms.BindingNavigator(this.components);
-            this.agregarLineaRegen = new System.Windows.Forms.ToolStripButton();
             this.regeneracionBS = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton17 = new System.Windows.Forms.ToolStripButton();
@@ -115,6 +114,7 @@
             this.toolStripButton19 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton20 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.agregarLineaRegen = new System.Windows.Forms.ToolStripButton();
             this.eliminarLineaRegen = new System.Windows.Forms.ToolStripButton();
             this.nombreComunRegenRbtn = new System.Windows.Forms.RadioButton();
             this.nomCientificoRegenRbtn = new System.Windows.Forms.RadioButton();
@@ -182,6 +182,7 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tipoUsoBS = new System.Windows.Forms.BindingSource(this.components);
             this.controladorErrores = new System.Windows.Forms.ErrorProvider(this.components);
+            this.parametrosLineaTxt = new System.Windows.Forms.TextBox();
             estratoLbl = new System.Windows.Forms.Label();
             lineaLbl = new System.Windows.Forms.Label();
             ProyectoLbl = new System.Windows.Forms.Label();
@@ -306,7 +307,7 @@
             // cAPLbl
             // 
             cAPLbl.AutoSize = true;
-            cAPLbl.Location = new System.Drawing.Point(16, 241);
+            cAPLbl.Location = new System.Drawing.Point(17, 217);
             cAPLbl.Name = "cAPLbl";
             cAPLbl.Size = new System.Drawing.Size(136, 13);
             cAPLbl.TabIndex = 71;
@@ -333,7 +334,7 @@
             // alturaComercialLbl
             // 
             alturaComercialLbl.AutoSize = true;
-            alturaComercialLbl.Location = new System.Drawing.Point(17, 272);
+            alturaComercialLbl.Location = new System.Drawing.Point(17, 269);
             alturaComercialLbl.Name = "alturaComercialLbl";
             alturaComercialLbl.Size = new System.Drawing.Size(115, 13);
             alturaComercialLbl.TabIndex = 26;
@@ -342,7 +343,7 @@
             // alturaTotalLbl
             // 
             alturaTotalLbl.AutoSize = true;
-            alturaTotalLbl.Location = new System.Drawing.Point(17, 297);
+            alturaTotalLbl.Location = new System.Drawing.Point(17, 294);
             alturaTotalLbl.Name = "alturaTotalLbl";
             alturaTotalLbl.Size = new System.Drawing.Size(93, 13);
             alturaTotalLbl.TabIndex = 28;
@@ -351,7 +352,7 @@
             // calidadLbl
             // 
             calidadLbl.AutoSize = true;
-            calidadLbl.Location = new System.Drawing.Point(16, 136);
+            calidadLbl.Location = new System.Drawing.Point(16, 137);
             calidadLbl.Name = "calidadLbl";
             calidadLbl.Size = new System.Drawing.Size(45, 13);
             calidadLbl.TabIndex = 8;
@@ -360,7 +361,7 @@
             // dAPLbl
             // 
             dAPLbl.AutoSize = true;
-            dAPLbl.Location = new System.Drawing.Point(16, 214);
+            dAPLbl.Location = new System.Drawing.Point(19, 242);
             dAPLbl.Name = "dAPLbl";
             dAPLbl.Size = new System.Drawing.Size(104, 13);
             dAPLbl.TabIndex = 12;
@@ -369,7 +370,7 @@
             // estadoLbl
             // 
             estadoLbl.AutoSize = true;
-            estadoLbl.Location = new System.Drawing.Point(16, 188);
+            estadoLbl.Location = new System.Drawing.Point(16, 191);
             estadoLbl.Name = "estadoLbl";
             estadoLbl.Size = new System.Drawing.Size(85, 13);
             estadoLbl.TabIndex = 14;
@@ -414,7 +415,7 @@
             // tipoArbolLbl
             // 
             tipoArbolLbl.AutoSize = true;
-            tipoArbolLbl.Location = new System.Drawing.Point(17, 162);
+            tipoArbolLbl.Location = new System.Drawing.Point(17, 165);
             tipoArbolLbl.Name = "tipoArbolLbl";
             tipoArbolLbl.Size = new System.Drawing.Size(57, 13);
             tipoArbolLbl.TabIndex = 81;
@@ -484,6 +485,8 @@
             // 
             // estratoCbx
             // 
+            this.estratoCbx.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.estratoCbx.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.estratoCbx.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.estratoBS, "DESCRIPESTRATO", true));
             this.estratoCbx.DataSource = this.estratoBS;
             this.estratoCbx.DisplayMember = "DESCRIPESTRATO";
@@ -619,6 +622,7 @@
             // datosInventarioGrx
             // 
             this.datosInventarioGrx.BackColor = System.Drawing.SystemColors.Window;
+            this.datosInventarioGrx.Controls.Add(this.parametrosLineaTxt);
             this.datosInventarioGrx.Controls.Add(this.limpiarBtn);
             this.datosInventarioGrx.Controls.Add(this.lineaInvBN);
             this.datosInventarioGrx.Controls.Add(this.nombreComunRbtn);
@@ -692,16 +696,6 @@
             this.lineaInvBN.TabIndex = 82;
             this.lineaInvBN.Text = "lineaInvBN";
             // 
-            // agregarLineInv
-            // 
-            this.agregarLineInv.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.agregarLineInv.Image = ((System.Drawing.Image)(resources.GetObject("agregarLineInv.Image")));
-            this.agregarLineInv.Name = "agregarLineInv";
-            this.agregarLineInv.RightToLeftAutoMirrorImage = true;
-            this.agregarLineInv.Size = new System.Drawing.Size(23, 22);
-            this.agregarLineInv.Text = "Agregar nuevo";
-            this.agregarLineInv.Click += new System.EventHandler(this.agregarLineInv_Click);
-            // 
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
@@ -769,6 +763,16 @@
             this.toolStripSeparator9.Name = "toolStripSeparator9";
             this.toolStripSeparator9.Size = new System.Drawing.Size(6, 25);
             // 
+            // agregarLineInv
+            // 
+            this.agregarLineInv.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.agregarLineInv.Image = ((System.Drawing.Image)(resources.GetObject("agregarLineInv.Image")));
+            this.agregarLineInv.Name = "agregarLineInv";
+            this.agregarLineInv.RightToLeftAutoMirrorImage = true;
+            this.agregarLineInv.Size = new System.Drawing.Size(23, 22);
+            this.agregarLineInv.Text = "Agregar nuevo";
+            this.agregarLineInv.Click += new System.EventHandler(this.agregarLineInv_Click);
+            // 
             // eliminarLinea
             // 
             this.eliminarLinea.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -830,7 +834,7 @@
             // cAPTxt
             // 
             this.cAPTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "CAP", true));
-            this.cAPTxt.Location = new System.Drawing.Point(158, 239);
+            this.cAPTxt.Location = new System.Drawing.Point(159, 213);
             this.cAPTxt.MaxLength = 25;
             this.cAPTxt.Name = "cAPTxt";
             this.cAPTxt.Size = new System.Drawing.Size(213, 20);
@@ -842,7 +846,7 @@
             // dAPTxt
             // 
             this.dAPTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "DAP", true));
-            this.dAPTxt.Location = new System.Drawing.Point(159, 213);
+            this.dAPTxt.Location = new System.Drawing.Point(159, 240);
             this.dAPTxt.MaxLength = 25;
             this.dAPTxt.Name = "dAPTxt";
             this.dAPTxt.Size = new System.Drawing.Size(213, 20);
@@ -884,6 +888,8 @@
             // 
             // especieCbx
             // 
+            this.especieCbx.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.especieCbx.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.especieCbx.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.lineaInvBS, "CODESP", true));
             this.especieCbx.DataSource = this.especieBS;
             this.especieCbx.DisplayMember = "NOMCOMUN";
@@ -936,6 +942,7 @@
             this.alturaComercialTxt.Size = new System.Drawing.Size(214, 20);
             this.alturaComercialTxt.TabIndex = 22;
             this.alturaComercialTxt.Text = "0";
+            this.alturaComercialTxt.TextChanged += new System.EventHandler(this.alturaComercialTxt_TextChanged);
             this.alturaComercialTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
             // alturaTotalTxt
@@ -947,6 +954,7 @@
             this.alturaTotalTxt.Size = new System.Drawing.Size(214, 20);
             this.alturaTotalTxt.TabIndex = 23;
             this.alturaTotalTxt.Text = "0";
+            this.alturaTotalTxt.TextChanged += new System.EventHandler(this.alturaTotalTxt_TextChanged);
             this.alturaTotalTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
             // RegeneracionTP
@@ -1011,16 +1019,6 @@
             this.regeneracionBN.Size = new System.Drawing.Size(380, 25);
             this.regeneracionBN.TabIndex = 96;
             this.regeneracionBN.Text = "bindingNavigator1";
-            // 
-            // agregarLineaRegen
-            // 
-            this.agregarLineaRegen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.agregarLineaRegen.Image = ((System.Drawing.Image)(resources.GetObject("agregarLineaRegen.Image")));
-            this.agregarLineaRegen.Name = "agregarLineaRegen";
-            this.agregarLineaRegen.RightToLeftAutoMirrorImage = true;
-            this.agregarLineaRegen.Size = new System.Drawing.Size(23, 22);
-            this.agregarLineaRegen.Text = "Agregar nuevo";
-            this.agregarLineaRegen.Click += new System.EventHandler(this.agregarLineaRegen_Click);
             // 
             // regeneracionBS
             // 
@@ -1093,6 +1091,16 @@
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
             this.toolStripSeparator12.Size = new System.Drawing.Size(6, 25);
+            // 
+            // agregarLineaRegen
+            // 
+            this.agregarLineaRegen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.agregarLineaRegen.Image = ((System.Drawing.Image)(resources.GetObject("agregarLineaRegen.Image")));
+            this.agregarLineaRegen.Name = "agregarLineaRegen";
+            this.agregarLineaRegen.RightToLeftAutoMirrorImage = true;
+            this.agregarLineaRegen.Size = new System.Drawing.Size(23, 22);
+            this.agregarLineaRegen.Text = "Agregar nuevo";
+            this.agregarLineaRegen.Click += new System.EventHandler(this.agregarLineaRegen_Click);
             // 
             // eliminarLineaRegen
             // 
@@ -1175,6 +1183,8 @@
             // 
             // especieRegenCbx
             // 
+            this.especieRegenCbx.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.especieRegenCbx.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.especieRegenCbx.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.regeneracionBS, "CODESP", true));
             this.especieRegenCbx.DataSource = this.especieBS;
             this.especieRegenCbx.DisplayMember = "NOMCOMUN";
@@ -1236,20 +1246,20 @@
             this.datosNoMaderablesGrx.TabIndex = 2;
             this.datosNoMaderablesGrx.TabStop = false;
             // 
-            // LimpiarTodosEstratosBtn
+            // LimpiarTodosUsosBtn
             // 
             this.LimpiarTodosUsosBtn.Location = new System.Drawing.Point(262, 242);
-            this.LimpiarTodosUsosBtn.Name = "LimpiarTodosEstratosBtn";
+            this.LimpiarTodosUsosBtn.Name = "LimpiarTodosUsosBtn";
             this.LimpiarTodosUsosBtn.Size = new System.Drawing.Size(110, 23);
             this.LimpiarTodosUsosBtn.TabIndex = 99;
             this.LimpiarTodosUsosBtn.Text = "Limpiar";
             this.LimpiarTodosUsosBtn.UseVisualStyleBackColor = true;
             this.LimpiarTodosUsosBtn.Click += new System.EventHandler(this.LimpiarTodosUsosBtn_Click);
             // 
-            // SeleccionarTodosEstratosBtn
+            // SeleccionarTodosUsosBtn
             // 
             this.SeleccionarTodosUsosBtn.Location = new System.Drawing.Point(146, 242);
-            this.SeleccionarTodosUsosBtn.Name = "SeleccionarTodosEstratosBtn";
+            this.SeleccionarTodosUsosBtn.Name = "SeleccionarTodosUsosBtn";
             this.SeleccionarTodosUsosBtn.Size = new System.Drawing.Size(110, 23);
             this.SeleccionarTodosUsosBtn.TabIndex = 98;
             this.SeleccionarTodosUsosBtn.Text = "Seleccionar Todos";
@@ -1369,7 +1379,6 @@
             // eliminarLineaNoMaderables
             // 
             this.eliminarLineaNoMaderables.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.eliminarLineaNoMaderables.Image = ((System.Drawing.Image)(resources.GetObject("eliminarLineaNoMaderables.Image")));
             this.eliminarLineaNoMaderables.Name = "eliminarLineaNoMaderables";
             this.eliminarLineaNoMaderables.RightToLeftAutoMirrorImage = true;
             this.eliminarLineaNoMaderables.Size = new System.Drawing.Size(23, 22);
@@ -1664,7 +1673,6 @@
             // eliminarLineaInv
             // 
             this.eliminarLineaInv.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.eliminarLineaInv.Image = ((System.Drawing.Image)(resources.GetObject("eliminarLineaInv.Image")));
             this.eliminarLineaInv.Name = "eliminarLineaInv";
             this.eliminarLineaInv.RightToLeftAutoMirrorImage = true;
             this.eliminarLineaInv.Size = new System.Drawing.Size(23, 22);
@@ -1709,6 +1717,16 @@
             // 
             this.controladorErrores.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.controladorErrores.ContainerControl = this;
+            // 
+            // parametrosLineaTxt
+            // 
+            this.parametrosLineaTxt.Location = new System.Drawing.Point(20, 320);
+            this.parametrosLineaTxt.Multiline = true;
+            this.parametrosLineaTxt.Name = "parametrosLineaTxt";
+            this.parametrosLineaTxt.ReadOnly = true;
+            this.parametrosLineaTxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.parametrosLineaTxt.Size = new System.Drawing.Size(351, 60);
+            this.parametrosLineaTxt.TabIndex = 83;
             // 
             // Crear_Editar_Formulario_Form
             // 
@@ -1895,5 +1913,6 @@
         private System.Windows.Forms.Button limpiarBtn;
         private System.Windows.Forms.Button LimpiarTodosUsosBtn;
         private System.Windows.Forms.Button SeleccionarTodosUsosBtn;
+        private System.Windows.Forms.TextBox parametrosLineaTxt;
     }
 }

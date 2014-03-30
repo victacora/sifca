@@ -32,11 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Estratos_Form));
             this.pn_listado = new System.Windows.Forms.Panel();
             this.ListadoEstratos = new System.Windows.Forms.DataGridView();
-            this.cODESTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dESCRIPESTRATODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.stratumListBSource = new System.Windows.Forms.BindingSource(this.components);
             this.paginacionEstrato = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.btn_nuevoEstrato = new System.Windows.Forms.ToolStripButton();
@@ -62,19 +57,24 @@
             this.txt_Descripcion = new System.Windows.Forms.TextBox();
             this.btn_Guardar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.stratumEditBSource = new System.Windows.Forms.BindingSource(this.components);
             this.eP_errors = new System.Windows.Forms.ErrorProvider(this.components);
+            this.stratumListBSource = new System.Windows.Forms.BindingSource(this.components);
+            this.stratumEditBSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cODESTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dESCRIPESTRATODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pn_listado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListadoEstratos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stratumListBSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paginacionEstrato)).BeginInit();
             this.paginacionEstrato.SuspendLayout();
             this.pn_crear.SuspendLayout();
             this.crearGbx.SuspendLayout();
             this.pn_editar.SuspendLayout();
             this.editarGbx.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.stratumEditBSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eP_errors)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stratumListBSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stratumEditBSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pn_listado
@@ -106,47 +106,6 @@
             this.ListadoEstratos.Size = new System.Drawing.Size(520, 283);
             this.ListadoEstratos.TabIndex = 3;
             this.ListadoEstratos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListadoDeEstratos_CellValueChanged);
-            // 
-            // cODESTDataGridViewTextBoxColumn
-            // 
-            this.cODESTDataGridViewTextBoxColumn.DataPropertyName = "CODEST";
-            this.cODESTDataGridViewTextBoxColumn.HeaderText = "Codigo";
-            this.cODESTDataGridViewTextBoxColumn.Name = "cODESTDataGridViewTextBoxColumn";
-            this.cODESTDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cODESTDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // dESCRIPESTRATODataGridViewTextBoxColumn
-            // 
-            this.dESCRIPESTRATODataGridViewTextBoxColumn.DataPropertyName = "DESCRIPESTRATO";
-            this.dESCRIPESTRATODataGridViewTextBoxColumn.HeaderText = "Descripcion";
-            this.dESCRIPESTRATODataGridViewTextBoxColumn.Name = "dESCRIPESTRATODataGridViewTextBoxColumn";
-            this.dESCRIPESTRATODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Editar
-            // 
-            this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            this.Editar.HeaderText = "";
-            this.Editar.Name = "Editar";
-            this.Editar.ReadOnly = true;
-            this.Editar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Editar.Text = "Editar";
-            this.Editar.UseColumnTextForButtonValue = true;
-            this.Editar.Width = 5;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            this.Eliminar.HeaderText = "";
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Text = "Eliminar";
-            this.Eliminar.UseColumnTextForButtonValue = true;
-            this.Eliminar.Width = 5;
-            // 
-            // stratumListBSource
-            // 
-            this.stratumListBSource.DataSource = typeof(SIFCA_DAL.ESTRATO);
             // 
             // paginacionEstrato
             // 
@@ -385,13 +344,57 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "Descripcion";
             // 
+            // eP_errors
+            // 
+            this.eP_errors.ContainerControl = this;
+            // 
+            // stratumListBSource
+            // 
+            this.stratumListBSource.DataSource = typeof(SIFCA_DAL.ESTRATO);
+            // 
             // stratumEditBSource
             // 
             this.stratumEditBSource.DataSource = typeof(SIFCA_DAL.ESTRATO);
             // 
-            // eP_errors
+            // cODESTDataGridViewTextBoxColumn
             // 
-            this.eP_errors.ContainerControl = this;
+            this.cODESTDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            this.cODESTDataGridViewTextBoxColumn.DataPropertyName = "CODEST";
+            this.cODESTDataGridViewTextBoxColumn.HeaderText = "Codigo";
+            this.cODESTDataGridViewTextBoxColumn.Name = "cODESTDataGridViewTextBoxColumn";
+            this.cODESTDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cODESTDataGridViewTextBoxColumn.Visible = false;
+            this.cODESTDataGridViewTextBoxColumn.Width = 5;
+            // 
+            // dESCRIPESTRATODataGridViewTextBoxColumn
+            // 
+            this.dESCRIPESTRATODataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dESCRIPESTRATODataGridViewTextBoxColumn.DataPropertyName = "DESCRIPESTRATO";
+            this.dESCRIPESTRATODataGridViewTextBoxColumn.HeaderText = "Descripcion";
+            this.dESCRIPESTRATODataGridViewTextBoxColumn.Name = "dESCRIPESTRATODataGridViewTextBoxColumn";
+            this.dESCRIPESTRATODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Editar
+            // 
+            this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Editar.HeaderText = "";
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            this.Editar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Editar.Text = "Editar";
+            this.Editar.UseColumnTextForButtonValue = true;
+            this.Editar.Width = 19;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Text = "Eliminar";
+            this.Eliminar.UseColumnTextForButtonValue = true;
+            this.Eliminar.Width = 5;
             // 
             // Estratos_Form
             // 
@@ -411,7 +414,6 @@
             this.pn_listado.ResumeLayout(false);
             this.pn_listado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListadoEstratos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stratumListBSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paginacionEstrato)).EndInit();
             this.paginacionEstrato.ResumeLayout(false);
             this.paginacionEstrato.PerformLayout();
@@ -421,8 +423,9 @@
             this.pn_editar.ResumeLayout(false);
             this.editarGbx.ResumeLayout(false);
             this.editarGbx.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.stratumEditBSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eP_errors)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stratumListBSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stratumEditBSource)).EndInit();
             this.ResumeLayout(false);
 
         }

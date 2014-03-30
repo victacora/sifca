@@ -24,261 +24,272 @@ namespace SIFCA
         public Ver_Reporte_Form(List<SampleDesignItem> datos, List<string> opciones)
         {
             InitializeComponent();
-            tStudentTable= new TStudentBL(Program.ContextData);
-            stratums=new StratumBL(Program.ContextData);
-            project = new PROYECTO();
-            PROYECTO currentProject = (PROYECTO)Program.Cache.Get("project");
-            //Cargando datos del proyecto al reporte
-            if (project != null) 
+            try
             {
-                TypeSampleDesignBl tipoDiseno=new TypeSampleDesignBl(Program.ContextData);
-                ObjectiveInventoryBL objetivoInventario = new ObjectiveInventoryBL(Program.ContextData);
-                project.NOMTIPODISEMUEST = tipoDiseno.GetTypeSampleDesign(currentProject.NOMTIPODISEMUEST).DESCRIPTIPODISEMUEST;
-                project.NOMBRETIPOINV = objetivoInventario.GetObjectiveInventory(currentProject.NOMBRETIPOINV).DESCRIPOBJETINV;
-                project.INTMUE =  Math.Round(currentProject.INTMUE,3);
-                project.TAMANO =  Math.Round(currentProject.TAMANO,3);
-                project.DESCRIPCION = currentProject.DESCRIPCION;
-                project.LUGAR = currentProject.LUGAR;
-                project.FECHA = currentProject.FECHA;
-                project.SUPMUE =  Math.Round(currentProject.SUPMUE,3);
-                project.SUPTOT = Math.Round(currentProject.SUPTOT,3);
-                Decimal confianza=currentProject.CONFIANZA!=null?(decimal)currentProject.CONFIANZA:0;
-                project.CONFIANZA =  Math.Round(confianza,3);
-                this.estratificado = currentProject.LISTADODEESTRATOS.Count!=0?true:false;
-                proyectoBS.DataSource = project;
-            }
-            Dictionary<string, object> resultados = new Dictionary<string, object>();
-            if (datos.Count != 0)
-            {
-                double tamanoParcela = project != null ? (double)project.TAMANO : 1;
-                double totalParcelas = project != null ? (int)(project.SUPTOT / project.TAMANO) : 0;
-                int totalParcelasMuestra = project != null ? (int)(totalParcelas * (double)project.INTMUE/100) : 0;
-                RESULTADOMUESTREO resultado;
-                TOTALESMUESTREOESTRATIFICADOS totales;
-                TSTUDENT resulttStudent = tStudentTable.GetTStudent((decimal)(1 - currentProject.CONFIANZA/100), (totalParcelasMuestra - 1));
-                TSTUDENT tStudent = resulttStudent!=null?resulttStudent:new TSTUDENT();
-                if (!estratificado)
+                tStudentTable = new TStudentBL(Program.ContextData);
+                stratums = new StratumBL(Program.ContextData);
+                project = new PROYECTO();
+                PROYECTO currentProject = (PROYECTO)Program.Cache.Get("project");
+                //Cargando datos del proyecto al reporte
+                if (project != null)
                 {
-                    //
-                    SampleDesign diseno = new SampleDesign(currentProject,tStudent, datos, totalParcelasMuestra, totalParcelas, 0);
-                    resultados = diseno.Execute(0);
-                    //Cargando resultado de los datos al reporte
-                    if (opciones.Contains("NA"))
-                    {
-                        resultado = new RESULTADOMUESTREO();
-                        resultado.VARIABLE = "Numero de arboles (#)";
-                        resultado.TOTAL = totalParcelas * Math.Round((double)resultados["Mean"], 3);
-                        resultado.TOTALPORHECTAREA = resultado.TOTAL / (double)currentProject.SUPTOT;
-                        resultado.PROMEDIO = Math.Round((double)resultados["Mean"], 3);
-                        resultado.DESVIACIONESTANDAR = Math.Round((double)resultados["StandardDeviation"], 3);
-                        resultado.COEFICIENTEDEVARIACION = Math.Round((double)resultados["VariationCoefficient"], 3);
-                        resultado.ERRORDESVIACION = Math.Round((double)resultados["StandardError"], 3);
-                        resultado.ERRORABSOLUTOMUESTREO = Math.Round((double)resultados["AbsoulteErrorSample"], 3);
-                        resultado.LIMITEINF = Math.Round((double)resultados["LowLimit"], 3);
-                        resultado.LIMITESUP = Math.Round((double)resultados["HightLimit"], 3);
-                        resultado.ERRORRELATIVO = Math.Round((double)resultados["RelativeErrorSample"], 3);
-                        resultadosBS.Add(resultado);
-                    }
-                    if (opciones.Contains("AB"))
-                    {
-                        resultados = diseno.Execute(3);
-                        resultado = new RESULTADOMUESTREO();
-                        resultado.VARIABLE = "Area Basal (Mtrs2)";
-                        resultado.TOTAL = totalParcelas * Math.Round((double)resultados["Mean"], 3);
-                        resultado.TOTALPORHECTAREA = resultado.TOTAL / (double)currentProject.SUPTOT;
-                        resultado.PROMEDIO = Math.Round((double)resultados["Mean"], 3);
-                        resultado.DESVIACIONESTANDAR = Math.Round((double)resultados["StandardDeviation"], 3);
-                        resultado.COEFICIENTEDEVARIACION = Math.Round((double)resultados["VariationCoefficient"], 3);
-                        resultado.ERRORDESVIACION = Math.Round((double)resultados["StandardError"], 3);
-                        resultado.ERRORABSOLUTOMUESTREO = Math.Round((double)resultados["AbsoulteErrorSample"], 3);
-                        resultado.LIMITEINF = Math.Round((double)resultados["LowLimit"], 3);
-                        resultado.LIMITESUP = Math.Round((double)resultados["HightLimit"], 3);
-                        resultado.ERRORRELATIVO = Math.Round((double)resultados["RelativeErrorSample"], 3);
-                        resultadosBS.Add(resultado);
-                    }
-                    if (opciones.Contains("VC"))
-                    {
-                        resultados = diseno.Execute(1);
-                        resultado = new RESULTADOMUESTREO();
-                        resultado.VARIABLE = "Volumen Comercial (Mtrs3)";
-                        resultado.TOTAL = totalParcelas * Math.Round((double)resultados["Mean"], 3);
-                        resultado.TOTALPORHECTAREA = resultado.TOTAL / (double)currentProject.SUPTOT;
-                        resultado.PROMEDIO = Math.Round((double)resultados["Mean"], 3);
-                        resultado.DESVIACIONESTANDAR = Math.Round((double)resultados["StandardDeviation"], 3);
-                        resultado.COEFICIENTEDEVARIACION = Math.Round((double)resultados["VariationCoefficient"], 3);
-                        resultado.ERRORDESVIACION = Math.Round((double)resultados["StandardError"], 3);
-                        resultado.ERRORABSOLUTOMUESTREO = Math.Round((double)resultados["AbsoulteErrorSample"], 3);
-                        resultado.LIMITEINF = Math.Round((double)resultados["LowLimit"], 3);
-                        resultado.LIMITESUP = Math.Round((double)resultados["HightLimit"], 3);
-                        resultado.ERRORRELATIVO = Math.Round((double)resultados["RelativeErrorSample"], 3);
-                        resultadosBS.Add(resultado);
-                    }
-                    if (opciones.Contains("VT"))
-                    {
-                        resultados = diseno.Execute(2);
-                        resultado = new RESULTADOMUESTREO();
-                        resultado.VARIABLE = "Volumen Total (Mtrs3)";
-                        resultado.TOTAL = totalParcelas * Math.Round((double)resultados["Mean"], 3);
-                        resultado.TOTALPORHECTAREA = resultado.TOTAL / (double)currentProject.SUPTOT;
-                        resultado.PROMEDIO = Math.Round((double)resultados["Mean"], 3);
-                        resultado.DESVIACIONESTANDAR = Math.Round((double)resultados["StandardDeviation"], 3);
-                        resultado.COEFICIENTEDEVARIACION = Math.Round((double)resultados["VariationCoefficient"], 3);
-                        resultado.ERRORDESVIACION = Math.Round((double)resultados["StandardError"], 3);
-                        resultado.ERRORABSOLUTOMUESTREO = Math.Round((double)resultados["AbsoulteErrorSample"], 3);
-                        resultado.LIMITEINF = Math.Round((double)resultados["LowLimit"], 3);
-                        resultado.LIMITESUP = Math.Round((double)resultados["HightLimit"], 3);
-                        resultado.ERRORRELATIVO = Math.Round((double)resultados["RelativeErrorSample"], 3);
-                        resultadosBS.Add(resultado);
-                    }
+                    TypeSampleDesignBl tipoDiseno = new TypeSampleDesignBl(Program.ContextData);
+                    ObjectiveInventoryBL objetivoInventario = new ObjectiveInventoryBL(Program.ContextData);
+                    project.NOMTIPODISEMUEST = tipoDiseno.GetTypeSampleDesign(currentProject.NOMTIPODISEMUEST).DESCRIPTIPODISEMUEST;
+                    project.NOMBRETIPOINV = objetivoInventario.GetObjectiveInventory(currentProject.NOMBRETIPOINV).DESCRIPOBJETINV;
+                    project.INTMUE = Math.Round(currentProject.INTMUE, 3);
+                    project.TAMANO = Math.Round(currentProject.TAMANO, 3);
+                    project.DESCRIPCION = currentProject.DESCRIPCION;
+                    project.LUGAR = currentProject.LUGAR;
+                    project.FECHA = currentProject.FECHA;
+                    project.SUPMUE = Math.Round(currentProject.SUPMUE, 3);
+                    project.SUPTOT = Math.Round(currentProject.SUPTOT, 3);
+                    Decimal confianza = currentProject.CONFIANZA != null ? (decimal)currentProject.CONFIANZA : 0;
+                    project.CONFIANZA = Math.Round(confianza, 3);
+                    this.estratificado = currentProject.LISTADODEESTRATOS.Count != 0 ? true : false;
+                    proyectoBS.DataSource = project;
                 }
-                else 
-                { 
-                    //Cargar datos del analisis de los datos estratificados al proyecto
-                    SampleDesign diseno = new SampleDesign(currentProject,tStudent, datos, totalParcelasMuestra, totalParcelas, 1);
-                    //Cargando resultado de los datos al reporte
-                    Dictionary<string, object> resultadosTemporales = null;
-                    if (opciones.Contains("NA"))
+                Dictionary<string, object> resultados = new Dictionary<string, object>();
+                if (datos.Count != 0)
+                {
+                    double tamanoParcela = project != null ? (double)project.TAMANO : 1;
+                    double totalParcelas = project != null ? (int)(project.SUPTOT / project.TAMANO) : 0;
+                    int totalParcelasMuestra = datos.Count;
+                    double superficieTotal =  project != null ?(double)project.SUPTOT:0;
+                    RESULTADOMUESTREO resultado;
+                    TOTALESMUESTREOESTRATIFICADOS totales;
+                    TSTUDENT resulttStudent = tStudentTable.GetTStudent((decimal)(1 - currentProject.CONFIANZA / 100), (totalParcelasMuestra - 1));
+                    TSTUDENT tStudent = resulttStudent != null ? resulttStudent : new TSTUDENT();
+                    if (!estratificado)
                     {
+                        //
+                        SampleDesign diseno = new SampleDesign(currentProject, tStudent, datos, totalParcelasMuestra, totalParcelas, 0);
                         resultados = diseno.Execute(0);
-                        foreach (KeyValuePair<string, object> resultStratum in resultados)
-                        {
-                            resultadosTemporales = (Dictionary<string, object>)resultStratum.Value;
-                            resultado = new RESULTADOMUESTREO();
-                            if (resultStratum.Key != "totales")
-                            {
-                                ESTRATO stratum= stratums.GetStratum(int.Parse(resultStratum.Key));
-                                resultado.ESTRATO = stratum!=null?stratum.DESCRIPESTRATO:resultStratum.Key;
-                                resultado.PESOESTRATO = Math.Round((double)resultadosTemporales["weight"], 3);
-                                resultado.VARIABLE = "Numero de arboles (#)";
-                                resultado.TOTAL = totalParcelas * Math.Round((double)resultadosTemporales["Mean"], 3);
-                                resultado.TOTALPORHECTAREA = resultado.TOTAL / (double)currentProject.SUPTOT;
-                                resultado.PROMEDIO = Math.Round((double)resultadosTemporales["Mean"], 3);
-                                resultado.DESVIACIONESTANDAR = Math.Round((double)resultadosTemporales["StandardDeviation"], 3);
-                                resultado.COEFICIENTEDEVARIACION = Math.Round((double)resultadosTemporales["VariationCoefficient"], 3);
-                                resultado.ERRORDESVIACION = Math.Round((double)resultadosTemporales["StandardError"], 3);
-                                resultado.ERRORABSOLUTOMUESTREO = Math.Round((double)resultadosTemporales["AbsoulteErrorSample"], 3);
-                                resultado.LIMITEINF = Math.Round((double)resultadosTemporales["LowLimit"], 3);
-                                resultado.LIMITESUP = Math.Round((double)resultadosTemporales["HightLimit"], 3);
-                                resultado.ERRORRELATIVO = Math.Round((double)resultadosTemporales["RelativeErrorSample"], 3);
-                                resultadosBS.Add(resultado);
-                            }
-                        }
-                        //TODO:añadir total los cuales se encuntran al final
-                        resultadosTemporales = (Dictionary<string, object>)resultados.Last().Value;
-                        totales = new TOTALESMUESTREOESTRATIFICADOS();
-                        totales.TOTALPROMEDIOESTRATIFICADO = Math.Round((double)resultadosTemporales["Mean"], 3);
-                        totales.TOTALDESESTANDARESTRATIFICADO = Math.Round((double)resultadosTemporales["StandardError"], 3);
-                        totales.TOTALERRORMUESTREO = Math.Round((double)resultadosTemporales["AbsoulteErrorSample"], 3);
-                        totales.TOTALERRRORELATIVO = Math.Round((double)resultadosTemporales["RelativeErrorSample"], 3);
-                        totalEstratificadoBS.Add(totales);
-                    }
-                    if (opciones.Contains("AB"))
-                    {
-                        resultados = diseno.Execute(3);
                         //Cargando resultado de los datos al reporte
-                        foreach (KeyValuePair<string, object> resultStratum in resultados)
+                        if (opciones.Contains("NA"))
                         {
-                            resultadosTemporales = (Dictionary<string, object>)resultStratum.Value;
                             resultado = new RESULTADOMUESTREO();
-                            if (resultStratum.Key != "totales")
-                            {
-                                ESTRATO stratum = stratums.GetStratum(int.Parse(resultStratum.Key));
-                                resultado.ESTRATO = stratum != null ? stratum.DESCRIPESTRATO : resultStratum.Key;
-                                resultado.PESOESTRATO = Math.Round((double)resultadosTemporales["weight"], 3);
-                                resultado.VARIABLE = "Area Basal (Mtrs2)";
-                                resultado.TOTAL = totalParcelas * Math.Round((double)resultadosTemporales["Mean"], 3);
-                                resultado.TOTALPORHECTAREA = resultado.TOTAL / (double)currentProject.SUPTOT;
-                                resultado.PROMEDIO = Math.Round((double)resultadosTemporales["Mean"], 3);
-                                resultado.DESVIACIONESTANDAR = Math.Round((double)resultadosTemporales["StandardDeviation"], 3);
-                                resultado.COEFICIENTEDEVARIACION = Math.Round((double)resultadosTemporales["VariationCoefficient"], 3);
-                                resultado.ERRORDESVIACION = Math.Round((double)resultadosTemporales["StandardError"], 3);
-                                resultado.ERRORABSOLUTOMUESTREO = Math.Round((double)resultadosTemporales["AbsoulteErrorSample"], 3);
-                                resultado.LIMITEINF = Math.Round((double)resultadosTemporales["LowLimit"], 3);
-                                resultado.LIMITESUP = Math.Round((double)resultadosTemporales["HightLimit"], 3);
-                                resultado.ERRORRELATIVO = Math.Round((double)resultadosTemporales["RelativeErrorSample"], 3);
-                                resultadosBS.Add(resultado);
-                            }
+                            resultado.VARIABLE = "Numero de arboles (#)";
+                            resultado.TOTAL = superficieTotal * Math.Round((double)resultados["Mean"], 3);
+                            resultado.PROMEDIO = Math.Round((double)resultados["Mean"], 3);
+                            resultado.DESVIACIONESTANDAR = Math.Round((double)resultados["StandardDeviation"], 3);
+                            resultado.COEFICIENTEDEVARIACION = Math.Round((double)resultados["VariationCoefficient"], 3);
+                            resultado.ERRORDESVIACION = Math.Round((double)resultados["StandardError"], 3);
+                            resultado.ERRORABSOLUTOMUESTREO = Math.Round((double)resultados["AbsoulteErrorSample"], 3);
+                            resultado.LIMITEINF = Math.Round((double)resultados["LowLimit"], 3);
+                            resultado.LIMITESUP = Math.Round((double)resultados["HightLimit"], 3);
+                            resultado.ERRORRELATIVO = Math.Round((double)resultados["RelativeErrorSample"], 3);
+                            resultadosBS.Add(resultado);
                         }
-                        resultadosTemporales = (Dictionary<string, object>)resultados.Last().Value;
-                        totales = new TOTALESMUESTREOESTRATIFICADOS();
-                        totales.TOTALPROMEDIOESTRATIFICADO = Math.Round((double)resultadosTemporales["Mean"], 3);
-                        totales.TOTALDESESTANDARESTRATIFICADO = Math.Round((double)resultadosTemporales["StandardError"], 3);
-                        totales.TOTALERRORMUESTREO = Math.Round((double)resultadosTemporales["AbsoulteErrorSample"], 3);
-                        totales.TOTALERRRORELATIVO = Math.Round((double)resultadosTemporales["RelativeErrorSample"], 3);
-                        totalEstratificadoBS.Add(totales);
+                        if (opciones.Contains("AB"))
+                        {
+                            resultados = diseno.Execute(3);
+                            resultado = new RESULTADOMUESTREO();
+                            resultado.VARIABLE = "Area Basal (Mtrs2)";
+                            resultado.TOTAL = superficieTotal * Math.Round((double)resultados["Mean"], 3);
+                            resultado.PROMEDIO = Math.Round((double)resultados["Mean"], 3);
+                            resultado.DESVIACIONESTANDAR = Math.Round((double)resultados["StandardDeviation"], 3);
+                            resultado.COEFICIENTEDEVARIACION = Math.Round((double)resultados["VariationCoefficient"], 3);
+                            resultado.ERRORDESVIACION = Math.Round((double)resultados["StandardError"], 3);
+                            resultado.ERRORABSOLUTOMUESTREO = Math.Round((double)resultados["AbsoulteErrorSample"], 3);
+                            resultado.LIMITEINF = Math.Round((double)resultados["LowLimit"], 3);
+                            resultado.LIMITESUP = Math.Round((double)resultados["HightLimit"], 3);
+                            resultado.ERRORRELATIVO = Math.Round((double)resultados["RelativeErrorSample"], 3);
+                            resultadosBS.Add(resultado);
+                        }
+                        if (opciones.Contains("VC"))
+                        {
+                            resultados = diseno.Execute(1);
+                            resultado = new RESULTADOMUESTREO();
+                            resultado.VARIABLE = "Volumen Comercial (Mtrs3)";
+                            resultado.TOTAL = superficieTotal * Math.Round((double)resultados["Mean"], 3);
+                            resultado.PROMEDIO = Math.Round((double)resultados["Mean"], 3);
+                            resultado.DESVIACIONESTANDAR = Math.Round((double)resultados["StandardDeviation"], 3);
+                            resultado.COEFICIENTEDEVARIACION = Math.Round((double)resultados["VariationCoefficient"], 3);
+                            resultado.ERRORDESVIACION = Math.Round((double)resultados["StandardError"], 3);
+                            resultado.ERRORABSOLUTOMUESTREO = Math.Round((double)resultados["AbsoulteErrorSample"], 3);
+                            resultado.LIMITEINF = Math.Round((double)resultados["LowLimit"], 3);
+                            resultado.LIMITESUP = Math.Round((double)resultados["HightLimit"], 3);
+                            resultado.ERRORRELATIVO = Math.Round((double)resultados["RelativeErrorSample"], 3);
+                            resultadosBS.Add(resultado);
+                        }
+                        if (opciones.Contains("VT"))
+                        {
+                            resultados = diseno.Execute(2);
+                            resultado = new RESULTADOMUESTREO();
+                            resultado.VARIABLE = "Volumen Total (Mtrs3)";
+                            resultado.TOTAL = superficieTotal * Math.Round((double)resultados["Mean"], 3);
+                            resultado.PROMEDIO = Math.Round((double)resultados["Mean"], 3);
+                            resultado.DESVIACIONESTANDAR = Math.Round((double)resultados["StandardDeviation"], 3);
+                            resultado.COEFICIENTEDEVARIACION = Math.Round((double)resultados["VariationCoefficient"], 3);
+                            resultado.ERRORDESVIACION = Math.Round((double)resultados["StandardError"], 3);
+                            resultado.ERRORABSOLUTOMUESTREO = Math.Round((double)resultados["AbsoulteErrorSample"], 3);
+                            resultado.LIMITEINF = Math.Round((double)resultados["LowLimit"], 3);
+                            resultado.LIMITESUP = Math.Round((double)resultados["HightLimit"], 3);
+                            resultado.ERRORRELATIVO = Math.Round((double)resultados["RelativeErrorSample"], 3);
+                            resultadosBS.Add(resultado);
+                        }
                     }
-                    if (opciones.Contains("VC"))
+                    else
                     {
-                        resultados = diseno.Execute(1);
+                        //Cargar datos del analisis de los datos estratificados al proyecto
+                        SampleDesign diseno = new SampleDesign(currentProject, tStudent, datos, totalParcelasMuestra, totalParcelas, 1);
                         //Cargando resultado de los datos al reporte
-                        foreach (KeyValuePair<string, object> resultStratum in resultados)
+                        Dictionary<string, object> resultadosTemporales = null;
+                        if (opciones.Contains("NA"))
                         {
-                            resultadosTemporales = (Dictionary<string, object>)resultStratum.Value;
-                            resultado = new RESULTADOMUESTREO();
-                            if (resultStratum.Key != "totales")
+                            resultados = diseno.Execute(0);
+                            foreach (KeyValuePair<string, object> resultStratum in resultados)
                             {
-                                ESTRATO stratum = stratums.GetStratum(int.Parse(resultStratum.Key));
-                                resultado.ESTRATO = stratum != null ? stratum.DESCRIPESTRATO : resultStratum.Key;
-                                resultado.PESOESTRATO = Math.Round((double)resultadosTemporales["weight"], 3);
-                                resultado.VARIABLE = "Volumen Comercial (Mtrs3)";
-                                resultado.TOTAL = totalParcelas * Math.Round((double)resultadosTemporales["Mean"], 3);
-                                resultado.TOTALPORHECTAREA = resultado.TOTAL / (double)currentProject.SUPTOT;
-                                resultado.PROMEDIO = Math.Round((double)resultadosTemporales["Mean"], 3);
-                                resultado.DESVIACIONESTANDAR = Math.Round((double)resultadosTemporales["StandardDeviation"], 3);
-                                resultado.COEFICIENTEDEVARIACION = Math.Round((double)resultadosTemporales["VariationCoefficient"], 3);
-                                resultado.ERRORDESVIACION = Math.Round((double)resultadosTemporales["StandardError"], 3);
-                                resultado.ERRORABSOLUTOMUESTREO = Math.Round((double)resultadosTemporales["AbsoulteErrorSample"], 3);
-                                resultado.LIMITEINF = Math.Round((double)resultadosTemporales["LowLimit"], 3);
-                                resultado.LIMITESUP = Math.Round((double)resultadosTemporales["HightLimit"], 3);
-                                resultado.ERRORRELATIVO = Math.Round((double)resultadosTemporales["RelativeErrorSample"], 3);
-                                resultadosBS.Add(resultado);
+                                resultadosTemporales = (Dictionary<string, object>)resultStratum.Value;
+                                resultado = new RESULTADOMUESTREO();
+                                if (resultStratum.Key != "totales")
+                                {
+                                    ESTRATO stratum = stratums.GetStratum(int.Parse(resultStratum.Key));
+                                    resultado.ESTRATO = stratum != null ? stratum.DESCRIPESTRATO : resultStratum.Key;
+                                    resultado.PESOESTRATO = Math.Round((double)resultadosTemporales["weight"], 3);
+                                    resultado.VARIABLE = "Numero de arboles (#)";
+                                    resultado.TOTAL = totalParcelas * Math.Round((double)resultadosTemporales["Mean"], 3);
+                                    resultado.TOTALPORHECTAREA = resultado.TOTAL / (double)currentProject.SUPTOT;
+                                    resultado.PROMEDIO = Math.Round((double)resultadosTemporales["Mean"], 3);
+                                    resultado.DESVIACIONESTANDAR = Math.Round((double)resultadosTemporales["StandardDeviation"], 3);
+                                    resultado.COEFICIENTEDEVARIACION = Math.Round((double)resultadosTemporales["VariationCoefficient"], 3);
+                                    resultado.ERRORDESVIACION = Math.Round((double)resultadosTemporales["StandardError"], 3);
+                                    resultado.ERRORABSOLUTOMUESTREO = Math.Round((double)resultadosTemporales["AbsoulteErrorSample"], 3);
+                                    resultado.LIMITEINF = Math.Round((double)resultadosTemporales["LowLimit"], 3);
+                                    resultado.LIMITESUP = Math.Round((double)resultadosTemporales["HightLimit"], 3);
+                                    resultado.ERRORRELATIVO = Math.Round((double)resultadosTemporales["RelativeErrorSample"], 3);
+                                    resultadosBS.Add(resultado);
+                                }
                             }
+                            //TODO:añadir total los cuales se encuntran al final
+                            resultadosTemporales = (Dictionary<string, object>)resultados.Last().Value;
+                            totales = new TOTALESMUESTREOESTRATIFICADOS();
+                            totales.VARIABLE = "Numero de arboles (#)";
+                            totales.TOTALPROMEDIOESTRATIFICADO = Math.Round((double)resultadosTemporales["Mean"], 3);
+                            totales.TOTALDESESTANDARESTRATIFICADO = Math.Round((double)resultadosTemporales["StandardError"], 3);
+                            totales.TOTALERRORMUESTREO = Math.Round((double)resultadosTemporales["AbsoulteErrorSample"], 3);
+                            totales.TOTALERRRORELATIVO = Math.Round((double)resultadosTemporales["RelativeErrorSample"], 3);
+                            totalEstratificadoBS.Add(totales);
                         }
-                        resultadosTemporales = (Dictionary<string, object>)resultados.Last().Value;
-                        totales = new TOTALESMUESTREOESTRATIFICADOS();
-                        totales.TOTALPROMEDIOESTRATIFICADO = Math.Round((double)resultadosTemporales["Mean"], 3);
-                        totales.TOTALDESESTANDARESTRATIFICADO = Math.Round((double)resultadosTemporales["StandardError"], 3);
-                        totales.TOTALERRORMUESTREO = Math.Round((double)resultadosTemporales["AbsoulteErrorSample"], 3);
-                        totales.TOTALERRRORELATIVO = Math.Round((double)resultadosTemporales["RelativeErrorSample"], 3);
-                        totalEstratificadoBS.Add(totales);
-                    }
-                    if (opciones.Contains("VT"))
-                    {
-                        resultados = diseno.Execute(2);
-                        //Cargando resultado de los datos al reporte
-                        foreach (KeyValuePair<string, object> resultStratum in resultados)
+                        if (opciones.Contains("AB"))
                         {
-                            resultadosTemporales = (Dictionary<string, object>)resultStratum.Value;
-                            resultado = new RESULTADOMUESTREO();
-                            if (resultStratum.Key != "totales")
+                            resultados = diseno.Execute(3);
+                            //Cargando resultado de los datos al reporte
+                            foreach (KeyValuePair<string, object> resultStratum in resultados)
                             {
-                                ESTRATO stratum = stratums.GetStratum(int.Parse(resultStratum.Key));
-                                resultado.ESTRATO = stratum != null ? stratum.DESCRIPESTRATO : resultStratum.Key;
-                                resultado.PESOESTRATO = Math.Round((double)resultadosTemporales["weight"], 3);
-                                resultado.VARIABLE = "Volumen Total (Mtrs3)";
-                                resultado.TOTAL = totalParcelas * Math.Round((double)resultadosTemporales["Mean"], 3);
-                                resultado.TOTALPORHECTAREA = resultado.TOTAL / (double)currentProject.SUPTOT;
-                                resultado.PROMEDIO = Math.Round((double)resultadosTemporales["Mean"], 3);
-                                resultado.DESVIACIONESTANDAR = Math.Round((double)resultadosTemporales["StandardDeviation"], 3);
-                                resultado.COEFICIENTEDEVARIACION = Math.Round((double)resultadosTemporales["VariationCoefficient"], 3);
-                                resultado.ERRORDESVIACION = Math.Round((double)resultadosTemporales["StandardError"], 3);
-                                resultado.ERRORABSOLUTOMUESTREO = Math.Round((double)resultadosTemporales["AbsoulteErrorSample"], 3);
-                                resultado.LIMITEINF = Math.Round((double)resultadosTemporales["LowLimit"], 3);
-                                resultado.LIMITESUP = Math.Round((double)resultadosTemporales["HightLimit"], 3);
-                                resultado.ERRORRELATIVO = Math.Round((double)resultadosTemporales["RelativeErrorSample"], 3);
-                                resultadosBS.Add(resultado);
+                                resultadosTemporales = (Dictionary<string, object>)resultStratum.Value;
+                                resultado = new RESULTADOMUESTREO();
+                                if (resultStratum.Key != "totales")
+                                {
+                                    ESTRATO stratum = stratums.GetStratum(int.Parse(resultStratum.Key));
+                                    resultado.ESTRATO = stratum != null ? stratum.DESCRIPESTRATO : resultStratum.Key;
+                                    resultado.PESOESTRATO = Math.Round((double)resultadosTemporales["weight"], 3);
+                                    resultado.VARIABLE = "Area Basal (Mtrs2)";
+                                    resultado.TOTAL = totalParcelas * Math.Round((double)resultadosTemporales["Mean"], 3);
+                                    resultado.TOTALPORHECTAREA = resultado.TOTAL / (double)currentProject.SUPTOT;
+                                    resultado.PROMEDIO = Math.Round((double)resultadosTemporales["Mean"], 3);
+                                    resultado.DESVIACIONESTANDAR = Math.Round((double)resultadosTemporales["StandardDeviation"], 3);
+                                    resultado.COEFICIENTEDEVARIACION = Math.Round((double)resultadosTemporales["VariationCoefficient"], 3);
+                                    resultado.ERRORDESVIACION = Math.Round((double)resultadosTemporales["StandardError"], 3);
+                                    resultado.ERRORABSOLUTOMUESTREO = Math.Round((double)resultadosTemporales["AbsoulteErrorSample"], 3);
+                                    resultado.LIMITEINF = Math.Round((double)resultadosTemporales["LowLimit"], 3);
+                                    resultado.LIMITESUP = Math.Round((double)resultadosTemporales["HightLimit"], 3);
+                                    resultado.ERRORRELATIVO = Math.Round((double)resultadosTemporales["RelativeErrorSample"], 3);
+                                    resultadosBS.Add(resultado);
+                                }
                             }
+                            resultadosTemporales = (Dictionary<string, object>)resultados.Last().Value;
+                            totales = new TOTALESMUESTREOESTRATIFICADOS();
+                            totales.VARIABLE = "Area Basal (Mtrs2)";
+                            totales.TOTALPROMEDIOESTRATIFICADO = Math.Round((double)resultadosTemporales["Mean"], 3);
+                            totales.TOTALDESESTANDARESTRATIFICADO = Math.Round((double)resultadosTemporales["StandardError"], 3);
+                            totales.TOTALERRORMUESTREO = Math.Round((double)resultadosTemporales["AbsoulteErrorSample"], 3);
+                            totales.TOTALERRRORELATIVO = Math.Round((double)resultadosTemporales["RelativeErrorSample"], 3);
+                            totalEstratificadoBS.Add(totales);
                         }
-                        resultadosTemporales = (Dictionary<string, object>)resultados.Last().Value;
-                        totales = new TOTALESMUESTREOESTRATIFICADOS();
-                        totales.TOTALPROMEDIOESTRATIFICADO = Math.Round((double)resultadosTemporales["Mean"], 3);
-                        totales.TOTALDESESTANDARESTRATIFICADO = Math.Round((double)resultadosTemporales["StandardError"], 3);
-                        totales.TOTALERRORMUESTREO = Math.Round((double)resultadosTemporales["AbsoulteErrorSample"], 3);
-                        totales.TOTALERRRORELATIVO = Math.Round((double)resultadosTemporales["RelativeErrorSample"], 3);
-                        totalEstratificadoBS.Add(totales);
+                        if (opciones.Contains("VC"))
+                        {
+                            resultados = diseno.Execute(1);
+                            //Cargando resultado de los datos al reporte
+                            foreach (KeyValuePair<string, object> resultStratum in resultados)
+                            {
+                                resultadosTemporales = (Dictionary<string, object>)resultStratum.Value;
+                                resultado = new RESULTADOMUESTREO();
+                                if (resultStratum.Key != "totales")
+                                {
+                                    ESTRATO stratum = stratums.GetStratum(int.Parse(resultStratum.Key));
+                                    resultado.ESTRATO = stratum != null ? stratum.DESCRIPESTRATO : resultStratum.Key;
+                                    resultado.PESOESTRATO = Math.Round((double)resultadosTemporales["weight"], 3);
+                                    resultado.VARIABLE = "Volumen Comercial (Mtrs3)";
+                                    resultado.TOTAL = totalParcelas * Math.Round((double)resultadosTemporales["Mean"], 3);
+                                    resultado.TOTALPORHECTAREA = resultado.TOTAL / (double)currentProject.SUPTOT;
+                                    resultado.PROMEDIO = Math.Round((double)resultadosTemporales["Mean"], 3);
+                                    resultado.DESVIACIONESTANDAR = Math.Round((double)resultadosTemporales["StandardDeviation"], 3);
+                                    resultado.COEFICIENTEDEVARIACION = Math.Round((double)resultadosTemporales["VariationCoefficient"], 3);
+                                    resultado.ERRORDESVIACION = Math.Round((double)resultadosTemporales["StandardError"], 3);
+                                    resultado.ERRORABSOLUTOMUESTREO = Math.Round((double)resultadosTemporales["AbsoulteErrorSample"], 3);
+                                    resultado.LIMITEINF = Math.Round((double)resultadosTemporales["LowLimit"], 3);
+                                    resultado.LIMITESUP = Math.Round((double)resultadosTemporales["HightLimit"], 3);
+                                    resultado.ERRORRELATIVO = Math.Round((double)resultadosTemporales["RelativeErrorSample"], 3);
+                                    resultadosBS.Add(resultado);
+                                }
+                            }
+                            resultadosTemporales = (Dictionary<string, object>)resultados.Last().Value;
+                            totales = new TOTALESMUESTREOESTRATIFICADOS();
+                            totales.VARIABLE = "Volumen Comercial (Mtrs3)";
+                            totales.TOTALPROMEDIOESTRATIFICADO = Math.Round((double)resultadosTemporales["Mean"], 3);
+                            totales.TOTALDESESTANDARESTRATIFICADO = Math.Round((double)resultadosTemporales["StandardError"], 3);
+                            totales.TOTALERRORMUESTREO = Math.Round((double)resultadosTemporales["AbsoulteErrorSample"], 3);
+                            totales.TOTALERRRORELATIVO = Math.Round((double)resultadosTemporales["RelativeErrorSample"], 3);
+                            totalEstratificadoBS.Add(totales);
+                        }
+                        if (opciones.Contains("VT"))
+                        {
+                            resultados = diseno.Execute(2);
+                            //Cargando resultado de los datos al reporte
+                            foreach (KeyValuePair<string, object> resultStratum in resultados)
+                            {
+                                resultadosTemporales = (Dictionary<string, object>)resultStratum.Value;
+                                resultado = new RESULTADOMUESTREO();
+                                if (resultStratum.Key != "totales")
+                                {
+                                    ESTRATO stratum = stratums.GetStratum(int.Parse(resultStratum.Key));
+                                    resultado.ESTRATO = stratum != null ? stratum.DESCRIPESTRATO : resultStratum.Key;
+                                    resultado.PESOESTRATO = Math.Round((double)resultadosTemporales["weight"], 3);
+                                    resultado.VARIABLE = "Volumen Total (Mtrs3)";
+                                    resultado.TOTAL = totalParcelas * Math.Round((double)resultadosTemporales["Mean"], 3);
+                                    resultado.TOTALPORHECTAREA = resultado.TOTAL / (double)currentProject.SUPTOT;
+                                    resultado.PROMEDIO = Math.Round((double)resultadosTemporales["Mean"], 3);
+                                    resultado.DESVIACIONESTANDAR = Math.Round((double)resultadosTemporales["StandardDeviation"], 3);
+                                    resultado.COEFICIENTEDEVARIACION = Math.Round((double)resultadosTemporales["VariationCoefficient"], 3);
+                                    resultado.ERRORDESVIACION = Math.Round((double)resultadosTemporales["StandardError"], 3);
+                                    resultado.ERRORABSOLUTOMUESTREO = Math.Round((double)resultadosTemporales["AbsoulteErrorSample"], 3);
+                                    resultado.LIMITEINF = Math.Round((double)resultadosTemporales["LowLimit"], 3);
+                                    resultado.LIMITESUP = Math.Round((double)resultadosTemporales["HightLimit"], 3);
+                                    resultado.ERRORRELATIVO = Math.Round((double)resultadosTemporales["RelativeErrorSample"], 3);
+                                    resultadosBS.Add(resultado);
+                                }
+                            }
+                            resultadosTemporales = (Dictionary<string, object>)resultados.Last().Value;
+                            totales = new TOTALESMUESTREOESTRATIFICADOS();
+                            totales.VARIABLE = "Volumen Total (Mtrs3)";
+                            totales.TOTALPROMEDIOESTRATIFICADO = Math.Round((double)resultadosTemporales["Mean"], 3);
+                            totales.TOTALDESESTANDARESTRATIFICADO = Math.Round((double)resultadosTemporales["StandardError"], 3);
+                            totales.TOTALERRORMUESTREO = Math.Round((double)resultadosTemporales["AbsoulteErrorSample"], 3);
+                            totales.TOTALERRRORELATIVO = Math.Round((double)resultadosTemporales["RelativeErrorSample"], 3);
+                            totalEstratificadoBS.Add(totales);
+                        }
+
                     }
                 }
-             }
+            }
+            catch (Exception ex)
+            {
+                Error_Form er = new Error_Form(ex.Message);
+                er.MdiParent = this.MdiParent;
+                er.Show();
+            }
         }
 
         public Ver_Reporte_Form()

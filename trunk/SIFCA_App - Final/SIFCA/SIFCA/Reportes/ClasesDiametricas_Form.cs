@@ -62,20 +62,24 @@ namespace SIFCA
                             Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
                             Column1.HeaderText = "Especie";
                             Column1.Name = "ColNombre";
+                            Column1.SortMode = DataGridViewColumnSortMode.NotSortable;
                             DtgDatos.Columns.Add(Column1);
                             Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
                             Column1.HeaderText = "Grupo ecológico";
                             Column1.Name = "ColGrupoEcologico";
+                            Column1.SortMode = DataGridViewColumnSortMode.NotSortable;
                             DtgDatos.Columns.Add(Column1);
                             Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
                             Column1.HeaderText = "Valor comercial";
                             Column1.Name = "ColEspecie";
+                            Column1.SortMode = DataGridViewColumnSortMode.NotSortable;
                             DtgDatos.Columns.Add(Column1);
                             Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
                             Column1.HeaderText = "Variable";
                             Column1.Name = "ColVariable";
+                            Column1.SortMode = DataGridViewColumnSortMode.NotSortable;
                             DtgDatos.Columns.Add(Column1);
-                            for (int i = 0, posClase = rangeDAP; i < NumClass; i++)
+                            for (int i = 0, posClase = 10; i < NumClass; i++)
                             {
 
                                 Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,6 +88,7 @@ namespace SIFCA
                                 DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
                                 dataGridViewCellStyle1.Format = "0.000###";
                                 Column1.DefaultCellStyle = dataGridViewCellStyle1;
+                                Column1.SortMode = DataGridViewColumnSortMode.NotSortable;
                                 DtgDatos.Columns.Add(Column1);
 
                                 posClase = posClase + rangeDAP;
@@ -91,6 +96,7 @@ namespace SIFCA
                             
                             Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
                             Column1.HeaderText = "Total";
+                            Column1.SortMode = DataGridViewColumnSortMode.NotSortable;
                             Column1.Name = "Clase" + (nUd_NumClases.Value + 3);
                             DtgDatos.Columns.Add(Column1);
                             List<REPORTECLASESDIAMETRICASDATASOURCE> ListresultReportCD = new List<REPORTECLASESDIAMETRICASDATASOURCE>();
@@ -104,7 +110,7 @@ namespace SIFCA
                             foreach (ESPECIE sp in currentProject.ESPECIE)
                             {
                                 List<REPORTECLASESDIAMETRICAS> resultReportCD = new List<REPORTECLASESDIAMETRICAS>();
-
+                                int cont = 0;
                                 for (int i = 10; i <= (rangeDAP * NumClass); i = i + rangeDAP)
                                 {
                                     REPORTECLASESDIAMETRICAS rpCD = new REPORTECLASESDIAMETRICAS();
@@ -120,18 +126,23 @@ namespace SIFCA
                                         rpCD.AREABASAL = rpCD.AREABASAL / rpCD.CONTEO;
                                         rpCD.VOLUMEN = rpCD.VOLUMEN / rpCD.CONTEO;
                                     }
+                                    
                                 
                                     resultReportCD.Add(rpCD);
                                     //Se realiza para los totales por clase de densidad,AB, vol
-                                    totalConteoClase[(i - rangeDAP) / rangeDAP] += rpCD.CONTEO;
-                                    totalABClase[(i - rangeDAP) / rangeDAP] += rpCD.AREABASAL;
-                                    totalVolClase[(i - rangeDAP) / rangeDAP] += rpCD.VOLUMEN;
+                                    totalConteoClase[cont] += rpCD.CONTEO;
+                                    totalABClase[cont] += rpCD.AREABASAL;
+                                    totalVolClase[cont] += rpCD.VOLUMEN;
+                                    cont++;
                                 }
                                 //Se hace fuera del for porque en este for se lleva todos los valores de esa especie para cada clase diametrica y todas las variables
                                 //entonces ahora se lleva los valores de la especie y las clases diametricas
                                 string RowConteo = "", RowAB = " ,,,Area Basal,", RowVol = " ,,,Volumen,";
                                 decimal totalConteo = 0, totalAB = 0, totalVol = 0;
-                                RowConteo += RowConteo + sp.NOMCOMUN + " - " + sp.NOMCIENTIFICO + "," + sp.GRUPOECOLOGICO + "," + sp.GRUPOCOMERCIAL.DESCRIPGRUPO + ", Densidad,";
+                                string gEco = "";
+                                if (sp.GRUPOECOLOGICO == "NT") gEco = "No Tolerante";
+                                if (sp.GRUPOECOLOGICO == "TL") gEco = "Tolerante";
+                                RowConteo += RowConteo + sp.NOMCOMUN + " - " + sp.NOMCIENTIFICO + "," + gEco + "," + sp.GRUPOCOMERCIAL.DESCRIPGRUPO + ", Densidad,";
                                 foreach (REPORTECLASESDIAMETRICAS rp in resultReportCD)
                                 {
                                     RowConteo += Decimal.Round(rp.CONTEO, 4) + ",";
@@ -174,6 +185,7 @@ namespace SIFCA
                             Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
                             Column1.HeaderText = "Porcentaje";
                             Column1.Name = "Clase" + (nUd_NumClases.Value + 4);
+                            Column1.SortMode = DataGridViewColumnSortMode.NotSortable;
                             DtgDatos.Columns.Add(Column1);
                             int numCampos = 4;
                             for (int i = 0; i < RowsData.Count; i = i + 3)
@@ -224,12 +236,14 @@ namespace SIFCA
                                 Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
                                 Column1.HeaderText = "Valor comercial";
                                 Column1.Name = "valorComercial";
+                                Column1.SortMode = DataGridViewColumnSortMode.NotSortable;
                                 DtgDatos.Columns.Add(Column1);
                                 Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
                                 Column1.HeaderText = "Variable";
                                 Column1.Name = "ColVariable";
+                                Column1.SortMode = DataGridViewColumnSortMode.NotSortable;
                                 DtgDatos.Columns.Add(Column1);
-                                for (int i = 0, posClase = rangeDAP; i < NumClass; i++)
+                                for (int i = 0, posClase = 10; i < NumClass; i++)
                                 {
 
                                     Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -238,6 +252,7 @@ namespace SIFCA
                                     DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
                                     dataGridViewCellStyle1.Format = "0.000###";
                                     Column1.DefaultCellStyle = dataGridViewCellStyle1;
+                                    Column1.SortMode = DataGridViewColumnSortMode.NotSortable;
                                     DtgDatos.Columns.Add(Column1);
 
                                     posClase = posClase + rangeDAP;
@@ -245,6 +260,7 @@ namespace SIFCA
                                 Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
                                 Column1.HeaderText = "Total";
                                 Column1.Name = "Clase" + (nUd_NumClases.Value + 3);
+                                Column1.SortMode = DataGridViewColumnSortMode.NotSortable;
                                 DtgDatos.Columns.Add(Column1);
                                 
                                 List<REPORTECLASESDIAMETRICASDATASOURCE> ListresultReportCD = new List<REPORTECLASESDIAMETRICASDATASOURCE>();
@@ -258,9 +274,9 @@ namespace SIFCA
 
                                 foreach (GRUPOCOMERCIAL gc in groupBL.GetGroups())
                                 {
-
+                                    int cont=0;
                                     List<REPORTECLASESDIAMETRICAS> resultReportCD = new List<REPORTECLASESDIAMETRICAS>();
-                                    for (int i = 10; i <= (rangeDAP * NumClass); i = i + rangeDAP)
+                                    for (int i = rangeDAP; i <= (rangeDAP * NumClass); i = i + rangeDAP)
                                     {
                                         REPORTECLASESDIAMETRICAS rpCD = new REPORTECLASESDIAMETRICAS();
                                         rpCD.CLASE = i + " - " + (i + rangeDAP);
@@ -280,9 +296,10 @@ namespace SIFCA
 
                                         resultReportCD.Add(rpCD);
                                         //Se realiza para los totales por clase de densidad,AB, vol
-                                        totalConteoClase[(i - rangeDAP) / rangeDAP] += rpCD.CONTEO;
-                                        totalABClase[(i - rangeDAP) / rangeDAP] += rpCD.AREABASAL;
-                                        totalVolClase[(i - rangeDAP) / rangeDAP] += rpCD.VOLUMEN;
+                                        totalConteoClase[cont] += rpCD.CONTEO;
+                                        totalABClase[cont] += rpCD.AREABASAL;
+                                        totalVolClase[cont] += rpCD.VOLUMEN;
+                                        cont++;
                                     }                                    //Se hace fuera del for porque en este for se lleva todos los valores de esa especie para cada clase diametrica y todas las variables
                                     //entonces ahora se lleva los valores de la especie y las clases diametricas
                                     string RowConteo = "", RowAB = " ,Area Basal,", RowVol = " ,Volumen,";
@@ -327,6 +344,7 @@ namespace SIFCA
                                 Column1 = new DataGridViewTextBoxColumn();
                                 Column1.HeaderText = "Porcentaje";
                                 Column1.Name = "Clase" + (nUd_NumClases.Value + 4);
+                                Column1.SortMode = DataGridViewColumnSortMode.NotSortable;
                                 DtgDatos.Columns.Add(Column1);
                                 int numCampos = 2;
                                 for (int i = 0; i < RowsData.Count; i = i + 3)
@@ -371,12 +389,14 @@ namespace SIFCA
                                     Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
                                     Column1.HeaderText = "Estrato";
                                     Column1.Name = "estrato";
+                                    Column1.SortMode = DataGridViewColumnSortMode.NotSortable;
                                     DtgDatos.Columns.Add(Column1);
                                     Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
                                     Column1.HeaderText = "Variable";
                                     Column1.Name = "ColVariable";
+                                    Column1.SortMode = DataGridViewColumnSortMode.NotSortable;
                                     DtgDatos.Columns.Add(Column1);
-                                    for (int i = 0, posClase = rangeDAP; i < NumClass; i++)
+                                    for (int i = 0, posClase = 10; i < NumClass; i++)
                                     {
                                         Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
                                         Column1.HeaderText = posClase + " - " + (posClase + rangeDAP);
@@ -384,6 +404,7 @@ namespace SIFCA
                                         DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
                                         dataGridViewCellStyle1.Format = "0.000###";
                                         Column1.DefaultCellStyle = dataGridViewCellStyle1;
+                                        Column1.SortMode = DataGridViewColumnSortMode.NotSortable;
                                         DtgDatos.Columns.Add(Column1);
 
                                         posClase = posClase + rangeDAP;
@@ -391,6 +412,7 @@ namespace SIFCA
                                     Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
                                     Column1.HeaderText = "Total";
                                     Column1.Name = "Clase" + (nUd_NumClases.Value + 3);
+                                    Column1.SortMode = DataGridViewColumnSortMode.NotSortable;
                                     DtgDatos.Columns.Add(Column1);
 
                                     List<REPORTECLASESDIAMETRICASDATASOURCE> ListresultReportCD = new List<REPORTECLASESDIAMETRICASDATASOURCE>();
@@ -403,8 +425,9 @@ namespace SIFCA
 
                                     foreach (LISTADODEESTRATOS st in currentProject.LISTADODEESTRATOS)
                                     {
+                                        int cont = 0;
                                         List<REPORTECLASESDIAMETRICAS> resultReportCD = new List<REPORTECLASESDIAMETRICAS>();
-                                        for (int i = 10; i <= (rangeDAP * NumClass); i = i + rangeDAP)
+                                        for (int i = rangeDAP; i <= (rangeDAP * NumClass); i = i + rangeDAP)
                                         {
                                             REPORTECLASESDIAMETRICAS rpCD = new REPORTECLASESDIAMETRICAS();
                                             rpCD.CLASE = i + " - " + (i + rangeDAP);
@@ -422,9 +445,10 @@ namespace SIFCA
 
                                             resultReportCD.Add(rpCD);
                                             //Se realiza para los totales por clase de densidad,AB, vol
-                                            totalConteoClase[(i - rangeDAP) / rangeDAP] += rpCD.CONTEO;
-                                            totalABClase[(i - rangeDAP) / rangeDAP] += rpCD.AREABASAL;
-                                            totalVolClase[(i - rangeDAP) / rangeDAP] += rpCD.VOLUMEN;
+                                            totalConteoClase[cont] += rpCD.CONTEO;
+                                            totalABClase[cont] += rpCD.AREABASAL;
+                                            totalVolClase[cont] += rpCD.VOLUMEN;
+                                            cont++;
                                         }                                    //Se hace fuera del for porque en este for se lleva todos los valores de esa especie para cada clase diametrica y todas las variables
                                         //entonces ahora se lleva los valores de la especie y las clases diametricas
                                         string RowConteo = "", RowAB = " ,Area Basal,", RowVol = " ,Volumen,";
@@ -473,6 +497,7 @@ namespace SIFCA
                                     Column1 = new DataGridViewTextBoxColumn();
                                     Column1.HeaderText = "Porcentaje";
                                     Column1.Name = "Clase" + (nUd_NumClases.Value + 4);
+                                    Column1.SortMode = DataGridViewColumnSortMode.NotSortable;
                                     DtgDatos.Columns.Add(Column1);
                                     int numCampos = 2;
                                     for (int i = 0; i < RowsData.Count; i = i + 3)

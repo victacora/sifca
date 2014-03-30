@@ -405,6 +405,7 @@
     <None Include="Properties\DataSources\SIFCA_DAL.SIFCA_CONTEXT.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.TIPODEUSO.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.TIPODISENOMUESTRAL.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.TOTALESMUESTREOESTRATIFICADOS.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.TRANSACCION.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.TSTUDENT.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.USUARIO.datasource" />
@@ -461,6 +462,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\1395994350_tree.png" />
+    <None Include="Resources\1395994362_chart_organisation_add.png" />
     <Content Include="Resources\ninguna_imagen.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

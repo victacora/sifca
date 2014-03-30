@@ -35,32 +35,31 @@
             System.Windows.Forms.Label objetivoInvTxt;
             System.Windows.Forms.Label areaMuestreadaLbl;
             System.Windows.Forms.Label intensidadMuestreLbl;
-            System.Windows.Forms.Label porcentajeLbl;
             System.Windows.Forms.Label valorMinimoDAPLbl;
             System.Windows.Forms.Label numeroEtapasLbl;
             System.Windows.Forms.Label facFormaLbl;
             System.Windows.Forms.Label areaFustalesLbl;
             System.Windows.Forms.Label tamanioParLbl;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Actualizar_Proyectos_Form));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.crearProyectoTab = new System.Windows.Forms.TabControl();
             this.proyectoTabP = new System.Windows.Forms.TabPage();
             this.DatosProyectoGbx = new System.Windows.Forms.GroupBox();
             this.otrosDatosGbx = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.areaMuestrearTxt = new System.Windows.Forms.TextBox();
             this.proyectoBS = new System.Windows.Forms.BindingSource(this.components);
-            this.label3 = new System.Windows.Forms.Label();
             this.confianzaTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.AreaTotalTxt = new System.Windows.Forms.TextBox();
@@ -80,6 +79,9 @@
             this.objetivoInventarioBS = new System.Windows.Forms.BindingSource(this.components);
             this.lugarTxt = new System.Windows.Forms.TextBox();
             this.especiesTabP = new System.Windows.Forms.TabPage();
+            this.busquedaTxt = new System.Windows.Forms.TextBox();
+            this.criterioCbx = new System.Windows.Forms.ComboBox();
+            this.lblBuscar = new System.Windows.Forms.Label();
             this.especiesDGW = new System.Windows.Forms.DataGridView();
             this.Especie = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.NOMCOMUN = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,6 +91,7 @@
             this.seleccEspecieBtn = new System.Windows.Forms.Button();
             this.RemoverEspciesBtn = new System.Windows.Forms.Button();
             this.estratosTabP = new System.Windows.Forms.TabPage();
+            this.crearEstratoBtn = new System.Windows.Forms.Button();
             this.errorLbl = new System.Windows.Forms.Label();
             this.actualizarPesosEstratosBtn = new System.Windows.Forms.Button();
             this.SeleccEstratosBtn = new System.Windows.Forms.Button();
@@ -96,6 +99,7 @@
             this.estratoDGW = new System.Windows.Forms.DataGridView();
             this.Estratos = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DESCRIPESTRATO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tamanio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estratoBS = new System.Windows.Forms.BindingSource(this.components);
             this.formulariosTap = new System.Windows.Forms.TabPage();
@@ -126,13 +130,13 @@
             this.cancelarBtn = new System.Windows.Forms.Button();
             this.ActualizarBtn = new System.Windows.Forms.Button();
             this.controladorErrores = new System.Windows.Forms.ErrorProvider(this.components);
+            this.registrarSpecieBtn = new System.Windows.Forms.Button();
             descripcionLbl = new System.Windows.Forms.Label();
             lugarLbl = new System.Windows.Forms.Label();
             TipoDisenoLbl = new System.Windows.Forms.Label();
             objetivoInvTxt = new System.Windows.Forms.Label();
             areaMuestreadaLbl = new System.Windows.Forms.Label();
             intensidadMuestreLbl = new System.Windows.Forms.Label();
-            porcentajeLbl = new System.Windows.Forms.Label();
             valorMinimoDAPLbl = new System.Windows.Forms.Label();
             numeroEtapasLbl = new System.Windows.Forms.Label();
             facFormaLbl = new System.Windows.Forms.Label();
@@ -209,20 +213,11 @@
             // intensidadMuestreLbl
             // 
             intensidadMuestreLbl.AutoSize = true;
-            intensidadMuestreLbl.Location = new System.Drawing.Point(13, 68);
+            intensidadMuestreLbl.Location = new System.Drawing.Point(263, 68);
             intensidadMuestreLbl.Name = "intensidadMuestreLbl";
             intensidadMuestreLbl.Size = new System.Drawing.Size(164, 13);
             intensidadMuestreLbl.TabIndex = 42;
             intensidadMuestreLbl.Text = "Intensidad de muestreo (1-100)%:";
-            // 
-            // porcentajeLbl
-            // 
-            porcentajeLbl.AutoSize = true;
-            porcentajeLbl.Location = new System.Drawing.Point(246, 68);
-            porcentajeLbl.Name = "porcentajeLbl";
-            porcentajeLbl.Size = new System.Drawing.Size(15, 13);
-            porcentajeLbl.TabIndex = 41;
-            porcentajeLbl.Text = "%";
             // 
             // valorMinimoDAPLbl
             // 
@@ -324,14 +319,13 @@
             // 
             // otrosDatosGbx
             // 
-            this.otrosDatosGbx.Controls.Add(this.areaMuestrearTxt);
             this.otrosDatosGbx.Controls.Add(this.label3);
+            this.otrosDatosGbx.Controls.Add(this.areaMuestrearTxt);
             this.otrosDatosGbx.Controls.Add(this.confianzaTxt);
             this.otrosDatosGbx.Controls.Add(this.label2);
             this.otrosDatosGbx.Controls.Add(areaMuestreadaLbl);
             this.otrosDatosGbx.Controls.Add(this.AreaTotalTxt);
             this.otrosDatosGbx.Controls.Add(intensidadMuestreLbl);
-            this.otrosDatosGbx.Controls.Add(porcentajeLbl);
             this.otrosDatosGbx.Controls.Add(this.intMuestreoTxt);
             this.otrosDatosGbx.Controls.Add(valorMinimoDAPLbl);
             this.otrosDatosGbx.Controls.Add(this.limiteInfTxt);
@@ -349,34 +343,34 @@
             this.otrosDatosGbx.TabIndex = 28;
             this.otrosDatosGbx.TabStop = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(122, 13);
+            this.label3.TabIndex = 49;
+            this.label3.Text = "Area a Muestrear (Htas):";
+            // 
             // areaMuestrearTxt
             // 
             this.areaMuestrearTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proyectoBS, "SUPMUE", true));
-            this.areaMuestrearTxt.Enabled = false;
-            this.areaMuestrearTxt.Location = new System.Drawing.Point(399, 65);
+            this.areaMuestrearTxt.Location = new System.Drawing.Point(168, 65);
             this.areaMuestrearTxt.Name = "areaMuestrearTxt";
             this.areaMuestrearTxt.Size = new System.Drawing.Size(91, 20);
             this.areaMuestrearTxt.TabIndex = 47;
+            this.areaMuestrearTxt.TextChanged += new System.EventHandler(this.areaMuestrearTxt_TextChanged);
             // 
             // proyectoBS
             // 
             this.proyectoBS.DataSource = typeof(SIFCA_DAL.PROYECTO);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(272, 68);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 13);
-            this.label3.TabIndex = 46;
-            this.label3.Text = "Area a Muestrear (Htas):";
-            // 
             // confianzaTxt
             // 
             this.confianzaTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proyectoBS, "CONFIANZA", true));
-            this.confianzaTxt.Location = new System.Drawing.Point(184, 13);
+            this.confianzaTxt.Location = new System.Drawing.Point(168, 13);
             this.confianzaTxt.Name = "confianzaTxt";
-            this.confianzaTxt.Size = new System.Drawing.Size(306, 20);
+            this.confianzaTxt.Size = new System.Drawing.Size(322, 20);
             this.confianzaTxt.TabIndex = 45;
             // 
             // label2
@@ -391,16 +385,16 @@
             // AreaTotalTxt
             // 
             this.AreaTotalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proyectoBS, "SUPTOT", true));
-            this.AreaTotalTxt.Location = new System.Drawing.Point(184, 39);
+            this.AreaTotalTxt.Location = new System.Drawing.Point(168, 39);
             this.AreaTotalTxt.Name = "AreaTotalTxt";
-            this.AreaTotalTxt.Size = new System.Drawing.Size(306, 20);
+            this.AreaTotalTxt.Size = new System.Drawing.Size(322, 20);
             this.AreaTotalTxt.TabIndex = 35;
-            this.AreaTotalTxt.TextChanged += new System.EventHandler(this.AreTotalTxt_TextChanged);
+            this.AreaTotalTxt.TextChanged += new System.EventHandler(this.AreaTotalTxt_TextChanged);
             // 
             // intMuestreoTxt
             // 
             this.intMuestreoTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proyectoBS, "INTMUE", true));
-            this.intMuestreoTxt.Location = new System.Drawing.Point(184, 65);
+            this.intMuestreoTxt.Location = new System.Drawing.Point(434, 65);
             this.intMuestreoTxt.Name = "intMuestreoTxt";
             this.intMuestreoTxt.Size = new System.Drawing.Size(56, 20);
             this.intMuestreoTxt.TabIndex = 33;
@@ -409,17 +403,18 @@
             // limiteInfTxt
             // 
             this.limiteInfTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proyectoBS, "LIMITINFDAP", true));
-            this.limiteInfTxt.Location = new System.Drawing.Point(184, 117);
+            this.limiteInfTxt.Location = new System.Drawing.Point(168, 117);
             this.limiteInfTxt.Name = "limiteInfTxt";
-            this.limiteInfTxt.Size = new System.Drawing.Size(306, 20);
+            this.limiteInfTxt.Size = new System.Drawing.Size(322, 20);
             this.limiteInfTxt.TabIndex = 30;
             // 
             // numeroEtapasTxt
             // 
             this.numeroEtapasTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proyectosBS, "ETAPA", true));
-            this.numeroEtapasTxt.Location = new System.Drawing.Point(184, 197);
+            this.numeroEtapasTxt.Enabled = false;
+            this.numeroEtapasTxt.Location = new System.Drawing.Point(168, 197);
             this.numeroEtapasTxt.Name = "numeroEtapasTxt";
-            this.numeroEtapasTxt.Size = new System.Drawing.Size(306, 20);
+            this.numeroEtapasTxt.Size = new System.Drawing.Size(322, 20);
             this.numeroEtapasTxt.TabIndex = 39;
             // 
             // proyectosBS
@@ -429,25 +424,25 @@
             // factorFormaTxt
             // 
             this.factorFormaTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proyectoBS, "FACTORDEFORMA", true));
-            this.factorFormaTxt.Location = new System.Drawing.Point(184, 172);
+            this.factorFormaTxt.Location = new System.Drawing.Point(168, 172);
             this.factorFormaTxt.Name = "factorFormaTxt";
-            this.factorFormaTxt.Size = new System.Drawing.Size(306, 20);
+            this.factorFormaTxt.Size = new System.Drawing.Size(322, 20);
             this.factorFormaTxt.TabIndex = 38;
             // 
             // areaFustalesTxt
             // 
             this.areaFustalesTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proyectoBS, "AREAFUSTALESPORPARCELA", true));
-            this.areaFustalesTxt.Location = new System.Drawing.Point(184, 143);
+            this.areaFustalesTxt.Location = new System.Drawing.Point(168, 143);
             this.areaFustalesTxt.Name = "areaFustalesTxt";
-            this.areaFustalesTxt.Size = new System.Drawing.Size(306, 20);
+            this.areaFustalesTxt.Size = new System.Drawing.Size(322, 20);
             this.areaFustalesTxt.TabIndex = 37;
             // 
             // tamParcelaTxt
             // 
             this.tamParcelaTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proyectoBS, "TAMANO", true));
-            this.tamParcelaTxt.Location = new System.Drawing.Point(184, 91);
+            this.tamParcelaTxt.Location = new System.Drawing.Point(168, 91);
             this.tamParcelaTxt.Name = "tamParcelaTxt";
-            this.tamParcelaTxt.Size = new System.Drawing.Size(306, 20);
+            this.tamParcelaTxt.Size = new System.Drawing.Size(322, 20);
             this.tamParcelaTxt.TabIndex = 36;
             // 
             // TipoProyectoCbx
@@ -528,6 +523,10 @@
             // especiesTabP
             // 
             this.especiesTabP.AutoScroll = true;
+            this.especiesTabP.Controls.Add(this.registrarSpecieBtn);
+            this.especiesTabP.Controls.Add(this.busquedaTxt);
+            this.especiesTabP.Controls.Add(this.criterioCbx);
+            this.especiesTabP.Controls.Add(this.lblBuscar);
             this.especiesTabP.Controls.Add(this.especiesDGW);
             this.especiesTabP.Controls.Add(this.seleccEspecieBtn);
             this.especiesTabP.Controls.Add(this.RemoverEspciesBtn);
@@ -539,20 +538,49 @@
             this.especiesTabP.Text = "Listado de Especies";
             this.especiesTabP.UseVisualStyleBackColor = true;
             // 
+            // busquedaTxt
+            // 
+            this.busquedaTxt.Location = new System.Drawing.Point(46, 12);
+            this.busquedaTxt.Name = "busquedaTxt";
+            this.busquedaTxt.Size = new System.Drawing.Size(131, 20);
+            this.busquedaTxt.TabIndex = 26;
+            this.busquedaTxt.TextChanged += new System.EventHandler(this.buscarTxt_TextChanged);
+            // 
+            // criterioCbx
+            // 
+            this.criterioCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.criterioCbx.FormattingEnabled = true;
+            this.criterioCbx.Items.AddRange(new object[] {
+            "Nombre Comun",
+            "Nombre Cientifico"});
+            this.criterioCbx.Location = new System.Drawing.Point(181, 11);
+            this.criterioCbx.Name = "criterioCbx";
+            this.criterioCbx.Size = new System.Drawing.Size(101, 21);
+            this.criterioCbx.TabIndex = 25;
+            // 
+            // lblBuscar
+            // 
+            this.lblBuscar.AutoSize = true;
+            this.lblBuscar.Location = new System.Drawing.Point(2, 15);
+            this.lblBuscar.Name = "lblBuscar";
+            this.lblBuscar.Size = new System.Drawing.Size(43, 13);
+            this.lblBuscar.TabIndex = 24;
+            this.lblBuscar.Text = "Buscar:";
+            // 
             // especiesDGW
             // 
             this.especiesDGW.AllowUserToAddRows = false;
             this.especiesDGW.AllowUserToDeleteRows = false;
             this.especiesDGW.AutoGenerateColumns = false;
             this.especiesDGW.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.especiesDGW.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.especiesDGW.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.especiesDGW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.especiesDGW.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Especie,
@@ -560,25 +588,25 @@
             this.NOMCIENTIFICO,
             this.FAMILIA});
             this.especiesDGW.DataSource = this.especieBS;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.especiesDGW.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.especiesDGW.DefaultCellStyle = dataGridViewCellStyle14;
             this.especiesDGW.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.especiesDGW.Location = new System.Drawing.Point(3, 41);
             this.especiesDGW.Name = "especiesDGW";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.especiesDGW.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.especiesDGW.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.especiesDGW.Size = new System.Drawing.Size(525, 415);
             this.especiesDGW.TabIndex = 19;
             this.especiesDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.especiesDGW_CellValueChanged);
@@ -616,7 +644,7 @@
             // 
             // seleccEspecieBtn
             // 
-            this.seleccEspecieBtn.Location = new System.Drawing.Point(301, 12);
+            this.seleccEspecieBtn.Location = new System.Drawing.Point(314, 10);
             this.seleccEspecieBtn.Name = "seleccEspecieBtn";
             this.seleccEspecieBtn.Size = new System.Drawing.Size(112, 23);
             this.seleccEspecieBtn.TabIndex = 17;
@@ -626,9 +654,9 @@
             // 
             // RemoverEspciesBtn
             // 
-            this.RemoverEspciesBtn.Location = new System.Drawing.Point(419, 12);
+            this.RemoverEspciesBtn.Location = new System.Drawing.Point(430, 10);
             this.RemoverEspciesBtn.Name = "RemoverEspciesBtn";
-            this.RemoverEspciesBtn.Size = new System.Drawing.Size(104, 23);
+            this.RemoverEspciesBtn.Size = new System.Drawing.Size(95, 23);
             this.RemoverEspciesBtn.TabIndex = 18;
             this.RemoverEspciesBtn.Text = "Remover Todos";
             this.RemoverEspciesBtn.UseVisualStyleBackColor = true;
@@ -636,6 +664,7 @@
             // 
             // estratosTabP
             // 
+            this.estratosTabP.Controls.Add(this.crearEstratoBtn);
             this.estratosTabP.Controls.Add(this.errorLbl);
             this.estratosTabP.Controls.Add(this.actualizarPesosEstratosBtn);
             this.estratosTabP.Controls.Add(this.SeleccEstratosBtn);
@@ -648,6 +677,16 @@
             this.estratosTabP.TabIndex = 3;
             this.estratosTabP.Text = "Listado de Estratos";
             this.estratosTabP.UseVisualStyleBackColor = true;
+            // 
+            // crearEstratoBtn
+            // 
+            this.crearEstratoBtn.Enabled = false;
+            this.crearEstratoBtn.Location = new System.Drawing.Point(163, 9);
+            this.crearEstratoBtn.Name = "crearEstratoBtn";
+            this.crearEstratoBtn.Size = new System.Drawing.Size(104, 23);
+            this.crearEstratoBtn.TabIndex = 25;
+            this.crearEstratoBtn.Text = "Crear estrato";
+            this.crearEstratoBtn.UseVisualStyleBackColor = true;
             // 
             // errorLbl
             // 
@@ -698,40 +737,41 @@
             this.estratoDGW.AllowUserToOrderColumns = true;
             this.estratoDGW.AutoGenerateColumns = false;
             this.estratoDGW.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.estratoDGW.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.estratoDGW.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.estratoDGW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.estratoDGW.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Estratos,
             this.DESCRIPESTRATO,
+            this.Tamanio,
             this.Peso});
             this.estratoDGW.DataSource = this.estratoBS;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.estratoDGW.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.estratoDGW.DefaultCellStyle = dataGridViewCellStyle17;
             this.estratoDGW.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.estratoDGW.Enabled = false;
             this.estratoDGW.Location = new System.Drawing.Point(3, 41);
             this.estratoDGW.Name = "estratoDGW";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.estratoDGW.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.estratoDGW.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.estratoDGW.Size = new System.Drawing.Size(525, 415);
             this.estratoDGW.TabIndex = 23;
             this.estratoDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.estratoDGW_CellValueChanged);
@@ -749,10 +789,16 @@
             this.DESCRIPESTRATO.Name = "DESCRIPESTRATO";
             this.DESCRIPESTRATO.ReadOnly = true;
             // 
+            // Tamanio
+            // 
+            this.Tamanio.HeaderText = "Tamaño";
+            this.Tamanio.Name = "Tamanio";
+            // 
             // Peso
             // 
             this.Peso.HeaderText = "Peso";
             this.Peso.Name = "Peso";
+            this.Peso.ReadOnly = true;
             // 
             // estratoBS
             // 
@@ -786,14 +832,14 @@
             this.formulariosDGW.AllowUserToDeleteRows = false;
             this.formulariosDGW.AutoGenerateColumns = false;
             this.formulariosDGW.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.formulariosDGW.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.formulariosDGW.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.formulariosDGW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.formulariosDGW.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FECHACREACION,
@@ -805,25 +851,25 @@
             this.LINEA,
             this.ListarDatos});
             this.formulariosDGW.DataSource = this.formulariosBS;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.formulariosDGW.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.formulariosDGW.DefaultCellStyle = dataGridViewCellStyle20;
             this.formulariosDGW.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.formulariosDGW.Location = new System.Drawing.Point(0, 39);
             this.formulariosDGW.Name = "formulariosDGW";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.formulariosDGW.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.formulariosDGW.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.formulariosDGW.Size = new System.Drawing.Size(531, 420);
             this.formulariosDGW.TabIndex = 25;
             this.formulariosDGW.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.formulariosDGW_CellClick);
@@ -905,11 +951,14 @@
             // 
             // arbolEtapasBtn
             // 
-            this.arbolEtapasBtn.Location = new System.Drawing.Point(206, 15);
+            this.arbolEtapasBtn.Image = global::SIFCA.Properties.Resources._1395994362_chart_organisation_add;
+            this.arbolEtapasBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.arbolEtapasBtn.Location = new System.Drawing.Point(200, 15);
             this.arbolEtapasBtn.Name = "arbolEtapasBtn";
-            this.arbolEtapasBtn.Size = new System.Drawing.Size(75, 23);
+            this.arbolEtapasBtn.Size = new System.Drawing.Size(104, 23);
             this.arbolEtapasBtn.TabIndex = 29;
-            this.arbolEtapasBtn.Text = "Etapas";
+            this.arbolEtapasBtn.Text = "Ver árbol";
+            this.arbolEtapasBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.arbolEtapasBtn.UseVisualStyleBackColor = true;
             this.arbolEtapasBtn.Click += new System.EventHandler(this.arbolEtapasBtn_Click);
             // 
@@ -920,14 +969,14 @@
             this.proyectoDGW.AllowUserToOrderColumns = true;
             this.proyectoDGW.AutoGenerateColumns = false;
             this.proyectoDGW.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.proyectoDGW.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.proyectoDGW.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.proyectoDGW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.proyectoDGW.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Proyectos,
@@ -938,26 +987,26 @@
             this.NOMTIPODISEMUEST,
             this.PesoProyecto});
             this.proyectoDGW.DataSource = this.proyectosBS;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.proyectoDGW.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.proyectoDGW.DefaultCellStyle = dataGridViewCellStyle23;
             this.proyectoDGW.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.proyectoDGW.Enabled = false;
             this.proyectoDGW.Location = new System.Drawing.Point(0, 44);
             this.proyectoDGW.Name = "proyectoDGW";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.proyectoDGW.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.proyectoDGW.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.proyectoDGW.Size = new System.Drawing.Size(531, 415);
             this.proyectoDGW.TabIndex = 28;
             this.proyectoDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.proyectoDGW_CellValueChanged);
@@ -1070,6 +1119,16 @@
             this.controladorErrores.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.controladorErrores.ContainerControl = this;
             // 
+            // registrarSpecieBtn
+            // 
+            this.registrarSpecieBtn.Image = global::SIFCA.Properties.Resources._1395994350_tree;
+            this.registrarSpecieBtn.Location = new System.Drawing.Point(284, 10);
+            this.registrarSpecieBtn.Name = "registrarSpecieBtn";
+            this.registrarSpecieBtn.Size = new System.Drawing.Size(26, 23);
+            this.registrarSpecieBtn.TabIndex = 27;
+            this.registrarSpecieBtn.UseVisualStyleBackColor = true;
+            this.registrarSpecieBtn.Click += new System.EventHandler(this.registrarSpecieBtn_Click);
+            // 
             // Actualizar_Proyectos_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1098,6 +1157,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tipoDisenoBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.objetivoInventarioBS)).EndInit();
             this.especiesTabP.ResumeLayout(false);
+            this.especiesTabP.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.especiesDGW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.especieBS)).EndInit();
             this.estratosTabP.ResumeLayout(false);
@@ -1173,9 +1233,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMCOMUN;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMCIENTIFICO;
         private System.Windows.Forms.DataGridViewTextBoxColumn FAMILIA;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Estratos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPESTRATO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Peso;
         private System.Windows.Forms.GroupBox otrosDatosGbx;
         private System.Windows.Forms.TextBox confianzaTxt;
         private System.Windows.Forms.Label label2;
@@ -1186,9 +1243,18 @@
         private System.Windows.Forms.TextBox factorFormaTxt;
         private System.Windows.Forms.TextBox areaFustalesTxt;
         private System.Windows.Forms.TextBox areaMuestrearTxt;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tamParcelaTxt;
         private System.Windows.Forms.Button arbolEtapasBtn;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox busquedaTxt;
+        private System.Windows.Forms.ComboBox criterioCbx;
+        private System.Windows.Forms.Label lblBuscar;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Estratos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPESTRATO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tamanio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Peso;
+        private System.Windows.Forms.Button crearEstratoBtn;
+        private System.Windows.Forms.Button registrarSpecieBtn;
 
 
     }

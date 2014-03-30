@@ -32,6 +32,19 @@ namespace SIFCA
             TipoProyectoCbx.ValueMember = "Key";
 
             proyectoBS.DataSource = project;
+            numeroFormulariosTxt.Text = project.FORMULARIO.Count.ToString();
+            int lineasInv = 0;
+            int lineasRegen = 0;
+            int lineasNoMader = 0;
+            foreach (FORMULARIO frm in project.FORMULARIO)
+            {
+                lineasInv += frm.LINEAINVENTARIO.Count;
+                lineasRegen += frm.LINEAREGENERACION.Count;
+                lineasNoMader += frm.LINEANOMADERABLES.Count;
+            }
+            numeroLineasInvTxt.Text = lineasInv.ToString();
+            numeroLinRegenTxt.Text = lineasRegen.ToString();
+            numeroLineasNoMadTxt.Text = lineasNoMader.ToString();
             TipoProyectoCbx.SelectedValue = project.TIPOPROYECTO;
 
             proyectosVariasEtapasTvw.Nodes.Clear();   
@@ -67,9 +80,23 @@ namespace SIFCA
                 {
                     PROYECTO prj = (PROYECTO)node.Tag;
                     proyectoBS.DataSource = prj;
+                    numeroFormulariosTxt.Text=prj.FORMULARIO.Count.ToString();
+                    int lineasInv = 0;
+                    int lineasRegen = 0;
+                    int lineasNoMader = 0;
+                    foreach (FORMULARIO frm in prj.FORMULARIO)
+                    {
+                        lineasInv += frm.LINEAINVENTARIO.Count;
+                        lineasRegen += frm.LINEAREGENERACION.Count;
+                        lineasNoMader += frm.LINEANOMADERABLES.Count;
+                    }
+                    numeroLineasInvTxt.Text = lineasInv.ToString();
+                    numeroLinRegenTxt.Text = lineasRegen.ToString();
+                    numeroLineasNoMadTxt.Text = lineasNoMader.ToString();
                     TipoProyectoCbx.SelectedValue = prj.TIPOPROYECTO;
                 }
             }
         }
+
     }
 }

@@ -57,6 +57,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AleExpressionParser\AleLexer.cs" />
+    <Compile Include="AleExpressionParser\AleOperations.cs" />
+    <Compile Include="AleExpressionParser\AleOperationToken.cs" />
+    <Compile Include="AleExpressionParser\AleParser.cs" />
+    <Compile Include="AleExpressionParser\AleParser_operations.cs" />
+    <Compile Include="AleExpressionParser\AleString.cs" />
+    <Compile Include="AleExpressionParser\AleTerm.cs" />
     <Compile Include="TStudentBL.cs" />
     <Compile Include="FormBL.cs" />
     <Compile Include="GroupBL.cs" />

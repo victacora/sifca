@@ -47,9 +47,15 @@ namespace SIFCA
             lineRegen = new  RegenerationLineBL(Program.ContextData);
             lineNonTimber = new NonTimberLineBL(Program.ContextData);
             typeUses = new TypeUseBL(Program.ContextData);
-            
-            especieBS.DataSource = ((PROYECTO)Program.Cache.Get("project")).ESPECIE.OrderBy(e=>e.NOMCOMUN);
-            
+
+            int countEspecies = ((PROYECTO)Program.Cache.Get("project")).ESPECIE.ToList().Count;
+            if (countEspecies != 0) especieBS.DataSource = ((PROYECTO)Program.Cache.Get("project")).ESPECIE.ToList().OrderBy(e => e.NOMCOMUN);
+            else
+            {
+                MessageBox.Show("No existen especies asociadas a este proyecto, seleccione uno o mas especies.", "Parametros insuficiente.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+
             List<ESTRATO> listStratums = new List<ESTRATO>();
             foreach(LISTADODEESTRATOS list in ((PROYECTO)Program.Cache.Get("project")).LISTADODEESTRATOS)
             {
@@ -298,9 +304,9 @@ namespace SIFCA
                     newLine.ALTTOT_M = decimal.Parse(alturaTotalTxt.Text);
                     newLine.CAP = decimal.Parse(cAPTxt.Text);
                     newLine.DAP = decimal.Parse(dAPTxt.Text);
-                    newLine.AREABASAL = (decimal)(ForestCalculatorHelper.BasalAreaDAP((double)newLine.DAP));
-                    newLine.VOLCOM = (decimal)(ForestCalculatorHelper.TreeVolumeByBasalArea((double)newLine.AREABASAL, (double)newLine.ALTCOMER_M, (double)p.FACTORDEFORMA));
-                    newLine.VOLTOT = (decimal)(ForestCalculatorHelper.TreeVolumeByBasalArea((double)newLine.AREABASAL, (double)newLine.ALTTOT_M, (double)p.FACTORDEFORMA));
+                    newLine.AREABASAL = Math.Round((decimal)(ForestCalculatorHelper.BasalAreaCAP((double)newLine.CAP)),3);
+                    newLine.VOLCOM = Math.Round((decimal)(ForestCalculatorHelper.TreeVolumeByBasalArea((double)newLine.AREABASAL, (double)newLine.ALTCOMER_M, (double)p.FACTORDEFORMA)),3);
+                    newLine.VOLTOT = Math.Round((decimal)(ForestCalculatorHelper.TreeVolumeByBasalArea((double)newLine.AREABASAL, (double)newLine.ALTTOT_M, (double)p.FACTORDEFORMA)),3);
                     lineInv.InsertInventoryLine(newLine);
                     f = form.GetForm(newForm.NROFORMULARIO);
                     string resultSaveChangues = lineInv.SaveChanges();
@@ -518,6 +524,18 @@ namespace SIFCA
             }
         }
 
+        private void calcularParametros()
+        {
+            PROYECTO p = (PROYECTO)Program.Cache.Get("project");
+            if (p!=null)
+            {
+                double areaBasal = cAPTxt.Text!=string.Empty?Math.Round(ForestCalculatorHelper.BasalAreaCAP(double.Parse(cAPTxt.Text)), 3):0;
+                double volumenComercial =alturaComercialTxt.Text!=string.Empty? Math.Round(ForestCalculatorHelper.TreeVolumeByBasalArea(areaBasal, double.Parse(alturaComercialTxt.Text), (double)p.FACTORDEFORMA), 3):0;
+                double volumenTotal = alturaTotalTxt.Text != string.Empty ? Math.Round(ForestCalculatorHelper.TreeVolumeByBasalArea(areaBasal, double.Parse(alturaTotalTxt.Text), (double)p.FACTORDEFORMA), 3) : 0;
+                parametrosLineaTxt.Text = "1) Area basal: " + areaBasal + Environment.NewLine + "2) Volumen comercial: " + volumenComercial + Environment.NewLine + "3) Volumen total: " + volumenTotal;
+            }
+        }
+
         private void dAPTxt_TextChanged(object sender, EventArgs e)
         {
             LINEAINVENTARIO currentLine = (LINEAINVENTARIO)lineaInvBS.Current;
@@ -538,11 +556,13 @@ namespace SIFCA
                         {
                             modified = false;
                             ((LINEAINVENTARIO)lineaInvBS.Current).CAP = Math.Round((decimal)(output * Math.PI),3);
+                            ((LINEAINVENTARIO)lineaInvBS.Current).DAP = (decimal)output;
                         }
                         else MessageBox.Show("Entra invalida para el diametro.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
+            calcularParametros();
         }
 
         private void cAPTxt_TextChanged(object sender, EventArgs e)
@@ -565,11 +585,13 @@ namespace SIFCA
                         {
                             modified = false;
                             ((LINEAINVENTARIO)lineaInvBS.Current).DAP = Math.Round((decimal)(output / Math.PI),3);
+                            ((LINEAINVENTARIO)lineaInvBS.Current).CAP = (decimal)output;
                         }
                         else MessageBox.Show("Entra invalida para la medida de la circunferencia.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
+            calcularParametros();
         }
 
         private void TipoDeUsosLbc_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -603,7 +625,7 @@ namespace SIFCA
         private void RegistrarEspecieBtn_Click(object sender, EventArgs e)
         {
             Especies_Form childForm = new Especies_Form();
-            childForm.Btn_nuevaEspecieForm_Click(sender, e);
+            childForm.Btn_nuevaEspecieForm_Click(sender, e, (PROYECTO)Program.Cache.Get("project"),"formulario");
             childForm.ShowDialog(this);
             especieBS.DataSource = ((PROYECTO)Program.Cache.Get("project")).ESPECIE.OrderBy(ex => ex.NOMCOMUN);
             especieCbx.DataSource = especieBS;
@@ -663,12 +685,20 @@ namespace SIFCA
 
         private void verDetalleBtn_Click(object sender, EventArgs e)
         {
-            Guid cod = (Guid)especieCbx.SelectedValue;
-            Especies_Form childForm = new Especies_Form();
-            childForm.MdiParent = ParentForm;
-            childForm.setstate("formulario");
-            childForm.btn_detalle(sender, e, cod);
-            childForm.Show();
+            try
+            {
+                Guid cod = (Guid)especieCbx.SelectedValue;
+                Especies_Form childForm = new Especies_Form();
+                childForm.MdiParent = ParentForm;
+                childForm.setstate("formulario");
+                childForm.btn_detalle(sender, e, cod);
+                childForm.Show();
+            }
+            catch(Exception ex)
+            {
+                Error_Form childForm = new Error_Form(ex.Message);
+                childForm.Show();
+            }
         }
 
         private void noMaderableBS_CurrentChanged(object sender, EventArgs e)
@@ -827,7 +857,7 @@ namespace SIFCA
         {
             Especies_Form childForm = new Especies_Form();
             childForm.MdiParent = ParentForm;
-            childForm.Btn_nuevaEspecieForm_Click(sender, e);
+            childForm.Btn_nuevaEspecieForm_Click(sender, e, (PROYECTO)Program.Cache.Get("project"),"formulario");
             childForm.Show();
         }
 
@@ -869,7 +899,7 @@ namespace SIFCA
 
         private void validatedNumericValues(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
             {
                 e.Handled = true;
             }
@@ -944,6 +974,26 @@ namespace SIFCA
                 guardarRegenBtn.Enabled = false;
                 eliminarLineaRegen.Enabled = false;
             }
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            especieRegenCbx.Dispose();
+            especieCbx.Dispose();
+            especieBS.Dispose();
+            estratoCbx.Dispose();
+            estratoBS.Dispose();
+            base.OnClosing(e);
+        }
+
+        private void alturaComercialTxt_TextChanged(object sender, EventArgs e)
+        {
+            calcularParametros();
+        }
+
+        private void alturaTotalTxt_TextChanged(object sender, EventArgs e)
+        {
+            calcularParametros();
         }
     }
 }

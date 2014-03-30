@@ -21,19 +21,29 @@ namespace SIFCA
         public Totales_Formularios_Form(List<FORMULARIO> formularios, List<string> opciones)
         {
             InitializeComponent();
-            datos = new List<SampleDesignItem>();
-            this.opciones = opciones;
-            foreach (FORMULARIO frm in formularios)
+            try
             {
-                numeroParcelas++;
-                procesarDatosFormulario(frm);
-            }
-            numTotalLineasTxt.Text = numeroLineas.ToString();
-            numTotalParcelasTxt.Text = numeroParcelas.ToString();
-            promedioLineasTxt.Text = Math.Round((double)numeroLineas / numeroParcelas,3).ToString();
+                datos = new List<SampleDesignItem>();
+                this.opciones = opciones;
+                tamanoParcelaTxt.Text = ((PROYECTO)Program.Cache.Get("project")).TAMANO.ToString();
+                foreach (FORMULARIO frm in formularios)
+                {
+                    numeroParcelas++;
+                    procesarDatosFormulario(frm);
+                }
+                numTotalLineasTxt.Text = numeroLineas.ToString();
+                numTotalParcelasTxt.Text = numeroParcelas.ToString();
+                promedioLineasTxt.Text = Math.Round((double)numeroLineas / numeroParcelas, 3).ToString();
 
-            totalesBS.DataSource = datos;
-            totalesDGW.Refresh();
+                totalesBS.DataSource = datos;
+                totalesDGW.Refresh();
+            }
+            catch (Exception ex)
+            {
+                Error_Form errorForm = new Error_Form(ex.Message);
+                errorForm.MdiParent = ParentForm;
+                errorForm.Show();
+            }
         }
 
         private void verReporteBtn_Click(object sender, EventArgs e)
@@ -64,6 +74,7 @@ namespace SIFCA
                     volumenComercial += (double)linea.VOLCOM;
                     volumenTotal += (double)linea.VOLTOT;
                     areaBasal += (double)linea.AREABASAL;
+                    numeroLineas++;
                 }
                 totalArboles = formulario.LINEAINVENTARIO.GroupBy(l => l.NROARB).Count();
                 //llevado a hectareas

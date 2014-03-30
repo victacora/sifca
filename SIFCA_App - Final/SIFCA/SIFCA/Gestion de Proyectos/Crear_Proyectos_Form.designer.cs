@@ -33,7 +33,6 @@
             System.Windows.Forms.Label facFormaLbl;
             System.Windows.Forms.Label areaFustalesLbl;
             System.Windows.Forms.Label tamanioParLbl;
-            System.Windows.Forms.Label porcentajeLbl;
             System.Windows.Forms.Label lugarLbl;
             System.Windows.Forms.Label TipoDisenoLbl;
             System.Windows.Forms.Label objetivoInvTxt;
@@ -66,6 +65,10 @@
             this.tamParcelaTxt = new System.Windows.Forms.TextBox();
             this.lugarTxt = new System.Windows.Forms.TextBox();
             this.especiesTabP = new System.Windows.Forms.TabPage();
+            this.registrarSpecieBtn = new System.Windows.Forms.Button();
+            this.busquedaTxt = new System.Windows.Forms.TextBox();
+            this.criterioCbx = new System.Windows.Forms.ComboBox();
+            this.lblBuscar = new System.Windows.Forms.Label();
             this.seleccEspecieBtn = new System.Windows.Forms.Button();
             this.RemoverEspciesBtn = new System.Windows.Forms.Button();
             this.especiesDGW = new System.Windows.Forms.DataGridView();
@@ -75,6 +78,7 @@
             this.FAMILIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.especieBS = new System.Windows.Forms.BindingSource(this.components);
             this.estratosTabP = new System.Windows.Forms.TabPage();
+            this.crearEstratoBtn = new System.Windows.Forms.Button();
             this.SeleccEstratosBtn = new System.Windows.Forms.Button();
             this.removerEstratosBtn = new System.Windows.Forms.Button();
             this.actualizarBtn = new System.Windows.Forms.Button();
@@ -82,6 +86,7 @@
             this.estratoDGW = new System.Windows.Forms.DataGridView();
             this.Estratos = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DESCRIPESTRATO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tamanio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estratoBS = new System.Windows.Forms.BindingSource(this.components);
             this.proyectosContTabP = new System.Windows.Forms.TabPage();
@@ -104,7 +109,6 @@
             facFormaLbl = new System.Windows.Forms.Label();
             areaFustalesLbl = new System.Windows.Forms.Label();
             tamanioParLbl = new System.Windows.Forms.Label();
-            porcentajeLbl = new System.Windows.Forms.Label();
             lugarLbl = new System.Windows.Forms.Label();
             TipoDisenoLbl = new System.Windows.Forms.Label();
             objetivoInvTxt = new System.Windows.Forms.Label();
@@ -166,15 +170,6 @@
             tamanioParLbl.TabIndex = 6;
             tamanioParLbl.Text = "Tamaño Parcela (Htas):";
             // 
-            // porcentajeLbl
-            // 
-            porcentajeLbl.AutoSize = true;
-            porcentajeLbl.Location = new System.Drawing.Point(255, 69);
-            porcentajeLbl.Name = "porcentajeLbl";
-            porcentajeLbl.Size = new System.Drawing.Size(15, 13);
-            porcentajeLbl.TabIndex = 24;
-            porcentajeLbl.Text = "%";
-            // 
             // lugarLbl
             // 
             lugarLbl.AutoSize = true;
@@ -223,7 +218,7 @@
             // intensidadMuestreLbl
             // 
             intensidadMuestreLbl.AutoSize = true;
-            intensidadMuestreLbl.Location = new System.Drawing.Point(9, 69);
+            intensidadMuestreLbl.Location = new System.Drawing.Point(249, 69);
             intensidadMuestreLbl.Name = "intensidadMuestreLbl";
             intensidadMuestreLbl.Size = new System.Drawing.Size(164, 13);
             intensidadMuestreLbl.TabIndex = 25;
@@ -362,7 +357,6 @@
             this.otrosDatosGbx.Controls.Add(areaMuestreadaLbl);
             this.otrosDatosGbx.Controls.Add(this.AreaTotalTxt);
             this.otrosDatosGbx.Controls.Add(intensidadMuestreLbl);
-            this.otrosDatosGbx.Controls.Add(porcentajeLbl);
             this.otrosDatosGbx.Controls.Add(this.intMuestreoTxt);
             this.otrosDatosGbx.Controls.Add(valorMinimoDAPLbl);
             this.otrosDatosGbx.Controls.Add(this.limiteInfTxt);
@@ -382,7 +376,7 @@
             // 
             // areaMuestrearTxt
             // 
-            this.areaMuestrearTxt.Location = new System.Drawing.Point(400, 66);
+            this.areaMuestrearTxt.Location = new System.Drawing.Point(159, 65);
             this.areaMuestrearTxt.MaxLength = 25;
             this.areaMuestrearTxt.Name = "areaMuestrearTxt";
             this.areaMuestrearTxt.Size = new System.Drawing.Size(86, 20);
@@ -394,7 +388,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(271, 69);
+            this.label3.Location = new System.Drawing.Point(10, 68);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(122, 13);
             this.label3.TabIndex = 48;
@@ -402,10 +396,10 @@
             // 
             // confianzaTextBox
             // 
-            this.confianzaTextBox.Location = new System.Drawing.Point(180, 14);
+            this.confianzaTextBox.Location = new System.Drawing.Point(159, 14);
             this.confianzaTextBox.MaxLength = 25;
             this.confianzaTextBox.Name = "confianzaTextBox";
-            this.confianzaTextBox.Size = new System.Drawing.Size(306, 20);
+            this.confianzaTextBox.Size = new System.Drawing.Size(327, 20);
             this.confianzaTextBox.TabIndex = 0;
             this.confianzaTextBox.Text = "95";
             this.confianzaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
@@ -421,10 +415,10 @@
             // 
             // AreaTotalTxt
             // 
-            this.AreaTotalTxt.Location = new System.Drawing.Point(180, 40);
+            this.AreaTotalTxt.Location = new System.Drawing.Point(159, 40);
             this.AreaTotalTxt.MaxLength = 25;
             this.AreaTotalTxt.Name = "AreaTotalTxt";
-            this.AreaTotalTxt.Size = new System.Drawing.Size(306, 20);
+            this.AreaTotalTxt.Size = new System.Drawing.Size(327, 20);
             this.AreaTotalTxt.TabIndex = 1;
             this.AreaTotalTxt.Text = "0";
             this.AreaTotalTxt.TextChanged += new System.EventHandler(this.AreaTotalTxt_TextChanged);
@@ -432,7 +426,7 @@
             // 
             // intMuestreoTxt
             // 
-            this.intMuestreoTxt.Location = new System.Drawing.Point(180, 66);
+            this.intMuestreoTxt.Location = new System.Drawing.Point(417, 66);
             this.intMuestreoTxt.MaxLength = 25;
             this.intMuestreoTxt.Name = "intMuestreoTxt";
             this.intMuestreoTxt.Size = new System.Drawing.Size(69, 20);
@@ -443,10 +437,10 @@
             // 
             // limiteInfTxt
             // 
-            this.limiteInfTxt.Location = new System.Drawing.Point(180, 118);
+            this.limiteInfTxt.Location = new System.Drawing.Point(159, 118);
             this.limiteInfTxt.MaxLength = 25;
             this.limiteInfTxt.Name = "limiteInfTxt";
-            this.limiteInfTxt.Size = new System.Drawing.Size(306, 20);
+            this.limiteInfTxt.Size = new System.Drawing.Size(327, 20);
             this.limiteInfTxt.TabIndex = 5;
             this.limiteInfTxt.Text = "0.1";
             this.limiteInfTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
@@ -454,39 +448,39 @@
             // numeroEtapasTxt
             // 
             this.numeroEtapasTxt.Enabled = false;
-            this.numeroEtapasTxt.Location = new System.Drawing.Point(180, 198);
+            this.numeroEtapasTxt.Location = new System.Drawing.Point(159, 198);
             this.numeroEtapasTxt.MaxLength = 18;
             this.numeroEtapasTxt.Name = "numeroEtapasTxt";
-            this.numeroEtapasTxt.Size = new System.Drawing.Size(306, 20);
+            this.numeroEtapasTxt.Size = new System.Drawing.Size(327, 20);
             this.numeroEtapasTxt.TabIndex = 8;
             this.numeroEtapasTxt.Text = "0";
             // 
             // factorFormaTxt
             // 
-            this.factorFormaTxt.Location = new System.Drawing.Point(180, 173);
+            this.factorFormaTxt.Location = new System.Drawing.Point(159, 173);
             this.factorFormaTxt.MaxLength = 25;
             this.factorFormaTxt.Name = "factorFormaTxt";
-            this.factorFormaTxt.Size = new System.Drawing.Size(306, 20);
+            this.factorFormaTxt.Size = new System.Drawing.Size(327, 20);
             this.factorFormaTxt.TabIndex = 7;
             this.factorFormaTxt.Text = "1";
             this.factorFormaTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
             // areaFustalesTxt
             // 
-            this.areaFustalesTxt.Location = new System.Drawing.Point(180, 144);
+            this.areaFustalesTxt.Location = new System.Drawing.Point(159, 144);
             this.areaFustalesTxt.MaxLength = 25;
             this.areaFustalesTxt.Name = "areaFustalesTxt";
-            this.areaFustalesTxt.Size = new System.Drawing.Size(306, 20);
+            this.areaFustalesTxt.Size = new System.Drawing.Size(327, 20);
             this.areaFustalesTxt.TabIndex = 6;
             this.areaFustalesTxt.Text = "1.000";
             this.areaFustalesTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
             // tamParcelaTxt
             // 
-            this.tamParcelaTxt.Location = new System.Drawing.Point(180, 92);
+            this.tamParcelaTxt.Location = new System.Drawing.Point(159, 92);
             this.tamParcelaTxt.MaxLength = 25;
             this.tamParcelaTxt.Name = "tamParcelaTxt";
-            this.tamParcelaTxt.Size = new System.Drawing.Size(306, 20);
+            this.tamParcelaTxt.Size = new System.Drawing.Size(327, 20);
             this.tamParcelaTxt.TabIndex = 4;
             this.tamParcelaTxt.Text = "1";
             this.tamParcelaTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
@@ -501,6 +495,10 @@
             // 
             // especiesTabP
             // 
+            this.especiesTabP.Controls.Add(this.registrarSpecieBtn);
+            this.especiesTabP.Controls.Add(this.busquedaTxt);
+            this.especiesTabP.Controls.Add(this.criterioCbx);
+            this.especiesTabP.Controls.Add(this.lblBuscar);
             this.especiesTabP.Controls.Add(this.seleccEspecieBtn);
             this.especiesTabP.Controls.Add(this.RemoverEspciesBtn);
             this.especiesTabP.Controls.Add(this.especiesDGW);
@@ -512,11 +510,50 @@
             this.especiesTabP.Text = "Listado de Especies";
             this.especiesTabP.UseVisualStyleBackColor = true;
             // 
+            // registrarSpecieBtn
+            // 
+            this.registrarSpecieBtn.Image = global::SIFCA.Properties.Resources._1395994350_tree;
+            this.registrarSpecieBtn.Location = new System.Drawing.Point(284, 10);
+            this.registrarSpecieBtn.Name = "registrarSpecieBtn";
+            this.registrarSpecieBtn.Size = new System.Drawing.Size(26, 23);
+            this.registrarSpecieBtn.TabIndex = 24;
+            this.registrarSpecieBtn.UseVisualStyleBackColor = true;
+            this.registrarSpecieBtn.Click += new System.EventHandler(this.registrarSpecieBtn_Click);
+            // 
+            // busquedaTxt
+            // 
+            this.busquedaTxt.Location = new System.Drawing.Point(49, 11);
+            this.busquedaTxt.Name = "busquedaTxt";
+            this.busquedaTxt.Size = new System.Drawing.Size(127, 20);
+            this.busquedaTxt.TabIndex = 23;
+            this.busquedaTxt.TextChanged += new System.EventHandler(this.buscarTxt_TextChanged);
+            // 
+            // criterioCbx
+            // 
+            this.criterioCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.criterioCbx.FormattingEnabled = true;
+            this.criterioCbx.Items.AddRange(new object[] {
+            "Nombre Comun",
+            "Nombre Cientifico"});
+            this.criterioCbx.Location = new System.Drawing.Point(179, 11);
+            this.criterioCbx.Name = "criterioCbx";
+            this.criterioCbx.Size = new System.Drawing.Size(101, 21);
+            this.criterioCbx.TabIndex = 22;
+            // 
+            // lblBuscar
+            // 
+            this.lblBuscar.AutoSize = true;
+            this.lblBuscar.Location = new System.Drawing.Point(5, 14);
+            this.lblBuscar.Name = "lblBuscar";
+            this.lblBuscar.Size = new System.Drawing.Size(43, 13);
+            this.lblBuscar.TabIndex = 21;
+            this.lblBuscar.Text = "Buscar:";
+            // 
             // seleccEspecieBtn
             // 
-            this.seleccEspecieBtn.Location = new System.Drawing.Point(304, 12);
+            this.seleccEspecieBtn.Location = new System.Drawing.Point(312, 10);
             this.seleccEspecieBtn.Name = "seleccEspecieBtn";
-            this.seleccEspecieBtn.Size = new System.Drawing.Size(112, 23);
+            this.seleccEspecieBtn.Size = new System.Drawing.Size(111, 23);
             this.seleccEspecieBtn.TabIndex = 17;
             this.seleccEspecieBtn.Text = "Seleccionar Todos";
             this.seleccEspecieBtn.UseVisualStyleBackColor = true;
@@ -524,9 +561,9 @@
             // 
             // RemoverEspciesBtn
             // 
-            this.RemoverEspciesBtn.Location = new System.Drawing.Point(422, 12);
+            this.RemoverEspciesBtn.Location = new System.Drawing.Point(426, 10);
             this.RemoverEspciesBtn.Name = "RemoverEspciesBtn";
-            this.RemoverEspciesBtn.Size = new System.Drawing.Size(104, 23);
+            this.RemoverEspciesBtn.Size = new System.Drawing.Size(98, 23);
             this.RemoverEspciesBtn.TabIndex = 18;
             this.RemoverEspciesBtn.Text = "Remover Todos";
             this.RemoverEspciesBtn.UseVisualStyleBackColor = true;
@@ -546,9 +583,9 @@
             this.FAMILIA});
             this.especiesDGW.DataSource = this.especieBS;
             this.especiesDGW.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.especiesDGW.Location = new System.Drawing.Point(3, 41);
+            this.especiesDGW.Location = new System.Drawing.Point(3, 39);
             this.especiesDGW.Name = "especiesDGW";
-            this.especiesDGW.Size = new System.Drawing.Size(527, 415);
+            this.especiesDGW.Size = new System.Drawing.Size(527, 417);
             this.especiesDGW.TabIndex = 19;
             this.especiesDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.especiesDGW_CellValueChanged);
             // 
@@ -584,6 +621,7 @@
             // 
             // estratosTabP
             // 
+            this.estratosTabP.Controls.Add(this.crearEstratoBtn);
             this.estratosTabP.Controls.Add(this.SeleccEstratosBtn);
             this.estratosTabP.Controls.Add(this.removerEstratosBtn);
             this.estratosTabP.Controls.Add(this.actualizarBtn);
@@ -596,6 +634,17 @@
             this.estratosTabP.TabIndex = 3;
             this.estratosTabP.Text = "Listado de Estratos";
             this.estratosTabP.UseVisualStyleBackColor = true;
+            // 
+            // crearEstratoBtn
+            // 
+            this.crearEstratoBtn.Enabled = false;
+            this.crearEstratoBtn.Location = new System.Drawing.Point(180, 10);
+            this.crearEstratoBtn.Name = "crearEstratoBtn";
+            this.crearEstratoBtn.Size = new System.Drawing.Size(104, 23);
+            this.crearEstratoBtn.TabIndex = 24;
+            this.crearEstratoBtn.Text = "Crear estrato";
+            this.crearEstratoBtn.UseVisualStyleBackColor = true;
+            this.crearEstratoBtn.Click += new System.EventHandler(this.crearEstratoBtn_Click);
             // 
             // SeleccEstratosBtn
             // 
@@ -649,6 +698,7 @@
             this.estratoDGW.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Estratos,
             this.DESCRIPESTRATO,
+            this.Tamanio,
             this.Peso});
             this.estratoDGW.DataSource = this.estratoBS;
             this.estratoDGW.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -672,10 +722,17 @@
             this.DESCRIPESTRATO.Name = "DESCRIPESTRATO";
             this.DESCRIPESTRATO.ReadOnly = true;
             // 
+            // Tamanio
+            // 
+            this.Tamanio.HeaderText = "Tamaño muestral";
+            this.Tamanio.Name = "Tamanio";
+            // 
             // Peso
             // 
             this.Peso.HeaderText = "Peso";
+            this.Peso.MaxInputLength = 25;
             this.Peso.Name = "Peso";
+            this.Peso.ReadOnly = true;
             // 
             // estratoBS
             // 
@@ -864,6 +921,7 @@
             this.otrosDatosGbx.ResumeLayout(false);
             this.otrosDatosGbx.PerformLayout();
             this.especiesTabP.ResumeLayout(false);
+            this.especiesTabP.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.especiesDGW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.especieBS)).EndInit();
             this.estratosTabP.ResumeLayout(false);
@@ -926,9 +984,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn NOMTIPODISEMUEST;
         private System.Windows.Forms.DataGridViewTextBoxColumn PesoProyecto;
         private System.Windows.Forms.ErrorProvider controladorErrores;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Estratos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPESTRATO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Peso;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Especie;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMCOMUN;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMCIENTIFICO;
@@ -938,6 +993,15 @@
         private System.Windows.Forms.TextBox areaMuestrearTxt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox busquedaTxt;
+        private System.Windows.Forms.ComboBox criterioCbx;
+        private System.Windows.Forms.Label lblBuscar;
+        private System.Windows.Forms.Button registrarSpecieBtn;
+        private System.Windows.Forms.Button crearEstratoBtn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Estratos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPESTRATO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tamanio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Peso;
 
 
     }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClasesDiametricas_Form));
             this.label1 = new System.Windows.Forms.Label();
             this.nUd_NumClases = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
@@ -129,6 +130,8 @@
             // 
             // DtgDatos
             // 
+            this.DtgDatos.AllowUserToAddRows = false;
+            this.DtgDatos.AllowUserToDeleteRows = false;
             this.DtgDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.DtgDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgDatos.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -151,6 +154,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.nUd_NumClases);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ClasesDiametricas_Form";

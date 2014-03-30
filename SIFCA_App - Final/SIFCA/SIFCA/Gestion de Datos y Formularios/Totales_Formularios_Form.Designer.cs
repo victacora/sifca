@@ -46,12 +46,14 @@
             this.cancelarBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.InformacionGrx = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.numTotalParcelasTxt = new System.Windows.Forms.TextBox();
-            this.numTotalLineasTxt = new System.Windows.Forms.TextBox();
-            this.promedioLineasTxt = new System.Windows.Forms.TextBox();
+            this.tamanoParcelaTxt = new System.Windows.Forms.TextBox();
+            this.tamanoParcelaLbl = new System.Windows.Forms.Label();
             this.tituloLbl = new System.Windows.Forms.Label();
+            this.promedioLineasTxt = new System.Windows.Forms.TextBox();
+            this.numTotalLineasTxt = new System.Windows.Forms.TextBox();
+            this.numTotalParcelasTxt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.totalesDGW)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalesBS)).BeginInit();
             this.InformacionGrx.SuspendLayout();
@@ -76,10 +78,10 @@
             this.volumenTotalParcelaDataGridViewTextBoxColumn,
             this.volumenTotalHtasDataGridViewTextBoxColumn});
             this.totalesDGW.DataSource = this.totalesBS;
-            this.totalesDGW.Location = new System.Drawing.Point(6, 124);
+            this.totalesDGW.Location = new System.Drawing.Point(6, 150);
             this.totalesDGW.Name = "totalesDGW";
             this.totalesDGW.ReadOnly = true;
-            this.totalesDGW.Size = new System.Drawing.Size(769, 276);
+            this.totalesDGW.Size = new System.Drawing.Size(769, 250);
             this.totalesDGW.TabIndex = 0;
             // 
             // parcela
@@ -179,14 +181,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 20);
+            this.label1.Location = new System.Drawing.Point(8, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 13);
+            this.label1.Size = new System.Drawing.Size(191, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Numero total de parcelas:";
+            this.label1.Text = "Numero total de parcelas muestreadas:";
             // 
             // InformacionGrx
             // 
+            this.InformacionGrx.Controls.Add(this.tamanoParcelaTxt);
+            this.InformacionGrx.Controls.Add(this.tamanoParcelaLbl);
             this.InformacionGrx.Controls.Add(this.tituloLbl);
             this.InformacionGrx.Controls.Add(this.promedioLineasTxt);
             this.InformacionGrx.Controls.Add(this.numTotalLineasTxt);
@@ -202,57 +206,74 @@
             this.InformacionGrx.TabStop = false;
             this.InformacionGrx.Text = "Información";
             // 
-            // label2
+            // tamanoParcelaTxt
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 43);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(184, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Numero total de lineas de inventarios:";
+            this.tamanoParcelaTxt.Location = new System.Drawing.Point(208, 93);
+            this.tamanoParcelaTxt.Name = "tamanoParcelaTxt";
+            this.tamanoParcelaTxt.ReadOnly = true;
+            this.tamanoParcelaTxt.Size = new System.Drawing.Size(566, 20);
+            this.tamanoParcelaTxt.TabIndex = 11;
             // 
-            // label3
+            // tamanoParcelaLbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 66);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(204, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Promedio lineas de inventario por parcela:";
-            // 
-            // numTotalParcelasTxt
-            // 
-            this.numTotalParcelasTxt.Location = new System.Drawing.Point(153, 17);
-            this.numTotalParcelasTxt.Name = "numTotalParcelasTxt";
-            this.numTotalParcelasTxt.ReadOnly = true;
-            this.numTotalParcelasTxt.Size = new System.Drawing.Size(620, 20);
-            this.numTotalParcelasTxt.TabIndex = 6;
-            // 
-            // numTotalLineasTxt
-            // 
-            this.numTotalLineasTxt.Location = new System.Drawing.Point(207, 40);
-            this.numTotalLineasTxt.Name = "numTotalLineasTxt";
-            this.numTotalLineasTxt.ReadOnly = true;
-            this.numTotalLineasTxt.Size = new System.Drawing.Size(566, 20);
-            this.numTotalLineasTxt.TabIndex = 7;
-            // 
-            // promedioLineasTxt
-            // 
-            this.promedioLineasTxt.Location = new System.Drawing.Point(207, 63);
-            this.promedioLineasTxt.Name = "promedioLineasTxt";
-            this.promedioLineasTxt.ReadOnly = true;
-            this.promedioLineasTxt.Size = new System.Drawing.Size(566, 20);
-            this.promedioLineasTxt.TabIndex = 8;
+            this.tamanoParcelaLbl.AutoSize = true;
+            this.tamanoParcelaLbl.Location = new System.Drawing.Point(7, 96);
+            this.tamanoParcelaLbl.Name = "tamanoParcelaLbl";
+            this.tamanoParcelaLbl.Size = new System.Drawing.Size(153, 13);
+            this.tamanoParcelaLbl.TabIndex = 10;
+            this.tamanoParcelaLbl.Text = "Tamaño de la parcela en Htas:";
             // 
             // tituloLbl
             // 
             this.tituloLbl.AutoSize = true;
             this.tituloLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tituloLbl.Location = new System.Drawing.Point(160, 96);
+            this.tituloLbl.Location = new System.Drawing.Point(160, 121);
             this.tituloLbl.Name = "tituloLbl";
             this.tituloLbl.Size = new System.Drawing.Size(492, 18);
             this.tituloLbl.TabIndex = 9;
             this.tituloLbl.Text = "Equivalencia entre unidades por parcela y unidades por hectarea";
+            // 
+            // promedioLineasTxt
+            // 
+            this.promedioLineasTxt.Location = new System.Drawing.Point(207, 73);
+            this.promedioLineasTxt.Name = "promedioLineasTxt";
+            this.promedioLineasTxt.ReadOnly = true;
+            this.promedioLineasTxt.Size = new System.Drawing.Size(566, 20);
+            this.promedioLineasTxt.TabIndex = 8;
+            // 
+            // numTotalLineasTxt
+            // 
+            this.numTotalLineasTxt.Location = new System.Drawing.Point(207, 49);
+            this.numTotalLineasTxt.Name = "numTotalLineasTxt";
+            this.numTotalLineasTxt.ReadOnly = true;
+            this.numTotalLineasTxt.Size = new System.Drawing.Size(566, 20);
+            this.numTotalLineasTxt.TabIndex = 7;
+            // 
+            // numTotalParcelasTxt
+            // 
+            this.numTotalParcelasTxt.Location = new System.Drawing.Point(208, 23);
+            this.numTotalParcelasTxt.Name = "numTotalParcelasTxt";
+            this.numTotalParcelasTxt.ReadOnly = true;
+            this.numTotalParcelasTxt.Size = new System.Drawing.Size(565, 20);
+            this.numTotalParcelasTxt.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 77);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(204, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Promedio lineas de inventario por parcela:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(184, 26);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Numero total de lineas de inventarios:\r\nrecolectadas";
             // 
             // Totales_Formularios_Form
             // 
@@ -298,5 +319,7 @@
         private System.Windows.Forms.TextBox numTotalParcelasTxt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label tituloLbl;
+        private System.Windows.Forms.TextBox tamanoParcelaTxt;
+        private System.Windows.Forms.Label tamanoParcelaLbl;
     }
 }

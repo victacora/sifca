@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using SIFCA_DAL;
 using SIFCA_BLL;
 using System.IO;
+using SIFCA.Helper;
 
 namespace SIFCA.Gestion_Configuracion
 {
@@ -21,6 +22,7 @@ namespace SIFCA.Gestion_Configuracion
         private List<IMAGEN> listImagesAdded;
         private IMAGEN image;
         private string state;
+        private PROYECTO project;
 
 
         public void setstate(string st){
@@ -42,7 +44,9 @@ namespace SIFCA.Gestion_Configuracion
                 specieBSource.DataSource = specieBL.GetSpecies();
                 grupoComercialBSource.DataSource = group.GetGroups();
                 criterioCbx.SelectedIndex = 1;
+                grupoEcoCbx.SelectedIndex = 0;
                 state = "especie";
+                this.project = null;
             }
             catch (Exception ex)
             {
@@ -74,28 +78,29 @@ namespace SIFCA.Gestion_Configuracion
             }
         }
 
-        public void Btn_nuevaEspecieForm_Click(object sender, EventArgs e)
+        public void Btn_nuevaEspecieForm_Click(object sender, EventArgs e, PROYECTO py, string formCall)
         {
             try
             {
-
+                pn_editar.Hide();
+                pn_crear.Show();
+                pn_detalle.Hide();
+                pn_listado.Hide();
+                pn_cargarImg.Hide();
+                btn_Cancelar.Visible = false;
+                this.Width = pn_crear.Width;
+                this.Height = pn_crear.Height;
+                this.CenterToScreen();
+                this.state = formCall;
+                this.project = py; 
+                this.image = null;
             }
             catch (Exception ex)
             {
                 Error_Form er = new Error_Form(ex.Message);
                 er.Show();
             }
-            pn_editar.Hide();
-            pn_crear.Show();
-            pn_detalle.Hide();
-            pn_listado.Hide();
-            pn_cargarImg.Hide();
-            btn_Cancelar.Visible = false;
-            this.Width = pn_crear.Width;
-            this.Height = pn_crear.Height;
-            this.CenterToScreen();
-            this.state = "formulario";
-            this.image = null;
+            
         }
 
         private void Btn_Crear_Click(object sender, EventArgs e)
@@ -114,6 +119,17 @@ namespace SIFCA.Gestion_Configuracion
                 else
                 {
                     species.NOMCOMUN = this.txt_NombreComun.Text;
+                    eP_errors.Dispose();
+                }
+                if (this.grupoEcoCbx.Text == "")
+                {
+                    eP_errors.SetError(grupoEcoCbx, "Se debe elegir un grupo ecológico");
+                    band = false;
+                }
+                else
+                {
+                    if (this.grupoEcoCbx.Text == "Tolerante") species.GRUPOECOLOGICO = "TL";
+                    if (this.grupoEcoCbx.Text == "No Tolerante") species.GRUPOECOLOGICO = "NT";                    
                     eP_errors.Dispose();
                 }
                 if (this.txt_NombreCientifico.Text == "")
@@ -158,12 +174,11 @@ namespace SIFCA.Gestion_Configuracion
                 }
                 else
                 {
-                    //DAP = System.Convert.ToDecimal(this.txt_DMC.Text);
                     bool canConvert = decimal.TryParse(this.txt_DMC.Text.Replace(".",","), out DIM);
                     if (!canConvert)
                     {
                         band = false;
-                        eP_errors.SetError(txt_DMC, "El Diametro debe ser númerico");
+                        eP_errors.SetError(txt_DMC, "El Diametro es incorrecto");
                     }
                     else eP_errors.Dispose();
                 }
@@ -175,11 +190,10 @@ namespace SIFCA.Gestion_Configuracion
                     species.ZONAGEOGRAFICA = this.txt_ZonaGeografica.Text;
                     species.ZONADEVIDA = this.txt_ZonaVida.Text;
 
-                
                     specieBL.InsertSpecie(species);
                     string resultEsp = specieBL.SaveChanges();
                     string resultImg = "";
-                    if (image!=null)
+                    if (image != null)
                     {
                         ImageBL imgBl = new ImageBL(Program.ContextData);
                         image.CODESP = species.CODESP;
@@ -190,15 +204,26 @@ namespace SIFCA.Gestion_Configuracion
                     if (resultEsp == "" && resultImg == "")
                     {
                         MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (this.state == "formulario" && this.project != null)
+                        {
+                            project.ESPECIE.Add(species);
+                            this.Close();
+                            return;
+                        }
+                        else
+                            if (this.state == "proyecto")
+                            {
+                                this.Close();
+                                return;
+                            }
                     }
                     else
                     {
-                        Error_Form errorForm = new Error_Form(resultEsp +"  " + resultImg);
+                        Error_Form errorForm = new Error_Form(resultEsp + "  " + resultImg);
                         errorForm.MdiParent = ParentForm;
                         errorForm.Show();
                     }
-            
-
+                    
                     specieBSource.DataSource = specieBL.GetSpecies();
                     ListadoEspecies.Refresh();
 
@@ -211,11 +236,7 @@ namespace SIFCA.Gestion_Configuracion
                     this.imagenTxt.Text = "";
                     this.txt_DMC.Text = "";
                     pB_imgCrear.Image = null;
-
-                    if (this.state == "formulario")
-                    {
-                        this.Close();
-                    }
+                    
                     pn_crear.Hide();
                     pn_listado.Show();
                     pn_editar.Hide();
@@ -346,8 +367,15 @@ namespace SIFCA.Gestion_Configuracion
 
                 GroupComBSource.DataSource = group.GetGroups();
             
-                cbxGrupoComercial.SelectedValue = species.GRUPOCOM;
-            
+                grupoComercialCbx.SelectedValue = species.GRUPOCOM;
+                if (species.GRUPOECOLOGICO == "TL")
+                {
+                    updGrupoEcoCbx.SelectedIndex = 0;
+                }
+                if (species.GRUPOECOLOGICO == "NT")
+                {
+                    updGrupoEcoCbx.SelectedIndex = 1;
+                }
                 txt_NomComun.Text = species.NOMCOMUN;
                 txt_NomCientifico.Text = species.NOMCIENTIFICO;
                 txt_Fam.Text = species.FAMILIA;
@@ -387,7 +415,7 @@ namespace SIFCA.Gestion_Configuracion
                     band = false;
                 }
                 else species.NOMCOMUN = txt_NomComun.Text;
-                species.GRUPOCOM = (String)cbxGrupoComercial.SelectedValue;
+                species.GRUPOCOM = (String)grupoComercialCbx.SelectedValue;
 
                 if (this.txt_NomCientifico.Text == "")
                 {
@@ -404,7 +432,17 @@ namespace SIFCA.Gestion_Configuracion
                 else species.FAMILIA = txt_Fam.Text;
                 species.ZONAGEOGRAFICA = txt_ZonaGeogra.Text;
                 species.ZONADEVIDA = txt_ZonaVid.Text;
-            
+                if (this.updGrupoEcoCbx.Text == "")
+                {
+                    eP_errors.SetError(updGrupoEcoCbx, "Se debe elegir un grupo ecológico");
+                    band = false;
+                }
+                else
+                {
+                    if (this.updGrupoEcoCbx.Text == "Tolerante") species.GRUPOECOLOGICO = "TL";
+                    if (this.updGrupoEcoCbx.Text == "No Tolerante") species.GRUPOECOLOGICO = "NT";
+                    eP_errors.Dispose();
+                }
                 if (this.txt_DimCor.Text == "" || this.txt_DimCor.Text == "0" || this.txt_DimCor.Text == "0.0")
                 {
                     eP_errors.SetError(txt_DimCor, "El Diametro no es válido");
@@ -456,6 +494,8 @@ namespace SIFCA.Gestion_Configuracion
                     txt_ZonaGeo.Text = "";
                     txt_ZonaVida.Text = "";
                     txt_DimCorte.Text = "";
+                    specieBSource.DataSource = specieBL.GetSpecies();
+                    ListadoEspecies.DataSource = specieBSource;
                     ListadoEspecies.Refresh();
                     pn_listado.Show();
                     pn_crear.Hide();
@@ -564,6 +604,16 @@ namespace SIFCA.Gestion_Configuracion
                 cbxGrupoComercial_det.SelectedValue = species.GRUPOCOM;
 
                 imagenesBS.DataSource = species.IMAGEN.ToList();
+                detailGrupoEcoTxt.Text = "";
+                if (species.GRUPOECOLOGICO == "TL")
+                {
+                    detailGrupoEcoTxt.Text = "Tolerante";
+                }
+                else
+                    if (species.GRUPOECOLOGICO == "NT")
+                    {
+                        detailGrupoEcoTxt.Text = "No Tolerante";
+                    }
 
                 if (imagenesBS.Count==0)
                 {
@@ -851,5 +901,69 @@ namespace SIFCA.Gestion_Configuracion
             }
             
         }
+
+        private void validatedNumericValues(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+                {
+                    e.Handled = true;
+                }
+                // only allow one decimal point
+                if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+                {
+                    e.Handled = true;
+                }
+                if (e.KeyChar == ',' && (sender as TextBox).Text.IndexOf(',') > -1)
+                {
+                    e.Handled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Error_Form er = new Error_Form(ex.Message);
+                er.Show();
+            }
+        }
+
+        private void ListadoEspecies_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            try
+            {
+                if (ListadoEspecies.Columns[e.ColumnIndex].Name == "GRUPOECOLOGICO")
+                {
+                    if (e.Value.ToString() == "TL") e.Value = "Tolerante";
+                    else e.Value = "No Tolerante";
+                }
+            }
+            catch (Exception ex)
+            {
+                Error_Form er = new Error_Form(ex.Message);
+                er.Show();
+            }
+
+            
+        }
+
+        private void cargarArchivo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ImporExportExcel impSpecie = new ImporExportExcel();
+                impSpecie.loadFicherFile();
+                impSpecie.loadSpecies(null,1);
+                specieBSource.DataSource = specieBL.GetSpecies();
+                ListadoEspecies.Refresh();
+            }
+            catch (Exception ex)
+            {
+                Error_Form er = new Error_Form(ex.Message);
+                er.Show();
+            }
+
+        }
+
+        
     }
 }

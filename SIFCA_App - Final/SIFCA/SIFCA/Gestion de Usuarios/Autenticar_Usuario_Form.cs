@@ -88,6 +88,7 @@ namespace SIFCA
             catch (Exception ex)
             {
                 Error_Form er = new Error_Form(ex.Message);
+                er.MdiParent = this.MdiParent;
                 er.Show();
             } 
         }

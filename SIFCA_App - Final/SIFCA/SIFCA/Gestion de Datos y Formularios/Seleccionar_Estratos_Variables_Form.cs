@@ -98,9 +98,9 @@ namespace SIFCA
         private void seleccionarVariableLBC_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             string opcion = string.Empty;
-            if (e.Index == 1) opcion = "NA";
-            else if (e.Index == 2) opcion = "AB";
-            else if (e.Index == 3) opcion = "VC";
+            if (e.Index == 0) opcion = "NA";
+            else if (e.Index == 1) opcion = "AB";
+            else if (e.Index == 2) opcion = "VC";
             else opcion = "VT";
             if (e.NewValue == CheckState.Checked)
             {
@@ -171,6 +171,27 @@ namespace SIFCA
                 er.Show();
             } 
         }
+
+        private void verArbolBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PROYECTO p = ((PROYECTO)Program.Cache.Get("project"));
+                if (p != null)
+                {
+                    Arbol_Proyectos_Por_Etapas_Form childForm = new Arbol_Proyectos_Por_Etapas_Form(p);
+                    childForm.MdiParent = this.ParentForm;
+                    childForm.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                Error_Form errorForm = new Error_Form(ex.Message);
+                errorForm.MdiParent = ParentForm;
+                errorForm.Show();
+            }
+        }
+
 
     }
 }

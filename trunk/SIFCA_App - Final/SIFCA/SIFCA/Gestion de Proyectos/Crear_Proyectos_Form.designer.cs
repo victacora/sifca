@@ -382,7 +382,6 @@
             this.areaMuestrearTxt.Size = new System.Drawing.Size(86, 20);
             this.areaMuestrearTxt.TabIndex = 3;
             this.areaMuestrearTxt.Text = "0";
-            this.areaMuestrearTxt.TextChanged += new System.EventHandler(this.areaMuestrearTxt_TextChanged);
             this.areaMuestrearTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
             // label3
@@ -421,7 +420,6 @@
             this.AreaTotalTxt.Size = new System.Drawing.Size(327, 20);
             this.AreaTotalTxt.TabIndex = 1;
             this.AreaTotalTxt.Text = "0";
-            this.AreaTotalTxt.TextChanged += new System.EventHandler(this.AreaTotalTxt_TextChanged);
             this.AreaTotalTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
             // intMuestreoTxt
@@ -432,7 +430,6 @@
             this.intMuestreoTxt.Size = new System.Drawing.Size(69, 20);
             this.intMuestreoTxt.TabIndex = 2;
             this.intMuestreoTxt.Text = "0";
-            this.intMuestreoTxt.TextChanged += new System.EventHandler(this.intMuestreoTxt_TextChanged);
             this.intMuestreoTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
             // limiteInfTxt

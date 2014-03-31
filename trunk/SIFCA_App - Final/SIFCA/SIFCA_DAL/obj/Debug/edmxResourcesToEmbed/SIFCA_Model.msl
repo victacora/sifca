@@ -137,6 +137,9 @@
     <EntitySetMapping Name="PROYECTO">
       <EntityTypeMapping TypeName="SIFCA_Model.PROYECTO">
         <MappingFragment StoreEntitySet="PROYECTO">
+          <ScalarProperty Name="NUMEROPARCELASAMUESTREAR" ColumnName="NUMEROPARCELASAMUESTREAR" />
+          <ScalarProperty Name="NUMEROPARCELAS" ColumnName="NUMEROPARCELAS" />
+          <ScalarProperty Name="NROFORMULA" ColumnName="NROFORMULA" />
           <ScalarProperty Name="ETAPA" ColumnName="ETAPA" />
           <ScalarProperty Name="CONFIANZA" ColumnName="CONFIANZA" />
           <ScalarProperty Name="NROPROY" ColumnName="NROPROY" />
@@ -235,6 +238,32 @@
         <ScalarProperty Name="LINEANMAD" ColumnName="LINEANMAD" />
       </EndProperty>
     </AssociationSetMapping>
-    <FunctionImportMapping FunctionImportName="createBackupDB" FunctionName="SIFCA_Model.Store.sp_BackupDB" />
+    <EntitySetMapping Name="FORMULA">
+      <EntityTypeMapping TypeName="SIFCA_Model.FORMULA">
+        <MappingFragment StoreEntitySet="FORMULA">
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="EXPRESION" ColumnName="EXPRESION" />
+          <ScalarProperty Name="NROFORMULA" ColumnName="NROFORMULA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VARIABLE">
+      <EntityTypeMapping TypeName="SIFCA_Model.VARIABLE">
+        <MappingFragment StoreEntitySet="VARIABLE">
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="NROVARIABLE" ColumnName="NROVARIABLE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FORMULAVARIABLE" TypeName="SIFCA_Model.FORMULAVARIABLE" StoreEntitySet="FORMULAVARIABLE">
+      <EndProperty Name="VARIABLE">
+        <ScalarProperty Name="NROVARIABLE" ColumnName="NROVARIABLE" />
+      </EndProperty>
+      <EndProperty Name="FORMULA">
+        <ScalarProperty Name="NROFORMULA" ColumnName="NROFORMULA" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

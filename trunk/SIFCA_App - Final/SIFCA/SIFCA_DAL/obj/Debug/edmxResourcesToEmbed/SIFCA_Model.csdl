@@ -112,6 +112,16 @@
       <Parameter Name="BaseLocation" Mode="In" Type="String" />
       <Parameter Name="BackupType" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="FORMULA" EntityType="SIFCA_Model.FORMULA" />
+    <EntitySet Name="VARIABLE" EntityType="SIFCA_Model.VARIABLE" />
+    <AssociationSet Name="FK_PROYECTO_PROYECTOF_FORMULA" Association="SIFCA_Model.FK_PROYECTO_PROYECTOF_FORMULA">
+      <End Role="FORMULA" EntitySet="FORMULA" />
+      <End Role="PROYECTO" EntitySet="PROYECTO" />
+    </AssociationSet>
+    <AssociationSet Name="FORMULAVARIABLE" Association="SIFCA_Model.FORMULAVARIABLE">
+      <End Role="FORMULA" EntitySet="FORMULA" />
+      <End Role="VARIABLE" EntitySet="VARIABLE" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="CALIDAD">
     <Key>
@@ -293,6 +303,10 @@
     <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.LISTADODEESPECIES" FromRole="PROYECTO" ToRole="ESPECIE" />
     <Property Type="Decimal" Name="CONFIANZA" Precision="18" Scale="3" Nullable="false" />
     <Property Type="Decimal" Name="ETAPA" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Guid" Name="NROFORMULA" />
+    <NavigationProperty Name="FORMULA" Relationship="SIFCA_Model.FK_PROYECTO_PROYECTOF_FORMULA" FromRole="PROYECTO" ToRole="FORMULA" />
+    <Property Type="Decimal" Name="NUMEROPARCELAS" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="NUMEROPARCELASAMUESTREAR" Precision="18" Scale="0" />
   </EntityType>
   <EntityType Name="PROYECTOSPORETAPA">
     <Key>
@@ -642,5 +656,41 @@
   <Association Name="USO">
     <End Role="TIPODEUSO" Type="SIFCA_Model.TIPODEUSO" Multiplicity="*" />
     <End Role="LINEANOMADERABLES" Type="SIFCA_Model.LINEANOMADERABLES" Multiplicity="*" />
+  </Association>
+  <EntityType Name="FORMULA">
+    <Key>
+      <PropertyRef Name="NROFORMULA" />
+    </Key>
+    <Property Type="Guid" Name="NROFORMULA" Nullable="false" />
+    <Property Type="String" Name="EXPRESION" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_PROYECTOF_FORMULA" FromRole="FORMULA" ToRole="PROYECTO" />
+    <NavigationProperty Name="VARIABLE" Relationship="SIFCA_Model.FORMULAVARIABLE" FromRole="FORMULA" ToRole="VARIABLE" />
+    <Property Type="String" Name="DESCRIPCION" MaxLength="5000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="VARIABLE">
+    <Key>
+      <PropertyRef Name="NROVARIABLE" />
+    </Key>
+    <Property Type="Guid" Name="NROVARIABLE" Nullable="false" />
+    <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="FORMULA" Relationship="SIFCA_Model.FORMULAVARIABLE" FromRole="VARIABLE" ToRole="FORMULA" />
+    <Property Type="String" Name="DESCRIPCION" MaxLength="5000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_PROYECTO_PROYECTOF_FORMULA">
+    <End Type="SIFCA_Model.FORMULA" Role="FORMULA" Multiplicity="0..1" />
+    <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FORMULA">
+        <PropertyRef Name="NROFORMULA" />
+      </Principal>
+      <Dependent Role="PROYECTO">
+        <PropertyRef Name="NROFORMULA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FORMULAVARIABLE">
+    <End Type="SIFCA_Model.FORMULA" Role="FORMULA" Multiplicity="*" />
+    <End Type="SIFCA_Model.VARIABLE" Role="VARIABLE" Multiplicity="*" />
   </Association>
 </Schema>

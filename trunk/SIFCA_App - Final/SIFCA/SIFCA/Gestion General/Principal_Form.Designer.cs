@@ -51,11 +51,11 @@
             this.inventarioMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.crearFormularioTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirFormulariosTsm = new System.Windows.Forms.ToolStripMenuItem();
-            this.especiesMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.listarEspeciesTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.estadisticosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clasesDiamétricasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.especiesMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarEspeciesTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracionMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.calidadTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.estadosTsm = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,6 +78,7 @@
             this.EstadoLbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.pBarLoad = new System.Windows.Forms.ProgressBar();
+            this.evaluadorDeExpresionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -163,7 +164,8 @@
             this.cerrarProyectoTsm,
             this.realizarCopiaDeSeguridadTsm,
             this.exportarDatosAExcelTsm,
-            this.importarDatosDeExcelToolStripMenuItem});
+            this.importarDatosDeExcelToolStripMenuItem,
+            this.evaluadorDeExpresionesToolStripMenuItem});
             this.proyectoMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.proyectoMenu.Name = "proyectoMenu";
             this.proyectoMenu.Size = new System.Drawing.Size(66, 20);
@@ -270,21 +272,6 @@
             this.abrirFormulariosTsm.Text = "Abrir  formularios";
             this.abrirFormulariosTsm.Click += new System.EventHandler(this.abrirFormulariosTsm_Click);
             // 
-            // especiesMenu
-            // 
-            this.especiesMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listarEspeciesTsm});
-            this.especiesMenu.Name = "especiesMenu";
-            this.especiesMenu.Size = new System.Drawing.Size(63, 20);
-            this.especiesMenu.Text = "&Especies";
-            // 
-            // listarEspeciesTsm
-            // 
-            this.listarEspeciesTsm.Name = "listarEspeciesTsm";
-            this.listarEspeciesTsm.Size = new System.Drawing.Size(175, 22);
-            this.listarEspeciesTsm.Text = "Listado de especies";
-            this.listarEspeciesTsm.Click += new System.EventHandler(this.listarEspeciesTsm_Click);
-            // 
             // reporteMenu
             // 
             this.reporteMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -308,6 +295,21 @@
             this.clasesDiamétricasToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.clasesDiamétricasToolStripMenuItem.Text = "Clases diamétricas";
             this.clasesDiamétricasToolStripMenuItem.Click += new System.EventHandler(this.clasesDiamétricasToolStripMenuItem_Click);
+            // 
+            // especiesMenu
+            // 
+            this.especiesMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listarEspeciesTsm});
+            this.especiesMenu.Name = "especiesMenu";
+            this.especiesMenu.Size = new System.Drawing.Size(63, 20);
+            this.especiesMenu.Text = "&Especies";
+            // 
+            // listarEspeciesTsm
+            // 
+            this.listarEspeciesTsm.Name = "listarEspeciesTsm";
+            this.listarEspeciesTsm.Size = new System.Drawing.Size(175, 22);
+            this.listarEspeciesTsm.Text = "Listado de especies";
+            this.listarEspeciesTsm.Click += new System.EventHandler(this.listarEspeciesTsm_Click);
             // 
             // configuracionMenu
             // 
@@ -473,6 +475,13 @@
             this.pBarLoad.TabIndex = 4;
             this.pBarLoad.Visible = false;
             // 
+            // evaluadorDeExpresionesToolStripMenuItem
+            // 
+            this.evaluadorDeExpresionesToolStripMenuItem.Name = "evaluadorDeExpresionesToolStripMenuItem";
+            this.evaluadorDeExpresionesToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.evaluadorDeExpresionesToolStripMenuItem.Text = "Evaluador de expresiones";
+            this.evaluadorDeExpresionesToolStripMenuItem.Click += new System.EventHandler(this.evaluadorDeExpresionesToolStripMenuItem_Click);
+            // 
             // Principal_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -550,6 +559,7 @@
         private System.Windows.Forms.ToolStripMenuItem reporteMenu;
         private System.Windows.Forms.ToolStripMenuItem clasesDiamétricasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estadisticosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem evaluadorDeExpresionesToolStripMenuItem;
 
     }
 }

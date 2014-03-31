@@ -693,6 +693,22 @@ namespace SIFCA
             } 
         }
 
+        private void evaluadorDeExpresionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Evaluador_Expresiones_Form childForm = new Evaluador_Expresiones_Form();
+                childForm.MdiParent = this;
+                childForm.Show();
+            }
+            catch (Exception ex)
+            {
+                Error_Form er = new Error_Form(ex.Message);
+                er.MdiParent = this;
+                er.Show();
+            } 
+        }
+
 
     }
 }

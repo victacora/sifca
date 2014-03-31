@@ -64,6 +64,7 @@
     <Compile Include="AleExpressionParser\AleParser_operations.cs" />
     <Compile Include="AleExpressionParser\AleString.cs" />
     <Compile Include="AleExpressionParser\AleTerm.cs" />
+    <Compile Include="FormulateBL.cs" />
     <Compile Include="TStudentBL.cs" />
     <Compile Include="FormBL.cs" />
     <Compile Include="GroupBL.cs" />
@@ -82,9 +83,11 @@
     <Compile Include="SpeciesBL.cs" />
     <Compile Include="StateBL.cs" />
     <Compile Include="StratumBL.cs" />
+    <Compile Include="TypeFormulateBL.cs" />
     <Compile Include="TypeSampleDesignBl.cs" />
     <Compile Include="TypeUseBL.cs" />
     <Compile Include="UserBL.cs" />
+    <Compile Include="VariableBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SIFCA_DAL\SIFCA_DAL.csproj">

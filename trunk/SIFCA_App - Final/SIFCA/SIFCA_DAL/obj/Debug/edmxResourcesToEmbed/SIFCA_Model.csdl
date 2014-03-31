@@ -122,6 +122,11 @@
       <End Role="FORMULA" EntitySet="FORMULA" />
       <End Role="VARIABLE" EntitySet="VARIABLE" />
     </AssociationSet>
+    <EntitySet Name="TIPOFORMULA" EntityType="SIFCA_Model.TIPOFORMULA" />
+    <AssociationSet Name="TIPOFORMULAFORMULA" Association="SIFCA_Model.TIPOFORMULAFORMULA">
+      <End Role="TIPOFORMULA" EntitySet="TIPOFORMULA" />
+      <End Role="FORMULA" EntitySet="FORMULA" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="CALIDAD">
     <Key>
@@ -285,9 +290,9 @@
     <Property Name="LUGAR" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
     <Property Name="DESCRIPCION" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
     <Property Name="SUPTOT" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-    <Property Name="INTMUE" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-    <Property Name="SUPMUE" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-    <Property Name="TAMANO" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+    <Property Name="INTMUE" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
+    <Property Name="SUPMUE" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
+    <Property Name="TAMANO" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
     <Property Name="LIMITINFDAP" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
     <Property Name="AREAFUSTALESPORPARCELA" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
     <Property Name="FACTORDEFORMA" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
@@ -303,10 +308,10 @@
     <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.LISTADODEESPECIES" FromRole="PROYECTO" ToRole="ESPECIE" />
     <Property Type="Decimal" Name="CONFIANZA" Precision="18" Scale="3" Nullable="false" />
     <Property Type="Decimal" Name="ETAPA" Nullable="false" Precision="18" Scale="0" />
-    <Property Type="Guid" Name="NROFORMULA" />
+    <Property Type="Guid" Name="NROFORMULA" Nullable="false" />
     <NavigationProperty Name="FORMULA" Relationship="SIFCA_Model.FK_PROYECTO_PROYECTOF_FORMULA" FromRole="PROYECTO" ToRole="FORMULA" />
-    <Property Type="Decimal" Name="NUMEROPARCELAS" Precision="18" Scale="0" />
-    <Property Type="Decimal" Name="NUMEROPARCELASAMUESTREAR" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="NUMEROPARCELAS" Precision="18" Scale="0" Nullable="false" />
+    <Property Type="Decimal" Name="NUMEROPARCELASAMUESTREAR" Precision="18" Scale="0" Nullable="false" />
   </EntityType>
   <EntityType Name="PROYECTOSPORETAPA">
     <Key>
@@ -667,6 +672,8 @@
     <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_PROYECTOF_FORMULA" FromRole="FORMULA" ToRole="PROYECTO" />
     <NavigationProperty Name="VARIABLE" Relationship="SIFCA_Model.FORMULAVARIABLE" FromRole="FORMULA" ToRole="VARIABLE" />
     <Property Type="String" Name="DESCRIPCION" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Type="Guid" Name="NROTIPOFORMULA" Nullable="false" />
+    <NavigationProperty Name="TIPOFORMULA" Relationship="SIFCA_Model.TIPOFORMULAFORMULA" FromRole="FORMULA" ToRole="TIPOFORMULA" />
   </EntityType>
   <EntityType Name="VARIABLE">
     <Key>
@@ -678,7 +685,7 @@
     <Property Type="String" Name="DESCRIPCION" MaxLength="5000" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK_PROYECTO_PROYECTOF_FORMULA">
-    <End Type="SIFCA_Model.FORMULA" Role="FORMULA" Multiplicity="0..1" />
+    <End Type="SIFCA_Model.FORMULA" Role="FORMULA" Multiplicity="1" />
     <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="FORMULA">
@@ -692,5 +699,26 @@
   <Association Name="FORMULAVARIABLE">
     <End Type="SIFCA_Model.FORMULA" Role="FORMULA" Multiplicity="*" />
     <End Type="SIFCA_Model.VARIABLE" Role="VARIABLE" Multiplicity="*" />
+  </Association>
+  <EntityType Name="TIPOFORMULA">
+    <Key>
+      <PropertyRef Name="NROTIPOFORMULA" />
+    </Key>
+    <Property Type="Guid" Name="NROTIPOFORMULA" Nullable="false" />
+    <Property Type="String" Name="NOMBRETIPO" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DESCRIPCION" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="FORMULA" Relationship="SIFCA_Model.TIPOFORMULAFORMULA" FromRole="TIPOFORMULA" ToRole="FORMULA" />
+  </EntityType>
+  <Association Name="TIPOFORMULAFORMULA">
+    <End Type="SIFCA_Model.TIPOFORMULA" Role="TIPOFORMULA" Multiplicity="1" />
+    <End Type="SIFCA_Model.FORMULA" Role="FORMULA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPOFORMULA">
+        <PropertyRef Name="NROTIPOFORMULA" />
+      </Principal>
+      <Dependent Role="FORMULA">
+        <PropertyRef Name="NROTIPOFORMULA" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
 </Schema>

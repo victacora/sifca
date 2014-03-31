@@ -400,6 +400,7 @@
     <None Include="Properties\DataSources\SIFCA_DAL.ESPECIE.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.ESTADOSANITARIO.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.ESTRATO.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.FORMULA.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.FORMULARIO.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.GRUPOCOMERCIAL.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.IMAGEN.datasource" />

@@ -138,6 +138,9 @@
     <Compile Include="TIPODISENOMUESTRAL.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="TIPOFORMULA.cs">
+      <DependentUpon>SIFCA_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="TRANSACCION.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>

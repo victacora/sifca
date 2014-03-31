@@ -241,6 +241,7 @@
     <EntitySetMapping Name="FORMULA">
       <EntityTypeMapping TypeName="SIFCA_Model.FORMULA">
         <MappingFragment StoreEntitySet="FORMULA">
+          <ScalarProperty Name="NROTIPOFORMULA" ColumnName="NROTIPOFORMULA" />
           <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
           <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="EXPRESION" ColumnName="EXPRESION" />
@@ -265,5 +266,14 @@
         <ScalarProperty Name="NROFORMULA" ColumnName="NROFORMULA" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="TIPOFORMULA">
+      <EntityTypeMapping TypeName="SIFCA_Model.TIPOFORMULA">
+        <MappingFragment StoreEntitySet="TIPOFORMULA">
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="NOMBRETIPO" ColumnName="NOMBRETIPO" />
+          <ScalarProperty Name="NROTIPOFORMULA" ColumnName="NROTIPOFORMULA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

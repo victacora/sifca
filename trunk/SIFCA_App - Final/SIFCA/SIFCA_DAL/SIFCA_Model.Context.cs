@@ -47,6 +47,7 @@ namespace SIFCA_DAL
         public DbSet<USUARIO> USUARIO { get; set; }
         public DbSet<FORMULA> FORMULA { get; set; }
         public DbSet<VARIABLE> VARIABLE { get; set; }
+        public DbSet<TIPOFORMULA> TIPOFORMULA { get; set; }
     
         public virtual int createBackupDB(string baseLocation, string backupType)
         {

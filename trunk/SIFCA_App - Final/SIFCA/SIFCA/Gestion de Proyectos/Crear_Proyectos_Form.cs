@@ -21,9 +21,9 @@ namespace SIFCA
         private ObjectiveInventoryBL objetiveInventory;
         private StratumBL stratum;
         private SpeciesBL species;
+        private FormulateBL formulate;
         private PROYECTO newProject;
         private List<PROYECTOSPORETAPA> listProjectsByStage;
-        private bool modificate;
         
         public Crear_Proyecto_Form()
         {
@@ -33,6 +33,17 @@ namespace SIFCA
                 this.ControlBox = false;
                 criterioCbx.SelectedIndex = 0;
                 newProject = Program.ContextData.PROYECTO.Create();
+                newProject.CONFIANZA = 95;
+                newProject.LIMITINFDAP = 0.1M;
+                newProject.AREAFUSTALESPORPARCELA = 0.1M;
+                newProject.NUMEROPARCELAS = 0;
+                newProject.NUMEROPARCELASAMUESTREAR = 0;
+                newProject.INTMUE = 0;
+                newProject.SUPMUE = 0;
+                newProject.SUPTOT = 0;
+                formulate = new FormulateBL(Program.ContextData);
+                formulaBS.DataSource = formulate.GetFormulates();
+                newProject.NROFORMULA = formulaBS.Count != 0 ? ((FORMULA)formulaBS.Current).NROFORMULA : Guid.Empty;
                 project = new ProjectBL(Program.ContextData);
                 estratoDGW.Columns[2].DefaultCellStyle.Format = "0.000##";
                 typeExample = new TypeSampleDesignBl(Program.ContextData);
@@ -40,12 +51,9 @@ namespace SIFCA
                 stratum = new StratumBL(Program.ContextData);
                 species = new SpeciesBL(Program.ContextData);
                 objetivoInventarioBS.DataSource = objetiveInventory.GetObjectiveInventories();
-                tipoObjetivoCbx.DataSource = objetivoInventarioBS;
-                tipoObjetivoCbx.SelectedIndex = 0;
-                TipoProyectoCbx.SelectedIndex = 0;
+                newProject.NOMBRETIPOINV = objetivoInventarioBS.Count != 0 ? ((OBJETIVOINVENTARIO)objetivoInventarioBS.Current).NOMBRETIPOINV : null;
                 tipoDisenoBS.DataSource = typeExample.GetTypeSampleDesignList();
-                tipoDisenoCbx.DataSource = tipoDisenoBS;
-                tipoDisenoCbx.SelectedIndex = 0;
+                newProject.NOMTIPODISEMUEST = tipoDisenoBS.Count != 0 ? ((TIPODISENOMUESTRAL)tipoDisenoBS.Current).NOMTIPODISEMUEST : null;
                 estratoBS.DataSource = stratum.GetStratums();
                 estratoDGW.DataSource = estratoBS;
                 especieBS.DataSource = species.GetSpecies();
@@ -53,7 +61,8 @@ namespace SIFCA
                 proyectoBS.DataSource = project.GetProjectsFree(Guid.Empty);
                 proyectoDGW.DataSource = proyectoBS;
                 listProjectsByStage = new List<PROYECTOSPORETAPA>();
-                this.modificate = true;
+                TipoProyectoCbx.SelectedIndex = 0;
+                nuevoProyectoBS.DataSource = newProject;
             }
             catch (Exception ex)
             {
@@ -106,6 +115,16 @@ namespace SIFCA
                 if (decimal.Parse(tamParcelaTxt.Text) <= 0)
                 {
                     controladorErrores.SetError(lugarTxt, "El tamaño de la parcela debe ser mayor que cero.");
+                    error = true;
+                }
+                if (decimal.Parse(numeroParcelasMuestraTxt.Text) <= 0)
+                {
+                    controladorErrores.SetError(numeroParcelasMuestraTxt, "El numero de parcelas a muestrea debe ser mayor que cero.");
+                    error = true;
+                }
+                if (decimal.Parse(numeroParcelasTxt.Text) <= 0)
+                {
+                    controladorErrores.SetError(numeroParcelasTxt, "El numero total de parcelas debe ser mayor que cero.");
                     error = true;
                 }
                 if (decimal.Parse(limiteInfTxt.Text) < 0)
@@ -175,9 +194,12 @@ namespace SIFCA
                     OBJETIVOINVENTARIO objetivo = (OBJETIVOINVENTARIO)tipoObjetivoCbx.SelectedItem;
                     newProject.OBJETIVOINVENTARIO = objetivo;
                     newProject.TIPODISENOMUESTRAL = tipoDiseno;
+                    FORMULA formula = (FORMULA)formularComboBox.SelectedItem;
                     string tipoProyecto = TipoProyectoCbx.SelectedItem.ToString();
                     newProject.TIPOPROYECTO = tipoProyecto == "Independiente" ? "IN" : "CR";
                     newProject.TAMANO = decimal.Parse(tamParcelaTxt.Text.Replace('.', ','));
+                    newProject.NUMEROPARCELAS = decimal.Parse(numeroParcelasTxt.Text.Replace('.', ','));
+                    newProject.NUMEROPARCELASAMUESTREAR = decimal.Parse(numeroParcelasMuestraTxt.Text.Replace('.', ','));
                     newProject.LIMITINFDAP = decimal.Parse(limiteInfTxt.Text.Replace('.', ','));
                     newProject.INTMUE = decimal.Parse(intMuestreoTxt.Text.Replace('.', ','));
                     newProject.SUPTOT = decimal.Parse(AreaTotalTxt.Text.Replace('.', ','));
@@ -739,34 +761,6 @@ namespace SIFCA
          }
 
         
-         private void validatedNumericValues(object sender, KeyPressEventArgs e)
-         {
-             try
-             {
-                 if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
-                 {
-                     e.Handled = true;
-                 }
-                 // only allow one decimal point
-                 if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
-                 {
-                     e.Handled = true;
-                 }
-                 if (e.KeyChar == ',' && (sender as TextBox).Text.IndexOf(',') > -1)
-                 {
-                     e.Handled = true;
-                 }
-             }
-             catch (Exception ex)
-             {
-                 Error_Form errorForm = new Error_Form(ex.Message);
-                 errorForm.MdiParent = ParentForm;
-                 errorForm.Show();
-             }
-         }
-
-        
-
          private void buscarTxt_TextChanged(object sender, EventArgs e)
          {
              try
@@ -869,5 +863,33 @@ namespace SIFCA
                  er.Show();
              }
          }
+
+         private void datosDeAreaEIntensida()
+         {
+             PROYECTO p = (PROYECTO)nuevoProyectoBS.Current;
+             nuevoProyectoBS.EndEdit();
+             if (p != null)
+             {
+                 p.SUPTOT = (decimal)p.TAMANO * (decimal)p.NUMEROPARCELAS;
+                 p.SUPMUE = (decimal)p.TAMANO * (decimal)p.NUMEROPARCELASAMUESTREAR;
+                 p.INTMUE = (decimal)p.SUPTOT!=0?((decimal)p.SUPMUE / (decimal)p.SUPTOT) * 100:0;
+             }
+         }
+
+         private void tamParcelaTxt_TextChanged(object sender, EventArgs e)
+         {
+             datosDeAreaEIntensida();
+         }
+
+         private void numeroParcelasTxt_TextChanged(object sender, EventArgs e)
+         {
+             datosDeAreaEIntensida();
+         }
+
+         private void numeroParcelasMuestraTxt_TextChanged(object sender, EventArgs e)
+         {
+             datosDeAreaEIntensida();
+         }
+        
     }
 }

@@ -23,7 +23,6 @@ namespace SIFCA
         private SpeciesBL species;
         private PROYECTO newProject;
         private List<PROYECTOSPORETAPA> listProjectsByStage;
-        private int[] vector;
         private bool modificate;
         
         public Crear_Proyecto_Form()
@@ -54,7 +53,6 @@ namespace SIFCA
                 proyectoBS.DataSource = project.GetProjectsFree(Guid.Empty);
                 proyectoDGW.DataSource = proyectoBS;
                 listProjectsByStage = new List<PROYECTOSPORETAPA>();
-                this.vector = new int[3] { 0, 0, 0 };
                 this.modificate = true;
             }
             catch (Exception ex)
@@ -767,118 +765,7 @@ namespace SIFCA
              }
          }
 
-         private void updateVectorChanged(int pos)
-         {
-             try
-             {
-                 if (vector.Sum() < 2)
-                 {
-                     this.vector[pos] = 1;
-                 }
-                 this.calculateValues();
-             }
-             catch (Exception ex)
-             {
-                 Error_Form errorForm = new Error_Form(ex.Message);
-                 errorForm.MdiParent = ParentForm;
-                 errorForm.Show();
-             }
-         }
-
-         private void calculateValues()
-         {
-             try
-             {
-                 if (modificate)
-                 {
-                     modificate = false;
-                     if (vector.Sum() == 2)
-                     {
-                         //si se ingreso area total y intensidad de muestreo se calcula el area muestreada
-                         if (vector[0] == 1 && vector[1] == 1)
-                         {
-                             areaMuestrearTxt.Text = (decimal.Parse(AreaTotalTxt.Text.Replace('.', ',')) * (decimal.Parse(intMuestreoTxt.Text.Replace('.', ',')) / 100)).ToString();
-                             areaMuestrearTxt.Text = decimal.Round(decimal.Parse(areaMuestrearTxt.Text), 3).ToString();
-                         }
-                         else //si se ingreso area total y area muestreada se calcula intensidad de muestreo
-                             if (vector[0] == 1 && vector[2] == 1)
-                             {
-                                 intMuestreoTxt.Text = (((decimal.Parse(areaMuestrearTxt.Text.Replace('.', ','))) / (decimal.Parse(AreaTotalTxt.Text.Replace('.', ','))) * 100)).ToString();
-                                 intMuestreoTxt.Text = decimal.Round(decimal.Parse(intMuestreoTxt.Text), 3).ToString();
-                             }
-                             else//si ingreso intensidad de muestreo y area muestreada se calcula el area total
-                                 if (vector[1] == 1 && vector[2] == 1)
-                                 {
-                                     AreaTotalTxt.Text = ((decimal.Parse(areaMuestrearTxt.Text.Replace('.', ','))) / ((decimal.Parse(intMuestreoTxt.Text.Replace('.', ','))) / 100)).ToString();
-                                     AreaTotalTxt.Text = decimal.Round(decimal.Parse(AreaTotalTxt.Text), 3).ToString();
-                                 }
-                     }
-                     modificate = true;
-                 }
-             }
-             catch (Exception ex)
-             {
-                 Error_Form errorForm = new Error_Form(ex.Message);
-                 errorForm.MdiParent = ParentForm;
-                 errorForm.Show();
-             }
-         }
-         private void AreaTotalTxt_TextChanged(object sender, EventArgs e)
-         {
-             try
-             {
-                 if (AreaTotalTxt.Text == "" || AreaTotalTxt.Text == "0" || AreaTotalTxt.Text == "0.0" || AreaTotalTxt.Text == "0,0")
-                 {
-                     this.vector[0] = 0;
-                 }
-                 else
-                     this.updateVectorChanged(0);
-             }
-             catch (Exception ex)
-             {
-                 Error_Form errorForm = new Error_Form(ex.Message);
-                 errorForm.MdiParent = ParentForm;
-                 errorForm.Show();
-             }
-         }
         
-         private void intMuestreoTxt_TextChanged(object sender, EventArgs e)
-         {
-             try
-             {
-                 if (intMuestreoTxt.Text == "" || intMuestreoTxt.Text == "0" || intMuestreoTxt.Text == "0.0" || intMuestreoTxt.Text == "0,0")
-                 {
-                     this.vector[1] = 0;
-                 }
-                 else
-                     this.updateVectorChanged(1);
-             }
-             catch (Exception ex)
-             {
-                 Error_Form errorForm = new Error_Form(ex.Message);
-                 errorForm.MdiParent = ParentForm;
-                 errorForm.Show();
-             }
-         }
-
-         private void areaMuestrearTxt_TextChanged(object sender, EventArgs e)
-         {
-             try
-             {
-                 if (areaMuestrearTxt.Text == "" || areaMuestrearTxt.Text == "0" || areaMuestrearTxt.Text == "0.0" || areaMuestrearTxt.Text == "0,0")
-                 {
-                     this.vector[2] = 0;
-                 }
-                 else
-                     this.updateVectorChanged(2);
-             }
-             catch (Exception ex)
-             {
-                 Error_Form errorForm = new Error_Form(ex.Message);
-                 errorForm.MdiParent = ParentForm;
-                 errorForm.Show();
-             }
-         }
 
          private void buscarTxt_TextChanged(object sender, EventArgs e)
          {

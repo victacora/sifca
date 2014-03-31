@@ -10,7 +10,9 @@
           <EntitySet Name="ESPECIE" EntityType="SIFCA_Model.Store.ESPECIE" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ESTADOSANITARIO" EntityType="SIFCA_Model.Store.ESTADOSANITARIO" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ESTRATO" EntityType="SIFCA_Model.Store.ESTRATO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FORMULA" EntityType="SIFCA_Model.Store.FORMULA" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="FORMULARIO" EntityType="SIFCA_Model.Store.FORMULARIO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FORMULAVARIABLE" EntityType="SIFCA_Model.Store.FORMULAVARIABLE" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="GRUPOCOMERCIAL" EntityType="SIFCA_Model.Store.GRUPOCOMERCIAL" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="IMAGEN" EntityType="SIFCA_Model.Store.IMAGEN" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LINEAINVENTARIO" EntityType="SIFCA_Model.Store.LINEAINVENTARIO" store:Type="Tables" Schema="dbo" />
@@ -27,6 +29,7 @@
           <EntitySet Name="TSTUDENT" EntityType="SIFCA_Model.Store.TSTUDENT" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="USO" EntityType="SIFCA_Model.Store.USO" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="USUARIO" EntityType="SIFCA_Model.Store.USUARIO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VARIABLE" EntityType="SIFCA_Model.Store.VARIABLE" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_ESPECIE_PERTENECE_GRUPOCOM" Association="SIFCA_Model.Store.FK_ESPECIE_PERTENECE_GRUPOCOM">
             <End Role="GRUPOCOMERCIAL" EntitySet="GRUPOCOMERCIAL" />
             <End Role="ESPECIE" EntitySet="ESPECIE" />
@@ -42,6 +45,14 @@
           <AssociationSet Name="FK_FORMULAR_MANEJA_ESTRATO" Association="SIFCA_Model.Store.FK_FORMULAR_MANEJA_ESTRATO">
             <End Role="ESTRATO" EntitySet="ESTRATO" />
             <End Role="FORMULARIO" EntitySet="FORMULARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORMULAV_FORMULAVA_FORMULA" Association="SIFCA_Model.Store.FK_FORMULAV_FORMULAVA_FORMULA">
+            <End Role="FORMULA" EntitySet="FORMULA" />
+            <End Role="FORMULAVARIABLE" EntitySet="FORMULAVARIABLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORMULAV_FORMULAVA_VARIABLE" Association="SIFCA_Model.Store.FK_FORMULAV_FORMULAVA_VARIABLE">
+            <End Role="VARIABLE" EntitySet="VARIABLE" />
+            <End Role="FORMULAVARIABLE" EntitySet="FORMULAVARIABLE" />
           </AssociationSet>
           <AssociationSet Name="FK_IMAGEN_IMAGENE_ESPECIE" Association="SIFCA_Model.Store.FK_IMAGEN_IMAGENE_ESPECIE">
             <End Role="ESPECIE" EntitySet="ESPECIE" />
@@ -107,6 +118,10 @@
             <End Role="OBJETIVOINVENTARIO" EntitySet="OBJETIVOINVENTARIO" />
             <End Role="PROYECTO" EntitySet="PROYECTO" />
           </AssociationSet>
+          <AssociationSet Name="FK_PROYECTO_PROYECTOF_FORMULA" Association="SIFCA_Model.Store.FK_PROYECTO_PROYECTOF_FORMULA">
+            <End Role="FORMULA" EntitySet="FORMULA" />
+            <End Role="PROYECTO" EntitySet="PROYECTO" />
+          </AssociationSet>
           <AssociationSet Name="FK_PROYECTO_REALIZA_TIPODISE" Association="SIFCA_Model.Store.FK_PROYECTO_REALIZA_TIPODISE">
             <End Role="TIPODISENOMUESTRAL" EntitySet="TIPODISENOMUESTRAL" />
             <End Role="PROYECTO" EntitySet="PROYECTO" />
@@ -142,7 +157,7 @@
           <Property Name="FAMILIA" Type="varchar" MaxLength="200" />
           <Property Name="ZONAGEOGRAFICA" Type="varchar" MaxLength="200" />
           <Property Name="ZONADEVIDA" Type="varchar" MaxLength="200" />
-          <Property Name="DIAMMINCORTE" Type="numeric" />
+          <Property Name="DIAMMINCORTE" Type="numeric" Scale="6" />
           <Property Name="GRUPOECOLOGICO" Type="char" MaxLength="2" />
         </EntityType>
         <EntityType Name="ESTADOSANITARIO">
@@ -159,6 +174,15 @@
           <Property Name="CODEST" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="DESCRIPESTRATO" Type="varchar" MaxLength="500" />
         </EntityType>
+        <EntityType Name="FORMULA">
+          <Key>
+            <PropertyRef Name="NROFORMULA" />
+          </Key>
+          <Property Name="NROFORMULA" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EXPRESION" Type="varchar" Nullable="false" MaxLength="5000" />
+          <Property Name="NOMBRE" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="5000" />
+        </EntityType>
         <EntityType Name="FORMULARIO">
           <Key>
             <PropertyRef Name="NROFORMULARIO" />
@@ -174,6 +198,14 @@
           <Property Name="LINEA" Type="numeric" Nullable="false" />
           <Property Name="COORDENADAX" Type="numeric" Scale="6" />
           <Property Name="COORDENADAY" Type="numeric" Scale="6" />
+        </EntityType>
+        <EntityType Name="FORMULAVARIABLE">
+          <Key>
+            <PropertyRef Name="NROVARIABLE" />
+            <PropertyRef Name="NROFORMULA" />
+          </Key>
+          <Property Name="NROVARIABLE" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NROFORMULA" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="GRUPOCOMERCIAL">
           <Key>
@@ -276,6 +308,9 @@
           <Property Name="ETAPA" Type="numeric" Nullable="false" />
           <Property Name="TIPOPROYECTO" Type="varchar" Nullable="false" MaxLength="2" />
           <Property Name="CONFIANZA" Type="numeric" Nullable="false" Scale="6" />
+          <Property Name="NROFORMULA" Type="uniqueidentifier" />
+          <Property Name="NUMEROPARCELAS" Type="numeric" />
+          <Property Name="NUMEROPARCELASAMUESTREAR" Type="numeric" />
         </EntityType>
         <EntityType Name="PROYECTOSPORETAPA">
           <Key>
@@ -344,6 +379,14 @@
           <Property Name="CEDULA" Type="numeric" Nullable="false" />
           <Property Name="TIPOUSUARIO" Type="char" Nullable="false" MaxLength="2" />
         </EntityType>
+        <EntityType Name="VARIABLE">
+          <Key>
+            <PropertyRef Name="NROVARIABLE" />
+          </Key>
+          <Property Name="NROVARIABLE" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="5000" />
+        </EntityType>
         <Association Name="FK_ESPECIE_PERTENECE_GRUPOCOM">
           <End Role="GRUPOCOMERCIAL" Type="SIFCA_Model.Store.GRUPOCOMERCIAL" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -397,6 +440,34 @@
             </Principal>
             <Dependent Role="FORMULARIO">
               <PropertyRef Name="CODEST" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORMULAV_FORMULAVA_FORMULA">
+          <End Role="FORMULA" Type="SIFCA_Model.Store.FORMULA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FORMULAVARIABLE" Type="SIFCA_Model.Store.FORMULAVARIABLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FORMULA">
+              <PropertyRef Name="NROFORMULA" />
+            </Principal>
+            <Dependent Role="FORMULAVARIABLE">
+              <PropertyRef Name="NROFORMULA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORMULAV_FORMULAVA_VARIABLE">
+          <End Role="VARIABLE" Type="SIFCA_Model.Store.VARIABLE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FORMULAVARIABLE" Type="SIFCA_Model.Store.FORMULAVARIABLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VARIABLE">
+              <PropertyRef Name="NROVARIABLE" />
+            </Principal>
+            <Dependent Role="FORMULAVARIABLE">
+              <PropertyRef Name="NROVARIABLE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -618,6 +689,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PROYECTO_PROYECTOF_FORMULA">
+          <End Role="FORMULA" Type="SIFCA_Model.Store.FORMULA" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FORMULA">
+              <PropertyRef Name="NROFORMULA" />
+            </Principal>
+            <Dependent Role="PROYECTO">
+              <PropertyRef Name="NROFORMULA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PROYECTO_REALIZA_TIPODISE">
           <End Role="TIPODISENOMUESTRAL" Type="SIFCA_Model.Store.TIPODISENOMUESTRAL" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -674,10 +759,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="sp_BackupDB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="BaseLocation" Type="varchar" Mode="In" />
-          <Parameter Name="BackupType" Type="varchar" Mode="In" />
-        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -794,6 +875,16 @@
           <Parameter Name="BaseLocation" Mode="In" Type="String" />
             <Parameter Name="BackupType" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="FORMULA" EntityType="SIFCA_Model.FORMULA" />
+          <EntitySet Name="VARIABLE" EntityType="SIFCA_Model.VARIABLE" />
+          <AssociationSet Name="FK_PROYECTO_PROYECTOF_FORMULA" Association="SIFCA_Model.FK_PROYECTO_PROYECTOF_FORMULA">
+            <End Role="FORMULA" EntitySet="FORMULA" />
+            <End Role="PROYECTO" EntitySet="PROYECTO" />
+          </AssociationSet>
+          <AssociationSet Name="FORMULAVARIABLE" Association="SIFCA_Model.FORMULAVARIABLE">
+            <End Role="FORMULA" EntitySet="FORMULA" />
+            <End Role="VARIABLE" EntitySet="VARIABLE" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="CALIDAD">
           <Key>
@@ -975,6 +1066,10 @@
           <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.LISTADODEESPECIES" FromRole="PROYECTO" ToRole="ESPECIE" />
           <Property Type="Decimal" Name="CONFIANZA" Precision="18" Scale="3" Nullable="false" />
           <Property Type="Decimal" Name="ETAPA" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Guid" Name="NROFORMULA" />
+          <NavigationProperty Name="FORMULA" Relationship="SIFCA_Model.FK_PROYECTO_PROYECTOF_FORMULA" FromRole="PROYECTO" ToRole="FORMULA" />
+          <Property Type="Decimal" Name="NUMEROPARCELAS" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="NUMEROPARCELASAMUESTREAR" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="PROYECTOSPORETAPA">
           <Key>
@@ -1325,6 +1420,42 @@
           <End Role="TIPODEUSO" Type="SIFCA_Model.TIPODEUSO" Multiplicity="*" />
           <End Role="LINEANOMADERABLES" Type="SIFCA_Model.LINEANOMADERABLES" Multiplicity="*" />
         </Association>
+        <EntityType Name="FORMULA">
+          <Key>
+            <PropertyRef Name="NROFORMULA" />
+          </Key>
+          <Property Type="Guid" Name="NROFORMULA" Nullable="false" />
+          <Property Type="String" Name="EXPRESION" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_PROYECTOF_FORMULA" FromRole="FORMULA" ToRole="PROYECTO" />
+          <NavigationProperty Name="VARIABLE" Relationship="SIFCA_Model.FORMULAVARIABLE" FromRole="FORMULA" ToRole="VARIABLE" />
+          <Property Type="String" Name="DESCRIPCION" MaxLength="5000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VARIABLE">
+          <Key>
+            <PropertyRef Name="NROVARIABLE" />
+          </Key>
+          <Property Type="Guid" Name="NROVARIABLE" Nullable="false" />
+          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FORMULA" Relationship="SIFCA_Model.FORMULAVARIABLE" FromRole="VARIABLE" ToRole="FORMULA" />
+          <Property Type="String" Name="DESCRIPCION" MaxLength="5000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_PROYECTO_PROYECTOF_FORMULA">
+          <End Type="SIFCA_Model.FORMULA" Role="FORMULA" Multiplicity="0..1" />
+          <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FORMULA">
+              <PropertyRef Name="NROFORMULA" />
+            </Principal>
+            <Dependent Role="PROYECTO">
+              <PropertyRef Name="NROFORMULA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FORMULAVARIABLE">
+          <End Type="SIFCA_Model.FORMULA" Role="FORMULA" Multiplicity="*" />
+          <End Type="SIFCA_Model.VARIABLE" Role="VARIABLE" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1467,6 +1598,9 @@
           <EntitySetMapping Name="PROYECTO">
             <EntityTypeMapping TypeName="SIFCA_Model.PROYECTO">
               <MappingFragment StoreEntitySet="PROYECTO">
+                <ScalarProperty Name="NUMEROPARCELASAMUESTREAR" ColumnName="NUMEROPARCELASAMUESTREAR" />
+                <ScalarProperty Name="NUMEROPARCELAS" ColumnName="NUMEROPARCELAS" />
+                <ScalarProperty Name="NROFORMULA" ColumnName="NROFORMULA" />
                 <ScalarProperty Name="ETAPA" ColumnName="ETAPA" />
                 <ScalarProperty Name="CONFIANZA" ColumnName="CONFIANZA" />
                 <ScalarProperty Name="NROPROY" ColumnName="NROPROY" />
@@ -1565,7 +1699,33 @@
               <ScalarProperty Name="LINEANMAD" ColumnName="LINEANMAD" />
             </EndProperty>
           </AssociationSetMapping>
-          <FunctionImportMapping FunctionImportName="createBackupDB" FunctionName="SIFCA_Model.Store.sp_BackupDB" />
+          <EntitySetMapping Name="FORMULA">
+            <EntityTypeMapping TypeName="SIFCA_Model.FORMULA">
+              <MappingFragment StoreEntitySet="FORMULA">
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="EXPRESION" ColumnName="EXPRESION" />
+                <ScalarProperty Name="NROFORMULA" ColumnName="NROFORMULA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VARIABLE">
+            <EntityTypeMapping TypeName="SIFCA_Model.VARIABLE">
+              <MappingFragment StoreEntitySet="VARIABLE">
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="NROVARIABLE" ColumnName="NROVARIABLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FORMULAVARIABLE" TypeName="SIFCA_Model.FORMULAVARIABLE" StoreEntitySet="FORMULAVARIABLE">
+            <EndProperty Name="VARIABLE">
+              <ScalarProperty Name="NROVARIABLE" ColumnName="NROVARIABLE" />
+            </EndProperty>
+            <EndProperty Name="FORMULA">
+              <ScalarProperty Name="NROFORMULA" ColumnName="NROFORMULA" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1598,7 +1758,7 @@
         <EntityTypeShape EntityType="SIFCA_Model.LINEAINVENTARIO" Width="1.5" PointX="8.25" PointY="9" Height="4.4802050781250031" IsExpanded="true" />
         <EntityTypeShape EntityType="SIFCA_Model.LINEANOMADERABLES" Width="1.5" PointX="5.25" PointY="7.25" Height="1.9802864583333317" IsExpanded="true" />
         <EntityTypeShape EntityType="SIFCA_Model.LINEAREGENERACION" Width="1.5" PointX="5.25" PointY="17" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SIFCA_Model.LISTADODEESTRATOS" Width="1.5" PointX="11.25" PointY="12.25" Height="1.9802864583333353" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIFCA_Model.LISTADODEESTRATOS" Width="1.5" PointX="10.75" PointY="13.125" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="SIFCA_Model.OBJETIVOINVENTARIO" Width="1.5" PointX="3.75" PointY="20.375" Height="1.5956835937500031" IsExpanded="true" />
         <EntityTypeShape EntityType="SIFCA_Model.PROYECTO" Width="1.5" PointX="6" PointY="10.25" Height="5.8263151041666674" IsExpanded="true" />
         <EntityTypeShape EntityType="SIFCA_Model.PROYECTOSPORETAPA" Width="2.125" PointX="8.25" PointY="14.875" Height="1.9802864583333406" IsExpanded="true" />
@@ -1609,8 +1769,8 @@
         <EntityTypeShape EntityType="SIFCA_Model.USUARIO" Width="1.5" PointX="0.75" PointY="11.75" Height="2.9417936197916674" IsExpanded="true" />
         <AssociationConnector Association="SIFCA_Model.FK_LINEAINV_POSEE_CALIDAD" ManuallyRouted="false">
           <ConnectorPoint PointX="7.5" PointY="5.047841796875" />
-          <ConnectorPoint PointX="9" PointY="5.047841796875" />
-          <ConnectorPoint PointX="9" PointY="9" />
+          <ConnectorPoint PointX="8.84375" PointY="5.047841796875" />
+          <ConnectorPoint PointX="8.84375" PointY="9" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_ESPECIE_PERTENECE_GRUPOCOM" ManuallyRouted="false">
           <ConnectorPoint PointX="3" PointY="3.922841796875" />
@@ -1621,28 +1781,30 @@
           <ConnectorPoint PointX="6" PointY="2.5237939453125" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LINEAINV_CONTIENE_ESPECIE" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.90625125" PointY="5.6436979166666656" />
-          <ConnectorPoint PointX="4.90625125" PointY="9.7401432291666659" />
-          <ConnectorPoint PointX="4.979166666666667" PointY="9.7401432291666659" />
-          <ConnectorPoint PointX="5.208333333333333" PointY="9.7401432291666659" />
-          <ConnectorPoint PointX="7.916666666666667" PointY="9.7401432291666659" />
-          <ConnectorPoint PointX="8.0833333333333339" PointY="9.7401432291666659" />
-          <ConnectorPoint PointX="8.25" PointY="9.7401432291666659" />
+          <ConnectorPoint PointX="4.87499875" PointY="5.8359993489583326" />
+          <ConnectorPoint PointX="4.87499875" PointY="9.706427786458331" />
+          <ConnectorPoint PointX="4.979166666666667" PointY="9.706427786458331" />
+          <ConnectorPoint PointX="5.208333333333333" PointY="9.706427786458331" />
+          <ConnectorPoint PointX="7.072916666666667" PointY="9.706427786458331" />
+          <ConnectorPoint PointX="7.239583333333333" PointY="9.706427786458331" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="9.706427786458331" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="9.706427786458331" />
+          <ConnectorPoint PointX="8.25" PointY="9.706427786458331" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LINEAREG_EVALUACIO_ESPECIE" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.6874975" PointY="5.6436979166666656" />
-          <ConnectorPoint PointX="4.6874975" PointY="18.182444661458334" />
-          <ConnectorPoint PointX="4.7916654166666666" PointY="18.182444661458334" />
-          <ConnectorPoint PointX="4.9583320833333326" PointY="18.182444661458334" />
-          <ConnectorPoint PointX="5.25" PointY="18.182444661458334" />
+          <ConnectorPoint PointX="4.687496875" PointY="5.8359993489583326" />
+          <ConnectorPoint PointX="4.687496875" PointY="18.493682076822918" />
+          <ConnectorPoint PointX="4.7916651041666674" PointY="18.493682076822918" />
+          <ConnectorPoint PointX="4.9583317708333334" PointY="18.493682076822918" />
+          <ConnectorPoint PointX="5.25" PointY="18.493682076822918" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LINEAINV_ASOCIADO_ESTADOSA" ManuallyRouted="false">
           <ConnectorPoint PointX="7.5" PointY="20.501152846153847" />
           <ConnectorPoint PointX="7.875" PointY="20.126152846153847" />
-          <ConnectorPoint PointX="7.875" PointY="11.641426153645835" />
-          <ConnectorPoint PointX="7.916666666666667" PointY="11.641426153645835" />
-          <ConnectorPoint PointX="8.0833333333333339" PointY="11.641426153645835" />
-          <ConnectorPoint PointX="8.25" PointY="11.641426153645835" />
+          <ConnectorPoint PointX="7.875" PointY="11.624568432291667" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="11.624568432291667" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="11.624568432291667" />
+          <ConnectorPoint PointX="8.25" PointY="11.624568432291667" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_FORMULAR_MANEJA_ESTRATO" ManuallyRouted="false">
           <ConnectorPoint PointX="2.2499999999999978" PointY="9.5379850260416656" />
@@ -1654,21 +1816,25 @@
           <ConnectorPoint PointX="2.25" PointY="8.6127405130208317" />
           <ConnectorPoint PointX="2.75" PointY="8.6127405130208317" />
           <ConnectorPoint PointX="2.75" PointY="9.4802864583333317" />
-          <ConnectorPoint PointX="4.6041641666666671" PointY="9.4802864583333317" />
-          <ConnectorPoint PointX="4.7708308333333331" PointY="9.4802864583333317" />
-          <ConnectorPoint PointX="4.8229179166666674" PointY="9.48028645833333" />
+          <ConnectorPoint PointX="4.6041635416666669" PointY="9.4802864583333317" />
+          <ConnectorPoint PointX="4.7708302083333329" PointY="9.4802864583333317" />
+          <ConnectorPoint PointX="4.7916654166666666" PointY="9.4802864583333317" />
+          <ConnectorPoint PointX="4.9583320833333326" PointY="9.4802864583333317" />
+          <ConnectorPoint PointX="4.979166666666667" PointY="9.4802864583333317" />
           <ConnectorPoint PointX="5.208333333333333" PointY="9.4802864583333317" />
+          <ConnectorPoint PointX="7.072916666666667" PointY="9.4802864583333317" />
+          <ConnectorPoint PointX="7.239583333333333" PointY="9.4802864583333317" />
           <ConnectorPoint PointX="8" PointY="9.4802864583333317" />
           <ConnectorPoint PointX="8" PointY="13.730205078125003" />
-          <ConnectorPoint PointX="11" PointY="13.730205078125003" />
-          <ConnectorPoint PointX="11" PointY="12" />
-          <ConnectorPoint PointX="12" PointY="12" />
-          <ConnectorPoint PointX="12" PointY="12.25" />
+          <ConnectorPoint PointX="10.5" PointY="13.730205078125003" />
+          <ConnectorPoint PointX="10.5" PointY="12.875" />
+          <ConnectorPoint PointX="11.5" PointY="12.875" />
+          <ConnectorPoint PointX="11.5" PointY="13.125" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_FORMULAR_DESARROLL_PROYECTO" ManuallyRouted="false">
           <ConnectorPoint PointX="6" PointY="13.206934592147436" />
-          <ConnectorPoint PointX="4.7708308333333331" PointY="13.206934592147436" />
-          <ConnectorPoint PointX="4.6041641666666671" PointY="13.206934592147436" />
+          <ConnectorPoint PointX="4.7708302083333329" PointY="13.206934592147436" />
+          <ConnectorPoint PointX="4.6041635416666669" PointY="13.206934592147436" />
           <ConnectorPoint PointX="4.5" PointY="13.206934592147436" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_FORMULAR_ES_REPONS_USUARIO" ManuallyRouted="false">
@@ -1677,19 +1843,21 @@
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LINEAINV_LLENA_FORMULAR" ManuallyRouted="false">
           <ConnectorPoint PointX="3.75" PointY="11" />
-          <ConnectorPoint PointX="3.75" PointY="9.9950741145833337" />
-          <ConnectorPoint PointX="4.6041641666666671" PointY="9.9950741145833337" />
-          <ConnectorPoint PointX="4.7708308333333331" PointY="9.9950741145833337" />
-          <ConnectorPoint PointX="4.979166666666667" PointY="9.9950741145833337" />
-          <ConnectorPoint PointX="5.208333333333333" PointY="9.9950741145833337" />
-          <ConnectorPoint PointX="7.916666666666667" PointY="9.9950741145833337" />
-          <ConnectorPoint PointX="8.0833333333333339" PointY="9.9950741145833337" />
-          <ConnectorPoint PointX="8.25" PointY="9.9950741145833337" />
+          <ConnectorPoint PointX="3.75" PointY="9.9782163932291663" />
+          <ConnectorPoint PointX="4.6041635416666669" PointY="9.9782163932291663" />
+          <ConnectorPoint PointX="4.7708302083333329" PointY="9.9782163932291663" />
+          <ConnectorPoint PointX="4.979166666666667" PointY="9.9782163932291663" />
+          <ConnectorPoint PointX="5.208333333333333" PointY="9.9782163932291663" />
+          <ConnectorPoint PointX="7.072916666666667" PointY="9.9782163932291663" />
+          <ConnectorPoint PointX="7.239583333333333" PointY="9.9782163932291663" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="9.9782163932291663" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="9.9782163932291663" />
+          <ConnectorPoint PointX="8.25" PointY="9.9782163932291663" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LINEANOM_RECOLECTA_FORMULAR" ManuallyRouted="false">
           <ConnectorPoint PointX="4.5" PointY="11.063460538461538" />
-          <ConnectorPoint PointX="4.628571934901121" PointY="10.934888603560417" />
-          <ConnectorPoint PointX="4.7464230650988792" PointY="10.81703747336266" />
+          <ConnectorPoint PointX="4.6285713099011208" PointY="10.934889228560415" />
+          <ConnectorPoint PointX="4.746422440098879" PointY="10.817038098362659" />
           <ConnectorPoint PointX="5.0625" PointY="10.500960538461538" />
           <ConnectorPoint PointX="5.0625" PointY="8.2401432291666659" />
           <ConnectorPoint PointX="5.25" PointY="8.2401432291666659" />
@@ -1697,54 +1865,54 @@
         <AssociationConnector Association="SIFCA_Model.FK_LINEAREG_COMPLETA_FORMULAR" ManuallyRouted="false">
           <ConnectorPoint PointX="3.75" PointY="15.287903645833332" />
           <ConnectorPoint PointX="3.75" PointY="17.559969830729166" />
-          <ConnectorPoint PointX="4.6041641666666671" PointY="17.559969830729166" />
-          <ConnectorPoint PointX="4.7708308333333331" PointY="17.559969830729166" />
-          <ConnectorPoint PointX="4.7916654166666666" PointY="17.559969830729166" />
-          <ConnectorPoint PointX="4.9583320833333326" PointY="17.559969830729166" />
+          <ConnectorPoint PointX="4.6041635416666669" PointY="17.559969830729166" />
+          <ConnectorPoint PointX="4.7708302083333329" PointY="17.559969830729166" />
+          <ConnectorPoint PointX="4.7916651041666674" PointY="17.559969830729166" />
+          <ConnectorPoint PointX="4.9583317708333334" PointY="17.559969830729166" />
           <ConnectorPoint PointX="5.25" PointY="17.559969830729166" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LISTAESTRATOS_PROYECTO" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.5" PointY="14.138896484375001" />
-          <ConnectorPoint PointX="7.791666666666667" PointY="14.138896484375001" />
-          <ConnectorPoint PointX="7.958333333333333" PointY="14.138896484375001" />
-          <ConnectorPoint PointX="11.25" PointY="14.138896484375001" />
+          <ConnectorPoint PointX="7.5" PointY="14.333852539062502" />
+          <ConnectorPoint PointX="7.791666666666667" PointY="14.333852539062502" />
+          <ConnectorPoint PointX="7.958333333333333" PointY="14.333852539062502" />
+          <ConnectorPoint PointX="10.75" PointY="14.333852539062502" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_PROYECTO_ES_OBJETIVO" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.87499875" PointY="20.375" />
-          <ConnectorPoint PointX="4.87499875" PointY="15.824086714057248" />
-          <ConnectorPoint PointX="6" PointY="15.824086714057248" />
+          <ConnectorPoint PointX="4.8749984375" PointY="20.375" />
+          <ConnectorPoint PointX="4.8749984375" PointY="16.118684950386811" />
+          <ConnectorPoint PointX="6" PointY="16.118684950386811" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_PROYECTO_CONTENEDOR" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.5" PointY="15.716931597391765" />
-          <ConnectorPoint PointX="7.791666666666667" PointY="15.716931597391765" />
-          <ConnectorPoint PointX="7.958333333333333" PointY="15.716931597391765" />
-          <ConnectorPoint PointX="8.25" PointY="15.716931597391765" />
+          <ConnectorPoint PointX="7.5" PointY="15.946898579930652" />
+          <ConnectorPoint PointX="7.791666666666667" PointY="15.946898579930652" />
+          <ConnectorPoint PointX="7.958333333333333" PointY="15.946898579930652" />
+          <ConnectorPoint PointX="8.25" PointY="15.946898579930652" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_PROYECTO_CONTENIDOS" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.5" PointY="15.233465798695882" />
-          <ConnectorPoint PointX="7.791666666666667" PointY="15.233465798695882" />
-          <ConnectorPoint PointX="7.958333333333333" PointY="15.233465798695882" />
-          <ConnectorPoint PointX="8.25" PointY="15.233465798695882" />
+          <ConnectorPoint PointX="7.5" PointY="15.348449289965327" />
+          <ConnectorPoint PointX="7.791666666666667" PointY="15.348449289965327" />
+          <ConnectorPoint PointX="7.958333333333333" PointY="15.348449289965327" />
+          <ConnectorPoint PointX="8.25" PointY="15.348449289965327" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_PROYECTO_CREA_USUARIO" ManuallyRouted="false">
           <ConnectorPoint PointX="1.29687375" PointY="14.691793619791667" />
-          <ConnectorPoint PointX="1.29687375" PointY="15.555992679945296" />
-          <ConnectorPoint PointX="1.8229191666666667" PointY="15.555992679945296" />
-          <ConnectorPoint PointX="1.9895858333333332" PointY="15.555992679945296" />
-          <ConnectorPoint PointX="3.6666666666666665" PointY="15.555992679945296" />
-          <ConnectorPoint PointX="3.8333333333333335" PointY="15.555992679945296" />
-          <ConnectorPoint PointX="4.6041641666666671" PointY="15.555992679945296" />
-          <ConnectorPoint PointX="4.7708308333333331" PointY="15.555992679945296" />
-          <ConnectorPoint PointX="6" PointY="15.555992679945296" />
+          <ConnectorPoint PointX="1.29687375" PointY="15.703291798110078" />
+          <ConnectorPoint PointX="1.8229191666666667" PointY="15.703291798110078" />
+          <ConnectorPoint PointX="1.9895858333333332" PointY="15.703291798110078" />
+          <ConnectorPoint PointX="3.6666666666666665" PointY="15.703291798110078" />
+          <ConnectorPoint PointX="3.8333333333333335" PointY="15.703291798110078" />
+          <ConnectorPoint PointX="4.6041635416666669" PointY="15.703291798110078" />
+          <ConnectorPoint PointX="4.7708302083333329" PointY="15.703291798110078" />
+          <ConnectorPoint PointX="6" PointY="15.703291798110078" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_PROYECTO_REALIZA_TIPODISE" ManuallyRouted="false">
           <ConnectorPoint PointX="5.25" PointY="28.547841796875" />
           <ConnectorPoint PointX="5.75" PointY="28.547841796875" />
           <ConnectorPoint PointX="5.75" PointY="19.614889322916667" />
           <ConnectorPoint PointX="7" PointY="19.614889322916667" />
-          <ConnectorPoint PointX="7" PointY="16.451315104166667" />
-          <ConnectorPoint PointX="6.75" PointY="16.451315104166667" />
-          <ConnectorPoint PointX="6.75" PointY="16.076315104166667" />
+          <ConnectorPoint PointX="7" PointY="16.835917968750003" />
+          <ConnectorPoint PointX="6.75" PointY="16.835917968750003" />
+          <ConnectorPoint PointX="6.75" PointY="16.460917968750003" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_TRANSACC_REGISTRA_USUARIO" ManuallyRouted="false">
           <ConnectorPoint PointX="1.9062525" PointY="14.691793619791667" />
@@ -1752,19 +1920,32 @@
           <ConnectorPoint PointX="3" PointY="24.74974609375" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.LISTADODEESPECIES" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.125" PointY="5.6436979166666656" />
+          <ConnectorPoint PointX="5.125" PointY="5.8359993489583326" />
           <ConnectorPoint PointX="5.125" PointY="10.59375" />
           <ConnectorPoint PointX="6" PointY="10.59375" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.USO" ManuallyRouted="false">
           <ConnectorPoint PointX="4.5" PointY="7.7450716145833329" />
-          <ConnectorPoint PointX="4.6041641666666671" PointY="7.745071614583332" />
-          <ConnectorPoint PointX="4.7708308333333331" PointY="7.7450716145833329" />
-          <ConnectorPoint PointX="4.8229179166666674" PointY="7.745071614583332" />
-          <ConnectorPoint PointX="4.9895845833333334" PointY="7.7450716145833329" />
+          <ConnectorPoint PointX="4.6041635416666669" PointY="7.745071614583332" />
+          <ConnectorPoint PointX="4.7708302083333329" PointY="7.7450716145833329" />
+          <ConnectorPoint PointX="4.7916654166666666" PointY="7.745071614583332" />
+          <ConnectorPoint PointX="4.9583320833333326" PointY="7.7450716145833329" />
           <ConnectorPoint PointX="5.041666666666667" PointY="7.745071614583332" />
           <ConnectorPoint PointX="5.208333333333333" PointY="7.7450716145833329" />
           <ConnectorPoint PointX="5.25" PointY="7.7450716145833329" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SIFCA_Model.FORMULA" Width="1.5" PointX="9.5" PointY="6.125" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="SIFCA_Model.VARIABLE" Width="1.5" PointX="11.875" PointY="6.625" Height="1.5956835937500031" />
+        <AssociationConnector Association="SIFCA_Model.FK_PROYECTO_PROYECTOF_FORMULA" >
+          <ConnectorPoint PointX="9.5" PointY="6.65625" />
+          <ConnectorPoint PointX="8.9270833333333339" PointY="6.6562499999999991" />
+          <ConnectorPoint PointX="8.7604166666666661" PointY="6.65625" />
+          <ConnectorPoint PointX="7.15625" PointY="6.65625" />
+          <ConnectorPoint PointX="7.15625" PointY="10.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="SIFCA_Model.FORMULAVARIABLE" >
+          <ConnectorPoint PointX="11" PointY="7.3651432291666694" />
+          <ConnectorPoint PointX="11.875" PointY="7.3651432291666694" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

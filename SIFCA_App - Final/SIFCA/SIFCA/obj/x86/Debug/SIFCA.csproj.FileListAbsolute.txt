@@ -112,3 +112,4 @@ C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\bin\Debug\SIFCA.pdb
 C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Arbol_Proyectos_Por_Etapas_Form.resources
 C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Gestion_Configuracion.TStudent_Form.resources
 C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.ClasesDiametricas_Form.resources
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA\obj\x86\Debug\SIFCA.Evaluador_Expresiones_Form.resources

@@ -83,6 +83,9 @@
     <Compile Include="ESTRATO.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="FORMULA.cs">
+      <DependentUpon>SIFCA_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="FORMULARIO.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
@@ -142,6 +145,9 @@
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="USUARIO.cs">
+      <DependentUpon>SIFCA_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VARIABLE.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
   </ItemGroup>

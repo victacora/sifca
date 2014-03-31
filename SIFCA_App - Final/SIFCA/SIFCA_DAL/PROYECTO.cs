@@ -40,9 +40,9 @@ namespace SIFCA_DAL
         public string TIPOPROYECTO { get; set; }
         public decimal CONFIANZA { get; set; }
         public decimal ETAPA { get; set; }
-        public Nullable<System.Guid> NROFORMULA { get; set; }
-        public Nullable<decimal> NUMEROPARCELAS { get; set; }
-        public Nullable<decimal> NUMEROPARCELASAMUESTREAR { get; set; }
+        public System.Guid NROFORMULA { get; set; }
+        public decimal NUMEROPARCELAS { get; set; }
+        public decimal NUMEROPARCELASAMUESTREAR { get; set; }
     
         public virtual ICollection<FORMULARIO> FORMULARIO { get; set; }
         public virtual ICollection<LISTADODEESTRATOS> LISTADODEESTRATOS { get; set; }

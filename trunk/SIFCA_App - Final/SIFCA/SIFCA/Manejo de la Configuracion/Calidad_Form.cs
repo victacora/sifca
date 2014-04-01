@@ -16,6 +16,9 @@ namespace SIFCA.Gestion_Configuracion
         private CALIDAD quality;
         private QualityBL qualityBl;
 
+        /// <summary>
+        /// Constructor para inicializar atributos y elementos del formulario
+        /// </summary>
         public Calidad_Form()
         {
             try
@@ -38,6 +41,12 @@ namespace SIFCA.Gestion_Configuracion
             }
         }
 
+        /// <summary>
+        /// Funcion que valida que los campos del formulario crear no esten vacios si pasa las validaciones entonces se inserta 
+        /// el nuevo registro y se alerta al usuario con un mensaje de exito, si ocurre un error durante el proceso se notifica al usuario con un mensaje de error
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Btn_Crear_Click(object sender, EventArgs e)
         {
             try
@@ -83,7 +92,14 @@ namespace SIFCA.Gestion_Configuracion
             }
         }
 
-        private void ListadoDeEspecies_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        /// <summary>
+        /// Capturamos el click que se de en el alguna de las opciones editar o eliminar y se procede con la accion
+        /// si es modificar se redimensiona la ventana para cargar el panel de editar, si se va a eliminar se pide la 
+        /// confirmacion del usuario y se procede a eliminar el registro
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Listado_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
@@ -174,7 +190,13 @@ namespace SIFCA.Gestion_Configuracion
             }
         }
 
-
+        /// <summary>
+        /// Esta funcion se invoca desde el formulario de actualizar(editar), en este se validan que los campos sean correctos y se procede
+        /// a realizar la actualizacio del registro en la base de datos, si la accion se completa satisfactoriamente se notifica al usuario
+        /// por medio de un mensaje de exito, en caso contrario se alerta o notifica del error que se presento
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Btn_guardar_Click(object sender, EventArgs e)
         {
             try
@@ -231,6 +253,11 @@ namespace SIFCA.Gestion_Configuracion
             }
         }
 
+        /// <summary>
+        /// Accion que se invoca y se retorna al listado principal que contienen los datos
+        /// </summary>
+        /// <param name="sender"></param> contiene los datos del elemento que lanzo el evento
+        /// <param name="e"></param> argumentos del evento
         private void Btn_CancelarUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -250,6 +277,11 @@ namespace SIFCA.Gestion_Configuracion
             }
         }
 
+        /// <summary>
+        /// Accion que se invoca y se retorna al listado principal que contienen los datos
+        /// </summary>
+        /// <param name="sender"></param> contiene los datos del elemento que lanzo el evento
+        /// <param name="e"></param> argumentos del evento
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
             try
@@ -270,6 +302,12 @@ namespace SIFCA.Gestion_Configuracion
 
         }
 
+        /// <summary>
+        /// Funcion que sirve para buscar un registro de acuerdo a lo que el usuario digito y a el criterio de su busqueda, si se
+        /// encuentra alguna coincidencia en la base de datos se retorna en caso contrario se retorna null.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void busquedaTxt_TextChanged(object sender, EventArgs e)
         {
             try
@@ -293,6 +331,12 @@ namespace SIFCA.Gestion_Configuracion
             }            
         }
 
+        /// <summary>
+        /// Esta funcion se ejecuta cuando se quiere crear un nuevo registro, se redimensiona la ventana para cargar el formulario de crear 
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Btn_nuevo_Click(object sender, EventArgs e)
         {
             try

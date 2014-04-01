@@ -1,10 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="SIFCA_Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
   <EntityContainer Name="SIFCA_CONTEXT" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="createBackupDB">
+      <Parameter Name="BaseLocation" Mode="In" Type="String" />
+      <Parameter Name="BackupType" Mode="In" Type="String" />
+    </FunctionImport>
     <EntitySet Name="CALIDAD" EntityType="SIFCA_Model.CALIDAD" />
     <EntitySet Name="ESPECIE" EntityType="SIFCA_Model.ESPECIE" />
     <EntitySet Name="ESTADOSANITARIO" EntityType="SIFCA_Model.ESTADOSANITARIO" />
     <EntitySet Name="ESTRATO" EntityType="SIFCA_Model.ESTRATO" />
+    <EntitySet Name="FORMULA" EntityType="SIFCA_Model.FORMULA" />
     <EntitySet Name="FORMULARIO" EntityType="SIFCA_Model.FORMULARIO" />
     <EntitySet Name="GRUPOCOMERCIAL" EntityType="SIFCA_Model.GRUPOCOMERCIAL" />
     <EntitySet Name="IMAGEN" EntityType="SIFCA_Model.IMAGEN" />
@@ -17,9 +22,11 @@
     <EntitySet Name="PROYECTOSPORETAPA" EntityType="SIFCA_Model.PROYECTOSPORETAPA" />
     <EntitySet Name="TIPODEUSO" EntityType="SIFCA_Model.TIPODEUSO" />
     <EntitySet Name="TIPODISENOMUESTRAL" EntityType="SIFCA_Model.TIPODISENOMUESTRAL" />
+    <EntitySet Name="TIPOFORMULA" EntityType="SIFCA_Model.TIPOFORMULA" />
     <EntitySet Name="TRANSACCION" EntityType="SIFCA_Model.TRANSACCION" />
     <EntitySet Name="TSTUDENT" EntityType="SIFCA_Model.TSTUDENT" />
     <EntitySet Name="USUARIO" EntityType="SIFCA_Model.USUARIO" />
+    <EntitySet Name="VARIABLE" EntityType="SIFCA_Model.VARIABLE" />
     <AssociationSet Name="FK_LINEAINV_POSEE_CALIDAD" Association="SIFCA_Model.FK_LINEAINV_POSEE_CALIDAD">
       <End Role="CALIDAD" EntitySet="CALIDAD" />
       <End Role="LINEAINVENTARIO" EntitySet="LINEAINVENTARIO" />
@@ -51,6 +58,14 @@
     <AssociationSet Name="FK_LISTADOD_LISTAESTR_ESTRATO" Association="SIFCA_Model.FK_LISTADOD_LISTAESTR_ESTRATO">
       <End Role="ESTRATO" EntitySet="ESTRATO" />
       <End Role="LISTADODEESTRATOS" EntitySet="LISTADODEESTRATOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FORMULA_TIPOFORMULA" Association="SIFCA_Model.FK_FORMULA_TIPOFORMULA">
+      <End Role="TIPOFORMULA" EntitySet="TIPOFORMULA" />
+      <End Role="FORMULA" EntitySet="FORMULA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROYECTO_PROYECTO_FORMULA" Association="SIFCA_Model.FK_PROYECTO_PROYECTO_FORMULA">
+      <End Role="FORMULA" EntitySet="FORMULA" />
+      <End Role="PROYECTO" EntitySet="PROYECTO" />
     </AssociationSet>
     <AssociationSet Name="FK_FORMULAR_DESARROLL_PROYECTO" Association="SIFCA_Model.FK_FORMULAR_DESARROLL_PROYECTO">
       <End Role="PROYECTO" EntitySet="PROYECTO" />
@@ -100,6 +115,10 @@
       <End Role="USUARIO" EntitySet="USUARIO" />
       <End Role="TRANSACCION" EntitySet="TRANSACCION" />
     </AssociationSet>
+    <AssociationSet Name="FORMULAVARIABLE" Association="SIFCA_Model.FORMULAVARIABLE">
+      <End Role="FORMULA" EntitySet="FORMULA" />
+      <End Role="VARIABLE" EntitySet="VARIABLE" />
+    </AssociationSet>
     <AssociationSet Name="LISTADODEESPECIES" Association="SIFCA_Model.LISTADODEESPECIES">
       <End Role="ESPECIE" EntitySet="ESPECIE" />
       <End Role="PROYECTO" EntitySet="PROYECTO" />
@@ -108,85 +127,79 @@
       <End Role="TIPODEUSO" EntitySet="TIPODEUSO" />
       <End Role="LINEANOMADERABLES" EntitySet="LINEANOMADERABLES" />
     </AssociationSet>
-    <FunctionImport Name="createBackupDB">
-      <Parameter Name="BaseLocation" Mode="In" Type="String" />
-      <Parameter Name="BackupType" Mode="In" Type="String" />
-    </FunctionImport>
-    <EntitySet Name="FORMULA" EntityType="SIFCA_Model.FORMULA" />
-    <EntitySet Name="VARIABLE" EntityType="SIFCA_Model.VARIABLE" />
-    <AssociationSet Name="FK_PROYECTO_PROYECTOF_FORMULA" Association="SIFCA_Model.FK_PROYECTO_PROYECTOF_FORMULA">
-      <End Role="FORMULA" EntitySet="FORMULA" />
-      <End Role="PROYECTO" EntitySet="PROYECTO" />
-    </AssociationSet>
-    <AssociationSet Name="FORMULAVARIABLE" Association="SIFCA_Model.FORMULAVARIABLE">
-      <End Role="FORMULA" EntitySet="FORMULA" />
-      <End Role="VARIABLE" EntitySet="VARIABLE" />
-    </AssociationSet>
-    <EntitySet Name="TIPOFORMULA" EntityType="SIFCA_Model.TIPOFORMULA" />
-    <AssociationSet Name="TIPOFORMULAFORMULA" Association="SIFCA_Model.TIPOFORMULAFORMULA">
-      <End Role="TIPOFORMULA" EntitySet="TIPOFORMULA" />
-      <End Role="FORMULA" EntitySet="FORMULA" />
-    </AssociationSet>
   </EntityContainer>
   <EntityType Name="CALIDAD">
     <Key>
       <PropertyRef Name="CODCALIDAD" />
     </Key>
-    <Property Name="CODCALIDAD" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="DESCRIPCALIDAD" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Type="Decimal" Name="CODCALIDAD" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="DESCRIPCALIDAD" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="LINEAINVENTARIO" Relationship="SIFCA_Model.FK_LINEAINV_POSEE_CALIDAD" FromRole="CALIDAD" ToRole="LINEAINVENTARIO" />
   </EntityType>
   <EntityType Name="ESPECIE">
     <Key>
       <PropertyRef Name="CODESP" />
     </Key>
-    <Property Name="CODESP" Type="Guid" Nullable="false" />
-    <Property Name="GRUPOCOM" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
-    <Property Name="NOMCOMUN" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-    <Property Name="NOMCIENTIFICO" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-    <Property Name="FAMILIA" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-    <Property Name="ZONAGEOGRAFICA" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-    <Property Name="ZONADEVIDA" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-    <Property Name="DIAMMINCORTE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Type="Guid" Name="CODESP" Nullable="false" />
+    <Property Type="String" Name="GRUPOCOM" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="NOMCOMUN" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOMCIENTIFICO" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FAMILIA" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ZONAGEOGRAFICA" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ZONADEVIDA" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="DIAMMINCORTE" Precision="18" Scale="6" />
+    <Property Type="String" Name="GRUPOECOLOGICO" MaxLength="2" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="GRUPOCOMERCIAL" Relationship="SIFCA_Model.FK_ESPECIE_PERTENECE_GRUPOCOM" FromRole="ESPECIE" ToRole="GRUPOCOMERCIAL" />
     <NavigationProperty Name="IMAGEN" Relationship="SIFCA_Model.FK_IMAGEN_IMAGENE_ESPECIE" FromRole="ESPECIE" ToRole="IMAGEN" />
     <NavigationProperty Name="LINEAINVENTARIO" Relationship="SIFCA_Model.FK_LINEAINV_CONTIENE_ESPECIE" FromRole="ESPECIE" ToRole="LINEAINVENTARIO" />
     <NavigationProperty Name="LINEAREGENERACION" Relationship="SIFCA_Model.FK_LINEAREG_EVALUACIO_ESPECIE" FromRole="ESPECIE" ToRole="LINEAREGENERACION" />
     <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.LISTADODEESPECIES" FromRole="ESPECIE" ToRole="PROYECTO" />
-    <Property Type="String" Name="GRUPOECOLOGICO" MaxLength="2" FixedLength="true" Unicode="false" />
   </EntityType>
   <EntityType Name="ESTADOSANITARIO">
     <Key>
       <PropertyRef Name="ESTADO" />
     </Key>
-    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
-    <Property Name="DESCRIPESTADO" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="DESCRIPESTADO" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="LINEAINVENTARIO" Relationship="SIFCA_Model.FK_LINEAINV_ASOCIADO_ESTADOSA" FromRole="ESTADOSANITARIO" ToRole="LINEAINVENTARIO" />
   </EntityType>
   <EntityType Name="ESTRATO">
     <Key>
       <PropertyRef Name="CODEST" />
     </Key>
-    <Property Name="CODEST" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="DESCRIPESTRATO" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Type="Decimal" Name="CODEST" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="DESCRIPESTRATO" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_FORMULAR_MANEJA_ESTRATO" FromRole="ESTRATO" ToRole="FORMULARIO" />
     <NavigationProperty Name="LISTADODEESTRATOS" Relationship="SIFCA_Model.FK_LISTADOD_LISTAESTR_ESTRATO" FromRole="ESTRATO" ToRole="LISTADODEESTRATOS" />
+  </EntityType>
+  <EntityType Name="FORMULA">
+    <Key>
+      <PropertyRef Name="NROFORMULA" />
+    </Key>
+    <Property Type="Guid" Name="NROFORMULA" Nullable="false" />
+    <Property Type="Guid" Name="NROTIPOFORMULA" Nullable="false" />
+    <Property Type="String" Name="EXPRESION" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DESCRIPCION" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TIPOFORMULA" Relationship="SIFCA_Model.FK_FORMULA_TIPOFORMULA" FromRole="FORMULA" ToRole="TIPOFORMULA" />
+    <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_PROYECTO_FORMULA" FromRole="FORMULA" ToRole="PROYECTO" />
+    <NavigationProperty Name="VARIABLE" Relationship="SIFCA_Model.FORMULAVARIABLE" FromRole="FORMULA" ToRole="VARIABLE" />
   </EntityType>
   <EntityType Name="FORMULARIO">
     <Key>
       <PropertyRef Name="NROFORMULARIO" />
     </Key>
-    <Property Name="NROFORMULARIO" Type="Guid" Nullable="false" />
-    <Property Name="CODEST" Type="Decimal" Nullable="true" Precision="18" Scale="0" />
-    <Property Name="NROUSUARIO" Type="Guid" Nullable="false" />
-    <Property Name="NROPROY" Type="Guid" Nullable="false" />
-    <Property Name="FECHACREACION" Type="DateTime" Nullable="false" />
-    <Property Name="HORAINICIO" Type="DateTime" />
-    <Property Name="HORAFINAL" Type="DateTime" />
-    <Property Name="PARCELA" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="LINEA" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="COORDENADAX" Type="Decimal" Precision="18" Scale="3" />
-    <Property Name="COORDENADAY" Type="Decimal" Precision="18" Scale="3" />
+    <Property Type="Guid" Name="NROFORMULARIO" Nullable="false" />
+    <Property Type="Decimal" Name="CODEST" Precision="18" Scale="0" />
+    <Property Type="Guid" Name="NROUSUARIO" Nullable="false" />
+    <Property Type="Guid" Name="NROPROY" Nullable="false" />
+    <Property Type="DateTime" Name="FECHACREACION" Nullable="false" />
+    <Property Type="DateTime" Name="HORAINICIO" />
+    <Property Type="DateTime" Name="HORAFINAL" />
+    <Property Type="Decimal" Name="PARCELA" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="LINEA" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="COORDENADAX" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="COORDENADAY" Precision="18" Scale="0" />
     <NavigationProperty Name="ESTRATO" Relationship="SIFCA_Model.FK_FORMULAR_MANEJA_ESTRATO" FromRole="FORMULARIO" ToRole="ESTRATO" />
     <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_FORMULAR_DESARROLL_PROYECTO" FromRole="FORMULARIO" ToRole="PROYECTO" />
     <NavigationProperty Name="USUARIO" Relationship="SIFCA_Model.FK_FORMULAR_ES_REPONS_USUARIO" FromRole="FORMULARIO" ToRole="USUARIO" />
@@ -198,8 +211,8 @@
     <Key>
       <PropertyRef Name="GRUPOCOM" />
     </Key>
-    <Property Name="GRUPOCOM" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
-    <Property Name="DESCRIPGRUPO" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Type="String" Name="GRUPOCOM" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="DESCRIPGRUPO" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.FK_ESPECIE_PERTENECE_GRUPOCOM" FromRole="GRUPOCOMERCIAL" ToRole="ESPECIE" />
   </EntityType>
   <EntityType Name="IMAGEN">
@@ -207,31 +220,31 @@
       <PropertyRef Name="IMAGENID" />
       <PropertyRef Name="CODESP" />
     </Key>
-    <Property Name="IMAGENID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CODESP" Type="Guid" Nullable="false" />
-    <Property Name="DESCRIPCION" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
-    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
-    <Property Name="RUTA" Type="String" Nullable="false" MaxLength="1000" Unicode="false" FixedLength="false" />
+    <Property Type="Decimal" Name="IMAGENID" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Guid" Name="CODESP" Nullable="false" />
+    <Property Type="String" Name="DESCRIPCION" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="RUTA" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.FK_IMAGEN_IMAGENE_ESPECIE" FromRole="IMAGEN" ToRole="ESPECIE" />
   </EntityType>
   <EntityType Name="LINEAINVENTARIO">
     <Key>
       <PropertyRef Name="LINEAINV" />
     </Key>
-    <Property Name="LINEAINV" Type="Guid" Nullable="false" />
-    <Property Name="CODCALIDAD" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="NROFORMULARIO" Type="Guid" Nullable="false" />
-    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
-    <Property Name="CODESP" Type="Guid" Nullable="false" />
-    <Property Name="NROARB" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="ALTCOMER_M" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-    <Property Name="ALTTOT_M" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
-    <Property Name="AREABASAL" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
-    <Property Name="VOLCOM" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
-    <Property Name="VOLTOT" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
-    <Property Name="CAP" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
-    <Property Name="DAP" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
-    <Property Name="TIPOARBOL" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Type="Guid" Name="LINEAINV" Nullable="false" />
+    <Property Type="Decimal" Name="CODCALIDAD" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Guid" Name="NROFORMULARIO" Nullable="false" />
+    <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Type="Guid" Name="CODESP" Nullable="false" />
+    <Property Type="Decimal" Name="NROARB" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="ALTCOMER_M" Nullable="false" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="ALTTOT_M" Nullable="false" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="AREABASAL" Nullable="false" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="VOLCOM" Nullable="false" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="VOLTOT" Nullable="false" Precision="18" Scale="6" />
+    <Property Type="String" Name="TIPOARBOL" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Type="Decimal" Name="CAP" Nullable="false" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="DAP" Nullable="false" Precision="18" Scale="6" />
     <NavigationProperty Name="CALIDAD" Relationship="SIFCA_Model.FK_LINEAINV_POSEE_CALIDAD" FromRole="LINEAINVENTARIO" ToRole="CALIDAD" />
     <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.FK_LINEAINV_CONTIENE_ESPECIE" FromRole="LINEAINVENTARIO" ToRole="ESPECIE" />
     <NavigationProperty Name="ESTADOSANITARIO" Relationship="SIFCA_Model.FK_LINEAINV_ASOCIADO_ESTADOSA" FromRole="LINEAINVENTARIO" ToRole="ESTADOSANITARIO" />
@@ -241,9 +254,9 @@
     <Key>
       <PropertyRef Name="LINEANMAD" />
     </Key>
-    <Property Name="LINEANMAD" Type="Guid" Nullable="false" />
-    <Property Name="NROFORMULARIO" Type="Guid" Nullable="false" />
-    <Property Name="OBSERVACIONES" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Type="Guid" Name="LINEANMAD" Nullable="false" />
+    <Property Type="Guid" Name="NROFORMULARIO" Nullable="false" />
+    <Property Type="String" Name="OBSERVACIONES" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_LINEANOM_RECOLECTA_FORMULAR" FromRole="LINEANOMADERABLES" ToRole="FORMULARIO" />
     <NavigationProperty Name="TIPODEUSO" Relationship="SIFCA_Model.USO" FromRole="LINEANOMADERABLES" ToRole="TIPODEUSO" />
   </EntityType>
@@ -251,11 +264,11 @@
     <Key>
       <PropertyRef Name="LINEAREGEN" />
     </Key>
-    <Property Name="LATIZAL" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="BRINZAL" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="LINEAREGEN" Type="Guid" Nullable="false" />
-    <Property Name="NROFORMULARIO" Type="Guid" Nullable="false" />
-    <Property Name="CODESP" Type="Guid" Nullable="false" />
+    <Property Type="Decimal" Name="LATIZAL" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="BRINZAL" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Guid" Name="LINEAREGEN" Nullable="false" />
+    <Property Type="Guid" Name="NROFORMULARIO" Nullable="false" />
+    <Property Type="Guid" Name="CODESP" Nullable="false" />
     <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.FK_LINEAREG_EVALUACIO_ESPECIE" FromRole="LINEAREGENERACION" ToRole="ESPECIE" />
     <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_LINEAREG_COMPLETA_FORMULAR" FromRole="LINEAREGENERACION" ToRole="FORMULARIO" />
   </EntityType>
@@ -264,40 +277,46 @@
       <PropertyRef Name="NROPROY" />
       <PropertyRef Name="CODEST" />
     </Key>
-    <Property Name="NROPROY" Type="Guid" Nullable="false" />
-    <Property Name="CODEST" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="PESO" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Type="Guid" Name="NROPROY" Nullable="false" />
+    <Property Type="Decimal" Name="CODEST" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="PESO" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="TAMANOMUESTRA" Precision="18" Scale="0" />
     <NavigationProperty Name="ESTRATO" Relationship="SIFCA_Model.FK_LISTADOD_LISTAESTR_ESTRATO" FromRole="LISTADODEESTRATOS" ToRole="ESTRATO" />
     <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_LISTAESTRATOS_PROYECTO" FromRole="LISTADODEESTRATOS" ToRole="PROYECTO" />
-    <Property Type="Decimal" Name="TAMANOMUESTRA" Nullable="false" Precision="18" Scale="0" />
   </EntityType>
   <EntityType Name="OBJETIVOINVENTARIO">
     <Key>
       <PropertyRef Name="NOMBRETIPOINV" />
     </Key>
-    <Property Name="NOMBRETIPOINV" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="DESCRIPOBJETINV" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Type="String" Name="NOMBRETIPOINV" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DESCRIPOBJETINV" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_ES_OBJETIVO" FromRole="OBJETIVOINVENTARIO" ToRole="PROYECTO" />
   </EntityType>
   <EntityType Name="PROYECTO">
     <Key>
       <PropertyRef Name="NROPROY" />
     </Key>
-    <Property Name="NROPROY" Type="Guid" Nullable="false" />
-    <Property Name="NROUSUARIO" Type="Guid" Nullable="false" />
-    <Property Name="NOMBRETIPOINV" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="NOMTIPODISEMUEST" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="LUGAR" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="DESCRIPCION" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
-    <Property Name="SUPTOT" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-    <Property Name="INTMUE" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
-    <Property Name="SUPMUE" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
-    <Property Name="TAMANO" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
-    <Property Name="LIMITINFDAP" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-    <Property Name="AREAFUSTALESPORPARCELA" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-    <Property Name="FACTORDEFORMA" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-    <Property Name="FECHA" Type="DateTime" Nullable="false" />
-    <Property Name="TIPOPROYECTO" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+    <Property Type="Guid" Name="NROPROY" Nullable="false" />
+    <Property Type="Guid" Name="NROUSUARIO" Nullable="false" />
+    <Property Type="String" Name="NOMBRETIPOINV" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOMTIPODISEMUEST" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Guid" Name="NROFORMULA" Nullable="false" />
+    <Property Type="String" Name="LUGAR" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="NUMEROPARCELAS" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="NUMEROPARCELASAMUESTREAR" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="TAMANO" Nullable="false" Precision="18" Scale="6" />
+    <Property Type="String" Name="DESCRIPCION" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="SUPTOT" Nullable="false" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="INTMUE" Nullable="false" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="SUPMUE" Nullable="false" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="LIMITINFDAP" Nullable="false" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="AREAFUSTALESPORPARCELA" Nullable="false" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="FACTORDEFORMA" Nullable="false" Precision="18" Scale="6" />
+    <Property Type="DateTime" Name="FECHA" Nullable="false" />
+    <Property Type="Decimal" Name="ETAPA" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="TIPOPROYECTO" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="CONFIANZA" Nullable="false" Precision="18" Scale="6" />
+    <NavigationProperty Name="FORMULA" Relationship="SIFCA_Model.FK_PROYECTO_PROYECTO_FORMULA" FromRole="PROYECTO" ToRole="FORMULA" />
     <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_FORMULAR_DESARROLL_PROYECTO" FromRole="PROYECTO" ToRole="FORMULARIO" />
     <NavigationProperty Name="LISTADODEESTRATOS" Relationship="SIFCA_Model.FK_LISTAESTRATOS_PROYECTO" FromRole="PROYECTO" ToRole="LISTADODEESTRATOS" />
     <NavigationProperty Name="OBJETIVOINVENTARIO" Relationship="SIFCA_Model.FK_PROYECTO_ES_OBJETIVO" FromRole="PROYECTO" ToRole="OBJETIVOINVENTARIO" />
@@ -306,53 +325,56 @@
     <NavigationProperty Name="USUARIO" Relationship="SIFCA_Model.FK_PROYECTO_CREA_USUARIO" FromRole="PROYECTO" ToRole="USUARIO" />
     <NavigationProperty Name="TIPODISENOMUESTRAL" Relationship="SIFCA_Model.FK_PROYECTO_REALIZA_TIPODISE" FromRole="PROYECTO" ToRole="TIPODISENOMUESTRAL" />
     <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.LISTADODEESPECIES" FromRole="PROYECTO" ToRole="ESPECIE" />
-    <Property Type="Decimal" Name="CONFIANZA" Precision="18" Scale="3" Nullable="false" />
-    <Property Type="Decimal" Name="ETAPA" Nullable="false" Precision="18" Scale="0" />
-    <Property Type="Guid" Name="NROFORMULA" Nullable="false" />
-    <NavigationProperty Name="FORMULA" Relationship="SIFCA_Model.FK_PROYECTO_PROYECTOF_FORMULA" FromRole="PROYECTO" ToRole="FORMULA" />
-    <Property Type="Decimal" Name="NUMEROPARCELAS" Precision="18" Scale="0" Nullable="false" />
-    <Property Type="Decimal" Name="NUMEROPARCELASAMUESTREAR" Precision="18" Scale="0" Nullable="false" />
   </EntityType>
   <EntityType Name="PROYECTOSPORETAPA">
     <Key>
       <PropertyRef Name="NROPROYCONTENEDOR" />
       <PropertyRef Name="NROPROYCONTENIDO" />
     </Key>
-    <Property Name="NROPROYCONTENEDOR" Type="Guid" Nullable="false" />
-    <Property Name="NROPROYCONTENIDO" Type="Guid" Nullable="false" />
-    <Property Name="PESO" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Type="Guid" Name="NROPROYCONTENEDOR" Nullable="false" />
+    <Property Type="Guid" Name="NROPROYCONTENIDO" Nullable="false" />
+    <Property Type="Decimal" Name="PESO" Nullable="false" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="ETAPA" Nullable="false" Precision="18" Scale="0" />
     <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_CONTENEDOR" FromRole="PROYECTOSPORETAPA" ToRole="PROYECTO" />
     <NavigationProperty Name="PROYECTO1" Relationship="SIFCA_Model.FK_PROYECTO_CONTENIDOS" FromRole="PROYECTOSPORETAPA" ToRole="PROYECTO" />
-    <Property Type="Decimal" Name="ETAPA" Nullable="false" Precision="18" Scale="0" />
   </EntityType>
   <EntityType Name="TIPODEUSO">
     <Key>
       <PropertyRef Name="NOMBRETIPOUSO" />
     </Key>
-    <Property Name="NOMBRETIPOUSO" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="DESCRIPCION" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Type="String" Name="NOMBRETIPOUSO" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DESCRIPCION" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="LINEANOMADERABLES" Relationship="SIFCA_Model.USO" FromRole="TIPODEUSO" ToRole="LINEANOMADERABLES" />
   </EntityType>
   <EntityType Name="TIPODISENOMUESTRAL">
     <Key>
       <PropertyRef Name="NOMTIPODISEMUEST" />
     </Key>
-    <Property Name="NOMTIPODISEMUEST" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="DESCRIPTIPODISEMUEST" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Type="String" Name="NOMTIPODISEMUEST" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DESCRIPTIPODISEMUEST" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_REALIZA_TIPODISE" FromRole="TIPODISENOMUESTRAL" ToRole="PROYECTO" />
+  </EntityType>
+  <EntityType Name="TIPOFORMULA">
+    <Key>
+      <PropertyRef Name="NROTIPOFORMULA" />
+    </Key>
+    <Property Type="Guid" Name="NROTIPOFORMULA" Nullable="false" />
+    <Property Type="String" Name="NOMBRETIPO" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DESCRIPCION" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="FORMULA" Relationship="SIFCA_Model.FK_FORMULA_TIPOFORMULA" FromRole="TIPOFORMULA" ToRole="FORMULA" />
   </EntityType>
   <EntityType Name="TRANSACCION">
     <Key>
       <PropertyRef Name="NROTRANS" />
     </Key>
-    <Property Name="NROTRANS" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="NROUSUARIO" Type="Guid" Nullable="false" />
-    <Property Name="FECHA" Type="DateTime" Nullable="false" />
-    <Property Name="TABLA" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="IDREGISTRO" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="OPERACION" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
-    <Property Name="VALORESVIEJOS" Type="String" MaxLength="1024" Unicode="false" FixedLength="false" />
-    <Property Name="VALORESNUEVOS" Type="String" MaxLength="1024" Unicode="false" FixedLength="false" />
+    <Property Type="Decimal" Name="NROTRANS" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Guid" Name="NROUSUARIO" Nullable="false" />
+    <Property Type="DateTime" Name="FECHA" Nullable="false" />
+    <Property Type="String" Name="TABLA" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="IDREGISTRO" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="OPERACION" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="VALORESVIEJOS" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="VALORESNUEVOS" MaxLength="1024" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="USUARIO" Relationship="SIFCA_Model.FK_TRANSACC_REGISTRA_USUARIO" FromRole="TRANSACCION" ToRole="USUARIO" />
   </EntityType>
   <EntityType Name="TSTUDENT">
@@ -361,30 +383,37 @@
       <PropertyRef Name="ALPHA" />
       <PropertyRef Name="VALOR" />
     </Key>
-    <Property Name="N" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="ALPHA" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-    <Property Name="VALOR" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+    <Property Type="Decimal" Name="N" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="ALPHA" Nullable="false" Precision="18" Scale="3" />
+    <Property Type="Decimal" Name="VALOR" Nullable="false" Precision="18" Scale="3" />
   </EntityType>
   <EntityType Name="USUARIO">
     <Key>
       <PropertyRef Name="NROUSUARIO" />
     </Key>
-    <Property Name="NROUSUARIO" Type="Guid" Nullable="false" />
-    <Property Name="NOMBRES" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="APELLIDOS" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="NOMBREUSUARIO" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="CONTRASENA" Type="String" Nullable="false" MaxLength="1000" Unicode="false" FixedLength="false" />
-    <Property Name="CEDULA" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="TIPOUSUARIO" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
+    <Property Type="Guid" Name="NROUSUARIO" Nullable="false" />
+    <Property Type="String" Name="NOMBRES" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="APELLIDOS" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOMBREUSUARIO" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CONTRASENA" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="CEDULA" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="TIPOUSUARIO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_FORMULAR_ES_REPONS_USUARIO" FromRole="USUARIO" ToRole="FORMULARIO" />
     <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_CREA_USUARIO" FromRole="USUARIO" ToRole="PROYECTO" />
     <NavigationProperty Name="TRANSACCION" Relationship="SIFCA_Model.FK_TRANSACC_REGISTRA_USUARIO" FromRole="USUARIO" ToRole="TRANSACCION" />
   </EntityType>
+  <EntityType Name="VARIABLE">
+    <Key>
+      <PropertyRef Name="NROVARIABLE" />
+    </Key>
+    <Property Type="Guid" Name="NROVARIABLE" Nullable="false" />
+    <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DESCRIPCION" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="FORMULA" Relationship="SIFCA_Model.FORMULAVARIABLE" FromRole="VARIABLE" ToRole="FORMULA" />
+  </EntityType>
   <Association Name="FK_LINEAINV_POSEE_CALIDAD">
-    <End Role="CALIDAD" Type="SIFCA_Model.CALIDAD" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="LINEAINVENTARIO" Type="SIFCA_Model.LINEAINVENTARIO" Multiplicity="*" />
+    <End Type="SIFCA_Model.CALIDAD" Role="CALIDAD" Multiplicity="1" />
+    <End Type="SIFCA_Model.LINEAINVENTARIO" Role="LINEAINVENTARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CALIDAD">
         <PropertyRef Name="CODCALIDAD" />
@@ -395,10 +424,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ESPECIE_PERTENECE_GRUPOCOM">
-    <End Role="GRUPOCOMERCIAL" Type="SIFCA_Model.GRUPOCOMERCIAL" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="ESPECIE" Type="SIFCA_Model.ESPECIE" Multiplicity="*" />
+    <End Type="SIFCA_Model.GRUPOCOMERCIAL" Role="GRUPOCOMERCIAL" Multiplicity="1" />
+    <End Type="SIFCA_Model.ESPECIE" Role="ESPECIE" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="GRUPOCOMERCIAL">
         <PropertyRef Name="GRUPOCOM" />
@@ -409,10 +436,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_IMAGEN_IMAGENE_ESPECIE">
-    <End Role="ESPECIE" Type="SIFCA_Model.ESPECIE" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="IMAGEN" Type="SIFCA_Model.IMAGEN" Multiplicity="*" />
+    <End Type="SIFCA_Model.ESPECIE" Role="ESPECIE" Multiplicity="1" />
+    <End Type="SIFCA_Model.IMAGEN" Role="IMAGEN" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ESPECIE">
         <PropertyRef Name="CODESP" />
@@ -423,10 +448,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_LINEAINV_CONTIENE_ESPECIE">
-    <End Role="ESPECIE" Type="SIFCA_Model.ESPECIE" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="LINEAINVENTARIO" Type="SIFCA_Model.LINEAINVENTARIO" Multiplicity="*" />
+    <End Type="SIFCA_Model.ESPECIE" Role="ESPECIE" Multiplicity="1" />
+    <End Type="SIFCA_Model.LINEAINVENTARIO" Role="LINEAINVENTARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ESPECIE">
         <PropertyRef Name="CODESP" />
@@ -437,10 +460,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_LINEAREG_EVALUACIO_ESPECIE">
-    <End Role="ESPECIE" Type="SIFCA_Model.ESPECIE" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="LINEAREGENERACION" Type="SIFCA_Model.LINEAREGENERACION" Multiplicity="*" />
+    <End Type="SIFCA_Model.ESPECIE" Role="ESPECIE" Multiplicity="1" />
+    <End Type="SIFCA_Model.LINEAREGENERACION" Role="LINEAREGENERACION" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ESPECIE">
         <PropertyRef Name="CODESP" />
@@ -451,10 +472,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_LINEAINV_ASOCIADO_ESTADOSA">
-    <End Role="ESTADOSANITARIO" Type="SIFCA_Model.ESTADOSANITARIO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="LINEAINVENTARIO" Type="SIFCA_Model.LINEAINVENTARIO" Multiplicity="*" />
+    <End Type="SIFCA_Model.ESTADOSANITARIO" Role="ESTADOSANITARIO" Multiplicity="1" />
+    <End Type="SIFCA_Model.LINEAINVENTARIO" Role="LINEAINVENTARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ESTADOSANITARIO">
         <PropertyRef Name="ESTADO" />
@@ -465,10 +484,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_FORMULAR_MANEJA_ESTRATO">
-    <End Role="ESTRATO" Type="SIFCA_Model.ESTRATO" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="FORMULARIO" Type="SIFCA_Model.FORMULARIO" Multiplicity="*" />
+    <End Type="SIFCA_Model.ESTRATO" Role="ESTRATO" Multiplicity="0..1" />
+    <End Type="SIFCA_Model.FORMULARIO" Role="FORMULARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ESTRATO">
         <PropertyRef Name="CODEST" />
@@ -479,10 +496,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_LISTADOD_LISTAESTR_ESTRATO">
-    <End Role="ESTRATO" Type="SIFCA_Model.ESTRATO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="LISTADODEESTRATOS" Type="SIFCA_Model.LISTADODEESTRATOS" Multiplicity="*" />
+    <End Type="SIFCA_Model.ESTRATO" Role="ESTRATO" Multiplicity="1" />
+    <End Type="SIFCA_Model.LISTADODEESTRATOS" Role="LISTADODEESTRATOS" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ESTRATO">
         <PropertyRef Name="CODEST" />
@@ -492,199 +507,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_FORMULAR_DESARROLL_PROYECTO">
-    <End Role="PROYECTO" Type="SIFCA_Model.PROYECTO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="FORMULARIO" Type="SIFCA_Model.FORMULARIO" Multiplicity="*" />
+  <Association Name="FK_FORMULA_TIPOFORMULA">
+    <End Type="SIFCA_Model.TIPOFORMULA" Role="TIPOFORMULA" Multiplicity="1" />
+    <End Type="SIFCA_Model.FORMULA" Role="FORMULA" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="PROYECTO">
-        <PropertyRef Name="NROPROY" />
+      <Principal Role="TIPOFORMULA">
+        <PropertyRef Name="NROTIPOFORMULA" />
       </Principal>
-      <Dependent Role="FORMULARIO">
-        <PropertyRef Name="NROPROY" />
+      <Dependent Role="FORMULA">
+        <PropertyRef Name="NROTIPOFORMULA" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_FORMULAR_ES_REPONS_USUARIO">
-    <End Role="USUARIO" Type="SIFCA_Model.USUARIO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="FORMULARIO" Type="SIFCA_Model.FORMULARIO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="USUARIO">
-        <PropertyRef Name="NROUSUARIO" />
-      </Principal>
-      <Dependent Role="FORMULARIO">
-        <PropertyRef Name="NROUSUARIO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_LINEAINV_LLENA_FORMULAR">
-    <End Role="FORMULARIO" Type="SIFCA_Model.FORMULARIO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="LINEAINVENTARIO" Type="SIFCA_Model.LINEAINVENTARIO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="FORMULARIO">
-        <PropertyRef Name="NROFORMULARIO" />
-      </Principal>
-      <Dependent Role="LINEAINVENTARIO">
-        <PropertyRef Name="NROFORMULARIO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_LINEANOM_RECOLECTA_FORMULAR">
-    <End Role="FORMULARIO" Type="SIFCA_Model.FORMULARIO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="LINEANOMADERABLES" Type="SIFCA_Model.LINEANOMADERABLES" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="FORMULARIO">
-        <PropertyRef Name="NROFORMULARIO" />
-      </Principal>
-      <Dependent Role="LINEANOMADERABLES">
-        <PropertyRef Name="NROFORMULARIO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_LINEAREG_COMPLETA_FORMULAR">
-    <End Role="FORMULARIO" Type="SIFCA_Model.FORMULARIO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="LINEAREGENERACION" Type="SIFCA_Model.LINEAREGENERACION" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="FORMULARIO">
-        <PropertyRef Name="NROFORMULARIO" />
-      </Principal>
-      <Dependent Role="LINEAREGENERACION">
-        <PropertyRef Name="NROFORMULARIO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_LISTAESTRATOS_PROYECTO">
-    <End Role="PROYECTO" Type="SIFCA_Model.PROYECTO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="LISTADODEESTRATOS" Type="SIFCA_Model.LISTADODEESTRATOS" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PROYECTO">
-        <PropertyRef Name="NROPROY" />
-      </Principal>
-      <Dependent Role="LISTADODEESTRATOS">
-        <PropertyRef Name="NROPROY" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PROYECTO_ES_OBJETIVO">
-    <End Role="OBJETIVOINVENTARIO" Type="SIFCA_Model.OBJETIVOINVENTARIO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="PROYECTO" Type="SIFCA_Model.PROYECTO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="OBJETIVOINVENTARIO">
-        <PropertyRef Name="NOMBRETIPOINV" />
-      </Principal>
-      <Dependent Role="PROYECTO">
-        <PropertyRef Name="NOMBRETIPOINV" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PROYECTO_CONTENEDOR">
-    <End Role="PROYECTO" Type="SIFCA_Model.PROYECTO" Multiplicity="1" />
-    <End Role="PROYECTOSPORETAPA" Type="SIFCA_Model.PROYECTOSPORETAPA" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PROYECTO">
-        <PropertyRef Name="NROPROY" />
-      </Principal>
-      <Dependent Role="PROYECTOSPORETAPA">
-        <PropertyRef Name="NROPROYCONTENEDOR" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PROYECTO_CONTENIDOS">
-    <End Role="PROYECTO" Type="SIFCA_Model.PROYECTO" Multiplicity="1" />
-    <End Role="PROYECTOSPORETAPA" Type="SIFCA_Model.PROYECTOSPORETAPA" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PROYECTO">
-        <PropertyRef Name="NROPROY" />
-      </Principal>
-      <Dependent Role="PROYECTOSPORETAPA">
-        <PropertyRef Name="NROPROYCONTENIDO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PROYECTO_CREA_USUARIO">
-    <End Role="USUARIO" Type="SIFCA_Model.USUARIO" Multiplicity="1" />
-    <End Role="PROYECTO" Type="SIFCA_Model.PROYECTO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="USUARIO">
-        <PropertyRef Name="NROUSUARIO" />
-      </Principal>
-      <Dependent Role="PROYECTO">
-        <PropertyRef Name="NROUSUARIO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PROYECTO_REALIZA_TIPODISE">
-    <End Role="TIPODISENOMUESTRAL" Type="SIFCA_Model.TIPODISENOMUESTRAL" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="PROYECTO" Type="SIFCA_Model.PROYECTO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TIPODISENOMUESTRAL">
-        <PropertyRef Name="NOMTIPODISEMUEST" />
-      </Principal>
-      <Dependent Role="PROYECTO">
-        <PropertyRef Name="NOMTIPODISEMUEST" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TRANSACC_REGISTRA_USUARIO">
-    <End Role="USUARIO" Type="SIFCA_Model.USUARIO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="TRANSACCION" Type="SIFCA_Model.TRANSACCION" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="USUARIO">
-        <PropertyRef Name="NROUSUARIO" />
-      </Principal>
-      <Dependent Role="TRANSACCION">
-        <PropertyRef Name="NROUSUARIO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="LISTADODEESPECIES">
-    <End Role="ESPECIE" Type="SIFCA_Model.ESPECIE" Multiplicity="*" />
-    <End Role="PROYECTO" Type="SIFCA_Model.PROYECTO" Multiplicity="*" />
-  </Association>
-  <Association Name="USO">
-    <End Role="TIPODEUSO" Type="SIFCA_Model.TIPODEUSO" Multiplicity="*" />
-    <End Role="LINEANOMADERABLES" Type="SIFCA_Model.LINEANOMADERABLES" Multiplicity="*" />
-  </Association>
-  <EntityType Name="FORMULA">
-    <Key>
-      <PropertyRef Name="NROFORMULA" />
-    </Key>
-    <Property Type="Guid" Name="NROFORMULA" Nullable="false" />
-    <Property Type="String" Name="EXPRESION" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_PROYECTOF_FORMULA" FromRole="FORMULA" ToRole="PROYECTO" />
-    <NavigationProperty Name="VARIABLE" Relationship="SIFCA_Model.FORMULAVARIABLE" FromRole="FORMULA" ToRole="VARIABLE" />
-    <Property Type="String" Name="DESCRIPCION" MaxLength="5000" FixedLength="false" Unicode="false" />
-    <Property Type="Guid" Name="NROTIPOFORMULA" Nullable="false" />
-    <NavigationProperty Name="TIPOFORMULA" Relationship="SIFCA_Model.TIPOFORMULAFORMULA" FromRole="FORMULA" ToRole="TIPOFORMULA" />
-  </EntityType>
-  <EntityType Name="VARIABLE">
-    <Key>
-      <PropertyRef Name="NROVARIABLE" />
-    </Key>
-    <Property Type="Guid" Name="NROVARIABLE" Nullable="false" />
-    <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="FORMULA" Relationship="SIFCA_Model.FORMULAVARIABLE" FromRole="VARIABLE" ToRole="FORMULA" />
-    <Property Type="String" Name="DESCRIPCION" MaxLength="5000" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <Association Name="FK_PROYECTO_PROYECTOF_FORMULA">
+  <Association Name="FK_PROYECTO_PROYECTO_FORMULA">
     <End Type="SIFCA_Model.FORMULA" Role="FORMULA" Multiplicity="1" />
     <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="*" />
     <ReferentialConstraint>
@@ -696,29 +531,160 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_FORMULAR_DESARROLL_PROYECTO">
+    <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="1" />
+    <End Type="SIFCA_Model.FORMULARIO" Role="FORMULARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROYECTO">
+        <PropertyRef Name="NROPROY" />
+      </Principal>
+      <Dependent Role="FORMULARIO">
+        <PropertyRef Name="NROPROY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FORMULAR_ES_REPONS_USUARIO">
+    <End Type="SIFCA_Model.USUARIO" Role="USUARIO" Multiplicity="1" />
+    <End Type="SIFCA_Model.FORMULARIO" Role="FORMULARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="NROUSUARIO" />
+      </Principal>
+      <Dependent Role="FORMULARIO">
+        <PropertyRef Name="NROUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LINEAINV_LLENA_FORMULAR">
+    <End Type="SIFCA_Model.FORMULARIO" Role="FORMULARIO" Multiplicity="1" />
+    <End Type="SIFCA_Model.LINEAINVENTARIO" Role="LINEAINVENTARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FORMULARIO">
+        <PropertyRef Name="NROFORMULARIO" />
+      </Principal>
+      <Dependent Role="LINEAINVENTARIO">
+        <PropertyRef Name="NROFORMULARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LINEANOM_RECOLECTA_FORMULAR">
+    <End Type="SIFCA_Model.FORMULARIO" Role="FORMULARIO" Multiplicity="1" />
+    <End Type="SIFCA_Model.LINEANOMADERABLES" Role="LINEANOMADERABLES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FORMULARIO">
+        <PropertyRef Name="NROFORMULARIO" />
+      </Principal>
+      <Dependent Role="LINEANOMADERABLES">
+        <PropertyRef Name="NROFORMULARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LINEAREG_COMPLETA_FORMULAR">
+    <End Type="SIFCA_Model.FORMULARIO" Role="FORMULARIO" Multiplicity="1" />
+    <End Type="SIFCA_Model.LINEAREGENERACION" Role="LINEAREGENERACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FORMULARIO">
+        <PropertyRef Name="NROFORMULARIO" />
+      </Principal>
+      <Dependent Role="LINEAREGENERACION">
+        <PropertyRef Name="NROFORMULARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LISTAESTRATOS_PROYECTO">
+    <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="1" />
+    <End Type="SIFCA_Model.LISTADODEESTRATOS" Role="LISTADODEESTRATOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROYECTO">
+        <PropertyRef Name="NROPROY" />
+      </Principal>
+      <Dependent Role="LISTADODEESTRATOS">
+        <PropertyRef Name="NROPROY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROYECTO_ES_OBJETIVO">
+    <End Type="SIFCA_Model.OBJETIVOINVENTARIO" Role="OBJETIVOINVENTARIO" Multiplicity="1" />
+    <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OBJETIVOINVENTARIO">
+        <PropertyRef Name="NOMBRETIPOINV" />
+      </Principal>
+      <Dependent Role="PROYECTO">
+        <PropertyRef Name="NOMBRETIPOINV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROYECTO_CONTENEDOR">
+    <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="1" />
+    <End Type="SIFCA_Model.PROYECTOSPORETAPA" Role="PROYECTOSPORETAPA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROYECTO">
+        <PropertyRef Name="NROPROY" />
+      </Principal>
+      <Dependent Role="PROYECTOSPORETAPA">
+        <PropertyRef Name="NROPROYCONTENEDOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROYECTO_CONTENIDOS">
+    <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="1" />
+    <End Type="SIFCA_Model.PROYECTOSPORETAPA" Role="PROYECTOSPORETAPA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROYECTO">
+        <PropertyRef Name="NROPROY" />
+      </Principal>
+      <Dependent Role="PROYECTOSPORETAPA">
+        <PropertyRef Name="NROPROYCONTENIDO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROYECTO_CREA_USUARIO">
+    <End Type="SIFCA_Model.USUARIO" Role="USUARIO" Multiplicity="1" />
+    <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="NROUSUARIO" />
+      </Principal>
+      <Dependent Role="PROYECTO">
+        <PropertyRef Name="NROUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROYECTO_REALIZA_TIPODISE">
+    <End Type="SIFCA_Model.TIPODISENOMUESTRAL" Role="TIPODISENOMUESTRAL" Multiplicity="1" />
+    <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPODISENOMUESTRAL">
+        <PropertyRef Name="NOMTIPODISEMUEST" />
+      </Principal>
+      <Dependent Role="PROYECTO">
+        <PropertyRef Name="NOMTIPODISEMUEST" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRANSACC_REGISTRA_USUARIO">
+    <End Type="SIFCA_Model.USUARIO" Role="USUARIO" Multiplicity="1" />
+    <End Type="SIFCA_Model.TRANSACCION" Role="TRANSACCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="NROUSUARIO" />
+      </Principal>
+      <Dependent Role="TRANSACCION">
+        <PropertyRef Name="NROUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FORMULAVARIABLE">
     <End Type="SIFCA_Model.FORMULA" Role="FORMULA" Multiplicity="*" />
     <End Type="SIFCA_Model.VARIABLE" Role="VARIABLE" Multiplicity="*" />
   </Association>
-  <EntityType Name="TIPOFORMULA">
-    <Key>
-      <PropertyRef Name="NROTIPOFORMULA" />
-    </Key>
-    <Property Type="Guid" Name="NROTIPOFORMULA" Nullable="false" />
-    <Property Type="String" Name="NOMBRETIPO" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="DESCRIPCION" MaxLength="5000" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="FORMULA" Relationship="SIFCA_Model.TIPOFORMULAFORMULA" FromRole="TIPOFORMULA" ToRole="FORMULA" />
-  </EntityType>
-  <Association Name="TIPOFORMULAFORMULA">
-    <End Type="SIFCA_Model.TIPOFORMULA" Role="TIPOFORMULA" Multiplicity="1" />
-    <End Type="SIFCA_Model.FORMULA" Role="FORMULA" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TIPOFORMULA">
-        <PropertyRef Name="NROTIPOFORMULA" />
-      </Principal>
-      <Dependent Role="FORMULA">
-        <PropertyRef Name="NROTIPOFORMULA" />
-      </Dependent>
-    </ReferentialConstraint>
+  <Association Name="LISTADODEESPECIES">
+    <End Type="SIFCA_Model.ESPECIE" Role="ESPECIE" Multiplicity="*" />
+    <End Type="SIFCA_Model.PROYECTO" Role="PROYECTO" Multiplicity="*" />
+  </Association>
+  <Association Name="USO">
+    <End Type="SIFCA_Model.TIPODEUSO" Role="TIPODEUSO" Multiplicity="*" />
+    <End Type="SIFCA_Model.LINEANOMADERABLES" Role="LINEANOMADERABLES" Multiplicity="*" />
   </Association>
 </Schema>

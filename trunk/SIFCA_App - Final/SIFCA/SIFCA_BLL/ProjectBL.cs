@@ -293,12 +293,25 @@ namespace SIFCA_BLL
             
         }
 
-        public IEnumerable<PROYECTO> GetProjectsFree(Guid idPj)
+        public IEnumerable<PROYECTO> GetProjectsFree(PROYECTO Pj)
         {
             try
             {
-                var query = from p in this.sifcaRepository.PROYECTO where (p.PROYECTOSPORETAPA1.Count == 0 && p.NROPROY != idPj) select p;
-                return query.ToList();
+                if (Pj != null) {
+                    if(Pj.PROYECTOSPORETAPA1.Count>0) {
+                        PROYECTOSPORETAPA[] pjs = Pj.PROYECTOSPORETAPA1.ToArray();
+                        var query = from p in this.sifcaRepository.PROYECTO where (p.PROYECTOSPORETAPA1.Count == 0 && p.NROPROY != Pj.NROPROY && p.NROPROY != pjs[0].NROPROYCONTENEDOR ) select p;
+                        return query.ToList();
+                    }
+                    
+                }
+                else
+                {
+                    var query = from p in this.sifcaRepository.PROYECTO where (p.PROYECTOSPORETAPA1.Count == 0) select p;
+                    return query.ToList();
+                }
+                return null;
+                
             }
             catch (Exception ex)
             {
@@ -308,15 +321,15 @@ namespace SIFCA_BLL
         }
 
         //Obtener un los hijos de un proyecto con un guid del proyecto y ademas los proyectos que esten libres que no tengan padre
-        public object GetProjects(Guid guid)
+        public object GetProjects(PROYECTO pj)
         {
             try
             {
                 List<PROYECTO> listPy = new List<PROYECTO>();
                 PROYECTOSPORETAPA PBS = new PROYECTOSPORETAPA();
-                PBS.NROPROYCONTENEDOR = guid;
-                listPy = this.GetProjectsFree(guid).ToList(); // obtenemos los proyectos que no tienen un padre y que no sea el proyecto que se va actualizar
-                var query = from p in this.sifcaRepository.PROYECTOSPORETAPA where (p.NROPROYCONTENEDOR == guid) select p; //obtenemos los hijos (proyectos por etapa) de este proyecto
+                PBS.NROPROYCONTENEDOR = pj.NROPROY;
+                listPy = this.GetProjectsFree(pj).ToList(); // obtenemos los proyectos que no tienen un padre y que no sea el proyecto que se va actualizar
+                var query = from p in this.sifcaRepository.PROYECTOSPORETAPA where (p.NROPROYCONTENEDOR == pj.NROPROY) select p; //obtenemos los hijos (proyectos por etapa) de este proyecto
                 foreach (PROYECTOSPORETAPA pyBstate in query.ToList())
                 {
                     listPy.Add(this.GetProject(pyBstate.NROPROYCONTENIDO));

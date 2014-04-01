@@ -277,11 +277,6 @@ namespace SIFCA
                     controladorErrores.SetError(alturaTotalTxt, "La altura total del arbol debe ser mayor que cero.");
                     error = true;
                 }
-                if (decimal.Parse(dAPTxt.Text) < 0)
-                {
-                    controladorErrores.SetError(dAPTxt, "El valor del diametro del arbol debe ser mayor o igual a cero.");
-                    error = true;
-                }
                 if (decimal.Parse(cAPTxt.Text) < 0)
                 {
                     controladorErrores.SetError(cAPTxt, "El valor de la circufernecia de arbol debe ser mayor o igual a cero.");
@@ -303,7 +298,7 @@ namespace SIFCA
                     newLine.ALTCOMER_M = decimal.Parse(alturaComercialTxt.Text);
                     newLine.ALTTOT_M = decimal.Parse(alturaTotalTxt.Text);
                     newLine.CAP = decimal.Parse(cAPTxt.Text);
-                    newLine.DAP = decimal.Parse(dAPTxt.Text);
+                    newLine.DAP = (decimal)Math.Round(newLine.CAP/(decimal)Math.PI, 3);
                     newLine.AREABASAL = Math.Round((decimal)(ForestCalculatorHelper.BasalAreaCAP((double)newLine.CAP)),3);
                     newLine.VOLCOM = Math.Round((decimal)(ForestCalculatorHelper.TreeVolumeByBasalArea((double)newLine.AREABASAL, (double)newLine.ALTCOMER_M, (double)p.FACTORDEFORMA)),3);
                     newLine.VOLTOT = Math.Round((decimal)(ForestCalculatorHelper.TreeVolumeByBasalArea((double)newLine.AREABASAL, (double)newLine.ALTTOT_M, (double)p.FACTORDEFORMA)),3);
@@ -348,7 +343,7 @@ namespace SIFCA
                     currentLine.ALTCOMER_M = decimal.Parse(alturaComercialTxt.Text);
                     currentLine.ALTTOT_M = decimal.Parse(alturaTotalTxt.Text);
                     currentLine.CAP = decimal.Parse(cAPTxt.Text);
-                    currentLine.DAP = decimal.Parse(dAPTxt.Text);
+                    currentLine.DAP = (decimal)Math.Round(currentLine.CAP / (decimal)Math.PI, 3);
                     currentLine.AREABASAL = (decimal)(ForestCalculatorHelper.BasalAreaDAP((double)newLine.DAP));
                     currentLine.VOLCOM = (decimal)(ForestCalculatorHelper.TreeVolumeByBasalArea((double)newLine.AREABASAL, (double)newLine.ALTCOMER_M, (double)p.FACTORDEFORMA));
                     currentLine.VOLTOT = (decimal)(ForestCalculatorHelper.TreeVolumeByBasalArea((double)newLine.AREABASAL, (double)newLine.ALTTOT_M, (double)p.FACTORDEFORMA));
@@ -530,68 +525,16 @@ namespace SIFCA
             if (p!=null)
             {
                 double areaBasal = cAPTxt.Text!=string.Empty?Math.Round(ForestCalculatorHelper.BasalAreaCAP(double.Parse(cAPTxt.Text)), 3):0;
+                double diametroAP = cAPTxt.Text != string.Empty ? Math.Round(double.Parse(cAPTxt.Text) / Math.PI, 3) : 0;
                 double volumenComercial =alturaComercialTxt.Text!=string.Empty? Math.Round(ForestCalculatorHelper.TreeVolumeByBasalArea(areaBasal, double.Parse(alturaComercialTxt.Text), (double)p.FACTORDEFORMA), 3):0;
                 double volumenTotal = alturaTotalTxt.Text != string.Empty ? Math.Round(ForestCalculatorHelper.TreeVolumeByBasalArea(areaBasal, double.Parse(alturaTotalTxt.Text), (double)p.FACTORDEFORMA), 3) : 0;
-                parametrosLineaTxt.Text = "1) Area basal: " + areaBasal + Environment.NewLine + "2) Volumen comercial: " + volumenComercial + Environment.NewLine + "3) Volumen total: " + volumenTotal;
+                parametrosLineaTxt.Text = "1) Diametro A.P: " + diametroAP + Environment.NewLine + "2) Area basal: " + areaBasal + Environment.NewLine + "3) Volumen comercial: " + volumenComercial + Environment.NewLine + "4) Volumen total: " + volumenTotal;
             }
-        }
-
-        private void dAPTxt_TextChanged(object sender, EventArgs e)
-        {
-            LINEAINVENTARIO currentLine = (LINEAINVENTARIO)lineaInvBS.Current;
-            if (currentLine != null)
-            {
-                if (currentLine.LINEAINV == Guid.Empty)
-                {
-                    if (!modified)
-                    {
-                        modified = true;
-                        return;
-                    }
-                    if (dAPTxt.Text != "")
-                    {
-                        double output = 0;
-                        bool result = double.TryParse(dAPTxt.Text, out output);
-                        if (result)
-                        {
-                            modified = false;
-                            ((LINEAINVENTARIO)lineaInvBS.Current).CAP = Math.Round((decimal)(output * Math.PI),3);
-                            ((LINEAINVENTARIO)lineaInvBS.Current).DAP = (decimal)output;
-                        }
-                        else MessageBox.Show("Entra invalida para el diametro.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-            calcularParametros();
         }
 
         private void cAPTxt_TextChanged(object sender, EventArgs e)
         {
-            LINEAINVENTARIO currentLine = (LINEAINVENTARIO)lineaInvBS.Current;
-            if (currentLine != null)
-            {
-                if (currentLine.LINEAINV == Guid.Empty)
-                {
-                    if (!modified)
-                    {
-                        modified = true;
-                        return;
-                    }
-                    if (cAPTxt.Text != "")
-                    {
-                        double output = 0;
-                        bool result = double.TryParse(cAPTxt.Text, out output);
-                        if (result)
-                        {
-                            modified = false;
-                            ((LINEAINVENTARIO)lineaInvBS.Current).DAP = Math.Round((decimal)(output / Math.PI),3);
-                            ((LINEAINVENTARIO)lineaInvBS.Current).CAP = (decimal)output;
-                        }
-                        else MessageBox.Show("Entra invalida para la medida de la circunferencia.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-            calcularParametros();
+           calcularParametros();
         }
 
         private void TipoDeUsosLbc_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -865,7 +808,6 @@ namespace SIFCA
         {
             nroArbolTxt.Text = "0";
             especieCbx.SelectedItem = null;
-            dAPTxt.Text  = "0";
             cAPTxt.Text = "0";
             alturaComercialTxt.Text = "0";
             alturaTotalTxt.Text = "0";

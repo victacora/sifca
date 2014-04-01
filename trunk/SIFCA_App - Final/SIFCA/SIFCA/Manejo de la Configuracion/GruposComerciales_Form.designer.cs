@@ -112,7 +112,7 @@
             this.ListadoGruposComerciales.ReadOnly = true;
             this.ListadoGruposComerciales.Size = new System.Drawing.Size(594, 296);
             this.ListadoGruposComerciales.TabIndex = 4;
-            this.ListadoGruposComerciales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListadoDeEspecies_CellValueChanged);
+            this.ListadoGruposComerciales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Listado_CellValueChanged);
             // 
             // gRUPOCOMDataGridViewTextBoxColumn1
             // 
@@ -333,6 +333,7 @@
             // descripcionTxt
             // 
             this.descripcionTxt.Location = new System.Drawing.Point(75, 58);
+            this.descripcionTxt.MaxLength = 500;
             this.descripcionTxt.Multiline = true;
             this.descripcionTxt.Name = "descripcionTxt";
             this.descripcionTxt.Size = new System.Drawing.Size(204, 101);
@@ -411,6 +412,7 @@
             // updateDescripcionTxt
             // 
             this.updateDescripcionTxt.Location = new System.Drawing.Point(86, 58);
+            this.updateDescripcionTxt.MaxLength = 500;
             this.updateDescripcionTxt.Multiline = true;
             this.updateDescripcionTxt.Name = "updateDescripcionTxt";
             this.updateDescripcionTxt.Size = new System.Drawing.Size(167, 66);

@@ -16,8 +16,8 @@ namespace SIFCA_DAL
     {
         public System.Guid NROPROY { get; set; }
         public decimal CODEST { get; set; }
-        public decimal PESO { get; set; }
-        public decimal TAMANOMUESTRA { get; set; }
+        public Nullable<decimal> PESO { get; set; }
+        public Nullable<decimal> TAMANOMUESTRA { get; set; }
     
         public virtual ESTRATO ESTRATO { get; set; }
         public virtual PROYECTO PROYECTO { get; set; }

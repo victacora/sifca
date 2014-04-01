@@ -30,6 +30,7 @@ namespace SIFCA_DAL
         public DbSet<ESPECIE> ESPECIE { get; set; }
         public DbSet<ESTADOSANITARIO> ESTADOSANITARIO { get; set; }
         public DbSet<ESTRATO> ESTRATO { get; set; }
+        public DbSet<FORMULA> FORMULA { get; set; }
         public DbSet<FORMULARIO> FORMULARIO { get; set; }
         public DbSet<GRUPOCOMERCIAL> GRUPOCOMERCIAL { get; set; }
         public DbSet<IMAGEN> IMAGEN { get; set; }
@@ -42,12 +43,11 @@ namespace SIFCA_DAL
         public DbSet<PROYECTOSPORETAPA> PROYECTOSPORETAPA { get; set; }
         public DbSet<TIPODEUSO> TIPODEUSO { get; set; }
         public DbSet<TIPODISENOMUESTRAL> TIPODISENOMUESTRAL { get; set; }
+        public DbSet<TIPOFORMULA> TIPOFORMULA { get; set; }
         public DbSet<TRANSACCION> TRANSACCION { get; set; }
         public DbSet<TSTUDENT> TSTUDENT { get; set; }
         public DbSet<USUARIO> USUARIO { get; set; }
-        public DbSet<FORMULA> FORMULA { get; set; }
         public DbSet<VARIABLE> VARIABLE { get; set; }
-        public DbSet<TIPOFORMULA> TIPOFORMULA { get; set; }
     
         public virtual int createBackupDB(string baseLocation, string backupType)
         {

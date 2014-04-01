@@ -110,7 +110,7 @@
             this.ListadoEstados.ReadOnly = true;
             this.ListadoEstados.Size = new System.Drawing.Size(687, 249);
             this.ListadoEstados.TabIndex = 5;
-            this.ListadoEstados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListadoDeEspecies_CellValueChanged);
+            this.ListadoEstados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Listado_CellValueChanged);
             // 
             // eSTADODataGridViewTextBoxColumn
             // 
@@ -188,7 +188,7 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 24);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
             this.bindingNavigatorCountItem.Text = "de {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
             // 
@@ -208,7 +208,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 24);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveFirstItem.Text = "Mover primero";
             // 
             // bindingNavigatorMovePreviousItem
@@ -217,13 +217,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 24);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMovePreviousItem.Text = "Mover anterior";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -237,7 +237,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -245,7 +245,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 24);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveNextItem.Text = "Mover siguiente";
             // 
             // bindingNavigatorMoveLastItem
@@ -254,30 +254,30 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 24);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Mover último";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // buscarLbl
             // 
             this.buscarLbl.Name = "buscarLbl";
-            this.buscarLbl.Size = new System.Drawing.Size(45, 24);
+            this.buscarLbl.Size = new System.Drawing.Size(45, 22);
             this.buscarLbl.Text = "Buscar:";
             // 
             // busquedaTxt
             // 
             this.busquedaTxt.Name = "busquedaTxt";
-            this.busquedaTxt.Size = new System.Drawing.Size(150, 27);
+            this.busquedaTxt.Size = new System.Drawing.Size(150, 25);
             this.busquedaTxt.TextChanged += new System.EventHandler(this.busquedaTxt_TextChanged);
             // 
             // filtrarLbl
             // 
             this.filtrarLbl.Name = "filtrarLbl";
-            this.filtrarLbl.Size = new System.Drawing.Size(92, 24);
+            this.filtrarLbl.Size = new System.Drawing.Size(92, 22);
             this.filtrarLbl.Text = "Filtrar busqueda";
             // 
             // criterioCbx
@@ -286,7 +286,7 @@
             this.criterioCbx.Items.AddRange(new object[] {
             "Descripcion"});
             this.criterioCbx.Name = "criterioCbx";
-            this.criterioCbx.Size = new System.Drawing.Size(121, 27);
+            this.criterioCbx.Size = new System.Drawing.Size(121, 25);
             // 
             // pn_crear
             // 
@@ -334,10 +334,11 @@
             // txt_Descripcion
             // 
             this.txt_Descripcion.Location = new System.Drawing.Point(121, 66);
+            this.txt_Descripcion.MaxLength = 500;
             this.txt_Descripcion.Multiline = true;
             this.txt_Descripcion.Name = "txt_Descripcion";
             this.txt_Descripcion.Size = new System.Drawing.Size(179, 65);
-            this.txt_Descripcion.TabIndex = 3;
+            this.txt_Descripcion.TabIndex = 1;
             // 
             // label2
             // 
@@ -354,7 +355,7 @@
             this.txt_Nombre.MaxLength = 2;
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(174, 20);
-            this.txt_Nombre.TabIndex = 1;
+            this.txt_Nombre.TabIndex = 0;
             // 
             // label1
             // 
@@ -393,7 +394,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(202, 141);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 28;
+            this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.Btn_CancelarUpdate_Click);
@@ -403,7 +404,7 @@
             this.Btn_Guardar.Location = new System.Drawing.Point(17, 141);
             this.Btn_Guardar.Name = "Btn_Guardar";
             this.Btn_Guardar.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Guardar.TabIndex = 27;
+            this.Btn_Guardar.TabIndex = 0;
             this.Btn_Guardar.Text = "Guardar";
             this.Btn_Guardar.UseVisualStyleBackColor = true;
             this.Btn_Guardar.Click += new System.EventHandler(this.Btn_guardar_Click);
@@ -411,6 +412,7 @@
             // updateDescripTxt
             // 
             this.updateDescripTxt.Location = new System.Drawing.Point(93, 63);
+            this.updateDescripTxt.MaxLength = 500;
             this.updateDescripTxt.Multiline = true;
             this.updateDescripTxt.Name = "updateDescripTxt";
             this.updateDescripTxt.ShortcutsEnabled = false;
@@ -453,9 +455,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(702, 286);
+            this.Controls.Add(this.pn_editar);
             this.Controls.Add(this.pn_crear);
             this.Controls.Add(this.pn_listado);
-            this.Controls.Add(this.pn_editar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

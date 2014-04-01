@@ -43,7 +43,6 @@
             System.Windows.Forms.Label alturaComercialLbl;
             System.Windows.Forms.Label alturaTotalLbl;
             System.Windows.Forms.Label calidadLbl;
-            System.Windows.Forms.Label dAPLbl;
             System.Windows.Forms.Label estadoLbl;
             System.Windows.Forms.Label especieRegeLbl;
             System.Windows.Forms.Label observacionesLbl;
@@ -73,6 +72,7 @@
             this.datosTabControl = new System.Windows.Forms.TabControl();
             this.InventarioTP = new System.Windows.Forms.TabPage();
             this.datosInventarioGrx = new System.Windows.Forms.GroupBox();
+            this.parametrosLineaTxt = new System.Windows.Forms.TextBox();
             this.limpiarBtn = new System.Windows.Forms.Button();
             this.lineaInvBN = new System.Windows.Forms.BindingNavigator(this.components);
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
@@ -91,7 +91,6 @@
             this.verDetalleBtn = new System.Windows.Forms.Button();
             this.tipoArbolCbx = new System.Windows.Forms.ComboBox();
             this.cAPTxt = new System.Windows.Forms.TextBox();
-            this.dAPTxt = new System.Windows.Forms.TextBox();
             this.RegistrarEspecieBtn = new System.Windows.Forms.Button();
             this.listarDatosBtn = new System.Windows.Forms.Button();
             this.nroArbolTxt = new System.Windows.Forms.TextBox();
@@ -182,7 +181,6 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tipoUsoBS = new System.Windows.Forms.BindingSource(this.components);
             this.controladorErrores = new System.Windows.Forms.ErrorProvider(this.components);
-            this.parametrosLineaTxt = new System.Windows.Forms.TextBox();
             estratoLbl = new System.Windows.Forms.Label();
             lineaLbl = new System.Windows.Forms.Label();
             ProyectoLbl = new System.Windows.Forms.Label();
@@ -197,7 +195,6 @@
             alturaComercialLbl = new System.Windows.Forms.Label();
             alturaTotalLbl = new System.Windows.Forms.Label();
             calidadLbl = new System.Windows.Forms.Label();
-            dAPLbl = new System.Windows.Forms.Label();
             estadoLbl = new System.Windows.Forms.Label();
             especieRegeLbl = new System.Windows.Forms.Label();
             observacionesLbl = new System.Windows.Forms.Label();
@@ -334,7 +331,7 @@
             // alturaComercialLbl
             // 
             alturaComercialLbl.AutoSize = true;
-            alturaComercialLbl.Location = new System.Drawing.Point(17, 269);
+            alturaComercialLbl.Location = new System.Drawing.Point(17, 241);
             alturaComercialLbl.Name = "alturaComercialLbl";
             alturaComercialLbl.Size = new System.Drawing.Size(115, 13);
             alturaComercialLbl.TabIndex = 26;
@@ -343,7 +340,7 @@
             // alturaTotalLbl
             // 
             alturaTotalLbl.AutoSize = true;
-            alturaTotalLbl.Location = new System.Drawing.Point(17, 294);
+            alturaTotalLbl.Location = new System.Drawing.Point(17, 266);
             alturaTotalLbl.Name = "alturaTotalLbl";
             alturaTotalLbl.Size = new System.Drawing.Size(93, 13);
             alturaTotalLbl.TabIndex = 28;
@@ -357,15 +354,6 @@
             calidadLbl.Size = new System.Drawing.Size(45, 13);
             calidadLbl.TabIndex = 8;
             calidadLbl.Text = "Calidad:";
-            // 
-            // dAPLbl
-            // 
-            dAPLbl.AutoSize = true;
-            dAPLbl.Location = new System.Drawing.Point(19, 242);
-            dAPLbl.Name = "dAPLbl";
-            dAPLbl.Size = new System.Drawing.Size(104, 13);
-            dAPLbl.TabIndex = 12;
-            dAPLbl.Text = "Diametro A.P. (Mtrs):";
             // 
             // estadoLbl
             // 
@@ -631,7 +619,6 @@
             this.datosInventarioGrx.Controls.Add(this.tipoArbolCbx);
             this.datosInventarioGrx.Controls.Add(tipoArbolLbl);
             this.datosInventarioGrx.Controls.Add(this.cAPTxt);
-            this.datosInventarioGrx.Controls.Add(this.dAPTxt);
             this.datosInventarioGrx.Controls.Add(this.RegistrarEspecieBtn);
             this.datosInventarioGrx.Controls.Add(this.listarDatosBtn);
             this.datosInventarioGrx.Controls.Add(cAPLbl);
@@ -647,7 +634,6 @@
             this.datosInventarioGrx.Controls.Add(alturaTotalLbl);
             this.datosInventarioGrx.Controls.Add(this.alturaTotalTxt);
             this.datosInventarioGrx.Controls.Add(calidadLbl);
-            this.datosInventarioGrx.Controls.Add(dAPLbl);
             this.datosInventarioGrx.Controls.Add(estadoLbl);
             this.datosInventarioGrx.Location = new System.Drawing.Point(-6, -13);
             this.datosInventarioGrx.Name = "datosInventarioGrx";
@@ -655,6 +641,16 @@
             this.datosInventarioGrx.TabIndex = 2;
             this.datosInventarioGrx.TabStop = false;
             this.datosInventarioGrx.Text = "Datos de inventario";
+            // 
+            // parametrosLineaTxt
+            // 
+            this.parametrosLineaTxt.Location = new System.Drawing.Point(20, 291);
+            this.parametrosLineaTxt.Multiline = true;
+            this.parametrosLineaTxt.Name = "parametrosLineaTxt";
+            this.parametrosLineaTxt.ReadOnly = true;
+            this.parametrosLineaTxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.parametrosLineaTxt.Size = new System.Drawing.Size(353, 89);
+            this.parametrosLineaTxt.TabIndex = 83;
             // 
             // limpiarBtn
             // 
@@ -843,18 +839,6 @@
             this.cAPTxt.TextChanged += new System.EventHandler(this.cAPTxt_TextChanged);
             this.cAPTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
-            // dAPTxt
-            // 
-            this.dAPTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "DAP", true));
-            this.dAPTxt.Location = new System.Drawing.Point(159, 240);
-            this.dAPTxt.MaxLength = 25;
-            this.dAPTxt.Name = "dAPTxt";
-            this.dAPTxt.Size = new System.Drawing.Size(213, 20);
-            this.dAPTxt.TabIndex = 20;
-            this.dAPTxt.Text = "0";
-            this.dAPTxt.TextChanged += new System.EventHandler(this.dAPTxt_TextChanged);
-            this.dAPTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
-            // 
             // RegistrarEspecieBtn
             // 
             this.RegistrarEspecieBtn.Location = new System.Drawing.Point(175, 396);
@@ -936,7 +920,7 @@
             // alturaComercialTxt
             // 
             this.alturaComercialTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "ALTCOMER_M", true));
-            this.alturaComercialTxt.Location = new System.Drawing.Point(159, 267);
+            this.alturaComercialTxt.Location = new System.Drawing.Point(159, 239);
             this.alturaComercialTxt.MaxLength = 25;
             this.alturaComercialTxt.Name = "alturaComercialTxt";
             this.alturaComercialTxt.Size = new System.Drawing.Size(214, 20);
@@ -948,7 +932,7 @@
             // alturaTotalTxt
             // 
             this.alturaTotalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "ALTTOT_M", true));
-            this.alturaTotalTxt.Location = new System.Drawing.Point(159, 293);
+            this.alturaTotalTxt.Location = new System.Drawing.Point(159, 265);
             this.alturaTotalTxt.MaxLength = 25;
             this.alturaTotalTxt.Name = "alturaTotalTxt";
             this.alturaTotalTxt.Size = new System.Drawing.Size(214, 20);
@@ -1718,16 +1702,6 @@
             this.controladorErrores.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.controladorErrores.ContainerControl = this;
             // 
-            // parametrosLineaTxt
-            // 
-            this.parametrosLineaTxt.Location = new System.Drawing.Point(20, 320);
-            this.parametrosLineaTxt.Multiline = true;
-            this.parametrosLineaTxt.Name = "parametrosLineaTxt";
-            this.parametrosLineaTxt.ReadOnly = true;
-            this.parametrosLineaTxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.parametrosLineaTxt.Size = new System.Drawing.Size(351, 60);
-            this.parametrosLineaTxt.TabIndex = 83;
-            // 
             // Crear_Editar_Formulario_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1864,7 +1838,6 @@
         private System.Windows.Forms.TextBox latizalTxt;
         private System.Windows.Forms.TextBox brinzalTxt;
         private System.Windows.Forms.TextBox cAPTxt;
-        private System.Windows.Forms.TextBox dAPTxt;
         private System.Windows.Forms.ComboBox tipoArbolCbx;
         private System.Windows.Forms.RadioButton nombreComunRbtn;
         private System.Windows.Forms.RadioButton nombreCientRbtn;

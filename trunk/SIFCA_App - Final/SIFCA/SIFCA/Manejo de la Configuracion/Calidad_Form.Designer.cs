@@ -106,7 +106,7 @@
             this.ListadoCalidades.ReadOnly = true;
             this.ListadoCalidades.Size = new System.Drawing.Size(522, 283);
             this.ListadoCalidades.TabIndex = 0;
-            this.ListadoCalidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListadoDeEspecies_CellValueChanged);
+            this.ListadoCalidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Listado_CellValueChanged);
             // 
             // cODCALIDADDataGridViewTextBoxColumn
             // 
@@ -312,6 +312,7 @@
             // txt_Descripcion
             // 
             this.txt_Descripcion.Location = new System.Drawing.Point(105, 16);
+            this.txt_Descripcion.MaxLength = 500;
             this.txt_Descripcion.Multiline = true;
             this.txt_Descripcion.Name = "txt_Descripcion";
             this.txt_Descripcion.Size = new System.Drawing.Size(179, 76);
@@ -363,6 +364,7 @@
             // updateDescripcionTxt
             // 
             this.updateDescripcionTxt.Location = new System.Drawing.Point(86, 47);
+            this.updateDescripcionTxt.MaxLength = 500;
             this.updateDescripcionTxt.Multiline = true;
             this.updateDescripcionTxt.Name = "updateDescripcionTxt";
             this.updateDescripcionTxt.ShortcutsEnabled = false;
@@ -415,9 +417,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(545, 314);
-            this.Controls.Add(this.pn_listado);
             this.Controls.Add(this.pn_editar);
             this.Controls.Add(this.pn_crear);
+            this.Controls.Add(this.pn_listado);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

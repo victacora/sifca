@@ -60,7 +60,6 @@
             this.expresionTxt = new System.Windows.Forms.TextBox();
             this.formulaBS = new System.Windows.Forms.BindingSource(this.components);
             this.formularComboBox = new System.Windows.Forms.ComboBox();
-            this.proyectoBS = new System.Windows.Forms.BindingSource(this.components);
             this.numeroParcelasMuestraTxt = new System.Windows.Forms.TextBox();
             this.numeroParcelasTxt = new System.Windows.Forms.TextBox();
             this.areaMuestrearTxt = new System.Windows.Forms.TextBox();
@@ -112,6 +111,7 @@
             this.NOMBRETIPOINV = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.NOMTIPODISEMUEST = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.PesoProyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proyectoBS = new System.Windows.Forms.BindingSource(this.components);
             this.cancelarBtn = new System.Windows.Forms.Button();
             this.GuardarBtn = new System.Windows.Forms.Button();
             this.controladorErrores = new System.Windows.Forms.ErrorProvider(this.components);
@@ -138,7 +138,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.objetivoInventarioBS)).BeginInit();
             this.otrosDatosGbx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.formulaBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoBS)).BeginInit();
             this.especiesTabP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.especiesDGW)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.especieBS)).BeginInit();
@@ -147,6 +146,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.estratoBS)).BeginInit();
             this.proyectosContTabP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDGW)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.controladorErrores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -443,7 +443,6 @@
             // 
             // expresionTxt
             // 
-            this.expresionTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.formulaBS, "EXPRESION", true));
             this.expresionTxt.Location = new System.Drawing.Point(159, 250);
             this.expresionTxt.MaxLength = 18;
             this.expresionTxt.Name = "expresionTxt";
@@ -468,28 +467,24 @@
             this.formularComboBox.TabIndex = 53;
             this.formularComboBox.ValueMember = "NROFORMULA";
             // 
-            // proyectoBS
-            // 
-            this.proyectoBS.DataSource = typeof(SIFCA_DAL.PROYECTO);
-            // 
             // numeroParcelasMuestraTxt
             // 
-            this.numeroParcelasMuestraTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.nuevoProyectoBS, "NUMEROPARCELASAMUESTREAR", true));
             this.numeroParcelasMuestraTxt.Location = new System.Drawing.Point(401, 67);
             this.numeroParcelasMuestraTxt.MaxLength = 25;
             this.numeroParcelasMuestraTxt.Name = "numeroParcelasMuestraTxt";
             this.numeroParcelasMuestraTxt.Size = new System.Drawing.Size(84, 20);
             this.numeroParcelasMuestraTxt.TabIndex = 51;
+            this.numeroParcelasMuestraTxt.Text = "0";
             this.numeroParcelasMuestraTxt.TextChanged += new System.EventHandler(this.numeroParcelasMuestraTxt_TextChanged);
             // 
             // numeroParcelasTxt
             // 
-            this.numeroParcelasTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.nuevoProyectoBS, "NUMEROPARCELAS", true));
             this.numeroParcelasTxt.Location = new System.Drawing.Point(159, 66);
             this.numeroParcelasTxt.MaxLength = 25;
             this.numeroParcelasTxt.Name = "numeroParcelasTxt";
             this.numeroParcelasTxt.Size = new System.Drawing.Size(86, 20);
             this.numeroParcelasTxt.TabIndex = 49;
+            this.numeroParcelasTxt.Text = "0";
             this.numeroParcelasTxt.TextChanged += new System.EventHandler(this.numeroParcelasTxt_TextChanged);
             // 
             // areaMuestrearTxt
@@ -555,7 +550,6 @@
             // 
             // limiteInfTxt
             // 
-            this.limiteInfTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.nuevoProyectoBS, "LIMITINFDAP", true));
             this.limiteInfTxt.Location = new System.Drawing.Point(159, 144);
             this.limiteInfTxt.MaxLength = 25;
             this.limiteInfTxt.Name = "limiteInfTxt";
@@ -576,7 +570,6 @@
             // 
             // factorFormaTxt
             // 
-            this.factorFormaTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.nuevoProyectoBS, "FACTORDEFORMA", true));
             this.factorFormaTxt.Location = new System.Drawing.Point(159, 198);
             this.factorFormaTxt.MaxLength = 25;
             this.factorFormaTxt.Name = "factorFormaTxt";
@@ -586,7 +579,6 @@
             // 
             // areaFustalesTxt
             // 
-            this.areaFustalesTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.nuevoProyectoBS, "AREAFUSTALESPORPARCELA", true));
             this.areaFustalesTxt.Location = new System.Drawing.Point(159, 170);
             this.areaFustalesTxt.MaxLength = 25;
             this.areaFustalesTxt.Name = "areaFustalesTxt";
@@ -596,12 +588,12 @@
             // 
             // tamParcelaTxt
             // 
-            this.tamParcelaTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.nuevoProyectoBS, "TAMANO", true));
             this.tamParcelaTxt.Location = new System.Drawing.Point(159, 40);
             this.tamParcelaTxt.MaxLength = 25;
             this.tamParcelaTxt.Name = "tamParcelaTxt";
             this.tamParcelaTxt.Size = new System.Drawing.Size(327, 20);
             this.tamParcelaTxt.TabIndex = 4;
+            this.tamParcelaTxt.Text = "0";
             this.tamParcelaTxt.TextChanged += new System.EventHandler(this.tamParcelaTxt_TextChanged);
             // 
             // lugarTxt
@@ -986,6 +978,10 @@
             this.PesoProyecto.HeaderText = "Peso";
             this.PesoProyecto.Name = "PesoProyecto";
             // 
+            // proyectoBS
+            // 
+            this.proyectoBS.DataSource = typeof(SIFCA_DAL.PROYECTO);
+            // 
             // cancelarBtn
             // 
             this.cancelarBtn.Location = new System.Drawing.Point(579, 536);
@@ -1038,7 +1034,6 @@
             this.otrosDatosGbx.ResumeLayout(false);
             this.otrosDatosGbx.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.formulaBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoBS)).EndInit();
             this.especiesTabP.ResumeLayout(false);
             this.especiesTabP.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.especiesDGW)).EndInit();
@@ -1049,6 +1044,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.estratoBS)).EndInit();
             this.proyectosContTabP.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDGW)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.controladorErrores)).EndInit();
             this.ResumeLayout(false);
 

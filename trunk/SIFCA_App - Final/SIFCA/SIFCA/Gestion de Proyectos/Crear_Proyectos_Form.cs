@@ -33,14 +33,10 @@ namespace SIFCA
                 this.ControlBox = false;
                 criterioCbx.SelectedIndex = 0;
                 newProject = Program.ContextData.PROYECTO.Create();
-                newProject.CONFIANZA = 95;
-                newProject.LIMITINFDAP = 0.1M;
-                newProject.AREAFUSTALESPORPARCELA = 0.1M;
-                newProject.NUMEROPARCELAS = 0;
-                newProject.NUMEROPARCELASAMUESTREAR = 0;
-                newProject.INTMUE = 0;
-                newProject.SUPMUE = 0;
-                newProject.SUPTOT = 0;
+                confianzaTextBox.Text = "95";
+                limiteInfTxt.Text = "0,1";
+                areaFustalesTxt.Text = "0,1";
+                factorFormaTxt.Text = "0,65";
                 formulate = new FormulateBL(Program.ContextData);
                 formulaBS.DataSource = formulate.GetFormulates();
                 newProject.NROFORMULA = formulaBS.Count != 0 ? ((FORMULA)formulaBS.Current).NROFORMULA : Guid.Empty;
@@ -58,7 +54,7 @@ namespace SIFCA
                 estratoDGW.DataSource = estratoBS;
                 especieBS.DataSource = species.GetSpecies();
                 especiesDGW.DataSource = especieBS;
-                proyectoBS.DataSource = project.GetProjectsFree(Guid.Empty);
+                proyectoBS.DataSource = project.GetProjectsFree(null);
                 proyectoDGW.DataSource = proyectoBS;
                 listProjectsByStage = new List<PROYECTOSPORETAPA>();
                 TipoProyectoCbx.SelectedIndex = 0;
@@ -870,9 +866,9 @@ namespace SIFCA
              nuevoProyectoBS.EndEdit();
              if (p != null)
              {
-                 p.SUPTOT = (decimal)p.TAMANO * (decimal)p.NUMEROPARCELAS;
-                 p.SUPMUE = (decimal)p.TAMANO * (decimal)p.NUMEROPARCELASAMUESTREAR;
-                 p.INTMUE = (decimal)p.SUPTOT!=0?((decimal)p.SUPMUE / (decimal)p.SUPTOT) * 100:0;
+                 AreaTotalTxt.Text = ((decimal)p.TAMANO * (decimal)p.NUMEROPARCELAS).ToString();
+                 areaMuestrearTxt.Text = ((decimal)p.TAMANO * (decimal)p.NUMEROPARCELASAMUESTREAR).ToString();
+                 intMuestreoTxt.Text = ((decimal)p.SUPTOT != 0 ? ((decimal)p.SUPMUE / (decimal)p.SUPTOT) * 100 : 0).ToString();
              }
          }
 

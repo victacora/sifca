@@ -46,7 +46,7 @@ namespace SIFCA
 
                 proyectoBS.DataSource = p;
 
-                proyectosBS.DataSource = project.GetProjects(p.NROPROY);
+                proyectosBS.DataSource = project.GetProjects(p);
                 proyectoDGW.DataSource = proyectosBS;
 
                 objetivoInventarioBS.DataSource = objetiveInventory.GetObjectiveInventories();
@@ -580,7 +580,7 @@ namespace SIFCA
                                 
                                 }
                             }
-                            proyectosBS.DataSource = project.GetProjects(p.NROPROY);
+                            proyectosBS.DataSource = project.GetProjects(p);
                             proyectoDGW.DataSource = proyectosBS;
                         }
                     }

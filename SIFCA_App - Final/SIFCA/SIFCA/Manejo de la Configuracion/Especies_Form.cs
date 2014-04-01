@@ -24,10 +24,20 @@ namespace SIFCA.Gestion_Configuracion
         private string state;
         private PROYECTO project;
 
-
+        /// <summary>
+        /// En esta funcion establecemos el estado desde el cual se hace la llamada a la funcion este estado es para manejar
+        /// si se hace una llamada desde este mismo formulario o si es llamado desde el formulario de proyectos o de linea de invetario
+        /// </summary>
+        /// <param name="st">
+        /// parametro que contiene la cadena con el nombre del formulario desde el que se hizo la llamada
+        /// </param>
         public void setstate(string st){
             this.state = st;
         }
+
+        /// <summary>
+        /// Constructor para inicializar atributos y elementos del formulario
+        /// </summary>
         public Especies_Form()
         {
             try
@@ -55,6 +65,12 @@ namespace SIFCA.Gestion_Configuracion
             }            
         }
 
+        /// <summary>
+        /// Funcion que es llamada desde la opcion de nueva especie desde el mismo formulario especie form y en el se redimenciona 
+        /// la ventana la el tamaño de crear especie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Btn_nuevaEspecie_Click(object sender, EventArgs e)
         {
             try
@@ -78,6 +94,14 @@ namespace SIFCA.Gestion_Configuracion
             }
         }
 
+        /// <summary>
+        /// Funcion que es llamada desde un formulario externo para crear una especie sin la necesidad de entrar 
+        /// directamente al formulario de especies se redimensiona la ventana y se fijan unos atributos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <param name="py"></param>
+        /// <param name="formCall"></param>
         public void Btn_nuevaEspecieForm_Click(object sender, EventArgs e, PROYECTO py, string formCall)
         {
             try
@@ -110,6 +134,7 @@ namespace SIFCA.Gestion_Configuracion
                 species = Program.ContextData.ESPECIE.Create();
                 Decimal DIM = 0;
                 bool band = true;
+                eP_errors.BlinkRate = 0;
                        
                 if (this.txt_NombreComun.Text == "")
                 {
@@ -119,7 +144,7 @@ namespace SIFCA.Gestion_Configuracion
                 else
                 {
                     species.NOMCOMUN = this.txt_NombreComun.Text;
-                    eP_errors.Dispose();
+                    //eP_errors.Clear();
                 }
                 if (this.grupoEcoCbx.Text == "")
                 {
@@ -129,8 +154,8 @@ namespace SIFCA.Gestion_Configuracion
                 else
                 {
                     if (this.grupoEcoCbx.Text == "Tolerante") species.GRUPOECOLOGICO = "TL";
-                    if (this.grupoEcoCbx.Text == "No Tolerante") species.GRUPOECOLOGICO = "NT";                    
-                    eP_errors.Dispose();
+                    if (this.grupoEcoCbx.Text == "No Tolerante") species.GRUPOECOLOGICO = "NT";
+                    //eP_errors.Clear();
                 }
                 if (this.txt_NombreCientifico.Text == "")
                 {
@@ -140,7 +165,7 @@ namespace SIFCA.Gestion_Configuracion
                 else
                 {
                     species.NOMCIENTIFICO = this.txt_NombreCientifico.Text;
-                    eP_errors.Dispose();
+                    //eP_errors.Clear();
                 }
                 if (this.txt_Familia.Text == "")
                 {
@@ -150,7 +175,7 @@ namespace SIFCA.Gestion_Configuracion
                 else
                 {
                     species.FAMILIA = this.txt_Familia.Text;
-                    eP_errors.Dispose();
+                    //eP_errors.Clear();
                 }
             
                 IEnumerable<ESPECIE> sp_nomCom = specieBL.SearchSpecies(species.NOMCOMUN, "Nombre Comun");
@@ -180,10 +205,11 @@ namespace SIFCA.Gestion_Configuracion
                         band = false;
                         eP_errors.SetError(txt_DMC, "El Diametro es incorrecto");
                     }
-                    else eP_errors.Dispose();
+                    //else eP_errors.Clear();
                 }
                 if (band)
                 {
+                    eP_errors.Clear();
                     species.DIAMMINCORTE = DIM;
                     species.CODESP = Guid.NewGuid();
                     species.GRUPOCOM = this.cbox_GrupoComercial.SelectedValue.ToString();
@@ -906,7 +932,7 @@ namespace SIFCA.Gestion_Configuracion
         {
             try
             {
-                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
                 {
                     e.Handled = true;
                 }
@@ -951,10 +977,13 @@ namespace SIFCA.Gestion_Configuracion
             try
             {
                 ImporExportExcel impSpecie = new ImporExportExcel();
-                impSpecie.loadFicherFile();
-                impSpecie.loadSpecies(null,1);
-                specieBSource.DataSource = specieBL.GetSpecies();
-                ListadoEspecies.Refresh();
+
+                if (impSpecie.loadFicherFile())
+                {
+                    impSpecie.loadSpecies(null, 1);
+                    specieBSource.DataSource = specieBL.GetSpecies();
+                    ListadoEspecies.Refresh();
+                }
             }
             catch (Exception ex)
             {

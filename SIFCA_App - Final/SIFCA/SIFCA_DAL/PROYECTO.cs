@@ -27,23 +27,24 @@ namespace SIFCA_DAL
         public System.Guid NROUSUARIO { get; set; }
         public string NOMBRETIPOINV { get; set; }
         public string NOMTIPODISEMUEST { get; set; }
+        public System.Guid NROFORMULA { get; set; }
         public string LUGAR { get; set; }
+        public decimal NUMEROPARCELAS { get; set; }
+        public decimal NUMEROPARCELASAMUESTREAR { get; set; }
+        public decimal TAMANO { get; set; }
         public string DESCRIPCION { get; set; }
         public decimal SUPTOT { get; set; }
         public decimal INTMUE { get; set; }
         public decimal SUPMUE { get; set; }
-        public decimal TAMANO { get; set; }
         public decimal LIMITINFDAP { get; set; }
         public decimal AREAFUSTALESPORPARCELA { get; set; }
         public decimal FACTORDEFORMA { get; set; }
         public System.DateTime FECHA { get; set; }
+        public decimal ETAPA { get; set; }
         public string TIPOPROYECTO { get; set; }
         public decimal CONFIANZA { get; set; }
-        public decimal ETAPA { get; set; }
-        public System.Guid NROFORMULA { get; set; }
-        public decimal NUMEROPARCELAS { get; set; }
-        public decimal NUMEROPARCELASAMUESTREAR { get; set; }
     
+        public virtual FORMULA FORMULA { get; set; }
         public virtual ICollection<FORMULARIO> FORMULARIO { get; set; }
         public virtual ICollection<LISTADODEESTRATOS> LISTADODEESTRATOS { get; set; }
         public virtual OBJETIVOINVENTARIO OBJETIVOINVENTARIO { get; set; }
@@ -52,7 +53,6 @@ namespace SIFCA_DAL
         public virtual USUARIO USUARIO { get; set; }
         public virtual TIPODISENOMUESTRAL TIPODISENOMUESTRAL { get; set; }
         public virtual ICollection<ESPECIE> ESPECIE { get; set; }
-        public virtual FORMULA FORMULA { get; set; }
     }
     
 }

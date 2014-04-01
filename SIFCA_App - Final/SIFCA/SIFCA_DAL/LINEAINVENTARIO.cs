@@ -25,9 +25,9 @@ namespace SIFCA_DAL
         public decimal AREABASAL { get; set; }
         public decimal VOLCOM { get; set; }
         public decimal VOLTOT { get; set; }
+        public string TIPOARBOL { get; set; }
         public decimal CAP { get; set; }
         public decimal DAP { get; set; }
-        public string TIPOARBOL { get; set; }
     
         public virtual CALIDAD CALIDAD { get; set; }
         public virtual ESPECIE ESPECIE { get; set; }

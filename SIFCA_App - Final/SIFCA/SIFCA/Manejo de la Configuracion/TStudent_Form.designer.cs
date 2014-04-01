@@ -31,10 +31,18 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TStudent_Form));
             this.pn_listado = new System.Windows.Forms.Panel();
+            this.pBarLoad = new System.Windows.Forms.ProgressBar();
             this.ListadoTStudent = new System.Windows.Forms.DataGridView();
+            this.nDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aLPHADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vALORDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.TStudentBSource = new System.Windows.Forms.BindingSource(this.components);
             this.paginacionTStudent = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.Btn_nuevo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -45,6 +53,8 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.buscarLbl = new System.Windows.Forms.ToolStripLabel();
             this.busquedaTxt = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.Criterio_tSCB = new System.Windows.Forms.ToolStripComboBox();
             this.pn_crear = new System.Windows.Forms.Panel();
             this.crearGbx = new System.Windows.Forms.GroupBox();
             this.crearValor_txt = new System.Windows.Forms.TextBox();
@@ -66,18 +76,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Btn_Guardar = new System.Windows.Forms.Button();
             this.eP_errors = new System.Windows.Forms.ErrorProvider(this.components);
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.Criterio_tSCB = new System.Windows.Forms.ToolStripComboBox();
-            this.TStudentBSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.pBarLoad = new System.Windows.Forms.ProgressBar();
-            this.nDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aLPHADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vALORDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pn_listado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListadoTStudent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TStudentBSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paginacionTStudent)).BeginInit();
             this.paginacionTStudent.SuspendLayout();
             this.pn_crear.SuspendLayout();
@@ -85,7 +86,6 @@
             this.pn_editar.SuspendLayout();
             this.editarGbx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eP_errors)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TStudentBSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pn_listado
@@ -98,6 +98,14 @@
             this.pn_listado.Name = "pn_listado";
             this.pn_listado.Size = new System.Drawing.Size(664, 312);
             this.pn_listado.TabIndex = 0;
+            // 
+            // pBarLoad
+            // 
+            this.pBarLoad.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pBarLoad.Location = new System.Drawing.Point(0, 285);
+            this.pBarLoad.Name = "pBarLoad";
+            this.pBarLoad.Size = new System.Drawing.Size(660, 23);
+            this.pBarLoad.TabIndex = 5;
             // 
             // ListadoTStudent
             // 
@@ -119,7 +127,53 @@
             this.ListadoTStudent.ReadOnly = true;
             this.ListadoTStudent.Size = new System.Drawing.Size(660, 283);
             this.ListadoTStudent.TabIndex = 0;
-            this.ListadoTStudent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListadoDeEspecies_CellValueChanged);
+            this.ListadoTStudent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Listado_CellValueChanged);
+            // 
+            // nDataGridViewTextBoxColumn
+            // 
+            this.nDataGridViewTextBoxColumn.DataPropertyName = "N";
+            this.nDataGridViewTextBoxColumn.HeaderText = "N";
+            this.nDataGridViewTextBoxColumn.Name = "nDataGridViewTextBoxColumn";
+            this.nDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // aLPHADataGridViewTextBoxColumn
+            // 
+            this.aLPHADataGridViewTextBoxColumn.DataPropertyName = "ALPHA";
+            this.aLPHADataGridViewTextBoxColumn.HeaderText = "ALPHA";
+            this.aLPHADataGridViewTextBoxColumn.Name = "aLPHADataGridViewTextBoxColumn";
+            this.aLPHADataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vALORDataGridViewTextBoxColumn
+            // 
+            this.vALORDataGridViewTextBoxColumn.DataPropertyName = "VALOR";
+            this.vALORDataGridViewTextBoxColumn.HeaderText = "VALOR";
+            this.vALORDataGridViewTextBoxColumn.Name = "vALORDataGridViewTextBoxColumn";
+            this.vALORDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Editar
+            // 
+            this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            this.Editar.HeaderText = "";
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            this.Editar.Text = "Editar";
+            this.Editar.UseColumnTextForButtonValue = true;
+            this.Editar.Width = 5;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            this.Eliminar.DataPropertyName = "N";
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Text = "Eliminar";
+            this.Eliminar.UseColumnTextForButtonValue = true;
+            this.Eliminar.Width = 5;
+            // 
+            // TStudentBSource
+            // 
+            this.TStudentBSource.DataSource = typeof(SIFCA_DAL.TSTUDENT);
             // 
             // paginacionTStudent
             // 
@@ -170,6 +224,13 @@
             this.Btn_nuevo.Size = new System.Drawing.Size(46, 22);
             this.Btn_nuevo.Text = "Nuevo";
             this.Btn_nuevo.Click += new System.EventHandler(this.Btn_nuevo_Click);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(71, 22);
+            this.toolStripLabel2.Text = "Cargar tabla";
+            this.toolStripLabel2.Click += new System.EventHandler(this.toolStripLabel2_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -243,6 +304,20 @@
             this.busquedaTxt.Size = new System.Drawing.Size(150, 25);
             this.busquedaTxt.TextChanged += new System.EventHandler(this.busquedaTxt_TextChanged);
             // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(0, 22);
+            // 
+            // Criterio_tSCB
+            // 
+            this.Criterio_tSCB.Items.AddRange(new object[] {
+            "N",
+            "ALPHA",
+            "VALOR"});
+            this.Criterio_tSCB.Name = "Criterio_tSCB";
+            this.Criterio_tSCB.Size = new System.Drawing.Size(121, 25);
+            // 
             // pn_crear
             // 
             this.pn_crear.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -272,9 +347,11 @@
             // crearValor_txt
             // 
             this.crearValor_txt.Location = new System.Drawing.Point(105, 68);
+            this.crearValor_txt.MaxLength = 22;
             this.crearValor_txt.Name = "crearValor_txt";
             this.crearValor_txt.Size = new System.Drawing.Size(103, 20);
             this.crearValor_txt.TabIndex = 2;
+            this.crearValor_txt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
             // label4
             // 
@@ -288,9 +365,11 @@
             // crearAlpha_txt
             // 
             this.crearAlpha_txt.Location = new System.Drawing.Point(105, 42);
+            this.crearAlpha_txt.MaxLength = 22;
             this.crearAlpha_txt.Name = "crearAlpha_txt";
             this.crearAlpha_txt.Size = new System.Drawing.Size(103, 20);
             this.crearAlpha_txt.TabIndex = 1;
+            this.crearAlpha_txt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
             // label3
             // 
@@ -324,9 +403,11 @@
             // crearN_txt
             // 
             this.crearN_txt.Location = new System.Drawing.Point(105, 16);
+            this.crearN_txt.MaxLength = 18;
             this.crearN_txt.Name = "crearN_txt";
             this.crearN_txt.Size = new System.Drawing.Size(103, 20);
             this.crearN_txt.TabIndex = 0;
+            this.crearN_txt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
             // label2
             // 
@@ -366,10 +447,12 @@
             // updateValor_txt
             // 
             this.updateValor_txt.Location = new System.Drawing.Point(86, 79);
+            this.updateValor_txt.MaxLength = 22;
             this.updateValor_txt.Name = "updateValor_txt";
             this.updateValor_txt.ShortcutsEnabled = false;
             this.updateValor_txt.Size = new System.Drawing.Size(103, 20);
             this.updateValor_txt.TabIndex = 2;
+            this.updateValor_txt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
             // label5
             // 
@@ -393,10 +476,12 @@
             // updateAlpha_txt
             // 
             this.updateAlpha_txt.Location = new System.Drawing.Point(86, 47);
+            this.updateAlpha_txt.MaxLength = 22;
             this.updateAlpha_txt.Name = "updateAlpha_txt";
             this.updateAlpha_txt.ShortcutsEnabled = false;
             this.updateAlpha_txt.Size = new System.Drawing.Size(103, 20);
             this.updateAlpha_txt.TabIndex = 1;
+            this.updateAlpha_txt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
             // label6
             // 
@@ -410,10 +495,12 @@
             // updateN_txt
             // 
             this.updateN_txt.Location = new System.Drawing.Point(87, 18);
+            this.updateN_txt.MaxLength = 18;
             this.updateN_txt.Name = "updateN_txt";
             this.updateN_txt.ReadOnly = true;
             this.updateN_txt.Size = new System.Drawing.Size(102, 20);
             this.updateN_txt.TabIndex = 0;
+            this.updateN_txt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
             // label1
             // 
@@ -438,81 +525,6 @@
             // 
             this.eP_errors.ContainerControl = this;
             // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(0, 22);
-            // 
-            // Criterio_tSCB
-            // 
-            this.Criterio_tSCB.Items.AddRange(new object[] {
-            "N",
-            "ALPHA",
-            "VALOR"});
-            this.Criterio_tSCB.Name = "Criterio_tSCB";
-            this.Criterio_tSCB.Size = new System.Drawing.Size(121, 25);
-            // 
-            // TStudentBSource
-            // 
-            this.TStudentBSource.DataSource = typeof(SIFCA_DAL.TSTUDENT);
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(71, 15);
-            this.toolStripLabel2.Text = "Cargar tabla";
-            this.toolStripLabel2.Click += new System.EventHandler(this.toolStripLabel2_Click);
-            // 
-            // pBarLoad
-            // 
-            this.pBarLoad.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pBarLoad.Location = new System.Drawing.Point(0, 285);
-            this.pBarLoad.Name = "pBarLoad";
-            this.pBarLoad.Size = new System.Drawing.Size(660, 23);
-            this.pBarLoad.TabIndex = 5;
-            // 
-            // nDataGridViewTextBoxColumn
-            // 
-            this.nDataGridViewTextBoxColumn.DataPropertyName = "N";
-            this.nDataGridViewTextBoxColumn.HeaderText = "N";
-            this.nDataGridViewTextBoxColumn.Name = "nDataGridViewTextBoxColumn";
-            this.nDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // aLPHADataGridViewTextBoxColumn
-            // 
-            this.aLPHADataGridViewTextBoxColumn.DataPropertyName = "ALPHA";
-            this.aLPHADataGridViewTextBoxColumn.HeaderText = "ALPHA";
-            this.aLPHADataGridViewTextBoxColumn.Name = "aLPHADataGridViewTextBoxColumn";
-            this.aLPHADataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // vALORDataGridViewTextBoxColumn
-            // 
-            this.vALORDataGridViewTextBoxColumn.DataPropertyName = "VALOR";
-            this.vALORDataGridViewTextBoxColumn.HeaderText = "VALOR";
-            this.vALORDataGridViewTextBoxColumn.Name = "vALORDataGridViewTextBoxColumn";
-            this.vALORDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Editar
-            // 
-            this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            this.Editar.HeaderText = "";
-            this.Editar.Name = "Editar";
-            this.Editar.ReadOnly = true;
-            this.Editar.Text = "Editar";
-            this.Editar.UseColumnTextForButtonValue = true;
-            this.Editar.Width = 5;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            this.Eliminar.DataPropertyName = "N";
-            this.Eliminar.HeaderText = "";
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Text = "Eliminar";
-            this.Eliminar.UseColumnTextForButtonValue = true;
-            this.Eliminar.Width = 5;
-            // 
             // TStudent_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -532,6 +544,7 @@
             this.pn_listado.ResumeLayout(false);
             this.pn_listado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListadoTStudent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TStudentBSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paginacionTStudent)).EndInit();
             this.paginacionTStudent.ResumeLayout(false);
             this.paginacionTStudent.PerformLayout();
@@ -542,7 +555,6 @@
             this.editarGbx.ResumeLayout(false);
             this.editarGbx.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eP_errors)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TStudentBSource)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -51,6 +51,7 @@
             this.Detalle = new System.Windows.Forms.DataGridViewButtonColumn();
             this.specieBSource = new System.Windows.Forms.BindingSource(this.components);
             this.paginacionEspecie = new System.Windows.Forms.BindingNavigator(this.components);
+            this.cargarArchivo = new System.Windows.Forms.ToolStripButton();
             this.Btn_nuevaEspecie = new System.Windows.Forms.ToolStripButton();
             this.buscarLbl = new System.Windows.Forms.ToolStripLabel();
             this.busquedaTxt = new System.Windows.Forms.ToolStripTextBox();
@@ -201,7 +202,6 @@
             this.label37 = new System.Windows.Forms.Label();
             this.btn_ImgCancelar = new System.Windows.Forms.Button();
             this.btn_ImgAceptar = new System.Windows.Forms.Button();
-            this.cargarArchivo = new System.Windows.Forms.ToolStripButton();
             dESCRIPCIONLabel = new System.Windows.Forms.Label();
             nOMBRELabel = new System.Windows.Forms.Label();
             label40 = new System.Windows.Forms.Label();
@@ -443,6 +443,18 @@
             this.paginacionEspecie.Size = new System.Drawing.Size(886, 25);
             this.paginacionEspecie.TabIndex = 2;
             this.paginacionEspecie.Text = "bindingNavigator1";
+            // 
+            // cargarArchivo
+            // 
+            this.cargarArchivo.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.cargarArchivo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.cargarArchivo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cargarArchivo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.cargarArchivo.Name = "cargarArchivo";
+            this.cargarArchivo.Size = new System.Drawing.Size(88, 22);
+            this.cargarArchivo.Text = "Cargar archivo";
+            this.cargarArchivo.ToolTipText = "Cargar archivo con especies desde excel";
+            this.cargarArchivo.Click += new System.EventHandler(this.cargarArchivo_Click);
             // 
             // Btn_nuevaEspecie
             // 
@@ -1321,9 +1333,11 @@
             // txt_DimCor
             // 
             this.txt_DimCor.Location = new System.Drawing.Point(153, 201);
+            this.txt_DimCor.MaxLength = 25;
             this.txt_DimCor.Name = "txt_DimCor";
             this.txt_DimCor.Size = new System.Drawing.Size(152, 20);
             this.txt_DimCor.TabIndex = 6;
+            this.txt_DimCor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
             // label23
             // 
@@ -1337,6 +1351,7 @@
             // txt_ZonaVid
             // 
             this.txt_ZonaVid.Location = new System.Drawing.Point(152, 171);
+            this.txt_ZonaVid.MaxLength = 200;
             this.txt_ZonaVid.Name = "txt_ZonaVid";
             this.txt_ZonaVid.Size = new System.Drawing.Size(153, 20);
             this.txt_ZonaVid.TabIndex = 5;
@@ -1353,6 +1368,7 @@
             // txt_ZonaGeogra
             // 
             this.txt_ZonaGeogra.Location = new System.Drawing.Point(152, 141);
+            this.txt_ZonaGeogra.MaxLength = 200;
             this.txt_ZonaGeogra.Name = "txt_ZonaGeogra";
             this.txt_ZonaGeogra.Size = new System.Drawing.Size(153, 20);
             this.txt_ZonaGeogra.TabIndex = 4;
@@ -1369,6 +1385,7 @@
             // txt_Fam
             // 
             this.txt_Fam.Location = new System.Drawing.Point(152, 111);
+            this.txt_Fam.MaxLength = 200;
             this.txt_Fam.Name = "txt_Fam";
             this.txt_Fam.Size = new System.Drawing.Size(153, 20);
             this.txt_Fam.TabIndex = 3;
@@ -1394,6 +1411,7 @@
             // txt_NomCientifico
             // 
             this.txt_NomCientifico.Location = new System.Drawing.Point(152, 52);
+            this.txt_NomCientifico.MaxLength = 200;
             this.txt_NomCientifico.Name = "txt_NomCientifico";
             this.txt_NomCientifico.Size = new System.Drawing.Size(153, 20);
             this.txt_NomCientifico.TabIndex = 1;
@@ -1410,6 +1428,7 @@
             // txt_NomComun
             // 
             this.txt_NomComun.Location = new System.Drawing.Point(152, 23);
+            this.txt_NomComun.MaxLength = 200;
             this.txt_NomComun.Name = "txt_NomComun";
             this.txt_NomComun.Size = new System.Drawing.Size(153, 20);
             this.txt_NomComun.TabIndex = 0;
@@ -1900,28 +1919,16 @@
             this.btn_ImgAceptar.UseVisualStyleBackColor = true;
             this.btn_ImgAceptar.Click += new System.EventHandler(this.btn_ImgAceptar_Click);
             // 
-            // cargarArchivo
-            // 
-            this.cargarArchivo.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.cargarArchivo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.cargarArchivo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cargarArchivo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.cargarArchivo.Name = "cargarArchivo";
-            this.cargarArchivo.Size = new System.Drawing.Size(88, 22);
-            this.cargarArchivo.Text = "Cargar archivo";
-            this.cargarArchivo.ToolTipText = "Cargar archivo con especies desde excel";
-            this.cargarArchivo.Click += new System.EventHandler(this.cargarArchivo_Click);
-            // 
             // Especies_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(893, 486);
-            this.Controls.Add(this.pn_listado);
             this.Controls.Add(this.pn_editar);
-            this.Controls.Add(this.pn_detalle);
             this.Controls.Add(this.pn_crear);
+            this.Controls.Add(this.pn_listado);
+            this.Controls.Add(this.pn_detalle);
             this.Controls.Add(this.pn_cargarImg);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

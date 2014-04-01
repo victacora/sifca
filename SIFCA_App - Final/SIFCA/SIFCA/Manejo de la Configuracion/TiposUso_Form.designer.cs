@@ -100,7 +100,7 @@
             this.ListadoTiposUso.ReadOnly = true;
             this.ListadoTiposUso.Size = new System.Drawing.Size(636, 249);
             this.ListadoTiposUso.TabIndex = 5;
-            this.ListadoTiposUso.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListadoDeEspecies_CellValueChanged);
+            this.ListadoTiposUso.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Listado_CellValueChanged);
             // 
             // nOMBRETIPOUSODataGridViewTextBoxColumn
             // 
@@ -249,6 +249,7 @@
             // txt_Descripcion
             // 
             this.txt_Descripcion.Location = new System.Drawing.Point(139, 66);
+            this.txt_Descripcion.MaxLength = 500;
             this.txt_Descripcion.Multiline = true;
             this.txt_Descripcion.Name = "txt_Descripcion";
             this.txt_Descripcion.Size = new System.Drawing.Size(169, 65);
@@ -317,6 +318,7 @@
             // updateDescripcionTxt
             // 
             this.updateDescripcionTxt.Location = new System.Drawing.Point(101, 50);
+            this.updateDescripcionTxt.MaxLength = 500;
             this.updateDescripcionTxt.Multiline = true;
             this.updateDescripcionTxt.Name = "updateDescripcionTxt";
             this.updateDescripcionTxt.ShortcutsEnabled = false;

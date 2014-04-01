@@ -829,7 +829,6 @@
             // 
             // cAPTxt
             // 
-            this.cAPTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "CAP", true));
             this.cAPTxt.Location = new System.Drawing.Point(159, 213);
             this.cAPTxt.MaxLength = 25;
             this.cAPTxt.Name = "cAPTxt";
@@ -919,7 +918,6 @@
             // 
             // alturaComercialTxt
             // 
-            this.alturaComercialTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "ALTCOMER_M", true));
             this.alturaComercialTxt.Location = new System.Drawing.Point(159, 239);
             this.alturaComercialTxt.MaxLength = 25;
             this.alturaComercialTxt.Name = "alturaComercialTxt";
@@ -931,7 +929,6 @@
             // 
             // alturaTotalTxt
             // 
-            this.alturaTotalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lineaInvBS, "ALTTOT_M", true));
             this.alturaTotalTxt.Location = new System.Drawing.Point(159, 265);
             this.alturaTotalTxt.MaxLength = 25;
             this.alturaTotalTxt.Name = "alturaTotalTxt";

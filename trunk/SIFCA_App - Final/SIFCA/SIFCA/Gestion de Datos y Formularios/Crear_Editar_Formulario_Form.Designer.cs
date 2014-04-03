@@ -37,7 +37,6 @@
             System.Windows.Forms.Label coordenadasXLbl;
             System.Windows.Forms.Label coordenaYLbl;
             System.Windows.Forms.Label horaInicioLbl;
-            System.Windows.Forms.Label cAPLbl;
             System.Windows.Forms.Label nrArbolLbl;
             System.Windows.Forms.Label especieLbl;
             System.Windows.Forms.Label alturaComercialLbl;
@@ -50,6 +49,7 @@
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label tipoArbolLbl;
             System.Windows.Forms.Label finalLbl;
+            System.Windows.Forms.Label label3;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Crear_Editar_Formulario_Form));
             this.formularioBS = new System.Windows.Forms.BindingSource(this.components);
             this.datosFormularioGrx = new System.Windows.Forms.GroupBox();
@@ -72,6 +72,11 @@
             this.datosTabControl = new System.Windows.Forms.TabControl();
             this.InventarioTP = new System.Windows.Forms.TabPage();
             this.datosInventarioGrx = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.nombreComunRbtn = new System.Windows.Forms.RadioButton();
+            this.nombreCientRbtn = new System.Windows.Forms.RadioButton();
+            this.DAPRbtn = new System.Windows.Forms.RadioButton();
+            this.CAPRbtn = new System.Windows.Forms.RadioButton();
             this.parametrosLineaTxt = new System.Windows.Forms.TextBox();
             this.limpiarBtn = new System.Windows.Forms.Button();
             this.lineaInvBN = new System.Windows.Forms.BindingNavigator(this.components);
@@ -86,11 +91,9 @@
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.agregarLineInv = new System.Windows.Forms.ToolStripButton();
             this.eliminarLinea = new System.Windows.Forms.ToolStripButton();
-            this.nombreComunRbtn = new System.Windows.Forms.RadioButton();
-            this.nombreCientRbtn = new System.Windows.Forms.RadioButton();
             this.verDetalleBtn = new System.Windows.Forms.Button();
             this.tipoArbolCbx = new System.Windows.Forms.ComboBox();
-            this.cAPTxt = new System.Windows.Forms.TextBox();
+            this.cAPDAPTxt = new System.Windows.Forms.TextBox();
             this.RegistrarEspecieBtn = new System.Windows.Forms.Button();
             this.listarDatosBtn = new System.Windows.Forms.Button();
             this.nroArbolTxt = new System.Windows.Forms.TextBox();
@@ -189,7 +192,6 @@
             coordenadasXLbl = new System.Windows.Forms.Label();
             coordenaYLbl = new System.Windows.Forms.Label();
             horaInicioLbl = new System.Windows.Forms.Label();
-            cAPLbl = new System.Windows.Forms.Label();
             nrArbolLbl = new System.Windows.Forms.Label();
             especieLbl = new System.Windows.Forms.Label();
             alturaComercialLbl = new System.Windows.Forms.Label();
@@ -202,6 +204,7 @@
             label2 = new System.Windows.Forms.Label();
             tipoArbolLbl = new System.Windows.Forms.Label();
             finalLbl = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.formularioBS)).BeginInit();
             this.datosFormularioGrx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.estratoBS)).BeginInit();
@@ -213,6 +216,7 @@
             this.datosTabControl.SuspendLayout();
             this.InventarioTP.SuspendLayout();
             this.datosInventarioGrx.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lineaInvBN)).BeginInit();
             this.lineaInvBN.SuspendLayout();
             this.RegeneracionTP.SuspendLayout();
@@ -301,15 +305,6 @@
             horaInicioLbl.TabIndex = 59;
             horaInicioLbl.Text = "Fecha y hora Inicial :";
             // 
-            // cAPLbl
-            // 
-            cAPLbl.AutoSize = true;
-            cAPLbl.Location = new System.Drawing.Point(17, 217);
-            cAPLbl.Name = "cAPLbl";
-            cAPLbl.Size = new System.Drawing.Size(136, 13);
-            cAPLbl.TabIndex = 71;
-            cAPLbl.Text = "Circunferencia. A.P. (Mtrs) :";
-            // 
             // nrArbolLbl
             // 
             nrArbolLbl.AutoSize = true;
@@ -349,7 +344,7 @@
             // calidadLbl
             // 
             calidadLbl.AutoSize = true;
-            calidadLbl.Location = new System.Drawing.Point(16, 137);
+            calidadLbl.Location = new System.Drawing.Point(17, 134);
             calidadLbl.Name = "calidadLbl";
             calidadLbl.Size = new System.Drawing.Size(45, 13);
             calidadLbl.TabIndex = 8;
@@ -358,7 +353,7 @@
             // estadoLbl
             // 
             estadoLbl.AutoSize = true;
-            estadoLbl.Location = new System.Drawing.Point(16, 191);
+            estadoLbl.Location = new System.Drawing.Point(18, 190);
             estadoLbl.Name = "estadoLbl";
             estadoLbl.Size = new System.Drawing.Size(85, 13);
             estadoLbl.TabIndex = 14;
@@ -403,7 +398,7 @@
             // tipoArbolLbl
             // 
             tipoArbolLbl.AutoSize = true;
-            tipoArbolLbl.Location = new System.Drawing.Point(17, 165);
+            tipoArbolLbl.Location = new System.Drawing.Point(17, 163);
             tipoArbolLbl.Name = "tipoArbolLbl";
             tipoArbolLbl.Size = new System.Drawing.Size(57, 13);
             tipoArbolLbl.TabIndex = 81;
@@ -417,6 +412,15 @@
             finalLbl.Size = new System.Drawing.Size(97, 13);
             finalLbl.TabIndex = 69;
             finalLbl.Text = "Fecha y hora final :";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(124, 216);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(36, 13);
+            label3.TabIndex = 87;
+            label3.Text = "(Mtrs):";
             // 
             // formularioBS
             // 
@@ -610,18 +614,18 @@
             // datosInventarioGrx
             // 
             this.datosInventarioGrx.BackColor = System.Drawing.SystemColors.Window;
+            this.datosInventarioGrx.Controls.Add(this.panel1);
+            this.datosInventarioGrx.Controls.Add(this.DAPRbtn);
+            this.datosInventarioGrx.Controls.Add(this.CAPRbtn);
             this.datosInventarioGrx.Controls.Add(this.parametrosLineaTxt);
             this.datosInventarioGrx.Controls.Add(this.limpiarBtn);
             this.datosInventarioGrx.Controls.Add(this.lineaInvBN);
-            this.datosInventarioGrx.Controls.Add(this.nombreComunRbtn);
-            this.datosInventarioGrx.Controls.Add(this.nombreCientRbtn);
             this.datosInventarioGrx.Controls.Add(this.verDetalleBtn);
             this.datosInventarioGrx.Controls.Add(this.tipoArbolCbx);
             this.datosInventarioGrx.Controls.Add(tipoArbolLbl);
-            this.datosInventarioGrx.Controls.Add(this.cAPTxt);
+            this.datosInventarioGrx.Controls.Add(this.cAPDAPTxt);
             this.datosInventarioGrx.Controls.Add(this.RegistrarEspecieBtn);
             this.datosInventarioGrx.Controls.Add(this.listarDatosBtn);
-            this.datosInventarioGrx.Controls.Add(cAPLbl);
             this.datosInventarioGrx.Controls.Add(nrArbolLbl);
             this.datosInventarioGrx.Controls.Add(this.nroArbolTxt);
             this.datosInventarioGrx.Controls.Add(this.especieCbx);
@@ -635,12 +639,74 @@
             this.datosInventarioGrx.Controls.Add(this.alturaTotalTxt);
             this.datosInventarioGrx.Controls.Add(calidadLbl);
             this.datosInventarioGrx.Controls.Add(estadoLbl);
+            this.datosInventarioGrx.Controls.Add(label3);
             this.datosInventarioGrx.Location = new System.Drawing.Point(-6, -13);
             this.datosInventarioGrx.Name = "datosInventarioGrx";
             this.datosInventarioGrx.Size = new System.Drawing.Size(394, 436);
             this.datosInventarioGrx.TabIndex = 2;
             this.datosInventarioGrx.TabStop = false;
             this.datosInventarioGrx.Text = "Datos de inventario";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.nombreComunRbtn);
+            this.panel1.Controls.Add(this.nombreCientRbtn);
+            this.panel1.Location = new System.Drawing.Point(18, 98);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(257, 30);
+            this.panel1.TabIndex = 88;
+            // 
+            // nombreComunRbtn
+            // 
+            this.nombreComunRbtn.AutoSize = true;
+            this.nombreComunRbtn.Checked = true;
+            this.nombreComunRbtn.Location = new System.Drawing.Point(141, 6);
+            this.nombreComunRbtn.Name = "nombreComunRbtn";
+            this.nombreComunRbtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.nombreComunRbtn.Size = new System.Drawing.Size(97, 17);
+            this.nombreComunRbtn.TabIndex = 15;
+            this.nombreComunRbtn.TabStop = true;
+            this.nombreComunRbtn.Text = "Nombre comun";
+            this.nombreComunRbtn.UseVisualStyleBackColor = true;
+            this.nombreComunRbtn.CheckedChanged += new System.EventHandler(this.cambiarOpcionBusqueda);
+            // 
+            // nombreCientRbtn
+            // 
+            this.nombreCientRbtn.AutoSize = true;
+            this.nombreCientRbtn.Location = new System.Drawing.Point(-4, 6);
+            this.nombreCientRbtn.Name = "nombreCientRbtn";
+            this.nombreCientRbtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.nombreCientRbtn.Size = new System.Drawing.Size(107, 17);
+            this.nombreCientRbtn.TabIndex = 14;
+            this.nombreCientRbtn.Text = "Nombre cientifico";
+            this.nombreCientRbtn.UseVisualStyleBackColor = true;
+            this.nombreCientRbtn.CheckedChanged += new System.EventHandler(this.cambiarOpcionBusqueda);
+            // 
+            // DAPRbtn
+            // 
+            this.DAPRbtn.AutoSize = true;
+            this.DAPRbtn.Location = new System.Drawing.Point(70, 215);
+            this.DAPRbtn.Name = "DAPRbtn";
+            this.DAPRbtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.DAPRbtn.Size = new System.Drawing.Size(53, 17);
+            this.DAPRbtn.TabIndex = 86;
+            this.DAPRbtn.Text = "D.A.P";
+            this.DAPRbtn.UseVisualStyleBackColor = true;
+            this.DAPRbtn.CheckedChanged += new System.EventHandler(this.DAPRbtn_CheckedChanged);
+            // 
+            // CAPRbtn
+            // 
+            this.CAPRbtn.AutoSize = true;
+            this.CAPRbtn.Checked = true;
+            this.CAPRbtn.Location = new System.Drawing.Point(17, 215);
+            this.CAPRbtn.Name = "CAPRbtn";
+            this.CAPRbtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.CAPRbtn.Size = new System.Drawing.Size(52, 17);
+            this.CAPRbtn.TabIndex = 85;
+            this.CAPRbtn.TabStop = true;
+            this.CAPRbtn.Text = "C.A.P";
+            this.CAPRbtn.UseVisualStyleBackColor = true;
+            this.CAPRbtn.CheckedChanged += new System.EventHandler(this.CAPRbtn_CheckedChanged);
             // 
             // parametrosLineaTxt
             // 
@@ -779,33 +845,6 @@
             this.eliminarLinea.Text = "Eliminar";
             this.eliminarLinea.Click += new System.EventHandler(this.EliminarLineaInv_Click);
             // 
-            // nombreComunRbtn
-            // 
-            this.nombreComunRbtn.AutoSize = true;
-            this.nombreComunRbtn.Checked = true;
-            this.nombreComunRbtn.Location = new System.Drawing.Point(164, 104);
-            this.nombreComunRbtn.Name = "nombreComunRbtn";
-            this.nombreComunRbtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.nombreComunRbtn.Size = new System.Drawing.Size(97, 17);
-            this.nombreComunRbtn.TabIndex = 15;
-            this.nombreComunRbtn.TabStop = true;
-            this.nombreComunRbtn.Text = "Nombre comun";
-            this.nombreComunRbtn.UseVisualStyleBackColor = true;
-            this.nombreComunRbtn.CheckedChanged += new System.EventHandler(this.cambiarOpcionBusqueda);
-            // 
-            // nombreCientRbtn
-            // 
-            this.nombreCientRbtn.AutoSize = true;
-            this.nombreCientRbtn.Location = new System.Drawing.Point(16, 104);
-            this.nombreCientRbtn.Name = "nombreCientRbtn";
-            this.nombreCientRbtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.nombreCientRbtn.Size = new System.Drawing.Size(107, 17);
-            this.nombreCientRbtn.TabIndex = 14;
-            this.nombreCientRbtn.TabStop = true;
-            this.nombreCientRbtn.Text = "Nombre cientifico";
-            this.nombreCientRbtn.UseVisualStyleBackColor = true;
-            this.nombreCientRbtn.CheckedChanged += new System.EventHandler(this.cambiarOpcionBusqueda);
-            // 
             // verDetalleBtn
             // 
             this.verDetalleBtn.Location = new System.Drawing.Point(275, 101);
@@ -827,16 +866,16 @@
             this.tipoArbolCbx.TabIndex = 18;
             this.tipoArbolCbx.ValueMember = "ESTADO";
             // 
-            // cAPTxt
+            // cAPDAPTxt
             // 
-            this.cAPTxt.Location = new System.Drawing.Point(159, 213);
-            this.cAPTxt.MaxLength = 25;
-            this.cAPTxt.Name = "cAPTxt";
-            this.cAPTxt.Size = new System.Drawing.Size(213, 20);
-            this.cAPTxt.TabIndex = 21;
-            this.cAPTxt.Text = "0";
-            this.cAPTxt.TextChanged += new System.EventHandler(this.cAPTxt_TextChanged);
-            this.cAPTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
+            this.cAPDAPTxt.Location = new System.Drawing.Point(159, 213);
+            this.cAPDAPTxt.MaxLength = 25;
+            this.cAPDAPTxt.Name = "cAPDAPTxt";
+            this.cAPDAPTxt.Size = new System.Drawing.Size(213, 20);
+            this.cAPDAPTxt.TabIndex = 21;
+            this.cAPDAPTxt.Text = "0";
+            this.cAPDAPTxt.TextChanged += new System.EventHandler(this.cAPTxt_TextChanged);
+            this.cAPDAPTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
             // RegistrarEspecieBtn
             // 
@@ -873,7 +912,6 @@
             // 
             this.especieCbx.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.especieCbx.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.especieCbx.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.lineaInvBS, "CODESP", true));
             this.especieCbx.DataSource = this.especieBS;
             this.especieCbx.DisplayMember = "NOMCOMUN";
             this.especieCbx.FormattingEnabled = true;
@@ -1729,6 +1767,8 @@
             this.InventarioTP.ResumeLayout(false);
             this.datosInventarioGrx.ResumeLayout(false);
             this.datosInventarioGrx.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lineaInvBN)).EndInit();
             this.lineaInvBN.ResumeLayout(false);
             this.lineaInvBN.PerformLayout();
@@ -1834,7 +1874,7 @@
         private System.Windows.Forms.TextBox proyectoTxt;
         private System.Windows.Forms.TextBox latizalTxt;
         private System.Windows.Forms.TextBox brinzalTxt;
-        private System.Windows.Forms.TextBox cAPTxt;
+        private System.Windows.Forms.TextBox cAPDAPTxt;
         private System.Windows.Forms.ComboBox tipoArbolCbx;
         private System.Windows.Forms.RadioButton nombreComunRbtn;
         private System.Windows.Forms.RadioButton nombreCientRbtn;
@@ -1884,5 +1924,8 @@
         private System.Windows.Forms.Button LimpiarTodosUsosBtn;
         private System.Windows.Forms.Button SeleccionarTodosUsosBtn;
         private System.Windows.Forms.TextBox parametrosLineaTxt;
+        private System.Windows.Forms.RadioButton DAPRbtn;
+        private System.Windows.Forms.RadioButton CAPRbtn;
+        private System.Windows.Forms.Panel panel1;
     }
 }

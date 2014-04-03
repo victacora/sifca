@@ -111,10 +111,7 @@
             // 
             this.tipoClaseCbx.DisplayMember = "1";
             this.tipoClaseCbx.FormattingEnabled = true;
-            this.tipoClaseCbx.Items.AddRange(new object[] {
-            "General",
-            "Valor comercial",
-            "Estratos"});
+            
             this.tipoClaseCbx.Location = new System.Drawing.Point(478, 16);
             this.tipoClaseCbx.Name = "tipoClaseCbx";
             this.tipoClaseCbx.Size = new System.Drawing.Size(193, 21);

@@ -897,6 +897,7 @@
             this.btn_crearImg.TabIndex = 7;
             this.btn_crearImg.Text = "Cargar imagen";
             this.btn_crearImg.UseVisualStyleBackColor = true;
+            this.btn_crearImg.Visible = false;
             this.btn_crearImg.Click += new System.EventHandler(this.btn_crearImg_Click);
             // 
             // cbox_GrupoComercial
@@ -1085,6 +1086,7 @@
             this.UpdateImageBN.BindingSource = this.imagenesBS;
             this.UpdateImageBN.CountItem = this.bindingNavigatorCountItem1;
             this.UpdateImageBN.DeleteItem = null;
+            this.UpdateImageBN.Enabled = false;
             this.UpdateImageBN.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem1,
             this.bindingNavigatorMovePreviousItem1,
@@ -1924,9 +1926,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(893, 486);
-            this.Controls.Add(this.pn_editar);
+            this.ClientSize = new System.Drawing.Size(893, 491);
             this.Controls.Add(this.pn_crear);
+            this.Controls.Add(this.pn_editar);
             this.Controls.Add(this.pn_listado);
             this.Controls.Add(this.pn_detalle);
             this.Controls.Add(this.pn_cargarImg);

@@ -207,7 +207,7 @@ namespace SIFCA
                     hoja_regeneracion.Cells[j, 4] = form.COORDENADAY;
                     hoja_regeneracion.Cells[j, 5] = form.LINEA.ToString();
                     hoja_regeneracion.Cells[j, 6] = form.PARCELA.ToString();
-                    hoja_regeneracion.Cells[j, 7] = form.ESTRATO.DESCRIPESTRATO.ToString();
+                    if(form.ESTRATO!=null)hoja_regeneracion.Cells[j, 7] = form.ESTRATO.DESCRIPESTRATO.ToString();
 
                     foreach (LINEAREGENERACION lineInv in form.LINEAREGENERACION)
                     {
@@ -217,7 +217,7 @@ namespace SIFCA
                         hoja_regeneracion.Cells[j, 4] = form.COORDENADAY;
                         hoja_regeneracion.Cells[j, 5] = form.LINEA.ToString();
                         hoja_regeneracion.Cells[j, 6] = form.PARCELA.ToString();
-                        hoja_regeneracion.Cells[j, 7] = form.ESTRATO.DESCRIPESTRATO.ToString();
+                        if (form.ESTRATO != null) hoja_regeneracion.Cells[j, 7] = form.ESTRATO.DESCRIPESTRATO.ToString();
 
                         hoja_regeneracion.Cells[j, 8] = lineInv.ESPECIE.NOMCOMUN;
                         hoja_regeneracion.Cells[j, 9] = lineInv.ESPECIE.NOMCIENTIFICO;
@@ -268,7 +268,7 @@ namespace SIFCA
                     hoja_nomaderables.Cells[k, 4] = form.COORDENADAY;
                     hoja_nomaderables.Cells[k, 5] = form.LINEA.ToString();
                     hoja_nomaderables.Cells[k, 6] = form.PARCELA.ToString();
-                    hoja_nomaderables.Cells[k, 7] = form.ESTRATO.DESCRIPESTRATO.ToString();
+                    if (form.ESTRATO != null) hoja_nomaderables.Cells[k, 7] = form.ESTRATO.DESCRIPESTRATO.ToString();
 
                     foreach (LINEANOMADERABLES lineInv in form.LINEANOMADERABLES)
                     {                            
@@ -278,7 +278,7 @@ namespace SIFCA
                         hoja_nomaderables.Cells[k, 4] = form.COORDENADAY;
                         hoja_nomaderables.Cells[k, 5] = form.LINEA.ToString();
                         hoja_nomaderables.Cells[k, 6] = form.PARCELA.ToString();
-                        hoja_nomaderables.Cells[k, 7] = form.ESTRATO.DESCRIPESTRATO.ToString();
+                        if (form.ESTRATO != null) hoja_nomaderables.Cells[k, 7] = form.ESTRATO.DESCRIPESTRATO.ToString();
                         hoja_nomaderables.Cells[k, 8] = lineInv.OBSERVACIONES.ToString();
                         string usos = "";
                             
@@ -360,7 +360,7 @@ namespace SIFCA
                     hoja_maderable.Cells[i, 4] = form.COORDENADAY;
                     hoja_maderable.Cells[i, 5] = form.LINEA.ToString();
                     hoja_maderable.Cells[i, 6] = form.PARCELA.ToString();
-                    hoja_maderable.Cells[i, 7] = form.ESTRATO.DESCRIPESTRATO.ToString();
+                    if (form.ESTRATO != null) hoja_maderable.Cells[i, 7] = form.ESTRATO.DESCRIPESTRATO.ToString();
 
                     foreach (LINEAINVENTARIO lineInv in form.LINEAINVENTARIO)
                     {
@@ -371,7 +371,7 @@ namespace SIFCA
                         hoja_maderable.Cells[i, 4] = form.COORDENADAY.ToString();
                         hoja_maderable.Cells[i, 5] = form.LINEA.ToString();
                         hoja_maderable.Cells[i, 6] = form.PARCELA.ToString();
-                        hoja_maderable.Cells[i, 7] = form.ESTRATO.DESCRIPESTRATO.ToString();
+                        if (form.ESTRATO != null) hoja_maderable.Cells[i, 7] = form.ESTRATO.DESCRIPESTRATO.ToString();
 
                         hoja_maderable.Cells[i, 8] = lineInv.NROARB.ToString();
                         hoja_maderable.Cells[i, 9] = lineInv.ESPECIE.NOMCOMUN.ToString();

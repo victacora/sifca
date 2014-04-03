@@ -15,7 +15,7 @@ namespace SIFCA_DAL
     public partial class LISTADODEESTRATOS
     {
         public System.Guid NROPROY { get; set; }
-        public decimal CODEST { get; set; }
+        public long CODEST { get; set; }
         public Nullable<decimal> PESO { get; set; }
         public Nullable<decimal> TAMANOMUESTRA { get; set; }
     

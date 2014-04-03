@@ -406,6 +406,9 @@ namespace SIFCA.Gestion_Configuracion
             {
                 ImporExportExcel loadTstudent = new ImporExportExcel();
                 loadTstudent.loadTestStudent(pBarLoad);
+                TStudentBSource.DataSource = TstBl.GetTStudents();
+                ListadoTStudent.Refresh();
+                pBarLoad.Visible=false;
             }
             catch (Exception ex)
             {

@@ -4,33 +4,33 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SIFCA_Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="SIFCA_Model.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="SIFCA_ModelStoreContainer">
-          <EntitySet Name="CALIDAD" EntityType="SIFCA_Model.Store.CALIDAD" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ESPECIE" EntityType="SIFCA_Model.Store.ESPECIE" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ESTADOSANITARIO" EntityType="SIFCA_Model.Store.ESTADOSANITARIO" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ESTRATO" EntityType="SIFCA_Model.Store.ESTRATO" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="FORMULA" EntityType="SIFCA_Model.Store.FORMULA" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="FORMULARIO" EntityType="SIFCA_Model.Store.FORMULARIO" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="FORMULAVARIABLE" EntityType="SIFCA_Model.Store.FORMULAVARIABLE" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="GRUPOCOMERCIAL" EntityType="SIFCA_Model.Store.GRUPOCOMERCIAL" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="IMAGEN" EntityType="SIFCA_Model.Store.IMAGEN" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="LINEAINVENTARIO" EntityType="SIFCA_Model.Store.LINEAINVENTARIO" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="LINEANOMADERABLES" EntityType="SIFCA_Model.Store.LINEANOMADERABLES" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="LINEAREGENERACION" EntityType="SIFCA_Model.Store.LINEAREGENERACION" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="LISTADODEESPECIES" EntityType="SIFCA_Model.Store.LISTADODEESPECIES" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="LISTADODEESTRATOS" EntityType="SIFCA_Model.Store.LISTADODEESTRATOS" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="OBJETIVOINVENTARIO" EntityType="SIFCA_Model.Store.OBJETIVOINVENTARIO" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="PROYECTO" EntityType="SIFCA_Model.Store.PROYECTO" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="PROYECTOSPORETAPA" EntityType="SIFCA_Model.Store.PROYECTOSPORETAPA" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TIPODEUSO" EntityType="SIFCA_Model.Store.TIPODEUSO" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TIPODISENOMUESTRAL" EntityType="SIFCA_Model.Store.TIPODISENOMUESTRAL" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TIPOFORMULA" EntityType="SIFCA_Model.Store.TIPOFORMULA" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TRANSACCION" EntityType="SIFCA_Model.Store.TRANSACCION" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TSTUDENT" EntityType="SIFCA_Model.Store.TSTUDENT" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="USO" EntityType="SIFCA_Model.Store.USO" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="USUARIO" EntityType="SIFCA_Model.Store.USUARIO" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="VARIABLE" EntityType="SIFCA_Model.Store.VARIABLE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CALIDAD" EntityType="SIFCA_Model.Store.CALIDAD" store:Type="Tables" />
+          <EntitySet Name="ESPECIE" EntityType="SIFCA_Model.Store.ESPECIE" store:Type="Tables" />
+          <EntitySet Name="ESTADOSANITARIO" EntityType="SIFCA_Model.Store.ESTADOSANITARIO" store:Type="Tables" />
+          <EntitySet Name="ESTRATO" EntityType="SIFCA_Model.Store.ESTRATO" store:Type="Tables" />
+          <EntitySet Name="FORMULA" EntityType="SIFCA_Model.Store.FORMULA" store:Type="Tables" />
+          <EntitySet Name="FORMULARIO" EntityType="SIFCA_Model.Store.FORMULARIO" store:Type="Tables" />
+          <EntitySet Name="FORMULAVARIABLE" EntityType="SIFCA_Model.Store.FORMULAVARIABLE" store:Type="Tables" />
+          <EntitySet Name="GRUPOCOMERCIAL" EntityType="SIFCA_Model.Store.GRUPOCOMERCIAL" store:Type="Tables" />
+          <EntitySet Name="IMAGEN" EntityType="SIFCA_Model.Store.IMAGEN" store:Type="Tables" />
+          <EntitySet Name="LINEAINVENTARIO" EntityType="SIFCA_Model.Store.LINEAINVENTARIO" store:Type="Tables" />
+          <EntitySet Name="LINEANOMADERABLES" EntityType="SIFCA_Model.Store.LINEANOMADERABLES" store:Type="Tables" />
+          <EntitySet Name="LINEAREGENERACION" EntityType="SIFCA_Model.Store.LINEAREGENERACION" store:Type="Tables" />
+          <EntitySet Name="LISTADODEESPECIES" EntityType="SIFCA_Model.Store.LISTADODEESPECIES" store:Type="Tables" />
+          <EntitySet Name="LISTADODEESTRATOS" EntityType="SIFCA_Model.Store.LISTADODEESTRATOS" store:Type="Tables" />
+          <EntitySet Name="OBJETIVOINVENTARIO" EntityType="SIFCA_Model.Store.OBJETIVOINVENTARIO" store:Type="Tables" />
+          <EntitySet Name="PROYECTO" EntityType="SIFCA_Model.Store.PROYECTO" store:Type="Tables" />
+          <EntitySet Name="PROYECTOSPORETAPA" EntityType="SIFCA_Model.Store.PROYECTOSPORETAPA" store:Type="Tables" />
+          <EntitySet Name="TIPODEUSO" EntityType="SIFCA_Model.Store.TIPODEUSO" store:Type="Tables" />
+          <EntitySet Name="TIPODISENOMUESTRAL" EntityType="SIFCA_Model.Store.TIPODISENOMUESTRAL" store:Type="Tables" />
+          <EntitySet Name="TIPOFORMULA" EntityType="SIFCA_Model.Store.TIPOFORMULA" store:Type="Tables" />
+          <EntitySet Name="TRANSACCION" EntityType="SIFCA_Model.Store.TRANSACCION" store:Type="Tables" />
+          <EntitySet Name="TSTUDENT" EntityType="SIFCA_Model.Store.TSTUDENT" store:Type="Tables" />
+          <EntitySet Name="USO" EntityType="SIFCA_Model.Store.USO" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="SIFCA_Model.Store.USUARIO" store:Type="Tables" />
+          <EntitySet Name="VARIABLE" EntityType="SIFCA_Model.Store.VARIABLE" store:Type="Tables" />
           <AssociationSet Name="FK_ESPECIE_PERTENECE_GRUPOCOM" Association="SIFCA_Model.Store.FK_ESPECIE_PERTENECE_GRUPOCOM">
             <End Role="GRUPOCOMERCIAL" EntitySet="GRUPOCOMERCIAL" />
             <End Role="ESPECIE" EntitySet="ESPECIE" />
@@ -148,36 +148,36 @@
           <Key>
             <PropertyRef Name="CODCALIDAD" />
           </Key>
-          <Property Name="CODCALIDAD" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="DESCRIPCALIDAD" Type="varchar" MaxLength="500" />
+          <Property Name="CODCALIDAD" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRIPCALIDAD" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="ESPECIE">
           <Key>
             <PropertyRef Name="CODESP" />
           </Key>
           <Property Name="CODESP" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="GRUPOCOM" Type="char" Nullable="false" MaxLength="2" />
-          <Property Name="NOMCOMUN" Type="varchar" MaxLength="200" />
-          <Property Name="NOMCIENTIFICO" Type="varchar" MaxLength="200" />
-          <Property Name="FAMILIA" Type="varchar" MaxLength="200" />
-          <Property Name="ZONAGEOGRAFICA" Type="varchar" MaxLength="200" />
-          <Property Name="ZONADEVIDA" Type="varchar" MaxLength="200" />
+          <Property Name="GRUPOCOM" Type="nchar" Nullable="false" MaxLength="2" />
+          <Property Name="NOMCOMUN" Type="nvarchar" MaxLength="200" />
+          <Property Name="NOMCIENTIFICO" Type="nvarchar" MaxLength="200" />
+          <Property Name="FAMILIA" Type="nvarchar" MaxLength="200" />
+          <Property Name="ZONAGEOGRAFICA" Type="nvarchar" MaxLength="200" />
+          <Property Name="ZONADEVIDA" Type="nvarchar" MaxLength="200" />
           <Property Name="DIAMMINCORTE" Type="numeric" Scale="6" />
-          <Property Name="GRUPOECOLOGICO" Type="varchar" MaxLength="2" />
+          <Property Name="GRUPOECOLOGICO" Type="nvarchar" MaxLength="2" />
         </EntityType>
         <EntityType Name="ESTADOSANITARIO">
           <Key>
             <PropertyRef Name="ESTADO" />
           </Key>
-          <Property Name="ESTADO" Type="char" Nullable="false" MaxLength="2" />
-          <Property Name="DESCRIPESTADO" Type="varchar" MaxLength="500" />
+          <Property Name="ESTADO" Type="nchar" Nullable="false" MaxLength="2" />
+          <Property Name="DESCRIPESTADO" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="ESTRATO">
           <Key>
             <PropertyRef Name="CODEST" />
           </Key>
-          <Property Name="CODEST" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="DESCRIPESTRATO" Type="varchar" MaxLength="500" />
+          <Property Name="CODEST" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRIPESTRATO" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="FORMULA">
           <Key>
@@ -185,16 +185,16 @@
           </Key>
           <Property Name="NROFORMULA" Type="uniqueidentifier" Nullable="false" />
           <Property Name="NROTIPOFORMULA" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="EXPRESION" Type="varchar" Nullable="false" MaxLength="5000" />
-          <Property Name="NOMBRE" Type="varchar" Nullable="false" MaxLength="150" />
-          <Property Name="DESCRIPCION" Type="varchar" MaxLength="5000" />
+          <Property Name="EXPRESION" Type="ntext" Nullable="false" />
+          <Property Name="NOMBRE" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="DESCRIPCION" Type="ntext" />
         </EntityType>
         <EntityType Name="FORMULARIO">
           <Key>
             <PropertyRef Name="NROFORMULARIO" />
           </Key>
           <Property Name="NROFORMULARIO" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="CODEST" Type="numeric" />
+          <Property Name="CODEST" Type="bigint" />
           <Property Name="NROUSUARIO" Type="uniqueidentifier" Nullable="false" />
           <Property Name="NROPROY" Type="uniqueidentifier" Nullable="false" />
           <Property Name="FECHACREACION" Type="datetime" Nullable="false" />
@@ -217,36 +217,36 @@
           <Key>
             <PropertyRef Name="GRUPOCOM" />
           </Key>
-          <Property Name="GRUPOCOM" Type="char" Nullable="false" MaxLength="2" />
-          <Property Name="DESCRIPGRUPO" Type="varchar" MaxLength="500" />
+          <Property Name="GRUPOCOM" Type="nchar" Nullable="false" MaxLength="2" />
+          <Property Name="DESCRIPGRUPO" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="IMAGEN">
           <Key>
             <PropertyRef Name="IMAGENID" />
             <PropertyRef Name="CODESP" />
           </Key>
-          <Property Name="IMAGENID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IMAGENID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CODESP" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="DESCRIPCION" Type="varchar" MaxLength="1000" />
-          <Property Name="NOMBRE" Type="varchar" Nullable="false" MaxLength="250" />
-          <Property Name="RUTA" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="DESCRIPCION" Type="nvarchar" MaxLength="1000" />
+          <Property Name="NOMBRE" Type="nvarchar" Nullable="false" MaxLength="250" />
+          <Property Name="RUTA" Type="nvarchar" Nullable="false" MaxLength="1000" />
         </EntityType>
         <EntityType Name="LINEAINVENTARIO">
           <Key>
             <PropertyRef Name="LINEAINV" />
           </Key>
           <Property Name="LINEAINV" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="CODCALIDAD" Type="numeric" Nullable="false" />
+          <Property Name="CODCALIDAD" Type="bigint" Nullable="false" />
           <Property Name="NROFORMULARIO" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ESTADO" Type="char" Nullable="false" MaxLength="2" />
+          <Property Name="ESTADO" Type="nchar" Nullable="false" MaxLength="2" />
           <Property Name="CODESP" Type="uniqueidentifier" Nullable="false" />
           <Property Name="NROARB" Type="numeric" Nullable="false" />
           <Property Name="ALTCOMER_M" Type="numeric" Nullable="false" Scale="6" />
           <Property Name="ALTTOT_M" Type="numeric" Nullable="false" Scale="6" />
-          <Property Name="AREABASAL" Type="decimal" Nullable="false" Scale="6" />
-          <Property Name="VOLCOM" Type="decimal" Nullable="false" Scale="6" />
-          <Property Name="VOLTOT" Type="decimal" Nullable="false" Scale="6" />
-          <Property Name="TIPOARBOL" Type="char" Nullable="false" MaxLength="3" />
+          <Property Name="AREABASAL" Type="numeric" Nullable="false" Scale="6" />
+          <Property Name="VOLCOM" Type="numeric" Nullable="false" Scale="6" />
+          <Property Name="VOLTOT" Type="numeric" Nullable="false" Scale="6" />
+          <Property Name="TIPOARBOL" Type="nchar" Nullable="false" MaxLength="3" />
           <Property Name="CAP" Type="numeric" Nullable="false" Scale="6" />
           <Property Name="DAP" Type="numeric" Nullable="false" Scale="6" />
         </EntityType>
@@ -256,7 +256,7 @@
           </Key>
           <Property Name="LINEANMAD" Type="uniqueidentifier" Nullable="false" />
           <Property Name="NROFORMULARIO" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="OBSERVACIONES" Type="varchar" MaxLength="500" />
+          <Property Name="OBSERVACIONES" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="LINEAREGENERACION">
           <Key>
@@ -282,16 +282,16 @@
             <PropertyRef Name="CODEST" />
           </Key>
           <Property Name="NROPROY" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="CODEST" Type="numeric" Nullable="false" />
-          <Property Name="PESO" Type="decimal" Scale="6" />
-          <Property Name="TAMANOMUESTRA" Type="decimal" />
+          <Property Name="CODEST" Type="bigint" Nullable="false" />
+          <Property Name="PESO" Type="numeric" Scale="6" />
+          <Property Name="TAMANOMUESTRA" Type="numeric" />
         </EntityType>
         <EntityType Name="OBJETIVOINVENTARIO">
           <Key>
             <PropertyRef Name="NOMBRETIPOINV" />
           </Key>
-          <Property Name="NOMBRETIPOINV" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="DESCRIPOBJETINV" Type="varchar" MaxLength="500" />
+          <Property Name="NOMBRETIPOINV" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="DESCRIPOBJETINV" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="PROYECTO">
           <Key>
@@ -299,24 +299,24 @@
           </Key>
           <Property Name="NROPROY" Type="uniqueidentifier" Nullable="false" />
           <Property Name="NROUSUARIO" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="NOMBRETIPOINV" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="NOMTIPODISEMUEST" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="NOMBRETIPOINV" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="NOMTIPODISEMUEST" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="NROFORMULA" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="LUGAR" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="LUGAR" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="NUMEROPARCELAS" Type="numeric" Nullable="false" />
           <Property Name="NUMEROPARCELASAMUESTREAR" Type="numeric" Nullable="false" />
-          <Property Name="TAMANO" Type="decimal" Nullable="false" Scale="6" />
-          <Property Name="DESCRIPCION" Type="varchar(max)" />
-          <Property Name="SUPTOT" Type="decimal" Nullable="false" Scale="6" />
-          <Property Name="INTMUE" Type="decimal" Nullable="false" Scale="6" />
-          <Property Name="SUPMUE" Type="decimal" Nullable="false" Scale="6" />
-          <Property Name="LIMITINFDAP" Type="decimal" Nullable="false" Scale="6" />
-          <Property Name="AREAFUSTALESPORPARCELA" Type="decimal" Nullable="false" Scale="6" />
-          <Property Name="FACTORDEFORMA" Type="decimal" Nullable="false" Scale="6" />
+          <Property Name="TAMANO" Type="numeric" Nullable="false" Scale="6" />
+          <Property Name="DESCRIPCION" Type="ntext" />
+          <Property Name="SUPTOT" Type="numeric" Nullable="false" Scale="6" />
+          <Property Name="INTMUE" Type="numeric" Nullable="false" Scale="6" />
+          <Property Name="SUPMUE" Type="numeric" Nullable="false" Scale="6" />
+          <Property Name="LIMITINFDAP" Type="numeric" Nullable="false" Scale="6" />
+          <Property Name="AREAFUSTALESPORPARCELA" Type="numeric" Nullable="false" Scale="6" />
+          <Property Name="FACTORDEFORMA" Type="numeric" Nullable="false" Scale="6" />
           <Property Name="FECHA" Type="datetime" Nullable="false" />
           <Property Name="ETAPA" Type="numeric" Nullable="false" />
-          <Property Name="TIPOPROYECTO" Type="varchar" Nullable="false" MaxLength="2" />
-          <Property Name="CONFIANZA" Type="decimal" Nullable="false" Scale="6" />
+          <Property Name="TIPOPROYECTO" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="CONFIANZA" Type="numeric" Nullable="false" Scale="6" />
         </EntityType>
         <EntityType Name="PROYECTOSPORETAPA">
           <Key>
@@ -325,43 +325,43 @@
           </Key>
           <Property Name="NROPROYCONTENEDOR" Type="uniqueidentifier" Nullable="false" />
           <Property Name="NROPROYCONTENIDO" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PESO" Type="decimal" Nullable="false" Scale="6" />
+          <Property Name="PESO" Type="numeric" Nullable="false" Scale="6" />
           <Property Name="ETAPA" Type="numeric" Nullable="false" />
         </EntityType>
         <EntityType Name="TIPODEUSO">
           <Key>
             <PropertyRef Name="NOMBRETIPOUSO" />
           </Key>
-          <Property Name="NOMBRETIPOUSO" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="DESCRIPCION" Type="varchar" MaxLength="500" />
+          <Property Name="NOMBRETIPOUSO" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="DESCRIPCION" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="TIPODISENOMUESTRAL">
           <Key>
             <PropertyRef Name="NOMTIPODISEMUEST" />
           </Key>
-          <Property Name="NOMTIPODISEMUEST" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="DESCRIPTIPODISEMUEST" Type="varchar" MaxLength="500" />
+          <Property Name="NOMTIPODISEMUEST" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="DESCRIPTIPODISEMUEST" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="TIPOFORMULA">
           <Key>
             <PropertyRef Name="NROTIPOFORMULA" />
           </Key>
           <Property Name="NROTIPOFORMULA" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="NOMBRETIPO" Type="varchar" Nullable="false" MaxLength="150" />
-          <Property Name="DESCRIPCION" Type="varchar" MaxLength="5000" />
+          <Property Name="NOMBRETIPO" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="DESCRIPCION" Type="ntext" />
         </EntityType>
         <EntityType Name="TRANSACCION">
           <Key>
             <PropertyRef Name="NROTRANS" />
           </Key>
-          <Property Name="NROTRANS" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NROTRANS" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NROUSUARIO" Type="uniqueidentifier" Nullable="false" />
           <Property Name="FECHA" Type="datetime" Nullable="false" />
-          <Property Name="TABLA" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="TABLA" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="IDREGISTRO" Type="numeric" Nullable="false" />
-          <Property Name="OPERACION" Type="char" Nullable="false" MaxLength="1" />
-          <Property Name="VALORESVIEJOS" Type="varchar" MaxLength="1024" />
-          <Property Name="VALORESNUEVOS" Type="varchar" MaxLength="1024" />
+          <Property Name="OPERACION" Type="nchar" Nullable="false" MaxLength="1" />
+          <Property Name="VALORESVIEJOS" Type="nvarchar" MaxLength="1024" />
+          <Property Name="VALORESNUEVOS" Type="nvarchar" MaxLength="1024" />
         </EntityType>
         <EntityType Name="TSTUDENT">
           <Key>
@@ -370,8 +370,8 @@
             <PropertyRef Name="VALOR" />
           </Key>
           <Property Name="N" Type="numeric" Nullable="false" />
-          <Property Name="ALPHA" Type="decimal" Nullable="false" Scale="3" />
-          <Property Name="VALOR" Type="decimal" Nullable="false" Scale="3" />
+          <Property Name="ALPHA" Type="numeric" Nullable="false" Scale="3" />
+          <Property Name="VALOR" Type="numeric" Nullable="false" Scale="3" />
         </EntityType>
         <EntityType Name="USO">
           <Key>
@@ -379,27 +379,27 @@
             <PropertyRef Name="NOMBRETIPOUSO" />
           </Key>
           <Property Name="LINEANMAD" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="NOMBRETIPOUSO" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="NOMBRETIPOUSO" Type="nvarchar" Nullable="false" MaxLength="100" />
         </EntityType>
         <EntityType Name="USUARIO">
           <Key>
             <PropertyRef Name="NROUSUARIO" />
           </Key>
           <Property Name="NROUSUARIO" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="NOMBRES" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="APELLIDOS" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="NOMBREUSUARIO" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="CONTRASENA" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="NOMBRES" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="APELLIDOS" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="NOMBREUSUARIO" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="CONTRASENA" Type="nvarchar" Nullable="false" MaxLength="1000" />
           <Property Name="CEDULA" Type="numeric" Nullable="false" />
-          <Property Name="TIPOUSUARIO" Type="char" Nullable="false" MaxLength="2" />
+          <Property Name="TIPOUSUARIO" Type="nchar" Nullable="false" MaxLength="2" />
         </EntityType>
         <EntityType Name="VARIABLE">
           <Key>
             <PropertyRef Name="NROVARIABLE" />
           </Key>
           <Property Name="NROVARIABLE" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="NOMBRE" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="DESCRIPCION" Type="varchar" MaxLength="5000" />
+          <Property Name="NOMBRE" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="DESCRIPCION" Type="ntext" />
         </EntityType>
         <Association Name="FK_ESPECIE_PERTENECE_GRUPOCOM">
           <End Role="GRUPOCOMERCIAL" Type="SIFCA_Model.Store.GRUPOCOMERCIAL" Multiplicity="1">
@@ -923,8 +923,8 @@
           <Key>
             <PropertyRef Name="CODCALIDAD" />
           </Key>
-          <Property Type="Decimal" Name="CODCALIDAD" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="DESCRIPCALIDAD" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Int64" Name="CODCALIDAD" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DESCRIPCALIDAD" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="LINEAINVENTARIO" Relationship="SIFCA_Model.FK_LINEAINV_POSEE_CALIDAD" FromRole="CALIDAD" ToRole="LINEAINVENTARIO" />
         </EntityType>
         <EntityType Name="ESPECIE">
@@ -932,14 +932,14 @@
             <PropertyRef Name="CODESP" />
           </Key>
           <Property Type="Guid" Name="CODESP" Nullable="false" />
-          <Property Type="String" Name="GRUPOCOM" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="NOMCOMUN" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NOMCIENTIFICO" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="FAMILIA" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ZONAGEOGRAFICA" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ZONADEVIDA" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="GRUPOCOM" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="NOMCOMUN" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NOMCIENTIFICO" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FAMILIA" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ZONAGEOGRAFICA" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ZONADEVIDA" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Type="Decimal" Name="DIAMMINCORTE" Precision="18" Scale="6" />
-          <Property Type="String" Name="GRUPOECOLOGICO" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="GRUPOECOLOGICO" MaxLength="2" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="GRUPOCOMERCIAL" Relationship="SIFCA_Model.FK_ESPECIE_PERTENECE_GRUPOCOM" FromRole="ESPECIE" ToRole="GRUPOCOMERCIAL" />
           <NavigationProperty Name="IMAGEN" Relationship="SIFCA_Model.FK_IMAGEN_IMAGENE_ESPECIE" FromRole="ESPECIE" ToRole="IMAGEN" />
           <NavigationProperty Name="LINEAINVENTARIO" Relationship="SIFCA_Model.FK_LINEAINV_CONTIENE_ESPECIE" FromRole="ESPECIE" ToRole="LINEAINVENTARIO" />
@@ -950,16 +950,16 @@
           <Key>
             <PropertyRef Name="ESTADO" />
           </Key>
-          <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="DESCRIPESTADO" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="DESCRIPESTADO" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="LINEAINVENTARIO" Relationship="SIFCA_Model.FK_LINEAINV_ASOCIADO_ESTADOSA" FromRole="ESTADOSANITARIO" ToRole="LINEAINVENTARIO" />
         </EntityType>
         <EntityType Name="ESTRATO">
           <Key>
             <PropertyRef Name="CODEST" />
           </Key>
-          <Property Type="Decimal" Name="CODEST" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="DESCRIPESTRATO" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Int64" Name="CODEST" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DESCRIPESTRATO" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_FORMULAR_MANEJA_ESTRATO" FromRole="ESTRATO" ToRole="FORMULARIO" />
           <NavigationProperty Name="LISTADODEESTRATOS" Relationship="SIFCA_Model.FK_LISTADOD_LISTAESTR_ESTRATO" FromRole="ESTRATO" ToRole="LISTADODEESTRATOS" />
         </EntityType>
@@ -969,9 +969,9 @@
           </Key>
           <Property Type="Guid" Name="NROFORMULA" Nullable="false" />
           <Property Type="Guid" Name="NROTIPOFORMULA" Nullable="false" />
-          <Property Type="String" Name="EXPRESION" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="DESCRIPCION" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EXPRESION" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DESCRIPCION" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="TIPOFORMULA" Relationship="SIFCA_Model.FK_FORMULA_TIPOFORMULA" FromRole="FORMULA" ToRole="TIPOFORMULA" />
           <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_PROYECTO_FORMULA" FromRole="FORMULA" ToRole="PROYECTO" />
           <NavigationProperty Name="VARIABLE" Relationship="SIFCA_Model.FORMULAVARIABLE" FromRole="FORMULA" ToRole="VARIABLE" />
@@ -981,7 +981,7 @@
             <PropertyRef Name="NROFORMULARIO" />
           </Key>
           <Property Type="Guid" Name="NROFORMULARIO" Nullable="false" />
-          <Property Type="Decimal" Name="CODEST" Precision="18" Scale="0" />
+          <Property Type="Int64" Name="CODEST" />
           <Property Type="Guid" Name="NROUSUARIO" Nullable="false" />
           <Property Type="Guid" Name="NROPROY" Nullable="false" />
           <Property Type="DateTime" Name="FECHACREACION" Nullable="false" />
@@ -1002,8 +1002,8 @@
           <Key>
             <PropertyRef Name="GRUPOCOM" />
           </Key>
-          <Property Type="String" Name="GRUPOCOM" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="DESCRIPGRUPO" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="GRUPOCOM" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="DESCRIPGRUPO" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.FK_ESPECIE_PERTENECE_GRUPOCOM" FromRole="GRUPOCOMERCIAL" ToRole="ESPECIE" />
         </EntityType>
         <EntityType Name="IMAGEN">
@@ -1011,11 +1011,11 @@
             <PropertyRef Name="IMAGENID" />
             <PropertyRef Name="CODESP" />
           </Key>
-          <Property Type="Decimal" Name="IMAGENID" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="IMAGENID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Guid" Name="CODESP" Nullable="false" />
-          <Property Type="String" Name="DESCRIPCION" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="RUTA" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DESCRIPCION" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RUTA" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.FK_IMAGEN_IMAGENE_ESPECIE" FromRole="IMAGEN" ToRole="ESPECIE" />
         </EntityType>
         <EntityType Name="LINEAINVENTARIO">
@@ -1023,9 +1023,9 @@
             <PropertyRef Name="LINEAINV" />
           </Key>
           <Property Type="Guid" Name="LINEAINV" Nullable="false" />
-          <Property Type="Decimal" Name="CODCALIDAD" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int64" Name="CODCALIDAD" Nullable="false" />
           <Property Type="Guid" Name="NROFORMULARIO" Nullable="false" />
-          <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
           <Property Type="Guid" Name="CODESP" Nullable="false" />
           <Property Type="Decimal" Name="NROARB" Nullable="false" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="ALTCOMER_M" Nullable="false" Precision="18" Scale="6" />
@@ -1033,7 +1033,7 @@
           <Property Type="Decimal" Name="AREABASAL" Nullable="false" Precision="18" Scale="6" />
           <Property Type="Decimal" Name="VOLCOM" Nullable="false" Precision="18" Scale="6" />
           <Property Type="Decimal" Name="VOLTOT" Nullable="false" Precision="18" Scale="6" />
-          <Property Type="String" Name="TIPOARBOL" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="TIPOARBOL" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
           <Property Type="Decimal" Name="CAP" Nullable="false" Precision="18" Scale="6" />
           <Property Type="Decimal" Name="DAP" Nullable="false" Precision="18" Scale="6" />
           <NavigationProperty Name="CALIDAD" Relationship="SIFCA_Model.FK_LINEAINV_POSEE_CALIDAD" FromRole="LINEAINVENTARIO" ToRole="CALIDAD" />
@@ -1047,7 +1047,7 @@
           </Key>
           <Property Type="Guid" Name="LINEANMAD" Nullable="false" />
           <Property Type="Guid" Name="NROFORMULARIO" Nullable="false" />
-          <Property Type="String" Name="OBSERVACIONES" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="OBSERVACIONES" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_LINEANOM_RECOLECTA_FORMULAR" FromRole="LINEANOMADERABLES" ToRole="FORMULARIO" />
           <NavigationProperty Name="TIPODEUSO" Relationship="SIFCA_Model.USO" FromRole="LINEANOMADERABLES" ToRole="TIPODEUSO" />
         </EntityType>
@@ -1069,7 +1069,7 @@
             <PropertyRef Name="CODEST" />
           </Key>
           <Property Type="Guid" Name="NROPROY" Nullable="false" />
-          <Property Type="Decimal" Name="CODEST" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int64" Name="CODEST" Nullable="false" />
           <Property Type="Decimal" Name="PESO" Precision="18" Scale="6" />
           <Property Type="Decimal" Name="TAMANOMUESTRA" Precision="18" Scale="0" />
           <NavigationProperty Name="ESTRATO" Relationship="SIFCA_Model.FK_LISTADOD_LISTAESTR_ESTRATO" FromRole="LISTADODEESTRATOS" ToRole="ESTRATO" />
@@ -1079,8 +1079,8 @@
           <Key>
             <PropertyRef Name="NOMBRETIPOINV" />
           </Key>
-          <Property Type="String" Name="NOMBRETIPOINV" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="DESCRIPOBJETINV" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NOMBRETIPOINV" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DESCRIPOBJETINV" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_ES_OBJETIVO" FromRole="OBJETIVOINVENTARIO" ToRole="PROYECTO" />
         </EntityType>
         <EntityType Name="PROYECTO">
@@ -1089,14 +1089,14 @@
           </Key>
           <Property Type="Guid" Name="NROPROY" Nullable="false" />
           <Property Type="Guid" Name="NROUSUARIO" Nullable="false" />
-          <Property Type="String" Name="NOMBRETIPOINV" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NOMTIPODISEMUEST" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NOMBRETIPOINV" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NOMTIPODISEMUEST" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="Guid" Name="NROFORMULA" Nullable="false" />
-          <Property Type="String" Name="LUGAR" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LUGAR" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="Decimal" Name="NUMEROPARCELAS" Nullable="false" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="NUMEROPARCELASAMUESTREAR" Nullable="false" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="TAMANO" Nullable="false" Precision="18" Scale="6" />
-          <Property Type="String" Name="DESCRIPCION" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DESCRIPCION" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="Decimal" Name="SUPTOT" Nullable="false" Precision="18" Scale="6" />
           <Property Type="Decimal" Name="INTMUE" Nullable="false" Precision="18" Scale="6" />
           <Property Type="Decimal" Name="SUPMUE" Nullable="false" Precision="18" Scale="6" />
@@ -1105,7 +1105,7 @@
           <Property Type="Decimal" Name="FACTORDEFORMA" Nullable="false" Precision="18" Scale="6" />
           <Property Type="DateTime" Name="FECHA" Nullable="false" />
           <Property Type="Decimal" Name="ETAPA" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="TIPOPROYECTO" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TIPOPROYECTO" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
           <Property Type="Decimal" Name="CONFIANZA" Nullable="false" Precision="18" Scale="6" />
           <NavigationProperty Name="FORMULA" Relationship="SIFCA_Model.FK_PROYECTO_PROYECTO_FORMULA" FromRole="PROYECTO" ToRole="FORMULA" />
           <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_FORMULAR_DESARROLL_PROYECTO" FromRole="PROYECTO" ToRole="FORMULARIO" />
@@ -1133,16 +1133,16 @@
           <Key>
             <PropertyRef Name="NOMBRETIPOUSO" />
           </Key>
-          <Property Type="String" Name="NOMBRETIPOUSO" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="DESCRIPCION" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NOMBRETIPOUSO" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DESCRIPCION" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="LINEANOMADERABLES" Relationship="SIFCA_Model.USO" FromRole="TIPODEUSO" ToRole="LINEANOMADERABLES" />
         </EntityType>
         <EntityType Name="TIPODISENOMUESTRAL">
           <Key>
             <PropertyRef Name="NOMTIPODISEMUEST" />
           </Key>
-          <Property Type="String" Name="NOMTIPODISEMUEST" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="DESCRIPTIPODISEMUEST" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NOMTIPODISEMUEST" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DESCRIPTIPODISEMUEST" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_REALIZA_TIPODISE" FromRole="TIPODISENOMUESTRAL" ToRole="PROYECTO" />
         </EntityType>
         <EntityType Name="TIPOFORMULA">
@@ -1150,22 +1150,22 @@
             <PropertyRef Name="NROTIPOFORMULA" />
           </Key>
           <Property Type="Guid" Name="NROTIPOFORMULA" Nullable="false" />
-          <Property Type="String" Name="NOMBRETIPO" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="DESCRIPCION" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NOMBRETIPO" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DESCRIPCION" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="FORMULA" Relationship="SIFCA_Model.FK_FORMULA_TIPOFORMULA" FromRole="TIPOFORMULA" ToRole="FORMULA" />
         </EntityType>
         <EntityType Name="TRANSACCION">
           <Key>
             <PropertyRef Name="NROTRANS" />
           </Key>
-          <Property Type="Decimal" Name="NROTRANS" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="NROTRANS" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Guid" Name="NROUSUARIO" Nullable="false" />
           <Property Type="DateTime" Name="FECHA" Nullable="false" />
-          <Property Type="String" Name="TABLA" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TABLA" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="Decimal" Name="IDREGISTRO" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="OPERACION" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="VALORESVIEJOS" MaxLength="1024" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="VALORESNUEVOS" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="OPERACION" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="VALORESVIEJOS" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="VALORESNUEVOS" MaxLength="1024" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="USUARIO" Relationship="SIFCA_Model.FK_TRANSACC_REGISTRA_USUARIO" FromRole="TRANSACCION" ToRole="USUARIO" />
         </EntityType>
         <EntityType Name="TSTUDENT">
@@ -1183,12 +1183,12 @@
             <PropertyRef Name="NROUSUARIO" />
           </Key>
           <Property Type="Guid" Name="NROUSUARIO" Nullable="false" />
-          <Property Type="String" Name="NOMBRES" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="APELLIDOS" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NOMBREUSUARIO" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="CONTRASENA" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NOMBRES" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="APELLIDOS" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NOMBREUSUARIO" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CONTRASENA" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Type="Decimal" Name="CEDULA" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="TIPOUSUARIO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="TIPOUSUARIO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_FORMULAR_ES_REPONS_USUARIO" FromRole="USUARIO" ToRole="FORMULARIO" />
           <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_CREA_USUARIO" FromRole="USUARIO" ToRole="PROYECTO" />
           <NavigationProperty Name="TRANSACCION" Relationship="SIFCA_Model.FK_TRANSACC_REGISTRA_USUARIO" FromRole="USUARIO" ToRole="TRANSACCION" />
@@ -1198,8 +1198,8 @@
             <PropertyRef Name="NROVARIABLE" />
           </Key>
           <Property Type="Guid" Name="NROVARIABLE" Nullable="false" />
-          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="DESCRIPCION" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DESCRIPCION" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="FORMULA" Relationship="SIFCA_Model.FORMULAVARIABLE" FromRole="VARIABLE" ToRole="FORMULA" />
         </EntityType>
         <Association Name="FK_LINEAINV_POSEE_CALIDAD">
@@ -1780,50 +1780,50 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="SIFCA_Model" ZoomLevel="67">
-        <EntityTypeShape EntityType="SIFCA_Model.CALIDAD" Width="1.5" PointX="6" PointY="3.875" Height="1.5956835937499818" />
-        <EntityTypeShape EntityType="SIFCA_Model.ESPECIE" Width="1.5" PointX="3.75" PointY="2" Height="3.7109993489583246" />
-        <EntityTypeShape EntityType="SIFCA_Model.ESTADOSANITARIO" Width="1.5" PointX="6" PointY="22.25" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="SIFCA_Model.CALIDAD" Width="1.5" PointX="6" PointY="3.875" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="SIFCA_Model.ESPECIE" Width="1.5" PointX="3.75" PointY="2" Height="3.7109993489583388" />
+        <EntityTypeShape EntityType="SIFCA_Model.ESTADOSANITARIO" Width="1.5" PointX="6" PointY="22.25" Height="1.595683593749996" />
         <EntityTypeShape EntityType="SIFCA_Model.ESTRATO" Width="1.5" PointX="0.75" PointY="6.75" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="SIFCA_Model.FORMULA" Width="1.5" PointX="3.75" PointY="28.5" Height="2.5571907552083246" />
         <EntityTypeShape EntityType="SIFCA_Model.FORMULARIO" Width="1.5" PointX="3" PointY="11.75" Height="4.2879036458333246" />
-        <EntityTypeShape EntityType="SIFCA_Model.GRUPOCOMERCIAL" Width="1.5" PointX="1.5" PointY="3" Height="1.5956835937499818" />
-        <EntityTypeShape EntityType="SIFCA_Model.IMAGEN" Width="1.5" PointX="6" PointY="0.75" Height="2.1725878906249818" />
-        <EntityTypeShape EntityType="SIFCA_Model.LINEAINVENTARIO" Width="1.5" PointX="8.25" PointY="9.625" Height="4.4802050781249818" />
-        <EntityTypeShape EntityType="SIFCA_Model.LINEANOMADERABLES" Width="1.5" PointX="5.25" PointY="6.875" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="SIFCA_Model.GRUPOCOMERCIAL" Width="1.5" PointX="1.5" PointY="3" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="SIFCA_Model.IMAGEN" Width="1.5" PointX="6" PointY="0.75" Height="2.172587890624996" />
+        <EntityTypeShape EntityType="SIFCA_Model.LINEAINVENTARIO" Width="1.5" PointX="8.25" PointY="9.625" Height="4.480205078124996" />
+        <EntityTypeShape EntityType="SIFCA_Model.LINEANOMADERABLES" Width="1.5" PointX="5.25" PointY="6.875" Height="1.9802864583333388" />
         <EntityTypeShape EntityType="SIFCA_Model.LINEAREGENERACION" Width="1.5" PointX="5.25" PointY="18.625" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="SIFCA_Model.LISTADODEESTRATOS" Width="1.5" PointX="11.25" PointY="12.75" Height="2.1725878906249818" />
-        <EntityTypeShape EntityType="SIFCA_Model.OBJETIVOINVENTARIO" Width="1.5" PointX="3.75" PointY="32.75" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="SIFCA_Model.LISTADODEESTRATOS" Width="1.5" PointX="11.25" PointY="12.75" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="SIFCA_Model.OBJETIVOINVENTARIO" Width="1.5" PointX="3.75" PointY="32.75" Height="1.595683593749996" />
         <EntityTypeShape EntityType="SIFCA_Model.PROYECTO" Width="1.5" PointX="6" PointY="10.5" Height="6.5955208333333246" />
-        <EntityTypeShape EntityType="SIFCA_Model.PROYECTOSPORETAPA" Width="1.5" PointX="8.25" PointY="15.625" Height="2.1725878906249818" />
-        <EntityTypeShape EntityType="SIFCA_Model.TIPODEUSO" Width="1.5" PointX="3" PointY="7" Height="1.5956835937499818" />
-        <EntityTypeShape EntityType="SIFCA_Model.TIPODISENOMUESTRAL" Width="1.5" PointX="3.75" PointY="22.125" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="SIFCA_Model.PROYECTOSPORETAPA" Width="1.5" PointX="8.25" PointY="15.625" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="SIFCA_Model.TIPODEUSO" Width="1.5" PointX="3" PointY="7" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="SIFCA_Model.TIPODISENOMUESTRAL" Width="1.5" PointX="3.75" PointY="22.125" Height="1.595683593749996" />
         <EntityTypeShape EntityType="SIFCA_Model.TIPOFORMULA" Width="1.5" PointX="1.5" PointY="28.875" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="SIFCA_Model.TRANSACCION" Width="1.5" PointX="3" PointY="24.875" Height="2.7494921874999818" />
-        <EntityTypeShape EntityType="SIFCA_Model.TSTUDENT" Width="1.5" PointX="7.75" PointY="7.125" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="SIFCA_Model.TRANSACCION" Width="1.5" PointX="3" PointY="24.875" Height="2.749492187499996" />
+        <EntityTypeShape EntityType="SIFCA_Model.TSTUDENT" Width="1.5" PointX="7.75" PointY="7.125" Height="1.595683593749996" />
         <EntityTypeShape EntityType="SIFCA_Model.USUARIO" Width="1.5" PointX="0.75" PointY="12.375" Height="2.9417936197916674" />
-        <EntityTypeShape EntityType="SIFCA_Model.VARIABLE" Width="1.5" PointX="6" PointY="28.875" Height="1.7879850260416106" />
+        <EntityTypeShape EntityType="SIFCA_Model.VARIABLE" Width="1.5" PointX="6" PointY="28.875" Height="1.7879850260416674" />
         <AssociationConnector Association="SIFCA_Model.FK_LINEAINV_POSEE_CALIDAD" >
-          <ConnectorPoint PointX="7.5" PointY="4.6728417968749909" />
-          <ConnectorPoint PointX="9.53125" PointY="4.6728417968749909" />
+          <ConnectorPoint PointX="7.5" PointY="4.672841796874998" />
+          <ConnectorPoint PointX="9.53125" PointY="4.672841796874998" />
           <ConnectorPoint PointX="9.53125" PointY="9.625" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_ESPECIE_PERTENECE_GRUPOCOM" >
-          <ConnectorPoint PointX="3" PointY="3.7978417968749909" />
-          <ConnectorPoint PointX="3.75" PointY="3.7978417968749909" />
+          <ConnectorPoint PointX="3" PointY="3.797841796874998" />
+          <ConnectorPoint PointX="3.75" PointY="3.797841796874998" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_IMAGEN_IMAGENE_ESPECIE" >
-          <ConnectorPoint PointX="5.25" PointY="2.4612939453124909" />
-          <ConnectorPoint PointX="6" PointY="2.4612939453124909" />
+          <ConnectorPoint PointX="5.25" PointY="2.461293945312498" />
+          <ConnectorPoint PointX="6" PointY="2.461293945312498" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LINEAINV_CONTIENE_ESPECIE" >
-          <ConnectorPoint PointX="4.875" PointY="5.7109993489583246" />
+          <ConnectorPoint PointX="4.875" PointY="5.7109993489583388" />
           <ConnectorPoint PointX="4.875" PointY="10.03125" />
           <ConnectorPoint PointX="4.979166666666667" PointY="10.03125" />
           <ConnectorPoint PointX="5.208333333333333" PointY="10.03125" />
           <ConnectorPoint PointX="8.25" PointY="10.03125" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LINEAREG_EVALUACIO_ESPECIE" >
-          <ConnectorPoint PointX="4.6874975" PointY="5.7109993489583246" />
+          <ConnectorPoint PointX="4.6874975" PointY="5.7109993489583388" />
           <ConnectorPoint PointX="4.6874975" PointY="19.807444661458334" />
           <ConnectorPoint PointX="4.7916654166666666" PointY="19.807444661458334" />
           <ConnectorPoint PointX="4.9583320833333326" PointY="19.807444661458334" />
@@ -1832,8 +1832,8 @@
         <AssociationConnector Association="SIFCA_Model.FK_LINEAINV_ASOCIADO_ESTADOSA" >
           <ConnectorPoint PointX="7.5" PointY="22.251152846153847" />
           <ConnectorPoint PointX="7.875" PointY="21.876152846153847" />
-          <ConnectorPoint PointX="7.875" PointY="12.099479539062543" />
-          <ConnectorPoint PointX="8.25" PointY="12.099479539062543" />
+          <ConnectorPoint PointX="7.875" PointY="12.099479539062493" />
+          <ConnectorPoint PointX="8.25" PointY="12.099479539062493" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_FORMULAR_MANEJA_ESTRATO" >
           <ConnectorPoint PointX="2.2499999999999996" PointY="8.5379850260416674" />
@@ -1885,12 +1885,12 @@
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LINEAINV_LLENA_FORMULAR" >
           <ConnectorPoint PointX="3.75" PointY="11.75" />
-          <ConnectorPoint PointX="3.75" PointY="10.265627500000051" />
-          <ConnectorPoint PointX="4.6041641666666671" PointY="10.265627500000051" />
-          <ConnectorPoint PointX="4.7708308333333331" PointY="10.265627500000051" />
-          <ConnectorPoint PointX="4.979166666666667" PointY="10.265627500000051" />
-          <ConnectorPoint PointX="5.208333333333333" PointY="10.265627500000051" />
-          <ConnectorPoint PointX="8.25" PointY="10.265627500000051" />
+          <ConnectorPoint PointX="3.75" PointY="10.265627499999994" />
+          <ConnectorPoint PointX="4.6041641666666671" PointY="10.265627499999994" />
+          <ConnectorPoint PointX="4.7708308333333331" PointY="10.265627499999994" />
+          <ConnectorPoint PointX="4.979166666666667" PointY="10.265627499999994" />
+          <ConnectorPoint PointX="5.208333333333333" PointY="10.265627499999994" />
+          <ConnectorPoint PointX="8.25" PointY="10.265627499999994" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LINEANOM_RECOLECTA_FORMULAR" >
           <ConnectorPoint PointX="4.5" PointY="11.813460538461538" />
@@ -1899,8 +1899,8 @@
           <ConnectorPoint PointX="4.8160731849011205" PointY="11.497387353560416" />
           <ConnectorPoint PointX="4.9339243150988787" PointY="11.37953622336266" />
           <ConnectorPoint PointX="5.0625" PointY="11.250960538461538" />
-          <ConnectorPoint PointX="5.0625" PointY="7.8651432291666623" />
-          <ConnectorPoint PointX="5.25" PointY="7.8651432291666623" />
+          <ConnectorPoint PointX="5.0625" PointY="7.8651432291666694" />
+          <ConnectorPoint PointX="5.25" PointY="7.8651432291666694" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LINEAREG_COMPLETA_FORMULAR" >
           <ConnectorPoint PointX="3.75" PointY="16.037903645833325" />
@@ -1912,14 +1912,14 @@
           <ConnectorPoint PointX="5.25" PointY="19.184969830729173" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_LISTAESTRATOS_PROYECTO" >
-          <ConnectorPoint PointX="7.5" PointY="14.545146484374982" />
-          <ConnectorPoint PointX="7.791666666666667" PointY="14.545146484374982" />
-          <ConnectorPoint PointX="7.958333333333333" PointY="14.545146484374982" />
-          <ConnectorPoint PointX="11.25" PointY="14.545146484374982" />
+          <ConnectorPoint PointX="7.5" PointY="14.545146484375003" />
+          <ConnectorPoint PointX="7.791666666666667" PointY="14.545146484375003" />
+          <ConnectorPoint PointX="7.958333333333333" PointY="14.545146484375003" />
+          <ConnectorPoint PointX="11.25" PointY="14.545146484375003" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_PROYECTO_ES_OBJETIVO" >
-          <ConnectorPoint PointX="5.25" PointY="33.547841796874991" />
-          <ConnectorPoint PointX="5.5" PointY="33.547841796874991" />
+          <ConnectorPoint PointX="5.25" PointY="33.547841796875" />
+          <ConnectorPoint PointX="5.5" PointY="33.547841796875" />
           <ConnectorPoint PointX="5.5" PointY="21.489889322916667" />
           <ConnectorPoint PointX="5.666666666666667" PointY="21.489889322916667" />
           <ConnectorPoint PointX="5.833333333333333" PointY="21.489889322916667" />
@@ -1964,8 +1964,8 @@
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FK_TRANSACC_REGISTRA_USUARIO" >
           <ConnectorPoint PointX="1.9062525" PointY="15.316793619791667" />
-          <ConnectorPoint PointX="1.9062525" PointY="26.249746093749991" />
-          <ConnectorPoint PointX="3" PointY="26.249746093749991" />
+          <ConnectorPoint PointX="1.9062525" PointY="26.249746093749998" />
+          <ConnectorPoint PointX="3" PointY="26.249746093749998" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.FORMULAVARIABLE" >
           <ConnectorPoint PointX="5.25" PointY="29.264297688802081" />
@@ -1976,19 +1976,19 @@
           <ConnectorPoint PointX="6" PointY="29.264297688802081" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.LISTADODEESPECIES" >
-          <ConnectorPoint PointX="5.125" PointY="5.7109993489583246" />
-          <ConnectorPoint PointX="5.125" PointY="10.76562249999995" />
-          <ConnectorPoint PointX="6" PointY="10.76562249999995" />
+          <ConnectorPoint PointX="5.125" PointY="5.7109993489583388" />
+          <ConnectorPoint PointX="5.125" PointY="10.765622500000006" />
+          <ConnectorPoint PointX="6" PointY="10.765622500000006" />
         </AssociationConnector>
         <AssociationConnector Association="SIFCA_Model.USO" >
-          <ConnectorPoint PointX="4.5" PointY="7.3700716145833312" />
-          <ConnectorPoint PointX="4.6041641666666671" PointY="7.37007161458333" />
-          <ConnectorPoint PointX="4.7708308333333331" PointY="7.3700716145833312" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="7.37007161458333" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="7.3700716145833312" />
-          <ConnectorPoint PointX="5.041666666666667" PointY="7.37007161458333" />
-          <ConnectorPoint PointX="5.208333333333333" PointY="7.3700716145833312" />
-          <ConnectorPoint PointX="5.25" PointY="7.3700716145833312" />
+          <ConnectorPoint PointX="4.5" PointY="7.3700716145833347" />
+          <ConnectorPoint PointX="4.6041641666666671" PointY="7.3700716145833338" />
+          <ConnectorPoint PointX="4.7708308333333331" PointY="7.3700716145833347" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="7.3700716145833338" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="7.3700716145833347" />
+          <ConnectorPoint PointX="5.041666666666667" PointY="7.3700716145833338" />
+          <ConnectorPoint PointX="5.208333333333333" PointY="7.3700716145833347" />
+          <ConnectorPoint PointX="5.25" PointY="7.3700716145833347" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

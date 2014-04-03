@@ -162,6 +162,7 @@
             this.cedulaTxt.Name = "cedulaTxt";
             this.cedulaTxt.Size = new System.Drawing.Size(206, 20);
             this.cedulaTxt.TabIndex = 3;
+            this.cedulaTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cedulaTxt_KeyPress);
             // 
             // usuarioTxt
             // 

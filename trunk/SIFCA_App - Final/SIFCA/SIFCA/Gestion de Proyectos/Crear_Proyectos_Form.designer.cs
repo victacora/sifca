@@ -51,8 +51,8 @@
             this.DatosProyectoGbx = new System.Windows.Forms.GroupBox();
             this.TipoProyectoCbx = new System.Windows.Forms.ComboBox();
             this.DescripcionTxt = new System.Windows.Forms.TextBox();
-            this.nuevoProyectoBS = new System.Windows.Forms.BindingSource(this.components);
             this.tipoDisenoCbx = new System.Windows.Forms.ComboBox();
+            this.nuevoProyectoBS = new System.Windows.Forms.BindingSource(this.components);
             this.tipoDisenoBS = new System.Windows.Forms.BindingSource(this.components);
             this.tipoObjetivoCbx = new System.Windows.Forms.ComboBox();
             this.objetivoInventarioBS = new System.Windows.Forms.BindingSource(this.components);
@@ -111,6 +111,7 @@
             this.NOMBRETIPOINV = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.NOMTIPODISEMUEST = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.PesoProyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ETAPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.proyectoBS = new System.Windows.Forms.BindingSource(this.components);
             this.cancelarBtn = new System.Windows.Forms.Button();
             this.GuardarBtn = new System.Windows.Forms.Button();
@@ -234,7 +235,7 @@
             // intensidadMuestreLbl
             // 
             intensidadMuestreLbl.AutoSize = true;
-            intensidadMuestreLbl.Location = new System.Drawing.Point(249, 121);
+            intensidadMuestreLbl.Location = new System.Drawing.Point(237, 121);
             intensidadMuestreLbl.Name = "intensidadMuestreLbl";
             intensidadMuestreLbl.Size = new System.Drawing.Size(164, 13);
             intensidadMuestreLbl.TabIndex = 25;
@@ -243,7 +244,7 @@
             // areaMuestreadaLbl
             // 
             areaMuestreadaLbl.AutoSize = true;
-            areaMuestreadaLbl.Location = new System.Drawing.Point(9, 95);
+            areaMuestreadaLbl.Location = new System.Drawing.Point(9, 68);
             areaMuestreadaLbl.Name = "areaMuestreadaLbl";
             areaMuestreadaLbl.Size = new System.Drawing.Size(90, 13);
             areaMuestreadaLbl.TabIndex = 26;
@@ -252,7 +253,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(9, 68);
+            label4.Location = new System.Drawing.Point(9, 93);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(131, 13);
             label4.TabIndex = 50;
@@ -261,7 +262,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(248, 69);
+            label5.Location = new System.Drawing.Point(237, 94);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(148, 13);
             label5.TabIndex = 52;
@@ -360,7 +361,6 @@
             // 
             // DescripcionTxt
             // 
-            this.DescripcionTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.nuevoProyectoBS, "DESCRIPCION", true));
             this.DescripcionTxt.Location = new System.Drawing.Point(145, 50);
             this.DescripcionTxt.Multiline = true;
             this.DescripcionTxt.Name = "DescripcionTxt";
@@ -368,13 +368,8 @@
             this.DescripcionTxt.Size = new System.Drawing.Size(363, 62);
             this.DescripcionTxt.TabIndex = 1;
             // 
-            // nuevoProyectoBS
-            // 
-            this.nuevoProyectoBS.DataSource = typeof(SIFCA_DAL.PROYECTO);
-            // 
             // tipoDisenoCbx
             // 
-            this.tipoDisenoCbx.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.nuevoProyectoBS, "NOMTIPODISEMUEST", true));
             this.tipoDisenoCbx.DataSource = this.tipoDisenoBS;
             this.tipoDisenoCbx.DisplayMember = "DESCRIPTIPODISEMUEST";
             this.tipoDisenoCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -386,13 +381,16 @@
             this.tipoDisenoCbx.ValueMember = "NOMTIPODISEMUEST";
             this.tipoDisenoCbx.SelectedIndexChanged += new System.EventHandler(this.tipoDisenoCbx_SelectedIndexChanged);
             // 
+            // nuevoProyectoBS
+            // 
+            this.nuevoProyectoBS.DataSource = typeof(SIFCA_DAL.PROYECTO);
+            // 
             // tipoDisenoBS
             // 
             this.tipoDisenoBS.DataSource = typeof(SIFCA_DAL.TIPODISENOMUESTRAL);
             // 
             // tipoObjetivoCbx
             // 
-            this.tipoObjetivoCbx.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.nuevoProyectoBS, "NOMBRETIPOINV", true));
             this.tipoObjetivoCbx.DataSource = this.objetivoInventarioBS;
             this.tipoObjetivoCbx.DisplayMember = "DESCRIPOBJETINV";
             this.tipoObjetivoCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -443,6 +441,7 @@
             // 
             // expresionTxt
             // 
+            this.expresionTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.formulaBS, "EXPRESION", true));
             this.expresionTxt.Location = new System.Drawing.Point(159, 250);
             this.expresionTxt.MaxLength = 18;
             this.expresionTxt.Name = "expresionTxt";
@@ -469,32 +468,31 @@
             // 
             // numeroParcelasMuestraTxt
             // 
-            this.numeroParcelasMuestraTxt.Location = new System.Drawing.Point(401, 67);
+            this.numeroParcelasMuestraTxt.Location = new System.Drawing.Point(407, 92);
             this.numeroParcelasMuestraTxt.MaxLength = 25;
             this.numeroParcelasMuestraTxt.Name = "numeroParcelasMuestraTxt";
-            this.numeroParcelasMuestraTxt.Size = new System.Drawing.Size(84, 20);
+            this.numeroParcelasMuestraTxt.Size = new System.Drawing.Size(78, 20);
             this.numeroParcelasMuestraTxt.TabIndex = 51;
             this.numeroParcelasMuestraTxt.Text = "0";
             this.numeroParcelasMuestraTxt.TextChanged += new System.EventHandler(this.numeroParcelasMuestraTxt_TextChanged);
             // 
             // numeroParcelasTxt
             // 
-            this.numeroParcelasTxt.Location = new System.Drawing.Point(159, 66);
+            this.numeroParcelasTxt.Location = new System.Drawing.Point(159, 91);
             this.numeroParcelasTxt.MaxLength = 25;
             this.numeroParcelasTxt.Name = "numeroParcelasTxt";
-            this.numeroParcelasTxt.Size = new System.Drawing.Size(86, 20);
+            this.numeroParcelasTxt.ReadOnly = true;
+            this.numeroParcelasTxt.Size = new System.Drawing.Size(73, 20);
             this.numeroParcelasTxt.TabIndex = 49;
             this.numeroParcelasTxt.Text = "0";
-            this.numeroParcelasTxt.TextChanged += new System.EventHandler(this.numeroParcelasTxt_TextChanged);
             // 
             // areaMuestrearTxt
             // 
-            this.areaMuestrearTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.nuevoProyectoBS, "SUPMUE", true));
             this.areaMuestrearTxt.Location = new System.Drawing.Point(159, 117);
             this.areaMuestrearTxt.MaxLength = 25;
             this.areaMuestrearTxt.Name = "areaMuestrearTxt";
             this.areaMuestrearTxt.ReadOnly = true;
-            this.areaMuestrearTxt.Size = new System.Drawing.Size(86, 20);
+            this.areaMuestrearTxt.Size = new System.Drawing.Size(73, 20);
             this.areaMuestrearTxt.TabIndex = 3;
             this.areaMuestrearTxt.Text = "0";
             // 
@@ -509,7 +507,6 @@
             // 
             // confianzaTextBox
             // 
-            this.confianzaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.nuevoProyectoBS, "CONFIANZA", true));
             this.confianzaTextBox.Location = new System.Drawing.Point(159, 14);
             this.confianzaTextBox.MaxLength = 25;
             this.confianzaTextBox.Name = "confianzaTextBox";
@@ -528,23 +525,21 @@
             // 
             // AreaTotalTxt
             // 
-            this.AreaTotalTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.nuevoProyectoBS, "SUPTOT", true));
-            this.AreaTotalTxt.Location = new System.Drawing.Point(159, 92);
+            this.AreaTotalTxt.Location = new System.Drawing.Point(159, 65);
             this.AreaTotalTxt.MaxLength = 25;
             this.AreaTotalTxt.Name = "AreaTotalTxt";
-            this.AreaTotalTxt.ReadOnly = true;
             this.AreaTotalTxt.Size = new System.Drawing.Size(327, 20);
             this.AreaTotalTxt.TabIndex = 1;
             this.AreaTotalTxt.Text = "0";
+            this.AreaTotalTxt.TextChanged += new System.EventHandler(this.AreaTotalTxt_TextChanged);
             // 
             // intMuestreoTxt
             // 
-            this.intMuestreoTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.nuevoProyectoBS, "INTMUE", true));
-            this.intMuestreoTxt.Location = new System.Drawing.Point(417, 118);
+            this.intMuestreoTxt.Location = new System.Drawing.Point(407, 118);
             this.intMuestreoTxt.MaxLength = 25;
             this.intMuestreoTxt.Name = "intMuestreoTxt";
             this.intMuestreoTxt.ReadOnly = true;
-            this.intMuestreoTxt.Size = new System.Drawing.Size(69, 20);
+            this.intMuestreoTxt.Size = new System.Drawing.Size(79, 20);
             this.intMuestreoTxt.TabIndex = 2;
             this.intMuestreoTxt.Text = "0";
             // 
@@ -559,7 +554,6 @@
             // 
             // numeroEtapasTxt
             // 
-            this.numeroEtapasTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.nuevoProyectoBS, "ETAPA", true));
             this.numeroEtapasTxt.Enabled = false;
             this.numeroEtapasTxt.Location = new System.Drawing.Point(159, 277);
             this.numeroEtapasTxt.MaxLength = 18;
@@ -598,7 +592,6 @@
             // 
             // lugarTxt
             // 
-            this.lugarTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.nuevoProyectoBS, "LUGAR", true));
             this.lugarTxt.Location = new System.Drawing.Point(145, 23);
             this.lugarTxt.MaxLength = 100;
             this.lugarTxt.Name = "lugarTxt";
@@ -795,7 +788,7 @@
             // errorLbl
             // 
             this.errorLbl.AutoSize = true;
-            this.errorLbl.Location = new System.Drawing.Point(7, 10);
+            this.errorLbl.Location = new System.Drawing.Point(12, 39);
             this.errorLbl.Name = "errorLbl";
             this.errorLbl.Size = new System.Drawing.Size(0, 13);
             this.errorLbl.TabIndex = 19;
@@ -815,9 +808,9 @@
             this.estratoDGW.DataSource = this.estratoBS;
             this.estratoDGW.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.estratoDGW.Enabled = false;
-            this.estratoDGW.Location = new System.Drawing.Point(3, 39);
+            this.estratoDGW.Location = new System.Drawing.Point(3, 72);
             this.estratoDGW.Name = "estratoDGW";
-            this.estratoDGW.Size = new System.Drawing.Size(527, 480);
+            this.estratoDGW.Size = new System.Drawing.Size(527, 447);
             this.estratoDGW.TabIndex = 23;
             this.estratoDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.estratoDGW_CellValueChanged);
             this.estratoDGW.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.estratoDGW_DataBindingComplete);
@@ -913,7 +906,8 @@
             this.FECHA,
             this.NOMBRETIPOINV,
             this.NOMTIPODISEMUEST,
-            this.PesoProyecto});
+            this.PesoProyecto,
+            this.ETAPA});
             this.proyectoDGW.DataSource = this.proyectoBS;
             this.proyectoDGW.Enabled = false;
             this.proyectoDGW.Location = new System.Drawing.Point(0, 38);
@@ -977,6 +971,13 @@
             // 
             this.PesoProyecto.HeaderText = "Peso";
             this.PesoProyecto.Name = "PesoProyecto";
+            // 
+            // ETAPA
+            // 
+            this.ETAPA.DataPropertyName = "ETAPA";
+            this.ETAPA.HeaderText = "Etapa";
+            this.ETAPA.Name = "ETAPA";
+            this.ETAPA.ReadOnly = true;
             // 
             // proyectoBS
             // 
@@ -1090,13 +1091,6 @@
         private System.Windows.Forms.Button SeleccEstratosBtn;
         private System.Windows.Forms.Button removerEstratosBtn;
         private System.Windows.Forms.Button actualizarBtn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Proyectos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LUGAR;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FECHA;
-        private System.Windows.Forms.DataGridViewComboBoxColumn NOMBRETIPOINV;
-        private System.Windows.Forms.DataGridViewComboBoxColumn NOMTIPODISEMUEST;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PesoProyecto;
         private System.Windows.Forms.ErrorProvider controladorErrores;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Especie;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMCOMUN;
@@ -1122,6 +1116,14 @@
         private System.Windows.Forms.ComboBox formularComboBox;
         private System.Windows.Forms.BindingSource formulaBS;
         private System.Windows.Forms.BindingSource nuevoProyectoBS;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Proyectos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LUGAR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FECHA;
+        private System.Windows.Forms.DataGridViewComboBoxColumn NOMBRETIPOINV;
+        private System.Windows.Forms.DataGridViewComboBoxColumn NOMTIPODISEMUEST;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PesoProyecto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ETAPA;
 
 
     }

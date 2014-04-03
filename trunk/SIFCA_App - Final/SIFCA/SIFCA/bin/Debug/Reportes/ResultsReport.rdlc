@@ -723,7 +723,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!INTMUE.Value</Value>
+                              <Value>=Fields!INTMUE.Value*100</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -1058,7 +1058,7 @@
         <Top>0.17639cm</Top>
         <Left>0.33348cm</Left>
         <Height>4.66672cm</Height>
-        <Width>21.2419cm</Width>
+        <Width>21.24197cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1819,7 +1819,7 @@
         <Top>5.48541cm</Top>
         <Left>0.33348cm</Left>
         <Height>2.28948cm</Height>
-        <Width>21.2419cm</Width>
+        <Width>21.24189cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>

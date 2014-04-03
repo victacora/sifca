@@ -254,11 +254,23 @@
     <Compile Include="Manejo de la Configuracion\Estratos_Form.designer.cs">
       <DependentUpon>Estratos_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manejo de la Configuracion\Formula_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\Formula_Form.designer.cs">
+      <DependentUpon>Formula_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manejo de la Configuracion\GruposComerciales_Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Manejo de la Configuracion\GruposComerciales_Form.designer.cs">
       <DependentUpon>GruposComerciales_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\TipoFormula_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\TipoFormula_Form.designer.cs">
+      <DependentUpon>TipoFormula_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Manejo de la Configuracion\TiposMuestrales_Form.cs">
       <SubType>Form</SubType>
@@ -277,6 +289,12 @@
     </Compile>
     <Compile Include="Manejo de la Configuracion\TStudent_Form.designer.cs">
       <DependentUpon>TStudent_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\Variable_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\Variable_Form.designer.cs">
+      <DependentUpon>Variable_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -359,8 +377,14 @@
     <EmbeddedResource Include="Manejo de la Configuracion\Estratos_Form.resx">
       <DependentUpon>Estratos_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Manejo de la Configuracion\Formula_Form.resx">
+      <DependentUpon>Formula_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Manejo de la Configuracion\GruposComerciales_Form.resx">
       <DependentUpon>GruposComerciales_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manejo de la Configuracion\TipoFormula_Form.resx">
+      <DependentUpon>TipoFormula_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manejo de la Configuracion\TiposMuestrales_Form.resx">
       <DependentUpon>TiposMuestrales_Form.cs</DependentUpon>
@@ -370,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manejo de la Configuracion\TStudent_Form.resx">
       <DependentUpon>TStudent_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manejo de la Configuracion\Variable_Form.resx">
+      <DependentUpon>Variable_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

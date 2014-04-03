@@ -132,8 +132,8 @@
     <Key>
       <PropertyRef Name="CODCALIDAD" />
     </Key>
-    <Property Type="Decimal" Name="CODCALIDAD" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="DESCRIPCALIDAD" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="CODCALIDAD" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="DESCRIPCALIDAD" MaxLength="500" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="LINEAINVENTARIO" Relationship="SIFCA_Model.FK_LINEAINV_POSEE_CALIDAD" FromRole="CALIDAD" ToRole="LINEAINVENTARIO" />
   </EntityType>
   <EntityType Name="ESPECIE">
@@ -141,14 +141,14 @@
       <PropertyRef Name="CODESP" />
     </Key>
     <Property Type="Guid" Name="CODESP" Nullable="false" />
-    <Property Type="String" Name="GRUPOCOM" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
-    <Property Type="String" Name="NOMCOMUN" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="NOMCIENTIFICO" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="FAMILIA" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="ZONAGEOGRAFICA" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="ZONADEVIDA" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="GRUPOCOM" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="NOMCOMUN" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NOMCIENTIFICO" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FAMILIA" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ZONAGEOGRAFICA" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ZONADEVIDA" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Type="Decimal" Name="DIAMMINCORTE" Precision="18" Scale="6" />
-    <Property Type="String" Name="GRUPOECOLOGICO" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="GRUPOECOLOGICO" MaxLength="2" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="GRUPOCOMERCIAL" Relationship="SIFCA_Model.FK_ESPECIE_PERTENECE_GRUPOCOM" FromRole="ESPECIE" ToRole="GRUPOCOMERCIAL" />
     <NavigationProperty Name="IMAGEN" Relationship="SIFCA_Model.FK_IMAGEN_IMAGENE_ESPECIE" FromRole="ESPECIE" ToRole="IMAGEN" />
     <NavigationProperty Name="LINEAINVENTARIO" Relationship="SIFCA_Model.FK_LINEAINV_CONTIENE_ESPECIE" FromRole="ESPECIE" ToRole="LINEAINVENTARIO" />
@@ -159,16 +159,16 @@
     <Key>
       <PropertyRef Name="ESTADO" />
     </Key>
-    <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
-    <Property Type="String" Name="DESCRIPESTADO" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="DESCRIPESTADO" MaxLength="500" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="LINEAINVENTARIO" Relationship="SIFCA_Model.FK_LINEAINV_ASOCIADO_ESTADOSA" FromRole="ESTADOSANITARIO" ToRole="LINEAINVENTARIO" />
   </EntityType>
   <EntityType Name="ESTRATO">
     <Key>
       <PropertyRef Name="CODEST" />
     </Key>
-    <Property Type="Decimal" Name="CODEST" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="DESCRIPESTRATO" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="CODEST" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="DESCRIPESTRATO" MaxLength="500" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_FORMULAR_MANEJA_ESTRATO" FromRole="ESTRATO" ToRole="FORMULARIO" />
     <NavigationProperty Name="LISTADODEESTRATOS" Relationship="SIFCA_Model.FK_LISTADOD_LISTAESTR_ESTRATO" FromRole="ESTRATO" ToRole="LISTADODEESTRATOS" />
   </EntityType>
@@ -178,9 +178,9 @@
     </Key>
     <Property Type="Guid" Name="NROFORMULA" Nullable="false" />
     <Property Type="Guid" Name="NROTIPOFORMULA" Nullable="false" />
-    <Property Type="String" Name="EXPRESION" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="DESCRIPCION" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EXPRESION" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DESCRIPCION" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="TIPOFORMULA" Relationship="SIFCA_Model.FK_FORMULA_TIPOFORMULA" FromRole="FORMULA" ToRole="TIPOFORMULA" />
     <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_PROYECTO_FORMULA" FromRole="FORMULA" ToRole="PROYECTO" />
     <NavigationProperty Name="VARIABLE" Relationship="SIFCA_Model.FORMULAVARIABLE" FromRole="FORMULA" ToRole="VARIABLE" />
@@ -190,7 +190,7 @@
       <PropertyRef Name="NROFORMULARIO" />
     </Key>
     <Property Type="Guid" Name="NROFORMULARIO" Nullable="false" />
-    <Property Type="Decimal" Name="CODEST" Precision="18" Scale="0" />
+    <Property Type="Int64" Name="CODEST" />
     <Property Type="Guid" Name="NROUSUARIO" Nullable="false" />
     <Property Type="Guid" Name="NROPROY" Nullable="false" />
     <Property Type="DateTime" Name="FECHACREACION" Nullable="false" />
@@ -211,8 +211,8 @@
     <Key>
       <PropertyRef Name="GRUPOCOM" />
     </Key>
-    <Property Type="String" Name="GRUPOCOM" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
-    <Property Type="String" Name="DESCRIPGRUPO" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="GRUPOCOM" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="DESCRIPGRUPO" MaxLength="500" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.FK_ESPECIE_PERTENECE_GRUPOCOM" FromRole="GRUPOCOMERCIAL" ToRole="ESPECIE" />
   </EntityType>
   <EntityType Name="IMAGEN">
@@ -220,11 +220,11 @@
       <PropertyRef Name="IMAGENID" />
       <PropertyRef Name="CODESP" />
     </Key>
-    <Property Type="Decimal" Name="IMAGENID" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="IMAGENID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="Guid" Name="CODESP" Nullable="false" />
-    <Property Type="String" Name="DESCRIPCION" MaxLength="1000" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="RUTA" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DESCRIPCION" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RUTA" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="ESPECIE" Relationship="SIFCA_Model.FK_IMAGEN_IMAGENE_ESPECIE" FromRole="IMAGEN" ToRole="ESPECIE" />
   </EntityType>
   <EntityType Name="LINEAINVENTARIO">
@@ -232,9 +232,9 @@
       <PropertyRef Name="LINEAINV" />
     </Key>
     <Property Type="Guid" Name="LINEAINV" Nullable="false" />
-    <Property Type="Decimal" Name="CODCALIDAD" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Int64" Name="CODCALIDAD" Nullable="false" />
     <Property Type="Guid" Name="NROFORMULARIO" Nullable="false" />
-    <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
     <Property Type="Guid" Name="CODESP" Nullable="false" />
     <Property Type="Decimal" Name="NROARB" Nullable="false" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="ALTCOMER_M" Nullable="false" Precision="18" Scale="6" />
@@ -242,7 +242,7 @@
     <Property Type="Decimal" Name="AREABASAL" Nullable="false" Precision="18" Scale="6" />
     <Property Type="Decimal" Name="VOLCOM" Nullable="false" Precision="18" Scale="6" />
     <Property Type="Decimal" Name="VOLTOT" Nullable="false" Precision="18" Scale="6" />
-    <Property Type="String" Name="TIPOARBOL" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="TIPOARBOL" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
     <Property Type="Decimal" Name="CAP" Nullable="false" Precision="18" Scale="6" />
     <Property Type="Decimal" Name="DAP" Nullable="false" Precision="18" Scale="6" />
     <NavigationProperty Name="CALIDAD" Relationship="SIFCA_Model.FK_LINEAINV_POSEE_CALIDAD" FromRole="LINEAINVENTARIO" ToRole="CALIDAD" />
@@ -256,7 +256,7 @@
     </Key>
     <Property Type="Guid" Name="LINEANMAD" Nullable="false" />
     <Property Type="Guid" Name="NROFORMULARIO" Nullable="false" />
-    <Property Type="String" Name="OBSERVACIONES" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="OBSERVACIONES" MaxLength="500" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_LINEANOM_RECOLECTA_FORMULAR" FromRole="LINEANOMADERABLES" ToRole="FORMULARIO" />
     <NavigationProperty Name="TIPODEUSO" Relationship="SIFCA_Model.USO" FromRole="LINEANOMADERABLES" ToRole="TIPODEUSO" />
   </EntityType>
@@ -278,7 +278,7 @@
       <PropertyRef Name="CODEST" />
     </Key>
     <Property Type="Guid" Name="NROPROY" Nullable="false" />
-    <Property Type="Decimal" Name="CODEST" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Int64" Name="CODEST" Nullable="false" />
     <Property Type="Decimal" Name="PESO" Precision="18" Scale="6" />
     <Property Type="Decimal" Name="TAMANOMUESTRA" Precision="18" Scale="0" />
     <NavigationProperty Name="ESTRATO" Relationship="SIFCA_Model.FK_LISTADOD_LISTAESTR_ESTRATO" FromRole="LISTADODEESTRATOS" ToRole="ESTRATO" />
@@ -288,8 +288,8 @@
     <Key>
       <PropertyRef Name="NOMBRETIPOINV" />
     </Key>
-    <Property Type="String" Name="NOMBRETIPOINV" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="DESCRIPOBJETINV" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOMBRETIPOINV" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DESCRIPOBJETINV" MaxLength="500" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_ES_OBJETIVO" FromRole="OBJETIVOINVENTARIO" ToRole="PROYECTO" />
   </EntityType>
   <EntityType Name="PROYECTO">
@@ -298,14 +298,14 @@
     </Key>
     <Property Type="Guid" Name="NROPROY" Nullable="false" />
     <Property Type="Guid" Name="NROUSUARIO" Nullable="false" />
-    <Property Type="String" Name="NOMBRETIPOINV" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="NOMTIPODISEMUEST" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOMBRETIPOINV" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NOMTIPODISEMUEST" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Type="Guid" Name="NROFORMULA" Nullable="false" />
-    <Property Type="String" Name="LUGAR" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LUGAR" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Type="Decimal" Name="NUMEROPARCELAS" Nullable="false" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="NUMEROPARCELASAMUESTREAR" Nullable="false" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="TAMANO" Nullable="false" Precision="18" Scale="6" />
-    <Property Type="String" Name="DESCRIPCION" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DESCRIPCION" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Type="Decimal" Name="SUPTOT" Nullable="false" Precision="18" Scale="6" />
     <Property Type="Decimal" Name="INTMUE" Nullable="false" Precision="18" Scale="6" />
     <Property Type="Decimal" Name="SUPMUE" Nullable="false" Precision="18" Scale="6" />
@@ -314,7 +314,7 @@
     <Property Type="Decimal" Name="FACTORDEFORMA" Nullable="false" Precision="18" Scale="6" />
     <Property Type="DateTime" Name="FECHA" Nullable="false" />
     <Property Type="Decimal" Name="ETAPA" Nullable="false" Precision="18" Scale="0" />
-    <Property Type="String" Name="TIPOPROYECTO" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TIPOPROYECTO" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
     <Property Type="Decimal" Name="CONFIANZA" Nullable="false" Precision="18" Scale="6" />
     <NavigationProperty Name="FORMULA" Relationship="SIFCA_Model.FK_PROYECTO_PROYECTO_FORMULA" FromRole="PROYECTO" ToRole="FORMULA" />
     <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_FORMULAR_DESARROLL_PROYECTO" FromRole="PROYECTO" ToRole="FORMULARIO" />
@@ -342,16 +342,16 @@
     <Key>
       <PropertyRef Name="NOMBRETIPOUSO" />
     </Key>
-    <Property Type="String" Name="NOMBRETIPOUSO" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="DESCRIPCION" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOMBRETIPOUSO" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DESCRIPCION" MaxLength="500" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="LINEANOMADERABLES" Relationship="SIFCA_Model.USO" FromRole="TIPODEUSO" ToRole="LINEANOMADERABLES" />
   </EntityType>
   <EntityType Name="TIPODISENOMUESTRAL">
     <Key>
       <PropertyRef Name="NOMTIPODISEMUEST" />
     </Key>
-    <Property Type="String" Name="NOMTIPODISEMUEST" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="DESCRIPTIPODISEMUEST" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOMTIPODISEMUEST" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DESCRIPTIPODISEMUEST" MaxLength="500" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_REALIZA_TIPODISE" FromRole="TIPODISENOMUESTRAL" ToRole="PROYECTO" />
   </EntityType>
   <EntityType Name="TIPOFORMULA">
@@ -359,22 +359,22 @@
       <PropertyRef Name="NROTIPOFORMULA" />
     </Key>
     <Property Type="Guid" Name="NROTIPOFORMULA" Nullable="false" />
-    <Property Type="String" Name="NOMBRETIPO" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="DESCRIPCION" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOMBRETIPO" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DESCRIPCION" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="FORMULA" Relationship="SIFCA_Model.FK_FORMULA_TIPOFORMULA" FromRole="TIPOFORMULA" ToRole="FORMULA" />
   </EntityType>
   <EntityType Name="TRANSACCION">
     <Key>
       <PropertyRef Name="NROTRANS" />
     </Key>
-    <Property Type="Decimal" Name="NROTRANS" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="NROTRANS" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="Guid" Name="NROUSUARIO" Nullable="false" />
     <Property Type="DateTime" Name="FECHA" Nullable="false" />
-    <Property Type="String" Name="TABLA" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TABLA" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Type="Decimal" Name="IDREGISTRO" Nullable="false" Precision="18" Scale="0" />
-    <Property Type="String" Name="OPERACION" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-    <Property Type="String" Name="VALORESVIEJOS" MaxLength="1024" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="VALORESNUEVOS" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="OPERACION" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="VALORESVIEJOS" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="VALORESNUEVOS" MaxLength="1024" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="USUARIO" Relationship="SIFCA_Model.FK_TRANSACC_REGISTRA_USUARIO" FromRole="TRANSACCION" ToRole="USUARIO" />
   </EntityType>
   <EntityType Name="TSTUDENT">
@@ -392,12 +392,12 @@
       <PropertyRef Name="NROUSUARIO" />
     </Key>
     <Property Type="Guid" Name="NROUSUARIO" Nullable="false" />
-    <Property Type="String" Name="NOMBRES" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="APELLIDOS" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="NOMBREUSUARIO" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="CONTRASENA" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOMBRES" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="APELLIDOS" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NOMBREUSUARIO" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CONTRASENA" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
     <Property Type="Decimal" Name="CEDULA" Nullable="false" Precision="18" Scale="0" />
-    <Property Type="String" Name="TIPOUSUARIO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="TIPOUSUARIO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="FORMULARIO" Relationship="SIFCA_Model.FK_FORMULAR_ES_REPONS_USUARIO" FromRole="USUARIO" ToRole="FORMULARIO" />
     <NavigationProperty Name="PROYECTO" Relationship="SIFCA_Model.FK_PROYECTO_CREA_USUARIO" FromRole="USUARIO" ToRole="PROYECTO" />
     <NavigationProperty Name="TRANSACCION" Relationship="SIFCA_Model.FK_TRANSACC_REGISTRA_USUARIO" FromRole="USUARIO" ToRole="TRANSACCION" />
@@ -407,8 +407,8 @@
       <PropertyRef Name="NROVARIABLE" />
     </Key>
     <Property Type="Guid" Name="NROVARIABLE" Nullable="false" />
-    <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="DESCRIPCION" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DESCRIPCION" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="FORMULA" Relationship="SIFCA_Model.FORMULAVARIABLE" FromRole="VARIABLE" ToRole="FORMULA" />
   </EntityType>
   <Association Name="FK_LINEAINV_POSEE_CALIDAD">

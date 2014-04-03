@@ -48,6 +48,7 @@
             this.realizarCopiaDeSeguridadTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.exportarDatosAExcelTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.importarDatosDeExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.evaluadorDeExpresionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.crearFormularioTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirFormulariosTsm = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,6 +65,9 @@
             this.tipoDeDiseñoTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoDeUsoTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarTablaTStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.formulasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.variablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiposDeFormulasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventanasMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.cascadaTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.mosaicoVerticalTsm = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,7 +82,6 @@
             this.EstadoLbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.pBarLoad = new System.Windows.Forms.ProgressBar();
-            this.evaluadorDeExpresionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -248,6 +251,13 @@
             this.importarDatosDeExcelToolStripMenuItem.Text = "Importar datos de excel";
             this.importarDatosDeExcelToolStripMenuItem.Click += new System.EventHandler(this.importarDatosDeExcelTsm_Click);
             // 
+            // evaluadorDeExpresionesToolStripMenuItem
+            // 
+            this.evaluadorDeExpresionesToolStripMenuItem.Name = "evaluadorDeExpresionesToolStripMenuItem";
+            this.evaluadorDeExpresionesToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.evaluadorDeExpresionesToolStripMenuItem.Text = "Evaluador de expresiones";
+            this.evaluadorDeExpresionesToolStripMenuItem.Click += new System.EventHandler(this.evaluadorDeExpresionesToolStripMenuItem_Click);
+            // 
             // inventarioMenu
             // 
             this.inventarioMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -320,7 +330,10 @@
             this.gruposComercialesTsm,
             this.tipoDeDiseñoTsm,
             this.tipoDeUsoTsm,
-            this.cargarTablaTStudentToolStripMenuItem});
+            this.cargarTablaTStudentToolStripMenuItem,
+            this.formulasToolStripMenuItem,
+            this.variablesToolStripMenuItem,
+            this.tiposDeFormulasToolStripMenuItem});
             this.configuracionMenu.Name = "configuracionMenu";
             this.configuracionMenu.Size = new System.Drawing.Size(95, 20);
             this.configuracionMenu.Text = "Configuracion";
@@ -371,8 +384,29 @@
             // 
             this.cargarTablaTStudentToolStripMenuItem.Name = "cargarTablaTStudentToolStripMenuItem";
             this.cargarTablaTStudentToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.cargarTablaTStudentToolStripMenuItem.Text = " Tabla TStudent";
+            this.cargarTablaTStudentToolStripMenuItem.Text = "Tabla TStudent";
             this.cargarTablaTStudentToolStripMenuItem.Click += new System.EventHandler(this.cargarTablaTStudentToolStripMenuItem_Click);
+            // 
+            // formulasToolStripMenuItem
+            // 
+            this.formulasToolStripMenuItem.Name = "formulasToolStripMenuItem";
+            this.formulasToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.formulasToolStripMenuItem.Text = "Formulas";
+            this.formulasToolStripMenuItem.Click += new System.EventHandler(this.formulasToolStripMenuItem_Click);
+            // 
+            // variablesToolStripMenuItem
+            // 
+            this.variablesToolStripMenuItem.Name = "variablesToolStripMenuItem";
+            this.variablesToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.variablesToolStripMenuItem.Text = "Variables";
+            this.variablesToolStripMenuItem.Click += new System.EventHandler(this.variablesToolStripMenuItem_Click);
+            // 
+            // tiposDeFormulasToolStripMenuItem
+            // 
+            this.tiposDeFormulasToolStripMenuItem.Name = "tiposDeFormulasToolStripMenuItem";
+            this.tiposDeFormulasToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.tiposDeFormulasToolStripMenuItem.Text = "Tipos de formulas";
+            this.tiposDeFormulasToolStripMenuItem.Click += new System.EventHandler(this.tiposDeFormulasToolStripMenuItem_Click);
             // 
             // ventanasMenu
             // 
@@ -475,13 +509,6 @@
             this.pBarLoad.TabIndex = 4;
             this.pBarLoad.Visible = false;
             // 
-            // evaluadorDeExpresionesToolStripMenuItem
-            // 
-            this.evaluadorDeExpresionesToolStripMenuItem.Name = "evaluadorDeExpresionesToolStripMenuItem";
-            this.evaluadorDeExpresionesToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.evaluadorDeExpresionesToolStripMenuItem.Text = "Evaluador de expresiones";
-            this.evaluadorDeExpresionesToolStripMenuItem.Click += new System.EventHandler(this.evaluadorDeExpresionesToolStripMenuItem_Click);
-            // 
             // Principal_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -560,6 +587,9 @@
         private System.Windows.Forms.ToolStripMenuItem clasesDiamétricasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estadisticosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem evaluadorDeExpresionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem formulasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem variablesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tiposDeFormulasToolStripMenuItem;
 
     }
 }

@@ -15,7 +15,7 @@ namespace SIFCA_DAL
     public partial class LINEAINVENTARIO
     {
         public System.Guid LINEAINV { get; set; }
-        public decimal CODCALIDAD { get; set; }
+        public long CODCALIDAD { get; set; }
         public System.Guid NROFORMULARIO { get; set; }
         public string ESTADO { get; set; }
         public System.Guid CODESP { get; set; }

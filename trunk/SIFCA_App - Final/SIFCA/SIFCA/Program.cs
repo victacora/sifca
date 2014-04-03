@@ -23,6 +23,7 @@ namespace SIFCA
         {
             ContextData.Configuration.ProxyCreationEnabled = true;
             ContextData.Configuration.LazyLoadingEnabled = true;
+            AppDomain.CurrentDomain.SetData("DataDirectory", AppDomain.CurrentDomain.BaseDirectory);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Principal_Form());

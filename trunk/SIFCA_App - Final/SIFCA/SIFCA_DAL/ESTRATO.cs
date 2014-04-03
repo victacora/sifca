@@ -20,7 +20,7 @@ namespace SIFCA_DAL
             this.LISTADODEESTRATOS = new HashSet<LISTADODEESTRATOS>();
         }
     
-        public decimal CODEST { get; set; }
+        public long CODEST { get; set; }
         public string DESCRIPESTRATO { get; set; }
     
         public virtual ICollection<FORMULARIO> FORMULARIO { get; set; }

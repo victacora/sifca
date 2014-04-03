@@ -105,6 +105,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_729F63DDAA2249BAB57EDDB4CF255746"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_77EFB04C023F481CA6A9BD73A7E211A7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -171,6 +177,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_A3B9E93BEF4B44EB86C3C56D5BE3F654"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_B0DB2F6A1F6D8A5B864114BF765E9550"
         "OwnerKey" = "8:_9C5D7E25DC2A4E838A73A9DDED9EFFFF"
         "MsmSig" = "8:_UNDEFINED"
@@ -185,6 +197,12 @@
         {
         "MsmKey" = "8:_B0DB2F6A1F6D8A5B864114BF765E9550"
         "OwnerKey" = "8:_1872B01CFF0C9CF2FE0963EFDF8D30CE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BA955A7CB2B811B9582584CB81867E42"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -250,6 +268,18 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_A3B9E93BEF4B44EB86C3C56D5BE3F654"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_81BA92741011FF42596BFBABD8D7B700"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_77EFB04C023F481CA6A9BD73A7E211A7"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -304,12 +334,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_81BA92741011FF42596BFBABD8D7B700"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_BBD51BD7B452E9702078876228F76465"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -323,6 +347,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_7F6C1B9F9E79EE6FA91A49663291707E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BA955A7CB2B811B9582584CB81867E42"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -356,6 +386,19 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
             }
         }
         "Release"
@@ -380,6 +423,19 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
             }
         }
     }
@@ -387,6 +443,20 @@
     {
         "CustomAction"
         {
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_95840523DE544A90ACD9C14BC438F7DC"
+            {
+            "Name" = "8:Resultado principal de CONFIGURAR_SETUP (Activo)"
+            "Condition" = "8:"
+            "Object" = "8:_A3B9E93BEF4B44EB86C3C56D5BE3F654"
+            "FileType" = "3:2"
+            "InstallAction" = "3:2"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_F079DFEB_14A8_4D6D_9051_3FC6D7F6B40D"
+            "InstallerClass" = "11:FALSE"
+            "CustomActionData" = "8:"
+            }
         }
         "DefaultFeature"
         {
@@ -734,6 +804,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_729F63DDAA2249BAB57EDDB4CF255746"
+            {
+            "SourcePath" = "8:..\\SIFCA_DAL\\SIFCA.sdf"
+            "TargetName" = "8:SIFCA.sdf"
+            "Tag" = "8:"
+            "Folder" = "8:_FC6AAA5DCA9D4B518A55F57AC8560D26"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_77EFB04C023F481CA6A9BD73A7E211A7"
             {
             "AssemblyRegister" = "3:1"
@@ -923,6 +1013,37 @@
                     }
                 }
             "SourcePath" = "8:EntityFramework.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_FC6AAA5DCA9D4B518A55F57AC8560D26"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BA955A7CB2B811B9582584CB81867E42"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_BA955A7CB2B811B9582584CB81867E42"
+                    {
+                    "Name" = "8:log4net.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:log4net.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_FC6AAA5DCA9D4B518A55F57AC8560D26"
@@ -1152,7 +1273,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SIFCA"
         "ProductCode" = "8:{423DD786-407C-4D37-A080-069E7CFB38D9}"
-        "PackageCode" = "8:{1318D6F5-1FE3-440C-A1CF-C505A1ECF84C}"
+        "PackageCode" = "8:{2BE4C2BF-4971-454D-8CC2-2B9C0509A8EC}"
         "UpgradeCode" = "8:{AF64B1A7-34BF-45AD-9258-C05042705A9E}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1746,6 +1867,34 @@
             "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:Built"
             "OutputProjectGuid" = "8:{683351D9-2A18-47C7-BD93-B9F9D45F042D}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A3B9E93BEF4B44EB86C3C56D5BE3F654"
+            {
+            "SourcePath" = "8:..\\CONFIGURAR_SETUP\\obj\\Debug\\CONFIGURAR_SETUP.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_FC6AAA5DCA9D4B518A55F57AC8560D26"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:Built"
+            "OutputProjectGuid" = "8:{2D3C87C4-BE8D-4E70-958D-AC6BA7AC917F}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {

@@ -140,7 +140,7 @@ namespace SIFCA_BLL
                 }
                 if (criteria == "Arbol")
                 {
-                    var query = from l in this.sifcaRepository.LINEAINVENTARIO where (SqlFunctions.StringConvert(l.NROARB).Contains(search) && l.FORMULARIO.NROFORMULARIO == form.NROFORMULARIO) select l;
+                    var query = from l in this.sifcaRepository.LINEAINVENTARIO where (SqlFunctions.StringConvert((decimal)l.NROARB).Contains(search) && l.FORMULARIO.NROFORMULARIO == form.NROFORMULARIO) select l;
                     return query.ToList();
                 }
                 return new List<LINEAINVENTARIO>();
@@ -152,7 +152,7 @@ namespace SIFCA_BLL
             
         }
 
-        public REPORTECLASESDIAMETRICAS searchDiametricClass(Guid codEsp, Guid codFr, string CD, int rangeInit, int rangeEnd, REPORTECLASESDIAMETRICAS rp)
+        public REPORTECLASESDIAMETRICAS searchDiametricClass(Guid codEsp, Guid py, string CD, int rangeInit, int rangeEnd, REPORTECLASESDIAMETRICAS rp)
         {
             try
             {
@@ -160,32 +160,38 @@ namespace SIFCA_BLL
                 {
                     if (CD.Equals("General"))
                     {
-                        var query = from l in this.sifcaRepository.LINEAINVENTARIO where (l.ESPECIE.CODESP == codEsp && l.NROFORMULARIO == codFr && (l.DAP * 100) >= rangeInit && (l.DAP * 100) < rangeEnd) select l;
+                        var query = from l in this.sifcaRepository.LINEAINVENTARIO where (l.ESPECIE.CODESP == codEsp && (l.DAP * 100) >= rangeInit && (l.DAP * 100) < rangeEnd) select l;
                         foreach (LINEAINVENTARIO ln in query.ToList())
                         {
-                            rp.VOLUMEN += ln.VOLCOM;
-                            rp.AREABASAL += ln.AREABASAL;
-                            rp.CONTEO++;
+                            if ((this.sifcaRepository.FORMULARIO.Find(ln.NROFORMULARIO)).NROPROY == py)
+                            {
+                                rp.VOLUMEN += ln.VOLCOM;
+                                rp.AREABASAL += ln.AREABASAL;
+                                rp.CONTEO++;
+                            }
                         }
                         return rp;
                     }
                     else
                         if (CD.Equals("Valor comercial"))
                         {
-                            var query = from l in this.sifcaRepository.LINEAINVENTARIO where (l.ESPECIE.CODESP == codEsp && l.NROFORMULARIO == codFr && (l.DAP * 100) >= rangeInit && (l.DAP * 100) < rangeEnd) select l;
+                            var query = from l in this.sifcaRepository.LINEAINVENTARIO where (l.ESPECIE.CODESP == codEsp && (l.DAP * 100) >= rangeInit && (l.DAP * 100) < rangeEnd) select l;
                             foreach (LINEAINVENTARIO ln in query.ToList())
                             {
-                                rp.VOLUMEN += ln.VOLCOM;
-                                rp.AREABASAL += ln.AREABASAL;
-                                rp.CONTEO++;
+                                if ((this.sifcaRepository.FORMULARIO.Find(ln.NROFORMULARIO)).NROPROY == py)
+                                {
+                                    rp.VOLUMEN += ln.VOLCOM;
+                                    rp.AREABASAL += ln.AREABASAL;
+                                    rp.CONTEO++;
+                                }
                             }
                             return rp;
                         }
                 }
                 else
                     if (CD.Equals("Estratos"))
-                    {
-                        var query = from l in this.sifcaRepository.LINEAINVENTARIO where (l.NROFORMULARIO == codFr && (l.DAP * 100) >= rangeInit && (l.DAP * 100) < rangeEnd) select l;
+                    {//en este caso el py corresponde al codigo del formulario al cual pertenece ese estrato
+                        var query = from l in this.sifcaRepository.LINEAINVENTARIO where (l.NROFORMULARIO == py && (l.DAP * 100) >= rangeInit && (l.DAP * 100) < rangeEnd) select l;
                         foreach (LINEAINVENTARIO ln in query.ToList())
                         {
                             rp.VOLUMEN += ln.VOLCOM;

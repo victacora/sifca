@@ -300,10 +300,12 @@ namespace SIFCA_BLL
                 if (Pj != null) {
                     if(Pj.PROYECTOSPORETAPA1.Count>0) {
                         PROYECTOSPORETAPA[] pjs = Pj.PROYECTOSPORETAPA1.ToArray();
-                        var query = from p in this.sifcaRepository.PROYECTO where (p.PROYECTOSPORETAPA1.Count == 0 && p.NROPROY != Pj.NROPROY && p.NROPROY != pjs[0].NROPROYCONTENEDOR ) select p;
+                        Guid cod = pjs[0].NROPROYCONTENEDOR;
+                        var query = from p in this.sifcaRepository.PROYECTO where (p.PROYECTOSPORETAPA1.Count == 0 && p.NROPROY != Pj.NROPROY && p.NROPROY !=  cod) select p;
                         return query.ToList();
                     }
-                    
+                    var query1 = from p in this.sifcaRepository.PROYECTO where (p.PROYECTOSPORETAPA1.Count == 0 && p.NROPROY != Pj.NROPROY) select p;
+                    return query1.ToList();
                 }
                 else
                 {

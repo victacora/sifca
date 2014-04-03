@@ -19,7 +19,7 @@ namespace SIFCA_DAL
             this.LINEAINVENTARIO = new HashSet<LINEAINVENTARIO>();
         }
     
-        public decimal CODCALIDAD { get; set; }
+        public long CODCALIDAD { get; set; }
         public string DESCRIPCALIDAD { get; set; }
     
         public virtual ICollection<LINEAINVENTARIO> LINEAINVENTARIO { get; set; }

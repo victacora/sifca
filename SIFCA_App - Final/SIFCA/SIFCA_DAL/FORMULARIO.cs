@@ -22,7 +22,7 @@ namespace SIFCA_DAL
         }
     
         public System.Guid NROFORMULARIO { get; set; }
-        public Nullable<decimal> CODEST { get; set; }
+        public Nullable<long> CODEST { get; set; }
         public System.Guid NROUSUARIO { get; set; }
         public System.Guid NROPROY { get; set; }
         public System.DateTime FECHACREACION { get; set; }

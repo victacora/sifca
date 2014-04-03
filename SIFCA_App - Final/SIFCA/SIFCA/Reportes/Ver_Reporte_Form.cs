@@ -147,8 +147,9 @@ namespace SIFCA
                                 {
                                     ESTRATO stratum = stratums.GetStratum(int.Parse(resultStratum.Key));
                                     resultado.ESTRATO = stratum != null ? stratum.DESCRIPESTRATO : resultStratum.Key;
-                                    resultado.PESOESTRATO = Math.Round((double)resultadosTemporales["weight"], 3);
+                                    resultado.PESOESTRATO = Math.Round((double)resultadosTemporales["Weight"], 3);
                                     resultado.VARIABLE = "Numero de arboles (#)";
+                                    resultado.N = resultadosTemporales["N"].ToString();
                                     resultado.TOTAL = totalParcelas * Math.Round((double)resultadosTemporales["Mean"], 3);
                                     resultado.TOTALPORHECTAREA = resultado.TOTAL / (double)currentProject.SUPTOT;
                                     resultado.PROMEDIO = Math.Round((double)resultadosTemporales["Mean"], 3);
@@ -184,7 +185,8 @@ namespace SIFCA
                                 {
                                     ESTRATO stratum = stratums.GetStratum(int.Parse(resultStratum.Key));
                                     resultado.ESTRATO = stratum != null ? stratum.DESCRIPESTRATO : resultStratum.Key;
-                                    resultado.PESOESTRATO = Math.Round((double)resultadosTemporales["weight"], 3);
+                                    resultado.PESOESTRATO = Math.Round((double)resultadosTemporales["Weight"], 3);
+                                    resultado.N = resultadosTemporales["N"].ToString();
                                     resultado.VARIABLE = "Area Basal (Mtrs2)";
                                     resultado.TOTAL = totalParcelas * Math.Round((double)resultadosTemporales["Mean"], 3);
                                     resultado.TOTALPORHECTAREA = resultado.TOTAL / (double)currentProject.SUPTOT;
@@ -220,7 +222,8 @@ namespace SIFCA
                                 {
                                     ESTRATO stratum = stratums.GetStratum(int.Parse(resultStratum.Key));
                                     resultado.ESTRATO = stratum != null ? stratum.DESCRIPESTRATO : resultStratum.Key;
-                                    resultado.PESOESTRATO = Math.Round((double)resultadosTemporales["weight"], 3);
+                                    resultado.PESOESTRATO = Math.Round((double)resultadosTemporales["Weight"], 3);
+                                    resultado.N =resultadosTemporales["N"].ToString();
                                     resultado.VARIABLE = "Volumen Comercial (Mtrs3)";
                                     resultado.TOTAL = totalParcelas * Math.Round((double)resultadosTemporales["Mean"], 3);
                                     resultado.TOTALPORHECTAREA = resultado.TOTAL / (double)currentProject.SUPTOT;
@@ -256,7 +259,8 @@ namespace SIFCA
                                 {
                                     ESTRATO stratum = stratums.GetStratum(int.Parse(resultStratum.Key));
                                     resultado.ESTRATO = stratum != null ? stratum.DESCRIPESTRATO : resultStratum.Key;
-                                    resultado.PESOESTRATO = Math.Round((double)resultadosTemporales["weight"], 3);
+                                    resultado.PESOESTRATO = Math.Round((double)resultadosTemporales["Weight"], 3);
+                                    resultado.N = resultadosTemporales["N"].ToString();
                                     resultado.VARIABLE = "Volumen Total (Mtrs3)";
                                     resultado.TOTAL = totalParcelas * Math.Round((double)resultadosTemporales["Mean"], 3);
                                     resultado.TOTALPORHECTAREA = resultado.TOTAL / (double)currentProject.SUPTOT;

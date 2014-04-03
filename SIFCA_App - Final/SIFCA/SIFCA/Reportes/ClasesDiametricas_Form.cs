@@ -14,12 +14,35 @@ namespace SIFCA
 {
     public partial class ClasesDiametricas_Form : Form
     {
+        private PROYECTO project;
         public ClasesDiametricas_Form()
         {
+
             try
             {
+                project = (PROYECTO)Program.Cache.Get("project");
                 InitializeComponent();
-                tipoClaseCbx.SelectedIndex = 0;
+                if (project != null)
+                {
+                    if (project.NOMTIPODISEMUEST == "ES")
+                    {
+                        this.tipoClaseCbx.Items.AddRange(new object[] {
+                        "General",
+                        "Valor comercial",
+                        "Estratos"});
+                    }
+                    else
+                    {
+                        this.tipoClaseCbx.Items.AddRange(new object[] {
+                        "General",
+                        "Valor comercial"});
+                    }
+                    tipoClaseCbx.SelectedIndex = 0;
+                }
+                else
+                {
+                    MessageBox.Show("Debe abrir un proyecto para ver los reportes.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
@@ -52,8 +75,8 @@ namespace SIFCA
                 {
                     controladorErrores.Clear();
                     int NumClass = (int)nUd_NumClases.Value;
-                    PROYECTO currentProject = (PROYECTO)Program.Cache.Get("project");
-                    if (currentProject != null)
+                    project = (PROYECTO)Program.Cache.Get("project");
+                    if (project != null)
                     {
                         DataGridViewTextBoxColumn Column1;
                         if (tipoClaseCbx.Text.Equals("General"))
@@ -107,61 +130,83 @@ namespace SIFCA
                             decimal[] totalVolClase = new decimal[NumClass];
                             ArrayList RowsData = new ArrayList();
 
-                            foreach (ESPECIE sp in currentProject.ESPECIE)
+                            foreach (ESPECIE sp in project.ESPECIE)
                             {
                                 List<REPORTECLASESDIAMETRICAS> resultReportCD = new List<REPORTECLASESDIAMETRICAS>();
-                                int cont = 0;
-                                for (int i = 10; i <= (rangeDAP * NumClass); i = i + rangeDAP)
+                                
+                                decimal totalConteo = 0, totalAB = 0, totalVol = 0;
+                                string RowConteo = "", RowAB = " ,,,Area Basal,", RowVol = " ,,,Volumen,";
+
+                                string gEco = "";
+                                if (sp.GRUPOECOLOGICO == "NT") gEco = "No Tolerante";
+                                if (sp.GRUPOECOLOGICO == "TL") gEco = "Tolerante";
+                                RowConteo += RowConteo + sp.NOMCOMUN.Replace(',', ' ') + " - " + sp.NOMCIENTIFICO.Replace(',', ' ') +"," + gEco + "," + sp.GRUPOCOMERCIAL.DESCRIPGRUPO + ", Densidad,";
+
+                                for (int i = 0, ValorClase = 10; i < NumClass; i++)
                                 {
                                     REPORTECLASESDIAMETRICAS rpCD = new REPORTECLASESDIAMETRICAS();
                                     rpCD.CLASE = i + " - " + (i + rangeDAP);
 
-                                    foreach (FORMULARIO fr in currentProject.FORMULARIO)
-                                    {
-                                        rpCD = lnBL.searchDiametricClass(sp.CODESP, fr.NROFORMULARIO, tipoClaseCbx.Text, i, i + rangeDAP, rpCD);
-                                    }
+                                    rpCD = lnBL.searchDiametricClass(sp.CODESP, project.NROPROY, tipoClaseCbx.Text, ValorClase, ValorClase + rangeDAP, rpCD);
+
                                     rpCD.PORCENTAJE = rpCD.TOTAL * 100;
                                     if (rpCD.CONTEO > 0)
                                     {
                                         rpCD.AREABASAL = rpCD.AREABASAL / rpCD.CONTEO;
                                         rpCD.VOLUMEN = rpCD.VOLUMEN / rpCD.CONTEO;
                                     }
-                                    
-                                
-                                    resultReportCD.Add(rpCD);
+
+                                    RowConteo += Decimal.Round(rpCD.CONTEO, 4) + ",";
+                                    RowAB += Decimal.Round(rpCD.AREABASAL, 4).ToString().Replace(",", ".") + ",";
+                                    RowVol += Decimal.Round(rpCD.VOLUMEN, 4).ToString().Replace(",", ".") + ",";
+                                    totalConteo += rpCD.CONTEO;
+                                    totalAB += rpCD.AREABASAL;
+                                    totalVol += rpCD.VOLUMEN;
+
+                                    //resultReportCD.Add(rpCD);
                                     //Se realiza para los totales por clase de densidad,AB, vol
-                                    totalConteoClase[cont] += rpCD.CONTEO;
-                                    totalABClase[cont] += rpCD.AREABASAL;
-                                    totalVolClase[cont] += rpCD.VOLUMEN;
-                                    cont++;
+                                    totalConteoClase[i] += rpCD.CONTEO;
+                                    totalABClase[i] += rpCD.AREABASAL;
+                                    totalVolClase[i] += rpCD.VOLUMEN;
+                                    ValorClase = ValorClase + rangeDAP;
                                 }
+                                if (totalConteo > 0)
+                                {
+                                    RowConteo += Decimal.Round(totalConteo, 4).ToString().Replace(",", ".") + ",";
+                                    RowAB += Decimal.Round(totalAB, 4).ToString().Replace(",", ".") + ",";
+                                    RowVol += Decimal.Round(totalVol, 4).ToString().Replace(",", ".") + ",";
+                                    RowsData.Add(RowConteo);
+                                    RowsData.Add(RowAB);
+                                    RowsData.Add(RowVol);
+                                }
+                            }
                                 //Se hace fuera del for porque en este for se lleva todos los valores de esa especie para cada clase diametrica y todas las variables
                                 //entonces ahora se lleva los valores de la especie y las clases diametricas
-                                string RowConteo = "", RowAB = " ,,,Area Basal,", RowVol = " ,,,Volumen,";
-                                decimal totalConteo = 0, totalAB = 0, totalVol = 0;
-                                string gEco = "";
-                                if (sp.GRUPOECOLOGICO == "NT") gEco = "No Tolerante";
-                                if (sp.GRUPOECOLOGICO == "TL") gEco = "Tolerante";
-                                RowConteo += RowConteo + sp.NOMCOMUN + " - " + sp.NOMCIENTIFICO + "," + gEco + "," + sp.GRUPOCOMERCIAL.DESCRIPGRUPO + ", Densidad,";
-                                foreach (REPORTECLASESDIAMETRICAS rp in resultReportCD)
-                                {
-                                    RowConteo += Decimal.Round(rp.CONTEO, 4) + ",";
-                                    RowAB += Decimal.Round(rp.AREABASAL, 4).ToString().Replace(",", ".") + ",";
-                                    RowVol += Decimal.Round(rp.VOLUMEN, 4).ToString().Replace(",", ".") + ",";
-                                    totalConteo += rp.CONTEO;
-                                    totalAB += rp.AREABASAL;
-                                    totalVol += rp.VOLUMEN;
-                                }
-                                RowConteo += Decimal.Round(totalConteo, 4).ToString().Replace(",", ".") + ",";
-                                RowAB += Decimal.Round(totalAB, 4).ToString().Replace(",", ".") + ",";
-                                RowVol += Decimal.Round(totalVol, 4).ToString().Replace(",", ".") + ",";
-                                RowsData.Add(RowConteo);
-                                RowsData.Add(RowAB);
-                                RowsData.Add(RowVol);
+                                //string RowConteo = "", RowAB = " ,,,Area Basal,", RowVol = " ,,,Volumen,";
+                                //decimal totalConteo = 0, totalAB = 0, totalVol = 0;
+                                //string gEco = "";
+                                //if (sp.GRUPOECOLOGICO == "NT") gEco = "No Tolerante";
+                                //if (sp.GRUPOECOLOGICO == "TL") gEco = "Tolerante";
+                                //RowConteo += RowConteo + sp.NOMCOMUN + " - " + sp.NOMCIENTIFICO + "," + gEco + "," + sp.GRUPOCOMERCIAL.DESCRIPGRUPO + ", Densidad,";
+                                //foreach (REPORTECLASESDIAMETRICAS rp in resultReportCD)
+                                //{
+                                //    RowConteo += Decimal.Round(rp.CONTEO, 4) + ",";
+                                //    RowAB += Decimal.Round(rp.AREABASAL, 4).ToString().Replace(",", ".") + ",";
+                                //    RowVol += Decimal.Round(rp.VOLUMEN, 4).ToString().Replace(",", ".") + ",";
+                                //    totalConteo += rp.CONTEO;
+                                //    totalAB += rp.AREABASAL;
+                                //    totalVol += rp.VOLUMEN;
+                                //}
+                                //RowConteo += Decimal.Round(totalConteo, 4).ToString().Replace(",", ".") + ",";
+                                //RowAB += Decimal.Round(totalAB, 4).ToString().Replace(",", ".") + ",";
+                                //RowVol += Decimal.Round(totalVol, 4).ToString().Replace(",", ".") + ",";
+                                //RowsData.Add(RowConteo);
+                                //RowsData.Add(RowAB);
+                                //RowsData.Add(RowVol);
 
-                            }
+                            //}
 
-                            string RowTotalC = "TOTALES,,,Densidad,", RowTotalAB = " ,,,Area Basal,", RowTotalVol = " ,,,Volumen,";
+                            string RowTotalC = ",TOTALES,,Densidad,", RowTotalAB = " ,,,Area Basal,", RowTotalVol = " ,,,Volumen,";
                             foreach (decimal d in totalConteoClase)
                             {
                                 RowTotalC += decimal.Round(d, 4).ToString().Replace(",", ".") + ",";
@@ -222,7 +267,7 @@ namespace SIFCA
                             //DtgDatos.Rows.Add(RowAB.Split(','));
                             //DtgDatos.Rows.Add(RowVol.Split(','));
                             //DtgDatos.Refresh();
-
+                            DtgDatos.AutoResizeColumns();
                             DtgDatos.Rows.Add(RowTotalC.Split(','));
                             DtgDatos.Rows.Add(RowTotalAB.Split(','));
                             DtgDatos.Rows.Add(RowTotalVol.Split(','));
@@ -274,18 +319,17 @@ namespace SIFCA
 
                                 foreach (GRUPOCOMERCIAL gc in groupBL.GetGroups())
                                 {
-                                    int cont=0;
+                                    string RowConteo = "", RowAB = " ,Area Basal,", RowVol = " ,Volumen,";
+                                    decimal totalConteo = 0, totalAB = 0, totalVol = 0;
+                                    RowConteo += gc.DESCRIPGRUPO + ", Densidad,";
                                     List<REPORTECLASESDIAMETRICAS> resultReportCD = new List<REPORTECLASESDIAMETRICAS>();
-                                    for (int i = rangeDAP; i <= (rangeDAP * NumClass); i = i + rangeDAP)
+                                    for (int i = 0, ValorClase = 10; i < NumClass; i++, ValorClase = ValorClase+rangeDAP)
                                     {
                                         REPORTECLASESDIAMETRICAS rpCD = new REPORTECLASESDIAMETRICAS();
                                         rpCD.CLASE = i + " - " + (i + rangeDAP);
-                                        foreach (ESPECIE sp in currentProject.ESPECIE.Where(p => p.GRUPOCOM == gc.GRUPOCOM))
+                                        foreach (ESPECIE sp in project.ESPECIE.Where(p => p.GRUPOCOM == gc.GRUPOCOM))
                                         {
-                                            foreach (FORMULARIO fr in currentProject.FORMULARIO)
-                                            {
-                                                rpCD = lnBL.searchDiametricClass(sp.CODESP, fr.NROFORMULARIO, tipoClaseCbx.Text, i, i + rangeDAP, rpCD);
-                                            }
+                                            rpCD = lnBL.searchDiametricClass(sp.CODESP, project.NROPROY, tipoClaseCbx.Text, ValorClase, ValorClase + rangeDAP, rpCD);
                                         }
                                         rpCD.PORCENTAJE = rpCD.TOTAL * 100;
                                         if (rpCD.CONTEO > 0)
@@ -293,34 +337,29 @@ namespace SIFCA
                                             rpCD.AREABASAL = rpCD.AREABASAL / rpCD.CONTEO;
                                             rpCD.VOLUMEN = rpCD.VOLUMEN / rpCD.CONTEO;
                                         }
-
-                                        resultReportCD.Add(rpCD);
+                                        RowConteo += Decimal.Round(rpCD.CONTEO, 4) + ",";
+                                        RowAB += Decimal.Round(rpCD.AREABASAL, 4).ToString().Replace(",", ".") + ",";
+                                        RowVol += Decimal.Round(rpCD.VOLUMEN, 4).ToString().Replace(",", ".") + ",";
+                                        totalConteo += rpCD.CONTEO;
+                                        totalAB += rpCD.AREABASAL;
+                                        totalVol += rpCD.VOLUMEN;
+                                        
+                                        //resultReportCD.Add(rpCD);
                                         //Se realiza para los totales por clase de densidad,AB, vol
-                                        totalConteoClase[cont] += rpCD.CONTEO;
-                                        totalABClase[cont] += rpCD.AREABASAL;
-                                        totalVolClase[cont] += rpCD.VOLUMEN;
-                                        cont++;
+                                        totalConteoClase[i] += rpCD.CONTEO;
+                                        totalABClase[i] += rpCD.AREABASAL;
+                                        totalVolClase[i] += rpCD.VOLUMEN;
                                     }                                    //Se hace fuera del for porque en este for se lleva todos los valores de esa especie para cada clase diametrica y todas las variables
                                     //entonces ahora se lleva los valores de la especie y las clases diametricas
-                                    string RowConteo = "", RowAB = " ,Area Basal,", RowVol = " ,Volumen,";
-                                    decimal totalConteo = 0, totalAB = 0, totalVol = 0;
-                                    RowConteo += gc.DESCRIPGRUPO + ", Densidad,";
-                                    foreach (REPORTECLASESDIAMETRICAS rp in resultReportCD)
+                                    if (totalConteo > 0)
                                     {
-                                        RowConteo += Decimal.Round(rp.CONTEO, 4) + ",";
-                                        RowAB += Decimal.Round(rp.AREABASAL, 4).ToString().Replace(",", ".") + ",";
-                                        RowVol += Decimal.Round(rp.VOLUMEN, 4).ToString().Replace(",", ".") + ",";
-                                        totalConteo += rp.CONTEO;
-                                        totalAB += rp.AREABASAL;
-                                        totalVol += rp.VOLUMEN;
+                                        RowConteo += Decimal.Round(totalConteo, 4).ToString().Replace(",", ".") + ",";
+                                        RowAB += Decimal.Round(totalAB, 4).ToString().Replace(",", ".") + ",";
+                                        RowVol += Decimal.Round(totalVol, 4).ToString().Replace(",", ".") + ",";
+                                        RowsData.Add(RowConteo);
+                                        RowsData.Add(RowAB);
+                                        RowsData.Add(RowVol);
                                     }
-                                    RowConteo += Decimal.Round(totalConteo, 4).ToString().Replace(",", ".") + ",";
-                                    RowAB += Decimal.Round(totalAB, 4).ToString().Replace(",", ".") + ",";
-                                    RowVol += Decimal.Round(totalVol, 4).ToString().Replace(",", ".") + ",";
-                                    RowsData.Add(RowConteo);
-                                    RowsData.Add(RowAB);
-                                    RowsData.Add(RowVol);
-
                                 }
 
                                 string RowTotalC = "TOTALES,Densidad,", RowTotalAB = " ,Area Basal,", RowTotalVol = " ,Volumen,";
@@ -376,7 +415,7 @@ namespace SIFCA
                                     result = cadena + decimal.Round(p, 2).ToString().Replace(',', '.') + "";
                                     DtgDatos.Rows.Add(result.Split(','));
                                 }
-
+                                DtgDatos.AutoResizeColumns();
                                 DtgDatos.Rows.Add(RowTotalC.Split(','));
                                 DtgDatos.Rows.Add(RowTotalAB.Split(','));
                                 DtgDatos.Rows.Add(RowTotalVol.Split(','));
@@ -423,18 +462,20 @@ namespace SIFCA
                                     decimal[] totalVolClase = new decimal[NumClass];
                                     ArrayList RowsData = new ArrayList();
 
-                                    foreach (LISTADODEESTRATOS st in currentProject.LISTADODEESTRATOS)
-                                    {
-                                        int cont = 0;
+                                    foreach (LISTADODEESTRATOS st in project.LISTADODEESTRATOS)
+                                    {                                        
+                                        string RowConteo = "", RowAB = " ,Area Basal,", RowVol = " ,Volumen,";
+                                        decimal totalConteo = 0, totalAB = 0, totalVol = 0;
+                                        RowConteo += (StBL.GetStratum((int)st.CODEST)).DESCRIPESTRATO + ", Densidad,";
+
                                         List<REPORTECLASESDIAMETRICAS> resultReportCD = new List<REPORTECLASESDIAMETRICAS>();
-                                        for (int i = rangeDAP; i <= (rangeDAP * NumClass); i = i + rangeDAP)
+                                        for (int i = 0, ValorClase = 10; i < NumClass; i++, ValorClase = ValorClase+rangeDAP)
                                         {
                                             REPORTECLASESDIAMETRICAS rpCD = new REPORTECLASESDIAMETRICAS();
                                             rpCD.CLASE = i + " - " + (i + rangeDAP);
-                                            foreach (FORMULARIO fr in currentProject.FORMULARIO.Where(f => f.CODEST == st.CODEST))
+                                            foreach (FORMULARIO fr in project.FORMULARIO.Where(f => f.CODEST == st.CODEST))
                                             {
-                                               rpCD = lnBL.searchDiametricClass(Guid.Empty, fr.NROFORMULARIO, tipoClaseCbx.Text, i, i + rangeDAP, rpCD);
-                                        
+                                               rpCD = lnBL.searchDiametricClass(Guid.Empty, fr.NROFORMULARIO, tipoClaseCbx.Text, i, i + rangeDAP, rpCD);                                        
                                             }
                                             rpCD.PORCENTAJE = rpCD.TOTAL * 100;
                                             if (rpCD.CONTEO > 0)
@@ -442,34 +483,28 @@ namespace SIFCA
                                                 rpCD.AREABASAL = rpCD.AREABASAL / rpCD.CONTEO;
                                                 rpCD.VOLUMEN = rpCD.VOLUMEN / rpCD.CONTEO;
                                             }
+                                            RowConteo += Decimal.Round(rpCD.CONTEO, 4) + ",";
+                                            RowAB += Decimal.Round(rpCD.AREABASAL, 4).ToString().Replace(",", ".") + ",";
+                                            RowVol += Decimal.Round(rpCD.VOLUMEN, 4).ToString().Replace(",", ".") + ",";
+                                            totalConteo += rpCD.CONTEO;
+                                            totalAB += rpCD.AREABASAL;
+                                            totalVol += rpCD.VOLUMEN;
 
-                                            resultReportCD.Add(rpCD);
                                             //Se realiza para los totales por clase de densidad,AB, vol
-                                            totalConteoClase[cont] += rpCD.CONTEO;
-                                            totalABClase[cont] += rpCD.AREABASAL;
-                                            totalVolClase[cont] += rpCD.VOLUMEN;
-                                            cont++;
+                                            totalConteoClase[i] += rpCD.CONTEO;
+                                            totalABClase[i] += rpCD.AREABASAL;
+                                            totalVolClase[i] += rpCD.VOLUMEN;
                                         }                                    //Se hace fuera del for porque en este for se lleva todos los valores de esa especie para cada clase diametrica y todas las variables
                                         //entonces ahora se lleva los valores de la especie y las clases diametricas
-                                        string RowConteo = "", RowAB = " ,Area Basal,", RowVol = " ,Volumen,";
-                                        decimal totalConteo = 0, totalAB = 0, totalVol = 0;
-                                        RowConteo += (StBL.GetStratum((int)st.CODEST)).DESCRIPESTRATO + ", Densidad,";
-                                        foreach (REPORTECLASESDIAMETRICAS rp in resultReportCD)
+                                        if (totalConteo > 0)
                                         {
-                                            RowConteo += Decimal.Round(rp.CONTEO, 4) + ",";
-                                            RowAB += Decimal.Round(rp.AREABASAL, 4).ToString().Replace(",", ".") + ",";
-                                            RowVol += Decimal.Round(rp.VOLUMEN, 4).ToString().Replace(",", ".") + ",";
-                                            totalConteo += rp.CONTEO;
-                                            totalAB += rp.AREABASAL;
-                                            totalVol += rp.VOLUMEN;
+                                            RowConteo += Decimal.Round(totalConteo, 4).ToString().Replace(",", ".") + ",";
+                                            RowAB += Decimal.Round(totalAB, 4).ToString().Replace(",", ".") + ",";
+                                            RowVol += Decimal.Round(totalVol, 4).ToString().Replace(",", ".") + ",";
+                                            RowsData.Add(RowConteo);
+                                            RowsData.Add(RowAB);
+                                            RowsData.Add(RowVol);
                                         }
-                                        RowConteo += Decimal.Round(totalConteo, 4).ToString().Replace(",", ".") + ",";
-                                        RowAB += Decimal.Round(totalAB, 4).ToString().Replace(",", ".") + ",";
-                                        RowVol += Decimal.Round(totalVol, 4).ToString().Replace(",", ".") + ",";
-                                        RowsData.Add(RowConteo);
-                                        RowsData.Add(RowAB);
-                                        RowsData.Add(RowVol);
-
                                     }
 
                                     string RowTotalC = "TOTALES,Densidad,", RowTotalAB = " ,Area Basal,", RowTotalVol = " ,Volumen,";
@@ -529,7 +564,7 @@ namespace SIFCA
                                         result = cadena + decimal.Round(p, 2).ToString().Replace(',', '.') + "";
                                         DtgDatos.Rows.Add(result.Split(','));
                                     }
-
+                                    DtgDatos.AutoResizeColumns();
                                     DtgDatos.Rows.Add(RowTotalC.Split(','));
                                     DtgDatos.Rows.Add(RowTotalAB.Split(','));
                                     DtgDatos.Rows.Add(RowTotalVol.Split(','));
@@ -538,7 +573,12 @@ namespace SIFCA
                         }
 
                     }
-                }   
+                    else
+                    {
+                        MessageBox.Show("Debe abrir un proyecto para ver los reportes.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+   
             }
             catch (Exception ex)
             {

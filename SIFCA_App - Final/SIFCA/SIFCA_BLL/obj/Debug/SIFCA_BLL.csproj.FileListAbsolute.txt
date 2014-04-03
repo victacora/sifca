@@ -20,3 +20,4 @@ C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_BLL\bin\Debug\MathNet.Nu
 C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_BLL\obj\Debug\SIFCA_BLL.csprojResolveAssemblyReference.cache
 C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_BLL\obj\Debug\SIFCA_BLL.dll
 C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_BLL\obj\Debug\SIFCA_BLL.pdb
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_BLL\bin\Debug\SIFCA.sdf

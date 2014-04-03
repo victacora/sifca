@@ -28,12 +28,12 @@ namespace SIFCA
         private FORMULARIO newForm;
         private LINEANOMADERABLES newLineNoTimber;
         private bool modified;
-
+        
         public Crear_Editar_Formulario_Form(FORMULARIO f)
         {
             
             InitializeComponent();
-            
+            modified = false;
             if (f == null) newForm = Program.ContextData.FORMULARIO.Create();
             else newForm = f;
 
@@ -262,6 +262,16 @@ namespace SIFCA
                     controladorErrores.SetError(especieCbx, "Seleccione una especie.");
                     error = true;
                 }
+                if (estadoCbx.SelectedItem == null)
+                {
+                    controladorErrores.SetError(estadoCbx, "Seleccione una estado sanitario.");
+                    error = true;
+                }
+                if (calidadCbx.SelectedItem == null)
+                {
+                    controladorErrores.SetError(calidadCbx, "Asocie una calidad al arbol.");
+                    error = true;
+                }
                 if (decimal.Parse(nroArbolTxt.Text) < 1)
                 {
                     controladorErrores.SetError(nroArbolTxt, "El numero de arbol debe ser mayor que cero.");
@@ -277,9 +287,9 @@ namespace SIFCA
                     controladorErrores.SetError(alturaTotalTxt, "La altura total del arbol debe ser mayor que cero.");
                     error = true;
                 }
-                if (decimal.Parse(cAPTxt.Text) < 0)
+                if (decimal.Parse(cAPDAPTxt.Text) < 0)
                 {
-                    controladorErrores.SetError(cAPTxt, "El valor de la circufernecia de arbol debe ser mayor o igual a cero.");
+                    controladorErrores.SetError(cAPDAPTxt, "El valor de la circufernecia de arbol debe ser mayor o igual a cero.");
                     error = true;
                 }
                 if (error) return;
@@ -297,8 +307,8 @@ namespace SIFCA
                     newLine.TIPOARBOL = ((KeyValuePair<string, string>)tipoArbolCbx.SelectedItem).Key;
                     newLine.ALTCOMER_M = decimal.Parse(alturaComercialTxt.Text);
                     newLine.ALTTOT_M = decimal.Parse(alturaTotalTxt.Text);
-                    newLine.CAP = decimal.Parse(cAPTxt.Text);
-                    newLine.DAP = (decimal)Math.Round(newLine.CAP/(decimal)Math.PI, 3);
+                    newLine.CAP = CAPRbtn.Checked ? decimal.Parse(cAPDAPTxt.Text) : (decimal)Math.Round(decimal.Parse(cAPDAPTxt.Text) * (decimal)Math.PI, 3);
+                    newLine.DAP = DAPRbtn.Checked ? decimal.Parse(cAPDAPTxt.Text) : (decimal)Math.Round(decimal.Parse(cAPDAPTxt.Text) / (decimal)Math.PI, 3);
                     newLine.AREABASAL = Math.Round((decimal)(ForestCalculatorHelper.BasalAreaCAP((double)newLine.CAP)),3);
                     newLine.VOLCOM = Math.Round((decimal)(ForestCalculatorHelper.TreeVolumeByBasalArea((double)newLine.AREABASAL, (double)newLine.ALTCOMER_M, (double)p.FACTORDEFORMA)),3);
                     newLine.VOLTOT = Math.Round((decimal)(ForestCalculatorHelper.TreeVolumeByBasalArea((double)newLine.AREABASAL, (double)newLine.ALTTOT_M, (double)p.FACTORDEFORMA)),3);
@@ -311,20 +321,15 @@ namespace SIFCA
                         lineaInvBN.Refresh();
                         MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         lineaInvBS.AddNew();
-                        currentLine = (LINEAINVENTARIO)lineaInvBS.Current;
-                        tipoArbolCbx.SelectedIndex = 1;
                         especieCbx.SelectedItem = newLine.ESPECIE;
                         if (newLine.TIPOARBOL == "BFB")
                         {
                             nroArbolTxt.Text = newLine.NROARB.ToString();
                             alturaComercialTxt.Text = newLine.ALTCOMER_M.ToString();
                             alturaTotalTxt.Text = newLine.ALTTOT_M.ToString();
-                            tipoArbolCbx.SelectedValue = "NBF";
-                            currentLine.NROARB = newLine.NROARB;
-                            currentLine.ESPECIE = newLine.ESPECIE;
-                            currentLine.ALTCOMER_M = newLine.ALTCOMER_M;
-                            currentLine.ALTTOT_M = newLine.ALTTOT_M;
+                            tipoArbolCbx.SelectedValue = "BFB";
                         }
+                        else tipoArbolCbx.SelectedValue = "NBF";
                     }
                     else
                     {
@@ -342,8 +347,8 @@ namespace SIFCA
                     currentLine.TIPOARBOL = ((KeyValuePair<string, string>)tipoArbolCbx.SelectedItem).Key;
                     currentLine.ALTCOMER_M = decimal.Parse(alturaComercialTxt.Text);
                     currentLine.ALTTOT_M = decimal.Parse(alturaTotalTxt.Text);
-                    currentLine.CAP = decimal.Parse(cAPTxt.Text);
-                    currentLine.DAP = (decimal)Math.Round(currentLine.CAP / (decimal)Math.PI, 3);
+                    newLine.CAP = CAPRbtn.Checked ? decimal.Parse(cAPDAPTxt.Text) : (decimal)Math.Round(decimal.Parse(cAPDAPTxt.Text) * (decimal)Math.PI, 3);
+                    newLine.DAP = DAPRbtn.Checked ? decimal.Parse(cAPDAPTxt.Text) : (decimal)Math.Round(decimal.Parse(cAPDAPTxt.Text) / (decimal)Math.PI, 3);
                     currentLine.AREABASAL = (decimal)(ForestCalculatorHelper.BasalAreaDAP((double)newLine.DAP));
                     currentLine.VOLCOM = (decimal)(ForestCalculatorHelper.TreeVolumeByBasalArea((double)newLine.AREABASAL, (double)newLine.ALTCOMER_M, (double)p.FACTORDEFORMA));
                     currentLine.VOLTOT = (decimal)(ForestCalculatorHelper.TreeVolumeByBasalArea((double)newLine.AREABASAL, (double)newLine.ALTTOT_M, (double)p.FACTORDEFORMA));
@@ -355,7 +360,6 @@ namespace SIFCA
                         lineaInvBS.DataSource = f.LINEAINVENTARIO.ToList();
                         lineaInvBN.Refresh();
                         MessageBox.Show("Los datos fueron actualizados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        tipoArbolCbx.SelectedValue = "NBF";
                     }
                     else
                     {
@@ -524,17 +528,24 @@ namespace SIFCA
             PROYECTO p = (PROYECTO)Program.Cache.Get("project");
             if (p!=null)
             {
-                double areaBasal = cAPTxt.Text!=string.Empty?Math.Round(ForestCalculatorHelper.BasalAreaCAP(double.Parse(cAPTxt.Text)), 3):0;
-                double diametroAP = cAPTxt.Text != string.Empty ? Math.Round(double.Parse(cAPTxt.Text) / Math.PI, 3) : 0;
+                double areaBasal = cAPDAPTxt.Text != string.Empty && CAPRbtn.Checked ? Math.Round(ForestCalculatorHelper.BasalAreaCAP(double.Parse(cAPDAPTxt.Text)), 3) : cAPDAPTxt.Text != string.Empty && DAPRbtn.Checked ?Math.Round(ForestCalculatorHelper.BasalAreaDAP(double.Parse(cAPDAPTxt.Text)), 3):0;
+                double diametroAP = cAPDAPTxt.Text != string.Empty ? Math.Round(double.Parse(cAPDAPTxt.Text) / Math.PI, 3) : 0;
+                double circuferenciaAP = cAPDAPTxt.Text != string.Empty ? Math.Round(double.Parse(cAPDAPTxt.Text) * Math.PI, 3) : 0;
                 double volumenComercial =alturaComercialTxt.Text!=string.Empty? Math.Round(ForestCalculatorHelper.TreeVolumeByBasalArea(areaBasal, double.Parse(alturaComercialTxt.Text), (double)p.FACTORDEFORMA), 3):0;
                 double volumenTotal = alturaTotalTxt.Text != string.Empty ? Math.Round(ForestCalculatorHelper.TreeVolumeByBasalArea(areaBasal, double.Parse(alturaTotalTxt.Text), (double)p.FACTORDEFORMA), 3) : 0;
-                parametrosLineaTxt.Text = "1) Diametro A.P: " + diametroAP + Environment.NewLine + "2) Area basal: " + areaBasal + Environment.NewLine + "3) Volumen comercial: " + volumenComercial + Environment.NewLine + "4) Volumen total: " + volumenTotal;
+                if (DAPRbtn.Checked) parametrosLineaTxt.Text = "1) Factor de Forma: " + (double)p.FACTORDEFORMA + Environment.NewLine + "2) Circunferencia A.P: " + circuferenciaAP + Environment.NewLine + "3) Area basal: " + areaBasal + Environment.NewLine + "4) Volumen comercial: " + volumenComercial + Environment.NewLine + "5) Volumen total: " + volumenTotal;
+                else parametrosLineaTxt.Text = "1) Factor de Forma: " + (double)p.FACTORDEFORMA + Environment.NewLine + "2) Diametro A.P: " + diametroAP + Environment.NewLine + "3) Area basal: " + areaBasal + Environment.NewLine + "4) Volumen comercial: " + volumenComercial + Environment.NewLine + "5) Volumen total: " + volumenTotal;
             }
         }
 
         private void cAPTxt_TextChanged(object sender, EventArgs e)
         {
            calcularParametros();
+           LINEAINVENTARIO current = (LINEAINVENTARIO)lineaInvBS.Current;
+            if(current!=null)
+            {
+                current.CAP = cAPDAPTxt.Text != string.Empty ? decimal.Parse(cAPDAPTxt.Text) : 0;
+            }
         }
 
         private void TipoDeUsosLbc_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -696,7 +707,16 @@ namespace SIFCA
             if (currentLine != null)
             {
                 if (currentLine.TIPOARBOL == "NBF") tipoArbolCbx.SelectedValue = "NBF";
-                else tipoArbolCbx.SelectedValue = "BFB";
+                else if (currentLine.TIPOARBOL != null && currentLine.TIPOARBOL != "") tipoArbolCbx.SelectedValue = "BFB";
+                else tipoArbolCbx.SelectedValue = "NBF";
+                CAPRbtn.Checked = true;
+                cAPDAPTxt.Text = currentLine.CAP.ToString();
+                calidadCbx.SelectedValue = currentLine.CODCALIDAD!=0?currentLine.CODCALIDAD:((CALIDAD)calidadBS.Current).CODCALIDAD;
+                estadoCbx.SelectedValue = currentLine.ESTADO!=null?currentLine.ESTADO:((ESTADOSANITARIO)estadoSanitarioBS.Current).ESTADO;
+                especieCbx.SelectedValue = currentLine.CODESP;
+                alturaComercialTxt.Text = currentLine.ALTCOMER_M.ToString();
+                alturaTotalTxt.Text = currentLine.ALTTOT_M.ToString();
+                calcularParametros();
             }
         }
 
@@ -807,10 +827,12 @@ namespace SIFCA
         private void limpiarBtn_Click(object sender, EventArgs e)
         {
             nroArbolTxt.Text = "0";
-            especieCbx.SelectedItem = null;
-            cAPTxt.Text = "0";
+            cAPDAPTxt.Text = "0";
             alturaComercialTxt.Text = "0";
             alturaTotalTxt.Text = "0";
+            tipoArbolCbx.SelectedValue = "NBF";
+            especieCbx.SelectedIndex = 0;
+            estadoCbx.SelectedIndex = 0;
         }
 
         private void SeleccionarTodosUsosBtn_Click(object sender, EventArgs e)
@@ -858,7 +880,7 @@ namespace SIFCA
 
         private void inicioDpk_ValueChanged(object sender, EventArgs e)
         {
-            if (inicioDpk.Value.CompareTo(finalDpk.Value) > 0)
+            if (inicioDpk.Value.CompareTo(finalDpk.Value) > 0&&modified)
             {
                 MessageBox.Show("La fecha y hora de inicio no pude ser posterior a la fecha y hora final.", "Fecha invalida", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 inicioDpk.Value = DateTime.Now;
@@ -867,7 +889,7 @@ namespace SIFCA
 
         private void finalDpk_ValueChanged(object sender, EventArgs e)
         {
-            if (finalDpk.Value.CompareTo(inicioDpk.Value) < 0)
+            if (finalDpk.Value.CompareTo(inicioDpk.Value) < 0&&modified)
             {
                 MessageBox.Show("La fecha y hora final no pude ser anterior a la fecha y hora inicial.", "Fecha invalida", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 finalDpk.Value = DateTime.Now;
@@ -931,10 +953,34 @@ namespace SIFCA
         private void alturaComercialTxt_TextChanged(object sender, EventArgs e)
         {
             calcularParametros();
+            LINEAINVENTARIO current = (LINEAINVENTARIO)lineaInvBS.Current;
+            if (current != null)
+            {
+                current.ALTCOMER_M = alturaComercialTxt.Text != string.Empty ? decimal.Parse(alturaComercialTxt.Text) : 0;
+            }
         }
 
         private void alturaTotalTxt_TextChanged(object sender, EventArgs e)
         {
+            calcularParametros();
+            LINEAINVENTARIO current = (LINEAINVENTARIO)lineaInvBS.Current;
+            if (current != null)
+            {
+                current.ALTTOT_M = alturaTotalTxt.Text != string.Empty ? decimal.Parse(alturaTotalTxt.Text) : 0;
+            }
+        }
+
+        private void DAPRbtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DAPRbtn.Checked) CAPRbtn.Checked = false;
+            else CAPRbtn.Checked = true;
+            calcularParametros();
+        }
+
+        private void CAPRbtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CAPRbtn.Checked) DAPRbtn.Checked = false;
+            else DAPRbtn.Checked = true;
             calcularParametros();
         }
     }

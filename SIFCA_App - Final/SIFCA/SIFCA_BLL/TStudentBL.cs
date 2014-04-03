@@ -27,7 +27,12 @@ namespace SIFCA_BLL
         {
             try
             {
-                return this.sifcaRepository.TSTUDENT.SingleOrDefault(ts => ts.ALPHA == alpha && ts.N == freedomDegrees);
+
+                foreach (TSTUDENT ts in this.sifcaRepository.TSTUDENT.ToList())
+                {
+                    if(ts.ALPHA == alpha && ts.N == freedomDegrees) return ts;
+                }
+                return null;
             }
             catch (Exception ex)
             {

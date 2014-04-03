@@ -1,31 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="SIFCA_Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+<Schema Namespace="SIFCA_Model.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="SIFCA_ModelStoreContainer">
-    <EntitySet Name="CALIDAD" EntityType="SIFCA_Model.Store.CALIDAD" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ESPECIE" EntityType="SIFCA_Model.Store.ESPECIE" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ESTADOSANITARIO" EntityType="SIFCA_Model.Store.ESTADOSANITARIO" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ESTRATO" EntityType="SIFCA_Model.Store.ESTRATO" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="FORMULA" EntityType="SIFCA_Model.Store.FORMULA" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="FORMULARIO" EntityType="SIFCA_Model.Store.FORMULARIO" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="FORMULAVARIABLE" EntityType="SIFCA_Model.Store.FORMULAVARIABLE" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="GRUPOCOMERCIAL" EntityType="SIFCA_Model.Store.GRUPOCOMERCIAL" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="IMAGEN" EntityType="SIFCA_Model.Store.IMAGEN" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="LINEAINVENTARIO" EntityType="SIFCA_Model.Store.LINEAINVENTARIO" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="LINEANOMADERABLES" EntityType="SIFCA_Model.Store.LINEANOMADERABLES" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="LINEAREGENERACION" EntityType="SIFCA_Model.Store.LINEAREGENERACION" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="LISTADODEESPECIES" EntityType="SIFCA_Model.Store.LISTADODEESPECIES" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="LISTADODEESTRATOS" EntityType="SIFCA_Model.Store.LISTADODEESTRATOS" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="OBJETIVOINVENTARIO" EntityType="SIFCA_Model.Store.OBJETIVOINVENTARIO" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PROYECTO" EntityType="SIFCA_Model.Store.PROYECTO" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PROYECTOSPORETAPA" EntityType="SIFCA_Model.Store.PROYECTOSPORETAPA" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TIPODEUSO" EntityType="SIFCA_Model.Store.TIPODEUSO" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TIPODISENOMUESTRAL" EntityType="SIFCA_Model.Store.TIPODISENOMUESTRAL" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TIPOFORMULA" EntityType="SIFCA_Model.Store.TIPOFORMULA" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TRANSACCION" EntityType="SIFCA_Model.Store.TRANSACCION" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TSTUDENT" EntityType="SIFCA_Model.Store.TSTUDENT" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="USO" EntityType="SIFCA_Model.Store.USO" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="USUARIO" EntityType="SIFCA_Model.Store.USUARIO" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="VARIABLE" EntityType="SIFCA_Model.Store.VARIABLE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CALIDAD" EntityType="SIFCA_Model.Store.CALIDAD" store:Type="Tables" />
+    <EntitySet Name="ESPECIE" EntityType="SIFCA_Model.Store.ESPECIE" store:Type="Tables" />
+    <EntitySet Name="ESTADOSANITARIO" EntityType="SIFCA_Model.Store.ESTADOSANITARIO" store:Type="Tables" />
+    <EntitySet Name="ESTRATO" EntityType="SIFCA_Model.Store.ESTRATO" store:Type="Tables" />
+    <EntitySet Name="FORMULA" EntityType="SIFCA_Model.Store.FORMULA" store:Type="Tables" />
+    <EntitySet Name="FORMULARIO" EntityType="SIFCA_Model.Store.FORMULARIO" store:Type="Tables" />
+    <EntitySet Name="FORMULAVARIABLE" EntityType="SIFCA_Model.Store.FORMULAVARIABLE" store:Type="Tables" />
+    <EntitySet Name="GRUPOCOMERCIAL" EntityType="SIFCA_Model.Store.GRUPOCOMERCIAL" store:Type="Tables" />
+    <EntitySet Name="IMAGEN" EntityType="SIFCA_Model.Store.IMAGEN" store:Type="Tables" />
+    <EntitySet Name="LINEAINVENTARIO" EntityType="SIFCA_Model.Store.LINEAINVENTARIO" store:Type="Tables" />
+    <EntitySet Name="LINEANOMADERABLES" EntityType="SIFCA_Model.Store.LINEANOMADERABLES" store:Type="Tables" />
+    <EntitySet Name="LINEAREGENERACION" EntityType="SIFCA_Model.Store.LINEAREGENERACION" store:Type="Tables" />
+    <EntitySet Name="LISTADODEESPECIES" EntityType="SIFCA_Model.Store.LISTADODEESPECIES" store:Type="Tables" />
+    <EntitySet Name="LISTADODEESTRATOS" EntityType="SIFCA_Model.Store.LISTADODEESTRATOS" store:Type="Tables" />
+    <EntitySet Name="OBJETIVOINVENTARIO" EntityType="SIFCA_Model.Store.OBJETIVOINVENTARIO" store:Type="Tables" />
+    <EntitySet Name="PROYECTO" EntityType="SIFCA_Model.Store.PROYECTO" store:Type="Tables" />
+    <EntitySet Name="PROYECTOSPORETAPA" EntityType="SIFCA_Model.Store.PROYECTOSPORETAPA" store:Type="Tables" />
+    <EntitySet Name="TIPODEUSO" EntityType="SIFCA_Model.Store.TIPODEUSO" store:Type="Tables" />
+    <EntitySet Name="TIPODISENOMUESTRAL" EntityType="SIFCA_Model.Store.TIPODISENOMUESTRAL" store:Type="Tables" />
+    <EntitySet Name="TIPOFORMULA" EntityType="SIFCA_Model.Store.TIPOFORMULA" store:Type="Tables" />
+    <EntitySet Name="TRANSACCION" EntityType="SIFCA_Model.Store.TRANSACCION" store:Type="Tables" />
+    <EntitySet Name="TSTUDENT" EntityType="SIFCA_Model.Store.TSTUDENT" store:Type="Tables" />
+    <EntitySet Name="USO" EntityType="SIFCA_Model.Store.USO" store:Type="Tables" />
+    <EntitySet Name="USUARIO" EntityType="SIFCA_Model.Store.USUARIO" store:Type="Tables" />
+    <EntitySet Name="VARIABLE" EntityType="SIFCA_Model.Store.VARIABLE" store:Type="Tables" />
     <AssociationSet Name="FK_ESPECIE_PERTENECE_GRUPOCOM" Association="SIFCA_Model.Store.FK_ESPECIE_PERTENECE_GRUPOCOM">
       <End Role="GRUPOCOMERCIAL" EntitySet="GRUPOCOMERCIAL" />
       <End Role="ESPECIE" EntitySet="ESPECIE" />
@@ -143,36 +143,36 @@
     <Key>
       <PropertyRef Name="CODCALIDAD" />
     </Key>
-    <Property Name="CODCALIDAD" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="DESCRIPCALIDAD" Type="varchar" MaxLength="500" />
+    <Property Name="CODCALIDAD" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPCALIDAD" Type="nvarchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="ESPECIE">
     <Key>
       <PropertyRef Name="CODESP" />
     </Key>
     <Property Name="CODESP" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="GRUPOCOM" Type="char" Nullable="false" MaxLength="2" />
-    <Property Name="NOMCOMUN" Type="varchar" MaxLength="200" />
-    <Property Name="NOMCIENTIFICO" Type="varchar" MaxLength="200" />
-    <Property Name="FAMILIA" Type="varchar" MaxLength="200" />
-    <Property Name="ZONAGEOGRAFICA" Type="varchar" MaxLength="200" />
-    <Property Name="ZONADEVIDA" Type="varchar" MaxLength="200" />
+    <Property Name="GRUPOCOM" Type="nchar" Nullable="false" MaxLength="2" />
+    <Property Name="NOMCOMUN" Type="nvarchar" MaxLength="200" />
+    <Property Name="NOMCIENTIFICO" Type="nvarchar" MaxLength="200" />
+    <Property Name="FAMILIA" Type="nvarchar" MaxLength="200" />
+    <Property Name="ZONAGEOGRAFICA" Type="nvarchar" MaxLength="200" />
+    <Property Name="ZONADEVIDA" Type="nvarchar" MaxLength="200" />
     <Property Name="DIAMMINCORTE" Type="numeric" Scale="6" />
-    <Property Name="GRUPOECOLOGICO" Type="varchar" MaxLength="2" />
+    <Property Name="GRUPOECOLOGICO" Type="nvarchar" MaxLength="2" />
   </EntityType>
   <EntityType Name="ESTADOSANITARIO">
     <Key>
       <PropertyRef Name="ESTADO" />
     </Key>
-    <Property Name="ESTADO" Type="char" Nullable="false" MaxLength="2" />
-    <Property Name="DESCRIPESTADO" Type="varchar" MaxLength="500" />
+    <Property Name="ESTADO" Type="nchar" Nullable="false" MaxLength="2" />
+    <Property Name="DESCRIPESTADO" Type="nvarchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="ESTRATO">
     <Key>
       <PropertyRef Name="CODEST" />
     </Key>
-    <Property Name="CODEST" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="DESCRIPESTRATO" Type="varchar" MaxLength="500" />
+    <Property Name="CODEST" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPESTRATO" Type="nvarchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="FORMULA">
     <Key>
@@ -180,16 +180,16 @@
     </Key>
     <Property Name="NROFORMULA" Type="uniqueidentifier" Nullable="false" />
     <Property Name="NROTIPOFORMULA" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="EXPRESION" Type="varchar" Nullable="false" MaxLength="5000" />
-    <Property Name="NOMBRE" Type="varchar" Nullable="false" MaxLength="150" />
-    <Property Name="DESCRIPCION" Type="varchar" MaxLength="5000" />
+    <Property Name="EXPRESION" Type="ntext" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="DESCRIPCION" Type="ntext" />
   </EntityType>
   <EntityType Name="FORMULARIO">
     <Key>
       <PropertyRef Name="NROFORMULARIO" />
     </Key>
     <Property Name="NROFORMULARIO" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="CODEST" Type="numeric" />
+    <Property Name="CODEST" Type="bigint" />
     <Property Name="NROUSUARIO" Type="uniqueidentifier" Nullable="false" />
     <Property Name="NROPROY" Type="uniqueidentifier" Nullable="false" />
     <Property Name="FECHACREACION" Type="datetime" Nullable="false" />
@@ -212,36 +212,36 @@
     <Key>
       <PropertyRef Name="GRUPOCOM" />
     </Key>
-    <Property Name="GRUPOCOM" Type="char" Nullable="false" MaxLength="2" />
-    <Property Name="DESCRIPGRUPO" Type="varchar" MaxLength="500" />
+    <Property Name="GRUPOCOM" Type="nchar" Nullable="false" MaxLength="2" />
+    <Property Name="DESCRIPGRUPO" Type="nvarchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="IMAGEN">
     <Key>
       <PropertyRef Name="IMAGENID" />
       <PropertyRef Name="CODESP" />
     </Key>
-    <Property Name="IMAGENID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IMAGENID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="CODESP" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="DESCRIPCION" Type="varchar" MaxLength="1000" />
-    <Property Name="NOMBRE" Type="varchar" Nullable="false" MaxLength="250" />
-    <Property Name="RUTA" Type="varchar" Nullable="false" MaxLength="1000" />
+    <Property Name="DESCRIPCION" Type="nvarchar" MaxLength="1000" />
+    <Property Name="NOMBRE" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="RUTA" Type="nvarchar" Nullable="false" MaxLength="1000" />
   </EntityType>
   <EntityType Name="LINEAINVENTARIO">
     <Key>
       <PropertyRef Name="LINEAINV" />
     </Key>
     <Property Name="LINEAINV" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="CODCALIDAD" Type="numeric" Nullable="false" />
+    <Property Name="CODCALIDAD" Type="bigint" Nullable="false" />
     <Property Name="NROFORMULARIO" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="ESTADO" Type="char" Nullable="false" MaxLength="2" />
+    <Property Name="ESTADO" Type="nchar" Nullable="false" MaxLength="2" />
     <Property Name="CODESP" Type="uniqueidentifier" Nullable="false" />
     <Property Name="NROARB" Type="numeric" Nullable="false" />
     <Property Name="ALTCOMER_M" Type="numeric" Nullable="false" Scale="6" />
     <Property Name="ALTTOT_M" Type="numeric" Nullable="false" Scale="6" />
-    <Property Name="AREABASAL" Type="decimal" Nullable="false" Scale="6" />
-    <Property Name="VOLCOM" Type="decimal" Nullable="false" Scale="6" />
-    <Property Name="VOLTOT" Type="decimal" Nullable="false" Scale="6" />
-    <Property Name="TIPOARBOL" Type="char" Nullable="false" MaxLength="3" />
+    <Property Name="AREABASAL" Type="numeric" Nullable="false" Scale="6" />
+    <Property Name="VOLCOM" Type="numeric" Nullable="false" Scale="6" />
+    <Property Name="VOLTOT" Type="numeric" Nullable="false" Scale="6" />
+    <Property Name="TIPOARBOL" Type="nchar" Nullable="false" MaxLength="3" />
     <Property Name="CAP" Type="numeric" Nullable="false" Scale="6" />
     <Property Name="DAP" Type="numeric" Nullable="false" Scale="6" />
   </EntityType>
@@ -251,7 +251,7 @@
     </Key>
     <Property Name="LINEANMAD" Type="uniqueidentifier" Nullable="false" />
     <Property Name="NROFORMULARIO" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="OBSERVACIONES" Type="varchar" MaxLength="500" />
+    <Property Name="OBSERVACIONES" Type="nvarchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="LINEAREGENERACION">
     <Key>
@@ -277,16 +277,16 @@
       <PropertyRef Name="CODEST" />
     </Key>
     <Property Name="NROPROY" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="CODEST" Type="numeric" Nullable="false" />
-    <Property Name="PESO" Type="decimal" Scale="6" />
-    <Property Name="TAMANOMUESTRA" Type="decimal" />
+    <Property Name="CODEST" Type="bigint" Nullable="false" />
+    <Property Name="PESO" Type="numeric" Scale="6" />
+    <Property Name="TAMANOMUESTRA" Type="numeric" />
   </EntityType>
   <EntityType Name="OBJETIVOINVENTARIO">
     <Key>
       <PropertyRef Name="NOMBRETIPOINV" />
     </Key>
-    <Property Name="NOMBRETIPOINV" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="DESCRIPOBJETINV" Type="varchar" MaxLength="500" />
+    <Property Name="NOMBRETIPOINV" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="DESCRIPOBJETINV" Type="nvarchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="PROYECTO">
     <Key>
@@ -294,24 +294,24 @@
     </Key>
     <Property Name="NROPROY" Type="uniqueidentifier" Nullable="false" />
     <Property Name="NROUSUARIO" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="NOMBRETIPOINV" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="NOMTIPODISEMUEST" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="NOMBRETIPOINV" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="NOMTIPODISEMUEST" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="NROFORMULA" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="LUGAR" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="LUGAR" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="NUMEROPARCELAS" Type="numeric" Nullable="false" />
     <Property Name="NUMEROPARCELASAMUESTREAR" Type="numeric" Nullable="false" />
-    <Property Name="TAMANO" Type="decimal" Nullable="false" Scale="6" />
-    <Property Name="DESCRIPCION" Type="varchar(max)" />
-    <Property Name="SUPTOT" Type="decimal" Nullable="false" Scale="6" />
-    <Property Name="INTMUE" Type="decimal" Nullable="false" Scale="6" />
-    <Property Name="SUPMUE" Type="decimal" Nullable="false" Scale="6" />
-    <Property Name="LIMITINFDAP" Type="decimal" Nullable="false" Scale="6" />
-    <Property Name="AREAFUSTALESPORPARCELA" Type="decimal" Nullable="false" Scale="6" />
-    <Property Name="FACTORDEFORMA" Type="decimal" Nullable="false" Scale="6" />
+    <Property Name="TAMANO" Type="numeric" Nullable="false" Scale="6" />
+    <Property Name="DESCRIPCION" Type="ntext" />
+    <Property Name="SUPTOT" Type="numeric" Nullable="false" Scale="6" />
+    <Property Name="INTMUE" Type="numeric" Nullable="false" Scale="6" />
+    <Property Name="SUPMUE" Type="numeric" Nullable="false" Scale="6" />
+    <Property Name="LIMITINFDAP" Type="numeric" Nullable="false" Scale="6" />
+    <Property Name="AREAFUSTALESPORPARCELA" Type="numeric" Nullable="false" Scale="6" />
+    <Property Name="FACTORDEFORMA" Type="numeric" Nullable="false" Scale="6" />
     <Property Name="FECHA" Type="datetime" Nullable="false" />
     <Property Name="ETAPA" Type="numeric" Nullable="false" />
-    <Property Name="TIPOPROYECTO" Type="varchar" Nullable="false" MaxLength="2" />
-    <Property Name="CONFIANZA" Type="decimal" Nullable="false" Scale="6" />
+    <Property Name="TIPOPROYECTO" Type="nvarchar" Nullable="false" MaxLength="2" />
+    <Property Name="CONFIANZA" Type="numeric" Nullable="false" Scale="6" />
   </EntityType>
   <EntityType Name="PROYECTOSPORETAPA">
     <Key>
@@ -320,43 +320,43 @@
     </Key>
     <Property Name="NROPROYCONTENEDOR" Type="uniqueidentifier" Nullable="false" />
     <Property Name="NROPROYCONTENIDO" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PESO" Type="decimal" Nullable="false" Scale="6" />
+    <Property Name="PESO" Type="numeric" Nullable="false" Scale="6" />
     <Property Name="ETAPA" Type="numeric" Nullable="false" />
   </EntityType>
   <EntityType Name="TIPODEUSO">
     <Key>
       <PropertyRef Name="NOMBRETIPOUSO" />
     </Key>
-    <Property Name="NOMBRETIPOUSO" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="DESCRIPCION" Type="varchar" MaxLength="500" />
+    <Property Name="NOMBRETIPOUSO" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="DESCRIPCION" Type="nvarchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="TIPODISENOMUESTRAL">
     <Key>
       <PropertyRef Name="NOMTIPODISEMUEST" />
     </Key>
-    <Property Name="NOMTIPODISEMUEST" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="DESCRIPTIPODISEMUEST" Type="varchar" MaxLength="500" />
+    <Property Name="NOMTIPODISEMUEST" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="DESCRIPTIPODISEMUEST" Type="nvarchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="TIPOFORMULA">
     <Key>
       <PropertyRef Name="NROTIPOFORMULA" />
     </Key>
     <Property Name="NROTIPOFORMULA" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="NOMBRETIPO" Type="varchar" Nullable="false" MaxLength="150" />
-    <Property Name="DESCRIPCION" Type="varchar" MaxLength="5000" />
+    <Property Name="NOMBRETIPO" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="DESCRIPCION" Type="ntext" />
   </EntityType>
   <EntityType Name="TRANSACCION">
     <Key>
       <PropertyRef Name="NROTRANS" />
     </Key>
-    <Property Name="NROTRANS" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NROTRANS" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="NROUSUARIO" Type="uniqueidentifier" Nullable="false" />
     <Property Name="FECHA" Type="datetime" Nullable="false" />
-    <Property Name="TABLA" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="TABLA" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="IDREGISTRO" Type="numeric" Nullable="false" />
-    <Property Name="OPERACION" Type="char" Nullable="false" MaxLength="1" />
-    <Property Name="VALORESVIEJOS" Type="varchar" MaxLength="1024" />
-    <Property Name="VALORESNUEVOS" Type="varchar" MaxLength="1024" />
+    <Property Name="OPERACION" Type="nchar" Nullable="false" MaxLength="1" />
+    <Property Name="VALORESVIEJOS" Type="nvarchar" MaxLength="1024" />
+    <Property Name="VALORESNUEVOS" Type="nvarchar" MaxLength="1024" />
   </EntityType>
   <EntityType Name="TSTUDENT">
     <Key>
@@ -365,8 +365,8 @@
       <PropertyRef Name="VALOR" />
     </Key>
     <Property Name="N" Type="numeric" Nullable="false" />
-    <Property Name="ALPHA" Type="decimal" Nullable="false" Scale="3" />
-    <Property Name="VALOR" Type="decimal" Nullable="false" Scale="3" />
+    <Property Name="ALPHA" Type="numeric" Nullable="false" Scale="3" />
+    <Property Name="VALOR" Type="numeric" Nullable="false" Scale="3" />
   </EntityType>
   <EntityType Name="USO">
     <Key>
@@ -374,27 +374,27 @@
       <PropertyRef Name="NOMBRETIPOUSO" />
     </Key>
     <Property Name="LINEANMAD" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="NOMBRETIPOUSO" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="NOMBRETIPOUSO" Type="nvarchar" Nullable="false" MaxLength="100" />
   </EntityType>
   <EntityType Name="USUARIO">
     <Key>
       <PropertyRef Name="NROUSUARIO" />
     </Key>
     <Property Name="NROUSUARIO" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="NOMBRES" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="APELLIDOS" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="NOMBREUSUARIO" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="CONTRASENA" Type="varchar" Nullable="false" MaxLength="1000" />
+    <Property Name="NOMBRES" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="APELLIDOS" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="NOMBREUSUARIO" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="CONTRASENA" Type="nvarchar" Nullable="false" MaxLength="1000" />
     <Property Name="CEDULA" Type="numeric" Nullable="false" />
-    <Property Name="TIPOUSUARIO" Type="char" Nullable="false" MaxLength="2" />
+    <Property Name="TIPOUSUARIO" Type="nchar" Nullable="false" MaxLength="2" />
   </EntityType>
   <EntityType Name="VARIABLE">
     <Key>
       <PropertyRef Name="NROVARIABLE" />
     </Key>
     <Property Name="NROVARIABLE" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="NOMBRE" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="DESCRIPCION" Type="varchar" MaxLength="5000" />
+    <Property Name="NOMBRE" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="DESCRIPCION" Type="ntext" />
   </EntityType>
   <Association Name="FK_ESPECIE_PERTENECE_GRUPOCOM">
     <End Role="GRUPOCOMERCIAL" Type="SIFCA_Model.Store.GRUPOCOMERCIAL" Multiplicity="1">

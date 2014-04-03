@@ -14,7 +14,7 @@ namespace SIFCA_DAL
 {
     public partial class IMAGEN
     {
-        public decimal IMAGENID { get; set; }
+        public long IMAGENID { get; set; }
         public System.Guid CODESP { get; set; }
         public string DESCRIPCION { get; set; }
         public string NOMBRE { get; set; }

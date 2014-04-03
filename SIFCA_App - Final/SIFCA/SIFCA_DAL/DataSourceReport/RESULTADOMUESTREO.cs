@@ -9,6 +9,7 @@ namespace SIFCA_DAL
     {
         public System.Guid NROPROY { get; set; }
         public string ESTRATO { get; set; }
+        public string N { get; set; }
         public double PESOESTRATO { get; set; }
         public string VARIABLE { get; set; }
         public double TOTAL { get; set; }

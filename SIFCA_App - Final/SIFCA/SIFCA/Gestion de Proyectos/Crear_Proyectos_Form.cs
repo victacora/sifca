@@ -35,8 +35,13 @@ namespace SIFCA
                 newProject = Program.ContextData.PROYECTO.Create();
                 confianzaTextBox.Text = "95";
                 limiteInfTxt.Text = "0,1";
-                areaFustalesTxt.Text = "0,1";
+                areaFustalesTxt.Text = "1";
                 factorFormaTxt.Text = "0,65";
+                areaMuestrearTxt.Text = "0";
+                numeroParcelasMuestraTxt.Text = "0";
+                numeroParcelasTxt.Text = "0";
+                AreaTotalTxt.Text = "0";
+                tamParcelaTxt.Text = "0";
                 formulate = new FormulateBL(Program.ContextData);
                 formulaBS.DataSource = formulate.GetFormulates();
                 newProject.NROFORMULA = formulaBS.Count != 0 ? ((FORMULA)formulaBS.Current).NROFORMULA : Guid.Empty;
@@ -57,6 +62,7 @@ namespace SIFCA
                 proyectoBS.DataSource = project.GetProjectsFree(null);
                 proyectoDGW.DataSource = proyectoBS;
                 listProjectsByStage = new List<PROYECTOSPORETAPA>();
+                tipoDisenoCbx.SelectedValue = "SI";
                 TipoProyectoCbx.SelectedIndex = 0;
                 nuevoProyectoBS.DataSource = newProject;
             }
@@ -106,59 +112,78 @@ namespace SIFCA
                 if (lugarTxt.Text == "")
                 {
                     controladorErrores.SetError(lugarTxt, "El campo lugar es requerido.");
+                    crearProyectoTab.SelectedIndex = 0;
                     error = true;
                 }
                 if (decimal.Parse(tamParcelaTxt.Text) <= 0)
                 {
                     controladorErrores.SetError(lugarTxt, "El tamaño de la parcela debe ser mayor que cero.");
+                    crearProyectoTab.SelectedIndex = 0;
                     error = true;
                 }
                 if (decimal.Parse(numeroParcelasMuestraTxt.Text) <= 0)
                 {
                     controladorErrores.SetError(numeroParcelasMuestraTxt, "El numero de parcelas a muestrea debe ser mayor que cero.");
+                    crearProyectoTab.SelectedIndex = 0;
                     error = true;
                 }
                 if (decimal.Parse(numeroParcelasTxt.Text) <= 0)
                 {
                     controladorErrores.SetError(numeroParcelasTxt, "El numero total de parcelas debe ser mayor que cero.");
+                    crearProyectoTab.SelectedIndex = 0;
                     error = true;
                 }
                 if (decimal.Parse(limiteInfTxt.Text) < 0)
                 {
                     controladorErrores.SetError(limiteInfTxt, "El limite inferior A.P. debe ser mayor o igual que cero.");
+                    crearProyectoTab.SelectedIndex = 0;
                     error = true;
                 }
                 if (decimal.Parse(intMuestreoTxt.Text) <= 0)
                 {
                     controladorErrores.SetError(intMuestreoTxt, "La intensidad de muestreo debe ser mayor que cero.");
+                    crearProyectoTab.SelectedIndex = 0;
                     error = true;
                 }
                 if (decimal.Parse(AreaTotalTxt.Text) <= 0)
                 {
                     controladorErrores.SetError(AreaTotalTxt, "El area muestreada debe ser mayor que cero.");
+                    crearProyectoTab.SelectedIndex = 0;
                     error = true;
                 }
                 if (decimal.Parse(areaFustalesTxt.Text) < 0)
                 {
                     controladorErrores.SetError(areaFustalesTxt, "El Area de los Fustales debe ser mayor que cero.");
+                    crearProyectoTab.SelectedIndex = 0;
                     error = true;
                 }
                 if (decimal.Parse(factorFormaTxt.Text) <= 0)
                 {
                     controladorErrores.SetError(factorFormaTxt, "El Factor de Forma debe ser mayor que cero.");
+                    crearProyectoTab.SelectedIndex = 0;
                     error = true;
                 }
                 if (decimal.Parse(numeroEtapasTxt.Text) < 0)
                 {
                     controladorErrores.SetError(numeroEtapasTxt, "El numero de Etapas debe ser mayor o igual que cero.");
+                    crearProyectoTab.SelectedIndex = 0;
                     error = true;
                 }
                 if (decimal.Parse(confianzaTextBox.Text) < 0)
                 {
                     controladorErrores.SetError(confianzaTextBox, "La confianza asociada al proyecto debe ser mayor que cero.");
+                    crearProyectoTab.SelectedIndex = 0;
                     error = true;
                 }
-
+                if (numeroParcelasTxt.Text != "" && numeroParcelasMuestraTxt.Text != "")
+                {
+                    if (decimal.Parse(numeroParcelasTxt.Text) < decimal.Parse(numeroParcelasMuestraTxt.Text))
+                    {
+                        controladorErrores.SetError(numeroParcelasMuestraTxt, "El numero de parcelas a muestrear debe ser menor o igual que el numero total de parcelas.");
+                        crearProyectoTab.SelectedIndex = 0;
+                        error = true;
+                    }
+                }
                 if (error) return;
 
                 controladorErrores.Clear();
@@ -181,6 +206,11 @@ namespace SIFCA
                                 return;
                             }
                         }
+                    }
+                    if (int.Parse(numeroParcelasMuestraTxt.Text) >int.Parse(numeroParcelasTxt.Text))
+                    {
+                        MessageBox.Show("El número de parcelas a muestrear no puede ser mayor al número de parcelas.", "Operacion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
                     newProject.NROPROY = Guid.NewGuid();
                     newProject.USUARIO = (USUARIO)Program.Cache.Get("user");
@@ -210,7 +240,6 @@ namespace SIFCA
                         newProject.PROYECTOSPORETAPA.Add(pyByStage);
                     }
                     project.InsertProject(newProject);
-                    project.SaveChanges();
                     string result = project.SaveChanges();
                     if (result == "")
                     {
@@ -311,12 +340,20 @@ namespace SIFCA
                         if (Convert.ToBoolean(cellSelecion.Value))
                         {
                             ESPECIE data = (ESPECIE)especieBS.Current;
-                            if (data != null) newProject.ESPECIE.Add(data);
+                            if (data != null)
+                            {
+                                newProject.ESPECIE.Add(data);
+                                data.PROYECTO.Add(newProject);
+                            }
                         }
                         else
                         {
                             ESPECIE data = (ESPECIE)especieBS.Current;
-                            if (data != null) newProject.ESPECIE.Remove(data);
+                            if (data != null)
+                            {
+                                newProject.ESPECIE.Remove(data);
+                                data.PROYECTO.Remove(newProject);
+                            }
                         }
                     }
 
@@ -334,15 +371,18 @@ namespace SIFCA
         {
             try
             {
-                List<LISTADODEESTRATOS> stratumsProject = newProject.LISTADODEESTRATOS.ToList();
-                decimal sumWeight = 0, sumTam = 0, supTam = decimal.Parse(AreaTotalTxt.Text.Replace('.', ','));
+                List<LISTADODEESTRATOS> stratumsProject = ((PROYECTO)proyectoBS.Current).LISTADODEESTRATOS.ToList();
+                decimal sumTam = 0, areaTotal = 0;
+                //inten = decimal.Parse(intMuestreoTxt.Text.ToString().Replace('.',','));
+                //areaTotal = decimal.Parse(AreaTotalTxt.Text.ToString().Replace('.',','));
+                areaTotal = decimal.Parse(AreaTotalTxt.Text.ToString().Replace('.', ','));
                 foreach (DataGridViewRow row in estratoDGW.Rows)
                 {
                     if (row.Cells[0].Value != null)
                     {
                         if ((bool)row.Cells[0].Value)
                         {
-                            if (row.Cells["Tamanio"].Value == null || row.Cells["Peso"].Value == null)
+                            if (row.Cells["Tamanio"].Value == null)
                             {
                                 errorLbl.Text = "Se debe indicar un peso y un tamaño";
                                 errorLbl.ForeColor = Color.Red;
@@ -350,20 +390,20 @@ namespace SIFCA
                             }
                             else
                             {
-                                string weight = row.Cells["Peso"].Value.ToString().Replace('.', ',');
-                                sumWeight += decimal.Parse(weight);
+                                //string weight = row.Cells["Peso"].Value.ToString().Replace('.', ',');
+                                //sumWeight += decimal.Parse(weight);
 
                                 string tam = row.Cells["Tamanio"].Value.ToString().Replace('.', ',');
                                 sumTam += decimal.Parse(tam);
+
                             }
-                        }                        
-                    }                    
+                        }
+                    }
                 }
-                if (decimal.Round(sumTam,2) != decimal.Round(supTam,2) || sumWeight != 1)
+                if (decimal.Round(sumTam, 2) != decimal.Round(areaTotal, 2))
                 {
-                    if (sumTam != supTam) errorLbl.Text = "La suma de los pesos debe ser " + decimal.Round(supTam, 2);
-                    if (sumWeight != 1) errorLbl.Text = "La suma de los tamaños dede ser 1";
-                    if (sumWeight != 1 && sumTam != supTam) errorLbl.Text = "Los pesos y tamaños son incorrectos";
+                    //int = AreaMuestreada/ AreaTotal
+                    if (decimal.Round(sumTam, 2) != decimal.Round(areaTotal, 2)) errorLbl.Text = "La suma de los tamaños debe ser igual al area total: " + decimal.Round(areaTotal, 2);
                     errorLbl.ForeColor = Color.Red;
                     return false;
                 }
@@ -862,22 +902,12 @@ namespace SIFCA
 
          private void datosDeAreaEIntensida()
          {
-             PROYECTO p = (PROYECTO)nuevoProyectoBS.Current;
-             nuevoProyectoBS.EndEdit();
-             if (p != null)
-             {
-                 AreaTotalTxt.Text = ((decimal)p.TAMANO * (decimal)p.NUMEROPARCELAS).ToString();
-                 areaMuestrearTxt.Text = ((decimal)p.TAMANO * (decimal)p.NUMEROPARCELASAMUESTREAR).ToString();
-                 intMuestreoTxt.Text = ((decimal)p.SUPTOT != 0 ? ((decimal)p.SUPMUE / (decimal)p.SUPTOT) * 100 : 0).ToString();
-             }
+            numeroParcelasTxt.Text = AreaTotalTxt.Text != "" && tamParcelaTxt.Text != "" && decimal.Parse(tamParcelaTxt.Text) != 0 ? Math.Round((decimal.Parse(AreaTotalTxt.Text) / decimal.Parse(tamParcelaTxt.Text)), 0).ToString() : "0";
+            areaMuestrearTxt.Text = numeroParcelasMuestraTxt.Text != "" && tamParcelaTxt.Text != "" ? (decimal.Parse(tamParcelaTxt.Text) * decimal.Parse(numeroParcelasMuestraTxt.Text)).ToString() : "0";
+            intMuestreoTxt.Text = (AreaTotalTxt.Text !="" && decimal.Parse(AreaTotalTxt.Text) != 0 && areaMuestrearTxt.Text!="" ? decimal.Parse(areaMuestrearTxt.Text) / decimal.Parse(AreaTotalTxt.Text) * 100 : 0).ToString();
          }
 
          private void tamParcelaTxt_TextChanged(object sender, EventArgs e)
-         {
-             datosDeAreaEIntensida();
-         }
-
-         private void numeroParcelasTxt_TextChanged(object sender, EventArgs e)
          {
              datosDeAreaEIntensida();
          }
@@ -886,6 +916,10 @@ namespace SIFCA
          {
              datosDeAreaEIntensida();
          }
-        
+
+         private void AreaTotalTxt_TextChanged(object sender, EventArgs e)
+         {
+             datosDeAreaEIntensida();
+         }
     }
 }

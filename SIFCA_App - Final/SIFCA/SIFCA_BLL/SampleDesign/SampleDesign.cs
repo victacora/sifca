@@ -32,7 +32,7 @@ namespace SIFCA_BLL
         {
             if (sampleDesignType == 0)
             {
-                return sampleDesignOperations(DataProcesssing(varType,-1));
+                return sampleDesignOperations(DataProcesssing(varType,-1),0,0);
             }
             else
             {
@@ -45,17 +45,24 @@ namespace SIFCA_BLL
                 double standardDesviation = 0;
                 double mean= 0;
                 double standardDesviationSummation = 0;
+                double sizeSampleStratums = 0;
+                double sizePopulationStratums = 0;
                 foreach (var stratum in groupStratums)
                 {
                     //resultados por estrato
                     if (stratum.Key != null)
                     {
-                        temporalResults = sampleDesignOperations(DataProcesssing(varType, (decimal)stratum.Key));
-                        resultsStratums.Add(stratum.Key.ToString(), temporalResults);
                         LISTADODEESTRATOS stratumProject = project.LISTADODEESTRATOS.SingleOrDefault(est => est.CODEST == stratum.Key);
                         if (stratumProject != null)
                         {
-                            temporalResults.Add("weight", (double)stratumProject.PESO);
+                            double n=(double)((stratumProject.TAMANOMUESTRA * project.INTMUE)/project.TAMANO);
+                            double N = (double)(stratumProject.TAMANOMUESTRA/project.TAMANO);
+                            sizeSampleStratums += n;
+                            sizePopulationStratums += N;
+                            temporalResults = sampleDesignOperations(DataProcesssing(varType, (decimal)stratum.Key),n,N);
+                            resultsStratums.Add(stratum.Key.ToString(), temporalResults);
+                            temporalResults.Add("N",n);
+                            temporalResults.Add("Weight", (double)stratumProject.PESO);
                             mean += (double)temporalResults["Mean"] * (double)stratumProject.PESO;
                             standardDesviation += (double)temporalResults["StandardDeviation"] * (double)stratumProject.PESO;
                             standardDesviationSummation += Math.Pow((double)temporalResults["StandardDeviation"], 2) * (double)stratumProject.PESO;
@@ -64,7 +71,7 @@ namespace SIFCA_BLL
                 }
                 //calculo resultados finales
                 double standardError = 0;
-                double temporalOperation = (Math.Pow(standardDesviation, 2) / sizeSample) - (standardDesviationSummation / sizePopulation);
+                double temporalOperation = (Math.Pow(standardDesviation, 2) / sizeSampleStratums) - (standardDesviationSummation / sizePopulationStratums);
                 standardError=Math.Sqrt(temporalOperation);
                 //TODO: calcular el error de muestreo, error relativo y el error asociado por cada uno delos estratos
                 Dictionary<string, object> stratumTotal = new Dictionary<string, object>();
@@ -114,14 +121,21 @@ namespace SIFCA_BLL
             return dataDesign;
         }
 
-        private Dictionary<string, object> sampleDesignOperations(List<Double> dataDesign) 
+        private Dictionary<string, object> sampleDesignOperations(List<Double> dataDesign,double n,double N) 
         {
             DescriptiveStatistics statistics = new DescriptiveStatistics(dataDesign);
             results = new Dictionary<string, object>();
             results.Add("Mean", statistics.Mean);
             results.Add("StandardDeviation", statistics.StandardDeviation);
             results.Add("VariationCoefficient", (statistics.StandardDeviation / statistics.Mean) * 100);
-            double standardError = statistics.StandardDeviation / Math.Sqrt(sizeSample - (1 - (sizeSample / sizePopulation)));
+            double standardError =0;
+            if(dataDesign.Count>100)standardError = statistics.StandardDeviation / Math.Sqrt(sizeSample - (1 - (sizeSample / sizePopulation)));
+            else standardError = statistics.StandardDeviation / Math.Sqrt(sizeSample);
+            if (n != 0 && N != 0)
+            {
+                if (dataDesign.Count > 100) standardError = statistics.StandardDeviation / Math.Sqrt(n - (1 - (n / N)));
+                else standardError = statistics.StandardDeviation / Math.Sqrt(n);
+            }
             results.Add("StandardError", standardError);
             //TODO:Calcular el area bajo la curva y determinar  cual es la distribucion adecuada 
             //para un valor t

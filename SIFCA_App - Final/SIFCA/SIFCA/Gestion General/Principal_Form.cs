@@ -709,6 +709,54 @@ namespace SIFCA
             } 
         }
 
+        private void formulasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Formula_Form childForm = new Formula_Form();
+                childForm.MdiParent = this;
+                childForm.Show();
+            }
+            catch (Exception ex)
+            {
+                Error_Form er = new Error_Form(ex.Message);
+                er.MdiParent = this;
+                er.Show();
+            } 
+        }
+
+        private void variablesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Variable_Form childForm = new Variable_Form();
+                childForm.MdiParent = this;
+                childForm.Show();
+            }
+            catch (Exception ex)
+            {
+                Error_Form er = new Error_Form(ex.Message);
+                er.MdiParent = this;
+                er.Show();
+            } 
+        }
+
+        private void tiposDeFormulasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                TipoFormula_Form childForm = new TipoFormula_Form();
+                childForm.MdiParent = this;
+                childForm.Show();
+            }
+            catch (Exception ex)
+            {
+                Error_Form er = new Error_Form(ex.Message);
+                er.MdiParent = this;
+                er.Show();
+            } 
+        }
+
 
     }
 }

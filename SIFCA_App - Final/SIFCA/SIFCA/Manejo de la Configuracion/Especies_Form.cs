@@ -212,22 +212,35 @@ namespace SIFCA.Gestion_Configuracion
                     eP_errors.Clear();
                     species.DIAMMINCORTE = DIM;
                     species.CODESP = Guid.NewGuid();
-                    species.GRUPOCOM = this.cbox_GrupoComercial.SelectedValue.ToString();
+                    GRUPOCOMERCIAL gp = group.GetGroup(this.cbox_GrupoComercial.SelectedValue.ToString());
+                    if (gp != null) { 
+                        species.GRUPOCOM = gp.GRUPOCOM;
+                        species.GRUPOCOMERCIAL = gp;
+                        gp.ESPECIE.Add(species);
+                    }
+                    else MessageBox.Show("No se ha especificado un grupo comercial, el campo es requerido.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     species.ZONAGEOGRAFICA = this.txt_ZonaGeografica.Text;
                     species.ZONADEVIDA = this.txt_ZonaVida.Text;
 
-                    specieBL.InsertSpecie(species);
-                    string resultEsp = specieBL.SaveChanges();
-                    string resultImg = "";
                     if (image != null)
                     {
                         ImageBL imgBl = new ImageBL(Program.ContextData);
                         image.CODESP = species.CODESP;
                         imgBl.InsertImage(image);
-                        resultImg = imgBl.SaveChanges();
                         species.IMAGEN.Add(image);
                     }
-                    if (resultEsp == "" && resultImg == "")
+
+                    specieBL.InsertSpecie(species);
+
+                    if (this.state == "proyecto")
+                    {
+                        this.Close();
+                        return;
+                    }
+                    string result = "";
+                    
+                    result= specieBL.SaveChanges();//se utiliza y si se tiene una imagen
+                    if (result == "")
                     {
                         MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         if (this.state == "formulario" && this.project != null)
@@ -236,18 +249,14 @@ namespace SIFCA.Gestion_Configuracion
                             this.Close();
                             return;
                         }
-                        else
-                            if (this.state == "proyecto")
-                            {
-                                this.Close();
-                                return;
-                            }
+                            
                     }
                     else
                     {
-                        Error_Form errorForm = new Error_Form(resultEsp + "  " + resultImg);
+                        Error_Form errorForm = new Error_Form(result);
                         errorForm.MdiParent = ParentForm;
                         errorForm.Show();
+                        return;
                     }
                     
                     specieBSource.DataSource = specieBL.GetSpecies();

@@ -58,6 +58,7 @@
             this.especiesMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.listarEspeciesTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracionMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.costosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calidadTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.estadosTsm = new System.Windows.Forms.ToolStripMenuItem();
             this.estratosTsm = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,7 +82,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.EstadoLbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.pBarLoad = new System.Windows.Forms.ProgressBar();
+            this.pBarLoad = new System.Windows.Forms.ToolStripProgressBar();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -100,7 +101,7 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.MdiWindowListItem = this.ventanasMenu;
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(632, 24);
+            this.menuStrip.Size = new System.Drawing.Size(778, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -153,6 +154,7 @@
             this.cerrarSesionTsm.Name = "cerrarSesionTsm";
             this.cerrarSesionTsm.Size = new System.Drawing.Size(189, 22);
             this.cerrarSesionTsm.Text = "&Cerrar sesion";
+            this.cerrarSesionTsm.Visible = false;
             this.cerrarSesionTsm.Click += new System.EventHandler(this.cerrarSesionTsm_Click);
             // 
             // proyectoMenu
@@ -324,6 +326,7 @@
             // configuracionMenu
             // 
             this.configuracionMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.costosToolStripMenuItem,
             this.calidadTsm,
             this.estadosTsm,
             this.estratosTsm,
@@ -337,6 +340,13 @@
             this.configuracionMenu.Name = "configuracionMenu";
             this.configuracionMenu.Size = new System.Drawing.Size(95, 20);
             this.configuracionMenu.Text = "Configuracion";
+            // 
+            // costosToolStripMenuItem
+            // 
+            this.costosToolStripMenuItem.Name = "costosToolStripMenuItem";
+            this.costosToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.costosToolStripMenuItem.Text = "Costos";
+            this.costosToolStripMenuItem.Click += new System.EventHandler(this.costosToolStripMenuItem_Click);
             // 
             // calidadTsm
             // 
@@ -480,17 +490,20 @@
             // 
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(632, 25);
+            this.toolStrip.Size = new System.Drawing.Size(778, 25);
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
             // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.EstadoLbl});
+            this.EstadoLbl,
+            this.pBarLoad});
+            this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.statusStrip.Location = new System.Drawing.Point(0, 431);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(632, 22);
+            this.statusStrip.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.statusStrip.Size = new System.Drawing.Size(778, 22);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
@@ -502,11 +515,9 @@
             // 
             // pBarLoad
             // 
-            this.pBarLoad.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pBarLoad.Location = new System.Drawing.Point(0, 414);
             this.pBarLoad.Name = "pBarLoad";
-            this.pBarLoad.Size = new System.Drawing.Size(632, 17);
-            this.pBarLoad.TabIndex = 4;
+            this.pBarLoad.RightToLeftLayout = true;
+            this.pBarLoad.Size = new System.Drawing.Size(450, 16);
             this.pBarLoad.Visible = false;
             // 
             // Principal_Form
@@ -515,8 +526,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(632, 453);
-            this.Controls.Add(this.pBarLoad);
+            this.ClientSize = new System.Drawing.Size(778, 453);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip);
@@ -581,7 +591,6 @@
         private System.Windows.Forms.ToolStripMenuItem exportarDatosAExcelTsm;
         private System.Windows.Forms.ToolStripMenuItem importarDatosDeExcelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem realizarCopiaDeSeguridadTsm;
-        private System.Windows.Forms.ProgressBar pBarLoad;
         private System.Windows.Forms.ToolStripMenuItem cargarTablaTStudentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteMenu;
         private System.Windows.Forms.ToolStripMenuItem clasesDiamétricasToolStripMenuItem;
@@ -590,6 +599,8 @@
         private System.Windows.Forms.ToolStripMenuItem formulasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem variablesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tiposDeFormulasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem costosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripProgressBar pBarLoad;
 
     }
 }

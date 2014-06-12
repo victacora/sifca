@@ -206,20 +206,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TRANSACCION">
-      <EntityTypeMapping TypeName="SIFCA_Model.TRANSACCION">
-        <MappingFragment StoreEntitySet="TRANSACCION">
-          <ScalarProperty Name="VALORESNUEVOS" ColumnName="VALORESNUEVOS" />
-          <ScalarProperty Name="VALORESVIEJOS" ColumnName="VALORESVIEJOS" />
-          <ScalarProperty Name="OPERACION" ColumnName="OPERACION" />
-          <ScalarProperty Name="IDREGISTRO" ColumnName="IDREGISTRO" />
-          <ScalarProperty Name="TABLA" ColumnName="TABLA" />
-          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
-          <ScalarProperty Name="NROUSUARIO" ColumnName="NROUSUARIO" />
-          <ScalarProperty Name="NROTRANS" ColumnName="NROTRANS" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TSTUDENT">
       <EntityTypeMapping TypeName="SIFCA_Model.TSTUDENT">
         <MappingFragment StoreEntitySet="TSTUDENT">
@@ -275,5 +261,39 @@
         <ScalarProperty Name="NOMBRETIPOUSO" ColumnName="NOMBRETIPOUSO" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="COSTO">
+      <EntityTypeMapping TypeName="SIFCA_Model.COSTO">
+        <MappingFragment StoreEntitySet="COSTO">
+          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="NROCOSTO" ColumnName="NROCOSTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LISTADODECOSTOS">
+      <EntityTypeMapping TypeName="SIFCA_Model.LISTADODECOSTOS">
+        <MappingFragment StoreEntitySet="LISTADODECOSTOS">
+          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+          <ScalarProperty Name="NROPROY" ColumnName="NROPROY" />
+          <ScalarProperty Name="NROCOSTO" ColumnName="NROCOSTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRANSACCION">
+      <EntityTypeMapping TypeName="SIFCA_Model.TRANSACCION">
+        <MappingFragment StoreEntitySet="TRANSACCION">
+          <ScalarProperty Name="VALORESNUEVOS" ColumnName="VALORESNUEVOS" />
+          <ScalarProperty Name="VALORESVIEJOS" ColumnName="VALORESVIEJOS" />
+          <ScalarProperty Name="OPERACION" ColumnName="OPERACION" />
+          <ScalarProperty Name="TIPOIDREGISTRO" ColumnName="TIPOIDREGISTRO" />
+          <ScalarProperty Name="IDREGISTRO" ColumnName="IDREGISTRO" />
+          <ScalarProperty Name="TABLA" ColumnName="TABLA" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="NROUSUARIO" ColumnName="NROUSUARIO" />
+          <ScalarProperty Name="NROTRANS" ColumnName="NROTRANS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

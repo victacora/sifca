@@ -19,6 +19,8 @@ namespace SIFCA_DAL
         public SIFCA_CONTEXT()
             : base("name=SIFCA_CONTEXT")
         {
+            this.Configuration.ProxyCreationEnabled = false;
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -44,10 +46,12 @@ namespace SIFCA_DAL
         public DbSet<TIPODEUSO> TIPODEUSO { get; set; }
         public DbSet<TIPODISENOMUESTRAL> TIPODISENOMUESTRAL { get; set; }
         public DbSet<TIPOFORMULA> TIPOFORMULA { get; set; }
-        public DbSet<TRANSACCION> TRANSACCION { get; set; }
         public DbSet<TSTUDENT> TSTUDENT { get; set; }
         public DbSet<USUARIO> USUARIO { get; set; }
         public DbSet<VARIABLE> VARIABLE { get; set; }
+        public DbSet<COSTO> COSTO { get; set; }
+        public DbSet<LISTADODECOSTOS> LISTADODECOSTOS { get; set; }
+        public DbSet<TRANSACCION> TRANSACCION { get; set; }
     
         public virtual int createBackupDB(string baseLocation, string backupType)
         {

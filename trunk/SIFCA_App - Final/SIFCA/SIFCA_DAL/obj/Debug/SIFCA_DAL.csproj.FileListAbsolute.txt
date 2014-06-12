@@ -5,10 +5,10 @@ C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_DAL\bin\Debug\EntityFramework.xm
 C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_DAL\obj\Debug\SIFCA_DAL.dll
 C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_DAL\obj\Debug\SIFCA_DAL.pdb
 C:\ANTEPROYECTO\Prototipo\SIFCA_App\SIFCA\SIFCA_DAL\bin\Debug\SIFCA_DAL.dll.config
+C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_DAL\bin\Debug\SIFCA.sdf
 C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_DAL\bin\Debug\SIFCA_DAL.dll.config
 C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_DAL\bin\Debug\SIFCA_DAL.dll
 C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_DAL\bin\Debug\SIFCA_DAL.pdb
 C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_DAL\obj\Debug\SIFCA_DAL.dll
 C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_DAL\obj\Debug\SIFCA_DAL.pdb
-C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_DAL\bin\Debug\SIFCA.sdf
 C:\ANTEPROYECTO\Prototipo\SIFCA_App - Final\SIFCA\SIFCA_DAL\obj\Debug\SIFCA_DAL.csprojResolveAssemblyReference.cache

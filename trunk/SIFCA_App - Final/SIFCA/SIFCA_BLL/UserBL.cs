@@ -149,5 +149,18 @@ namespace SIFCA_BLL
         }
 
 
+
+        public bool GetUserByUser(string user)
+        {
+            try
+            {
+                if( this.sifcaRepository.USUARIO.SingleOrDefault(p => p.NOMBREUSUARIO == user)!=null)return true;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

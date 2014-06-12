@@ -14,11 +14,12 @@ namespace SIFCA_DAL
 {
     public partial class TRANSACCION
     {
-        public long NROTRANS { get; set; }
+        public System.Guid NROTRANS { get; set; }
         public System.Guid NROUSUARIO { get; set; }
         public System.DateTime FECHA { get; set; }
         public string TABLA { get; set; }
-        public decimal IDREGISTRO { get; set; }
+        public string IDREGISTRO { get; set; }
+        public string TIPOIDREGISTRO { get; set; }
         public string OPERACION { get; set; }
         public string VALORESVIEJOS { get; set; }
         public string VALORESNUEVOS { get; set; }

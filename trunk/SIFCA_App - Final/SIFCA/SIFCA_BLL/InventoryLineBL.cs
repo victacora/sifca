@@ -140,7 +140,7 @@ namespace SIFCA_BLL
                 }
                 if (criteria == "Arbol")
                 {
-                    var query = from l in this.sifcaRepository.LINEAINVENTARIO where (SqlFunctions.StringConvert((decimal)l.NROARB).Contains(search) && l.FORMULARIO.NROFORMULARIO == form.NROFORMULARIO) select l;
+                    var query = from l in this.sifcaRepository.LINEAINVENTARIO where (SqlFunctions.StringConvert(l.NROARB).Contains(search) && l.FORMULARIO.NROFORMULARIO == form.NROFORMULARIO) select l;
                     return query.ToList();
                 }
                 return new List<LINEAINVENTARIO>();
@@ -152,49 +152,72 @@ namespace SIFCA_BLL
             
         }
 
-        public REPORTECLASESDIAMETRICAS searchDiametricClass(Guid codEsp, Guid py, string CD, int rangeInit, int rangeEnd, REPORTECLASESDIAMETRICAS rp)
+        public REPORTECLASESDIAMETRICAS searchDiametricClass(Guid codEsp, Guid py, string CD, decimal rangeInit, decimal rangeEnd, REPORTECLASESDIAMETRICAS rp)
         {
             try
             {
+                List<LINEAINVENTARIO> ListLine = new List<LINEAINVENTARIO>();
                 if (codEsp != Guid.Empty)
                 {
                     if (CD.Equals("General"))
                     {
-                        var query = from l in this.sifcaRepository.LINEAINVENTARIO where (l.ESPECIE.CODESP == codEsp && (l.DAP * 100) >= rangeInit && (l.DAP * 100) < rangeEnd) select l;
-                        foreach (LINEAINVENTARIO ln in query.ToList())
+                        if (rangeEnd == -1)
                         {
-                            if ((this.sifcaRepository.FORMULARIO.Find(ln.NROFORMULARIO)).NROPROY == py)
-                            {
-                                rp.VOLUMEN += ln.VOLCOM;
-                                rp.AREABASAL += ln.AREABASAL;
-                                rp.CONTEO++;
-                            }
+                            var query = from l in this.sifcaRepository.LINEAINVENTARIO where (l.ESPECIE.CODESP == codEsp && (l.DAP * 100) >= rangeInit) select l;
+                            ListLine = query.ToList();
                         }
-                        return rp;
-                    }
-                    else
-                        if (CD.Equals("Valor comercial"))
+                        else
                         {
                             var query = from l in this.sifcaRepository.LINEAINVENTARIO where (l.ESPECIE.CODESP == codEsp && (l.DAP * 100) >= rangeInit && (l.DAP * 100) < rangeEnd) select l;
-                            foreach (LINEAINVENTARIO ln in query.ToList())
-                            {
-                                if ((this.sifcaRepository.FORMULARIO.Find(ln.NROFORMULARIO)).NROPROY == py)
-                                {
-                                    rp.VOLUMEN += ln.VOLCOM;
-                                    rp.AREABASAL += ln.AREABASAL;
-                                    rp.CONTEO++;
-                                }
-                            }
-                            return rp;
+                            ListLine = query.ToList();
                         }
+                    }
+                    else
+                    {
+                        if (CD.Equals("Valor comercial"))
+                        {
+                            if (rangeEnd == -1)
+                            {
+                                var query = from l in this.sifcaRepository.LINEAINVENTARIO where (l.ESPECIE.CODESP == codEsp && (l.DAP * 100) >= rangeInit) select l;
+                                ListLine = query.ToList();
+                            }
+                            else
+                            {
+                                var query = from l in this.sifcaRepository.LINEAINVENTARIO where (l.ESPECIE.CODESP == codEsp && (l.DAP * 100) >= rangeInit && (l.DAP * 100) < rangeEnd) select l;
+                                ListLine = query.ToList();
+                            }                            
+                        }
+                    }
+                    foreach (LINEAINVENTARIO ln in ListLine.ToList())
+                    {
+                        if ((this.sifcaRepository.FORMULARIO.Find(ln.NROFORMULARIO)).NROPROY == py)
+                        {
+                            rp.VOLUMENCOMERCIAL += ln.VOLCOM;
+                            rp.VOLUMENTOTAL += ln.VOLTOT;
+                            rp.AREABASAL += ln.AREABASAL;
+                            rp.CONTEO++;
+                        }
+                    }
+                    return rp;
+
                 }
                 else
                     if (CD.Equals("Estratos"))
                     {//en este caso el py corresponde al codigo del formulario al cual pertenece ese estrato
-                        var query = from l in this.sifcaRepository.LINEAINVENTARIO where (l.NROFORMULARIO == py && (l.DAP * 100) >= rangeInit && (l.DAP * 100) < rangeEnd) select l;
-                        foreach (LINEAINVENTARIO ln in query.ToList())
+                        if (rangeEnd == -1)
                         {
-                            rp.VOLUMEN += ln.VOLCOM;
+                            var query = from l in this.sifcaRepository.LINEAINVENTARIO where (l.NROFORMULARIO ==py && (l.DAP * 100) >= rangeInit) select l;
+                            ListLine = query.ToList();
+                        }
+                        else
+                        {
+                            var query = from l in this.sifcaRepository.LINEAINVENTARIO where (l.NROFORMULARIO == py && (l.DAP * 100) >= rangeInit && (l.DAP * 100) < rangeEnd) select l;
+                            ListLine = query.ToList();
+                        }
+                        foreach (LINEAINVENTARIO ln in ListLine.ToList())
+                        {
+                            rp.VOLUMENCOMERCIAL += ln.VOLCOM;
+                            rp.VOLUMENTOTAL += ln.VOLTOT;
                             rp.AREABASAL += ln.AREABASAL;
                             rp.CONTEO++;
                         }

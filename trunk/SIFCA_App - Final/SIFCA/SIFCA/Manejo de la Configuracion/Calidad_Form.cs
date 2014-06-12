@@ -43,7 +43,7 @@ namespace SIFCA.Gestion_Configuracion
 
         /// <summary>
         /// Funcion que valida que los campos del formulario crear no esten vacios si pasa las validaciones entonces se inserta 
-        /// el nuevo registro y se alerta al usuario con un mensaje de exito, si ocurre un error durante el proceso se notifica al usuario con un mensaje de error
+        /// el nuevo registro y se alerta al usuario con un mensaje de exito, si ocurre un mensaje durante el proceso se notifica al usuario con un mensaje de mensaje
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -54,13 +54,20 @@ namespace SIFCA.Gestion_Configuracion
                 if (txt_Descripcion.Text != "")
                 {
                     eP_errors.Dispose();
-                    quality =Program.ContextData.CALIDAD.Create();
+                    quality =new CALIDAD();
                     quality.DESCRIPCALIDAD = txt_Descripcion.Text;
-                    qualityBl.InsertQuality(quality);
+                    if ((qualityBl.getQualityByDescription(this.txt_Descripcion.Text)) != null)
+                    {
+                        eP_errors.SetError(txt_Descripcion, "Ya existe una calidad con esta descripción.");
+                    }
+                    else
+                    {
+                        qualityBl.InsertQuality(quality);
+                    }
                     string result = qualityBl.SaveChanges();
                     if (result == "")
                     {
-                        MessageBox.Show("Los datos fueron actualizados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
@@ -68,7 +75,7 @@ namespace SIFCA.Gestion_Configuracion
                         errorForm.MdiParent = ParentForm;
                         errorForm.Show();
                     }
-                
+                    
                     QualityBSource.DataSource = qualityBl.GetQualities();
                     ListadoCalidades.Refresh();
                     txt_Descripcion.Text = "";
@@ -120,9 +127,10 @@ namespace SIFCA.Gestion_Configuracion
                     // Se selecciona la celda del boton
                     //
 
-                    quality = Program.ContextData.CALIDAD.Create();
-
-                    quality = qualityBl.GetQuality((Decimal)row.Cells[0].Value);
+                    quality = new CALIDAD();
+                    decimal num;
+                    Decimal.TryParse(row.Cells[0].Value.ToString(), out num);
+                    quality = qualityBl.GetQuality(num);
 
                     updateNombreTxt.Text = quality.CODCALIDAD.ToString();
                     updateDescripcionTxt.Text = quality.DESCRIPCALIDAD;
@@ -145,7 +153,7 @@ namespace SIFCA.Gestion_Configuracion
                     // Se selecciona la celda del boton
                     //
 
-                    quality = Program.ContextData.CALIDAD.Create();
+                    quality = new CALIDAD();
 
                     quality = qualityBl.GetQuality((Decimal)row.Cells[0].Value);
 
@@ -193,7 +201,7 @@ namespace SIFCA.Gestion_Configuracion
         /// <summary>
         /// Esta funcion se invoca desde el formulario de actualizar(editar), en este se validan que los campos sean correctos y se procede
         /// a realizar la actualizacio del registro en la base de datos, si la accion se completa satisfactoriamente se notifica al usuario
-        /// por medio de un mensaje de exito, en caso contrario se alerta o notifica del error que se presento
+        /// por medio de un mensaje de exito, en caso contrario se alerta o notifica del mensaje que se presento
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

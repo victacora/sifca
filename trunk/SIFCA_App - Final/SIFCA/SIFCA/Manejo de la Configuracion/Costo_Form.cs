@@ -1,0 +1,412 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using SIFCA_BLL;
+using SIFCA_DAL;
+
+namespace SIFCA.Gestion_Configuracion
+{
+    public partial class Costo_Form : Form
+    {
+        private COSTO cost;
+        private CostBL costBl;
+        private bool error = false;
+
+        /// <summary>
+        /// Constructor para inicializar atributos y elementos del formulario
+        /// </summary>
+        public Costo_Form()
+        {
+            try
+            {
+                InitializeComponent();
+                costBl = new CostBL(Program.ContextData);
+                CostBSource.DataSource = costBl.GetCosts();
+                pn_listado.Show();
+                pn_crear.Hide();
+                pn_editar.Hide();
+                this.Width = pn_listado.Width;
+                this.Height = pn_listado.Height;
+                this.CenterToScreen();
+                tipoCbx.SelectedIndex = 0;
+                error = false;
+            }
+            catch (Exception ex)
+            {
+                Error_Form errorForm = new Error_Form(ex.Message);
+                errorForm.MdiParent = ParentForm;
+                errorForm.Show();
+            }
+        }
+
+        /// <summary>
+        /// Funcion que valida que los campos del formulario crear no esten vacios si pasa las validaciones entonces se inserta 
+        /// el nuevo registro y se alerta al usuario con un mensaje de exito, si ocurre un mensaje durante el proceso se notifica al usuario con un mensaje de mensaje
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_Crear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                error = false;
+                if (descripcionTxt.Text == "")
+                {
+                    eP_errors.SetError(descripcionTxt, " Por favor ingrese una descripción");
+                    error = true;
+                }
+                if (nombreTxt.Text == "")
+                {
+                    eP_errors.SetError(nombreTxt, " Por favor ingrese un nombre");
+                    error = true;
+                }
+                if ((costBl.getCostByName(this.nombreTxt.Text)) != null)
+                {
+                    eP_errors.SetError(nombreTxt, "Ya existe un costo con este nombre.");
+                    error = true;
+                }
+                if (!error)
+                {
+                    eP_errors.Clear();
+                    cost = Program.ContextData.COSTO.Create();
+                    cost.NOMBRE = nombreTxt.Text;
+                    cost.DESCRIPCION = descripcionTxt.Text;
+                    cost.NROCOSTO = Guid.NewGuid();
+                    if(tipoCbx.SelectedIndex==0) cost.TIPO = "CF";
+                    else if (tipoCbx.SelectedIndex == 1) cost.TIPO = "CV";
+                    costBl.InsertCost(cost);
+
+                    string result = costBl.SaveChanges();
+
+                    if (result == "")
+                    {
+                        MessageBox.Show("Los datos fueron almacenados de manera exitosa.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        Error_Form errorForm = new Error_Form(result);
+                        errorForm.MdiParent = ParentForm;
+                        errorForm.Show();
+                    }
+                    CostBSource.DataSource = costBl.GetCosts();
+                    ListadoCostos.Refresh();
+                    descripcionTxt.Text = "";
+                    pn_crear.Hide();
+                    pn_listado.Show();
+                    pn_editar.Hide();
+                    this.Width = pn_listado.Width;
+                    this.Height = pn_listado.Height;
+                    this.CenterToScreen();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Error_Form errorForm = new Error_Form(ex.Message);
+                errorForm.MdiParent = ParentForm;
+                errorForm.Show();
+            }
+        }
+
+        /// <summary>
+        /// Capturamos el click que se de en el alguna de las opciones editar o eliminar y se procede con la accion
+        /// si es modificar se redimensiona la ventana para cargar el panel de editar, si se va a eliminar se pide la 
+        /// confirmacion del usuario y se procede a eliminar el registro
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Listado_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+
+
+                //
+                // Solo se trabaja ante los cambios en la columan de los checkbox 
+                //
+
+                if (ListadoCostos.Columns[e.ColumnIndex].Name == "Editar")
+                {
+                    //
+                    // Se toma la fila seleccionada
+                    //
+                    DataGridViewRow row = ListadoCostos.Rows[e.RowIndex];
+
+                    //
+                    // Se selecciona la celda del boton
+                    //
+
+                    cost = Program.ContextData.COSTO.Create();
+                    decimal num;
+
+                    cost = costBl.GetCost((Guid)row.Cells[0].Value);
+
+                    nombreUpdTxt.Text = cost.NOMBRE.ToString();
+                    descripcionUpdTxt.Text = cost.DESCRIPCION;
+
+                    if (cost.TIPO == "CF") tipoUpdCbx.SelectedIndex = 0;
+                    if (cost.TIPO == "CV") tipoUpdCbx.SelectedIndex = 1;
+                    pn_listado.Hide();
+                    pn_crear.Hide();
+                    pn_editar.Show();
+                    this.Width = editarGbx.Width;
+                    this.Height = editarGbx.Height;
+                    this.CenterToScreen();
+                }
+
+                if (ListadoCostos.Columns[e.ColumnIndex].Name == "Eliminar")
+                {
+                    //
+                    // Se toma la fila seleccionada
+                    //
+                    DataGridViewRow row = ListadoCostos.Rows[e.RowIndex];
+
+                    //
+                    // Se selecciona la celda del boton
+                    //
+
+                    cost = Program.ContextData.COSTO.Create();
+
+                    cost = costBl.GetCost((Guid)row.Cells[0].Value);
+
+                    DialogResult result = MessageBox.Show("Esta seguro de eliminar el registro", "Confirmar Eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                    // Process message box resultados
+                    switch (result)
+                    {
+                        case DialogResult.OK:
+                            costBl.DeleteCost((Guid)cost.NROCOSTO);
+                            string resultD = costBl.SaveChanges();
+                            if (resultD == "")
+                            {
+                                MessageBox.Show("Se elimino correctamente.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                Error_Form errorForm = new Error_Form(resultD);
+                                errorForm.MdiParent = ParentForm;
+                                errorForm.Show();
+                            }
+                                CostBSource.DataSource = costBl.GetCosts();
+                                ListadoCostos.Refresh();
+                                pn_listado.Show();
+                                pn_crear.Hide();
+                                pn_editar.Hide();
+                                break;
+
+                        case DialogResult.Cancel:
+                            // User pressed Cancel button
+                            // ...
+                            break;
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Error_Form errorForm = new Error_Form(ex.Message);
+                errorForm.MdiParent = ParentForm;
+                errorForm.Show();
+            }
+        }
+
+        /// <summary>
+        /// Esta funcion se invoca desde el formulario de actualizar(editar), en este se validan que los campos sean correctos y se procede
+        /// a realizar la actualizacio del registro en la base de datos, si la accion se completa satisfactoriamente se notifica al usuario
+        /// por medio de un mensaje de exito, en caso contrario se alerta o notifica del mensaje que se presento
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_guardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                error = false;
+                if (descripcionUpdTxt.Text == "")
+                {
+                    eP_errors.SetError(descripcionUpdTxt, " Por favor ingrese una descripción");
+                    error = true;
+                }
+                if (nombreUpdTxt.Text == "")
+                {
+                    eP_errors.SetError(nombreUpdTxt, " Por favor ingrese un nombre");
+                    error = true;
+                }
+                if (!error)
+                {
+                    eP_errors.Clear();
+                    cost.NOMBRE = nombreUpdTxt.Text;
+                    cost.DESCRIPCION = descripcionUpdTxt.Text;                    
+                    if (tipoUpdCbx.SelectedIndex == 0) cost.TIPO = "CF";
+                    else if (tipoUpdCbx.SelectedIndex == 1) cost.TIPO = "CV";
+                    costBl.UpdateCost(cost);
+                    string resultUpd = costBl.SaveChanges();
+                    if (resultUpd == "")
+                    {
+                        MessageBox.Show("Se realizo la modificación de manera correcta.", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        Error_Form errorForm = new Error_Form(resultUpd);
+                        errorForm.MdiParent = ParentForm;
+                        errorForm.Show();
+                    }
+
+                    descripcionUpdTxt.Text = "";
+                    nombreUpdTxt.Text = "";
+                    try
+                    {
+                        CostBSource.DataSource = costBl.GetCosts();
+                        ListadoCostos.Refresh();
+                        pn_listado.Show();
+                        pn_crear.Hide();
+                        pn_editar.Hide();
+                        this.Width = ListadoCostos.Width;
+                        this.Height = ListadoCostos.Height;
+                        this.CenterToScreen();
+                    }
+                    catch (Exception ex)
+                    {
+                        Error_Form errorForm = new Error_Form(ex.Message);
+                        errorForm.MdiParent = ParentForm;
+                        errorForm.Show();
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Error_Form errorForm = new Error_Form(ex.Message);
+                errorForm.MdiParent = ParentForm;
+                errorForm.Show();
+            }
+        }
+
+        /// <summary>
+        /// Accion que se invoca y se retorna al listado principal que contienen los datos
+        /// </summary>
+        /// <param name="sender"></param> contiene los datos del elemento que lanzo el evento
+        /// <param name="e"></param> argumentos del evento
+        private void Btn_CancelarUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                pn_listado.Show();
+                pn_crear.Hide();
+                pn_editar.Hide();
+                this.Width = ListadoCostos.Width;
+                this.Height = ListadoCostos.Height;
+                this.CenterToScreen();
+            }
+            catch (Exception ex)
+            {
+                Error_Form errorForm = new Error_Form(ex.Message);
+                errorForm.MdiParent = ParentForm;
+                errorForm.Show();
+            }
+        }
+
+        /// <summary>
+        /// Accion que se invoca y se retorna al listado principal que contienen los datos
+        /// </summary>
+        /// <param name="sender"></param> contiene los datos del elemento que lanzo el evento
+        /// <param name="e"></param> argumentos del evento
+        private void btn_Cancelar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                pn_crear.Hide();
+                pn_editar.Hide();
+                pn_listado.Show();
+                this.Width = ListadoCostos.Width;
+                this.Height = ListadoCostos.Height;
+                this.CenterToScreen();
+            }
+            catch (Exception ex)
+            {
+                Error_Form errorForm = new Error_Form(ex.Message);
+                errorForm.MdiParent = ParentForm;
+                errorForm.Show();
+            }
+
+        }
+
+        /// <summary>
+        /// Funcion que sirve para buscar un registro de acuerdo a lo que el usuario digito y a el criterio de su busqueda, si se
+        /// encuentra alguna coincidencia en la base de datos se retorna en caso contrario se retorna null.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void busquedaTxt_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (busquedaTxt.Text != "")
+                {
+                    CostBSource.DataSource = costBl.SearchCost(busquedaTxt.Text);
+                    ListadoCostos.Refresh();
+                }
+                else
+                {
+                    CostBSource.DataSource = costBl.GetCosts();
+                    ListadoCostos.Refresh();
+                }
+            }
+            catch (Exception ex)
+            {
+                Error_Form errorForm = new Error_Form(ex.Message);
+                errorForm.MdiParent = ParentForm;
+                errorForm.Show();
+            }            
+        }
+
+        /// <summary>
+        /// Esta funcion se ejecuta cuando se quiere crear un nuevo registro, se redimensiona la ventana para cargar el formulario de crear 
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_nuevo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                pn_editar.Hide();
+                pn_listado.Hide();
+                pn_crear.Show();
+                this.Width = crearGbx.Width;
+                this.Height = crearGbx.Height;
+                this.CenterToScreen();
+            }
+            catch (Exception ex)
+            {
+                Error_Form errorForm = new Error_Form(ex.Message);
+                errorForm.MdiParent = ParentForm;
+                errorForm.Show();
+            }
+
+        }
+
+        private void ListadoCostos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            try
+            {
+                if (ListadoCostos.Columns[e.ColumnIndex].Name == "TIPO")
+                {
+                    if (e.Value.ToString() == "CF") e.Value = "FIJO";
+                    else e.Value = "VARIABLE";
+                }
+            }
+            catch (Exception ex)
+            {
+                Error_Form er = new Error_Form(ex.Message);
+                er.Show();
+            }
+        }
+    }
+
+ }

@@ -25,12 +25,12 @@ namespace SIFCA.Gestion_Configuracion
             try
             {
                 InitializeComponent();
-                stratum = Program.ContextData.ESTRATO.Create();
+                stratum = new ESTRATO();
                 stratumBl = new StratumBL(Program.ContextData);
                 this.stratumListBSource.DataSource = stratumBl.GetStratums();
                 this.ListadoEstratos.DataSource = stratumListBSource;
-                this.Width = pn_listado.Width;
-                this.Height = pn_listado.Height;
+                this.Width = 567;
+                this.Height = 377;
                 this.CenterToScreen();
                 pn_crear.Hide();
                 pn_editar.Hide();
@@ -47,7 +47,7 @@ namespace SIFCA.Gestion_Configuracion
 
         /// <summary>
         /// Funcion que valida que los campos del formulario crear no esten vacios si pasa las validaciones entonces se inserta 
-        /// el nuevo registro y se alerta al usuario con un mensaje de exito, si ocurre un error durante el proceso se notifica al usuario con un mensaje de error
+        /// el nuevo registro y se alerta al usuario con un mensaje de exito, si ocurre un mensaje durante el proceso se notifica al usuario con un mensaje de mensaje
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -55,7 +55,7 @@ namespace SIFCA.Gestion_Configuracion
         {
             try
             {
-                ESTRATO newStratum = Program.ContextData.ESTRATO.Create();
+                ESTRATO newStratum = new ESTRATO();
 
                 bool band = true;
                 if (this.txt_Nombre.Text == "")
@@ -66,9 +66,14 @@ namespace SIFCA.Gestion_Configuracion
                 else
                 {
                     newStratum.DESCRIPESTRATO = this.txt_Nombre.Text;
-                    eP_errors.Dispose();
+                    eP_errors.Clear();
                 }
-
+                if ((stratumBl.GetStratumByDescription(this.txt_Nombre.Text))!=null)
+                {
+                    eP_errors.SetError(txt_Nombre, "Ya existe un estrato con esta descripción.");
+                    band = false;
+                }
+                
                 if (band)
                 {
                     stratumBl.InsertStratum(newStratum);
@@ -86,8 +91,8 @@ namespace SIFCA.Gestion_Configuracion
                             this.Close();
                             return;
                         }
-                        this.Width = pn_listado.Width;
-                        this.Height = pn_listado.Height;
+                        this.Width = 567;
+                        this.Height = 377;
                         this.CenterToScreen();
                         pn_listado.Show();
                         pn_editar.Hide();
@@ -157,7 +162,7 @@ namespace SIFCA.Gestion_Configuracion
                     //
                     int codigo = Convert.ToInt32(row.Cells[0].Value);
 
-                    stratum = Program.ContextData.ESTRATO.Create();
+                    stratum = new ESTRATO();
                     pn_listado.Hide();
                     pn_crear.Hide();
                     pn_editar.Show();
@@ -234,8 +239,8 @@ namespace SIFCA.Gestion_Configuracion
                 pn_crear.Hide();
                 pn_editar.Hide();
                 pn_listado.Show();
-                this.Width = pn_listado.Width;
-                this.Height = pn_listado.Height;
+                this.Width = 567;
+                this.Height = 377;
                 this.CenterToScreen();
             }
             catch (Exception ex)
@@ -258,8 +263,8 @@ namespace SIFCA.Gestion_Configuracion
                 pn_crear.Hide();
                 pn_editar.Hide();
                 pn_listado.Show();
-                this.Width = pn_listado.Width;
-                this.Height = pn_listado.Height;
+                this.Width = 567;
+                this.Height = 377;
                 this.CenterToScreen();
             }
             catch (Exception ex)
@@ -299,7 +304,7 @@ namespace SIFCA.Gestion_Configuracion
         /// <summary>
         /// Esta funcion se invoca desde el formulario de actualizar(editar), en este se validan que los campos sean correctos y se procede
         /// a realizar la actualizacio del registro en la base de datos, si la accion se completa satisfactoriamente se notifica al usuario
-        /// por medio de un mensaje de exito, en caso contrario se alerta o notifica del error que se presento
+        /// por medio de un mensaje de exito, en caso contrario se alerta o notifica del mensaje que se presento
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -338,8 +343,8 @@ namespace SIFCA.Gestion_Configuracion
                     pn_crear.Hide();
                     pn_editar.Hide();
                     pn_listado.Show();
-                    this.Width = pn_listado.Width;
-                    this.Height = pn_listado.Height;
+                    this.Width = 567;
+                    this.Height = 377;
                     this.CenterToScreen();
                 }
             }

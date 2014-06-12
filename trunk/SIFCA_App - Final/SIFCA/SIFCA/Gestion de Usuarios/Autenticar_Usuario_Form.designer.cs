@@ -3,7 +3,7 @@
     partial class Autenticar_Usuario_Form
     {
         /// <summary>
-        /// Required designer variable.
+        /// Required designer operador.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 

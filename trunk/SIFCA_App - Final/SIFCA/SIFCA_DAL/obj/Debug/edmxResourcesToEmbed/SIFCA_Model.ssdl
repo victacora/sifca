@@ -2,6 +2,7 @@
 <Schema Namespace="SIFCA_Model.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="SIFCA_ModelStoreContainer">
     <EntitySet Name="CALIDAD" EntityType="SIFCA_Model.Store.CALIDAD" store:Type="Tables" />
+    <EntitySet Name="COSTO" EntityType="SIFCA_Model.Store.COSTO" store:Type="Tables" />
     <EntitySet Name="ESPECIE" EntityType="SIFCA_Model.Store.ESPECIE" store:Type="Tables" />
     <EntitySet Name="ESTADOSANITARIO" EntityType="SIFCA_Model.Store.ESTADOSANITARIO" store:Type="Tables" />
     <EntitySet Name="ESTRATO" EntityType="SIFCA_Model.Store.ESTRATO" store:Type="Tables" />
@@ -13,6 +14,7 @@
     <EntitySet Name="LINEAINVENTARIO" EntityType="SIFCA_Model.Store.LINEAINVENTARIO" store:Type="Tables" />
     <EntitySet Name="LINEANOMADERABLES" EntityType="SIFCA_Model.Store.LINEANOMADERABLES" store:Type="Tables" />
     <EntitySet Name="LINEAREGENERACION" EntityType="SIFCA_Model.Store.LINEAREGENERACION" store:Type="Tables" />
+    <EntitySet Name="LISTADODECOSTOS" EntityType="SIFCA_Model.Store.LISTADODECOSTOS" store:Type="Tables" />
     <EntitySet Name="LISTADODEESPECIES" EntityType="SIFCA_Model.Store.LISTADODEESPECIES" store:Type="Tables" />
     <EntitySet Name="LISTADODEESTRATOS" EntityType="SIFCA_Model.Store.LISTADODEESTRATOS" store:Type="Tables" />
     <EntitySet Name="OBJETIVOINVENTARIO" EntityType="SIFCA_Model.Store.OBJETIVOINVENTARIO" store:Type="Tables" />
@@ -90,9 +92,17 @@
       <End Role="ESPECIE" EntitySet="ESPECIE" />
       <End Role="LISTADODEESPECIES" EntitySet="LISTADODEESPECIES" />
     </AssociationSet>
+    <AssociationSet Name="FK_LISTADOD_LISTADODE_PROYECTO" Association="SIFCA_Model.Store.FK_LISTADOD_LISTADODE_PROYECTO">
+      <End Role="PROYECTO" EntitySet="PROYECTO" />
+      <End Role="LISTADODECOSTOS" EntitySet="LISTADODECOSTOS" />
+    </AssociationSet>
     <AssociationSet Name="FK_LISTADOD_LISTAESTR_ESTRATO" Association="SIFCA_Model.Store.FK_LISTADOD_LISTAESTR_ESTRATO">
       <End Role="ESTRATO" EntitySet="ESTRATO" />
       <End Role="LISTADODEESTRATOS" EntitySet="LISTADODEESTRATOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LISTADOD_PROYECTOC_COSTO" Association="SIFCA_Model.Store.FK_LISTADOD_PROYECTOC_COSTO">
+      <End Role="COSTO" EntitySet="COSTO" />
+      <End Role="LISTADODECOSTOS" EntitySet="LISTADODECOSTOS" />
     </AssociationSet>
     <AssociationSet Name="FK_LISTADOESPECIES_PROYECTO" Association="SIFCA_Model.Store.FK_LISTADOESPECIES_PROYECTO">
       <End Role="PROYECTO" EntitySet="PROYECTO" />
@@ -145,6 +155,15 @@
     </Key>
     <Property Name="CODCALIDAD" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="DESCRIPCALIDAD" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="COSTO">
+    <Key>
+      <PropertyRef Name="NROCOSTO" />
+    </Key>
+    <Property Name="NROCOSTO" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="150" />
+    <Property Name="DESCRIPCION" Type="nvarchar" MaxLength="500" />
+    <Property Name="TIPO" Type="nvarchar" MaxLength="2" />
   </EntityType>
   <EntityType Name="ESPECIE">
     <Key>
@@ -263,6 +282,15 @@
     <Property Name="NROFORMULARIO" Type="uniqueidentifier" Nullable="false" />
     <Property Name="CODESP" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
+  <EntityType Name="LISTADODECOSTOS">
+    <Key>
+      <PropertyRef Name="NROCOSTO" />
+      <PropertyRef Name="NROPROY" />
+    </Key>
+    <Property Name="NROCOSTO" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="NROPROY" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="VALOR" Type="numeric" Nullable="false" Scale="3" />
+  </EntityType>
   <EntityType Name="LISTADODEESPECIES">
     <Key>
       <PropertyRef Name="CODESP" />
@@ -349,14 +377,15 @@
     <Key>
       <PropertyRef Name="NROTRANS" />
     </Key>
-    <Property Name="NROTRANS" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NROTRANS" Type="uniqueidentifier" Nullable="false" />
     <Property Name="NROUSUARIO" Type="uniqueidentifier" Nullable="false" />
     <Property Name="FECHA" Type="datetime" Nullable="false" />
     <Property Name="TABLA" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="IDREGISTRO" Type="numeric" Nullable="false" />
+    <Property Name="IDREGISTRO" Type="nvarchar" MaxLength="150" />
+    <Property Name="TIPOIDREGISTRO" Type="nvarchar" MaxLength="50" />
     <Property Name="OPERACION" Type="nchar" Nullable="false" MaxLength="1" />
-    <Property Name="VALORESVIEJOS" Type="nvarchar" MaxLength="1024" />
-    <Property Name="VALORESNUEVOS" Type="nvarchar" MaxLength="1024" />
+    <Property Name="VALORESVIEJOS" Type="ntext" />
+    <Property Name="VALORESNUEVOS" Type="ntext" />
   </EntityType>
   <EntityType Name="TSTUDENT">
     <Key>
@@ -620,6 +649,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_LISTADOD_LISTADODE_PROYECTO">
+    <End Role="PROYECTO" Type="SIFCA_Model.Store.PROYECTO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LISTADODECOSTOS" Type="SIFCA_Model.Store.LISTADODECOSTOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROYECTO">
+        <PropertyRef Name="NROPROY" />
+      </Principal>
+      <Dependent Role="LISTADODECOSTOS">
+        <PropertyRef Name="NROPROY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_LISTADOD_LISTAESTR_ESTRATO">
     <End Role="ESTRATO" Type="SIFCA_Model.Store.ESTRATO" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -631,6 +674,20 @@
       </Principal>
       <Dependent Role="LISTADODEESTRATOS">
         <PropertyRef Name="CODEST" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LISTADOD_PROYECTOC_COSTO">
+    <End Role="COSTO" Type="SIFCA_Model.Store.COSTO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LISTADODECOSTOS" Type="SIFCA_Model.Store.LISTADODECOSTOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COSTO">
+        <PropertyRef Name="NROCOSTO" />
+      </Principal>
+      <Dependent Role="LISTADODECOSTOS">
+        <PropertyRef Name="NROCOSTO" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -105,11 +105,15 @@
     <Reference Include="Remotion.Interfaces">
       <HintPath>..\packages\LinqToExcel.1.7.1\lib\Remotion.Interfaces.dll</HintPath>
     </Reference>
+    <Reference Include="SharpGraphLib">
+      <HintPath>..\packages\SharpGraphLib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -229,12 +233,19 @@
     <Compile Include="Gestion de Datos y Formularios\Listar_Datos_Formulario_Form.Designer.cs">
       <DependentUpon>Listar_Datos_Formulario_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper\Evaluador_Expressiones.cs" />
     <Compile Include="Helper\ImporExportExcel.cs" />
     <Compile Include="Manejo de la Configuracion\Calidad_Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Manejo de la Configuracion\Calidad_Form.designer.cs">
       <DependentUpon>Calidad_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\Costo_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manejo de la Configuracion\Costo_Form.designer.cs">
+      <DependentUpon>Costo_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Manejo de la Configuracion\Especies_Form.cs">
       <SubType>Form</SubType>
@@ -368,6 +379,9 @@
     <EmbeddedResource Include="Manejo de la Configuracion\Calidad_Form.resx">
       <DependentUpon>Calidad_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Manejo de la Configuracion\Costo_Form.resx">
+      <DependentUpon>Costo_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Manejo de la Configuracion\Especies_Form.resx">
       <DependentUpon>Especies_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -411,7 +425,6 @@
     <EmbeddedResource Include="Reportes\ClasesDiametricas_Form.resx">
       <DependentUpon>ClasesDiametricas_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\DiametricClassesReport.rdlc" />
     <EmbeddedResource Include="Reportes\GraphicsReport.rdlc" />
     <EmbeddedResource Include="Reportes\ResultsReport.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -446,6 +459,7 @@
     <None Include="Properties\DataSources\SIFCA_DAL.TRANSACCION.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.TSTUDENT.datasource" />
     <None Include="Properties\DataSources\SIFCA_DAL.USUARIO.datasource" />
+    <None Include="Properties\DataSources\SIFCA_DAL.VARIABLE1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

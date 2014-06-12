@@ -15,7 +15,8 @@ namespace SIFCA_DAL
         public String CLASE { get; set; }
         public decimal CONTEO { get; set; }
         public decimal AREABASAL { get; set; }
-        public decimal VOLUMEN { get; set; }
+        public decimal VOLUMENCOMERCIAL { get; set; }
+        public decimal VOLUMENTOTAL { get; set; }
         public decimal TOTAL { get; set; }
         public decimal PORCENTAJE { get; set; }
         public REPORTECLASESDIAMETRICAS()
@@ -27,7 +28,8 @@ namespace SIFCA_DAL
                 //this.CODESP = Guid.Empty;
                 this.CONTEO = 0;
                 this.AREABASAL = 0;
-                this.VOLUMEN = 0;
+                this.VOLUMENCOMERCIAL = 0;
+                this.VOLUMENTOTAL = 0;
                 this.TOTAL = 0;
                 this.PORCENTAJE = 0;
             }

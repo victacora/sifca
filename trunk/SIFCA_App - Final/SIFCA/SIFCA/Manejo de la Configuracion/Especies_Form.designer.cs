@@ -3,7 +3,7 @@
     partial class Especies_Form
     {
         /// <summary>
-        /// Required designer variable.
+        /// Required designer operador.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
@@ -45,7 +45,6 @@
             this.fAMILIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zONAGEOGRAFICADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zONADEVIDADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dIAMMINCORTEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Detalle = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -100,14 +99,12 @@
             this.btn_crearImg = new System.Windows.Forms.Button();
             this.cbox_GrupoComercial = new System.Windows.Forms.ComboBox();
             this.btn_Cancelar = new System.Windows.Forms.Button();
-            this.txt_DMC = new System.Windows.Forms.TextBox();
             this.Btn_Crear = new System.Windows.Forms.Button();
             this.txt_ZonaVida = new System.Windows.Forms.TextBox();
             this.txt_ZonaGeografica = new System.Windows.Forms.TextBox();
             this.txt_Familia = new System.Windows.Forms.TextBox();
             this.txt_NombreCientifico = new System.Windows.Forms.TextBox();
             this.txt_NombreComun = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -140,8 +137,6 @@
             this.Btn_CancelarUpdate = new System.Windows.Forms.Button();
             this.grupoComercialCbx = new System.Windows.Forms.ComboBox();
             this.Guardar = new System.Windows.Forms.Button();
-            this.txt_DimCor = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
             this.txt_ZonaVid = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.txt_ZonaGeogra = new System.Windows.Forms.TextBox();
@@ -182,8 +177,6 @@
             this.label44 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.cbxGrupoComercial_det = new System.Windows.Forms.ComboBox();
-            this.txt_DimCor_det = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.txt_ZonaVid_det = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.txt_ZonaGeogra_det = new System.Windows.Forms.TextBox();
@@ -288,6 +281,7 @@
             // 
             this.ListadoEspecies.AllowUserToAddRows = false;
             this.ListadoEspecies.AllowUserToDeleteRows = false;
+            this.ListadoEspecies.AllowUserToOrderColumns = true;
             this.ListadoEspecies.AutoGenerateColumns = false;
             this.ListadoEspecies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ListadoEspecies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -300,7 +294,6 @@
             this.fAMILIADataGridViewTextBoxColumn,
             this.zONAGEOGRAFICADataGridViewTextBoxColumn,
             this.zONADEVIDADataGridViewTextBoxColumn,
-            this.dIAMMINCORTEDataGridViewTextBoxColumn,
             this.Editar,
             this.Eliminar,
             this.Detalle});
@@ -308,7 +301,8 @@
             this.ListadoEspecies.Location = new System.Drawing.Point(0, 25);
             this.ListadoEspecies.Name = "ListadoEspecies";
             this.ListadoEspecies.ReadOnly = true;
-            this.ListadoEspecies.Size = new System.Drawing.Size(871, 457);
+            this.ListadoEspecies.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.ListadoEspecies.Size = new System.Drawing.Size(886, 457);
             this.ListadoEspecies.TabIndex = 3;
             this.ListadoEspecies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListadoDeEspecies_CellValueChanged);
             this.ListadoEspecies.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.ListadoEspecies_CellFormatting);
@@ -358,7 +352,6 @@
             this.GRUPOECOLOGICO.Name = "GRUPOECOLOGICO";
             this.GRUPOECOLOGICO.ReadOnly = true;
             this.GRUPOECOLOGICO.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.GRUPOECOLOGICO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // fAMILIADataGridViewTextBoxColumn
             // 
@@ -380,13 +373,6 @@
             this.zONADEVIDADataGridViewTextBoxColumn.HeaderText = "Zona De Vida";
             this.zONADEVIDADataGridViewTextBoxColumn.Name = "zONADEVIDADataGridViewTextBoxColumn";
             this.zONADEVIDADataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dIAMMINCORTEDataGridViewTextBoxColumn
-            // 
-            this.dIAMMINCORTEDataGridViewTextBoxColumn.DataPropertyName = "DIAMMINCORTE";
-            this.dIAMMINCORTEDataGridViewTextBoxColumn.HeaderText = "Diametro De Corte";
-            this.dIAMMINCORTEDataGridViewTextBoxColumn.Name = "dIAMMINCORTEDataGridViewTextBoxColumn";
-            this.dIAMMINCORTEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Editar
             // 
@@ -846,14 +832,12 @@
             this.groupBox1.Controls.Add(this.btn_crearImg);
             this.groupBox1.Controls.Add(this.cbox_GrupoComercial);
             this.groupBox1.Controls.Add(this.btn_Cancelar);
-            this.groupBox1.Controls.Add(this.txt_DMC);
             this.groupBox1.Controls.Add(this.Btn_Crear);
             this.groupBox1.Controls.Add(this.txt_ZonaVida);
             this.groupBox1.Controls.Add(this.txt_ZonaGeografica);
             this.groupBox1.Controls.Add(this.txt_Familia);
             this.groupBox1.Controls.Add(this.txt_NombreCientifico);
             this.groupBox1.Controls.Add(this.txt_NombreComun);
-            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -874,9 +858,9 @@
             this.grupoEcoCbx.Items.AddRange(new object[] {
             "Tolerante",
             "No Tolerante"});
-            this.grupoEcoCbx.Location = new System.Drawing.Point(189, 217);
+            this.grupoEcoCbx.Location = new System.Drawing.Point(136, 217);
             this.grupoEcoCbx.Name = "grupoEcoCbx";
-            this.grupoEcoCbx.Size = new System.Drawing.Size(133, 21);
+            this.grupoEcoCbx.Size = new System.Drawing.Size(186, 21);
             this.grupoEcoCbx.TabIndex = 10;
             this.grupoEcoCbx.ValueMember = "GRUPOCOM";
             // 
@@ -921,18 +905,6 @@
             this.btn_Cancelar.UseVisualStyleBackColor = true;
             this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
-            // txt_DMC
-            // 
-            this.txt_DMC.AcceptsTab = true;
-            this.eP_errors.SetError(this.txt_DMC, "Medida en metros");
-            this.txt_DMC.Location = new System.Drawing.Point(189, 189);
-            this.txt_DMC.MaxLength = 25;
-            this.txt_DMC.Name = "txt_DMC";
-            this.txt_DMC.Size = new System.Drawing.Size(133, 20);
-            this.txt_DMC.TabIndex = 6;
-            this.txt_DMC.Text = "0.0";
-            this.txt_DMC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
-            // 
             // Btn_Crear
             // 
             this.Btn_Crear.Location = new System.Drawing.Point(142, 259);
@@ -946,7 +918,7 @@
             // txt_ZonaVida
             // 
             this.txt_ZonaVida.AcceptsTab = true;
-            this.txt_ZonaVida.Location = new System.Drawing.Point(136, 161);
+            this.txt_ZonaVida.Location = new System.Drawing.Point(136, 185);
             this.txt_ZonaVida.MaxLength = 200;
             this.txt_ZonaVida.Name = "txt_ZonaVida";
             this.txt_ZonaVida.Size = new System.Drawing.Size(186, 20);
@@ -956,7 +928,7 @@
             // txt_ZonaGeografica
             // 
             this.txt_ZonaGeografica.AcceptsTab = true;
-            this.txt_ZonaGeografica.Location = new System.Drawing.Point(136, 132);
+            this.txt_ZonaGeografica.Location = new System.Drawing.Point(136, 152);
             this.txt_ZonaGeografica.MaxLength = 200;
             this.txt_ZonaGeografica.Name = "txt_ZonaGeografica";
             this.txt_ZonaGeografica.Size = new System.Drawing.Size(186, 20);
@@ -966,7 +938,7 @@
             // txt_Familia
             // 
             this.txt_Familia.AcceptsTab = true;
-            this.txt_Familia.Location = new System.Drawing.Point(136, 106);
+            this.txt_Familia.Location = new System.Drawing.Point(136, 119);
             this.txt_Familia.MaxLength = 200;
             this.txt_Familia.Name = "txt_Familia";
             this.txt_Familia.Size = new System.Drawing.Size(186, 20);
@@ -975,7 +947,7 @@
             // txt_NombreCientifico
             // 
             this.txt_NombreCientifico.AcceptsTab = true;
-            this.txt_NombreCientifico.Location = new System.Drawing.Point(136, 80);
+            this.txt_NombreCientifico.Location = new System.Drawing.Point(136, 88);
             this.txt_NombreCientifico.MaxLength = 200;
             this.txt_NombreCientifico.Name = "txt_NombreCientifico";
             this.txt_NombreCientifico.Size = new System.Drawing.Size(186, 20);
@@ -984,25 +956,16 @@
             // txt_NombreComun
             // 
             this.txt_NombreComun.AcceptsTab = true;
-            this.txt_NombreComun.Location = new System.Drawing.Point(136, 54);
+            this.txt_NombreComun.Location = new System.Drawing.Point(136, 55);
             this.txt_NombreComun.MaxLength = 200;
             this.txt_NombreComun.Name = "txt_NombreComun";
             this.txt_NombreComun.Size = new System.Drawing.Size(186, 20);
             this.txt_NombreComun.TabIndex = 1;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(21, 189);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(146, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Diametro minimo corte (Mtrs) :";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(21, 161);
+            this.label6.Location = new System.Drawing.Point(21, 185);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 13);
             this.label6.TabIndex = 5;
@@ -1012,7 +975,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 135);
+            this.label5.Location = new System.Drawing.Point(21, 155);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 13);
             this.label5.TabIndex = 4;
@@ -1021,7 +984,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 109);
+            this.label4.Location = new System.Drawing.Point(21, 122);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 3;
@@ -1030,7 +993,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 83);
+            this.label1.Location = new System.Drawing.Point(21, 91);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 13);
             this.label1.TabIndex = 2;
@@ -1039,7 +1002,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 57);
+            this.label8.Location = new System.Drawing.Point(21, 58);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(85, 13);
             this.label8.TabIndex = 1;
@@ -1065,6 +1028,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.AutoSize = true;
             this.groupBox6.Controls.Add(this.UpdateImageBN);
             this.groupBox6.Controls.Add(this.updImgUbic);
             this.groupBox6.Controls.Add(this.pB_imgUpdate);
@@ -1075,7 +1039,7 @@
             this.groupBox6.Controls.Add(this.updImgName);
             this.groupBox6.Location = new System.Drawing.Point(355, 14);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(357, 388);
+            this.groupBox6.Size = new System.Drawing.Size(357, 393);
             this.groupBox6.TabIndex = 60;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Imagenes";
@@ -1261,8 +1225,6 @@
             this.groupBox3.Controls.Add(this.Btn_CancelarUpdate);
             this.groupBox3.Controls.Add(this.grupoComercialCbx);
             this.groupBox3.Controls.Add(this.Guardar);
-            this.groupBox3.Controls.Add(this.txt_DimCor);
-            this.groupBox3.Controls.Add(this.label23);
             this.groupBox3.Controls.Add(this.txt_ZonaVid);
             this.groupBox3.Controls.Add(this.label24);
             this.groupBox3.Controls.Add(this.txt_ZonaGeogra);
@@ -1287,7 +1249,7 @@
             this.updGrupoEcoCbx.Items.AddRange(new object[] {
             "Tolerante",
             "No Tolerante"});
-            this.updGrupoEcoCbx.Location = new System.Drawing.Point(152, 230);
+            this.updGrupoEcoCbx.Location = new System.Drawing.Point(152, 202);
             this.updGrupoEcoCbx.Name = "updGrupoEcoCbx";
             this.updGrupoEcoCbx.Size = new System.Drawing.Size(153, 21);
             this.updGrupoEcoCbx.TabIndex = 19;
@@ -1295,7 +1257,7 @@
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(32, 233);
+            this.label43.Location = new System.Drawing.Point(32, 205);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(85, 13);
             this.label43.TabIndex = 18;
@@ -1331,24 +1293,6 @@
             this.Guardar.Text = "Guardar";
             this.Guardar.UseVisualStyleBackColor = true;
             this.Guardar.Click += new System.EventHandler(this.Btn_guardar_Click);
-            // 
-            // txt_DimCor
-            // 
-            this.txt_DimCor.Location = new System.Drawing.Point(153, 201);
-            this.txt_DimCor.MaxLength = 25;
-            this.txt_DimCor.Name = "txt_DimCor";
-            this.txt_DimCor.Size = new System.Drawing.Size(152, 20);
-            this.txt_DimCor.TabIndex = 6;
-            this.txt_DimCor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(33, 201);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(106, 13);
-            this.label23.TabIndex = 16;
-            this.label23.Text = "Diametro Corte (Mtrs)";
             // 
             // txt_ZonaVid
             // 
@@ -1676,8 +1620,6 @@
             this.ver_detalle.Controls.Add(this.label44);
             this.ver_detalle.Controls.Add(this.pictureBox2);
             this.ver_detalle.Controls.Add(this.cbxGrupoComercial_det);
-            this.ver_detalle.Controls.Add(this.txt_DimCor_det);
-            this.ver_detalle.Controls.Add(this.label2);
             this.ver_detalle.Controls.Add(this.txt_ZonaVid_det);
             this.ver_detalle.Controls.Add(this.label30);
             this.ver_detalle.Controls.Add(this.txt_ZonaGeogra_det);
@@ -1698,7 +1640,7 @@
             // 
             // detailGrupoEcoTxt
             // 
-            this.detailGrupoEcoTxt.Location = new System.Drawing.Point(137, 312);
+            this.detailGrupoEcoTxt.Location = new System.Drawing.Point(137, 285);
             this.detailGrupoEcoTxt.Name = "detailGrupoEcoTxt";
             this.detailGrupoEcoTxt.ReadOnly = true;
             this.detailGrupoEcoTxt.Size = new System.Drawing.Size(152, 20);
@@ -1707,7 +1649,7 @@
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(17, 312);
+            this.label44.Location = new System.Drawing.Point(17, 285);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(85, 13);
             this.label44.TabIndex = 73;
@@ -1735,23 +1677,6 @@
             this.cbxGrupoComercial_det.Size = new System.Drawing.Size(152, 21);
             this.cbxGrupoComercial_det.TabIndex = 2;
             this.cbxGrupoComercial_det.ValueMember = "GRUPOCOM";
-            // 
-            // txt_DimCor_det
-            // 
-            this.txt_DimCor_det.Location = new System.Drawing.Point(137, 280);
-            this.txt_DimCor_det.Name = "txt_DimCor_det";
-            this.txt_DimCor_det.ReadOnly = true;
-            this.txt_DimCor_det.Size = new System.Drawing.Size(152, 20);
-            this.txt_DimCor_det.TabIndex = 6;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 280);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 13);
-            this.label2.TabIndex = 68;
-            this.label2.Text = "Diametro Corte";
             // 
             // txt_ZonaVid_det
             // 
@@ -1927,10 +1852,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(893, 491);
-            this.Controls.Add(this.pn_crear);
-            this.Controls.Add(this.pn_editar);
-            this.Controls.Add(this.pn_listado);
             this.Controls.Add(this.pn_detalle);
+            this.Controls.Add(this.pn_editar);
+            this.Controls.Add(this.pn_crear);
+            this.Controls.Add(this.pn_listado);
             this.Controls.Add(this.pn_cargarImg);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1957,6 +1882,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.pn_editar.ResumeLayout(false);
+            this.pn_editar.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UpdateImageBN)).EndInit();
@@ -2043,7 +1969,6 @@
         private System.Windows.Forms.TextBox txt_Familia;
         private System.Windows.Forms.TextBox txt_NombreCientifico;
         private System.Windows.Forms.TextBox txt_NombreComun;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -2055,8 +1980,6 @@
         private System.Windows.Forms.Button Btn_CancelarUpdate;
         private System.Windows.Forms.ComboBox grupoComercialCbx;
         private System.Windows.Forms.Button Guardar;
-        private System.Windows.Forms.TextBox txt_DimCor;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox txt_ZonaVid;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox txt_ZonaGeogra;
@@ -2101,8 +2024,6 @@
         private System.Windows.Forms.TextBox nOMBRETextBox;
         private System.Windows.Forms.GroupBox ver_detalle;
         private System.Windows.Forms.ComboBox cbxGrupoComercial_det;
-        private System.Windows.Forms.TextBox txt_DimCor_det;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_ZonaVid_det;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox txt_ZonaGeogra_det;
@@ -2118,7 +2039,6 @@
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.TextBox rutatxt;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox txt_DMC;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.TextBox updImgDesc;
@@ -2143,6 +2063,7 @@
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.TextBox detailGrupoEcoTxt;
         private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.ToolStripButton cargarArchivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn nOMCOMUNDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cODESPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nOMCIENTIFICODataGridViewTextBoxColumn;
@@ -2151,10 +2072,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fAMILIADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn zONAGEOGRAFICADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn zONADEVIDADataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dIAMMINCORTEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Editar;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
         private System.Windows.Forms.DataGridViewButtonColumn Detalle;
-        private System.Windows.Forms.ToolStripButton cargarArchivo;
     }
 }

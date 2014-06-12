@@ -1,0 +1,13 @@
+[ConnectionProfile]
+ConnectionType=Native
+Database=MOVILIDADFUTURAINGUA_MA
+Dbms=SNC SQL Native Client
+DelimitIdentifier=Yes
+Description=MovilidadFutura2014
+DisableBind=0
+LogId=su
+LogPassword=123
+Provider=SQLNCLI10
+ProviderString=OLE DB Services=-4
+ServerName=186.147.240.100,1433\SQLEXPRESS
+TrimSpaces=0

@@ -21,6 +21,7 @@ namespace SIFCA_DAL
             this.PROYECTOSPORETAPA = new HashSet<PROYECTOSPORETAPA>();
             this.PROYECTOSPORETAPA1 = new HashSet<PROYECTOSPORETAPA>();
             this.ESPECIE = new HashSet<ESPECIE>();
+            this.LISTADODECOSTOS = new HashSet<LISTADODECOSTOS>();
         }
     
         public System.Guid NROPROY { get; set; }
@@ -53,6 +54,7 @@ namespace SIFCA_DAL
         public virtual USUARIO USUARIO { get; set; }
         public virtual TIPODISENOMUESTRAL TIPODISENOMUESTRAL { get; set; }
         public virtual ICollection<ESPECIE> ESPECIE { get; set; }
+        public virtual ICollection<LISTADODECOSTOS> LISTADODECOSTOS { get; set; }
     }
     
 }

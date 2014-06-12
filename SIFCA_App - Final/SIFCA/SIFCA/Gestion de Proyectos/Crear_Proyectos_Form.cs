@@ -22,6 +22,7 @@ namespace SIFCA
         private StratumBL stratum;
         private SpeciesBL species;
         private FormulateBL formulate;
+        private CostBL costBL;
         private PROYECTO newProject;
         private List<PROYECTOSPORETAPA> listProjectsByStage;
         
@@ -32,7 +33,7 @@ namespace SIFCA
                 InitializeComponent();
                 this.ControlBox = false;
                 criterioCbx.SelectedIndex = 0;
-                newProject = Program.ContextData.PROYECTO.Create();
+                newProject = new PROYECTO();
                 confianzaTextBox.Text = "95";
                 limiteInfTxt.Text = "0,1";
                 areaFustalesTxt.Text = "1";
@@ -51,6 +52,7 @@ namespace SIFCA
                 objetiveInventory = new ObjectiveInventoryBL(Program.ContextData);
                 stratum = new StratumBL(Program.ContextData);
                 species = new SpeciesBL(Program.ContextData);
+                costBL = new CostBL(Program.ContextData);
                 objetivoInventarioBS.DataSource = objetiveInventory.GetObjectiveInventories();
                 newProject.NOMBRETIPOINV = objetivoInventarioBS.Count != 0 ? ((OBJETIVOINVENTARIO)objetivoInventarioBS.Current).NOMBRETIPOINV : null;
                 tipoDisenoBS.DataSource = typeExample.GetTypeSampleDesignList();
@@ -61,10 +63,14 @@ namespace SIFCA
                 especiesDGW.DataSource = especieBS;
                 proyectoBS.DataSource = project.GetProjectsFree(null);
                 proyectoDGW.DataSource = proyectoBS;
+                costoBS.DataSource = costBL.GetCosts();
+                costoDGW.DataSource = costoBS;
                 listProjectsByStage = new List<PROYECTOSPORETAPA>();
                 tipoDisenoCbx.SelectedValue = "SI";
                 TipoProyectoCbx.SelectedIndex = 0;
                 nuevoProyectoBS.DataSource = newProject;
+
+                foreach (Control ctl in crearProyectoTab.TabPages["costosTabP"].Controls) ctl.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -445,6 +451,74 @@ namespace SIFCA
             }
         }
 
+        public int exitsCostListCost(PROYECTO pj, string nameCost)
+        {
+            try
+            {
+                foreach (LISTADODECOSTOS ct in pj.LISTADODECOSTOS)
+                {
+                    if (ct.COSTO.NOMBRE == nameCost)
+                    {
+                        pj.LISTADODECOSTOS.Remove(ct);
+                        return 1;
+                    }
+                }
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                Error_Form er = new Error_Form(ex.Message);
+                er.Show();
+                return 0;
+            }
+        }
+
+        private void createCostList()
+        {
+            try
+            {
+                List<LISTADODECOSTOS> costsProject = newProject.LISTADODECOSTOS.ToList();
+                //List<LISTADODEESTRATOS> newListStratumsProject = new List<LISTADODEESTRATOS>();
+                foreach (DataGridViewRow row in costoDGW.Rows)
+                {
+                    if (row.Cells[0].Value != null)
+                    {
+                        if ((bool)row.Cells[0].Value)
+                        {
+                            LISTADODECOSTOS tempCost = null;
+                            if (costsProject.Count == 0) break;
+                            foreach (LISTADODECOSTOS cost in costsProject)
+                            {
+                                if (cost.COSTO.NOMBRE == row.Cells[2].Value.ToString())
+                                {
+                                    tempCost = cost;
+                                    tempCost.COSTO = cost.COSTO;
+                                    break;
+                                }
+                            }
+                            if (tempCost != null)
+                            {
+                                if (tempCost.COSTO != null)
+                                {
+                                    int posEliminado = this.exitsCostListCost(newProject, tempCost.COSTO.NOMBRE);
+                                    costsProject.Remove(tempCost);
+                                    tempCost.PROYECTO = newProject;
+                                    tempCost.VALOR = (decimal.Parse(row.Cells[3].Value.ToString().Replace('.', ',')));
+                                    newProject.LISTADODECOSTOS.Add(tempCost);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error_Form errorForm = new Error_Form(ex.Message);
+                errorForm.MdiParent = ParentForm;
+                errorForm.Show();
+            }
+        }
+
         private void createStratumList()
         {
             try
@@ -505,7 +579,7 @@ namespace SIFCA
                     {
                         if (Convert.ToBoolean(cellSelecion.Value))
                         {
-                            LISTADODEESTRATOS stratumData = Program.ContextData.LISTADODEESTRATOS.Create();
+                            LISTADODEESTRATOS stratumData = new LISTADODEESTRATOS();
                             ESTRATO data = (ESTRATO)estratoBS.Current;
                             if (data != null)
                             {
@@ -519,7 +593,7 @@ namespace SIFCA
                         }
                         else
                         {
-                            LISTADODEESTRATOS stratumData = Program.ContextData.LISTADODEESTRATOS.Create();
+                            LISTADODEESTRATOS stratumData = new LISTADODEESTRATOS();
                             row.Cells["Peso"].Value = 0.000m;
                             row.Cells["Tamanio"].Value = 0.00m;
                             ESTRATO data = (ESTRATO)estratoBS.Current;
@@ -547,7 +621,7 @@ namespace SIFCA
                                 {
                                     if (Convert.ToBoolean(row.Cells[0].Value))
                                     {
-                                        LISTADODEESTRATOS stratumData = Program.ContextData.LISTADODEESTRATOS.Create();
+                                        LISTADODEESTRATOS stratumData = new LISTADODEESTRATOS();
                                         ESTRATO data = (ESTRATO)estratoBS.Current;
                                         if (data != null)
                                         {
@@ -591,13 +665,13 @@ namespace SIFCA
                         if (Convert.ToBoolean(cellSelecion.Value))
                         {
                             PROYECTO Py = project.GetProject((Guid)row.Cells["Codigo"].Value);
-                            PROYECTOSPORETAPA projectStageFather = Program.ContextData.PROYECTOSPORETAPA.Create();
+                            PROYECTOSPORETAPA projectStageFather = new PROYECTOSPORETAPA();
 
                             projectStageFather.NROPROYCONTENEDOR = newProject.NROPROY;
                             projectStageFather.NROPROYCONTENIDO = Py.NROPROY;
                             projectStageFather.ETAPA = newProject.ETAPA + 1;
                             projectStageFather.PESO = row.Cells["PesoProyecto"].Value != null ? (decimal)row.Cells["PesoProyecto"].Value : 0;
-
+                            
                             if (Py != null)
                             {
                                 newProject.PROYECTOSPORETAPA.Add(projectStageFather); //Proyectos por por etapa va a ser la lista de los hijos 
@@ -607,8 +681,9 @@ namespace SIFCA
                         }
                         else
                         {
+
                             PROYECTO Py = project.GetProject((Guid)row.Cells["Codigo"].Value);
-                            PROYECTOSPORETAPA projectStage = Program.ContextData.PROYECTOSPORETAPA.Create();
+                            PROYECTOSPORETAPA projectStage = new PROYECTOSPORETAPA();
                             projectStage.NROPROYCONTENEDOR = newProject.NROPROY;
                             projectStage.NROPROYCONTENIDO = Py.NROPROY;
                             projectStage.ETAPA = newProject.ETAPA + 1;
@@ -920,6 +995,230 @@ namespace SIFCA
          private void AreaTotalTxt_TextChanged(object sender, EventArgs e)
          {
              datosDeAreaEIntensida();
+         }
+
+         private void validatedNumericValues(object sender, KeyPressEventArgs e)
+         {
+             try
+             {
+                 if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
+                 {
+                     e.Handled = true;
+                 }
+                 // only allow one decimal point                 
+                 if (e.KeyChar == ',' && (sender as TextBox).Text.IndexOf(',') > -1)
+                 {
+                     e.Handled = true;
+                 }
+             }
+             catch (Exception ex)
+             {
+                 Error_Form er = new Error_Form(ex.Message);
+                 er.Show();
+             }
+         }
+         private void validatedIntegerValues(object sender, KeyPressEventArgs e)
+         {
+             try
+             {
+                 if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                 {
+                     e.Handled = true;
+                 }                 
+             }
+             catch (Exception ex)
+             {
+                 Error_Form er = new Error_Form(ex.Message);
+                 er.Show();
+             }
+         }
+
+         private void verBtn_Click(object sender, EventArgs e)
+         {
+             try
+             {
+
+                 decimal X = 0.0m, Ni = 0.0m, N = 0.0m, Sb2 = 0.0m, Sw2 = 0.0m, Sx = 0.0m;
+                 int n = 0, M = 0, m;
+                 decimal[] Xj;
+                 M = (int)numBloquesPriNud.Value;
+                 m = newProject.PROYECTOSPORETAPA.Count;
+                 foreach (PROYECTOSPORETAPA child in newProject.PROYECTOSPORETAPA)
+                 {
+                     PROYECTO con = project.GetProject(child.NROPROYCONTENIDO);
+                     Ni = con.NUMEROPARCELAS;
+                     n = con.FORMULARIO.Count;
+                     decimal sum = 0.0m;
+                     int i = 0;
+                     Xj = new decimal[n];
+
+                     foreach (FORMULARIO fr in con.FORMULARIO)
+                     {
+                         sum += fr.LINEAINVENTARIO.Count();
+                         Xj[i] = sum / n;
+                         Sw2 = (sum - Xj[i]) * (sum - Xj[i]);
+                         i++;
+                     }
+                     X += sum;
+                     N = M * Ni;
+                     X = X / (m * n);
+                     for (int j = 0; j < n; j++)
+                     {
+                         Sb2 += (Xj[n] - X) * (Xj[n] - X);
+                     }
+                     Sb2 = Sb2 / (m - 1);
+                     Sw2 = Sw2 / (m * (n - 1));
+                     string result = (1 - (m / M)) * (Sb2 / m) + (1 - ((m * n) / (M * N))) * (Sw2 / (m * n)) + "";
+                     double S1x = Math.Sqrt(Double.Parse(result));
+                     MessageBox.Show("m:" + m + "Ni: " + Ni + "n :" + n + " N: " + N + "X: " + S1x, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                 }
+             }
+             catch (Exception ex)
+             {
+                 Error_Form er = new Error_Form(ex.Message);
+                 er.Show();
+             }
+
+         }
+
+         private void costoDGW_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+         {
+             try
+             {
+                 if (costoDGW.Columns[e.ColumnIndex].Name == "Costos")
+                 {
+                     DataGridViewRow row = costoDGW.Rows[e.RowIndex];
+                     costoBS.Position = row.Index;
+                     DataGridViewCheckBoxCell cellSelecion = row.Cells[0] as DataGridViewCheckBoxCell;
+                     if (cellSelecion.Value != null)
+                     {
+                         if (Convert.ToBoolean(cellSelecion.Value))
+                         {
+                             row.Cells["Valor"].ToolTipText = "Ingrese el valor total de este costo para el proyecto";
+                             LISTADODECOSTOS costData = new LISTADODECOSTOS();
+                             COSTO data = (COSTO)costoBS.Current;
+                             if (data != null)
+                             {
+                                 costData.COSTO = data;
+                                 costData.PROYECTO = newProject;
+                                 costData.NROCOSTO = data.NROCOSTO;
+                                 decimal val = 0.000m;
+                                 decimal.TryParse(row.Cells["Valor"].Value.ToString().Replace('.', ','), out val);
+                                 costData.VALOR = val;
+                                 this.exitsCostListCost(newProject, costData.COSTO.NOMBRE);
+                                 newProject.LISTADODECOSTOS.Add(costData);
+                             }
+                         }
+                         else
+                         {
+                             LISTADODECOSTOS costData = new LISTADODECOSTOS();
+                             row.Cells["Valor"].Value = 0.000m;
+                             COSTO cost = (COSTO)costoBS.Current;
+                             if (cost != null)
+                             {
+                                 costData.COSTO = cost;
+                                 costData.PROYECTO = newProject;
+                                 this.exitsCostListCost(newProject, cost.NOMBRE);
+                             }
+                         }
+                     }
+                 }
+                 else
+                 {
+                     if (costoDGW.Columns[e.ColumnIndex].Name == "Valor")
+                     {
+                         errorLbl.Text = "";
+                         DataGridViewRow row = costoDGW.Rows[e.RowIndex];
+                         if (row.Cells["Valor"].Value.ToString() != "0" && row.Cells["Valor"].Value.ToString() != "")
+                         {
+                             //row.Cells["Peso"].Value = decimal.Round(decimal.Parse(row.Cells["Tamanio"].Value.ToString().Replace('.', ',')) / decimal.Parse(AreaTotalTxt.Text.ToString().Replace('.', ',')), 2);
+                             if (row.Cells[0].Value != null)
+                             {
+                                 if (Convert.ToBoolean(row.Cells[0].Value))
+                                 {
+                                     LISTADODECOSTOS costData = new LISTADODECOSTOS();
+                                     COSTO data = (COSTO)costoBS.Current;
+                                     if (data != null)
+                                     {
+                                         costData.COSTO = data;
+                                         costData.PROYECTO = newProject;
+                                         costData.VALOR = row.Cells["Valor"].Value == null ? 0 : decimal.Parse(row.Cells["Valor"].Value.ToString().Replace('.', ','));
+                                         this.exitsCostListCost(newProject, costData.COSTO.NOMBRE);
+                                         newProject.LISTADODECOSTOS.Add(costData);
+                                     }
+                                 }
+                             }
+                         }
+                     }
+                 }
+             }
+             catch (Exception ex)
+             {
+                 Error_Form errorForm = new Error_Form(ex.Message);
+                 errorForm.MdiParent = ParentForm;
+                 errorForm.Show();
+             }
+         }
+
+         private void costoDGW_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+         {
+             try
+             {
+                 foreach (DataGridViewRow row in costoDGW.Rows)
+                 {
+                     row.Cells["Valor"].Value = 0.0m;
+                 }
+                 if (newProject != null)
+                 {
+                     List<LISTADODECOSTOS> costsProject = newProject.LISTADODECOSTOS.ToList();
+                     foreach (DataGridViewRow row in costoDGW.Rows)
+                     {
+                         LISTADODECOSTOS tempCost = null;
+                         if (costsProject.Count == 0) break;
+                         foreach (LISTADODECOSTOS ct in costsProject)
+                         {
+                             if (ct.COSTO.NOMBRE == row.Cells[2].Value.ToString())
+                             {
+                                 tempCost = ct;
+                                 tempCost.COSTO = ct.COSTO;
+                                 break;
+                             }
+                         }
+                         if (tempCost != null)
+                         {
+                             if (tempCost.COSTO != null)
+                             {
+                                 costsProject.Remove(tempCost);
+                                 row.Cells[0].Value = true;
+                                 row.Cells["Valor"].Value = tempCost.VALOR;
+                             }
+                         }
+                     }
+                 }
+             }
+             catch (Exception ex)
+             {
+                 Error_Form errorForm = new Error_Form(ex.Message);
+                 errorForm.MdiParent = ParentForm;
+                 errorForm.Show();
+             }
+         }
+
+         private void costoDGW_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+         {
+             try
+             {
+                 if (costoDGW.Columns[e.ColumnIndex].Name == "TIPO")
+                 {
+                     if (e.Value.ToString() == "CF") e.Value = "FIJO";
+                     else e.Value = "VARIABLE";
+                 }
+             }
+             catch (Exception ex)
+             {
+                 Error_Form er = new Error_Form(ex.Message);
+                 er.Show();
+             }
          }
     }
 }

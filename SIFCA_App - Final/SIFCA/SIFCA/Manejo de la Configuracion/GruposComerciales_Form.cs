@@ -25,7 +25,7 @@ namespace SIFCA.Gestion_Configuracion
             try
             {
                 InitializeComponent();
-                groupCom = Program.ContextData.GRUPOCOMERCIAL.Create();
+                groupCom = new GRUPOCOMERCIAL();
                 groupComBL = new GroupBL(Program.ContextData);
                 grupoComBSource.DataSource = groupComBL.GetGroups();
                 pn_listado.Show();
@@ -42,7 +42,7 @@ namespace SIFCA.Gestion_Configuracion
 
         /// <summary>
         /// Funcion que valida que los campos del formulario crear no esten vacios si pasa las validaciones entonces se inserta 
-        /// el nuevo registro y se alerta al usuario con un mensaje de exito, si ocurre un error durante el proceso se notifica al usuario con un mensaje de error
+        /// el nuevo registro y se alerta al usuario con un mensaje de exito, si ocurre un mensaje durante el proceso se notifica al usuario con un mensaje de mensaje
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -50,7 +50,7 @@ namespace SIFCA.Gestion_Configuracion
         {
             try
             {
-                groupCom = Program.ContextData.GRUPOCOMERCIAL.Create();
+                groupCom = new GRUPOCOMERCIAL();
                 if (abrevTxt.Text != "" && descripcionTxt.Text != "")
                 {
                     if (groupComBL.GetGroup(abrevTxt.Text) != null) eP_errors.SetError(abrevTxt, "Ingrese una abreviatura diferente, esta ya esta en uso");
@@ -125,7 +125,7 @@ namespace SIFCA.Gestion_Configuracion
                     // Se selecciona la celda del boton
                     //
 
-                    groupCom = Program.ContextData.GRUPOCOMERCIAL.Create();
+                    groupCom = new GRUPOCOMERCIAL();
 
                     groupCom = groupComBL.GetGroup(row.Cells[0].Value.ToString());
 
@@ -150,7 +150,7 @@ namespace SIFCA.Gestion_Configuracion
                     // Se selecciona la celda del boton
                     //
 
-                    groupCom = Program.ContextData.GRUPOCOMERCIAL.Create();
+                    groupCom = new GRUPOCOMERCIAL();
 
                     groupCom = groupComBL.GetGroup(row.Cells[0].Value.ToString());
 
@@ -198,7 +198,7 @@ namespace SIFCA.Gestion_Configuracion
         /// <summary>
         /// Esta funcion se invoca desde el formulario de actualizar(editar), en este se validan que los campos sean correctos y se procede
         /// a realizar la actualizacio del registro en la base de datos, si la accion se completa satisfactoriamente se notifica al usuario
-        /// por medio de un mensaje de exito, en caso contrario se alerta o notifica del error que se presento
+        /// por medio de un mensaje de exito, en caso contrario se alerta o notifica del mensaje que se presento
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

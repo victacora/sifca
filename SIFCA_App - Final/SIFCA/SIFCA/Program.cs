@@ -7,22 +7,21 @@ using SIFCA_DAL;
 
 namespace SIFCA
 {
-    
+
     static class Program
     {
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
-        
-        public static  ObjectCache Cache = MemoryCache.Default;
+
+        public static ObjectCache Cache = MemoryCache.Default;
 
         public static SIFCA_CONTEXT ContextData = new SIFCA_CONTEXT();
 
         [STAThread]
         static void Main()
         {
-            ContextData.Configuration.ProxyCreationEnabled = true;
-            ContextData.Configuration.LazyLoadingEnabled = true;
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("es-CO");//en-US, es-CO
             AppDomain.CurrentDomain.SetData("DataDirectory", AppDomain.CurrentDomain.BaseDirectory);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

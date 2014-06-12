@@ -73,8 +73,10 @@
     <Compile Include="CALIDAD.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="COSTO.cs">
+      <DependentUpon>SIFCA_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataSourceReport\REPORTECLASESDIAMETRICAS.cs" />
-    <Compile Include="DataSourceReport\REPORTECLASESDIAMETRICASDATASOURCE.cs" />
     <Compile Include="DataSourceReport\REPORTERESULTADODATASOURCE.cs" />
     <Compile Include="DataSourceReport\RESULTADOMUESTREO.cs" />
     <Compile Include="DataSourceReport\TOTALESMUESTREOESTRATIFICADOS.cs" />
@@ -108,6 +110,9 @@
     <Compile Include="LINEAREGENERACION.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="LISTADODECOSTOS.cs">
+      <DependentUpon>SIFCA_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="LISTADODEESTRATOS.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
@@ -121,6 +126,7 @@
     <Compile Include="PROYECTOSPORETAPA.cs">
       <DependentUpon>SIFCA_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="SIFCA_DATACONTEXT.cs" />
     <Compile Include="SIFCA_Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -3,7 +3,7 @@
     partial class Estratos_Form
     {
         /// <summary>
-        /// Required designer variable.
+        /// Required designer operador.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
@@ -100,10 +100,11 @@
             this.Editar,
             this.Eliminar});
             this.ListadoEstratos.DataSource = this.stratumListBSource;
-            this.ListadoEstratos.Location = new System.Drawing.Point(0, 25);
+            this.ListadoEstratos.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ListadoEstratos.Location = new System.Drawing.Point(0, 27);
             this.ListadoEstratos.Name = "ListadoEstratos";
             this.ListadoEstratos.ReadOnly = true;
-            this.ListadoEstratos.Size = new System.Drawing.Size(520, 283);
+            this.ListadoEstratos.Size = new System.Drawing.Size(535, 295);
             this.ListadoEstratos.TabIndex = 3;
             this.ListadoEstratos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Listado_CellValueChanged);
             // 

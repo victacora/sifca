@@ -75,14 +75,23 @@ namespace SIFCA
             }
             if (e.ColumnIndex == usuarioDGW.Columns["eliminar"].Index && e.RowIndex >= 0)
             {
-                DialogResult myResult = MessageBox.Show("¿Esta seguro de querer eliminar esta usuario?", "Mensaje de confirmacion", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (myResult == DialogResult.OK)
+                USUARIO logUser = (USUARIO)Program.Cache.Get("user");
+                if ((Guid)usuarioDGW.Rows[e.RowIndex].Cells[0].Value == logUser.NROUSUARIO)
                 {
-                    user.DeleteUser((Guid)usuarioDGW.Rows[e.RowIndex].Cells[0].Value);
-                    user.SaveChanges();
-                    usuarioBS.DataSource = user.GetUsers();
-                    usuarioDGW.DataSource = usuarioBS;
-                    usuarioDGW.Refresh();
+                    DialogResult myResult = MessageBox.Show("Este usuario esta autenticado en el sistema, por favor cierre la sesión y inicie con una distinta.", "Mensaje de información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    DialogResult myResult = MessageBox.Show("¿Esta seguro de querer eliminar esta usuario?", "Mensaje de confirmacion", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (myResult == DialogResult.OK)
+                    {
+
+                        user.DeleteUser((Guid)usuarioDGW.Rows[e.RowIndex].Cells[0].Value);
+                        user.SaveChanges();
+                        usuarioBS.DataSource = user.GetUsers();
+                        usuarioDGW.DataSource = usuarioBS;
+                        usuarioDGW.Refresh();
+                    }
                 }
             }
         }

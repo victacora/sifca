@@ -77,7 +77,8 @@ namespace SIFCA
                 }
                 else
                 {
-                    //ingresar el usuario a la cache para mantener activa sesion                
+                    //ingresar el usuario a la cache para mantener activa sesion 
+                    Program.ContextData.usuario = result;
                     Program.Cache.Add("user", result, new CacheItemPolicy());
                     Principal_Form parent = (Principal_Form)this.ParentForm;
                     parent.EstatusLabel.Text = "Usuario Autenticado: " + result.NOMBREUSUARIO;
@@ -95,6 +96,7 @@ namespace SIFCA
 
         private void cancelarBtn_Click(object sender, EventArgs e)
         {
+            Program.ContextData.usuario = null;
             this.Close();
         }
 

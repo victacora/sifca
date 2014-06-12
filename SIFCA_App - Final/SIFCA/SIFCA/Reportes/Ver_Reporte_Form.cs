@@ -363,45 +363,5 @@ namespace SIFCA
                 this.verReporteRPVW.RefreshReport();
             }
         }
-
-
-        internal void createReportDC(decimal NumClases, int rangeDAP, string classDiam)
-        {
-            PROYECTO currentProject = (PROYECTO)Program.Cache.Get("project");
-            //int [] ListClass = new int[int.Parse(NumClases.ToString())];
-            
-            //hasta aqui se han cargado los datos del proyecto para poder mostrarlos
-            //REPORTECLASESDIAMETRICASDATASOURCE dsCD = new REPORTECLASESDIAMETRICASDATASOURCE();
-            List<REPORTECLASESDIAMETRICASDATASOURCE> ListresultReportCD = new List<REPORTECLASESDIAMETRICASDATASOURCE>();
-            SpeciesBL SpBL = new SpeciesBL(Program.ContextData);
-            InventoryLineBL lnBL = new InventoryLineBL(Program.ContextData);
-            foreach (FORMULARIO fr in currentProject.FORMULARIO)
-            {
-                foreach (ESPECIE sp in currentProject.ESPECIE)
-                {
-                    List<REPORTECLASESDIAMETRICAS> resultReportCD = new List<REPORTECLASESDIAMETRICAS>();
-                    for (int i = 10; i <= (rangeDAP * NumClases); i = i + rangeDAP)
-                    {
-                        REPORTECLASESDIAMETRICAS rpCD = new REPORTECLASESDIAMETRICAS();
-                        rpCD.CLASE = i + " - " + (i + rangeDAP);
-                        //int count = 0;
-                        rpCD = lnBL.searchDiametricClass(sp.CODESP,fr.NROFORMULARIO, classDiam, i, i + rangeDAP, rpCD);
-                        //rpCD.CONTEO = count;
-
-                        rpCD.TOTAL = rpCD.CONTEO / currentProject.FORMULARIO.Count(); //dividimos el numero entre el numero total de parcelas
-                        rpCD.PORCENTAJE = rpCD.TOTAL * 100;
-                        rpCD.AREABASAL = rpCD.AREABASAL / currentProject.FORMULARIO.Count();
-                        rpCD.VOLUMEN = rpCD.VOLUMEN / currentProject.FORMULARIO.Count();
-                        resultReportCD.Add(rpCD);
-                    }
-                    REPORTECLASESDIAMETRICASDATASOURCE rpCDDS = new REPORTECLASESDIAMETRICASDATASOURCE(resultReportCD,sp.NOMCIENTIFICO,sp.CODESP);
-                    ListresultReportCD.Add(rpCDDS);
-                }
-            }
-
-            diametricClassesBS.DataSource = ListresultReportCD;
-            //resultReportCD.GroupBy(p => p.CODESP);
-            reportCD = true;
-        }
     }
 }

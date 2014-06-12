@@ -3,7 +3,7 @@
     partial class Ver_Reporte_Form
     {
         /// <summary>
-        /// Required designer variable.
+        /// Required designer operador.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
@@ -64,7 +64,6 @@
             // 
             // diametricClassesBS
             // 
-            this.diametricClassesBS.DataSource = typeof(SIFCA_DAL.REPORTECLASESDIAMETRICASDATASOURCE);
             // 
             // Ver_Reporte_Form
             // 

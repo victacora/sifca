@@ -3,7 +3,7 @@
     partial class Error_Form
     {
         /// <summary>
-        /// Required designer variable.
+        /// Required designer operador.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
@@ -43,7 +43,7 @@
             this.groupBox1.Size = new System.Drawing.Size(339, 308);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Detalles del error";
+            this.groupBox1.Text = "Detalles del mensaje";
             // 
             // errorTxt
             // 

@@ -3,7 +3,7 @@
     partial class Crear_Editar_Formulario_Form
     {
         /// <summary>
-        /// Required designer variable.
+        /// Required designer operador.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
@@ -36,7 +36,6 @@
             System.Windows.Forms.Label responsableLbl;
             System.Windows.Forms.Label coordenadasXLbl;
             System.Windows.Forms.Label coordenaYLbl;
-            System.Windows.Forms.Label horaInicioLbl;
             System.Windows.Forms.Label nrArbolLbl;
             System.Windows.Forms.Label especieLbl;
             System.Windows.Forms.Label alturaComercialLbl;
@@ -48,17 +47,18 @@
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label tipoArbolLbl;
-            System.Windows.Forms.Label finalLbl;
+            System.Windows.Forms.Label horaInicioLbl;
             System.Windows.Forms.Label label3;
+            System.Windows.Forms.Label horaFinalLbl;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Crear_Editar_Formulario_Form));
             this.formularioBS = new System.Windows.Forms.BindingSource(this.components);
             this.datosFormularioGrx = new System.Windows.Forms.GroupBox();
             this.finalDpk = new System.Windows.Forms.DateTimePicker();
+            this.inicioDpk = new System.Windows.Forms.DateTimePicker();
             this.proyectoTxt = new System.Windows.Forms.TextBox();
             this.estratoCbx = new System.Windows.Forms.ComboBox();
             this.estratoBS = new System.Windows.Forms.BindingSource(this.components);
             this.guardarformularioBtn = new System.Windows.Forms.Button();
-            this.inicioDpk = new System.Windows.Forms.DateTimePicker();
             this.coordXTxt = new System.Windows.Forms.TextBox();
             this.coordYTxt = new System.Windows.Forms.TextBox();
             this.responsableTxt = new System.Windows.Forms.TextBox();
@@ -191,7 +191,6 @@
             responsableLbl = new System.Windows.Forms.Label();
             coordenadasXLbl = new System.Windows.Forms.Label();
             coordenaYLbl = new System.Windows.Forms.Label();
-            horaInicioLbl = new System.Windows.Forms.Label();
             nrArbolLbl = new System.Windows.Forms.Label();
             especieLbl = new System.Windows.Forms.Label();
             alturaComercialLbl = new System.Windows.Forms.Label();
@@ -203,8 +202,9 @@
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             tipoArbolLbl = new System.Windows.Forms.Label();
-            finalLbl = new System.Windows.Forms.Label();
+            horaInicioLbl = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
+            horaFinalLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.formularioBS)).BeginInit();
             this.datosFormularioGrx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.estratoBS)).BeginInit();
@@ -295,15 +295,6 @@
             coordenaYLbl.Size = new System.Drawing.Size(84, 13);
             coordenaYLbl.TabIndex = 53;
             coordenaYLbl.Text = "Coordenada [Y]:";
-            // 
-            // horaInicioLbl
-            // 
-            horaInicioLbl.AutoSize = true;
-            horaInicioLbl.Location = new System.Drawing.Point(13, 211);
-            horaInicioLbl.Name = "horaInicioLbl";
-            horaInicioLbl.Size = new System.Drawing.Size(105, 13);
-            horaInicioLbl.TabIndex = 59;
-            horaInicioLbl.Text = "Fecha y hora Inicial :";
             // 
             // nrArbolLbl
             // 
@@ -404,14 +395,14 @@
             tipoArbolLbl.TabIndex = 81;
             tipoArbolLbl.Text = "Tipo arbol:";
             // 
-            // finalLbl
+            // horaInicioLbl
             // 
-            finalLbl.AutoSize = true;
-            finalLbl.Location = new System.Drawing.Point(13, 238);
-            finalLbl.Name = "finalLbl";
-            finalLbl.Size = new System.Drawing.Size(97, 13);
-            finalLbl.TabIndex = 69;
-            finalLbl.Text = "Fecha y hora final :";
+            horaInicioLbl.AutoSize = true;
+            horaInicioLbl.Location = new System.Drawing.Point(13, 213);
+            horaInicioLbl.Name = "horaInicioLbl";
+            horaInicioLbl.Size = new System.Drawing.Size(63, 13);
+            horaInicioLbl.TabIndex = 69;
+            horaInicioLbl.Text = "Hora inicio :";
             // 
             // label3
             // 
@@ -422,6 +413,15 @@
             label3.TabIndex = 87;
             label3.Text = "(Mtrs):";
             // 
+            // horaFinalLbl
+            // 
+            horaFinalLbl.AutoSize = true;
+            horaFinalLbl.Location = new System.Drawing.Point(13, 239);
+            horaFinalLbl.Name = "horaFinalLbl";
+            horaFinalLbl.Size = new System.Drawing.Size(61, 13);
+            horaFinalLbl.TabIndex = 71;
+            horaFinalLbl.Text = "Hora Final :";
+            // 
             // formularioBS
             // 
             this.formularioBS.DataSource = typeof(SIFCA_DAL.FORMULARIO);
@@ -430,12 +430,12 @@
             // 
             this.datosFormularioGrx.BackColor = System.Drawing.SystemColors.Window;
             this.datosFormularioGrx.Controls.Add(this.finalDpk);
-            this.datosFormularioGrx.Controls.Add(finalLbl);
+            this.datosFormularioGrx.Controls.Add(horaFinalLbl);
+            this.datosFormularioGrx.Controls.Add(this.inicioDpk);
+            this.datosFormularioGrx.Controls.Add(horaInicioLbl);
             this.datosFormularioGrx.Controls.Add(this.proyectoTxt);
             this.datosFormularioGrx.Controls.Add(this.estratoCbx);
             this.datosFormularioGrx.Controls.Add(this.guardarformularioBtn);
-            this.datosFormularioGrx.Controls.Add(horaInicioLbl);
-            this.datosFormularioGrx.Controls.Add(this.inicioDpk);
             this.datosFormularioGrx.Controls.Add(coordenadasXLbl);
             this.datosFormularioGrx.Controls.Add(this.coordXTxt);
             this.datosFormularioGrx.Controls.Add(coordenaYLbl);
@@ -457,15 +457,27 @@
             // 
             // finalDpk
             // 
-            this.finalDpk.CustomFormat = "dd/MM /yyyy - hh:mm:ss";
+            this.finalDpk.CustomFormat = "hh:mm:ss";
             this.finalDpk.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.formularioBS, "HORAFINAL", true));
             this.finalDpk.Enabled = false;
-            this.finalDpk.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.finalDpk.Location = new System.Drawing.Point(124, 233);
+            this.finalDpk.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.finalDpk.Location = new System.Drawing.Point(124, 234);
             this.finalDpk.Name = "finalDpk";
+            this.finalDpk.ShowUpDown = true;
             this.finalDpk.Size = new System.Drawing.Size(200, 20);
-            this.finalDpk.TabIndex = 9;
+            this.finalDpk.TabIndex = 70;
             this.finalDpk.ValueChanged += new System.EventHandler(this.finalDpk_ValueChanged);
+            // 
+            // inicioDpk
+            // 
+            this.inicioDpk.CustomFormat = "hh:mm:ss";
+            this.inicioDpk.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.formularioBS, "HORAINICIO", true));
+            this.inicioDpk.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.inicioDpk.Location = new System.Drawing.Point(124, 208);
+            this.inicioDpk.Name = "inicioDpk";
+            this.inicioDpk.ShowUpDown = true;
+            this.inicioDpk.Size = new System.Drawing.Size(200, 20);
+            this.inicioDpk.TabIndex = 9;
             // 
             // proyectoTxt
             // 
@@ -502,17 +514,6 @@
             this.guardarformularioBtn.Text = "Guardar Formulario";
             this.guardarformularioBtn.UseVisualStyleBackColor = true;
             this.guardarformularioBtn.Click += new System.EventHandler(this.guardarformularioBtn_Click);
-            // 
-            // inicioDpk
-            // 
-            this.inicioDpk.CustomFormat = "dd/MM /yyyy - hh:mm:ss";
-            this.inicioDpk.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.formularioBS, "HORAINICIO", true));
-            this.inicioDpk.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.inicioDpk.Location = new System.Drawing.Point(124, 207);
-            this.inicioDpk.Name = "inicioDpk";
-            this.inicioDpk.Size = new System.Drawing.Size(200, 20);
-            this.inicioDpk.TabIndex = 8;
-            this.inicioDpk.ValueChanged += new System.EventHandler(this.inicioDpk_ValueChanged);
             // 
             // coordXTxt
             // 
@@ -1802,7 +1803,6 @@
         private System.Windows.Forms.TextBox coordXTxt;
         private System.Windows.Forms.TextBox coordYTxt;
         private System.Windows.Forms.TextBox responsableTxt;
-        private System.Windows.Forms.DateTimePicker inicioDpk;
         private System.Windows.Forms.Button guardarformularioBtn;
         private System.Windows.Forms.ComboBox estratoCbx;
         private System.Windows.Forms.BindingSource estratoBS;
@@ -1882,7 +1882,7 @@
         private System.Windows.Forms.RadioButton nombreComunRegenRbtn;
         private System.Windows.Forms.RadioButton nomCientificoRegenRbtn;
         private System.Windows.Forms.Button detalleEspecieRegenBtn;
-        private System.Windows.Forms.DateTimePicker finalDpk;
+        private System.Windows.Forms.DateTimePicker inicioDpk;
         private System.Windows.Forms.ErrorProvider controladorErrores;
         private System.Windows.Forms.BindingNavigator lineaInvBN;
         private System.Windows.Forms.ToolStripButton agregarLineInv;
@@ -1927,5 +1927,6 @@
         private System.Windows.Forms.RadioButton DAPRbtn;
         private System.Windows.Forms.RadioButton CAPRbtn;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DateTimePicker finalDpk;
     }
 }

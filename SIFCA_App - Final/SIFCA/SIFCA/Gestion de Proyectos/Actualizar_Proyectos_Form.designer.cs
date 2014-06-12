@@ -3,7 +3,7 @@
     partial class Actualizar_Proyectos_Form
     {
         /// <summary>
-        /// Required designer variable.
+        /// Required designer operador.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
@@ -57,6 +57,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.actualizarProyectoTab = new System.Windows.Forms.TabControl();
             this.proyectoTabP = new System.Windows.Forms.TabPage();
             this.DatosProyectoGbx = new System.Windows.Forms.GroupBox();
@@ -137,10 +140,23 @@
             this.proyectosBS = new System.Windows.Forms.BindingSource(this.components);
             this.seleccionarProyectosBtn = new System.Windows.Forms.Button();
             this.removerProyectosBtn = new System.Windows.Forms.Button();
+            this.costosTabP = new System.Windows.Forms.TabPage();
+            this.costoDGW = new System.Windows.Forms.DataGridView();
+            this.Costos = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.NROCOSTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TIPO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lISTADODECOSTOSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costoBS = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.usuarioBS = new System.Windows.Forms.BindingSource(this.components);
             this.cancelarBtn = new System.Windows.Forms.Button();
             this.ActualizarBtn = new System.Windows.Forms.Button();
             this.controladorErrores = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorCostoLbl = new System.Windows.Forms.Label();
             descripcionLbl = new System.Windows.Forms.Label();
             lugarLbl = new System.Windows.Forms.Label();
             TipoDisenoLbl = new System.Windows.Forms.Label();
@@ -176,6 +192,9 @@
             this.proyectosContTabP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDGW)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectosBS)).BeginInit();
+            this.costosTabP.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.costoDGW)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.costoBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.controladorErrores)).BeginInit();
             this.SuspendLayout();
@@ -323,6 +342,7 @@
             this.actualizarProyectoTab.Controls.Add(this.estratosTabP);
             this.actualizarProyectoTab.Controls.Add(this.formulariosTap);
             this.actualizarProyectoTab.Controls.Add(this.proyectosContTabP);
+            this.actualizarProyectoTab.Controls.Add(this.costosTabP);
             this.actualizarProyectoTab.Dock = System.Windows.Forms.DockStyle.Top;
             this.actualizarProyectoTab.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.actualizarProyectoTab.ItemSize = new System.Drawing.Size(40, 120);
@@ -480,6 +500,7 @@
             this.confianzaTxt.Name = "confianzaTxt";
             this.confianzaTxt.Size = new System.Drawing.Size(326, 20);
             this.confianzaTxt.TabIndex = 45;
+            this.confianzaTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
             // tamParcelaTxt
             // 
@@ -488,6 +509,7 @@
             this.tamParcelaTxt.Size = new System.Drawing.Size(326, 20);
             this.tamParcelaTxt.TabIndex = 35;
             this.tamParcelaTxt.TextChanged += new System.EventHandler(this.tamParcelaTxt_TextChanged);
+            this.tamParcelaTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
             // numeroParcelasMuestraTxt
             // 
@@ -496,6 +518,7 @@
             this.numeroParcelasMuestraTxt.Size = new System.Drawing.Size(63, 20);
             this.numeroParcelasMuestraTxt.TabIndex = 33;
             this.numeroParcelasMuestraTxt.TextChanged += new System.EventHandler(this.numeroParcelasMuestraTxt_TextChanged);
+            this.numeroParcelasMuestraTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
             // areaMuestrearTxt
             // 
@@ -522,6 +545,7 @@
             this.areaFustalesTxt.Name = "areaFustalesTxt";
             this.areaFustalesTxt.Size = new System.Drawing.Size(326, 20);
             this.areaFustalesTxt.TabIndex = 38;
+            this.areaFustalesTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
             // limiteInfTxt
             // 
@@ -529,6 +553,7 @@
             this.limiteInfTxt.Name = "limiteInfTxt";
             this.limiteInfTxt.Size = new System.Drawing.Size(326, 20);
             this.limiteInfTxt.TabIndex = 37;
+            this.limiteInfTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
             // AreaTotalTxt
             // 
@@ -538,6 +563,7 @@
             this.AreaTotalTxt.TabIndex = 36;
             this.AreaTotalTxt.Text = "0";
             this.AreaTotalTxt.TextChanged += new System.EventHandler(this.AreaTotalTxt_TextChanged);
+            this.AreaTotalTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validatedNumericValues);
             // 
             // TipoProyectoCbx
             // 
@@ -1209,6 +1235,134 @@
             this.removerProyectosBtn.UseVisualStyleBackColor = true;
             this.removerProyectosBtn.Click += new System.EventHandler(this.removerProyectosBtn_Click);
             // 
+            // costosTabP
+            // 
+            this.costosTabP.Controls.Add(this.errorCostoLbl);
+            this.costosTabP.Controls.Add(this.costoDGW);
+            this.costosTabP.Controls.Add(this.button1);
+            this.costosTabP.Controls.Add(this.button2);
+            this.costosTabP.Location = new System.Drawing.Point(124, 4);
+            this.costosTabP.Name = "costosTabP";
+            this.costosTabP.Padding = new System.Windows.Forms.Padding(3);
+            this.costosTabP.Size = new System.Drawing.Size(531, 534);
+            this.costosTabP.TabIndex = 6;
+            this.costosTabP.Text = "Listado de costos";
+            this.costosTabP.UseVisualStyleBackColor = true;
+            // 
+            // costoDGW
+            // 
+            this.costoDGW.AllowUserToAddRows = false;
+            this.costoDGW.AllowUserToDeleteRows = false;
+            this.costoDGW.AutoGenerateColumns = false;
+            this.costoDGW.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.costoDGW.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.costoDGW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.costoDGW.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Costos,
+            this.NROCOSTO,
+            this.NOMBRE,
+            this.DESCRIPCION,
+            this.TIPO,
+            this.Valor,
+            this.lISTADODECOSTOSDataGridViewTextBoxColumn});
+            this.costoDGW.DataSource = this.costoBS;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.costoDGW.DefaultCellStyle = dataGridViewCellStyle14;
+            this.costoDGW.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.costoDGW.Location = new System.Drawing.Point(3, 63);
+            this.costoDGW.Name = "costoDGW";
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.costoDGW.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.costoDGW.Size = new System.Drawing.Size(525, 468);
+            this.costoDGW.TabIndex = 22;
+            this.costoDGW.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.costoDGW_CellFormatting);
+            this.costoDGW.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.costoDGW_CellValueChanged);
+            this.costoDGW.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.costoDGW_DataBindingComplete);
+            // 
+            // Costos
+            // 
+            this.Costos.HeaderText = "Seleccion";
+            this.Costos.Name = "Costos";
+            // 
+            // NROCOSTO
+            // 
+            this.NROCOSTO.DataPropertyName = "NROCOSTO";
+            this.NROCOSTO.HeaderText = "NROCOSTO";
+            this.NROCOSTO.Name = "NROCOSTO";
+            this.NROCOSTO.Visible = false;
+            // 
+            // NOMBRE
+            // 
+            this.NOMBRE.DataPropertyName = "NOMBRE";
+            this.NOMBRE.HeaderText = "Nombre";
+            this.NOMBRE.Name = "NOMBRE";
+            // 
+            // DESCRIPCION
+            // 
+            this.DESCRIPCION.DataPropertyName = "DESCRIPCION";
+            this.DESCRIPCION.HeaderText = "Descripción";
+            this.DESCRIPCION.Name = "DESCRIPCION";
+            this.DESCRIPCION.Visible = false;
+            // 
+            // TIPO
+            // 
+            this.TIPO.DataPropertyName = "TIPO";
+            this.TIPO.HeaderText = "Tipo";
+            this.TIPO.Name = "TIPO";
+            // 
+            // Valor
+            // 
+            this.Valor.HeaderText = "Valor";
+            this.Valor.Name = "Valor";
+            // 
+            // lISTADODECOSTOSDataGridViewTextBoxColumn
+            // 
+            this.lISTADODECOSTOSDataGridViewTextBoxColumn.DataPropertyName = "LISTADODECOSTOS";
+            this.lISTADODECOSTOSDataGridViewTextBoxColumn.HeaderText = "LISTADODECOSTOS";
+            this.lISTADODECOSTOSDataGridViewTextBoxColumn.Name = "lISTADODECOSTOSDataGridViewTextBoxColumn";
+            this.lISTADODECOSTOSDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // costoBS
+            // 
+            this.costoBS.DataSource = typeof(SIFCA_DAL.COSTO);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(314, 7);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 23);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Seleccionar Todos";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(430, 7);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(95, 23);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "Remover Todos";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // usuarioBS
             // 
             this.usuarioBS.DataSource = typeof(SIFCA_DAL.USUARIO);
@@ -1237,6 +1391,16 @@
             // 
             this.controladorErrores.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.controladorErrores.ContainerControl = this;
+            // 
+            // errorCostoLbl
+            // 
+            this.errorCostoLbl.AutoSize = true;
+            this.errorCostoLbl.Location = new System.Drawing.Point(4, 37);
+            this.errorCostoLbl.Name = "errorCostoLbl";
+            this.errorCostoLbl.Size = new System.Drawing.Size(414, 13);
+            this.errorCostoLbl.TabIndex = 30;
+            this.errorCostoLbl.Text = "Se debe especificar un valor total al costo que asocie al proyecto, sin puntos ni" +
+    " comas";
             // 
             // Actualizar_Proyectos_Form
             // 
@@ -1279,6 +1443,10 @@
             this.proyectosContTabP.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDGW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectosBS)).EndInit();
+            this.costosTabP.ResumeLayout(false);
+            this.costosTabP.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.costoDGW)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.costoBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.controladorErrores)).EndInit();
             this.ResumeLayout(false);
@@ -1371,6 +1539,19 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn NOMTIPODISEMUEST;
         private System.Windows.Forms.DataGridViewTextBoxColumn PesoProyecto;
         private System.Windows.Forms.DataGridViewTextBoxColumn ETAPA;
+        private System.Windows.Forms.TabPage costosTabP;
+        private System.Windows.Forms.DataGridView costoDGW;
+        private System.Windows.Forms.BindingSource costoBS;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Costos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NROCOSTO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NOMBRE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPCION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TIPO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lISTADODECOSTOSDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label errorCostoLbl;
 
 
     }

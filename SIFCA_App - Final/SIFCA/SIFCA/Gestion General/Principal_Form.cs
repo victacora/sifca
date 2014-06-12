@@ -12,6 +12,9 @@ using SIFCA_BLL;
 using SIFCA.Gestion_Configuracion;
 using System.Collections;
 using SIFCA.Helper;
+using System.Xml.Linq;
+using System.Xml;
+using AleProjects.AleLexer.AleParser;
 
 
 namespace SIFCA
@@ -26,10 +29,19 @@ namespace SIFCA
 
         public Principal_Form()
         {
-            InitializeComponent();
-            Autenticar_Usuario_Form childForm = new Autenticar_Usuario_Form();
-            childForm.MdiParent = this;
-            childForm.Show();
+            try
+            {
+                InitializeComponent();
+                Autenticar_Usuario_Form childForm = new Autenticar_Usuario_Form();
+                childForm.MdiParent = this;
+                childForm.Show();
+            }
+            catch (Exception ex)
+            {
+                Error_Form er = new Error_Form(ex.Message);
+                er.MdiParent = this;
+                er.Show();
+            }
         }
         
         private void nuevoProyectoTsm_Click(object sender, EventArgs e)
@@ -100,6 +112,7 @@ namespace SIFCA
             try
             {
                 actualizarDatosUsuarioTsm.Visible = true;
+                cerrarSesionTsm.Visible = true;
                 USUARIO user = (USUARIO)Program.Cache.Get("user");
                 if (user != null)
                 {
@@ -130,6 +143,7 @@ namespace SIFCA
                     listarUsuariosTsm.Visible = false;
                     actualizarDatosUsuarioTsm.Visible = false;
                     registrarUsuarioTsm.Visible = false;
+                    cerrarSesionTsm.Visible = false;
                     Autenticar_Usuario_Form childForm = new Autenticar_Usuario_Form();
                     childForm.MdiParent = this;
                     childForm.Show();
@@ -308,6 +322,7 @@ namespace SIFCA
                         cerrarProyectoTsm.Visible = false;
                         abrirProyectosTsm.Visible = true;
                         actualizarProyectoTsm.Visible = false;
+                        reporteMenu.Visible = false;
                         eliminarProyectoTsm.Visible = false;
                         inventarioMenu.Visible = false;
                         nuevoProyectoTsm.Visible = true;
@@ -383,7 +398,20 @@ namespace SIFCA
                 openFileDialog.Filter = "Archivos de importacion xml (*.xml)|*.xml|Todos los archivos (*.*)|*.*";
                 if (openFileDialog.ShowDialog(this) == DialogResult.OK)
                 {
-                    string FileName = openFileDialog.FileName;
+                    string fileName = openFileDialog.FileName;
+                    DataTable dt = new DataTable();
+                    dt.Columns.Clear();
+                    dt.TableName = "TRANSACCIONES";
+                    dt.Columns.Add("NROTRANS", typeof(Guid));
+                    dt.Columns.Add("NROUSUARIO", typeof(Guid));
+                    dt.Columns.Add("FECHA", typeof(DateTime));
+                    dt.Columns.Add("TABLA", typeof(string));
+                    dt.Columns.Add("IDREGISTRO", typeof(string));
+                    dt.Columns.Add("TIPOIDREGISTRO", typeof(string));
+                    dt.Columns.Add("OPERACION", typeof(string));
+                    dt.Columns.Add("VALORESNUEVOS", typeof(string));
+                    dt.Columns.Add("VALORESVIEJOS", typeof(string));
+                    dt.ReadXml(fileName);
                 }
             }
             catch (Exception ex)
@@ -404,7 +432,27 @@ namespace SIFCA
                 saveFileDialog.Filter = "Archivos de exportacion (*.xml)|*.xml|Todos los archivos (*.*)|*.*";
                 if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
                 {
-                    string FileName = saveFileDialog.FileName;
+                    string fileName = saveFileDialog.FileName;
+                    DataTable dt = new DataTable();
+                    dt.Columns.Clear();
+                    dt.TableName = "TRANSACCIONES";
+                    dt.Columns.Add("NROTRANS",typeof(Guid));
+                    dt.Columns.Add("NROUSUARIO", typeof(Guid));
+                    dt.Columns.Add("FECHA", typeof(DateTime));
+                    dt.Columns.Add("TABLA", typeof(string));
+                    dt.Columns.Add("IDREGISTRO", typeof(string));
+                    dt.Columns.Add("TIPOIDREGISTRO", typeof(string));
+                    dt.Columns.Add("OPERACION", typeof(string));
+                    dt.Columns.Add("VALORESNUEVOS", typeof(string));
+                    dt.Columns.Add("VALORESVIEJOS", typeof(string));
+                    DataRow row = null;
+                    var query = from t in Program.ContextData.TRANSACCION select new {t.NROTRANS, t.NROUSUARIO, t.FECHA, t.TABLA,t.IDREGISTRO, t.TIPOIDREGISTRO,t.OPERACION, t.VALORESNUEVOS, t.VALORESVIEJOS};
+                    foreach (var rowObj in query)
+                    {
+                        row = dt.NewRow();
+                        dt.Rows.Add(rowObj.NROTRANS, rowObj.NROUSUARIO, rowObj.FECHA, rowObj.TABLA, rowObj.IDREGISTRO, rowObj.TIPOIDREGISTRO, rowObj.OPERACION, rowObj.VALORESNUEVOS, rowObj.VALORESVIEJOS);
+                    }
+                     dt.WriteXml(fileName);
                 }
             }
             catch (Exception ex)
@@ -755,6 +803,23 @@ namespace SIFCA
                 er.MdiParent = this;
                 er.Show();
             } 
+        }
+
+        private void costosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Costo_Form childForm = new Costo_Form();
+                childForm.MdiParent = this;
+                childForm.Show();
+            }
+            catch (Exception ex)
+            {
+                Error_Form er = new Error_Form(ex.Message);
+                er.MdiParent = this;
+                er.Show();
+            }
+            
         }
 
 

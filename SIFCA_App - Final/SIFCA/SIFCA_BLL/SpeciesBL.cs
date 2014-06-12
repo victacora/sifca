@@ -57,6 +57,29 @@ namespace SIFCA_BLL
             }
         }
 
+        public ESPECIE GetSpecieByComName(string commonName)
+        {
+            try
+            {
+                return this.sifcaRepository.ESPECIE.SingleOrDefault(p => p.NOMCOMUN == commonName);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public ESPECIE GetSpecieByScienName(string scientificName)
+        {
+            try
+            {
+                return this.sifcaRepository.ESPECIE.SingleOrDefault(p=> p.NOMCIENTIFICO == scientificName);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        
         public IEnumerable<ESPECIE> SearchSpecies(string search, string criteria)
         {
             try

@@ -75,9 +75,24 @@ namespace SIFCA
                 controladorErrores.SetError(contrasenaTxt, "La contraseña es un campo requerido.");
                 error = true;
             }
+            if (cedulaTxt.Text.Length < 6)
+            {
+                controladorErrores.SetError(cedulaTxt, "La cedula es demasiado corta.");
+                error = true;
+            }
+            if (contrasenaTxt.Text.Length <= 4)
+            {
+                controladorErrores.SetError(contrasenaTxt, "La contraseña es muy corta.");
+                error = true;
+            }
             if (usuarioTxt.Text == "")
             {
                 controladorErrores.SetError(usuarioTxt, "El usuario es un campo requerido.");
+                error = true;
+            }
+            if (user.GetUserByUser(usuarioTxt.Text))
+            {
+                controladorErrores.SetError(usuarioTxt, "Este usuario esta en uso.");
                 error = true;
             }
             if (verificarContrasenaTxt.Text != contrasenaTxt.Text)
@@ -148,7 +163,7 @@ namespace SIFCA
 
         private void cedulaTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }

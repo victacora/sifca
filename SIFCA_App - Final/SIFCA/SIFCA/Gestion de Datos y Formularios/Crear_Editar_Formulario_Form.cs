@@ -10,6 +10,8 @@ using SIFCA_BLL;
 using SIFCA_DAL;
 using System.Runtime.Caching;
 using SIFCA.Gestion_Configuracion;
+using AleProjects.AleLexer.AleParser;
+using SIFCA.Helper;
 
 namespace SIFCA
 {
@@ -34,7 +36,7 @@ namespace SIFCA
             
             InitializeComponent();
             modified = false;
-            if (f == null) newForm = Program.ContextData.FORMULARIO.Create();
+            if (f == null) newForm = new FORMULARIO();
             else newForm = f;
 
             project = new ProjectBL(Program.ContextData);
@@ -83,7 +85,7 @@ namespace SIFCA
             tipoArbolCbx.ValueMember = "Key";
             tipoArbolCbx.SelectedValue = "NBF";
             
-            newLineNoTimber =  Program.ContextData.LINEANOMADERABLES.Create();
+            newLineNoTimber =  new LINEANOMADERABLES();
 
             if (f == null)
             {
@@ -104,8 +106,9 @@ namespace SIFCA
                 proyectoTxt.Text = f.PROYECTO.LUGAR;
                 datosTabControl.Enabled = true;
                 guardarformularioBtn.Text = "Actualizar formulario";
-                inicioDpk.Enabled = false;
-                finalDpk.Enabled = true;                
+                finalDpk.Enabled = true;
+                finalDpk.Value = (System.DateTime)newForm.HORAFINAL;
+                inicioDpk.Enabled = false;                
                 this.Text = "Editando formulario e introduciendo datos";
                 lineaInvBS.AddNew();
                 regeneracionBS.AddNew();
@@ -251,7 +254,7 @@ namespace SIFCA
             try
             {
                 PROYECTO p = (PROYECTO)Program.Cache.Get("project");
-                LINEAINVENTARIO newLine = Program.ContextData.LINEAINVENTARIO.Create();
+                LINEAINVENTARIO newLine = new LINEAINVENTARIO();
                 LINEAINVENTARIO currentLine = (LINEAINVENTARIO)lineaInvBS.Current;
                 FORMULARIO f = form.GetForm(newForm.NROFORMULARIO);
 
@@ -310,6 +313,14 @@ namespace SIFCA
                     newLine.CAP = CAPRbtn.Checked ? decimal.Parse(cAPDAPTxt.Text) : (decimal)Math.Round(decimal.Parse(cAPDAPTxt.Text) * (decimal)Math.PI, 3);
                     newLine.DAP = DAPRbtn.Checked ? decimal.Parse(cAPDAPTxt.Text) : (decimal)Math.Round(decimal.Parse(cAPDAPTxt.Text) / (decimal)Math.PI, 3);
                     newLine.AREABASAL = Math.Round((decimal)(ForestCalculatorHelper.BasalAreaCAP((double)newLine.CAP)),3);
+                    Dictionary<string, double> valores = new Dictionary<string, double>();
+                    valores.Add("H", (double)newLine.ALTTOT_M);
+                    valores.Add("FF", (double)p.FACTORDEFORMA);
+                    valores.Add("AB", (double)newLine.AREABASAL);
+                    Evaluador_Expressiones evaluador= new Evaluador_Expressiones();
+                    AleTermResult val = evaluador.EvaluarExpresion(p.FORMULA.EXPRESION, valores, ParentForm);
+                    valores["DAP"]=(double)newLine.ALTCOMER_M;
+                    val = evaluador.EvaluarExpresion(p.FORMULA.EXPRESION, valores, ParentForm);
                     newLine.VOLCOM = Math.Round((decimal)(ForestCalculatorHelper.TreeVolumeByBasalArea((double)newLine.AREABASAL, (double)newLine.ALTCOMER_M, (double)p.FACTORDEFORMA)),3);
                     newLine.VOLTOT = Math.Round((decimal)(ForestCalculatorHelper.TreeVolumeByBasalArea((double)newLine.AREABASAL, (double)newLine.ALTTOT_M, (double)p.FACTORDEFORMA)),3);
                     lineInv.InsertInventoryLine(newLine);
@@ -409,7 +420,7 @@ namespace SIFCA
                 FORMULARIO f = form.GetForm(newForm.NROFORMULARIO);
                 if (currentLine.LINEAREGEN == Guid.Empty)
                 {
-                    LINEAREGENERACION newLine = Program.ContextData.LINEAREGENERACION.Create();
+                    LINEAREGENERACION newLine =new LINEAREGENERACION();
                     newLine.LINEAREGEN = Guid.NewGuid();
                     newLine.FORMULARIO = f;
                     newLine.ESPECIE = (ESPECIE)especieRegenCbx.SelectedItem;
@@ -529,6 +540,14 @@ namespace SIFCA
             if (p!=null)
             {
                 double areaBasal = cAPDAPTxt.Text != string.Empty && CAPRbtn.Checked ? Math.Round(ForestCalculatorHelper.BasalAreaCAP(double.Parse(cAPDAPTxt.Text)), 3) : cAPDAPTxt.Text != string.Empty && DAPRbtn.Checked ?Math.Round(ForestCalculatorHelper.BasalAreaDAP(double.Parse(cAPDAPTxt.Text)), 3):0;
+                Dictionary<string, double> valores = new Dictionary<string, double>();
+                valores.Add("H", double.Parse(alturaComercialTxt.Text));
+                valores.Add("FF", (double)p.FACTORDEFORMA);
+                valores.Add("AB", areaBasal);
+                Evaluador_Expressiones evaluador = new Evaluador_Expressiones();
+                AleTermResult val = evaluador.EvaluarExpresion(p.FORMULA.EXPRESION, valores, ParentForm);
+                valores["DAP"] = double.Parse(alturaTotalTxt.Text);
+                val = evaluador.EvaluarExpresion(p.FORMULA.EXPRESION, valores, ParentForm);
                 double diametroAP = cAPDAPTxt.Text != string.Empty ? Math.Round(double.Parse(cAPDAPTxt.Text) / Math.PI, 3) : 0;
                 double circuferenciaAP = cAPDAPTxt.Text != string.Empty ? Math.Round(double.Parse(cAPDAPTxt.Text) * Math.PI, 3) : 0;
                 double volumenComercial =alturaComercialTxt.Text!=string.Empty? Math.Round(ForestCalculatorHelper.TreeVolumeByBasalArea(areaBasal, double.Parse(alturaComercialTxt.Text), (double)p.FACTORDEFORMA), 3):0;
@@ -598,19 +617,19 @@ namespace SIFCA
             if (nombreCientRbtn.Checked) 
             {
                 nombreComunRbtn.Checked = false;
-                especieBS.DataSource = ((PROYECTO)Program.Cache.Get("project")).ESPECIE.OrderBy(esp => esp.NOMCIENTIFICO); 
-                especieCbx.DataSource = especieBS;
+                //especieBS.DataSource = ((PROYECTO)Program.Cache.Get("project")).ESPECIE.OrderBy(esp => esp.NOMCIENTIFICO); 
+                //especieCbx.DataSource = especieBS;
                 especieCbx.DisplayMember = "NOMCIENTIFICO";
-                especieCbx.ValueMember = "CODESP";
+                //especieCbx.ValueMember = "CODESP";
                 especieCbx.Refresh();
             }
             else 
             {
                 nombreCientRbtn.Checked = false;
-                especieBS.DataSource = ((PROYECTO)Program.Cache.Get("project")).ESPECIE.OrderBy(esp => esp.NOMCOMUN); ;
-                especieCbx.DataSource = especieBS;
+                //especieBS.DataSource = ((PROYECTO)Program.Cache.Get("project")).ESPECIE.OrderBy(esp => esp.NOMCOMUN); ;
+                //especieCbx.DataSource = especieBS;
                 especieCbx.DisplayMember = "NOMCOMUN";
-                especieCbx.ValueMember = "CODESP";
+                //especieCbx.ValueMember = "CODESP";
                 especieCbx.Refresh();
             }
         }
@@ -877,19 +896,10 @@ namespace SIFCA
                 e.Handled = true;
             }
         }
-
-        private void inicioDpk_ValueChanged(object sender, EventArgs e)
-        {
-            if (inicioDpk.Value.CompareTo(finalDpk.Value) > 0&&modified)
-            {
-                MessageBox.Show("La fecha y hora de inicio no pude ser posterior a la fecha y hora final.", "Fecha invalida", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                inicioDpk.Value = DateTime.Now;
-            }
-        }
-
+        
         private void finalDpk_ValueChanged(object sender, EventArgs e)
         {
-            if (finalDpk.Value.CompareTo(inicioDpk.Value) < 0&&modified)
+            if (finalDpk.Value.CompareTo(inicioDpk.Value) < 0 && modified)
             {
                 MessageBox.Show("La fecha y hora final no pude ser anterior a la fecha y hora inicial.", "Fecha invalida", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 finalDpk.Value = DateTime.Now;

@@ -3,7 +3,7 @@
     partial class Arbol_Proyectos_Por_Etapas_Form
     {
         /// <summary>
-        /// Required designer variable.
+        /// Required designer operador.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 

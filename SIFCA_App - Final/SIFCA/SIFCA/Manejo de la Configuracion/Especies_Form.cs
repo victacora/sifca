@@ -42,7 +42,7 @@ namespace SIFCA.Gestion_Configuracion
         {
             try
             {
-                species = Program.ContextData.ESPECIE.Create();
+                species = new ESPECIE();
                 specieBL = new SpeciesBL(Program.ContextData);
                 group = new GroupBL(Program.ContextData);
                 InitializeComponent();
@@ -56,6 +56,7 @@ namespace SIFCA.Gestion_Configuracion
                 criterioCbx.SelectedIndex = 1;
                 grupoEcoCbx.SelectedIndex = 0;
                 state = "especie";
+                //this.txt_DMC.Text="0,5";
                 this.project = null;
             }
             catch (Exception ex)
@@ -131,21 +132,35 @@ namespace SIFCA.Gestion_Configuracion
         {
             try
             {
-                species = Program.ContextData.ESPECIE.Create();
+                species = new ESPECIE();
                 Decimal DIM = 0;
                 bool band = true;
                 eP_errors.BlinkRate = 0;
-                       
+
                 if (this.txt_NombreComun.Text == "")
                 {
                     eP_errors.SetError(txt_NombreComun, "El nombre comun es campo requerido");
                     band = false;
+                }                
+                if (this.txt_NombreCientifico.Text == "")
+                {
+                    eP_errors.SetError(txt_NombreCientifico, "El nombre cientifico es campo requerido");
+                    band = false;
+                }
+                
+                ESPECIE sp = specieBL.GetSpecieByComNameAndScienName(txt_NombreComun.Text, txt_NombreCientifico.Text);
+                if (sp != null)
+                {
+                    eP_errors.SetError(txt_NombreComun, "La especie ya existe en la base de datos");
+                    eP_errors.SetError(txt_NombreCientifico, "La especie ya existe en la base de datos");
+                    band = false;
                 }
                 else
                 {
-                    species.NOMCOMUN = this.txt_NombreComun.Text;
-                    //eP_errors.Clear();
+                    species.NOMCIENTIFICO = txt_NombreCientifico.Text;
+                    species.NOMCOMUN = txt_NombreComun.Text;
                 }
+
                 if (this.grupoEcoCbx.Text == "")
                 {
                     eP_errors.SetError(grupoEcoCbx, "Se debe elegir un grupo ecológico");
@@ -157,16 +172,7 @@ namespace SIFCA.Gestion_Configuracion
                     if (this.grupoEcoCbx.Text == "No Tolerante") species.GRUPOECOLOGICO = "NT";
                     //eP_errors.Clear();
                 }
-                if (this.txt_NombreCientifico.Text == "")
-                {
-                    eP_errors.SetError(txt_NombreCientifico, "El nombre cientifico es campo requerido");
-                    band = false;
-                }
-                else
-                {
-                    species.NOMCIENTIFICO = this.txt_NombreCientifico.Text;
-                    //eP_errors.Clear();
-                }
+                
                 if (this.txt_Familia.Text == "")
                 {
                     eP_errors.SetError(txt_Familia, "La familia es campo requerido");
@@ -177,36 +183,22 @@ namespace SIFCA.Gestion_Configuracion
                     species.FAMILIA = this.txt_Familia.Text;
                     //eP_errors.Clear();
                 }
-            
-                IEnumerable<ESPECIE> sp_nomCom = specieBL.SearchSpecies(species.NOMCOMUN, "Nombre Comun");
-                IEnumerable<ESPECIE> sp_nomCien = specieBL.SearchSpecies(species.NOMCIENTIFICO, "Nombre Cientifico");
-                if (sp_nomCom.Count<ESPECIE>() != 0)
-                {
-                    eP_errors.SetError(txt_NombreComun, "La especie ya existe en la base de datos");
-                    band = false;
-
-                }
-                if (sp_nomCien.Count<ESPECIE>() != 0)
-                {                
-                    eP_errors.SetError(txt_NombreCientifico, "La especie ya existe en la base de datos");
-                    band = false;
-
-                }
-                if (this.txt_DMC.Text == "" || this.txt_DMC.Text == "0" || this.txt_DMC.Text == "0.0")
-                {
-                    eP_errors.SetError(txt_DMC, "El Diametro no es válido");
-                    band = false;
-                }
-                else
-                {
-                    bool canConvert = decimal.TryParse(this.txt_DMC.Text.Replace(".",","), out DIM);
-                    if (!canConvert)
-                    {
-                        band = false;
-                        eP_errors.SetError(txt_DMC, "El Diametro es incorrecto");
-                    }
-                    //else eP_errors.Clear();
-                }
+                                
+                //if (this.txt_DMC.Text == "" || this.txt_DMC.Text == "0" || this.txt_DMC.Text == "0.0")
+                //{
+                //    eP_errors.SetError(txt_DMC, "El Diametro no es válido");
+                //    band = false;
+                //}
+                //else
+                //{
+                //    bool canConvert = decimal.TryParse(this.txt_DMC.Text.Replace(".",","), out DIM);
+                //    if (!canConvert)
+                //    {
+                //        band = false;
+                //        eP_errors.SetError(txt_DMC, "El Diametro es incorrecto");
+                //    }
+                //    //else eP_errors.Clear();
+                //}
                 if (band)
                 {
                     eP_errors.Clear();
@@ -261,7 +253,7 @@ namespace SIFCA.Gestion_Configuracion
                     
                     specieBSource.DataSource = specieBL.GetSpecies();
                     ListadoEspecies.Refresh();
-
+                    
                     this.cbox_GrupoComercial.SelectedValue.ToString();
                     this.txt_NombreComun.Text = "";
                     this.txt_NombreCientifico.Text = "";
@@ -269,7 +261,7 @@ namespace SIFCA.Gestion_Configuracion
                     this.txt_ZonaGeografica.Text = "Ninguna zona especificada";
                     this.txt_ZonaVida.Text = "Ninguna zona especificada";
                     this.imagenTxt.Text = "";
-                    this.txt_DMC.Text = "";
+                    //this.txt_DMC.Text = "0,5";
                     pB_imgCrear.Image = null;
                     
                     pn_crear.Hide();
@@ -277,8 +269,8 @@ namespace SIFCA.Gestion_Configuracion
                     pn_editar.Hide();
                     pn_detalle.Hide();
                     pn_cargarImg.Hide();
-                    this.Width = pn_listado.Width;
-                    this.Height = pn_listado.Height;
+                    this.Width = 910;
+                    this.Height = 530;
                     this.CenterToScreen();
                 }
             }
@@ -341,7 +333,7 @@ namespace SIFCA.Gestion_Configuracion
 
                     Guid codigo = (Guid)row.Cells[1].Value;
 
-                    species = Program.ContextData.ESPECIE.Create();
+                    species = new ESPECIE();
                     species = specieBL.GetSpecie(codigo);
                     DialogResult result = MessageBox.Show("Esta seguro de eliminar el registro", "Confirmar Eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
@@ -388,10 +380,9 @@ namespace SIFCA.Gestion_Configuracion
 
         private void btn_update(object sender, DataGridViewCellEventArgs e, Guid codigo)
         {
-            
             try
             {
-                species = Program.ContextData.ESPECIE.Create();
+                species = new ESPECIE();
                 pn_crear.Hide();
                 pn_editar.Show();
                 pn_detalle.Hide();
@@ -416,7 +407,7 @@ namespace SIFCA.Gestion_Configuracion
                 txt_Fam.Text = species.FAMILIA;
                 txt_ZonaGeogra.Text = species.ZONAGEOGRAFICA;
                 txt_ZonaVid.Text = species.ZONADEVIDA;
-                txt_DimCor.Text = "" + species.DIAMMINCORTE;
+                //txt_DimCor.Text = "" + species.DIAMMINCORTE;
 
                 this.imagenesBS.DataSource = species.IMAGEN.ToList();
                 if (imagenesBS.Count == 0)
@@ -449,15 +440,29 @@ namespace SIFCA.Gestion_Configuracion
                     eP_errors.SetError(txt_NomComun, "El nombre común es campo requerido");
                     band = false;
                 }
-                else species.NOMCOMUN = txt_NomComun.Text;
-                species.GRUPOCOM = (String)grupoComercialCbx.SelectedValue;
-
+                
                 if (this.txt_NomCientifico.Text == "")
                 {
                     eP_errors.SetError(txt_NomCientifico, "El nombre cientifico es campo requerido");
                     band = false;
+                }                
+
+                species.GRUPOCOM = (String)grupoComercialCbx.SelectedValue;
+
+                ESPECIE sp = specieBL.GetSpecieByComNameAndScienName(txt_NomComun.Text, txt_NomCientifico.Text);
+                if (sp != null)
+                {
+                    eP_errors.SetError(txt_NomComun, "La especie ya existe en la base de datos");
+                    eP_errors.SetError(txt_NomCientifico, "La especie ya existe en la base de datos");
+                    band = false;
                 }
-                else species.NOMCIENTIFICO = txt_NomCientifico.Text;
+                else
+                {
+                    species.NOMCIENTIFICO = txt_NombreCientifico.Text;
+                    species.NOMCOMUN = txt_NombreComun.Text;
+                }
+
+                
 
                 if (this.txt_Fam.Text == "")
                 {
@@ -475,33 +480,33 @@ namespace SIFCA.Gestion_Configuracion
                 else
                 {
                     if (this.updGrupoEcoCbx.Text == "Tolerante") species.GRUPOECOLOGICO = "TL";
-                    if (this.updGrupoEcoCbx.Text == "No Tolerante") species.GRUPOECOLOGICO = "NT";
-                    eP_errors.Dispose();
+                    if (this.updGrupoEcoCbx.Text == "No Tolerante") species.GRUPOECOLOGICO = "NT";                    
                 }
-                if (this.txt_DimCor.Text == "" || this.txt_DimCor.Text == "0" || this.txt_DimCor.Text == "0.0")
-                {
-                    eP_errors.SetError(txt_DimCor, "El Diametro no es válido");
-                    band = false;
-                }
-                else
-                {
-                    //DAP = System.Convert.ToDecimal(this.txt_DMC.Text);
+                //if (this.txt_DimCor.Text == "" || this.txt_DimCor.Text == "0" || this.txt_DimCor.Text == "0.0")
+                //{
+                //    eP_errors.SetError(txt_DimCor, "El Diametro no es válido");
+                //    band = false;
+                //}
+                //else
+                //{
+                //    //DAP = System.Convert.ToDecimal(this.txt_DMC.Text);
                 
-                    decimal DIM;
-                    bool canConvert = decimal.TryParse(this.txt_DimCor.Text.Replace(".", ","), out DIM);
-                    if (!canConvert)
-                    {
-                        eP_errors.SetError(txt_DimCor, "El Diametro debe ser númerico");
-                        band = false;
-                    }
-                    else
-                    {
-                        eP_errors.Dispose();
-                        species.DIAMMINCORTE = DIM;
-                    }
-                }
+                //    decimal DIM;
+                //    bool canConvert = decimal.TryParse(this.txt_DimCor.Text.Replace(".", ","), out DIM);
+                //    if (!canConvert)
+                //    {
+                //        eP_errors.SetError(txt_DimCor, "El Diametro debe ser númerico");
+                //        band = false;
+                //    }
+                //    else
+                //    {
+                //        eP_errors.Dispose();
+                //        species.DIAMMINCORTE = DIM;
+                //    }
+                //}
                 if (band)
                 {
+                    eP_errors.Clear();
                     foreach (IMAGEN img in listImagesDeleted)
                     {                    
                         species.IMAGEN.Remove(img);
@@ -537,8 +542,8 @@ namespace SIFCA.Gestion_Configuracion
                     pn_detalle.Hide();
                     pn_editar.Hide();
                     pn_cargarImg.Hide();
-                    this.Width = pn_listado.Width;
-                    this.Height = pn_listado.Height;
+                    this.Width = 910;
+                    this.Height = 530;
                     this.CenterToScreen();
 
                     //pn_crear.Hide();
@@ -560,15 +565,15 @@ namespace SIFCA.Gestion_Configuracion
 
         private void Btn_CancelarUpdate_Click(object sender, EventArgs e)
         {   
-            try{
+            try{                
                 pn_listado.Show();
                 pn_crear.Hide();
                 pn_editar.Hide();
                 pn_cargarImg.Hide();
                 pn_detalle.Hide();
-                this.Width = pn_listado.Width;
-                this.Height = pn_listado.Height;
-                this.CenterToScreen();
+                this.Width = 910;
+                this.Height = 530;
+                this.CenterToScreen(); 
             }
             catch (Exception ex)
             {
@@ -580,15 +585,16 @@ namespace SIFCA.Gestion_Configuracion
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
-            try{                
+            try{
+                
                 pn_editar.Hide();
                 pn_listado.Show();
                 pn_cargarImg.Hide();
                 pB_imgCrear.Image = null;
                 imagenTxt.Text = "";
                 pn_detalle.Hide();
-                this.Width = pn_listado.Width;
-                this.Height = pn_listado.Height;
+                this.Width = 910;
+                this.Height = 530;
                 this.CenterToScreen();            
             }
             catch (Exception ex)
@@ -626,7 +632,7 @@ namespace SIFCA.Gestion_Configuracion
         public void btn_detalle(object sender, EventArgs e, Guid codigo)
         {
             try{
-                species =  Program.ContextData.ESPECIE.Create();
+                species =  new ESPECIE();
             
                 this.Width = pn_detalle.Width;
                 this.Height = pn_detalle.Height;
@@ -665,7 +671,7 @@ namespace SIFCA.Gestion_Configuracion
                 txt_Fam_det.Text = species.FAMILIA;
                 txt_ZonaGeogra_det.Text = species.ZONAGEOGRAFICA;
                 txt_ZonaVid_det.Text = species.ZONADEVIDA;
-                txt_DimCor_det.Text = "" + species.DIAMMINCORTE;
+                //txt_DimCor_det.Text = "" + species.DIAMMINCORTE;
 
                 pn_crear.Hide();
                 pn_editar.Hide();
@@ -693,9 +699,9 @@ namespace SIFCA.Gestion_Configuracion
                     pn_editar.Hide();
                     pn_detalle.Hide();
                     pn_cargarImg.Hide();
-                    this.Width = pn_listado.Width;
-                    this.Height = pn_listado.Height;
-                    this.CenterToScreen();
+                    this.Width = 910;
+                    this.Height = 530;
+                    this.CenterToScreen();                     
                 }
             }
             catch (Exception ex)
@@ -728,7 +734,7 @@ namespace SIFCA.Gestion_Configuracion
         {
             try{
                 bool band = true;
-                image = Program.ContextData.IMAGEN.Create();
+                image =new IMAGEN();
                 if (imagenTxt.Text != "" && imagenTxt.Text != "Seleccione una imagen")
                 {
                     string nombreCompletoArchivo = imgFichero.FileName;
@@ -1001,7 +1007,5 @@ namespace SIFCA.Gestion_Configuracion
             }
 
         }
-
-        
     }
 }

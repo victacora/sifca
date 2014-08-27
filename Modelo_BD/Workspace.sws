@@ -14,7 +14,7 @@
 		<Model ID="{B1BA8049-7898-4928-BDFA-DE363D43A77A}" Loaded="No" Name="Prototipo 1.6" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="Prototipo 1.6.pdm"/>
 		<Model ID="{6714E65E-D05A-4C01-9361-D56477D69D75}" Loaded="No" Name="Prototipo 1.7" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="Prototipo 1.8.pdm"/>
 		<Model Expanded="Yes" ID="{6714E65E-D05A-4C01-9361-D56477D69D75}" Loaded="No" Name="Prototipo 1.8" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="Prototipo 1.8.pdm"/>
-		<Model Expanded="Yes" ID="{6714E65E-D05A-4C01-9361-D56477D69D75}" Name="Prototipo 1.9" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="Prototipo 1.9.pdm"/>
+		<Model Expanded="Yes" ID="{6714E65E-D05A-4C01-9361-D56477D69D75}" Name="Prototipo 1.9" Selected="Yes" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="Prototipo 1.9.pdm"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>

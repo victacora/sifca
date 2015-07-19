@@ -1,0 +1,1 @@
+Modelo Integrado de un sistema de información para la gestión de inventarios forestales en el departamento del Cauca.
